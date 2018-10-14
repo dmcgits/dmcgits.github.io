@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="modular-levelenvironment-design">Modular Level/Environment Design</h1>
+<h2 id="game-levels">Game Levels</h2>
+<p>Game level: A place you explore in a game. There are usually points to start off, and an exit or goal.</p>
+<img src="https://ucfc3120fff70dd62184e54fd569.dl.dropboxusercontent.com/cd/0/inline/AS44s2jxsoWHH1Bt5NRaMDmGbRwi5U-QjhnSFRgckgIaL4RDiww4ZQIid4vt6RH1TR_hfDj0jBCVYNvrH6Rp4lZ-xrld5QsQaJr-wrMsMtFCiT3BDV1HQmF9AK8ikngq1djHka3oSr4t0VkrKUIZ-rQCRpZXYzGXIhtefz4ir6U9GOdJbtA2f4HNR9ZkIGyayQA/file" />  
+<p><em>Guacamelee</em></p>
+<p><img src="https://uc9eb4d846bd57bc01a3c715ffc8.dl.dropboxusercontent.com/cd/0/inline/AS6RCl1JFcazsS6Y2mLlk4I07nmbg662Dn_WLrJcRkX7qJAdfXzrFxt77ZMPtrdp1ckTg0ru27awtLJ55uBk08J7fI9hJ525GADNSVWOXkXYOn9LhMkcHQASSmESVc0FDK4kH-W-PL6aFTkJwBWJ9Iq0JEheyzb6Gg9s8_A4OlN7jyi_PGwtCnUh2oDOJc8Unyo/file" alt="Top Down"></p>
+<p><em>Level 8 by Lord Mithios on Deviantart</em></p>
+<h2 id="things-a-level-has">Things a level has</h2>
+<p>The list of things a level has could go on forever, or a level can have none of them. It's up to the designer and the game type. Here are some of the most common.</p>
+<blockquote>
+<ol>
+<li>Spawn points</li>
+<li>Ground, barriers, sky or ceiling</li>
+<li>Obstacles</li>
+<li>Items. Pickups, hazards, info points.</li>
+<li>Enemies</li>
+<li>Bosses</li>
+<li>Paths for you/Enemies</li>
+<li>Secrets</li>
+<li>Often an exit or goal.</li>
+<li>Collidable things</li>
+</ol>
+</blockquote>
+<p>In a game these things could be defined by geometry, by imported xml/bsp files, by objects placed in an editor, completely in code, or any other method a team comes up with. We'll use Maya and Unity.</p>
+<p><img src="https://uc88364ee5a764e177af773e09bb.dl.dropboxusercontent.com/cd/0/inline/AS5G4jxhMXt2pps-1V9sV6HP7EYGOGuDI3h8iGz4LlMi4kyfMACPEfZlftYtRRvYsPHZn34JGcWCE5-FpdQ6lTEpDvl9wXRInJ7ntK-WVISrs47OZu4t3xgPdO2BvcJRIEHUU546VVH-nYTUzXP_QTVNv6dTkmwWo6_1_4HKGE6mU5qaHK0n0C0FJ42vYeZYKBQ/file" alt="Level Editing In Unity"></p>
+<h2 id="modular-construction">Modular Construction</h2>
+<img src="https://2ecffd01e1ab3e9383f0-07db7b9624bbdf022e3b5395236d5cf8.ssl.cf4.rackcdn.com/Bundle-1600x1600/d279610e-a0ef-4841-9d0b-05278881d936.jpg" width=250 description="Modular shelving" align="right" caption="modular"/>  
+<blockquote>
+<p>Modular: Made up of compatible, standardized units for easy and flexible construction.</p>
+</blockquote>
+<p>Real world environments are big, varied, but also have a lot of repeating features. We need to reduce our concept art to pieces that can snap together seamlessly, or at least in a way that baked light, shaders or post effects can cover for (like ambient occlusion or grungy cavities.)</p>
+<p>Here are some of the central ideas:</p>
+<blockquote>
+<ol>
+<li>Define the footprint of pieces</li>
+<li>Only use non uniform pieces last resort</li>
+<li>Pick a pivot and stick with it</li>
+<li>Base kit for simple, square based layout</li>
+<li>Inserts to make it organic, cover corners and seams, add interest.</li>
+<li>Lighting brings atmosphere and more variance.</li>
+<li>Obects!</li>
+</ol>
+</blockquote>
+<img src="https://uc41138fba2b6edbac76249e5e83.dl.dropboxusercontent.com/cd/0/inline/AS44wrea8qz4-2SHMtyj6yaaarLpOW8ap67kKV-qCTCNzyhesRgRKNhiTMo2jt5JO_2uAMUkdB5Cb9Gi_BNuYmwwNEXkCKSaobBG6OBEI5ZXSA7OXfVPmjr0sF9u1Juka1834cgyQq-Vpw6h8_DqXK0SY-5N2Bkv-lz3i1fvCE2Vbv2rL48kMhFoZbjoFRz1Gl0/file" description="Fallout4Bits" caption="modular"/>  
+<p><em>Fallout 4 GDC</em><br>
+<a href="https://www.youtube.com/watch?v=QBAM27YbKZg&amp;t=330s">Youtube Link</a></p>
+<img src="https://cdnb.artstation.com/p/assets/images/images/002/909/175/large/baldi-konijn-wipdungeonassets.jpg?1467144893" description="Modular shelving" caption="modular"/>  
+<p><em>Modular dungeon pieces, Baldi Konijn:</em><br>
+<a href="https://www.artstation.com/artwork/3a0yo:">Arstation Link</a></p>
+<h2 id="technical-considerations">Technical Considerations</h2>
+<ol>
+<li>Levels are big, we can't use a lot of geometry on each piece. Exception: geometry instancing.</li>
+<li>If we need to reimport a piece we want it, usually, to update wherever we use it. Unity uses prefabs for this.</li>
+<li>We need to not use a mountain of textures because our target has limited ram, our user limited file space. So we repeat a lot of the same texture. Different UV procedures.</li>
+<li>Lots of materials and objects = lots of drawcalls = low frame rate. Techniques like atlasing and batching can get around this, but we have to build accordingly.</li>
+</ol>
+<p>INSERT ATLASING STUFF<br>
+INSERT BATCHING STUFF<br>
+INSERT PREFAB STUFF</p>
+
+    </body>
+    </html>
