@@ -1,35 +1,229 @@
-<!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
-        <style>
-/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
-</style>
-<style>
-/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
-</style>
-<style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
+<!DOCTYPE html><html><head>
+      <title>ModularLevelsLec</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.8\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
     </head>
-    <body>
-        <h1 id="modular-levelenvironment-design">Modular Level/Environment Design</h1>
-<h2 id="game-levels">Game Levels</h2>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="modular-levelenvironment-design">Modular Level/Environment Design</h1>
+
+<h2 class="mume-header" id="game-levels">Game Levels</h2>
+
 <p>Game level: A place you explore in a game. There are usually points to start off, and an exit or goal.</p>
-<img src="https://ucfc3120fff70dd62184e54fd569.dl.dropboxusercontent.com/cd/0/inline/AS44s2jxsoWHH1Bt5NRaMDmGbRwi5U-QjhnSFRgckgIaL4RDiww4ZQIid4vt6RH1TR_hfDj0jBCVYNvrH6Rp4lZ-xrld5QsQaJr-wrMsMtFCiT3BDV1HQmF9AK8ikngq1djHka3oSr4t0VkrKUIZ-rQCRpZXYzGXIhtefz4ir6U9GOdJbtA2f4HNR9ZkIGyayQA/file" />  
-<p><em>Guacamelee</em></p>
-<p><img src="https://uc9eb4d846bd57bc01a3c715ffc8.dl.dropboxusercontent.com/cd/0/inline/AS6RCl1JFcazsS6Y2mLlk4I07nmbg662Dn_WLrJcRkX7qJAdfXzrFxt77ZMPtrdp1ckTg0ru27awtLJ55uBk08J7fI9hJ525GADNSVWOXkXYOn9LhMkcHQASSmESVc0FDK4kH-W-PL6aFTkJwBWJ9Iq0JEheyzb6Gg9s8_A4OlN7jyi_PGwtCnUh2oDOJc8Unyo/file" alt="Top Down"></p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Guacamelee.jpg" alt="Guacamelee"><br>
+<em>Guacamelee</em></p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/level_8_lord_mithos_kionisu.png" alt="Top Down"></p>
 <p><em>Level 8 by Lord Mithios on Deviantart</em></p>
-<h2 id="things-a-level-has">Things a level has</h2>
-<p>The list of things a level has could go on forever, or a level can have none of them. It's up to the designer and the game type. Here are some of the most common.</p>
+<hr>
+<h2 class="mume-header" id="things-a-level-has">Things a level has</h2>
+
+<p>The list of things a level has could go on forever, or a level can have none of them. It&apos;s up to the designer and the game type. Here are some of the most common.</p>
 <blockquote>
 <ol>
 <li>Spawn points</li>
@@ -44,10 +238,16 @@
 <li>Collidable things</li>
 </ol>
 </blockquote>
-<p>In a game these things could be defined by geometry, by imported xml/bsp files, by objects placed in an editor, completely in code, or any other method a team comes up with. We'll use Maya and Unity.</p>
-<p><img src="https://uc88364ee5a764e177af773e09bb.dl.dropboxusercontent.com/cd/0/inline/AS5G4jxhMXt2pps-1V9sV6HP7EYGOGuDI3h8iGz4LlMi4kyfMACPEfZlftYtRRvYsPHZn34JGcWCE5-FpdQ6lTEpDvl9wXRInJ7ntK-WVISrs47OZu4t3xgPdO2BvcJRIEHUU546VVH-nYTUzXP_QTVNv6dTkmwWo6_1_4HKGE6mU5qaHK0n0C0FJ42vYeZYKBQ/file" alt="Level Editing In Unity"></p>
-<h2 id="modular-construction">Modular Construction</h2>
-<img src="https://2ecffd01e1ab3e9383f0-07db7b9624bbdf022e3b5395236d5cf8.ssl.cf4.rackcdn.com/Bundle-1600x1600/d279610e-a0ef-4841-9d0b-05278881d936.jpg" width=250 description="Modular shelving" align="right" caption="modular"/>  
+<h2 class="mume-header" id="level-editors">Level Editors</h2>
+
+<p>In a game these things could be defined by geometry, by imported xml/bsp files, by objects placed in an editor, completely in code, or any other method a team comes up with. We&apos;ll use Maya and Unity.</p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Blikstad%20Level%20Edit.jpg" alt="Level Editing In Unity"></p>
+<p><em>Unity level editing</em></p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Stardew1.png" alt="Tile based map editor"></p>
+<p><em>Tile based map editing</em></p>
+<h1 class="mume-header" id="modular-construction">Modular Construction</h1>
+
+<img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/BunningsShelving.jpg?1" width="250" description="Bunnings Modular shelving" align="right" caption="modular">  
 <blockquote>
 <p>Modular: Made up of compatible, standardized units for easy and flexible construction.</p>
 </blockquote>
@@ -64,22 +264,139 @@
 <li>Obects!</li>
 </ol>
 </blockquote>
-<img src="https://uc41138fba2b6edbac76249e5e83.dl.dropboxusercontent.com/cd/0/inline/AS44wrea8qz4-2SHMtyj6yaaarLpOW8ap67kKV-qCTCNzyhesRgRKNhiTMo2jt5JO_2uAMUkdB5Cb9Gi_BNuYmwwNEXkCKSaobBG6OBEI5ZXSA7OXfVPmjr0sF9u1Juka1834cgyQq-Vpw6h8_DqXK0SY-5N2Bkv-lz3i1fvCE2Vbv2rL48kMhFoZbjoFRz1Gl0/file" description="Fallout4Bits" caption="modular"/>  
-<p><em>Fallout 4 GDC</em><br>
-<a href="https://www.youtube.com/watch?v=QBAM27YbKZg&amp;t=330s">Youtube Link</a></p>
-<img src="https://cdnb.artstation.com/p/assets/images/images/002/909/175/large/baldi-konijn-wipdungeonassets.jpg?1467144893" description="Modular shelving" caption="modular"/>  
-<p><em>Modular dungeon pieces, Baldi Konijn:</em><br>
-<a href="https://www.artstation.com/artwork/3a0yo:">Arstation Link</a></p>
-<h2 id="technical-considerations">Technical Considerations</h2>
-<ol>
-<li>Levels are big, we can't use a lot of geometry on each piece. Exception: geometry instancing.</li>
-<li>If we need to reimport a piece we want it, usually, to update wherever we use it. Unity uses prefabs for this.</li>
-<li>We need to not use a mountain of textures because our target has limited ram, our user limited file space. So we repeat a lot of the same texture. Different UV procedures.</li>
-<li>Lots of materials and objects = lots of drawcalls = low frame rate. Techniques like atlasing and batching can get around this, but we have to build accordingly.</li>
-</ol>
-<p>INSERT ATLASING STUFF<br>
-INSERT BATCHING STUFF<br>
-INSERT PREFAB STUFF</p>
+<img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Fallout4LevelPieces.jpg" description="Fallout4Bits" caption="modular">  
+<p><em>Fallout 4 GDC - <a href="https://www.youtube.com/watch?v=QBAM27YbKZg&amp;t=330s">Youtube Link</a></em></p>
+<img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/baldi-konijn-wipdungeonassets.jpg" description="Modular shelving" caption="modular">  
+<p><em>Modular dungeon pieces, Baldi Konijn: - <a href="https://www.artstation.com/artwork/3a0yo:">Arstation Link</a></em></p>
+<p><img src="assets/Dungeon1.jpg" alt="Dungeon1"><br>
+<img src="assets/Dungeon2.jpg" alt="Dungeon2"><br>
+<img src="assets/Dungeon3.jpg" alt="Dungeon3"><br>
+<img src="assets/Dungeon4.jpg" alt="Dungeon4"><br>
+<img src="assets/Dungeon5.jpg" alt="Dungeon4"></p>
+<p><em>Fantasy Dungeon Starter Kit - <a href="https://assetstore.unity.com/packages/3d/environments/dungeons/fantasy-dungeon-starter-kit-110082">Unity Asset Store</a></em></p>
+<h1 class="mume-header" id="making-modules">Making modules</h1>
 
-    </body>
-    </html>
+<ul>
+<li>Establish a <strong>footprint</strong>
+<ul>
+<li>square, hex</li>
+<li>can use multiple of these per object</li>
+<li>try to only break this footprint (half, quarter) with good reason</li>
+</ul>
+</li>
+<li>Establish an <strong>origin</strong>
+<ul>
+<li>All pieces should join together in a predictable way, say front left corner of footprint.</li>
+<li>Origin should be on a corner, not the center, so we can snap them together</li>
+<li>Unity and other editors support snapping to ensure no seams are created</li>
+<li>Unit snapping or geometry snapping.</li>
+</ul>
+</li>
+<li>Utility vs Hero
+<ul>
+<li>Mundane room parts are most of the game</li>
+<li>Variant parts are a big part of that</li>
+<li>Hero pieces create truly unique areas but are expensive time eaters.. but the heros make the mundane parts work.</li>
+</ul>
+</li>
+</ul>
+<p><img src="assets/HeroPieces.jpg" alt="Hero Pieces"></p>
+<p><em>Mundane pieces are king! - <a href="https://www.youtube.com/watch?v=QBAM27YbKZg">Fallout 4 GDC talk</a></em></p>
+<p><img src="assets/ThatRug.jpg" alt="ThatRug"></p>
+<p><em>But that rug really did tie the room together</em></p>
+<hr>
+<h2 class="mume-header" id="blocking-out-and-iterating">Blocking out and iterating</h2>
+
+<blockquote>
+<p>We can&apos;t make pieces till we know what the game needs.<br>
+We won&apos;t really know what the game needs till we make pieces and start testing.<br>
+We&apos;re dead.</p>
+</blockquote>
+<p>Wait! We block out, and we iterate. We survive.</p>
+<ul>
+<li>We plan as best we can from experience or example.</li>
+<li>We have a game type and story for the level</li>
+<li>We make ultra simple blocks of our basic pieces to serve that and start building</li>
+<li>We find problems and we fix them</li>
+<li>We discover efficiences where we might have wasted loads of time</li>
+<li>Keep cycling, adding rough textures, tweaking geometry, cleaning textures.</li>
+</ul>
+<p><img src="assets/FO4_Block1.jpg" alt="Early pass"></p>
+<p><em>First pass on Fallout 4 Level- <a href="https://www.youtube.com/watch?v=QBAM27YbKZg">Fallout 4 GDC talk</a></em></p>
+<p><img src="assets/FO4_Block2.jpg" alt="Shipping"></p>
+<p><em>Shipping version of same Fallout 4 Level- <a href="https://www.youtube.com/watch?v=QBAM27YbKZg">Fallout 4 GDC talk</a></em></p>
+<p><img src="assets/Whitebox_ES.png" alt="Whitebox"></p>
+<p><em>Level Whitebox by <a href="https://erikstarander.wordpress.com/2016/09/20/white-boxing-the-level/">ErikStarander</a></em></p>
+<p><img src="assets/Whitebox_ES2.png" alt="Whitebox"></p>
+<p><em>Level Whitebox by <a href="https://erikstarander.wordpress.com/2016/09/20/white-boxing-the-level/">ErikStarander</a></em></p>
+<h1 class="mume-header" id="technical-considerations">Technical Considerations</h1>
+
+<ul>
+<li>Levels are big, keep geo low. Exception: geometry instancing.</li>
+<li>Minimise rework and reimporting. Unity uses prefabs for this.</li>
+<li>Ram and hdd space aren&apos;t infinite so we repeat a lot of the same texture.
+<ul>
+<li>Different UV procedures.</li>
+<li>Clever seam hiding</li>
+</ul>
+</li>
+<li>Lots of materials and objects = lots of drawcalls = low frame rate. Techniques like atlasing and batching can get around this, but we have to build accordingly.</li>
+<li>Don&apos;t put holes in everything - use view blocking pieces to keep draw distance down.
+<ul>
+<li>avoids popup</li>
+<li>avoids overlapping transparency blowing out drawcalls</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="atlasing">Atlasing</h2>
+
+<p>Atlases will be a familiar idea if you&apos;ve done made sprites in 3D, or even in 2D. It&apos;s when you take a lot of textuers and arrange them into a single image. It&apos;s easier and faster for the computer to deal with one large image than many small images, and historically a power of 2 (2048x2048) resolution has been ideal. It can also save space if you support non rectangular shapes.</p>
+<p><img src="assets/TruckSimulatorAtlas.jpg" alt="Atlas1"></p>
+<p><em>Truck Simulator buildings in Unity alongside their texture atlas</em></p>
+<p><img src="assets/RaymanAtlas.png" alt="Rayman Atlas"></p>
+<p><em>Rayman texture atlas utilising texture space with non rectangular shapes</em></p>
+<h2 class="mume-header" id="fancy-shaders">Fancy Shaders</h2>
+
+<p>Have a section of the texture with replaceable colour.</p>
+<p><img src="assets/SC_BuildingShaders.jpg" alt="Siegecraft Building Shaders"></p>
+<hr>
+<h2 class="mume-header" id="batching">Batching</h2>
+
+<p>Batching takes lots of objects using the same material and separate geometry and merges it into a single big object, removing plenty of drawcalls. Atlasing makes it possible to heavily reduce the number of materials.</p>
+<p>Two types of batching:</p>
+<blockquote>
+<p>Static Batching: Many objects are batched into a large static object. Like combine in Maya.</p>
+</blockquote>
+<blockquote>
+<p>Dynamic Batching: Small enough moving objects can be merged and their verts tranformed.</p>
+</blockquote>
+<hr>
+<h2 class="mume-header" id="prefabs">Prefabs</h2>
+
+<p>If we break up our objects into the smallest pieces it&apos;s great for reuse, but a pain to build everything we need. Grouping them together into larger pieces once and reusing those pieces would be great. Like making a four pane window with frame from four panes, two beams and a brick frame. This is where a prefab comes in. Then we update a single fbx and all objects using that piece are updated.</p>
+<p><img src="assets/SO4_SubMod1.jpg" alt="Submod 1"></p>
+<p><em>Walls are using parts of floors, 20 pieces</em></p>
+<p><img src="assets/SO4_SubMod2.jpg" alt="Submod 2"></p>
+<p><em>Now more granular - fewer types of pieces but more in scene, much work</em></p>
+<p><img src="assets/SO4_SubMod3.jpg" alt="Submod 3"></p>
+<p><em>Solved with in-editor made, reusable pieces: prefabs</em></p>
+<hr>
+<h2 class="mume-header" id="game-logic-controls">Game Logic Controls</h2>
+
+<p>Your coders, or fingers if you are doing everything, will supply you with a variety of odd objects to drop into your scene. These might be waypoints for enemies to follow, the path a trail of magical fire will take, or spawnpoints. These are often a 3D object with a script attached.</p>
+<p><img src="assets/TruckSimulatorGizmos.jpg" alt="Placing Objects For Code"></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
