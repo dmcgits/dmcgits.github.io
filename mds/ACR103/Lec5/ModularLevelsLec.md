@@ -98,6 +98,15 @@ _Mundane pieces are king! - [Fallout 4 GDC talk](https://www.youtube.com/watch?v
 _But that rug really did tie the room together_
 
 ___
+## More nice modules
+
+![Polygon Adventure Pack 1](assets/AdvPack4.png)
+![Polygon Adventure Pack 1](assets/AdvPack5.png)
+![Polygon Adventure Pack 1](assets/AdvPack1.png)
+![Polygon Adventure Pack 1](assets/AdvPack2.png)
+![Polygon Adventure Pack 1](assets/AdvPack3.png)
+
+___
 
 ## Blocking out and iterating
 
