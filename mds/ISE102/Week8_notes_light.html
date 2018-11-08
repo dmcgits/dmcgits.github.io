@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Week8_notes.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="lecture-8-file-io">Lecture 8: File I/O</h1>
+<p>Topics:</p>
+<blockquote>
+<ol>
+<li>File Input and Output</li>
+<li>Text files:
+<ul>
+<li>Reading (loading), Writing (saving)</li>
+</ul>
+</li>
+<li>Binary files:
+<ul>
+<li>Reading (loading), Writing (saving)</li>
+</ul>
+</li>
+<li>Exercises</li>
+</ol>
+</blockquote>
+<h2 id="streams-beyond-cin-and-cout">Streams beyond cin and cout</h2>
+<p>A stream lets us flow data from A to B. We did it before with <code>cout</code>, now we'll do it with <code>ofstream</code> and <code>ifstream</code>.</p>
+<p><strong>std::cout</strong>
+A stream of data flows from our program to the console window for display.</p>
+<p><strong>std::cin</strong>
+The stream flows from the keyboard into our program.</p>
+<p><strong>std::ofstream</strong>
+Sets up a stream to flow data from our application into a file.</p>
+<p><strong>std::ifstream</strong><br>
+The reverse of ofstream: flow data from the file to our application.</p>
+<h2 id="opening-a-file">Opening a file</h2>
+<p>To access <code>std::ofstream</code> and <code>std:ofstream</code> you'll need to:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+</div></code></pre>
+<p>and we'll use its member function <code>open(filename)</code></p>
+<pre class="hljs"><code><div>    myFileStream.open(filename, mode);
+
+    <span class="hljs-comment">/// Notice mode: we can add flags here to change how the file stream works</span>
+    <span class="hljs-comment">/// The are bits, you can combine them with the bitwise OR operator: | </span>
+    ios::in     <span class="hljs-comment">// Open for input</span>
+    ios::out    <span class="hljs-comment">// Open for output</span>
+    ios::binary <span class="hljs-comment">// Open in binary mode</span>
+    ios::ate    <span class="hljs-comment">// Start At The End of the file</span>
+    ios::app    <span class="hljs-comment">// Open for appending to end of file.</span>
+    ios::trunc  <span class="hljs-comment">// If the file already exists, replace its content with ours.</span>
+</div></code></pre>
+<p>To check the file opened you can call <code>is_open()</code>. It's a <code>bool</code>, returning <code>true</code> or <code>false</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> (myFile.is_open())
+{
+    <span class="hljs-comment">//SUCCESS</span>
+}
+</div></code></pre>
+<h2 id="closing-a-file">Closing a file</h2>
+<p>Close a file when you're done to free up memory and release the disk.</p>
+<pre class="hljs"><code><div>myFile.close();
+</div></code></pre>
+<p>Opening a file locks it for other users, so calling <code>close()</code> lets other processes access, and frees your stream object to open another file.</p>
+<h1 id="text-files">Text files</h1>
+<p>Text files are expected to be entirely filled with characters that can displayed in a text editor or terminal.</p>
+<ul>
+<li>This could mean <em>ASCII</em>, <em>unicode</em> (a superset of <em>ASCII</em>) or other text encodings.</li>
+<li>The <code>ios::binary</code> flag won't be set.</li>
+</ul>
+<h2 id="file-io-code---outputting-text">File I/O code - Outputting text</h2>
+<p>Putting it all together. Here we'll just say &quot;myFile&quot; as it's shorter than myFileStream, but it remains a stream.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::ofstream myFile; <span class="hljs-comment">// output file stream</span>
+    myFile.open(<span class="hljs-string">"highscores.txt"</span>);
+    myFile &lt;&lt; <span class="hljs-string">"High Score Table."</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    myFile.close();
+
+    <span class="hljs-keyword">return</span>(<span class="hljs-number">0</span>);
+}
+</div></code></pre>
+<h2 id="input">Input</h2>
+<p>A function called <code>eof()</code> lets you check if you've reached the end:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">while</span> ( !myFile.eof() )
+    <span class="hljs-comment">// read a line</span>
+}
+</div></code></pre>
+<p>and, helpfully, <code>ifstream</code> behaves like <code>cin</code> so we can use getLine</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> strLine;
+    <span class="hljs-built_in">std</span>::ifstream myFile;
+
+    myFile.open(<span class="hljs-string">"example.txt"</span>);
+    <span class="hljs-keyword">if</span> (myFile.is_open())
+    {
+        <span class="hljs-keyword">while</span> (!myFile.eof())
+        {
+            <span class="hljs-built_in">std</span>::getline(myFile, strLine);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; strLine &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        }
+        
+        myFile.close();
+    }
+
+    <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span>);
+}
+</div></code></pre>
+<h2 id="checking-the-stream-status">Checking the stream status</h2>
+<p>These functions on the fstream flag problems. A &quot;flag&quot; in computer science has its origins in how we use flags in the physical world (mostly before the invention of the bulb) to send a clear, unambiguous signal. Red flags were once used as a flood warning, or an an all stop signal on railways; a yellow flag in auto racing signals danger, a checkered flag signals the end of a race.</p>
+<p>Flags in programming are often individual bits set in one or more bytes, but rather than memorise the meanings we can often call boolean-returning functions.  This is how our file stream tells us if it's in trouble:</p>
+<pre class="hljs"><code><div>    <span class="hljs-comment">// bad() returns True if reading/writing fails </span>
+    <span class="hljs-comment">// eg: writing to a closed file or drive full</span>
+    myFileStream.bad();
+
+    <span class="hljs-comment">// fail() is like bad() but is true if a data format problem comes up</span>
+    <span class="hljs-comment">// eg: expecting a numerical value and finding an alphabetical</span>
+    myFileStream.fail();
+
+    <span class="hljs-comment">// eof() == True if the end of the file was reached</span>
+    myFileStream.eof();
+
+    <span class="hljs-comment">// good() is True when all the other flags are false. </span>
+    <span class="hljs-comment">// Saves typing this: !(bad() || fail() || eof())</span>
+    myFileStream.good();
+</div></code></pre>
+<h2 id="moving-through-the-stream">Moving through the stream</h2>
+<p>All i/o streaming objects inherit their characteristics from <code>&lt;iostream&gt;</code>.</p>
+<ul>
+<li><code>ifstream</code> inherits a <strong>get pointer</strong>, that points to the next byte to be read from the input stream.</li>
+<li><code>ofstream</code> inherits a <strong>put pointer</strong>, you can probably guess what this does</li>
+<li><code>iofstream</code> is the parent of both ifstream and ofstream. It can read and write to a stream, so it has both <strong>get and put pointers</strong>.</li>
+</ul>
+<p>These pointers can also be moved with member functions.</p>
+<pre class="hljs"><code><div>    <span class="hljs-built_in">std</span>::iofstream myFileStream;
+    myFileStream.open(<span class="hljs-string">"file.txt"</span>);
+
+    <span class="hljs-comment">// tellg() returns our get pointer, an integer representing our current get-data stream position.</span>
+    <span class="hljs-keyword">long</span> getPointer = myFileStream.tellg(); 
+
+    <span class="hljs-comment">// putg() does the same but for our put pointer.</span>
+    <span class="hljs-keyword">long</span> putPointer = myFileStream.putg();
+
+    <span class="hljs-comment">// seekg( position ) positions our get point</span>
+    myFileStream().seekg(<span class="hljs-number">0</span>, <span class="hljs-built_in">std</span>::ios::end);
+
+    <span class="hljs-comment">// seekp( position ).. I think you get it.</span>
+    <span class="hljs-comment">// The stream pointer is changed to the absolute position, </span>
+    <span class="hljs-comment">// counting from the beginning of the file</span>
+    myFileStream().seekp( putPointer<span class="hljs-number">-7</span> );
+
+    <span class="hljs-comment">// Handy position pointers ready made for us:</span>
+    ios::beg;
+    ios::cur;
+    ios::end;
+
+    myFileStream.close();
+</div></code></pre>
+<p>An example:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">long</span> lBegin;
+    <span class="hljs-keyword">long</span> lEnd;
+
+    <span class="hljs-function">ifstream <span class="hljs-title">myFile</span><span class="hljs-params">(<span class="hljs-string">"test.txt"</span>)</span></span>;
+
+    lBegin = myFile.tellg();
+    myFile.seekg(<span class="hljs-number">0</span>, ios::end);
+
+    lEnd = myFile.tellg();
+    myFile.close();
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Size is: "</span> &lt;&lt; (lEnd – lBegin) &lt;&lt; <span class="hljs-string">" bytes."</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span>);
+}
+</div></code></pre>
+<h1 id="binary-files">Binary files</h1>
+<p>Starting with an example</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fstream&gt;</span></span>
+
+ifstream::pos_type size;
+<span class="hljs-keyword">char</span>* pMemblock = <span class="hljs-number">0</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span> 
+</span>{
+    <span class="hljs-function">ifstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">"test.txt"</span>, ios::in | ios::binary | ios::ate)</span></span>;
+
+    <span class="hljs-keyword">if</span> (file.is_open())
+    {
+        size = file.tellg();
+        pMemblock = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[size];
+        file.seekg(<span class="hljs-number">0</span>, ios::beg);
+        file.read(pMemblock, size);
+        file.close();
+
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"the complete file content is in memory"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+        <span class="hljs-keyword">delete</span>[] pMemblock;
+        pMemBlock = <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">else</span>
+    { 
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Unable to open file"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    }
+  
+    <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span>);
+}
+</div></code></pre>
+<h2 id="real-disks-writes-vs-buffers">Real disks writes vs buffers</h2>
+<p>A physical disk write isn't triggered every single time we write a block to the stream. Writing to devices is complicated and particular and handled by the iostream and the operating system, which in most cases know more particulars than we do.</p>
+<p>A filestream has a block of memory and a lot of logic  to sort this in an object of type <code>streambuff</code>. <strong>Our characters/bytes are stored in the buffer until fstream writes to the device</strong> via the operating system.</p>
+<p>This write is called a <em><strong>syncronization</strong></em>.</p>
+<h2 id="whens-and-whys-of-synchronization">Whens and whys of synchronization</h2>
+<p>Synchronization can happen explicitly, implicitly or due to events outside our view.
+Some examples of times a synchronization occurs:</p>
+<ul>
+<li><strong>When the file is closed:</strong> any remaining buffers are synchronised, pending data is written.</li>
+<li><strong>When the buffer is full:</strong> they have a certain size limit and when it is reached they are automatically synced.</li>
+<li><strong>When we use certain manipulators:</strong> flush, endl.</li>
+<li><strong>When we call sync():</strong> we can explicitly call this to trigger syncronization. It returns 0 unless there is a failure or no buffer, in which case it returns -1.</li>
+</ul>
+
+</body>
+</html>

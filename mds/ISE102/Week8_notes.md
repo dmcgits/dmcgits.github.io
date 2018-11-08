@@ -66,7 +66,8 @@ myFile.close();
 
 Opening a file locks it for other users, so calling ```close()``` lets other processes access, and frees your stream object to open another file.
 
-## Text files
+# Text files  
+
 Text files are expected to be entirely filled with characters that can displayed in a text editor or terminal. 
 
   * This could mean _ASCII_, _unicode_ (a superset of _ASCII_) or other text encodings. 
@@ -154,7 +155,7 @@ Flags in programming are often individual bits set in one or more bytes, but rat
 ## Moving through the stream
 
 All i/o streaming objects inherit their characteristics from ```<iostream>```.
-* ```ifstream``` inherits a **get pointer**, that points to the next element to be read from the input stream. 
+* ```ifstream``` inherits a **get pointer**, that points to the next byte to be read from the input stream. 
 * ```ofstream``` inherits a **put pointer**, you can probably guess what this does
 * ```iofstream``` is the parent of both ifstream and ofstream. It can read and write to a stream, so it has both **get and put pointers**.
 
@@ -178,6 +179,89 @@ These pointers can also be moved with member functions.
     // counting from the beginning of the file
     myFileStream().seekp( putPointer-7 );
 
+    // Handy position pointers ready made for us:
+    ios::beg;
+    ios::cur;
+    ios::end;
+
     myFileStream.close();
 ```
 
+An example:
+
+```C++
+#include <iostream>
+#include <fstream>
+
+int main()
+{
+    long lBegin;
+    long lEnd;
+
+    ifstream myFile("test.txt");
+
+    lBegin = myFile.tellg();
+    myFile.seekg(0, ios::end);
+
+    lEnd = myFile.tellg();
+    myFile.close();
+
+    cout << "Size is: " << (lEnd – lBegin) << " bytes." << endl;
+
+    return (0);
+}
+```
+
+# Binary files
+
+Starting with an example
+
+```C++
+#include <iostream>
+#include <fstream>
+
+ifstream::pos_type size;
+char* pMemblock = 0;
+
+int main () 
+{
+    ifstream file("test.txt", ios::in | ios::binary | ios::ate);
+
+    if (file.is_open())
+    {
+        size = file.tellg();
+        pMemblock = new char[size];
+        file.seekg(0, ios::beg);
+        file.read(pMemblock, size);
+        file.close();
+
+        cout << "the complete file content is in memory" << endl;
+
+        delete[] pMemblock;
+        pMemBlock = 0;
+    }
+    else
+    { 
+        cout << "Unable to open file" << endl;
+    }
+  
+    return (0);
+}
+```
+
+## Real disks writes vs buffers
+
+A physical disk write isn't triggered every single time we write a block to the stream. Writing to devices is complicated and particular and handled by the iostream and the operating system, which in most cases know more particulars than we do. 
+
+A filestream has a block of memory and a lot of logic  to sort this in an object of type ```streambuff```. **Our characters/bytes are stored in the buffer until fstream writes to the device** via the operating system.
+
+This write is called a _**syncronization**_.
+
+## Whens and whys of synchronization
+
+Synchronization can happen explicitly, implicitly or due to events outside our view.
+Some examples of times a synchronization occurs:
+* **When the file is closed:** any remaining buffers are synchronised, pending data is written.
+* **When the buffer is full:** they have a certain size limit and when it is reached they are automatically synced.
+* **When we use certain manipulators:** flush, endl.
+* **When we call sync():** we can explicitly call this to trigger syncronization. It returns 0 unless there is a failure or no buffer, in which case it returns -1.

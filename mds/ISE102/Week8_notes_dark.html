@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>Lec8_ISE102_notes</title>
+      <title>Week8_notes</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -78,7 +78,7 @@ The reverse of ofstream: flow data from the file to our application.</p>
 <p>Close a file when you&#x2019;re done to free up memory and release the disk.</p>
 <pre data-role="codeBlock" data-info="C" class="language-c">myFile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><p>Opening a file locks it for other users, so calling <code>close()</code> lets other processes access, and frees your stream object to open another file.</p>
-<h2 class="mume-header" id="text-files">Text files</h2>
+<h1 class="mume-header" id="text-files">Text files</h1>
 
 <p>Text files are expected to be entirely filled with characters that can displayed in a text editor or terminal.</p>
 <ul>
@@ -152,7 +152,7 @@ The reverse of ofstream: flow data from the file to our application.</p>
 
 <p>All i/o streaming objects inherit their characteristics from <code>&lt;iostream&gt;</code>.</p>
 <ul>
-<li><code>ifstream</code> inherits a <strong>get pointer</strong>, that points to the next element to be read from the input stream.</li>
+<li><code>ifstream</code> inherits a <strong>get pointer</strong>, that points to the next byte to be read from the input stream.</li>
 <li><code>ofstream</code> inherits a <strong>put pointer</strong>, you can probably guess what this does</li>
 <li><code>iofstream</code> is the parent of both ifstream and ofstream. It can read and write to a stream, so it has both <strong>get and put pointers</strong>.</li>
 </ul>
@@ -174,8 +174,82 @@ The reverse of ofstream: flow data from the file to our application.</p>
     <span class="token comment">// counting from the beginning of the file</span>
     <span class="token function">myFileStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">seekp</span><span class="token punctuation">(</span> putPointer<span class="token operator">-</span><span class="token number">7</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token comment">// Handy position pointers ready made for us:</span>
+    ios<span class="token operator">::</span>beg<span class="token punctuation">;</span>
+    ios<span class="token operator">::</span>cur<span class="token punctuation">;</span>
+    ios<span class="token operator">::</span>end<span class="token punctuation">;</span>
+
     myFileStream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre>
+</pre><p>An example:</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">long</span> lBegin<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> lEnd<span class="token punctuation">;</span>
+
+    ifstream <span class="token function">myFile</span><span class="token punctuation">(</span><span class="token string">&quot;test.txt&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    lBegin <span class="token operator">=</span> myFile<span class="token punctuation">.</span><span class="token function">tellg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    myFile<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    lEnd <span class="token operator">=</span> myFile<span class="token punctuation">.</span><span class="token function">tellg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    myFile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Size is: &quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>lEnd &#x2013; lBegin<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; bytes.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h1 class="mume-header" id="binary-files">Binary files</h1>
+
+<p>Starting with an example</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+
+ifstream<span class="token operator">::</span>pos_type size<span class="token punctuation">;</span>
+<span class="token keyword">char</span><span class="token operator">*</span> pMemblock <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    ifstream <span class="token function">file</span><span class="token punctuation">(</span><span class="token string">&quot;test.txt&quot;</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>in <span class="token operator">|</span> ios<span class="token operator">::</span>binary <span class="token operator">|</span> ios<span class="token operator">::</span>ate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">is_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        size <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">tellg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        pMemblock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        file<span class="token punctuation">.</span><span class="token function">seekg</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> ios<span class="token operator">::</span>beg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        file<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>pMemblock<span class="token punctuation">,</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        file<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;the complete file content is in memory&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+        <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> pMemblock<span class="token punctuation">;</span>
+        pMemBlock <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span> 
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Unable to open file&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="real-disks-writes-vs-buffers">Real disks writes vs buffers</h2>
+
+<p>A physical disk write isn&#x2019;t triggered every single time we write a block to the stream. Writing to devices is complicated and particular and handled by the iostream and the operating system, which in most cases know more particulars than we do.</p>
+<p>A filestream has a block of memory and a lot of logic  to sort this in an object of type <code>streambuff</code>. <strong>Our characters/bytes are stored in the buffer until fstream writes to the device</strong> via the operating system.</p>
+<p>This write is called a <em><strong>syncronization</strong></em>.</p>
+<h2 class="mume-header" id="whens-and-whys-of-synchronization">Whens and whys of synchronization</h2>
+
+<p>Synchronization can happen explicitly, implicitly or due to events outside our view.<br>
+Some examples of times a synchronization occurs:</p>
+<ul>
+<li><strong>When the file is closed:</strong> any remaining buffers are synchronised, pending data is written.</li>
+<li><strong>When the buffer is full:</strong> they have a certain size limit and when it is reached they are automatically synced.</li>
+<li><strong>When we use certain manipulators:</strong> flush, endl.</li>
+<li><strong>When we call sync():</strong> we can explicitly call this to trigger syncronization. It returns 0 unless there is a failure or no buffer, in which case it returns -1.</li>
+</ul>
+
       </div>
       
       
