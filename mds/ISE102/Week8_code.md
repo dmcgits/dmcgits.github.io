@@ -1,21 +1,13 @@
 # Week 8 Exercises - File IO, writing data
 Here are some samples of code showing how we can use the new C++ syntax and concepts we learned this week. The idea is to manually enter this code yourself and compile. 
 
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-- [Week 8 Exercises - File IO, writing data](#week-8-exercises---file-io-writing-data)
-        - [8.1 Writing to a text file](#81-writing-to-a-text-file)
-        - [8.2 Reading from a text file](#82-reading-from-a-text-file)
-        - [8.3 Writing text - high scores](#83-writing-text---high-scores)
-        - [8.4 Reading text - high scores](#84-reading-text---high-scores)
-        - [8.5 Seek and put](#85-seek-and-put)
-        - [8.6 Write and read](#86-write-and-read)
-
-<!-- /code_chunk_output -->
-
+1. [Week 8 Exercises - File IO, writing data](#week-8-exercises---file-io-writing-data)
+        1. [8.1 Writing to a text file](#81-writing-to-a-text-file)
+        2. [8.2 Reading from a text file](#82-reading-from-a-text-file)
+        3. [8.3 Writing text: high scores](#83-writing-text-high-scores)
+        4. [8.4 Reading text: high scores](#84-reading-text-high-scores)
+        5. [8.5 Seek and put](#85-seek-and-put)
+        6. [8.6 Write and read](#86-write-and-read)
 
 ### 8.1 Writing to a text file
 
@@ -71,7 +63,7 @@ int main()
 }
 ```
 
-### 8.3 Writing text - high scores
+### 8.3 Writing text: high scores
 
 ```C++
 #include <iostream>
@@ -113,7 +105,7 @@ int main()
 
 ```
 
-### 8.4 Reading text - high scores
+### 8.4 Reading text: high scores
 
 ```C++
 #include <iostream>
