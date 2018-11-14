@@ -122,3 +122,135 @@ void Monster::castSpell()
 }
 
 ```
+
+## 9.7 Critters and constructors
+
+More of a Tamagotchi than a real monster
+
+**main.cpp**
+
+```C++
+// REMEMBER TO KEEP pch.h OR stdafx.h INCLUDE
+
+// Library Includes
+#include <iostream>
+
+// Local Includes
+#include "Critter.h"
+
+// This Include
+
+// Static Variables
+
+// Static Function Prototypes
+
+// Implementation
+
+void passByValue(Critter _passByValue)
+{
+    // A copy will take place when this function is called.
+    passByValue_.greet();
+}
+
+void passByReference(Critter& passByReference_)
+{
+    // A reference is used.
+    passByReference_.greet();
+}
+
+/**
+*
+* Main is used for testing the critter class.
+*
+* 
+* @return Successful completion of the application.
+*
+*/
+int main()
+{
+    // Create an instance of class critter.
+    Critter crit1;
+    Critter crit2(1980);
+    Critter crit3(1985, 10);
+
+    crit1.hunger = 77;
+    std::cout << "crit1's hunger level = " << crit1.hunger;
+    std::cout << std::endl;
+
+    crit2.hunger = 80;
+    std::cout << "crit2's hunger level = " << crit2.hunger;
+    std::cout << std::endl;
+
+    crit3.hunger = 83;
+    std::cout << "crit3's hunger level = " << crit3.hunger;
+    std::cout << std::endl;
+
+    crit1.greet();
+    crit2.greet();
+    crit3.greet();
+
+    passByValue(crit1);
+    passByReference(crit1);
+
+    int iTemp = 0;
+    std::cin >> iTemp;
+
+    return (0);
+}
+```
+
+**Critter.h**
+
+```C++
+
+//
+
+#ifndef _CRITTER_H__
+#define _CRITTER_H__
+
+// Library Includes
+
+// Local Includes
+
+// Types
+
+// Constants
+
+// Prototypes
+
+class Critter
+{
+    // Member Functions
+public:
+    // Constructors
+    Critter(int hunger_ = 0);
+    Critter(int hunger_, int boredom_);
+
+    // Copy Constructor
+    Critter(const Critter& rhs_);
+
+    // Destructor
+    ~Critter();
+
+    void greet();            // Member function prototype.
+
+protected:
+
+private:
+
+    // Member Variables
+public:
+    int hunger_;
+    int boredom_;
+
+    int* age_;
+
+protected:
+
+private:
+
+};
+
+#endif // _CRITTER_H__
+
+```

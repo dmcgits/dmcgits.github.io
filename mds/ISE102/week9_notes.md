@@ -6,13 +6,14 @@ Remote control. Pie factory. Student.
 
 ## Coding Standards
 
-Reasons for conventions according to **Epic Games**
+Conventions vary, but most every company that produces code has them. Reasons for conventions according to **Epic Games**
 
-  * **80% of the lifetime cost** of a piece of software goes to **maintenance**.
-  * Hardly any software is maintained for its whole life by the original author.
-  * Code conventions **improve the readability** of the software, allowing engineers to understand new code more quickly and thoroughly.
-  * If we decide to expose source code to mod **community developers**, we want it to be easily understood.
-  * Many of these conventions are actually required for **cross-compiler compatibility**.
+>
+> * **80% of the lifetime cost** of a piece of software goes to **maintenance**.
+> * Hardly any software is maintained for its whole life by the original author.
+> * Code conventions **improve the readability** of the software, allowing engineers to understand new code more quickly and thoroughly.
+> * If we decide to expose source code to mod **community developers**, we want it to be easily understood.
+> * Many of these conventions are actually required for **cross-compiler compatibility**.
 
 Our source: 
 [Geotechnical Software Services Style Guidelines](http://geosoft.no/development/cppstyle.html)
