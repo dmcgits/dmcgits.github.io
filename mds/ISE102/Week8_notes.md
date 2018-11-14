@@ -1,6 +1,7 @@
 # Lecture 8: File I/O
 
 Topics:
+
 >1. File Input and Output
 >2. Text files:
 >    * Reading (loading), Writing (saving)

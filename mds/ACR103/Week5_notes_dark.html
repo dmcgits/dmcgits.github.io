@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>Lec9_notes</title>
+      <title>week5_notes</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,100 +23,189 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="characters">Characters!</h1>
+      <h1 class="mume-header" id="modular-levelenvironment-design">Modular Level/Environment Design</h1>
 
-<p>Making characters in ZBrush</p>
-<h2 class="mume-header" id="1-introducting-zbrush">1. Introducting ZBrush</h2>
+<h2 class="mume-header" id="game-levels">Game Levels</h2>
+
+<p>Game level: A place you explore in a game. There are usually points to start off, and an exit or goal.</p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Guacamelee.jpg" alt="Guacamelee"><br>
+<em>Guacamelee</em></p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/level_8_lord_mithos_kionisu.png" alt="Top Down"></p>
+<p><em>Level 8 by Lord Mithios on Deviantart</em></p>
+<hr>
+<h2 class="mume-header" id="things-a-level-has">Things a level has</h2>
+
+<p>The list of things a level has could go on forever, or a level can have none of them. It&#x2019;s up to the designer and the game type. Here are some of the most common.</p>
+<blockquote>
+<ol>
+<li>Spawn points</li>
+<li>Ground, barriers, sky or ceiling</li>
+<li>Obstacles</li>
+<li>Items. Pickups, hazards, info points.</li>
+<li>Enemies</li>
+<li>Bosses</li>
+<li>Paths for you/Enemies</li>
+<li>Secrets</li>
+<li>Often an exit or goal.</li>
+<li>Collidable things</li>
+</ol>
+</blockquote>
+<h2 class="mume-header" id="level-editors">Level Editors</h2>
+
+<p>In a game these things could be defined by geometry, by imported xml/bsp files, by objects placed in an editor, completely in code, or any other method a team comes up with. We&#x2019;ll use Maya and Unity.</p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Blikstad%20Level%20Edit.jpg" alt="Level Editing In Unity"></p>
+<p><em>Unity level editing</em></p>
+<p><img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Stardew1.png" alt="Tile based map editor"></p>
+<p><em>Tile based map editing</em></p>
+<h1 class="mume-header" id="modular-construction">Modular Construction</h1>
+
+<img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/BunningsShelving.jpg?1" width="250" description="Bunnings Modular shelving" align="right" caption="modular">  
+<blockquote>
+<p>Modular: Made up of compatible, standardized units for easy and flexible construction.</p>
+</blockquote>
+<p>Real world environments are big, varied, but also have a lot of repeating features. We need to reduce our concept art to pieces that can snap together seamlessly, or at least in a way that baked light, shaders or post effects can cover for (like ambient occlusion or grungy cavities.)</p>
+<p>Here are some of the central ideas:</p>
+<blockquote>
+<ol>
+<li>Define the footprint of pieces</li>
+<li>Only use non uniform pieces last resort</li>
+<li>Pick a pivot and stick with it</li>
+<li>Base kit for simple, square based layout</li>
+<li>Inserts to make it organic, cover corners and seams, add interest.</li>
+<li>Lighting brings atmosphere and more variance.</li>
+<li>Obects!</li>
+</ol>
+</blockquote>
+<img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/Fallout4LevelPieces.jpg" description="Fallout4Bits" caption="modular">  
+<p><em>Fallout 4 GDC - <a href="https://www.youtube.com/watch?v=QBAM27YbKZg&amp;t=330s">Youtube Link</a></em></p>
+<img src="https://dannymcgillick.github.io/mds/ACR103/Lec5/assets/baldi-konijn-wipdungeonassets.jpg" description="Modular shelving" caption="modular">  
+<p><em>Modular dungeon pieces, Baldi Konijn: - <a href="https://www.artstation.com/artwork/3a0yo:">Arstation Link</a></em></p>
+<p><img src="assets/Dungeon1.jpg" alt="Dungeon1"><br>
+<img src="assets/Dungeon2.jpg" alt="Dungeon2"><br>
+<img src="assets/Dungeon3.jpg" alt="Dungeon3"><br>
+<img src="assets/Dungeon4.jpg" alt="Dungeon4"><br>
+<img src="assets/Dungeon5.jpg" alt="Dungeon4"></p>
+<p><em>Fantasy Dungeon Starter Kit - <a href="https://assetstore.unity.com/packages/3d/environments/dungeons/fantasy-dungeon-starter-kit-110082">Unity Asset Store</a></em></p>
+<h1 class="mume-header" id="making-modules">Making modules</h1>
 
 <ul>
-<li>The first screen</li>
-<li>Placing and editing</li>
-<li>Navigation</li>
-<li>Making an object</li>
-<li>Saving</li>
-<li>Subtools</li>
-<li>Brushes and Subdivision</li>
-<li>Move, smooth, clay buildup, standard, dam_standard, hpolish, trim.</li>
-<li>Visibility</li>
-<li>Polygroups</li>
+<li>Establish a <strong>footprint</strong>
+<ul>
+<li>square, hex</li>
+<li>can use multiple of these per object</li>
+<li>try to only break this footprint (half, quarter) with good reason</li>
 </ul>
-<h2 class="mume-header" id="zbrush-learning">ZBrush Learning</h2>
-
-<p>This is the big one for this week:</p>
-<p><a href="https://www.youtube.com/watch?v=J2B0x9TkFuA&amp;list=PLkzopwqcFevYqrk_0MKIaUwrWYILzYsp6"><img src="assets/Week9/intro_zb_1.jpg" alt="Intro ZB"></a></p>
-<p><em>Intro to ZBrush P1 with Michael Pavlovic - <a href="https://www.youtube.com/watch?v=J2B0x9TkFuA&amp;list=PLkzopwqcFevYqrk_0MKIaUwrWYILzYsp6">Link</a></em></p>
+</li>
+<li>Establish an <strong>origin</strong>
+<ul>
+<li>All pieces should join together in a predictable way, say front left corner of footprint.</li>
+<li>Origin should be on a corner, not the center, so we can snap them together</li>
+<li>Unity and other editors support snapping to ensure no seams are created</li>
+<li>Unit snapping or geometry snapping.</li>
+</ul>
+</li>
+<li>Utility vs Hero
+<ul>
+<li>Mundane room parts are most of the game</li>
+<li>Variant parts are a big part of that</li>
+<li>Hero pieces create truly unique areas but are expensive time eaters&#x2026; but the heros make the mundane parts work.</li>
+</ul>
+</li>
+</ul>
+<p><img src="assets/HeroPieces.jpg" alt="Hero Pieces"></p>
+<p><em>Mundane pieces are king! - <a href="https://www.youtube.com/watch?v=QBAM27YbKZg">Fallout 4 GDC talk</a></em></p>
+<p><img src="assets/ThatRug.jpg" alt="ThatRug"></p>
+<p><em>But that rug really did tie the room together</em></p>
 <hr>
-<h2 class="mume-header" id="concepts">Concepts</h2>
+<h2 class="mume-header" id="more-nice-modules">More nice modules</h2>
 
-<p><img src="assets/Week9/mg_wolvie.jpg" alt="Wolvie"></p>
-<p><em>Wolverine by Max Grecke - <a href="https://www.artstation.com/artwork/OoJnK">Link</a></em></p>
-<p><img src="assets/Week9/sy_rey.jpg" alt="Rey 2D"><br>
-<img src="assets/Week9/rey_real1.jpg" alt="Rey Real1"><br>
-<img src="assets/Week9/rey_real2.jpg" alt="Rey Real2"><br>
-<img src="assets/Week9/rey_real4.jpg" alt="Rey Real2"></p>
-<p><em>Rey!</em></p>
-<p><img src="assets/Week9/GS_Males.png" alt="Males"></p>
-<p><em>Stylised males by Gray Shuko - <a href="_https://www.artstation.com/artwork/freestylesfaces01">Link</a></em></p>
-<p><img src="assets/Week9/bh6_fred.jpg" alt="Fred"></p>
-<p><em>Fred from Big Hero 6</em></p>
-<p><img src="assets/Week9/loish_goldeyes.jpg" alt="Loish gold"></p>
-<p><em>Loish Gold Eyes</em></p>
-<p><img src="assets/Week9/th_roundy.png" alt="TH Roundy"></p>
-<p><em>Troll Hunters</em></p>
-<p><img src="assets/Week9/daenerys_real1.png" alt="Daenerys"><br>
-<img src="assets/Week9/daenerys_real2.png" alt="Daenerys"><br>
-<img src="assets/Week9/daenerys_real3.jpg" alt="Daenerys"><br>
-<img src="assets/Week9/rt_daenerys.jpg" alt="Daenerys"><br>
-<img src="assets/Week9/cs_daenerys.jpg" alt="Daenerys"></p>
-<p><img src="assets/Week9/mg_bluesteel.jpg" alt="BlueSteel"><br>
-<img src="assets/Week9/mg_pipes.jpg" alt="Pipe Head"><br>
-<img src="assets/Week9/mg_joan.jpg" alt="Joan"><br>
-<img src="assets/Week9/mg_snape.jpg" alt="Snape"><br>
-<img src="assets/Week9/mg_green.jpg" alt="Green"><br>
-<img src="assets/Week9/mg_greenalso.jpg" alt="GreenAlso"></p>
-<p><em>Various by Max Grecke - <a href="https://www.instagram.com/maxgrecke/?hl=en">Link</a></em></p>
-<p><img src="assets/Week9/bh6_stylising.jpg" alt="BH6 Stylising"></p>
-<p><em>Stylising from life in Big Hero 6</em></p>
+<p><img src="assets/AdvPack4.png" alt="Polygon Adventure Pack 1"><br>
+<img src="assets/AdvPack5.png" alt="Polygon Adventure Pack 1"><br>
+<img src="assets/AdvPack1.png" alt="Polygon Adventure Pack 1"><br>
+<img src="assets/AdvPack2.png" alt="Polygon Adventure Pack 1"><br>
+<img src="assets/AdvPack3.png" alt="Polygon Adventure Pack 1"></p>
 <hr>
-<h2 class="mume-header" id="reference">Reference</h2>
+<h2 class="mume-header" id="blocking-out-and-iterating">Blocking out and iterating</h2>
 
-<p>Planes of the head pureref. 3D skulls. Lots of eyes and noses and ears.</p>
+<blockquote>
+<p>We can&#x2019;t make pieces till we know what the game needs.<br>
+We won&#x2019;t really know what the game needs till we make pieces and start testing.<br>
+We&#x2019;re dead.</p>
+</blockquote>
+<p>Wait! We block out, and we iterate. We survive.</p>
+<ul>
+<li>We plan as best we can from experience or example.</li>
+<li>We have a game type and story for the level</li>
+<li>We make ultra simple blocks of our basic pieces to serve that and start building</li>
+<li>We find problems and we fix them</li>
+<li>We discover efficiences where we might have wasted loads of time</li>
+<li>Keep cycling, adding rough textures, tweaking geometry, cleaning textures.</li>
+</ul>
+<p><img src="assets/FO4_Block1.jpg" alt="Early pass"></p>
+<p><em>First pass on Fallout 4 Level- <a href="https://www.youtube.com/watch?v=QBAM27YbKZg">Fallout 4 GDC talk</a></em></p>
+<p><img src="assets/FO4_Block2.jpg" alt="Shipping"></p>
+<p><em>Shipping version of same Fallout 4 Level- <a href="https://www.youtube.com/watch?v=QBAM27YbKZg">Fallout 4 GDC talk</a></em></p>
+<p><img src="assets/Whitebox_ES.png" alt="Whitebox"></p>
+<p><em>Level Whitebox by <a href="https://erikstarander.wordpress.com/2016/09/20/white-boxing-the-level/">ErikStarander</a></em></p>
+<p><img src="assets/Whitebox_ES2.png" alt="Whitebox"></p>
+<p><em>Level Whitebox by <a href="https://erikstarander.wordpress.com/2016/09/20/white-boxing-the-level/">ErikStarander</a></em></p>
+<h1 class="mume-header" id="technical-considerations">Technical Considerations</h1>
+
+<ul>
+<li>Levels are big, keep geo low. Exception: geometry instancing.</li>
+<li>Minimise rework and reimporting. Unity uses prefabs for this.</li>
+<li>Ram and hdd space aren&#x2019;t infinite so we repeat a lot of the same texture.
+<ul>
+<li>Different UV procedures.</li>
+<li>Clever seam hiding</li>
+</ul>
+</li>
+<li>Lots of materials and objects = lots of drawcalls = low frame rate. Techniques like atlasing and batching can get around this, but we have to build accordingly.</li>
+<li>Don&#x2019;t put holes in everything - use view blocking pieces to keep draw distance down.
+<ul>
+<li>avoids popup</li>
+<li>avoids overlapping transparency blowing out drawcalls</li>
+</ul>
+</li>
+</ul>
 <hr>
-<h2 class="mume-header" id="3d-cartoony-style-ref">3D Cartoony Style Ref</h2>
+<h2 class="mume-header" id="atlasing">Atlasing</h2>
 
-<p><img src="assets/Week9/as_conan.jpg" alt="Conan"></p>
-<p><em>Conan by Airborn Studios - <a href="https://www.artstation.com/artwork/Bm0Y9">Link</a></em></p>
-<p><img src="assets/Week9/moana2.png" alt="Moana1"><br>
-<img src="assets/Week9/moana4.png" alt="Moana4"></p>
-<p><em>Moana Look Dev - <a href="https://www.artstation.com/artwork/0ygdG">Link</a></em></p>
-<p><img src="assets/Week9/pc_pirate_sm.png" alt="Pirate"></p>
-<p>_Pirate by Pedro Conti - <a href="https://www.artstation.com/artwork/VddK5">Link</a></p>
-<p><img src="assets/Week9/brave_maq.jpg" alt="Brave"></p>
-<p><em>Merida and Queen Maquettes from Brave - <a href="http://www.theconceptartblog.com/2012/02/09/esculturas-dos-personagens-do-filme-brave/">Link</a></em></p>
-<p><img src="assets/Week9/vd_pirate.jpg" alt="VD Pirate"></p>
-<p>_Pirate by Vincent Dromart - <a href="https://www.behance.net/gallery/31073985/Pirate">Link</a></p>
-<p><img src="assets/Week9/rata_chef.jpg" alt="Chef"><br>
-<img src="assets/Week9/rata_maq2.jpg" alt="Chef2"></p>
-<p><em>Chef Skinner, Ratatouille by Pixar</em></p>
-<p><img src="assets/Week9/cs_misc.jpg" alt="Thrones1"><br>
-<img src="assets/Week9/cs_misc2.jpg" alt="Thrones2"><br>
-<img src="assets/Week9/cs_arya.jpg" alt="Thrones3"></p>
-<h2 class="mume-header" id="sculpting-timelapses">Sculpting Timelapses</h2>
+<p>Atlases will be a familiar idea if you&#x2019;ve done made sprites in 3D, or even in 2D. It&#x2019;s when you take a lot of textuers and arrange them into a single image. It&#x2019;s easier and faster for the computer to deal with one large image than many small images, and historically a power of 2 (2048x2048) resolution has been ideal. It can also save space if you support non rectangular shapes.</p>
+<p><img src="assets/TruckSimulatorAtlas.jpg" alt="Atlas1"></p>
+<p><em>Truck Simulator buildings in Unity alongside their texture atlas</em></p>
+<p><img src="assets/RaymanAtlas.png" alt="Rayman Atlas"></p>
+<p><em>Rayman texture atlas utilising texture space with non rectangular shapes</em></p>
+<h2 class="mume-header" id="fancy-shaders">Fancy Shaders</h2>
 
-<p><a href="https://www.youtube.com/watch?v=L6kYhShKXKY"><img src="assets/Week9/Time_Conan.png" alt="Time Conan"></a><br>
-<a href="https://www.youtube.com/watch?v=L6kYhShKXKY">Conan Timelapse</a></p>
-<p><a href="https://www.youtube.com/watch?v=R9se6h_MFCk"><img src="assets/Week9/Time_Dva.png" alt="Time Dva"></a><br>
-<a href="https://www.youtube.com/watch?v=R9se6h_MFCk">Black Cat DVa Cosplay Timelapse</a></p>
-<p><a href="https://vimeo.com/82019501"><img src="assets/Week9/pc_pirate_sm.png" alt="Pirate Block"></a><br>
-<a href="https://vimeo.com/82019501">Pirate Block In</a></p>
-<h2 class="mume-header" id="sculpting-streams">Sculpting Streams</h2>
+<p>Have a section of the texture with replaceable colour.</p>
+<p><img src="assets/SC_BuildingShaders.jpg" alt="Siegecraft Building Shaders"></p>
+<hr>
+<h2 class="mume-header" id="batching">Batching</h2>
 
-<p><a href="https://www.youtube.com/watch?v=0Dg7c1ClQ1A&amp;t=493s"><img src="assets/Week9/Stream_Snow2.png" alt="Stream Snow"></a><br>
-<a href="https://www.youtube.com/watch?v=0Dg7c1ClQ1A&amp;t=493s">John Snow Stream with Follygon</a></p>
-<p>Disclaimer: Snow thumbnail is from stream two. Link is to stream 1 (3 hours) initial build. Stream 2 has detailing.</p>
-<h2 class="mume-header" id="base-meshes">Base meshes</h2>
+<p>Batching takes lots of objects using the same material and separate geometry and merges it into a single big object, removing plenty of drawcalls. Atlasing makes it possible to heavily reduce the number of materials.</p>
+<p>Two types of batching:</p>
+<blockquote>
+<p>Static Batching: Many objects are batched into a large static object. Like combine in Maya.</p>
+</blockquote>
+<blockquote>
+<p>Dynamic Batching: Small enough moving objects can be merged and their verts tranformed.</p>
+</blockquote>
+<hr>
+<h2 class="mume-header" id="prefabs">Prefabs</h2>
 
-<p>Helpful bust mesh. Offer cartoony or real</p>
+<p>If we break up our objects into the smallest pieces it&#x2019;s great for reuse, but a pain to build everything we need. Grouping them together into larger pieces once and reusing those pieces would be great. Like making a four pane window with frame from four panes, two beams and a brick frame. This is where a prefab comes in. Then we update a single fbx and all objects using that piece are updated.</p>
+<p><img src="assets/SO4_SubMod1.jpg" alt="Submod 1"></p>
+<p><em>Walls are using parts of floors, 20 pieces</em></p>
+<p><img src="assets/SO4_SubMod2.jpg" alt="Submod 2"></p>
+<p><em>Now more granular - fewer types of pieces but more in scene, much work</em></p>
+<p><img src="assets/SO4_SubMod3.jpg" alt="Submod 3"></p>
+<p><em>Solved with in-editor made, reusable pieces: prefabs</em></p>
+<hr>
+<h2 class="mume-header" id="game-logic-controls">Game Logic Controls</h2>
+
+<p>Your coders, or fingers if you are doing everything, will supply you with a variety of odd objects to drop into your scene. These might be waypoints for enemies to follow, the path a trail of magical fire will take, or spawnpoints. These are often a 3D object with a script attached.</p>
+<p><img src="assets/TruckSimulatorGizmos.jpg" alt="Placing Objects For Code"></p>
 
       </div>
       
