@@ -28,4 +28,4 @@ What and how?
 
 ## Coding exercises
 
-[Monsters and Critters](http://dannymcgillick.github.io/mds/ISE201/week9_code.html)
+[Monsters and Critters](http://dannymcgillick.github.io/mds/ISE102/week9_code.html)

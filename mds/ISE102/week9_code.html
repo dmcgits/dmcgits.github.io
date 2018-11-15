@@ -132,6 +132,307 @@ Monster<span class="token operator">::</span><span class="token function">Monste
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;  @@@@@*** Haha can do magic! ***@@@@@ \n\n&quot;</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
+</pre><h2 class="mume-header" id="92-monster-with-get-and-set">9.2 Monster with get and set</h2>
+
+<p><strong>main.cpp</strong></p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;pch.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Monster.h&quot;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span><span class="token operator">::</span>std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Declare a variable called monster0, of type Monster. </span>
+	<span class="token comment">// OR create an instance of CLASS CMonster called monster0.</span>
+	Monster monster<span class="token punctuation">;</span>
+
+	<span class="token comment">// Invoke an instance member function.</span>
+	monster<span class="token punctuation">.</span><span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	monster<span class="token punctuation">.</span><span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// AS m_iArmour has been declared Private:</span>
+	<span class="token comment">// monster0.m_iArmour = 10; // THIS WILL NO LONGER WORK</span>
+	monster<span class="token punctuation">.</span><span class="token function">setArmour</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Monster Armour Class: &quot;</span> <span class="token operator">&lt;&lt;</span> monster<span class="token punctuation">.</span><span class="token function">getArmour</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+	monster<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;Gorgon&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Monster&apos;s name is = &quot;</span> <span class="token operator">&lt;&lt;</span> monster<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+	monster<span class="token punctuation">.</span><span class="token function">setMagicPoints</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// Instances can also be used in control structures.</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>monster<span class="token punctuation">.</span><span class="token function">getMagicPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Casting a spell...&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Not enough magic points to cast spell.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>Monster.h</strong></p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">ifndef</span> _MONSTER_H__</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> _MONSTER_H__</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Monster</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token comment">// Methods or member functions.</span>
+	<span class="token function">Monster</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token operator">~</span><span class="token function">Monster</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">castSpell</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Get methods</span>
+	<span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> <span class="token function">getHitPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> <span class="token function">getMagicPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> <span class="token function">getArmour</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Set methods</span>
+	<span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">setHitPoints</span><span class="token punctuation">(</span><span class="token keyword">int</span> hitPoints<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">setMagicPoints</span><span class="token punctuation">(</span><span class="token keyword">int</span> magicPoints<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">setArmour</span><span class="token punctuation">(</span><span class="token keyword">int</span> armour<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+	<span class="token keyword">int</span> hitPoints_<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> magicPoints_<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> armour_<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> name_<span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment">// _MONSTER_H__</span>
+</pre><p><strong>Monster.cpp</strong></p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;pch.h&quot;</span></span>
+<span class="token comment">// start by including our definitions</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Monster.h&quot;</span></span>
+
+<span class="token comment">// Access std library member functions and variables</span>
+<span class="token comment">// without std::</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+Monster<span class="token operator">::</span><span class="token function">Monster</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// no initialisation</span>
+<span class="token punctuation">}</span>
+
+Monster<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Monster</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// No destruction</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Fighting!!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;No more fight. Talk now.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">castSpell</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Haha spelling!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Get functions: return requested data in a controlled way</span>
+<span class="token comment">// These are just returning private variables, but we have the </span>
+<span class="token comment">// freedome to return calculations or formatted, concatenated data,</span>
+<span class="token comment">// just like a web server is usually returning you a page built from </span>
+<span class="token comment">// a script and data every time, and almost never has an actual html</span>
+<span class="token comment">// page sitting on the server.</span>
+<span class="token comment">// Or when your parents ask where you&apos;ve been and you choose and.. beautify</span>
+<span class="token comment">// your private data in getStoryTheyllAccept();</span>
+<span class="token comment">// Or when I ask your your assignments and you take out the swear words</span>
+<span class="token comment">// and put in all the comments at once.</span>
+
+<span class="token keyword">char</span><span class="token operator">*</span> Monster<span class="token operator">::</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">return</span> name_<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> Monster<span class="token operator">::</span><span class="token function">getMagicPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">return</span> magicPoints_<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> Monster<span class="token operator">::</span><span class="token function">getHitPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">return</span><span class="token punctuation">(</span>hitPoints_<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> Monster<span class="token operator">::</span><span class="token function">getArmour</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">return</span> armour_<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Set functions: store all the data provided as private variables.</span>
+<span class="token comment">// We can choose to act on it before we store it (like changing capitalisation or changing points to percentages)</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> name<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Use stringcopy to duplicate the contents of the string</span>
+	<span class="token comment">// (it&apos;s a char pointer and we want an safe copy of our own)</span>
+	<span class="token function">strncpy_s</span><span class="token punctuation">(</span>name_<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">setMagicPoints</span><span class="token punctuation">(</span><span class="token keyword">int</span> magicPoints<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>magicPoints <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		magicPoints_ <span class="token operator">=</span> magicPoints<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">setHitPoints</span><span class="token punctuation">(</span><span class="token keyword">int</span> hitPoints<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Monsters die below -10 hitpoints (maybe they can regenerate</span>
+	<span class="token comment">// or are partial zombies) so only set if above that. </span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>hitPoints <span class="token operator">&gt;=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		hitPoints_ <span class="token operator">=</span> hitPoints<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">// else call Monster::die() perhaps</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">setArmour</span><span class="token punctuation">(</span><span class="token keyword">int</span> armour<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Only accept 0 or positive integers for armour.</span>
+	<span class="token comment">// We could add a cap here.. say if(armour &gt; MAX_ARMOUR) armour_ = MAX_ARMOUR;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>armour <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		armour_ <span class="token operator">=</span> armour<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="97-critters-and-constructors">9.7 Critters and constructors</h2>
+
+<p>More of a Tamagotchi than a real monster</p>
+<p><strong>main.cpp</strong></p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// REMEMBER TO KEEP pch.h OR stdafx.h INCLUDE</span>
+
+<span class="token comment">// Library Includes</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token comment">// Local Includes</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Critter.h&quot;</span></span>
+
+<span class="token comment">// This Include</span>
+
+<span class="token comment">// Static Variables</span>
+
+<span class="token comment">// Static Function Prototypes</span>
+
+<span class="token comment">// Implementation</span>
+
+<span class="token keyword">void</span> <span class="token function">passByValue</span><span class="token punctuation">(</span>Critter _passByValue<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// A copy will take place when this function is called.</span>
+    passByValue_<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">passByReference</span><span class="token punctuation">(</span>Critter<span class="token operator">&amp;</span> passByReference_<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// A reference is used.</span>
+    passByReference_<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+*
+* Main is used for testing the critter class.
+*
+* 
+* @return Successful completion of the application.
+*
+*/</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Create an instance of class critter.</span>
+    Critter crit1<span class="token punctuation">;</span>
+    Critter <span class="token function">crit2</span><span class="token punctuation">(</span><span class="token number">1980</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Critter <span class="token function">crit3</span><span class="token punctuation">(</span><span class="token number">1985</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    crit1<span class="token punctuation">.</span>hunger <span class="token operator">=</span> <span class="token number">77</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;crit1&apos;s hunger level = &quot;</span> <span class="token operator">&lt;&lt;</span> crit1<span class="token punctuation">.</span>hunger<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    crit2<span class="token punctuation">.</span>hunger <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;crit2&apos;s hunger level = &quot;</span> <span class="token operator">&lt;&lt;</span> crit2<span class="token punctuation">.</span>hunger<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    crit3<span class="token punctuation">.</span>hunger <span class="token operator">=</span> <span class="token number">83</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;crit3&apos;s hunger level = &quot;</span> <span class="token operator">&lt;&lt;</span> crit3<span class="token punctuation">.</span>hunger<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    crit1<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    crit2<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    crit3<span class="token punctuation">.</span><span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">passByValue</span><span class="token punctuation">(</span>crit1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">passByReference</span><span class="token punctuation">(</span>crit1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> iTemp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cin <span class="token operator">&gt;&gt;</span> iTemp<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>Critter.h</strong></p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">//</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> _CRITTER_H__</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> _CRITTER_H__</span>
+
+<span class="token comment">// Library Includes</span>
+
+<span class="token comment">// Local Includes</span>
+
+<span class="token comment">// Types</span>
+
+<span class="token comment">// Constants</span>
+
+<span class="token comment">// Prototypes</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Critter</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Member Functions</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment">// Constructors</span>
+    <span class="token function">Critter</span><span class="token punctuation">(</span><span class="token keyword">int</span> hunger_ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Critter</span><span class="token punctuation">(</span><span class="token keyword">int</span> hunger_<span class="token punctuation">,</span> <span class="token keyword">int</span> boredom_<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Copy Constructor</span>
+    <span class="token function">Critter</span><span class="token punctuation">(</span><span class="token keyword">const</span> Critter<span class="token operator">&amp;</span> rhs_<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Destructor</span>
+    <span class="token operator">~</span><span class="token function">Critter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment">// Member function prototype.</span>
+
+<span class="token keyword">protected</span><span class="token operator">:</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+
+    <span class="token comment">// Member Variables</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> hunger_<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> boredom_<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span><span class="token operator">*</span> age_<span class="token punctuation">;</span>
+
+<span class="token keyword">protected</span><span class="token operator">:</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment">// _CRITTER_H__</span>
+
 </pre>
       </div>
       
