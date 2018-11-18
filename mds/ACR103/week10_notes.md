@@ -5,7 +5,8 @@ We want to start **very low rez** and drag things around. But this requires a fa
 
 ![sobo1](assets/week10/sobo_beaver.jpg)
 ![sobo2](assets/week10/sobo_fempro.jpg)
-_ Scott Briscoe and Joao Sousa, created under Shane Olson_
+
+_Scott Briscoe and Joao Sousa, created under Shane Olson_
 
 **Staying low poly as long as you can** gives you a much stronger sculpt because it's hard to mess up great shapes and proportions, and **near impossible to save a bad base with detail.** It's blockouts ZBrush style.
 
@@ -68,10 +69,12 @@ Visibility
 
 Polygroups
 ----------
+
 > * tools-polygroups subpalette
 > * ways to create
 > * ctrl-shift click to a polygroup to hide others
 > * ctrl-click transform mode to mask all other pgs
+
 
 ![polygroups pipe](assets/week10/pg_pipe.jpg)
 
