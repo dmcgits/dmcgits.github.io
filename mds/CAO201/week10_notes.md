@@ -3,75 +3,106 @@ Inter Process Comms and Scheduling
 
 Processes: can they speak to eachother? Who goes first when they're both top dog?
 
-Models of process scheduling
-----------------------------
+Process scheduling on batch systems.
+------------------------------------
 
 Scheduling is a way of achieving an outcome. First you need a **metric** by which it will be measured. One starting metric is **turnaround**. Simply put, how much time elapsed between the jobs arrival and its completion?
 
-$Tturnaround = Tcompletion - Tarrival$
+**$Tturnaround = Tcompletion - Tarrival$**
 
 This measures **performance**. There are other metrics we might prefer depending on the use case. One is **fairness**. Often performance comes at the cost of fairness, and vice versa.
 
 ### FIFO: First in, First out.
 If you arrive first, you run to completion. This is the post office, bank and doctors waiting room model.
 
-### SJF
-Shortest job first, so we're not all waiting for the guy who can't choose what he wants then gets angry they don't have american express. 
+![](assets/week10/fifo_simple.jpg)
 
-The teller could ask the 3 customers who arrive together how long their taks are, then serve the shortest first.
+The downside, long jobs can block short ones
 
-But if they walk in slightly after each other? Long job guy might have walked in 30 seconds before quick question guy, and now quick question guy has to wait a half hour. Windows?
+![](assets/week10/fifo_bad.jpg)
 
-### STCF
+### SJF: Shortest Job First.
+In a batch system severl jobs often arrive at once. The teller could **ask a group of customers**, arriving together, how long their tasks are and serve the shortest tasks first. Making this assessment solves our problem, if a little unfairly.
 
-The problem here is that clients, once engaged with the teller, can't be interrupted. The arriving processes are allowed to run to completion. 
+![](assets/week10/sjf_simple.jpg)
+_A arrived first but is shunted to the back_
 
-What if we can **preempt slow guy**: "Sir, we're well on track, let me just answer this man's one question."
+**The drawback:** Jobs don't _always_ arrive together, and once paying-in-5c-coins-guy is at the counter, arriving a little late leaves you waiting forever.
 
-Quick guy's deal with, sent on his way, and slow guy's job continues. This improves average turnaround. 
+![](assets/week10/sjf_late.jpg)
+_If you're a little late, it's almost FIFO_
 
-Responsiveness
---------------
+___
 
-These policy changes improve **average turnaround times**. 
-* Suitable for drop off and pick up jobs, as with early batch computing.
-* Not so good for response time: waiting in line is not how a terminal needs to feel.
-  
-Enter **time sharing and multiple users** with interfaces. 
+Interactive systems
+-------------------
 
-A new metric asks, how long does it take a new process to get system attention?
+Enter **time sharing and multiple users** with interfaces. A new metric, **responsiveness**, asks how long does it take a new process to get system attention?
 
-**$Tresponse = Tfirstrun - Tarrival$**.
+> **$Tresponse = Tfirstrun - Tarrival$**.
 
-Round Robin
------------
+### SRTL: Shortest Remaining Time Left
 
-Serve each process for a slice of time: 1ms, 10ms?
+A first attempt at this allows us to **preempt slow guy**. If your quick job arrives, slow guy is told "Sir, we're well on track, let me just answer this man's quick question." 
 
-* The peak of fairness and response time
+> **Good**: Quick guy's question is answered and slow guy's job continues. Improves average turnaround, a bit more responsive, 
+> 
+> **Bad** requires us to know how long a process is. Short jobs still aren't interrupted.
+
+### Round Robin
+
+Serve each process for a "quantum" of time: 1ms, 10ms, etc
+
+* The peak of fairness, solid response time
+* Easy to implement, just a list and a quantum
 * Performance killing context switches
-* Target: time slice long enough to minimise switches but preserve responsiveness
+* balances on a time slice that minimises switches while preserving responsiveness
+  
+![](assets/week10/rr.jpg)
+___
 
-Mutual Exclusion
+### Priority scheduling
+
+The operating system isn't running a fairness factory. In your computer some things have to happen no matter what. 
+
+* Keeping the internet connection up and listening for traffic
+* Tracking thermals.
+* 60fps twitch streaming.
+* checking for windows updates
+  
+**Attaching priority to tasks** lets the OS season the complete fairness of round robin with a little pragmatism. 
+
+![](assets/week10/priority_tiers.jpg)
+
+### Lottery scheduling
+
+Haha no! The workbook answer isn't here. You'll have to [read the ostep chapter.](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf)
+
+We will say that it uses randomness to help get around our human inability to plan for all outcomes.
+
+Thread scheduling
 -----------------
-With so many processes and threads pushing for time and grabbing for resources, how do we enforce order? A computer has to be predictable.
 
-When two people want an unsharable resource we have.. **conflict!** So it goes with threads. 
+When two people want an unsharable resource we have.. **conflict!** So it goes with threads. To solve it, like with human problems, **we need barriers and locks!**
 
-Here's a dramatic reinterpretation of Navin Ipe's [outdated phonebooth metaphor](http://nrecursions.blogspot.com/2014/08/mutex-tutorial-and-example.html).
+### Mutual Exclusion
 
-Say you're at a nightclub at 2am and **your bowels want to move**. You head to the toilet, you wait 35 minutes, and **you get a cubicle**. Once inside you discover.. **no lock!** It's sort of hanging off one screw and you can't fix it. The only option is to sit, take care of business, and **stick your foot against the door**. Every 8-10 seconds someone staggers by and **tries to push it open**, but the **bones of your leg win each time**. When you're done, you take **your foot off the door**, leave and the cubicle and the **next person enters**!
-_
-The **threads** are: _you and each staggerer_
-The **mutex** is: _the door_
-The **lock** is: _your leg/foot_
-The **resource** is: _the throne_.
+One one to understand this is with a dramatic reinterpretation of Navin Ipe's [outdated phonebooth metaphor](http://nrecursions.blogspot.com/2014/08/mutex-tutorial-and-example.html) provided below.
 
-Any thread wanting to **run a few lines of code that can't be interrupted** without a disaster (a person in the middle of moving their bowel) has to **place a lock** (straightens a leg, foot extended) on **a mutex** (against the door).
+Say you're at a nightclub at 2am and your bowels want to move. You head to the toilet, you wait 35 minutes, and you get a cubicle. Once inside you discover.. no lock! It's sort of hanging off one screw and you can't fix it. The only option is to sit, take care of business, and stick your foot against the door. 
 
+Every 8-10 seconds someone staggers by and **tries to push it open**, but the **bones of your leg win each time**. When you're done, you take **your foot off the door**, leave and the cubicle and the **next person enters**!
 
+> The **threads** are: _you and each staggerer_
+> The **mutex** is: _the door_
+> The **lock** is: _your leg/foot_
+> The **resource** is: _the throne_.
+
+Any thread wanting to **run code that can't be interrupted** (a person on the toilet) has to **place a lock** (stick out foot) on **a mutex** (against the door).
+
+### nightclub.cpp
 ```C
- #include <iostream>
+#include <iostream>
 #include <thread>
 #include <mutex>
 
@@ -115,10 +146,8 @@ int main()
 
 Compile and run it using  
 
-g++ -std=c++0x -pthread -o thread thread.cpp
+`g++ -std=c++0x -pthread -o thread thread.cpp`
 
-./thread 
-
-
+`./thread `
 
 Kernel Space and User Space
