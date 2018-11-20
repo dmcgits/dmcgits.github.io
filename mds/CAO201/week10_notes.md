@@ -85,6 +85,26 @@ Thread scheduling
 
 When two people want an unsharable resource we have.. **conflict!** So it goes with threads. To solve it, like with human problems, **we need barriers and locks!**
 
+Define 
+
+Last week we defined a process as a running concrete version of a program. That was a little simplistic.
+> a process is a collection of resources in memory: an address space containing data in variables, code to execute, perhaps open file handles or network commections and more.
+ >
+ > A thread is a line of execution in that process. A regular process with no explicit threads is single threaded, so has one implicit thread.
+ 
+ Thread_join, thread_yield
+ 
+Kernel space threads have kernel space priority and permissions. They occupy the kernel and due to high priority are often blocking. They are also os specific.
+ 
+ User threads have their own per process manager, and are platform independent.  They come from a time before operating systems had system thread calls (some still don’t). Thus they are handled by a library of code also running in user space in your process. Thus portable. Like the process table you see in `top`, threads are tracked in a table.
+ 
+ Faster because no kernel level switch. That involves a security space switch/check and is at least 10x slower. No trap, no context switch, no flushing of caches.
+ 
+ Trap: a trap is an exception, an interrupt that is unusual aka exceptional. A breakpoint in your program causes one to stop execution and link up to the debugger. Accessing memory you don’t/shouldn’t have access to, 
+ 
+ Kernel Mode and protection rings.
+ Pic of them: https://en.wikipedia.org/wiki/Protection_ring#SUPERVISOR-MODE
+
 ### Mutual Exclusion
 
 One one to understand this is with a dramatic reinterpretation of Navin Ipe's [outdated phonebooth metaphor](http://nrecursions.blogspot.com/2014/08/mutex-tutorial-and-example.html) provided below.
