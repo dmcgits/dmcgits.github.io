@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:////home/dmacmakes/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.3.11/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
       
       
       
@@ -24,7 +24,7 @@
     <body for="html-export">
       <div class="mume markdown-preview   ">
       <h1>Inter Process Comms and Scheduling</h1>
-<p>Processes: can they speak to eachother? Who goes first when they&#x2019;re both top dog?</p>
+<p>Processes: can they speak to eachother? Who goes first when they&apos;re both top dog?</p>
 <h2>Process scheduling on batch systems.</h2>
 <p>Scheduling is a way of achieving an outcome. First you need a <strong>metric</strong> by which it will be measured. One starting metric is <strong>turnaround</strong>. Simply put, how much time elapsed between the jobs arrival and its completion?</p>
 <p><strong><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>r</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>d</mi><mo>=</mo><mi>T</mi><mi>c</mi><mi>o</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>&#x2212;</mo><mi>T</mi><mi>a</mi><mi>r</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">Tturnaround = Tcompletion - Tarrival</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord mathit">t</span><span class="mord mathit">u</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">n</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">o</span><span class="mord mathit">u</span><span class="mord mathit">n</span><span class="mord mathit">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit">m</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">o</span><span class="mord mathit">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.01968em;">l</span></span></span></span></strong></p>
@@ -40,9 +40,9 @@
 <p>In a batch system severl jobs often arrive at once. The teller could <strong>ask a group of customers</strong>, arriving together, how long their tasks are and serve the shortest tasks first. Making this assessment solves our problem, if a little unfairly.</p>
 <p><img src="assets/week10/sjf_simple.jpg" alt=""><br>
 <em>A arrived first but is shunted to the back</em></p>
-<p><strong>The drawback:</strong> Jobs don&#x2019;t <em>always</em> arrive together, and once paying-in-5c-coins-guy is at the counter, arriving a little late leaves you waiting forever.</p>
+<p><strong>The drawback:</strong> Jobs don&apos;t <em>always</em> arrive together, and once paying-in-5c-coins-guy is at the counter, arriving a little late leaves you waiting forever.</p>
 <p><img src="assets/week10/sjf_late.jpg" alt=""><br>
-<em>If you&#x2019;re a little late, it&#x2019;s almost FIFO</em></p>
+<em>If you&apos;re a little late, it&apos;s almost FIFO</em></p>
 <hr>
 <h2>Interactive systems</h2>
 <p>Enter <strong>time sharing and multiple users</strong> with interfaces. A new metric, <strong>responsiveness</strong>, asks how long does it take a new process to get system attention?</p>
@@ -51,14 +51,14 @@
 </blockquote>
 <h3 class="mume-header" id="srtl-shortest-remaining-time-left">SRTL: Shortest Remaining Time Left</h3>
 
-<p>A first attempt at this allows us to <strong>preempt slow guy</strong>. If your quick job arrives, slow guy is told &#x201C;Sir, we&#x2019;re well on track, let me just answer this man&#x2019;s quick question.&#x201D;</p>
+<p>A first attempt at this allows us to <strong>preempt slow guy</strong>. If your quick job arrives, slow guy is told &quot;Sir, we&apos;re well on track, let me just answer this man&apos;s quick question.&quot;</p>
 <blockquote>
-<p><strong>Good</strong>: Quick guy&#x2019;s question is answered and slow guy&#x2019;s job continues. Improves average turnaround, a bit more responsive,</p>
-<p><strong>Bad</strong> requires us to know how long a process is. Short jobs still aren&#x2019;t interrupted.</p>
+<p><strong>Good</strong>: Quick guy&apos;s question is answered and slow guy&apos;s job continues. Improves average turnaround, a bit more responsive,</p>
+<p><strong>Bad</strong> requires us to know how long a process is. Short jobs still aren&apos;t interrupted.</p>
 </blockquote>
 <h3 class="mume-header" id="round-robin">Round Robin</h3>
 
-<p>Serve each process for a &#x201C;quantum&#x201D; of time: 1ms, 10ms, etc</p>
+<p>Serve each process for a &quot;quantum&quot; of time: 1ms, 10ms, etc</p>
 <ul>
 <li>The peak of fairness, solid response time</li>
 <li>Easy to implement, just a list and a quantum</li>
@@ -69,7 +69,7 @@
 <hr>
 <h3 class="mume-header" id="priority-scheduling">Priority scheduling</h3>
 
-<p>The operating system isn&#x2019;t running a fairness factory. In your computer some things have to happen no matter what.</p>
+<p>The operating system isn&apos;t running a fairness factory. In your computer some things have to happen no matter what.</p>
 <ul>
 <li>Keeping the internet connection up and listening for traffic</li>
 <li>Tracking thermals.</li>
@@ -80,22 +80,35 @@
 <p><img src="assets/week10/priority_tiers.jpg" alt=""></p>
 <h3 class="mume-header" id="lottery-scheduling">Lottery scheduling</h3>
 
-<p>Haha no! The workbook answer isn&#x2019;t here. You&#x2019;ll have to <a href="http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf">read the ostep chapter.</a></p>
+<p>Haha no! The workbook answer isn&apos;t here. You&apos;ll have to <a href="http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-lottery.pdf">read the ostep chapter.</a></p>
 <p>We will say that it uses randomness to help get around our human inability to plan for all outcomes.</p>
 <h2>Thread scheduling</h2>
-<p>When two people want an unsharable resource we have&#x2026; <strong>conflict!</strong> So it goes with threads. To solve it, like with human problems, <strong>we need barriers and locks!</strong></p>
+<p>When two people want an unsharable resource we have.. <strong>conflict!</strong> So it goes with threads. To solve it, like with human problems, <strong>we need barriers and locks!</strong></p>
+<p>Define</p>
+<p>Last week we defined a process as a running concrete version of a program. That was a little simplistic.</p>
+<blockquote>
+<p>a process is a collection of resources in memory: an address space containing data in variables, code to execute, perhaps open file handles or network commections and more.</p>
+<p>A thread is a line of execution in that process. A regular process with no explicit threads is single threaded, so has one implicit thread.</p>
+</blockquote>
+<p>Thread_join, thread_yield</p>
+<p>Kernel space threads have kernel space priority and permissions. They occupy the kernel and due to high priority are often blocking. They are also os specific.</p>
+<p>User threads have their own per process manager, and are platform independent.  They come from a time before operating systems had system thread calls (some still don&#x2019;t). Thus they are handled by a library of code also running in user space in your process. Thus portable. Like the process table you see in <code>top</code>, threads are tracked in a table.</p>
+<p>Faster because no kernel level switch. That involves a security space switch/check and is at least 10x slower. No trap, no context switch, no flushing of caches.</p>
+<p>Trap: a trap is an exception, an interrupt that is unusual aka exceptional. A breakpoint in your program causes one to stop execution and link up to the debugger. Accessing memory you don&#x2019;t/shouldn&#x2019;t have access to,</p>
+<p>Kernel Mode and protection rings.<br>
+Pic of them: <a href="https://en.wikipedia.org/wiki/Protection_ring#SUPERVISOR-MODE">https://en.wikipedia.org/wiki/Protection_ring#SUPERVISOR-MODE</a></p>
 <h3 class="mume-header" id="mutual-exclusion">Mutual Exclusion</h3>
 
-<p>One one to understand this is with a dramatic reinterpretation of Navin Ipe&#x2019;s <a href="http://nrecursions.blogspot.com/2014/08/mutex-tutorial-and-example.html">outdated phonebooth metaphor</a> provided below.</p>
-<p>Say you&#x2019;re at a nightclub at 2am and your bowels want to move. You head to the toilet, you wait 35 minutes, and you get a cubicle. Once inside you discover&#x2026; no lock! It&#x2019;s sort of hanging off one screw and you can&#x2019;t fix it. The only option is to sit, take care of business, and stick your foot against the door.</p>
-<p>Every 8-10 seconds someone staggers by and <strong>tries to push it open</strong>, but the <strong>bones of your leg win each time</strong>. When you&#x2019;re done, you take <strong>your foot off the door</strong>, leave and the cubicle and the <strong>next person enters</strong>!</p>
+<p>One one to understand this is with a dramatic reinterpretation of Navin Ipe&apos;s <a href="http://nrecursions.blogspot.com/2014/08/mutex-tutorial-and-example.html">outdated phonebooth metaphor</a> provided below.</p>
+<p>Say you&apos;re at a nightclub at 2am and your bowels want to move. You head to the toilet, you wait 35 minutes, and you get a cubicle. Once inside you discover.. no lock! It&apos;s sort of hanging off one screw and you can&apos;t fix it. The only option is to sit, take care of business, and stick your foot against the door.</p>
+<p>Every 8-10 seconds someone staggers by and <strong>tries to push it open</strong>, but the <strong>bones of your leg win each time</strong>. When you&apos;re done, you take <strong>your foot off the door</strong>, leave and the cubicle and the <strong>next person enters</strong>!</p>
 <blockquote>
 <p>The <strong>threads</strong> are: <em>you and each staggerer</em><br>
 The <strong>mutex</strong> is: <em>the door</em><br>
 The <strong>lock</strong> is: <em>your leg/foot</em><br>
 The <strong>resource</strong> is: <em>the throne</em>.</p>
 </blockquote>
-<p>Any thread wanting to <strong>run code that can&#x2019;t be interrupted</strong> (a person on the toilet) has to <strong>place a lock</strong> (stick out foot) on <strong>a mutex</strong> (against the door).</p>
+<p>Any thread wanting to <strong>run code that can&apos;t be interrupted</strong> (a person on the toilet) has to <strong>place a lock</strong> (stick out foot) on <strong>a mutex</strong> (against the door).</p>
 <h3 class="mume-header" id="nightclubcpp">nightclub.cpp</h3>
 
 <pre data-role="codeBlock" data-info="C" class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
