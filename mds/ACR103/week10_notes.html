@@ -23,8 +23,9 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1>Week 10: Working with a basemesh</h1>
-<p>We want to start <strong>very low rez</strong> and drag things around. But this requires a fair bit more ZBrush know-how than just drawing, because you&#x2019;re going to exercise&#x2026; <strong>control!</strong> The muck-in-there-with-a-brush approach feels faster to start, but you <strong>end up blocked</strong> as detail grows or you need to change proportions.</p>
+      <h1 class="mume-header" id="week-10-working-with-a-basemesh">Week 10: Working with a basemesh</h1>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><p>We want to start <strong>very low rez</strong> and drag things around. But this requires a fair bit more ZBrush know-how than just drawing, because you&#x2019;re going to exercise&#x2026; <strong>control!</strong> The muck-in-there-with-a-brush approach feels faster to start, but you <strong>end up blocked</strong> as detail grows or you need to change proportions.</p>
 <p><img src="assets/week10/sobo_beaver.jpg" alt="sobo1"><br>
 <img src="assets/week10/sobo_fempro.jpg" alt="sobo2"></p>
 <p><em>Scott Briscoe and Joao Sousa, created under Shane Olson</em></p>
@@ -33,15 +34,18 @@
 <em>Steve James from his <a href="http://www.cgmeetup.net/home/3d-to-2d-with-steve-james/">2D-to-3D videos</a></em></p>
 <p><img src="assets/week10/zb_pg_and_density.jpg" alt="pg0"></p>
 <p><em>Low poly is relative&#x2026; Zbrush low poly is pretty high</em></p>
-<h2>What&#x2019;s a good base mesh look like?</h2>
+<h2 class="mume-header" id="whats-a-good-base-mesh-look-like">What&#x2019;s a good base mesh look like?</h2>
+
 <p>Those heads above, done for Shane&#x2019;s class, are built up from new primitives, but that&#x2019;s the point of that class and it&#x2019;s longer than ours. To save time, and like a lot of industry artists, we&#x2019;ll start with a flexible base mesh.</p>
 <p><img src="assets/week10/base_brice.jpg" alt="brice"></p>
 <p><em>Brice St Martin&#x2019;s base is pretty great</em></p>
-<h2>Transforming</h2>
+<h2 class="mume-header" id="transforming">Transforming</h2>
+
 <p><code>w</code>,<code>e</code> and <code>r</code> enter transform mode, just like in Maya. If you&#x2019;re in new ZBrush you&#x2019;ll see a Gizmo. In old ZBrush, you&#x2019;ll meet Transpose Line. <code>q</code> goes back to drawing.</p>
 <p><img src="assets/week10/transform.jpg" alt="Xform"></p>
 <p>How do we scale a whole group of objects? if 2018, we have gizmo. If 4r7 we&#x2019;ll be using transpose master and transpose line. Yikes! Only because it&#x2019;s very unusual. In some obvious ways it&#x2019;s weaker than a gizmo, and in some surprising ways stronger.</p>
-<h2>Masking and automasking</h2>
+<h2 class="mume-header" id="masking-and-automasking">Masking and automasking</h2>
+
 <p>How do we grow a chin or move an eye socket only?  We use masks, which are much like Marquee/Lasso selections in photoshop. It protects areas from change. Just like photoshop there are loads of manual tools for making selections and plenty of conversions/algorithms to create them.</p>
 <blockquote>
 <ul>
@@ -91,12 +95,44 @@
 <p><img src="assets/week10/pg_visibility.jpg" alt="pic2"></p>
 <p><em>ctrl-shift click a polygroup to hide other pgs</em></p>
 <hr>
-<h2>Reference And Proportions</h2>
+<h2 class="mume-header" id="reference-and-proportions">Reference And Proportions</h2>
+
 <p>Like Maya, Zbrush has multiple ways to use reference. ZBrush&#x2019;s are zanier: trickier to use, but with more variety.</p>
 <p><img src="assets/week10/props.jpg" alt="Check proportions"></p>
 <p><em>Using tool transparency and reference images</em></p>
 <p><img src="assets/week10/seethrough.jpg" alt="ZBrush See Through"><br>
 <em>A slider turns zbrush see through. Yep.</em></p>
+<h2 class="mume-header" id="what-to-bring-next-week">What to bring next week</h2>
+
+<p>First I&#x2019;m going to be helping you resolve any proportion issues. After that we&#x2019;ll be increasing resolution and merging things together. To do this you need to have push and pulled, brushed and smoothed your character somewhere close to this level of detail:</p>
+<p><img src="assets/week10/tai_finlev.jpg" alt="Tai Tao Fin Level"></p>
+<p><em>Brice&#x2019;s sculpt at <a href="https://youtu.be/Ay-UY6JTbF4?t=519">this point in vid 1</a></em></p>
+<p>Obviously it <strong>doesn&#x2019;t have to (won&#x2019;t) look as amazing or on target as his Brice&#x2019;s</strong>, he&#x2019;s ridiculously experienced. I can&#x2019;t model like him either. You can see though that the polygons are still big, he is still on the low resolution mesh, and all the parts are still separate. If you get really stuck on say the nose and need some extra geometry, you can hit ctrl-d (tool-geometry-divide) one time and double your count, but try to avoid it if you can.</p>
+<p>If you can&#x2019;t get the sharp eyebrows or nose planes he has, try the pinch brush (b-p-i), and to soften them and try again you have smooth (hold shift).</p>
+<h2 class="mume-header" id="helpful-links">Helpful Links</h2>
+
+<ul>
+<li>More great 2D concepts to choose from:
+<ul>
+<li><a href="https://www.pinterest.com.au/dmacdraws/face-inspiration/2d/">https://www.pinterest.com.au/dmacdraws/face-inspiration/2d/</a></li>
+</ul>
+</li>
+<li>Face topology. The wireframes on the faces make the shapes much easier to see
+<ul>
+<li><a href="https://www.pinterest.com.au/dmacdraws/topology">https://www.pinterest.com.au/dmacdraws/topology</a></li>
+</ul>
+</li>
+<li>Planes of the head m&amp;f
+<ul>
+<li><a href="https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/EUt11q4KlnlNgEaAOshHhyMBYadRwwtDlPFAxOb4UoYPbQ?e=shjhI5">FacePlanesRef on onedrive</a></li>
+</ul>
+</li>
+<li>Anime face shapes:
+<ul>
+<li><a href="https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/EVswR3maoWJNiw_LMWV4fVMBFKPxLmQp2_e0vA7vOfvIKA?e=pXG9JI">AnimeFaces.pur on onedrive</a></li>
+</ul>
+</li>
+</ul>
 
       </div>
       

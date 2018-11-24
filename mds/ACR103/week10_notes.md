@@ -1,5 +1,6 @@
-Week 10: Working with a basemesh
-=================================
+# Week 10: Working with a basemesh
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 We want to start **very low rez** and drag things around. But this requires a fair bit more ZBrush know-how than just drawing, because you're going to exercise.. **control!** The muck-in-there-with-a-brush approach feels faster to start, but you **end up blocked** as detail grows or you need to change proportions. 
 
@@ -17,8 +18,8 @@ _Steve James from his [2D-to-3D videos](http://www.cgmeetup.net/home/3d-to-2d-wi
 
 _Low poly is relative.. Zbrush low poly is pretty high_
 
-What's a good base mesh look like?
-----------------------------------
+## What's a good base mesh look like?
+
 
 Those heads above, done for Shane's class, are built up from new primitives, but that's the point of that class and it's longer than ours. To save time, and like a lot of industry artists, we'll start with a flexible base mesh.
 
@@ -26,8 +27,7 @@ Those heads above, done for Shane's class, are built up from new primitives, but
 
 _Brice St Martin's base is pretty great_
 
-Transforming
-------------
+## Transforming
 
 `w`,`e` and `r` enter transform mode, just like in Maya. If you're in new ZBrush you'll see a Gizmo. In old ZBrush, you'll meet Transpose Line. `q` goes back to drawing.
 
@@ -36,8 +36,7 @@ Transforming
 How do we scale a whole group of objects? if 2018, we have gizmo. If 4r7 we'll be using transpose master and transpose line. Yikes! Only because it's very unusual. In some obvious ways it's weaker than a gizmo, and in some surprising ways stronger.
 
 
-Masking and automasking
------------------------
+## Masking and automasking
 
 How do we grow a chin or move an eye socket only?  We use masks, which are much like Marquee/Lasso selections in photoshop. It protects areas from change. Just like photoshop there are loads of manual tools for making selections and plenty of conversions/algorithms to create them.
 
@@ -88,8 +87,7 @@ _ctrl-shift click a polygroup to hide other pgs_
 
 ------------------------
 
-Reference And Proportions
--------------------------
+## Reference And Proportions
 
 Like Maya, Zbrush has multiple ways to use reference. ZBrush's are zanier: trickier to use, but with more variety.
 
@@ -99,3 +97,26 @@ _Using tool transparency and reference images_
 
 ![ZBrush See Through](assets/week10/seethrough.jpg)
 _A slider turns zbrush see through. Yep._
+
+## What to bring next week
+
+First I'm going to be helping you resolve any proportion issues. After that we'll be increasing resolution and merging things together. To do this you need to have push and pulled, brushed and smoothed your character somewhere close to this level of detail:
+
+![Tai Tao Fin Level](assets/week10/tai_finlev.jpg)
+
+_Brice's sculpt at [this point in vid 1](https://youtu.be/Ay-UY6JTbF4?t=519)_
+
+Obviously it **doesn't have to (won't) look as amazing or on target as his Brice's**, he's ridiculously experienced. I can't model like him either. You can see though that the polygons are still big, he is still on the low resolution mesh, and all the parts are still separate. If you get really stuck on say the nose and need some extra geometry, you can hit ctrl-d (tool-geometry-divide) one time and double your count, but try to avoid it if you can.
+
+If you can't get the sharp eyebrows or nose planes he has, try the pinch brush (b-p-i), and to soften them and try again you have smooth (hold shift).
+
+##Helpful Links
+
+* More great 2D concepts to choose from:
+    - <https://www.pinterest.com.au/dmacdraws/face-inspiration/2d/>
+* Face topology. The wireframes on the faces make the shapes much easier to see
+    - <https://www.pinterest.com.au/dmacdraws/topology>
+* Planes of the head m&f
+    - [FacePlanesRef on onedrive](https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/EUt11q4KlnlNgEaAOshHhyMBYadRwwtDlPFAxOb4UoYPbQ?e=shjhI5)
+* Anime face shapes:
+    - [AnimeFaces.pur on onedrive](https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/EVswR3maoWJNiw_LMWV4fVMBFKPxLmQp2_e0vA7vOfvIKA?e=pXG9JI)
