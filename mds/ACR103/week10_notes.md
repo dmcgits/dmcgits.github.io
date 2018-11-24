@@ -2,6 +2,18 @@
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+- [Week 10: Working with a basemesh](#week-10-working-with-a-basemesh)
+	- [What's a good base mesh look like?](#whats-a-good-base-mesh-look-like)
+	- [Transforming](#transforming)
+	- [Masking and automasking](#masking-and-automasking)
+		- [Auto masking:](#auto-masking)
+	- [Reference And Proportions](#reference-and-proportions)
+	- [What to bring next week (11)](#what-to-bring-next-week-11)
+
+<!-- /code_chunk_output -->
+
 We want to start **very low rez** and drag things around. But this requires a fair bit more ZBrush know-how than just drawing, because you're going to exercise.. **control!** The muck-in-there-with-a-brush approach feels faster to start, but you **end up blocked** as detail grows or you need to change proportions. 
 
 ![sobo1](assets/week10/sobo_beaver.jpg)
@@ -98,7 +110,7 @@ _Using tool transparency and reference images_
 ![ZBrush See Through](assets/week10/seethrough.jpg)
 _A slider turns zbrush see through. Yep._
 
-## What to bring next week
+## What to bring next week (11)
 
 First I'm going to be helping you resolve any proportion issues. After that we'll be increasing resolution and merging things together. To do this you need to have push and pulled, brushed and smoothed your character somewhere close to this level of detail:
 
