@@ -130,5 +130,7 @@ If you can't get the sharp eyebrows or nose planes he has, try the pinch brush (
     - <https://www.pinterest.com.au/dmacdraws/topology>
 * Planes of the head m&f
     - [FacePlanesRef on onedrive](https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/EUt11q4KlnlNgEaAOshHhyMBYadRwwtDlPFAxOb4UoYPbQ?e=shjhI5)
+* A collection of unified, exaggerated cartoony style 3d faces:
+    - [cartoony 3d face ref](https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/ESBfT9bTg0xCvxZvGYbNk-IBoqt1BBPycSEMnVz_VgvwOQ?e=QCbvBG)
 * Anime face shapes:
     - [AnimeFaces.pur on onedrive](https://laureateaus-my.sharepoint.com/:u:/g/personal/daniel_mcgillick_laureate_edu_au/EVswR3maoWJNiw_LMWV4fVMBFKPxLmQp2_e0vA7vOfvIKA?e=pXG9JI)
