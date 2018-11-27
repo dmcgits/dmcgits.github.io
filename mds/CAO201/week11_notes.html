@@ -25,24 +25,53 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-11-virtual-memory">Week 11 - Virtual Memory</h1>
 
+<h2 class="mume-header" id="policy-and-abstraction">Policy and Abstraction</h2>
+
+<p>We&#x2019;ve talked about:</p>
+<ul>
+<li>the nitty gritty, hardware side of virtual memory as a <strong>practise</strong></li>
+<li>Why it&#x2019;s <strong>useful</strong>.</li>
+</ul>
+<p>Now, it&#x2019;s on to the operating system&#x2019;s job.</p>
+<blockquote>
+<p>Operating systems present <strong>complex hardware and complex code as real functionality</strong>.</p>
+<p>Much like government taking ideas like public health care and ideal traffic management and putting them into practise, an operating system needs <strong>policies</strong>.</p>
+<p>When we present overwhelming complexity in an understandable service, we define <strong>abstractions.</strong></p>
+</blockquote>
+<hr>
+<h2 class="mume-header" id="memory-abstraction">Memory Abstraction</h2>
+
+<p>At home, we probably think of ourselves as the OS&#x2019;s client.</p>
+<p>In practise you might say <strong>processes are the real clients</strong>, and the programmers who write them. We&#x2019;re inputs to those processes.</p>
+<blockquote>
+<p>To make hardware devices simple and useful to processes, they are presented as <strong>abstractions</strong>.</p>
+</blockquote>
+<blockquote>
+<p>Virtual memory is the use of memory abstractions to provide a <strong>useful, simple, safe living space</strong> to running processes. The abstraction: an <strong>address space</strong></p>
+</blockquote>
+<p><img src="assets/week11/no_vm.jpg" alt=""></p>
+<p><em>Early machines: one os, one process</em></p>
+<hr>
 <h2 class="mume-header" id="base-and-bounds">Base and Bounds</h2>
 
 <p>Assign a starting address and a total size allowance.</p>
-<blockquote>
 <ul>
-<li>Base: Beginning address in memory
+<li><strong>Base</strong>
 <ul>
+<li>Beginning address in memory</li>
 <li>The program sees this as zero</li>
+<li>Code here followed by heap</li>
 <li>It&#x2019;s kept in a register in the CPUs mmu</li>
 </ul>
 </li>
-<li>Bounds
+<li><strong>Bounds</strong>
 <ul>
 <li>How far you can expand</li>
+<li>Stack starts here, builds toward heap.</li>
 </ul>
 </li>
 </ul>
-</blockquote>
+<p><img src="assets/week11/process_in_mem1.jpg" alt="process in memory"></p>
 <h3 class="mume-header" id="linux-time">Linux Time</h3>
 
 <p>Exploring a model of a base and bounds</p>
@@ -62,6 +91,40 @@ student:$ python3 relocation.py -a 16k -p 32m
 </pre><p>Hex calculator time:</p>
 <p><img src="assets/week11/mate_calc.jpg" alt="Mate Calc"></p>
 <p><em>mate_calc in programmer mode</em></p>
+<hr>
+<h2 class="mume-header" id="dynamic-relocation">Dynamic Relocation</h2>
+
+<h2 class="mume-header" id="vm-recap">VM Recap</h2>
+
+<ul>
+<li>Paging</li>
+<li>Page tables</li>
+<li>Page tables for lots of memory</li>
+</ul>
+<h2 class="mume-header" id="page-replacment">Page Replacment</h2>
+
+<p>When you need a page that isn&#x2019;t in memory you have to load it in. Conversely, a page in memory has to get the boot. How do you choose?</p>
+<blockquote>
+<p><strong>The dream: last pick gets the boot</strong></p>
+<p>If you tag each page with the milliseconds from now till the time it will finally be called on, the one with the highest number is the obvious candidate.</p>
+<ul>
+<li>Something is wrong with this solution. What?</li>
+<li>Yet it&#x2019;s actually useful. How?</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Not Recently Used</strong></p>
+<p>Not that popular. Technically someone invited you, but she hasn&#x2019;t talked to you all night.</p>
+<ul>
+<li>Class based.<br>
+0: not referenced, not modified<br>
+1: not referenced, modified<br>
+2: referenced, not modified<br>
+3: referenced, modified</li>
+<li>Random 0 class page is asked to leave.</li>
+<li>Better to remove modified but unreferenced than one heavily referenced&#x2026; it has about 20ms.</li>
+</ul>
+</blockquote>
 
       </div>
       
