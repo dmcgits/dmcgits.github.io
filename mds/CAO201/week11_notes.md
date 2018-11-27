@@ -74,14 +74,73 @@ _mate_calc in programmer mode_
 
 ___________________________
 
-## Dynamic Relocation
+## Dynamic Relocation and Swapping
+
+What if a process is right in the middle of the big chunk we need to load photoshop?
+
+> **Dynamic relocation:**
+> * Moving the process in memory. 
+> * Can provide more room for process, or make room for incoming.
+> * With base/bounds, all we need to do is change the base address and bounds (if size grows)
+
+![Relocation](assets/week11/relocation.jpg)
+
+> **Swapping:**
+> * System extended from swapping memory spaces to swapping with slower storage
+> * Simplest: whole process memory space eitherin ram or disk
+> * Virtual memory: when you slice into sub-process slices
+
+---
+
+## Managing Free Memory
+
+We’ve had magical knowledge of free space and used space. How does OS know in reality?
+
+![Process End Memory outcomes Outcomes](assets/week11/process_end_memory.jpg)
+
+### Bitmaps
+
+Directly maps the used state of multiple bytes to a single bit. If you allocated each bit 1/2 of your RAM you'd need two bit.
+
+*  More realistic eg: 1 8 byte word? 2 KiB?
+* Similar to cluster size when formatting.
+* A long list of bits.
+* Sequential data of a fixed size.
+* What happens each time a process requests contiguous mem?
+
+![bitmaps lists](assets/week11/bitmap_list.jpg)
+
+### Linked lists
+
+A list of runs/stretches of contiguous memory that is either free (a hole, **H**) or allocated (to a process, **P**).
+
+* Each listed record also has a start point and length. 
+* First Fit. Repurcussions?
+* Next Fit. First fit without backtracking.
+* Best fit. Preserve big holes -what costs?
+* Quick fit: lists of fits. Tailor vs S M L
 
 ## VM Recap
-* Paging
-* Page tables
-* Page tables for lots of memory
 
-## Page Replacment 
+Treating memory as a series of slices, rather than process sized chunks, is mate from module 3: paging
+
+![mmu](assets/week11/mmu_paging.jpg)
+
+
+
+* Page tables
+  - pic of table
+  - pic of address translation figure 3-11
+
+* Page tables for lots of memory (multi level?)
+
+* TLB for speeding up access.
+  What does it do and what happens when it fails?
+
+
+
+
+## Page Replacment - Technically next wk.
 
 When you need a page that isn't in memory you have to load it in. Conversely, a page in memory has to get the boot. How do you choose?
 
