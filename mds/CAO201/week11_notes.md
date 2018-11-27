@@ -120,44 +120,40 @@ A list of runs/stretches of contiguous memory that is either free (a hole, **H**
 * Best fit. Preserve big holes -what costs?
 * Quick fit: lists of fits. Tailor vs S M L
 
+___
+
 ## VM Recap
 
 Treating memory as a series of slices, rather than process sized chunks, is mate from module 3: paging
 
+![virtual to physical](assets/week11/vm_virtual_physical.jpg)
+
+> Module 3 covered
+> * Virtual addresses
+> * Page faults
+> * Address translation
+> * Translation lookaside tables
+
 ![mmu](assets/week11/mmu_paging.jpg)
 
+___
 
+## Page tables
 
-* Page tables
-  - pic of table
-  - pic of address translation figure 3-11
+How does the MMU do this translation?
 
+![Page Tables](assets/week11/vm_table.jpg)
+
+![table entry](assets/week11/vm_table_entry.jpg)
+Keeping the information in 
 * Page tables for lots of memory (multi level?)
 
+
+[Linear translation video on youtube covering paging-linear-translate.py](https://www.youtube.com/watch?v=AhfSDqud3j4&feature=youtu.be)
+
 * TLB for speeding up access.
-  What does it do and what happens when it fails?
+*  What does it do and what happens when it fails?
 
+![tlb](assets/week11/vm_tlb.jpg)
 
-
-
-## Page Replacment - Technically next wk.
-
-When you need a page that isn't in memory you have to load it in. Conversely, a page in memory has to get the boot. How do you choose?
-
-> **The dream: last pick gets the boot**
->
->If you tag each page with the milliseconds from now till the time it will finally be called on, the one with the highest number is the obvious candidate.
-> 
-> * Something is wrong with this solution. What?
-> * Yet it's actually useful. How?
-
-> **Not Recently Used**
->
-> Not that popular. Technically someone invited you, but she hasn't talked to you all night.
-> * Class based. 
->   0: not referenced, not modified 
->   1: not referenced, modified 
-> 	2: referenced, not modified
-> 	3: referenced, modified
-> * Random 0 class page is asked to leave.
-> * Better to remove modified but unreferenced than one heavily referenced.. it has about 20ms.
+---

@@ -92,39 +92,84 @@ student:$ python3 relocation.py -a 16k -p 32m
 <p><img src="assets/week11/mate_calc.jpg" alt="Mate Calc"></p>
 <p><em>mate_calc in programmer mode</em></p>
 <hr>
-<h2 class="mume-header" id="dynamic-relocation">Dynamic Relocation</h2>
+<h2 class="mume-header" id="dynamic-relocation-and-swapping">Dynamic Relocation and Swapping</h2>
 
+<p>What if a process is right in the middle of the big chunk we need to load photoshop?</p>
+<blockquote>
+<p><strong>Dynamic relocation:</strong></p>
+<ul>
+<li>Moving the process in memory.</li>
+<li>Can provide more room for process, or make room for incoming.</li>
+<li>With base/bounds, all we need to do is change the base address and bounds (if size grows)</li>
+</ul>
+</blockquote>
+<p><img src="assets/week11/relocation.jpg" alt="Relocation"></p>
+<blockquote>
+<p><strong>Swapping:</strong></p>
+<ul>
+<li>System extended from swapping memory spaces to swapping with slower storage</li>
+<li>Simplest: whole process memory space eitherin ram or disk</li>
+<li>Virtual memory: when you slice into sub-process slices</li>
+</ul>
+</blockquote>
+<hr>
+<h2 class="mume-header" id="managing-free-memory">Managing Free Memory</h2>
+
+<p>We&#x2019;ve had magical knowledge of free space and used space. How does OS know in reality?</p>
+<p><img src="assets/week11/process_end_memory.jpg" alt="Process End Memory outcomes Outcomes"></p>
+<h3 class="mume-header" id="bitmaps">Bitmaps</h3>
+
+<p>Directly maps the used state of multiple bytes to a single bit. If you allocated each bit 1/2 of your RAM you&#x2019;d need two bit.</p>
+<ul>
+<li>More realistic eg: 1 8 byte word? 2 KiB?</li>
+<li>Similar to cluster size when formatting.</li>
+<li>A long list of bits.</li>
+<li>Sequential data of a fixed size.</li>
+<li>What happens each time a process requests contiguous mem?</li>
+</ul>
+<p><img src="assets/week11/bitmap_list.jpg" alt="bitmaps lists"></p>
+<h3 class="mume-header" id="linked-lists">Linked lists</h3>
+
+<p>A list of runs/stretches of contiguous memory that is either free (a hole, <strong>H</strong>) or allocated (to a process, <strong>P</strong>).</p>
+<ul>
+<li>Each listed record also has a start point and length.</li>
+<li>First Fit. Repurcussions?</li>
+<li>Next Fit. First fit without backtracking.</li>
+<li>Best fit. Preserve big holes -what costs?</li>
+<li>Quick fit: lists of fits. Tailor vs S M L</li>
+</ul>
+<hr>
 <h2 class="mume-header" id="vm-recap">VM Recap</h2>
 
+<p>Treating memory as a series of slices, rather than process sized chunks, is mate from module 3: paging</p>
+<p><img src="assets/week11/vm_virtual_physical.jpg" alt="virtual to physical"></p>
+<blockquote>
+<p>Module 3 covered</p>
 <ul>
-<li>Paging</li>
-<li>Page tables</li>
-<li>Page tables for lots of memory</li>
+<li>Virtual addresses</li>
+<li>Page faults</li>
+<li>Address translation</li>
+<li>Translation lookaside tables</li>
 </ul>
-<h2 class="mume-header" id="page-replacment">Page Replacment</h2>
+</blockquote>
+<p><img src="assets/week11/mmu_paging.jpg" alt="mmu"></p>
+<hr>
+<h2 class="mume-header" id="page-tables">Page tables</h2>
 
-<p>When you need a page that isn&#x2019;t in memory you have to load it in. Conversely, a page in memory has to get the boot. How do you choose?</p>
-<blockquote>
-<p><strong>The dream: last pick gets the boot</strong></p>
-<p>If you tag each page with the milliseconds from now till the time it will finally be called on, the one with the highest number is the obvious candidate.</p>
+<p>How does the MMU do this translation?</p>
+<p><img src="assets/week11/vm_table.jpg" alt="Page Tables"></p>
+<p><img src="assets/week11/vm_table_entry.jpg" alt="table entry"><br>
+Keeping the information in</p>
 <ul>
-<li>Something is wrong with this solution. What?</li>
-<li>Yet it&#x2019;s actually useful. How?</li>
+<li>Page tables for lots of memory (multi level?)</li>
 </ul>
-</blockquote>
-<blockquote>
-<p><strong>Not Recently Used</strong></p>
-<p>Not that popular. Technically someone invited you, but she hasn&#x2019;t talked to you all night.</p>
+<p><a href="https://www.youtube.com/watch?v=AhfSDqud3j4&amp;feature=youtu.be">Linear translation video on youtube covering paging-linear-translate.py</a></p>
 <ul>
-<li>Class based.<br>
-0: not referenced, not modified<br>
-1: not referenced, modified<br>
-2: referenced, not modified<br>
-3: referenced, modified</li>
-<li>Random 0 class page is asked to leave.</li>
-<li>Better to remove modified but unreferenced than one heavily referenced&#x2026; it has about 20ms.</li>
+<li>TLB for speeding up access.</li>
+<li>What does it do and what happens when it fails?</li>
 </ul>
-</blockquote>
+<p><img src="assets/week11/vm_tlb.jpg" alt="tlb"></p>
+<hr>
 
       </div>
       
