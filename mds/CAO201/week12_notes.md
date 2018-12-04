@@ -1,12 +1,24 @@
 #Week 12
 
+## Page Tables
+A page table contains entries for all memory pages. If these are 4K each, then each page table entry gives you the information to find which page contains a given virtual address, and then to convert that into a physical address. You have no direct way of looking for addresses, you go via the page table for any virtual address.
+
 ## Translation Lookaside Buffer
+
+That's slow because, the Page Table is _in memory itself_.
+
+1: Go to memory (300 cycles) to access page table
+2: Convert to physical address with mmu
+3: Go to memory and get your data/instruction(300ish cycles)
+
+How do we avoid going to memory usually? With a cache. We keep the data from a certain amount of addresses. So why isn't there a cache holding some page entries from the page table? There is, it just has a weird name: **Translation Lookaside Buffer*. It's 1ms long and lives next to the address translation unit and near the registers, just like the regular cache. Also there are multiple levels of them, getting larger and slower each time, just like L1, L2, L3 cache.
+Top level is 64 entries.
 
 Cover better than end of last class/rehash.
 
 ## Page tables large memories
 
-Multi level page tables.
+The top table acesses other tables to get further.
 ___
 
 ## Page Replacement
@@ -66,14 +78,12 @@ It's FIFO but at the last minute you check to see if anyone has bought mustach w
 
 ### Working Set Replacement
 
+Get this.
 Here is where thrashing happens.
 
 ___
 
 ## Segmentation
-
-Very basic summary.
-
 Programs can be:
 * Spread around memory
 * Partially in memory and partially on disk.
@@ -81,4 +91,4 @@ Programs can be:
 > **QUESTION:**
 > Along what lines can the program be split, and what is indivisible?
 
-Answer that.
+Answer that, because that's segmentation too.
