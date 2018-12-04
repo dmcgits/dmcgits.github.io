@@ -78,7 +78,7 @@ It's FIFO but at the last minute you check to see if anyone has bought mustach w
 
 ### Working Set Replacement
 
-Get this.
+Read up on this.
 Here is where thrashing happens.
 
 ___
