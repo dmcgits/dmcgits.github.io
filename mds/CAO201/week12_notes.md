@@ -1,12 +1,37 @@
 #Week 12
 
+## Page Tables
+A page table contains entries for all memory pages.  
+  * like cache entries, page table entries are indexed by a part of the virtual memory address
+  * The rest of the entry gives you the offset into the page where your address lies.
+  * It has a bit for present in memory/absent
+  * It also had info on whether a page has been accessed or modified while in memory (not on disk)
+  * You have no direct way of looking for addresses, you go via the page table for any virtual address.
+
+![vm table entry](assets/week11/vm_table_entry.jpg)
+
+![vm table](assets/week11/vm_table.jpg)
+_The mmu uses the page table index like it uses a cache index.
+
 ## Translation Lookaside Buffer
 
-Cover better than end of last class/rehash.
+If we have to go to the page table for every address, that's slow, since the Page Table is _in memory itself_, meaning two memory hits instead of one every time something isn't in the cache.
 
-## Page tables large memories
+> 1: Go to memory (300 cycles) to access page table
+> 2: Convert to physical address with mmu
+> 3: Go to memory and get your data/instruction(300ish cycles)
 
-Multi level page tables.
+**How do we avoid going to memory usually? With a cache**. We keep the data from a certain amount of addresses. So why isn't there a cache holding some page entries from the page table? 
+
+There is, it just has a weird name **Translation Lookaside Buffer**.
+> * Holds Page Table entries (not data/instructions, that's the cache) 
+> * 1ms access time, lives next to the address translation unit just like the regular cache.  
+> * multiple levels of them, getting larger and slower each time, just like L1, L2, L3 cache.
+> * Top level is 64 entries. Not many given 4K page sizes, but it's enough.
+
+## Page tables for large memories
+
+The top table acesses other tables to get further.
 ___
 
 ## Page Replacement
@@ -81,4 +106,4 @@ Programs can be:
 > **QUESTION:**
 > Along what lines can the program be split, and what is indivisible?
 
-Answer that.
+Answer that, because that's segmentation too.
