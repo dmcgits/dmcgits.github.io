@@ -2,7 +2,10 @@
 
 Welcome, Object Oriented Design, C#
 
-## What is this course?
+## Part 1: Studying 2D Game Programming
+
+
+### What is this course?
 
 Exploring 2D games programming.
 
@@ -12,7 +15,7 @@ Exploring 2D games programming.
 
 ---
 
-## Who are we?
+### Who are we?
 
 **Me:** Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Wayforward L.A., Blowfish studios. Keyboard enthusiast, bits maker.
 
@@ -23,7 +26,7 @@ http://www.artstation.com/dmacdraws/ - game art
 
 ---
 
-## How will we make 2D games?
+### How will we make 2D games?
 
 Two options:
 * Unity engine and C#. In-class choice.
@@ -31,24 +34,35 @@ Two options:
 
 ---
 
-## C++?
+### C++?
 
 * Bigtime game engines are written in C++, C.
 * Fast, low level.
 * ON it's own doesn't offer any game making tools, you'll need a basic multimedia engine like olcConsoleGameEngine.
 * C++ engines outside of the scope of this course, only choose if you're already comfortable with one.
-  
+
+```c++
+int main()
+{
+
+    printf("Battle Royale Game.");
+
+}
+```  
+
 ---
 
-## Unity, C#?
+### Unity, C#?
 
 insert pictures
 
 A full 2D/3D game development IDE with models, sprites, physics, sound, input, c# scripting, cross platform building and more. For free.
 
+![Unity 2D](assets/week1/unity_2d_3_debuggingworld.png)
+
 ---
 
-## Dammit Jim!
+### Dammit Jim!
 
 ![McCoy Old](assets/week1/mccoy_old.jpg)
 _I'm a programmer, not an artist!_
@@ -69,17 +83,34 @@ _I'm an artist, not a programmer!_
 
 ---
 
-## Class and home hours
+### Class and home hours
 
 ---
 
-## Assignments
+### Assignments
 
+3 Assignments.
+The first isn't really a game, it's how to make things that we would have in a game. Then we make them behave like they would in a game.
 * What weeks?
 * What deliverables?
   
-  
-=====
+---
+
+## Part 2: Programming and Unity
+
+> Let's learn by doing. We'll create a unity project, add something to our game, and give it behaviour.
+
+1. Create a new Unity project. 2D.
+2. Add sprites to the game.
+3. Make the sprites do something with a script.
+
+![Fashionable Dudes](assets/week1/fashionable_dudes.png)
+**CUT THESE UP INTO TWO SPRITES**
+**Make a radial gradient bg also**
+
+## So, what is programming?
+
+
 
 SOURCE
 
