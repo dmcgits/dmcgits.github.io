@@ -1,4 +1,4 @@
-# GPR102 Week 1
+# GPR103 Week 1
 
 Welcome, Object Oriented Design, C#
 
@@ -84,6 +84,11 @@ _I'm an artist, not a programmer!_
 ---
 
 ### Class and home hours
+
+> **30%** class hours.
+> **70%** studying, programming, gaining experience. 
+
+The benefit of these courses comes from putting in work between classes. In class I can show you where to direct your efforts. But it'll just be concepts that fall away if you don't work between classes. The work between classes is what turns them into things you can do.
 
 ---
 
