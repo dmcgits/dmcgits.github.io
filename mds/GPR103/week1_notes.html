@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -26,9 +26,7 @@
       <h1 class="mume-header" id="gpr103-week-1">GPR103 Week 1</h1>
 
 <p>Welcome, Object Oriented Design, C#</p>
-<h2 class="mume-header" id="part-1-studying-2d-game-programming">Part 1: Studying 2D Game Programming</h2>
-
-<h3 class="mume-header" id="what-is-this-course">What is this course?</h3>
+<h2 class="mume-header" id="part-1-studying-2d-games-programming">Part 1 - Studying 2D Games Programming</h2>
 
 <p>Exploring 2D games programming.</p>
 <blockquote>
@@ -39,14 +37,14 @@
 </ul>
 </blockquote>
 <hr>
-<h3 class="mume-header" id="who-are-we">Who are we?</h3>
+<h2 class="mume-header" id="who-are-we">Who are we?</h2>
 
 <p><strong>Me:</strong> Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Wayforward L.A., Blowfish studios. Keyboard enthusiast, bits maker.</p>
 <p><a href="https://cargocollective.com/dmac/">https://cargocollective.com/dmac/</a> - advertising<br>
 <a href="http://www.artstation.com/dmacdraws/">http://www.artstation.com/dmacdraws/</a> - game art</p>
 <p><strong>You:</strong> The next makers with long futures.</p>
 <hr>
-<h3 class="mume-header" id="how-will-we-make-2d-games">How will we make 2D games?</h3>
+<h2 class="mume-header" id="how-will-we-make-2d-games">How will we make 2D games?</h2>
 
 <p>Two options:</p>
 <ul>
@@ -54,65 +52,88 @@
 <li>C++ in Visual Studio with an engine. An option for those who have c++ experience and great optimism.</li>
 </ul>
 <hr>
-<h3 class="mume-header" id="c">C++?</h3>
+<h2 class="mume-header" id="c">C++?</h2>
 
 <ul>
 <li>Bigtime game engines are written in C++, C.</li>
 <li>Fast, low level.</li>
-<li>ON it&apos;s own doesn&apos;t offer any game making tools, you&apos;ll need a basic multimedia engine like olcConsoleGameEngine.</li>
-<li>C++ engines outside of the scope of this course, only choose if you&apos;re already comfortable with one.</li>
+<li>ON it&#x2019;s own doesn&#x2019;t offer any game making tools, you&#x2019;ll need a basic multimedia engine like olcConsoleGameEngine.</li>
+<li>Students who choose C++ can use Simple and Fast Multimedia Library (SFML), a library to provide windowing, graphics, audio and networking functionality.</li>
 </ul>
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Battle Royale Game.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Battle Royale Game.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</pre><hr>
-<h3 class="mume-header" id="unity-c">Unity, C#?</h3>
+</pre><p><em>c++ main function</em></p>
+<p><img src="assets/week1/sfml_web.jpg" alt="sfml web"><br>
+SFML tutes and downloads for all platforms - <em><a href="https://www.sfml-dev.org">https://www.sfml-dev.org</a></em></p>
+<hr>
+<h2 class="mume-header" id="unity-c">Unity, C#?</h2>
 
-<p>insert pictures</p>
 <p>A full 2D/3D game development IDE with models, sprites, physics, sound, input, c# scripting, cross platform building and more. For free.</p>
-<p><img src="assets/week1/unity_2d_3_debuggingworld.png" alt="Unity 2D"></p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Battle Royale Game&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><img src="assets/week1/unity_2d_3_debuggingworld.png" alt="Unity 2D"><br>
+<em>Unity engine downloads - <a href="https://unity3d.com/get-unity/download">https://unity3d.com/get-unity/download</a></em></p>
 <hr>
-<h3 class="mume-header" id="dammit-jim">Dammit Jim!</h3>
+<h2 class="mume-header" id="visual-studio-community">Visual Studio Community</h2>
 
-<p><img src="assets/week1/mccoy_old.jpg" alt="McCoy Old"><br>
-<em>I&apos;m a programmer, not an artist!</em></p>
-<ol>
-<li><a href="https://assetstore.unity.com/categories/2d">The asset store!</a></li>
-<li><a href="http://www.artstation.com">The internet!</a> (always ask first)</li>
-<li><a href="http://www.minddesk.com/">Qubicle!</a></li>
-</ol>
-<p><img src="assets/week1/mccoy_new.jpg" alt="McCoy New"><br>
-<em>I&apos;m an artist, not a programmer!</em></p>
-<ul>
-<li>No compiler, command line!</li>
-<li>A lot happens behind the scenes</li>
-<li>All the dirty work has been done</li>
-</ul>
+<p>Regardless of which option you pick, you&#x2019;ll need Microsoft Visual Studio Community. It&#x2019;s the free version of their high end development IDE. Not to be confused with Visual Studio Code, their open source text editor.</p>
+<blockquote>
+<p>Whether you&#x2019;re coding c# for Unity or C++, we&#x2019;ll be using Visual Studio to do it.</p>
+</blockquote>
+<p>Download VS Community 2017 here: <a href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a></p>
 <hr>
-<h3 class="mume-header" id="class-and-home-hours">Class and home hours</h3>
+<h2 class="mume-header" id="dammit-jim-im-a-programmer-not-an-artist">Dammit Jim! I&#x2019;m a programmer, not an artist.</h2>
+
+<p><img src="assets/week1/mccoy_old.jpg" alt="McCoy Old"></p>
+<p>That&#x2019;s okay, we&#x2019;re here to focus on the building of games. The <a href="https://assetstore.unity.com/categories/2d">asset store</a> is full of sprites for people like us.</p>
+<p><img src="assets/week1/asset_store_web.jpg" alt="Asset store"></p>
+<hr>
+<h2 class="mume-header" id="dammit-jim-im-an-artist-not-a-programmer">Dammit Jim! I&#x2019;m an artist, not a programmer!</h2>
+
+<p><img src="assets/week1/mccoy_new.jpg" alt="McCoy New"></p>
+<p>Unity makes programming life a lot easier than starting out in C++.</p>
+<ul>
+<li>No compiler, command line! Very visual.</li>
+<li>Unity&#x2019;s API/engine does most of the dirty work, we just have to order it around.</li>
+<li>Drag and drop used for lots of things you&#x2019;d normally have to manage in code.</li>
+<li>Code can run in the editor each time we save and scripts can be disabled with a check box. Testing becomes much easier.</li>
+</ul>
+<p><img src="assets/week1/script_inspector.png" alt="Script in Inspector"></p>
+<hr>
+<h2 class="mume-header" id="class-and-home-hours">Class and home hours</h2>
 
 <blockquote>
 <p><strong>30%</strong> class hours.<br>
 <strong>70%</strong> studying, programming, gaining experience.</p>
 </blockquote>
-<p>The benefit of these courses comes from putting in work between classes. In class I can show you where to direct your efforts. But it&apos;ll just be concepts that fall away if you don&apos;t work between classes. The work between classes is what turns them into things you can do.</p>
+<p>The benefit of these courses comes from putting in work between classes. In class I can show you where to direct your efforts. But it&#x2019;ll just be concepts that fall away if you don&#x2019;t work between classes. The work between classes is what turns them into things you can do.</p>
 <hr>
-<h3 class="mume-header" id="assignments">Assignments</h3>
+<h2 class="mume-header" id="assessments">Assessments</h2>
 
-<p>3 Assignments.<br>
-The first isn&apos;t really a game, it&apos;s how to make things that we would have in a game. Then we make them behave like they would in a game.</p>
-<ul>
-<li>What weeks?</li>
-<li>What deliverables?</li>
-</ul>
+<p><img src="assets/week1/assess_web.jpg" alt="Assessments On Blackboard"><br>
+<em>Assessments as shown on Blackboard</em></p>
+<h3 class="mume-header" id="assessment-1-programming-exercises">Assessment 1 - Programming Exercises</h3>
+
+<p>3 programming challenges completed during the first 2 modules (first 4 weeks). Topics are <em>encapsulation</em>, <em>polymorphism</em> and <em>engine calls</em>. <strong>Due end of week 5</strong></p>
+<h3 class="mume-header" id="assessment-2-character-customiser">Assessment 2 - Character Customiser</h3>
+
+<p>You will develop a single module for a theoretical game. The character customiser lets you change appearance and stats. <strong>Due end of week 8</strong></p>
+<p><img src="assets/week1/customiser_eg.jpg" alt="Example 2D Character Customiser"><br>
+<em>An example 2D character customiser</em></p>
+<h3 class="mume-header" id="assessment-3-missile-command">Assessment 3 - Missile Command</h3>
+
+<p>You&#x2019;ll be making a whole game: a clone of arcade classic, Missile Command.</p>
+<p><img src="assets/week1/missile_command.png" alt="Missile Command"><br>
+<em>Missile command screenshot - for gameplay description see <a href="https://en.wikipedia.org/wiki/Missile_Command#Gameplay">wikipedia</a></em></p>
 <hr>
 <h2 class="mume-header" id="part-2-programming-and-unity">Part 2: Programming and Unity</h2>
 
 <blockquote>
-<p>Let&apos;s learn by doing. We&apos;ll create a unity project, add something to our game, and give it behaviour.</p>
+<p>Let&#x2019;s learn by doing. We&#x2019;ll create a unity project, add something to our game, and give it behaviour.</p>
 </blockquote>
 <ol>
 <li>Create a new Unity project. 2D.</li>

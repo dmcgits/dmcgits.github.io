@@ -2,10 +2,7 @@
 
 Welcome, Object Oriented Design, C#
 
-## Part 1: Studying 2D Game Programming
-
-
-### What is this course?
+## Part 1 - Studying 2D Games Programming
 
 Exploring 2D games programming.
 
@@ -15,7 +12,7 @@ Exploring 2D games programming.
 
 ---
 
-### Who are we?
+## Who are we?
 
 **Me:** Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Wayforward L.A., Blowfish studios. Keyboard enthusiast, bits maker.
 
@@ -26,7 +23,7 @@ http://www.artstation.com/dmacdraws/ - game art
 
 ---
 
-### How will we make 2D games?
+## How will we make 2D games?
 
 Two options:
 * Unity engine and C#. In-class choice.
@@ -34,56 +31,79 @@ Two options:
 
 ---
 
-### C++?
+## C++?
 
 * Bigtime game engines are written in C++, C.
 * Fast, low level.
 * ON it's own doesn't offer any game making tools, you'll need a basic multimedia engine like olcConsoleGameEngine.
-* C++ engines outside of the scope of this course, only choose if you're already comfortable with one.
+* Students who choose C++ can use Simple and Fast Multimedia Library (SFML), a library to provide windowing, graphics, audio and networking functionality.
 
 ```c++
 int main()
 {
-
-    printf("Battle Royale Game.");
-
+    cout << "Battle Royale Game." << endl;
 }
 ```  
+_c++ main function_
+
+![sfml web](assets/week1/sfml_web.jpg)
+SFML tutes and downloads for all platforms - _https://www.sfml-dev.org_
 
 ---
 
-### Unity, C#?
-
-insert pictures
+## Unity, C#?
 
 A full 2D/3D game development IDE with models, sprites, physics, sound, input, c# scripting, cross platform building and more. For free.
 
+```c
+void Start()
+{
+    Debug.Log("Battle Royale Game");
+}
+```
+
 ![Unity 2D](assets/week1/unity_2d_3_debuggingworld.png)
+_Unity engine downloads - https://unity3d.com/get-unity/download_
 
 ---
 
-### Dammit Jim!
+## Visual Studio Community
+
+Regardless of which option you pick, you'll need Microsoft Visual Studio Community. It's the free version of their high end development IDE. Not to be confused with Visual Studio Code, their open source text editor.
+
+>Whether you're coding c# for Unity or C++, we'll be using Visual Studio to do it.
+
+Download VS Community 2017 here: https://visualstudio.microsoft.com/downloads/
+
+___
+
+## Dammit Jim! I'm a programmer, not an artist.
 
 ![McCoy Old](assets/week1/mccoy_old.jpg)
-_I'm a programmer, not an artist!_
-
-1. [The asset store!](https://assetstore.unity.com/categories/2d)
-2. [The internet!](http://www.artstation.com) (always ask first)
-3. [Qubicle!](http://www.minddesk.com/)
 
 
-   
+That's okay, we're here to focus on the building of games. The [asset store](https://assetstore.unity.com/categories/2d) is full of sprites for people like us.
+
+![Asset store](assets/week1/asset_store_web.jpg)
+
+___
+
+## Dammit Jim! I'm an artist, not a programmer!
+ 
 ![McCoy New](assets/week1/mccoy_new.jpg)
-_I'm an artist, not a programmer!_
 
-* No compiler, command line!
-* A lot happens behind the scenes
-* All the dirty work has been done
+Unity makes programming life a lot easier than starting out in C++.
 
+* No compiler, command line! Very visual.
+* Unity's API/engine does most of the dirty work, we just have to order it around.
+* Drag and drop used for lots of things you'd normally have to manage in code.
+* Code can run in the editor each time we save and scripts can be disabled with a check box. Testing becomes much easier.
+
+![Script in Inspector](assets/week1/script_inspector.png)
 
 ---
 
-### Class and home hours
+## Class and home hours
 
 > **30%** class hours.
 > **70%** studying, programming, gaining experience. 
@@ -92,13 +112,28 @@ The benefit of these courses comes from putting in work between classes. In clas
 
 ---
 
-### Assignments
+## Assessments
 
-3 Assignments.
-The first isn't really a game, it's how to make things that we would have in a game. Then we make them behave like they would in a game.
-* What weeks?
-* What deliverables?
-  
+![Assessments On Blackboard](assets/week1/assess_web.jpg)
+_Assessments as shown on Blackboard_
+
+### Assessment 1 - Programming Exercises
+3 programming challenges completed during the first 2 modules (first 4 weeks). Topics are _encapsulation_, _polymorphism_ and _engine calls_. **Due end of week 5**
+
+### Assessment 2 - Character Customiser
+
+You will develop a single module for a theoretical game. The character customiser lets you change appearance and stats. **Due end of week 8**
+
+![Example 2D Character Customiser](assets/week1/customiser_eg.jpg)
+_An example 2D character customiser_
+
+### Assessment 3 - Missile Command
+
+You'll be making a whole game: a clone of arcade classic, Missile Command. 
+
+![Missile Command](assets/week1/missile_command.png)
+_Missile command screenshot - for gameplay description see [wikipedia](https://en.wikipedia.org/wiki/Missile_Command#Gameplay)_
+
 ---
 
 ## Part 2: Programming and Unity
@@ -114,8 +149,6 @@ The first isn't really a game, it's how to make things that we would have in a g
 **Make a radial gradient bg also**
 
 ## So, what is programming?
-
-
 
 SOURCE
 
