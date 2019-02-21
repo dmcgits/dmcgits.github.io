@@ -112,22 +112,50 @@ The benefit of these courses comes from putting in work between classes. In clas
 
 ---
 
+## Blackboard is your friend
+
+Blackboard is where you find assignment briefs, due dates, slides, programming tutes/samples and much more. 
+
+> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below practising the skills between classes.
+
+![Subject overview](assets/week1/subject_overview.png)
+_Grab the subject outline and subject planner_
+
+![Module intro](assets/week1/module_overview.jpg)
+_Every subject has modules in the left menu. Click one for important info_
+
+![Module learning resources](assets/week1/module_resources.jpg)
+_The blue button, top of screen, takes you to more info and resources. Don't skip the learning resources_
+
+---
+
+## My notes are your friend
+
+The original course notes are in powerpoint, and available from the module pages in Blackboard. I write up new ones (like the one you're reading) for most lessons and post them on Git. The url pattern is:
+
+https://dmcgits.github.io/mds/GPR103/week1_notes.html
+
+> If I post an announcement before class I will often post an html notes link.
+
+___
+
 ## Assessments
 
 ![Assessments On Blackboard](assets/week1/assess_web.jpg)
 _Assessments as shown on Blackboard_
 
-### Assessment 1 - Programming Exercises
+
+## Assessment 1 - Programming Exercises
 3 programming challenges completed during the first 2 modules (first 4 weeks). Topics are _encapsulation_, _polymorphism_ and _engine calls_. **Due end of week 5**
 
-### Assessment 2 - Character Customiser
+## Assessment 2 - Character Customiser
 
 You will develop a single module for a theoretical game. The character customiser lets you change appearance and stats. **Due end of week 8**
 
 ![Example 2D Character Customiser](assets/week1/customiser_eg.jpg)
 _An example 2D character customiser_
 
-### Assessment 3 - Missile Command
+## Assessment 3 - Missile Command
 
 You'll be making a whole game: a clone of arcade classic, Missile Command. 
 
@@ -140,8 +168,31 @@ _Missile command screenshot - for gameplay description see [wikipedia](https://e
 
 > Let's learn by doing. We'll create a unity project, add something to our game, and give it behaviour.
 
-**have students sign up to asset store and unity before class**
+## Installing Unity 
 
+1. Head over to https://unity3d.com/get-unity/download and download the Unity Hub, then install it. 
+2. Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to 2018.2.20f1
+![Unity Hub Install 2018.2.2](assets/week1/unity_hub_install_22.png)
+_Download button is missing because I've installed it already_
+3. When it the Add Components window appears make sure documentation is checked, click the "Done" button and wait for it to install.
+
+---
+
+## Installing Visual Studio
+
+If you already have Visual Studio for other development (eg C++) search for and run the Visual Studio Installer, then skip step 1. Otherwise:
+
+1. Go to https://visualstudio.microsoft.com/downloads/ and, under "community", click Free Download.
+![Visual Studio Download](assets/week1/visual_studio_install.png)
+2. When it asks you what languages you want to install, select Unity. 
+
+---
+
+## Sign up to the Unity Asset Store
+
+---
+
+## Tute
 1. Create a new Unity project. 2D.
 2. Add sprites to the game.
 3. Make the sprites do something with a script.
