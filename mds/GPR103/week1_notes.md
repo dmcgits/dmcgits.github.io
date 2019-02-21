@@ -7,28 +7,28 @@ Welcome, Object Oriented Design, C#
 
 <!-- code_chunk_output -->
 
-- [GPR103 Week 1](#gpr103-week-1)
-  - [Part 1 - Studying 2D Games Programming](#part-1---studying-2d-games-programming)
-  - [Who are we?](#who-are-we)
-  - [How will we make 2D games?](#how-will-we-make-2d-games)
-    - [C++?](#c)
-    - [Unity, C#?](#unity-c)
-    - [Visual Studio Community](#visual-studio-community)
-  - [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
-  - [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
-  - [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
-    - [Blackboard is your friend](#blackboard-is-your-friend)
-    - [My notes are your friends](#my-notes-are-your-friends)
-  - [Assessments](#assessments)
-    - [Assessment 1 - Programming Exercises](#assessment-1---programming-exercises)
-    - [Assessment 2 - Character Customiser](#assessment-2---character-customiser)
-    - [Assessment 3 - Missile Command](#assessment-3---missile-command)
-  - [Part 2: Programming and Unity](#part-2-programming-and-unity)
-    - [Installing Unity](#installing-unity)
-    - [Installing Visual Studio](#installing-visual-studio)
-  - [Sign up to the Unity Asset Store](#sign-up-to-the-unity-asset-store)
-  - [Tute](#tute)
-  - [So, what is programming?](#so-what-is-programming)
+* [GPR103 Week 1](#gpr103-week-1)
+	* [Part 1 - Studying 2D Games Programming](#part-1-studying-2d-games-programming)
+	* [Who are we?](#who-are-we)
+	* [How will we make 2D games?](#how-will-we-make-2d-games)
+		* [C++?](#c)
+		* [Unity, C#?](#unity-c)
+		* [Visual Studio Community](#visual-studio-community)
+	* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
+	* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
+	* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+		* [Blackboard is your friend](#blackboard-is-your-friend)
+		* [My notes are your friends](#my-notes-are-your-friends)
+	* [Assessments](#assessments)
+		* [Assessment 1 - Programming Exercises](#assessment-1-programming-exercises)
+		* [Assessment 2 - Character Customiser](#assessment-2-character-customiser)
+		* [Assessment 3 - Missile Command](#assessment-3-missile-command)
+	* [Part 2: Programming and Unity](#part-2-programming-and-unity)
+		* [Installing Unity](#installing-unity)
+		* [Installing Visual Studio](#installing-visual-studio)
+	* [Sign up to the Unity Asset Store](#sign-up-to-the-unity-asset-store)
+	* [Tute](#tute)
+	* [So, what is programming?](#so-what-is-programming)
 
 <!-- /code_chunk_output -->
 
@@ -37,8 +37,10 @@ Welcome, Object Oriented Design, C#
 Exploring 2D games programming.
 
 > * Core concepts of game programming
-> * `C++` or `Unity c#`
-> * You should have basic programming, but there will be revision revision, and `c#` is much more welcoming than `c++`
+> * Structuring a project
+> * `C++` or `Unity c#` options
+> * Required knowledge: you should have basic programming knowledge and have written code in an object oriented language. 
+> The good news is, if you struggled with `C++`, you'll find `c#` much more welcoming.
 
 ---
 
