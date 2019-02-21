@@ -26,9 +26,7 @@ Welcome, Object Oriented Design, C#
 	* [Part 2: Programming and Unity](#part-2-programming-and-unity)
 		* [Installing Unity](#installing-unity)
 		* [Installing Visual Studio](#installing-visual-studio)
-	* [Sign up to the Unity Asset Store](#sign-up-to-the-unity-asset-store)
-	* [Tute](#tute)
-	* [So, what is programming?](#so-what-is-programming)
+	* [Hello world.](#hello-world)
 
 <!-- /code_chunk_output -->
 
@@ -46,7 +44,7 @@ Exploring 2D games programming.
 
 ## Who are we?
 
-**Me:** Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Wayforward L.A., Blowfish studios. Keyboard enthusiast, bits maker.
+**Me:** Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Blowfish studios. Keyboard enthusiast, bits maker.
 
 https://cargocollective.com/dmac/ - advertising
 http://www.artstation.com/dmacdraws/ - game art
@@ -58,25 +56,25 @@ http://www.artstation.com/dmacdraws/ - game art
 ## How will we make 2D games?
 
 Two options:
-* Unity engine and C#. In-class choice.
-* C++ in Visual Studio with an engine. An option for those who have c++ experience and great optimism.
+* Unity engine and _C#_. This is what I'll teach in class.
+* _C++_ in Visual Studio with an _SFML_. An option for those who have c++ experience and great optimism.
 
 ---
 
 ### C++?
 
-* Bigtime game engines are written in C++, C.
+* Big-time game engines are written in _C++_, _C_.
 * Fast, low level.
-* ON it's own doesn't offer any game making tools, you'll need a basic multimedia engine like olcConsoleGameEngine.
-* Students who choose C++ can use Simple and Fast Multimedia Library (SFML), a library to provide windowing, graphics, audio and networking functionality.
+* No game making tools by default.
+* You can use _Simple and Fast Multimedia Library (SFML)_, a library to provide windowing, graphics, audio and networking functionality.
 
 ```c++
+// c++ main function
 int main()
 {
     cout << "Battle Royale Game." << endl;
 }
-```  
-_c++ main function_
+```
 
 ![sfml web](assets/week1/sfml_web.jpg)
 SFML tutes and downloads for all platforms - _https://www.sfml-dev.org_
@@ -88,6 +86,7 @@ SFML tutes and downloads for all platforms - _https://www.sfml-dev.org_
 A full 2D/3D game development IDE with models, sprites, physics, sound, input, c# scripting, cross platform building and more. For free.
 
 ```c
+// Unity Start function
 void Start()
 {
     Debug.Log("Battle Royale Game");
@@ -95,17 +94,14 @@ void Start()
 ```
 
 ![Unity 2D](assets/week1/unity_2d_3_debuggingworld.png)
-_Unity engine downloads - https://unity3d.com/get-unity/download_
+_Unity IDE_
 
 ---
 
 ### Visual Studio Community
 
-Regardless of which option you pick, you'll need Microsoft Visual Studio Community. It's the free version of their high end development IDE. Not to be confused with Visual Studio Code, their open source text editor.
+Either way, you'll need Microsoft Visual Studio Community. Not to be confused with Visual Studio Code.
 
->Whether you're coding c# for Unity or C++, we'll be using Visual Studio to do it.
-
-Download VS Community 2017 here: https://visualstudio.microsoft.com/downloads/
 
 ___
 
@@ -140,13 +136,13 @@ Unity makes programming life a lot easier than starting out in C++.
 > **30%** class hours.
 > **70%** studying, programming, gaining experience. 
 
-The benefit of these courses comes from putting in work between classes. In class I can show you where to direct your efforts. But it'll just be concepts that fall away if you don't work between classes. The work between classes is what turns them into things you can do.
+The benefit of these courses comes from putting in work between classes. What we learn in class won't stick if you don't work and experiment at home.
 
 ### Blackboard is your friend
 
-Blackboard is where you find assignment briefs, due dates, slides, programming tutes/samples and much more. 
+Find assignment briefs, due dates, slides, programming tutes/samples and much more. 
 
-> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below practising the skills between classes.
+> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below coding at home.
 
 ![Subject overview](assets/week1/subject_overview.png)
 _Grab the subject outline and subject planner_
@@ -185,7 +181,7 @@ _An example 2D character customiser_
 
 ### Assessment 3 - Missile Command
 
-You'll be making a whole game: a clone of arcade classic, Missile Command. 
+You'll be making a whole game: a clone of arcade classic, Missile Command. **Due end of week 12**
 
 ![Missile Command](assets/week1/missile_command.png)
 _Missile command screenshot - for gameplay description see [wikipedia](https://en.wikipedia.org/wiki/Missile_Command#Gameplay)_
@@ -215,38 +211,14 @@ If you already have Visual Studio: search for and run the Visual Studio Installe
 
 ---
 
-## Sign up to the Unity Asset Store
+## Hello world.
 
----
-
-## Tute
-1. Create a new Unity project. 2D.
-2. Add sprites to the game.
-3. Make the sprites do something with a script.
-
-
-**CUT THESE UP INTO TWO SPRITES**
-**Make a radial gradient bg also**
-
-## So, what is programming?
-
-SOURCE
-
-* What is this course teaching?
-* Who am I?
-* Who are you?
-* What is unity? C#? C++?
-  * Did any of you know those things
-* What are 2D games?
-* What assignments will there be? What language?
-* How much will assignments be in class vs at home?
-* How can we check assignment/course info ourselves or ask for help (blackboard review)
-* How does the class load work (i am with your for 3 hrs and you are expected to do at least 7 hours follow up to understand and practise what we learned, and to read through next week’s lecture slides).
-
-* Oo programming review
-* Unity + visual studio or code intro/review
-* C++ visual studio review
-* How unity composition differs from object oriented code.
-* I won’t be teaching how to do composition in c++, but i can answer c++ language questions. If you find a technique or guide for composition/decorator we can chat. 
-
-* Do i need to be a 2d artist? Asset store!
+* Create a new 2D project
+* Drop in a cube, add a script.
+* Log hello world, I am cube.
+* Add a collider, log hello world on click.
+* Add a sphere, with a collider, add a script.
+* Give sphere a public variable cube.
+* Have sphere pass call a function on cube.
+* Cube says "hello world, she is sphere."
+* Have her pass a string to reduce coupling.
