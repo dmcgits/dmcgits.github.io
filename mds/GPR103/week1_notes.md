@@ -140,11 +140,13 @@ _Missile command screenshot - for gameplay description see [wikipedia](https://e
 
 > Let's learn by doing. We'll create a unity project, add something to our game, and give it behaviour.
 
+**have students sign up to asset store and unity before class**
+
 1. Create a new Unity project. 2D.
 2. Add sprites to the game.
 3. Make the sprites do something with a script.
 
-![Fashionable Dudes](assets/week1/fashionable_dudes.png)
+
 **CUT THESE UP INTO TWO SPRITES**
 **Make a radial gradient bg also**
 
