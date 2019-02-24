@@ -102,14 +102,20 @@
     
 end program I_SPILLED_COFFEE
 </code></pre><p>We can all understand a program written like this. It&#x2019;s a situation, based on some information we received from our eyes and maybe wet our hand. Then we check a few things, and based on those we acted. In one case we did something over and over till it worked.</p>
-<p>Writing a program like this is writing in <strong>psuedocode</strong>. Psuedo as in &#x201C;kinda&#x201D;. It&#x2019;s kinda code, but not specific. Why did I write that instead of some <em>C++</em>? Well, here are programming languages that can <em>github</em> can hilight for you:<br>
+<p>Writing a program like this is writing in <strong>psuedocode</strong>. Psuedo as in &#x201C;kinda&#x201D;. It&#x2019;s kinda code, but not specific.</p>
+<h3 class="mume-header" id="why-not-just-write-it-in-c">Why not just write it in c++?</h3>
+
+<p>Well, here are programming languages that can <em>github</em> can hilight for you:<br>
 <a href="https://github.com/github/linguist/blob/master/vendor/README.md">https://github.com/github/linguist/blob/master/vendor/README.md</a></p>
-<p>An awful lot of these are very different too, and all for their own historic reasons. But:</p>
+<p>&#x2026; and a lot of them are very different. Which one is the way to teach problem solving? Trick question.</p>
 <blockquote>
-<p>Code is us telling the computer how to handle situations. It&#x2019;s written for computers to understand, so there are lots of bits that work our brains hard when we read it.</p>
+<p>Code is us telling the computer how we want it to handle situations. It&#x2019;s designed for computers to understand, and our brain works hard when we read and write it. Abstract problem solving is really hard too - why do both at the same time?</p>
 </blockquote>
-<p>The sensible thing to do first is to think about the problem we want solved, in a way which is easy for us to think about.</p>
-<p><strong>Whitespace</strong> really helps us understand things, that&#x2019;s most of what we need.</p>
+<p>We don&#x2019;t need to start coding right away. We can solve some of the problem first, and then tell the computer when we&#x2019;re done.</p>
+<h3 class="mume-header" id="whitespace">Whitespace</h3>
+
+<p>Why did I tab out a lot? <strong>Whitespace</strong> really helps us understand things, more than just adding more characters.</p>
+<p><img src="assets/week1/whitespace_matters.png" alt="whitespace"></p>
 <hr>
 <h2 class="mume-header" id="problem-solving-tools">Problem solving tools</h2>
 
@@ -142,13 +148,13 @@ end program I_SPILLED_COFFEE
 <hr>
 <h2 class="mume-header" id="doing-it-for-real">Doing it for real</h2>
 
-<p>Our situation is waking up, our problem is: how should I face the world? Solution? I&#x2019;m going to greet it.</p>
+<p>Our situation is waking up, our problem is: how should I face the world? Solution? I&#x2019;m going to greet it. Our <em>psuedocode</em>:</p>
 <pre data-role="codeBlock" data-info="" class="language-"><code>start program I_WAKE_UP
     
     Say hello to the world.
 
-end program
-</code></pre><p>Our <code>c++</code> solution:</p>
+end program I_WAKE_UP
+</code></pre><p>Our <em>c++</em> code for that solution:</p>
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -156,6 +162,61 @@ end program
 
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hello world!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+</pre><p>Even something this brief is less clear in code, so make your life easy.</p>
+<hr>
+<h3 class="mume-header" id="blocks-and-ending-a-line-of-code">Blocks {} and ending a line of code ;</h3>
+
+<p>The <em>C++</em> compiler mostly doesn&#x2019;t think about whitespace like us. Some languages do, but not <em>C++</em>. It would actually be happy with this:</p>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span> <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hello world!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</pre><p>&#x2026;but we would be very sad. Thankfully, it&#x2019;s pretty easy to translate our thinking.</p>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// We use the curly braces { } to define a block of code that should be grouped together. This includes all the code inside the main() function.</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// all your code here</span>
+<span class="token punctuation">}</span>
+</pre><hr>
+<h3 class="mume-header" id="what-is-using-namespace">What is <code>using namespace</code></h3>
+
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+</pre><p>This lets us use code written by other people without having to put a path before it. <code>cout</code>, <code>endl</code> are in the <em>c++</em> standard library, so&#x2026;</p>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp">    <span class="token comment">// without &quot;using namespace std&quot; our hello world action would look like this:</span>
+
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hello world!&quot;</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>   <span class="token comment">// gross</span>
+</pre><h3 class="mume-header" id="c-comments">C++ Comments</h3>
+
+<blockquote>
+<p>There is only so much you can work out from reading someone else&#x2019;s code. Even in written English, sometimes an author sometimes adds footnotes. Code, being more cryptic, needs more.</p>
+</blockquote>
+<p>Especially if the coder made mistakes. That&#x2019;s why we use comments.</p>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp">    <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+    <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+    
+    <span class="token comment">// Anything written on one line after a double slash is ignored by the compiler</span>
+    
+    <span class="token comment">/* 
+    Anything written between these two slash and star symbols
+    will be a comment over two lines. We can comment out whole blocks of code this way during testing
+    */</span>
+
+    <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>    
+        <span class="token comment">// Here&apos;s a variable to store the user&apos;s first name </span>
+        String firstName <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// cout will output information to the user</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Enter your first name: &quot;</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/* cin will wait for the user to type a word and press enter, then
+            assign the result to a variable after the &gt;&gt; symbol. */</span>
+        cin <span class="token operator">&gt;&gt;</span> firstname<span class="token punctuation">;</span>
+
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hello &quot;</span> <span class="token operator">&lt;&lt;</span> firstName <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
 </pre>
       </div>
       
