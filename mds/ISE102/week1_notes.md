@@ -134,3 +134,35 @@ We have a **program** to handle the situation **I spilled my coffee**. It has:
 * **Actions** (Things that we do in response to the check results)
 * **Loops** (A combination of a check and some things to do, repeated)
 * **A Beginning And End**
+
+### This is the key to coding.
+
+> _Coding is problem solving_. This means dissecting the problem and creatively solving it. The syntax is just a way of communicating that solution to the computer, and you'll use multiple languages/syntaxes through your career.
+
+---
+
+## Doing it for real
+
+Our situation is waking up, our problem is: how should I face the world? Solution? I'm going to greet it.
+
+```
+start program I_WAKE_UP
+    
+    Say hello to the world.
+
+end program
+```
+
+Our ```c++``` solution:
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    cout << "Hello world!" << endl;
+}
+```
+
+
