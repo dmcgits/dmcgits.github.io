@@ -90,16 +90,24 @@ end program I_SPILLED_COFFEE
 
 We can all understand a program written like this. It's a situation, based on some information we received from our eyes and maybe wet our hand. Then we check a few things, and based on those we acted. In one case we did something over and over till it worked.
 
-Writing a program like this is writing in **psuedocode**. Psuedo as in "kinda". It's kinda code, but not specific. Why did I write that instead of some _C++_? Well, here are programming languages that can _github_ can hilight for you:
+Writing a program like this is writing in **psuedocode**. Psuedo as in "kinda". It's kinda code, but not specific. 
+
+### Why not just write it in c++?
+
+Well, here are programming languages that can _github_ can hilight for you:
  [https://github.com/github/linguist/blob/master/vendor/README.md](https://github.com/github/linguist/blob/master/vendor/README.md)
 
-An awful lot of these are very different too, and all for their own historic reasons. But:
+.. and a lot of them are very different. Which one is the way to teach problem solving? Trick question.
 
-> Code is us telling the computer how to handle situations. It's written for computers to understand, so there are lots of bits that work our brains hard when we read it. 
+> Code is us telling the computer how we want it to handle situations. It's designed for computers to understand, and our brain works hard when we read and write it. Abstract problem solving is really hard too - why do both at the same time?
 
-The sensible thing to do first is to think about the problem we want solved, in a way which is easy for us to think about.
+We don't need to start coding right away. We can solve some of the problem first, and then tell the computer when we're done.
 
-**Whitespace** really helps us understand things, that's most of what we need.
+### Whitespace
+
+Why did I tab out a lot? **Whitespace** really helps us understand things, more than just adding more characters.
+
+![whitespace](assets/week1/whitespace_matters.png)
 
 ---
 
@@ -143,17 +151,17 @@ We have a **program** to handle the situation **I spilled my coffee**. It has:
 
 ## Doing it for real
 
-Our situation is waking up, our problem is: how should I face the world? Solution? I'm going to greet it.
+Our situation is waking up, our problem is: how should I face the world? Solution? I'm going to greet it. Our _psuedocode_:
 
 ```
 start program I_WAKE_UP
     
     Say hello to the world.
 
-end program
+end program I_WAKE_UP
 ```
 
-Our ```c++``` solution:
+Our _c++_ code for that solution:
 
 ```c++
 #include <iostream>
@@ -165,4 +173,78 @@ int main() {
 }
 ```
 
+Even something this brief is less clear in code, so make your life easy.
+
+---
+
+### Blocks {} and ending a line of code ;
+
+The _C++_ compiler mostly doesn't think about whitespace like us. Some languages do, but not _C++_. It would actually be happy with this:
+
+```c++
+#include <iostream>
+using namespace std; int main() { cout << "Hello world!" << endl; }
+```
+
+..but we would be very sad. Thankfully, it's pretty easy to translate our thinking.
+
+```c++
+// We use the curly braces { } to define a block of code that should be grouped together. This includes all the code inside the main() function.
+
+int main() {
+    // all your code here
+}
+```
+---
+
+### What is `using namespace`
+
+```c++
+using namespace std;
+```
+
+This lets us use code written by other people without having to put a path before it. `cout`, `endl` are in the _c++_ standard library, so..
+
+```c++
+    // without "using namespace std" our hello world action would look like this:
+
+    std::cout << "Hello world!" << std::endl;   // gross
+```
+
+### C++ Comments
+
+> There is only so much you can work out from reading someone else's code. Even in written English, sometimes an author sometimes adds footnotes. Code, being more cryptic, needs more.
+
+Especially if the coder made mistakes. That's why we use comments.
+
+```c++
+    #include <iostream>
+    #include <string>
+    
+    // Anything written on one line after a double slash is ignored by the compiler
+    
+    /* 
+    Anything written between these two slash and star symbols
+    will be a comment over two lines. We can comment out whole blocks of code this way during testing
+    */
+
+    using namespace std;
+
+    int main()
+    {    
+        // Here's a variable to store the user's first name 
+        String firstName = "";
+
+        // cout will output information to the user
+        cout << "Enter your first name: ";
+
+        /* cin will wait for the user to type a word and press enter, then
+            assign the result to a variable after the >> symbol. */
+        cin >> firstname;
+
+        cout << "Hello " << firstName << endl;
+
+    }
+
+```
 
