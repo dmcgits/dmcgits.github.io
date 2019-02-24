@@ -14,7 +14,7 @@ Learning about programming through _C++_.
 
 **Me:** Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Blowfish studios. Keyboard enthusiast, bits maker.
 
-https://cargocollective.com/dmac/ - advertising
+https://cargocollective.com/dmac/ - Flash/Unity 
 http://www.artstation.com/dmacdraws/ - game art
 
 **You:** The next makers with long futures.
@@ -25,10 +25,11 @@ http://www.artstation.com/dmacdraws/ - game art
 
 * Made on top of _C_ in the 80s. 
 * C written for computer scientists to compile cross platform.
-* Big-time game engines are written in _C++_, _C_.
-* Fast, low level.
+* Big-time game engines, operating systems, your windows apps are written in _C++_, _C_. Planes and satellites and freight ships. Maybe power stations and bridges too.
+* Fast, low level aka "close to the metal"
 * No game making tools by default.
 * There is free code out there in "libraries" that can help us when it comes to drawing graphics.
+* It's what's called an Object Oriented language. C was procedural.
 
 ```c++
 // c++ main function
@@ -38,22 +39,68 @@ int main()
 }
 ```
 
+![Bjarne](assets/week1/bjarne.jpg)
+_Bjarne Stroustrup: legend_
+
 ---
 
 ## How can we succeed learning c++ in this class?
 
-Hour splits
 
-### Blackboard
+## Hour splits and thriving in 2D Games Programming
 
-### Resources/notes
+> **30%** class hours.
+> **70%** studying, programming, gaining experience. 
+
+The benefit of these courses comes from putting in work between classes. What we learn in class won't stick if you don't work and experiment at home.
+
+### Blackboard is your friend
+
+Find assignment briefs, due dates, slides, programming tutes/samples and much more. The screenshots are from GPR103 but the structure is cross-subject.
+
+> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below coding at home.
+
+![Subject overview](assets/week1/subject_overview.png)
+_Grab the subject outline and subject planner_
+
+![Module intro](assets/week1/module_overview.jpg)
+_Every subject has modules in the left menu. Click one for important info_
+
+![Module learning resources](assets/week1/module_resources.jpg)
+_The blue button, top of screen, takes you to more info and resources. Don't skip the learning resources_
+
+### My notes are your friends
+
+The original course notes are in powerpoint, and available from the module pages in Blackboard. I write up new ones (like the one you're reading) for most lessons and post them on Git. The url pattern is:
+
+https://dmcgits.github.io/mds/ISE102/week1_notes.html
+
+> If I post an announcement before class I will often post an html notes link.
 
 ## Assessments
 
+3 Assessments. It'll require a solid effort at all 3 to pass. 
+
 ### Assessment 1
 
+Text based slot machine
 
-## Handling situations
+### Assessment 2
+
+Exam covering material from mostly first 2 modules (first 4 weeks)
+
+### Assessment 3
+
+Snake game with ascii graphics.
+
+![Snake](assets/week1/snake.png)
+_Yes that snake game_
+
+___
+
+## Part 2: Programmings is handling situations
+
+![Handle business](assets/week1/handle_business.jpg)
 
 Programming is usually defined around computers and compiling and so on. But really, that's the implementation. We'll get to that, but we'll have a much easier time if we've thought first about what programming really is: 
 
@@ -145,11 +192,30 @@ We have a **program** to handle the situation **I spilled my coffee**. It has:
 
 ### This is the key to coding.
 
-> _Coding is problem solving_. This means dissecting the problem and creatively solving it. The syntax is just a way of communicating that solution to the computer, and you'll use multiple languages/syntaxes through your career.
+The problem solving tools above are common across programming languages.
+
+> _Coding is, first, problem solving_. This means dissecting the problem and creatively solving it. The syntax is just a way of communicating that solution to the computer, and you'll use multiple languages/syntaxes through your career.
 
 ---
 
-## Doing it for real
+## From pseudocode to source code
+
+Like all languages, a programming language has
+> Vocabulary -> Keywords
+> Grammar -> Syntax
+> A file with syntax and keywords in it contains.. source code! 
+
+Keywords are words that have a special meaning to the compiler, like `int` and `using`. Wikipedia defines syntax for us:
+> the syntax of a computer language is the set of rules that defines the combinations of symbols that [make a working program]
+
+Good news is, once you've learned a language it's not nearly as hard to switch as the spoken ones:
+
+> There are only 73 special or reserved words in C++
+>There are on average 20,000 words a native English speaker uses.
+
+---
+
+## Hello world
 
 Our situation is waking up, our problem is: how should I face the world? Solution? I'm going to greet it. Our _psuedocode_:
 
@@ -186,7 +252,7 @@ The _C++_ compiler mostly doesn't think about whitespace like us. Some languages
 using namespace std; int main() { cout << "Hello world!" << endl; }
 ```
 
-..but we would be very sad. Thankfully, it's pretty easy to translate our thinking.
+..but we would be very sad. Thankfully, the _c++_ syntax for blocks and lines of code is pretty easy 
 
 ```c++
 // We use the curly braces { } to define a block of code that should be grouped together. This includes all the code inside the main() function.
@@ -195,6 +261,14 @@ int main() {
     // all your code here
 }
 ```
+So use tabs, enter and space to make your code clear, and always remember `;` to end your lines.
+```c++
+    // When c++ finds a semi colon, that's a finished line of code.
+    int ageOfBarry = 47;
+
+    cout << "Barry's age is" << ageOfBarry << endl;
+```
+
 ---
 
 ### What is `using namespace`
@@ -247,4 +321,20 @@ Especially if the coder made mistakes. That's why we use comments.
     }
 
 ```
+
+## Compiling source code into an exe
+
+![Compiler flow](assets/week1/compiling_flow.jpg)
+
+* source code
+* compiler
+* object code
+* linker
+* executable
+
+### What are these in practise?
+
+In Linux you might use the command line to compile your c code using gcc.
+
+We'll be using _Microsoft Visual Studio 2017_, an Integrated Development Environment, to write, compile and debug all our code. There are many other ways.
 
