@@ -12,6 +12,7 @@
 	* [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
 		* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
 		* [Blackboard is your friend](#blackboard-is-your-friend)
+		* [Recommended texts](#recommended-texts)
 		* [My notes are your friends](#my-notes-are-your-friends)
 		* [Assessments](#assessments)
 			* [Assessment 1](#assessment-1)
@@ -38,6 +39,7 @@
 	* [Part 3: Exercises](#part-3-exercises)
 			* [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
 			* [2. Sololearn quiz](#2-sololearn-quiz)
+			* [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
 
 <!-- /code_chunk_output -->
 
@@ -110,6 +112,10 @@ _Every subject has modules in the left menu. Click one for important info_
 
 ![Module learning resources](assets/week1/module_resources.jpg)
 _The blue button, top of screen, takes you to more info and resources. Don't skip the learning resources_
+
+### Recommended texts
+
+_Beginning C++ Through Game Programming_ is available free when you're logged in to black board. Go to <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727> and download chapters as free pdfs.
 
 ### My notes are your friends
 
@@ -424,5 +430,9 @@ Attempting to recall this info in different contexts will help you retain it. So
 4. Select "Basic Concepts" and work through the first 5 sections (up to and including comments).
 
 ![solo learn](assets/week1/sololearn_steps.png)
+
+#### 3. Optional: review textbook chapter 1
+
+Make sure you're logged in to blackboard and visit: <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727>
 
 
