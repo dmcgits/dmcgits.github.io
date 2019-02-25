@@ -1,6 +1,48 @@
 # ISE102 Week 1
 
-## Part 1 - Studying Software Engineering
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [ISE102 Week 1](#ise102-week-1)
+	* [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
+		* [Who are we?](#who-are-we)
+		* [C++ in a nutshell](#c-in-a-nutshell)
+	* [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
+		* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+		* [Blackboard is your friend](#blackboard-is-your-friend)
+		* [My notes are your friends](#my-notes-are-your-friends)
+		* [Assessments](#assessments)
+			* [Assessment 1](#assessment-1)
+			* [Assessment 2](#assessment-2)
+			* [Assessment 3](#assessment-3)
+	* [Part 2: Programmings is handling situations](#part-2-programmings-is-handling-situations)
+		* [Why not just write it in c++?](#why-not-just-write-it-in-c)
+		* [Whitespace](#whitespace)
+	* [Problem solving tools](#problem-solving-tools)
+		* [This is the key to coding.](#this-is-the-key-to-coding)
+	* [From pseudocode to source code](#from-pseudocode-to-source-code)
+		* [Hello world](#hello-world)
+			* [Blocks {} and ending a line of code ;](#blocks-and-ending-a-line-of-code)
+			* [What is `using namespace`](#what-is-using-namespace)
+			* [C++ Comments](#c-comments)
+		* [Compiling and running your game](#compiling-and-running-your-game)
+			* [1. Source code](#1-source-code)
+			* [2. Compiler](#2-compiler)
+			* [3. Object code](#3-object-code)
+			* [4. Linker](#4-linker)
+			* [5. Executable File](#5-executable-file)
+			* [6. Loader](#6-loader)
+		* [Let's code](#lets-code)
+	* [Part 3: Exercises](#part-3-exercises)
+			* [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
+			* [2. Sololearn quiz](#2-sololearn-quiz)
+
+<!-- /code_chunk_output -->
+
+
+## Part 1: Studying Software Engineering
 
 Learning about programming through _C++_.
 
@@ -10,7 +52,7 @@ Learning about programming through _C++_.
 
 ---
 
-## Who are we?
+### Who are we?
 
 **Me:** Danny McGillick. Computer Science @ UTS, Web dev, Creative technologist in advertising (flash/actionscript, unity), 2D and 3D artist for Torus, Halfbrick, Blowfish studios. Keyboard enthusiast, bits maker.
 
@@ -21,7 +63,7 @@ http://www.artstation.com/dmacdraws/ - game art
 
 ---
 
-## C++ in a nutshell
+### C++ in a nutshell
 
 * Made on top of _C_ in the 80s. 
 * C written for computer scientists to compile cross platform.
@@ -47,7 +89,7 @@ _Bjarne Stroustrup: legend_
 ## How can we succeed learning c++ in this class?
 
 
-## Hour splits and thriving in 2D Games Programming
+### Hour splits and thriving in 2D Games Programming
 
 > **30%** class hours.
 > **70%** studying, programming, gaining experience. 
@@ -77,21 +119,21 @@ https://dmcgits.github.io/mds/ISE102/week1_notes.html
 
 > If I post an announcement before class I will often post an html notes link.
 
-## Assessments
+### Assessments
 
 3 Assessments. It'll require a solid effort at all 3 to pass. 
 
-### Assessment 1
+#### Assessment 1
 
-Text based slot machine
+Text based slot machine. **Due end week 6**
 
-### Assessment 2
+#### Assessment 2
 
-Exam covering material from mostly first 2 modules (first 4 weeks)
+Exam covering material from mostly first 2 modules (first 4 weeks). **Due end of week 7**
 
-### Assessment 3
+#### Assessment 3
 
-Snake game with ascii graphics.
+Snake game with ascii graphics. **Due end of week 12**
 
 ![Snake](assets/week1/snake.png)
 _Yes that snake game_
@@ -215,7 +257,7 @@ Good news is, once you've learned a language it's not nearly as hard to switch a
 
 ---
 
-## Hello world
+### Hello world
 
 Our situation is waking up, our problem is: how should I face the world? Solution? I'm going to greet it. Our _psuedocode_:
 
@@ -243,7 +285,7 @@ Even something this brief is less clear in code, so make your life easy.
 
 ---
 
-### Blocks {} and ending a line of code ;
+#### Blocks {} and ending a line of code ;
 
 The _C++_ compiler mostly doesn't think about whitespace like us. Some languages do, but not _C++_. It would actually be happy with this:
 
@@ -271,7 +313,7 @@ So use tabs, enter and space to make your code clear, and always remember `;` to
 
 ---
 
-### What is `using namespace`
+#### What is `using namespace`
 
 ```c++
 using namespace std;
@@ -285,7 +327,7 @@ This lets us use code written by other people without having to put a path befor
     std::cout << "Hello world!" << std::endl;   // gross
 ```
 
-### C++ Comments
+#### C++ Comments
 
 > There is only so much you can work out from reading someone else's code. Even in written English, sometimes an author sometimes adds footnotes. Code, being more cryptic, needs more.
 
@@ -321,20 +363,66 @@ Especially if the coder made mistakes. That's why we use comments.
     }
 
 ```
+___
 
-## Compiling source code into an exe
+### Compiling and running your game
 
 ![Compiler flow](assets/week1/compiling_flow.jpg)
 
-* source code
-* compiler
-* object code
-* linker
-* executable
+#### 1. Source code
+Instructions for a computer to handle given situations and perform certain tasks. The source code will be written in the syntax and grammar of a particular programming language; in our case, the language is c++. 
+  
+#### 2. Compiler
+A compiler reads your source code and usually converts it into machine code. This will be the specific instructions for a target computer and operating system, say windows x86 intel.
+  
+#### 3. Object code
+The machine code output by the compiler, often with a .o extension. Your c++ compiler will also have on hand object code for the libraries it includes
 
-### What are these in practise?
+#### 4. Linker
+The linker takes your object code and looks for references to other code. This can be your own from multiple c files, or references to standard/downloaded libraries. It then inserts the referred-to machine code into your own and creates a single .exe file. There are other types that can be created, like dynamic libraries, but we'll discuss those later.
 
-In Linux you might use the command line to compile your c code using gcc.
+#### 5. Executable File
+This is your finished product. It's ready to be double clicked, run from the command line, launched from Steam/Battle.net or any other way you begin loading it.
 
-We'll be using _Microsoft Visual Studio 2017_, an Integrated Development Environment, to write, compile and debug all our code. There are many other ways.
+#### 6. Loader
+The operating system executable that will load your executable into memory and begin execution. This is how it goes from instructions on an SSD/HDD to a running, interactive program.
+
+>We'll be using _Microsoft Visual Studio 2017_, an Integrated Development Environment, to write, compile and debug all our code. 
+
+---
+
+### Let's code
+
+![new project](assets/week1/new_project.png)
+
+![new empty project](assets/week1/new_empty_cpp_project.png)
+
+![new item](assets/week1/new_item.png)
+
+![new cpp](assets/week1/new_cpp_hello.png)
+
+![console stay open](assets/week1/console_stay_open.png)
+_This setting will keep the console from closing when your program ends_
+
+I recommend pausing your antivirus. For example, I turn off avast shields for 1 hour. Otherwise it'll intercept your new code.
+
+---
+
+## Part 3: Exercises
+
+#### 1. Basic input/output documentation
+
+Read through <http://www.cplusplus.com/doc/tutorial/basic_io/> and try the different variations provided in the _Standard output (cout)_ and _Standard input (cin)_ sections.
+
+#### 2. Sololearn quiz
+
+Attempting to recall this info in different contexts will help you retain it. Sololearn quizzes are great for low pressure review.
+
+1. Install Sololearn for [android](https://play.google.com/store/apps/details?id=com.sololearn) or [ios](https://itunes.apple.com/us/app/sololearn-learn-to-code/id1210079064). 
+2. Register
+3. Go to the _learn_ section and select the _C++ Tutorial_ under programming languages. 
+4. Select "Basic Concepts" and work through the first 5 sections (up to and including comments).
+
+![solo learn](assets/week1/sololearn_steps.png)
+
 
