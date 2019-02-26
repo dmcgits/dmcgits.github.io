@@ -420,6 +420,7 @@ I recommend pausing your antivirus. For example, I turn off avast shields for 1 
 
 Read through <http://www.cplusplus.com/doc/tutorial/basic_io/> and try the different variations provided in the _Standard output (cout)_ and _Standard input (cin)_ sections.
 
+
 #### 2. Sololearn quiz
 
 Attempting to recall this info in different contexts will help you retain it. Sololearn quizzes are great for low pressure review.

@@ -14,19 +14,26 @@ Welcome, Object Oriented Design, C#
 		* [C++?](#c)
 		* [Unity, C#?](#unity-c)
 		* [Visual Studio Community](#visual-studio-community)
-	* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
-	* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
+		* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
+		* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
 	* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
 		* [Blackboard is your friend](#blackboard-is-your-friend)
 		* [My notes are your friends](#my-notes-are-your-friends)
 	* [Assessments](#assessments)
-		* [Assessment 1 - Programming Exercises](#assessment-1-programming-exercises)
-		* [Assessment 2 - Character Customiser](#assessment-2-character-customiser)
+		* [Assessment 1 - Programming exercises](#assessment-1-programming-exercises)
+		* [Assessment 2 - Character customiser](#assessment-2-character-customiser)
 		* [Assessment 3 - Missile Command](#assessment-3-missile-command)
 	* [Part 2: Programming and Unity](#part-2-programming-and-unity)
 		* [Installing Unity](#installing-unity)
 		* [Installing Visual Studio](#installing-visual-studio)
 	* [Hello world.](#hello-world)
+		* [Inheritance and Composition](#inheritance-and-composition)
+			* [Inheritance](#inheritance)
+			* [Composition:](#composition)
+		* [Cohesion and Coupling](#cohesion-and-coupling)
+	* [Part 3: Exercises](#part-3-exercises)
+			* [1. Learn basic Unity](#1-learn-basic-unity)
+			* [2. Learn basic C# with Sololearn](#2-learn-basic-c-with-sololearn)
 
 <!-- /code_chunk_output -->
 
@@ -105,7 +112,7 @@ Either way, you'll need Microsoft Visual Studio Community. Not to be confused wi
 
 ___
 
-## Dammit Jim! I'm a programmer, not an artist.
+### Dammit Jim! I'm a programmer, not an artist.
 
 ![McCoy Old](assets/week1/mccoy_old.jpg)
 
@@ -116,7 +123,7 @@ That's okay, we're here to focus on the building of games. The [asset store](htt
 
 ___
 
-## Dammit Jim! I'm an artist, not a programmer!
+### Dammit Jim! I'm an artist, not a programmer!
  
 ![McCoy New](assets/week1/mccoy_new.jpg)
 
@@ -169,10 +176,10 @@ ___
 _Assessments as shown on Blackboard_
 
 
-### Assessment 1 - Programming Exercises
+### Assessment 1 - Programming exercises
 3 programming challenges completed during the first 2 modules (first 4 weeks). Topics are _encapsulation_, _polymorphism_ and _engine calls_. **Due end of week 5**
 
-### Assessment 2 - Character Customiser
+### Assessment 2 - Character customiser
 
 You will develop a single module for a theoretical game. The character customiser lets you change appearance and stats. **Due end of week 8**
 
@@ -213,12 +220,86 @@ If you already have Visual Studio: search for and run the Visual Studio Installe
 
 ## Hello world.
 
+I'll be running through this in class. It'll move fairly quickly but you can re-watch the video.
+
 * Create a new 2D project
-* Drop in a cube, add a script.
-* Log hello world, I am cube.
+* Drop in a talking square, add a script.
+* Log hello world, I am square
 * Add a collider, log hello world on click.
-* Add a sphere, with a collider, add a script.
-* Give sphere a public variable cube.
-* Have sphere pass call a function on cube.
-* Cube says "hello world, she is sphere."
+* Add a shy circle, with a collider, add a script.
+* Give circle a public variable talker.
+* Have shy circle pass call a function on square.
+* Cube says "hello world, she is circle."
 * Have her pass a string to reduce coupling.
+
+### Inheritance and Composition
+
+Object oriented design, we've talked about inheritance. What we're seeing in Unity isn't just that though, is it? Monobehaviour, sure. But we're making these components and adding them on to our sprite.
+
+#### Inheritance
+
+The "is a" relationship. Human -> Mammal -> Animal is our classic.
+
+
+    1. Animal
+    2. Mammal animal
+       - inherits animal
+    3. Human mammal animal
+       - inherits mammal animal.
+
+That all works. However..
+
+    1. Gun
+    2. Gun With Grenade Launcher 
+       - inherits gun
+    3. Gun w Grenade Launcher and Laser sight 
+       - inherits gun w grenade
+    4. Gun w Laser sight and bayonet 
+       - um inherit gun w nade w laser sight and use if-then to hide grenade launcher?
+    5. Gun with grenade launcher and bayonet. 
+       - We might need gun w everything and lots of if-then or case statements? 
+
+Inheritance can't really handle this kind of crossover. We're moving away from a tree diagram.
+
+#### Composition: 
+
+More of a "has a" relationship, or a "can" relationship. Has a collider, can collide.
+
+Gun has a grenade launcher and has a sight. But how? Unity components!
+
+### Cohesion and Coupling
+
+> Cohesion: putting stuff where it belongs.
+> Coupling: making objects dependent on eachother.
+
+---
+
+## Part 3: Exercises
+
+#### 1. Learn basic Unity
+
+Unity is deep, and the interface might seem deceptively minimal. In order to get on with the fun stuff in class, you'll need to get a familiar with the basics at home. These official Unity tutorials will get you across the fundamentals quickly. There are maybe 2 hours of videos here total, and they'll save you loads of time.
+
+These Unity official tutorials have embedded Youtube videos. Make sure you click the cog and set them to 1080 quality and go full screen to clearly see the interface. You can also click the Youtube logo to launch it there.
+
+* "Using the Unity Interface"
+  <https://unity3d.com/learn/tutorials/topics/interface-essentials>
+* "Basic Game Objects and Components"
+  <https://unity3d.com/learn/tutorials/topics/interface-essentials/game-objects-and-components?playlist=17090>
+* "Beginner Gameplay Scripting". Watch **1-8, 10, 11, 18, 19, 22**. "Intermediate Gameplay Scripting" Watch **1, 6**.
+  <https://unity3d.com/learn/tutorials/s/scripting>
+  
+#### 2. Learn basic C# with Sololearn
+
+We'll be focussing in the class on higher level programming concepts of designing programs/games, so there **won't be a lot of in-class explanation of basic c#.** For c++ coders a lot will be familiar in c#, but there are also significant differences (no .h files!). These quizzes will check how you went with the unity tutes above.
+
+If you've taken this elective without c++ and **if you haven't coded, learning the fundamentals at home quickly will be critical**. 
+
+Sololearn tutorials teach you the language while providing low pressure quizzes that help you retain what you've read.
+
+1. Install Sololearn for [android](https://play.google.com/store/apps/details?id=com.sololearn) or [ios](https://itunes.apple.com/us/app/sololearn-learn-to-code/id1210079064). 
+2. Register
+3. Go to the _learn_ section and select the _C# Tutorial_ under programming languages. 
+4. Work through Module 1 "Basic Concepts". They are short and you can stop and start when you need to.
+
+![solo learn](assets/week1/sololearn_steps.png)
