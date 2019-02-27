@@ -458,4 +458,5 @@ If you already have Visual Studio: search for and run the Visual Studio Installe
  ![Visual Studio Download](assets/week1/visual_studio_install.png)
 2. Run the installer. At a point it will ask you to select a _workload_.
 3. Under _Workloads_ you'll see the _Windows_ section. Select _**Desktop development with C++**.
+   ![workloads](assets/week1/visual_studio_workload_cpp.jpg)
 4. At the bottom right set _install while downloading_ and click _modify_ or _install_ (whichever you have). 
