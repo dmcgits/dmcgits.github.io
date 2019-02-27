@@ -41,6 +41,8 @@
          1. [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
          2. [2. Sololearn quiz](#2-sololearn-quiz)
          3. [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
+   7. [Appendix 1: Install Visual Studio Community](#appendix-1-install-visual-studio-community)
+      1. [Installing Visual Studio](#installing-visual-studio)
 
 <!-- /code_chunk_output -->
 
@@ -445,4 +447,18 @@ Attempting to recall this info in different contexts will help you retain it. So
 
 Make sure you're logged in to blackboard and visit: <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727>
 
+___
 
+## Appendix 1: Install Visual Studio Community
+
+### Installing Visual Studio
+
+_Microsoft's longer, more detailed version of the following instructions is here: <https://docs.microsoft.com/en-us/cpp/build/vscpp-step-0-installation?view=vs-2017>_ 
+
+If you already have Visual Studio: search for and run the Visual Studio Installer, select More > Modify (next to the launch button), then go to step 3. Otherwise,
+
+1. Go to https://visualstudio.microsoft.com/downloads/ and, under "community", click Free Download.
+ ![Visual Studio Download](assets/week1/visual_studio_install.png)
+2. Run the installer. At a point it will ask you to select a _workload_.
+3. Under _Workloads_ you'll see the _Windows_ section. Select _**Desktop development with C++**.
+4. At the bottom right set _install while downloading_ and click _modify_ or _install_ (whichever you have). 
