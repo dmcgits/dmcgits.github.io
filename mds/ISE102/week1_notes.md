@@ -5,41 +5,42 @@
 
 <!-- code_chunk_output -->
 
-* [ISE102 Week 1](#ise102-week-1)
-	* [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
-		* [Who are we?](#who-are-we)
-		* [C++ in a nutshell](#c-in-a-nutshell)
-	* [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
-		* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
-		* [Blackboard is your friend](#blackboard-is-your-friend)
-		* [Recommended texts](#recommended-texts)
-		* [My notes are your friends](#my-notes-are-your-friends)
-		* [Assessments](#assessments)
-			* [Assessment 1](#assessment-1)
-			* [Assessment 2](#assessment-2)
-			* [Assessment 3](#assessment-3)
-	* [Part 2: Programmings is handling situations](#part-2-programmings-is-handling-situations)
-		* [Why not just write it in c++?](#why-not-just-write-it-in-c)
-		* [Whitespace](#whitespace)
-	* [Problem solving tools](#problem-solving-tools)
-		* [This is the key to coding.](#this-is-the-key-to-coding)
-	* [From pseudocode to source code](#from-pseudocode-to-source-code)
-		* [Hello world](#hello-world)
-			* [Blocks {} and ending a line of code ;](#blocks-and-ending-a-line-of-code)
-			* [What is `using namespace`](#what-is-using-namespace)
-			* [C++ Comments](#c-comments)
-		* [Compiling and running your game](#compiling-and-running-your-game)
-			* [1. Source code](#1-source-code)
-			* [2. Compiler](#2-compiler)
-			* [3. Object code](#3-object-code)
-			* [4. Linker](#4-linker)
-			* [5. Executable File](#5-executable-file)
-			* [6. Loader](#6-loader)
-		* [Let's code](#lets-code)
-	* [Part 3: Exercises](#part-3-exercises)
-			* [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
-			* [2. Sololearn quiz](#2-sololearn-quiz)
-			* [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
+1. [ISE102 Week 1](#ise102-week-1)
+   1. [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
+      1. [Who are we?](#who-are-we)
+      2. [C++ in a nutshell](#c-in-a-nutshell)
+   2. [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
+      1. [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+      2. [Blackboard is your friend](#blackboard-is-your-friend)
+      3. [Recommended texts](#recommended-texts)
+      4. [My notes are your friends](#my-notes-are-your-friends)
+      5. [Assessments](#assessments)
+         1. [Assessment 1](#assessment-1)
+         2. [Assessment 2](#assessment-2)
+         3. [Assessment 3](#assessment-3)
+   3. [Part 2: Programmings is handling situations](#part-2-programmings-is-handling-situations)
+      1. [Why not just write it in c++?](#why-not-just-write-it-in-c)
+      2. [Whitespace](#whitespace)
+   4. [Problem solving tools](#problem-solving-tools)
+      1. [This is the key to coding.](#this-is-the-key-to-coding)
+   5. [From pseudocode to source code](#from-pseudocode-to-source-code)
+      1. [Hello world](#hello-world)
+         1. [Let's code that!](#lets-code-that)
+      2. [Let's understand that!](#lets-understand-that)
+         1. [Blocks {} and ending a line of code ;](#blocks--and-ending-a-line-of-code-)
+         2. [What is `using namespace`](#what-is-using-namespace)
+         3. [C++ Comments](#c-comments)
+      3. [Compiling and running your game](#compiling-and-running-your-game)
+         1. [1. Source code](#1-source-code)
+         2. [2. Compiler](#2-compiler)
+         3. [3. Object code](#3-object-code)
+         4. [4. Linker](#4-linker)
+         5. [5. Executable File](#5-executable-file)
+         6. [6. Loader](#6-loader)
+   6. [Part 3: Exercises](#part-3-exercises)
+         1. [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
+         2. [2. Sololearn quiz](#2-sololearn-quiz)
+         3. [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
 
 <!-- /code_chunk_output -->
 
@@ -90,6 +91,7 @@ _Bjarne Stroustrup: legend_
 
 ## How can we succeed learning c++ in this class?
 
+How are MDS subjects designed, and what do I need to do to get the most from them?
 
 ### Hour splits and thriving in 2D Games Programming
 
@@ -287,9 +289,28 @@ int main() {
 }
 ```
 
+#### Let's code that!
+
+![new project](assets/week1/new_project.png)
+
+![new empty project](assets/week1/new_empty_cpp_project.png)
+
+![new item](assets/week1/new_item.png)
+
+![new cpp](assets/week1/new_cpp_hello.png)
+
+![console stay open](assets/week1/console_stay_open.png)
+_This setting will keep the console from closing when your program ends_
+
+I recommend pausing your antivirus. For example, I turn off avast shields for 1 hour. Otherwise it'll intercept your new code.
+
 Even something this brief is less clear in code, so make your life easy.
 
 ---
+
+### Let's understand that!
+
+What was the syntax? What were the keywords? You can play with the code along with me, or watch and do it later.
 
 #### Blocks {} and ending a line of code ;
 
@@ -328,16 +349,20 @@ using namespace std;
 This lets us use code written by other people without having to put a path before it. `cout`, `endl` are in the _c++_ standard library, so..
 
 ```c++
-    // without "using namespace std" our hello world action would look like this:
+    // without "using namespace std" we'd get a compile erour /// .. unless we do this:
 
     std::cout << "Hello world!" << std::endl;   // gross
+
+    // The prefix std is the name of the library, and the
+    // double colon :: is the syntax for accessing a library
+    // function or variable.
 ```
 
 #### C++ Comments
 
-> There is only so much you can work out from reading someone else's code. Even in written English, sometimes an author sometimes adds footnotes. Code, being more cryptic, needs more.
+> There is only so much you can work out from reading someone else's code. Intent and thinking can be lost in translation.
 
-Especially if the coder made mistakes. That's why we use comments.
+Especially if the coder made mistakes. That's why we use comments. Think of them like footnotes in a book, or the margin comments in a textbook. Except even more important.
 
 ```c++
     #include <iostream>
@@ -397,23 +422,6 @@ The operating system executable that will load your executable into memory and b
 
 ---
 
-### Let's code
-
-![new project](assets/week1/new_project.png)
-
-![new empty project](assets/week1/new_empty_cpp_project.png)
-
-![new item](assets/week1/new_item.png)
-
-![new cpp](assets/week1/new_cpp_hello.png)
-
-![console stay open](assets/week1/console_stay_open.png)
-_This setting will keep the console from closing when your program ends_
-
-I recommend pausing your antivirus. For example, I turn off avast shields for 1 hour. Otherwise it'll intercept your new code.
-
----
-
 ## Part 3: Exercises
 
 #### 1. Basic input/output documentation
@@ -425,10 +433,11 @@ Read through <http://www.cplusplus.com/doc/tutorial/basic_io/> and try the diffe
 
 Attempting to recall this info in different contexts will help you retain it. Sololearn quizzes are great for low pressure review.
 
-1. Install Sololearn for [android](https://play.google.com/store/apps/details?id=com.sololearn) or [ios](https://itunes.apple.com/us/app/sololearn-learn-to-code/id1210079064). 
+1. Install **Sololearn** for [android](https://play.google.com/store/apps/details?id=com.sololearn) or [ios](https://itunes.apple.com/us/app/sololearn-learn-to-code/id1210079064). 
 2. Register
-3. Go to the _learn_ section and select the _C++ Tutorial_ under programming languages. 
-4. Select "Basic Concepts" and work through the first 5 sections (up to and including comments).
+3. Go to the **learn** section and **select the C++ Tutorial** under programming languages. 
+4. Select **Basic Concepts** and work through the **first 5 sections (up to and including comments)** to revise today's learnings
+5. Continue through the **next 3 sections on variables** to be ready for next week's topics.
 
 ![solo learn](assets/week1/sololearn_steps.png)
 
