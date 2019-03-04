@@ -28,7 +28,7 @@
 			* [Let's code that!](#lets-code-that)
 		* [Let's understand that!](#lets-understand-that)
 			* [Blocks {} and ending a line of code ;](#blocks-and-ending-a-line-of-code)
-			* [What are `#include` and `using namespace`?](#what-are-include-and-using-namespace)
+			* [What is `using namespace`](#what-is-using-namespace)
 			* [C++ Comments](#c-comments)
 		* [Compiling and running your game](#compiling-and-running-your-game)
 			* [1. Source code](#1-source-code)
@@ -38,8 +38,8 @@
 			* [5. Executable File](#5-executable-file)
 			* [6. Loader](#6-loader)
 	* [Part 3: Exercises](#part-3-exercises)
-			* [1. Sololearn quiz](#1-sololearn-quiz)
-			* [2. Basic input/output documentation](#2-basic-inputoutput-documentation)
+			* [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
+			* [2. Sololearn quiz](#2-sololearn-quiz)
 			* [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
 	* [Appendix 1: Install Visual Studio Community](#appendix-1-install-visual-studio-community)
 
@@ -138,7 +138,7 @@ Text based slot machine. **Due end week 6**
 
 #### Assessment 2
 
-Exam covering material from mostly first 2 modules (first 4 weeks). **Due end of week 8**
+Exam covering material from mostly first 2 modules (first 4 weeks). **Due end of week 7**
 
 #### Assessment 3
 
@@ -303,8 +303,6 @@ int main() {
 ![console stay open](assets/week1/console_stay_open.png)
 _This setting will keep the console from closing when your program ends_
 
-> To compile and run your source file go to Debug -> _Start without debugging_.
-
 I recommend pausing your antivirus. For example, I turn off avast shields for 1 hour. Otherwise it'll intercept your new code.
 
 Even something this brief is less clear in code, so make your life easy.
@@ -343,15 +341,13 @@ So use tabs, enter and space to make your code clear, and always remember `;` to
 
 ---
 
-#### What are `#include` and `using namespace`?
+#### What is `using namespace`
 
 ```c++
-#include <iostream>
 using namespace std;
 ```
-`#include` tells the compiler I want access to all the code inside `iostream`, which is a _C++_ library for handling basic streams of input and output data. 
 
-`using namespace std;` lets us use a shortcut: commands in that iostream file which would normally be accessed by typing `std::` can just be accessed directly. `cout` and `endl` would normally need to be accessed with the standard library prefix `std::`, so..
+This lets us use code written by other people without having to put a path before it. `cout`, `endl` are in the _c++_ standard library, so..
 
 ```c++
     // without "using namespace std" we'd get a compile erour /// .. unless we do this:
@@ -362,8 +358,6 @@ using namespace std;
     // double colon :: is the syntax for accessing a library
     // function or variable.
 ```
-
-**Think of it like if we had to add +61 every time we dial an Australian mobile number.** In a way all Aussie locals are `using countrycode 61`  by default. Same deal with namespaces.
 
 #### C++ Comments
 
@@ -431,7 +425,12 @@ The operating system executable that will load your executable into memory and b
 
 ## Part 3: Exercises
 
-#### 1. Sololearn quiz
+#### 1. Basic input/output documentation
+
+Read through <http://www.cplusplus.com/doc/tutorial/basic_io/> and try the different variations provided in the _Standard output (cout)_ and _Standard input (cin)_ sections.
+
+
+#### 2. Sololearn quiz
 
 Attempting to recall this info in different contexts will help you retain it. Sololearn quizzes are great for low pressure review.
 
@@ -442,10 +441,6 @@ Attempting to recall this info in different contexts will help you retain it. So
 5. Continue through the **next 4 sections on variables and basic maths** to be ready for next week's topics.
 
 ![solo learn](assets/week1/sololearn_steps.png)
-
-#### 2. Basic input/output documentation
-
-Read through <http://www.cplusplus.com/doc/tutorial/basic_io/> and try the different variations provided in the _Standard output (cout)_ and _Standard input (cin)_ sections.
 
 #### 3. Optional: review textbook chapter 1
 
