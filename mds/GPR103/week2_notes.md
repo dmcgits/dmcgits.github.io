@@ -5,24 +5,20 @@
 
 <!-- code_chunk_output -->
 
-* [GPR103 Week 2 (module 1.2)](#gpr103-week-2-module-12)
-	* [Object oriented design principles.](#object-oriented-design-principles)
-		* [What is encapsulation?](#what-is-encapsulation)
-			* [Goldilocks factor](#goldilocks-factor)
-	* [Encapsulation in practice](#encapsulation-in-practice)
-		* [Classes and Objects refresher](#classes-and-objects-refresher)
-		* [Scope in _C#_ and _C++_](#scope-in-_c_-and-_c_)
-		* [Access modifiers](#access-modifiers)
-		* [Using functions to hide variables](#using-functions-to-hide-variables)
-		* [Access functions aka properties](#access-functions-aka-properties)
-		* [Constructors and destructors](#constructors-and-destructors)
-	* [More detail on Cohesion](#more-detail-on-cohesion)
-			* [Medium Cohesion](#medium-cohesion)
-			* [High cohesion](#high-cohesion)
-	* [About Assignment 1 Part 1](#about-assignment-1-part-1)
-	* [Reminder of code basics places to learn.](#reminder-of-code-basics-places-to-learn)
-	* [Exercises to do before next class](#exercises-to-do-before-next-class)
-	* [Resources](#resources)
+- [GPR103 Week 2 (module 1.2)](#gpr103-week-2-module-12)
+  - [Object oriented design principles.](#object-oriented-design-principles)
+    - [What is encapsulation?](#what-is-encapsulation)
+  - [Encapsulation in practice](#encapsulation-in-practice)
+    - [Classes and Objects refresher](#classes-and-objects-refresher)
+    - [Scope in _C#_ and _C++_](#scope-in-_c_-and-_c_)
+    - [Access modifiers](#access-modifiers)
+    - [Using functions to hide variables](#using-functions-to-hide-variables)
+    - [Access functions aka properties](#access-functions-aka-properties)
+    - [Constructors and destructors](#constructors-and-destructors)
+  - [More detail on Cohesion](#more-detail-on-cohesion)
+  - [About Assignment 1 Part 1](#about-assignment-1-part-1)
+  - [Exercises to do before next class](#exercises-to-do-before-next-class)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -119,7 +115,7 @@ The 4 chairs at your dinner table are real objects based on a design. One chair 
 
 ```cs
     // Create an object/instance of Class FireballTower
-    Tower fireball1 = new FireballTower();
+    FireballTower fireball1 = new FireballTower();
 
     // Ask this object to build itself at a location. 
     // Already it's unlike the Class/design because it has a state:
@@ -177,7 +173,7 @@ ___
     private int _trackingSpeedY = 1.2;
 
     // no modifier: defaults to private
-    int firingRate_ = 0;
+    int _firingRate = 0;
 
     // public const: we can make it public while preventing
     // others changing.. but we can't change it either.
@@ -190,12 +186,12 @@ ___
 ### Using functions to hide variables
  Instead of a sign, a function can act more like a security guard: they do the same job but can react to changes and apply conditions.
 
-> **In game situation:** An arrow is going to hit our Orc Rogue for 20 damage and she has 15 health. How do we avoid ending up with negative health?
+> **In game situation:** You receive a Medallion Of Massive Damage and it attempts to set your damage to 30. You already have 50, so this would be a debuff. Our tower should not drop below 50 shot damage.
 
 Translated to a **Coding problem:** 
-1) Allow only certain changes to shot damage
-2) Can't be reduced for example
-3) Only allow at certain times 
+1) Allow only certain direct changes to shot damage
+2) Can't be lowered for example
+3) Changes aren't always allowed 
 
 One way is to **all the object suggesting the change to check**:
   * it looks at our shot damage
@@ -209,7 +205,7 @@ Maybe it seems ok for the first weapon, the calling object might be friendly and
     Class Tower
     ...
     function SetShotDamage ( amount )
-        if amount is more than current damage
+        if amount is more than current damage and changes are currently allowed
             set damage to new amount
         otherwise
             don't alter damage
@@ -221,60 +217,112 @@ ___
 
 ### Access functions aka properties
 
-It's such a useful and common solution, c# has built in syntax to tidy it up and make errors less likely. These are officially **Properties**"** but **accessor functions** or plain **getters/setters** is fine.
+It's such a useful and common solution, c# has built in syntax to tidy it up and make errors less likely. These are officially **Properties**"** but **accessor functions** or plain **getters/setters** is fine. To make this script, browse to the assets folder in the project panel in Unity. Right click the space below "scenes" and select _Create -> C# Script_. Name it FireballTower.
+
+![New c# script](assets/week2/create_script_assets.png)
 
 ```cs
-using System;
 
-public class Tower
+    
+public class FireballTower
 {
-    private int _shotDamage;
-    private bool _damageBuffAllowed;
+    private int _shotDamage = 50;
+    private bool _damageBuffAllowed = true;
+
+    public FireballTower()
+    {
+        // Empty constructor for now
+    }
 
     // no need to write SetHealth(int value), GetHealth()
     // with correct function definitions etc
-   public int ShotDamage 
-   {
-        get { return _health };
+    public int ShotDamage
+    {
+        get { return _shotDamage; }
         set {
-                if (_damageBuffAllowed && value > _shotDamage)
-                {
-                    _shotDamage = value;
-                }
-             };
-   }
+            if (_damageBuffAllowed && value > _shotDamage)
+            {
+                _shotDamage = value;
+            }
+        }
+    }
 
-   private void buffDamage( int damageIncrease )
-   {
-       // we can pass use the accessor methods ourselves here
-       // It means we only write validation code once. If 
-       // If I buff with a negative value, ShotDamage won't let it reduce the damage.
-       
-       ShotDamage += damage;
-   }
+} // end class
 ```
+
+We can test it by doing first doing what we did last week:
+1: Create a sprite
+2: Change it to circle or square, scale it up large enough to see.
+3: With it selected, go to the Inspector panel and name it "TestSprite". Then click "Add Component", type "script" in the search field and select New Script. Name it TestTheTower.
+4: Add the following code:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TestTheTower : MonoBehaviour {
+
+    // Define a variable of type (aka class) FireballTower:
+    private FireballTower _fireballTower;
+    
+	// Use this for initialization
+	void Start () {
+        
+        // Create the tower with `new`
+        _fireballTower = new FireballTower();
+
+        Debug.Log("_fireballTower ShotDamage = " + _fireballTower.ShotDamage);
+        Debug.Log("Attempting to set it to 30.");
+        
+        // Even though it's a function, we treat ShotDamage like a variable
+        _fireballTower.ShotDamage = 30;
+
+        Debug.Log("_fireballTower ShotDamage = " + _fireballTower.ShotDamage);
+        Debug.Log("Attempting += 25");
+
+        // We can use regular math and assignment operators (+=) and increment (++)
+        _fireballTower.ShotDamage += 25;
+        Debug.Log("_fireballTower ShotDamage = " + _fireballTower.ShotDamage);
+    }
+
+    // Update is called once per frame
+    void Update () {
+		
+	}
+}
+
+```
+
+Here's the output. (Tip: in the Console's top right menu you can change log entry to 1 row to get these shorter log entries.)
+
+![tower test ouput](assets/week2/fireball_tower_test_output.png)
+
+___
 
 ### Constructors and destructors
 
-The knowledge required to properly set up an object, and to finish it off and clean up its data requires a lot of knowledge of its internals. We're trying to hide that stuff, so the Class defines a **constructor function** and **destructor function.**
+The knowledge required to properly set up an object, and to finish it off and clean up its data requires a lot of knowledge of its internals. We're trying to hide that stuff, so the Class defines a **constructor function** and **destructor function.** The _C#_ specification uses "finalizer" and "destructor" interchangeably.
 
 ```cs
 
 Class Tower
 {
     ...
-    // A function with the Class's name is the constructor.
+    // A public function with the Class's name is the constructor.
     // An invisible, automatic one will be created if you don't define it.
-    public void Tower()
+    public Tower()
     {
         // Initialise variables
         // Collect any information needed
     }
 
     // The leading ~ (tilda) symbol makes this the destructor.
-    private void ~Tower()
+    // Destructors cannot be called, inherited or overriden. 
+    // The have no access modifier, which makes them private by default.
+    ~Tower()
     {
-        bigMemoryUsingList = null;
+        // Tidy up before disappearing.
     }
     ...
 }
@@ -323,18 +371,16 @@ If wanted to use **inheritance**, our Enemy could inherit from Targer. Another a
 ## About Assignment 1 Part 1
 The exercise: [assess1_ex1.html](assess1_ex1.html)
 
-## Reminder of code basics places to learn. 
-Rather than having me speed through conditionals and loops, jump into the sololearn app and drill on these fundamentals. Too fast for new coders, too slow for c++ people.
-
 ## Exercises to do before next class
 
 1. Assessment progression - Player Class Exercise.
     * [assess1_ex1.html](assess1_ex1.html)
 
-These exercises will be updates shortly:
-2. UML stuff
-3. Sololearn
+2. conditionals etc up to objects in sololearn. 
 
 ## Resources
 
-1. A video tute and explanation of c# properties
+1. Finalizers/destructors in [Microsoft's c# documentation](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors)
+2. Constructors in [Microsoft's docs](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors)
+3. Creating Properties video in [official Unity tutorials](https://unity3d.com/learn/tutorials/topics/scripting/properties?playlist=17117)
+4. [Using Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties) and [all their syntax](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties) in the Microsoft docs.  
