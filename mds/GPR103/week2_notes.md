@@ -5,20 +5,23 @@
 
 <!-- code_chunk_output -->
 
-- [GPR103 Week 2 (module 1.2)](#gpr103-week-2-module-12)
-  - [Object oriented design principles.](#object-oriented-design-principles)
-    - [What is encapsulation?](#what-is-encapsulation)
-  - [Encapsulation in practice](#encapsulation-in-practice)
-    - [Classes and Objects refresher](#classes-and-objects-refresher)
-    - [Scope in _C#_ and _C++_](#scope-in-_c_-and-_c_)
-    - [Access modifiers](#access-modifiers)
-    - [Using functions to hide variables](#using-functions-to-hide-variables)
-    - [Access functions aka properties](#access-functions-aka-properties)
-    - [Constructors and destructors](#constructors-and-destructors)
-  - [More detail on Cohesion](#more-detail-on-cohesion)
-  - [About Assignment 1 Part 1](#about-assignment-1-part-1)
-  - [Exercises to do before next class](#exercises-to-do-before-next-class)
-  - [Resources](#resources)
+* [GPR103 Week 2 (module 1.2)](#gpr103-week-2-module-12)
+	* [Object oriented design principles.](#object-oriented-design-principles)
+		* [What is encapsulation?](#what-is-encapsulation)
+			* [Goldilocks factor](#goldilocks-factor)
+	* [Encapsulation in practice](#encapsulation-in-practice)
+		* [Classes and Objects refresher](#classes-and-objects-refresher)
+		* [Scope in _C#_ and _C++_](#scope-in-_c_-and-_c_)
+		* [Access modifiers](#access-modifiers)
+		* [Using functions to hide variables](#using-functions-to-hide-variables)
+		* [Access functions aka properties](#access-functions-aka-properties)
+		* [Constructors and destructors](#constructors-and-destructors)
+	* [More detail on Cohesion](#more-detail-on-cohesion)
+			* [Medium Cohesion](#medium-cohesion)
+			* [High cohesion](#high-cohesion)
+	* [About Assignment 1 Part 1](#about-assignment-1-part-1)
+	* [Exercises to do before next class](#exercises-to-do-before-next-class)
+	* [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -217,14 +220,17 @@ ___
 
 ### Access functions aka properties
 
-It's such a useful and common solution, c# has built in syntax to tidy it up and make errors less likely. These are officially **Properties**"** but **accessor functions** or plain **getters/setters** is fine. To make this script, browse to the assets folder in the project panel in Unity. Right click the space below "scenes" and select _Create -> C# Script_. Name it FireballTower.
+It's such a useful and common solution, c# has built in syntax to tidy it up and make errors less likely. These are officially **Properties**"** but **accessor functions** or plain **getters/setters** is fine. 
+
+In a new Unity project I created a new script. We don't want this script created as a Component. Instead, browse to the assets folder in the project panel. Right click the space below "scenes" and select _Create -> C# Script_. Name it FireballTower.
 
 ![New c# script](assets/week2/create_script_assets.png)
 
-```cs
+Double click the script to edit in Visual Studio and type in (don't copy paste) this code:
 
-    
-public class FireballTower
+```cs
+// We don't need the unity includes    
+public class FireballTower  // and we don't inherit `MonoBehaviour`
 {
     private int _shotDamage = 50;
     private bool _damageBuffAllowed = true;
@@ -250,11 +256,12 @@ public class FireballTower
 } // end class
 ```
 
-We can test it by doing first doing what we did last week:
+To **test it**, we now want a script component like last week:
+
 1: Create a sprite
-2: Change it to circle or square, scale it up large enough to see.
-3: With it selected, go to the Inspector panel and name it "TestSprite". Then click "Add Component", type "script" in the search field and select New Script. Name it TestTheTower.
-4: Add the following code:
+2: Change it to a circle or square, scale it up large enough to see.
+3: With it selected, go to the Inspector panel and name it `TestSprite`. Then click "Add Component", type "script" in the search field and select New Script. Name it `TestTheTower`.
+4: Edit the code to look like this:
 
 ```cs
 using System.Collections;
@@ -294,7 +301,9 @@ public class TestTheTower : MonoBehaviour {
 
 ```
 
-Here's the output. (Tip: in the Console's top right menu you can change log entry to 1 row to get these shorter log entries.)
+Make sure your Console is visible (not hidden behind the project panel) and **hit the play button**. 
+
+Here's **the output.** (Tip: in the Console's top right menu you can change log entry to 1 row to get these shorter log entries.)
 
 ![tower test ouput](assets/week2/fireball_tower_test_output.png)
 
@@ -308,13 +317,11 @@ The knowledge required to properly set up an object, and to finish it off and cl
 
 Class Tower
 {
-    ...
     // A public function with the Class's name is the constructor.
     // An invisible, automatic one will be created if you don't define it.
     public Tower()
     {
-        // Initialise variables
-        // Collect any information needed
+        // Setup goes here.
     }
 
     // The leading ~ (tilda) symbol makes this the destructor.
@@ -324,9 +331,11 @@ Class Tower
     {
         // Tidy up before disappearing.
     }
-    ...
+
 }
 ```
+
+___
 
 ## More detail on Cohesion
 
@@ -368,8 +377,12 @@ Class Targeter : public Monobehaviour
 
 If wanted to use **inheritance**, our Enemy could inherit from Targer. Another approach is **composition**: the Targeter is a component we add to our Tower. We'll keep coming back to inheritance and composition.
 
+___
+
 ## About Assignment 1 Part 1
 The exercise: [assess1_ex1.html](assess1_ex1.html)
+
+___
 
 ## Exercises to do before next class
 
@@ -377,6 +390,8 @@ The exercise: [assess1_ex1.html](assess1_ex1.html)
     * [assess1_ex1.html](assess1_ex1.html)
 
 2. conditionals etc up to objects in sololearn. 
+
+___
 
 ## Resources
 

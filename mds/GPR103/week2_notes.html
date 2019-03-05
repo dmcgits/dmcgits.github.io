@@ -224,10 +224,12 @@
 </code></pre><hr>
 <h3 class="mume-header" id="access-functions-aka-properties">Access functions aka properties</h3>
 
-<p>It&#x2019;s such a useful and common solution, c# has built in syntax to tidy it up and make errors less likely. These are officially <strong>Properties</strong>&quot;** but <strong>accessor functions</strong> or plain <strong>getters/setters</strong> is fine. To make this script, browse to the assets folder in the project panel in Unity. Right click the space below &#x201C;scenes&#x201D; and select <em>Create -&gt; C# Script</em>. Name it FireballTower.</p>
+<p>It&#x2019;s such a useful and common solution, c# has built in syntax to tidy it up and make errors less likely. These are officially <strong>Properties</strong>&quot;** but <strong>accessor functions</strong> or plain <strong>getters/setters</strong> is fine.</p>
+<p>In a new Unity project I created a new script. We don&#x2019;t want this script created as a Component. Instead, browse to the assets folder in the project panel. Right click the space below &#x201C;scenes&#x201D; and select <em>Create -&gt; C# Script</em>. Name it FireballTower.</p>
 <p><img src="assets/week2/create_script_assets.png" alt="New c# script"></p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp">    
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FireballTower</span>
+<p>Double click the script to edit in Visual Studio and type in (don&#x2019;t copy paste) this code:</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// We don&apos;t need the unity includes    </span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FireballTower</span>  <span class="token comment">// and we don&apos;t inherit `MonoBehaviour`</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> _shotDamage <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token keyword">bool</span> _damageBuffAllowed <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
@@ -251,11 +253,11 @@
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span> <span class="token comment">// end class</span>
-</pre><p>We can test it by doing first doing what we did last week:<br>
-1: Create a sprite<br>
-2: Change it to circle or square, scale it up large enough to see.<br>
-3: With it selected, go to the Inspector panel and name it &#x201C;TestSprite&#x201D;. Then click &#x201C;Add Component&#x201D;, type &#x201C;script&#x201D; in the search field and select New Script. Name it TestTheTower.<br>
-4: Add the following code:</p>
+</pre><p>To <strong>test it</strong>, we now want a script component like last week:</p>
+<p>1: Create a sprite<br>
+2: Change it to a circle or square, scale it up large enough to see.<br>
+3: With it selected, go to the Inspector panel and name it <code>TestSprite</code>. Then click &#x201C;Add Component&#x201D;, type &#x201C;script&#x201D; in the search field and select New Script. Name it <code>TestTheTower</code>.<br>
+4: Edit the code to look like this:</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
 <span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
@@ -291,7 +293,8 @@
 	<span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-</pre><p>Here&#x2019;s the output. (Tip: in the Console&#x2019;s top right menu you can change log entry to 1 row to get these shorter log entries.)</p>
+</pre><p>Make sure your Console is visible (not hidden behind the project panel) and <strong>hit the play button</strong>.</p>
+<p>Here&#x2019;s <strong>the output.</strong> (Tip: in the Console&#x2019;s top right menu you can change log entry to 1 row to get these shorter log entries.)</p>
 <p><img src="assets/week2/fireball_tower_test_output.png" alt="tower test ouput"></p>
 <hr>
 <h3 class="mume-header" id="constructors-and-destructors">Constructors and destructors</h3>
@@ -299,13 +302,11 @@
 <p>The knowledge required to properly set up an object, and to finish it off and clean up its data requires a lot of knowledge of its internals. We&#x2019;re trying to hide that stuff, so the Class defines a <strong>constructor function</strong> and <strong>destructor function.</strong> The <em>C#</em> specification uses &#x201C;finalizer&#x201D; and &#x201C;destructor&#x201D; interchangeably.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token class-name">Class</span> Tower
 <span class="token punctuation">{</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token comment">// A public function with the Class&apos;s name is the constructor.</span>
     <span class="token comment">// An invisible, automatic one will be created if you don&apos;t define it.</span>
     <span class="token keyword">public</span> <span class="token function">Tower</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token comment">// Initialise variables</span>
-        <span class="token comment">// Collect any information needed</span>
+        <span class="token comment">// Setup goes here.</span>
     <span class="token punctuation">}</span>
 
     <span class="token comment">// The leading ~ (tilda) symbol makes this the destructor.</span>
@@ -315,9 +316,10 @@
     <span class="token punctuation">{</span>
         <span class="token comment">// Tidy up before disappearing.</span>
     <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
 <span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="more-detail-on-cohesion">More detail on Cohesion</h2>
+</pre><hr>
+<h2 class="mume-header" id="more-detail-on-cohesion">More detail on Cohesion</h2>
 
 <p>Ideas of what belongs in a class, how big a class should be, that&#x2019;s not set in stone. At home you&#x2019;ll get a feel for it based on projects and experience. At an organised workplace it&#x2019;ll be somewhat defined by coding standards/team lead/existing project code.</p>
 <p>We&#x2019;ll get into that more in Design Patterns. For now, it&#x2019;s really just a measure of how much your code/data belongs where you&#x2019;ve put it.</p>
@@ -347,9 +349,11 @@ tracks targets. It&#x2019;s more specific, and leaves out firing.</p>
     function <span class="token function">GetCurrentTargetVector</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </pre><p>If wanted to use <strong>inheritance</strong>, our Enemy could inherit from Targer. Another approach is <strong>composition</strong>: the Targeter is a component we add to our Tower. We&#x2019;ll keep coming back to inheritance and composition.</p>
+<hr>
 <h2 class="mume-header" id="about-assignment-1-part-1">About Assignment 1 Part 1</h2>
 
 <p>The exercise: <a href="assess1_ex1.html">assess1_ex1.html</a></p>
+<hr>
 <h2 class="mume-header" id="exercises-to-do-before-next-class">Exercises to do before next class</h2>
 
 <ol>
@@ -363,6 +367,7 @@ tracks targets. It&#x2019;s more specific, and leaves out firing.</p>
 <p>conditionals etc up to objects in sololearn.</p>
 </li>
 </ol>
+<hr>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ol>
