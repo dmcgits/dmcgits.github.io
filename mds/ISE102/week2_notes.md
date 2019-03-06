@@ -1,7 +1,5 @@
-# ISE201 Week 2
+# ISE102 Week 2
 
-(Variables, literals, operators, statements.
-Conditionals, logical tests, enum.)
 
 What we're learning is the _c++_ implementations of the absolute fundamentals of coding. 
 
@@ -9,8 +7,9 @@ What we're learning is the _c++_ implementations of the absolute fundamentals of
 > **Logic Operators:** How to compare/test values.
 > **Math Operators:** +, -, = and all the rest.
 > **Conditionals:** Choose what to do next, based on a value or test. 
+> **Loops:** Yep
 > **Statements:** A line of code that does something
-
+> **Enums** Defining a few constants at once
 
 
 ## Variables (and literals)
