@@ -2,14 +2,13 @@
 Type each of these code samples into a new project and compile to test. From there experiment with the code. If you have a question about a how an operator or conditional works, test it out! Be sure to google commands you don't recognise and grow your understanding.
 
 1. [Week 2 (Module 1.2) Code Samples](#week-2-module-12-code-samples)
-    1. [2.1 Relational Operators](#21-relational-operators)
-    2. [2.2 Truth Tables](#22-truth-tables)
-    3. [2.3 Logical Operators](#23-logical-operators)
-    4. [2.4 If Statements](#24-if-statements)
-    5. [2.5 Switch](#25-switch)
-    6. [2.6 Switch, with fall through](#26-switch-with-fall-through)
-    7. [2.7 Enumerated constants](#27-enumerated-constants)
-    8. [2.](#2)
+   1. [2.1 Relational Operators](#21-relational-operators)
+   2. [2.2 Truth Tables](#22-truth-tables)
+   3. [2.3 Logical Operators](#23-logical-operators)
+   4. [2.4 If Statements](#24-if-statements)
+   5. [2.5 Switch](#25-switch)
+   6. [2.6 Switch, with fall through](#26-switch-with-fall-through)
+   7. [2.7 Enumerated constants](#27-enumerated-constants)
 
 ## 2.1 Relational Operators
 
@@ -379,10 +378,4 @@ int main()
 
     return (0);
 }
-```
-
-## 2.
-
-```C++
-
 ```
