@@ -11,28 +11,173 @@ What we're learning is the _c++_ implementations of the absolute fundamentals of
 > **Conditionals:** Choose what to do next, based on a value or test. 
 > **Statements:** A line of code that does something
 
-Relational?
+
 
 ## Variables (and literals)
 
-Let's look at this psuedocode:
+Let's look at this psuedocode.
 
 ```
-start program HANDLE_A_LOW_ON_HEALTH_SITUATION
+start program LOW_HEALTH
 
-	I have: red healing potion bottle, blue invisibility potion bottle.
+	I have: red mana, blue mana
 
-	If my red healing potion bottle is full: 
-		drink it all
+	If I have enough red mana: 
+		cast healing spell
 	Otherwise:
-		If invisibility potion is full:
-			drink that. We can get away to safety. 
+		If I have enough blue mana
+			cast invisibility spell
 		Otherwise:
 			Well we're out of options. Good luck.
 
-	now let's run away
+	let's run away no matter what
+
 end program HANDLE_A_LOW_ON_HEALTH_SITUATION
 ```
 
-## Conditionals
+I added something new this time: explicit information. In my `spilled_coffee` week 1 example it was implied: the shirt's dirtiness, the quality of the shirt, my location. This time we have `red mana` and `blue mana`, which are needed for spell casting.
 
+> Handling a situation is: 
+> **1.** Gathering information 
+> **2.** Acting on it.
+> How do we put information in our C++ programs? **Variables**.
+
+Our psuedocode said we have `red mana, blue mana`. Let's write that in _C++_:
+
+```c++
+#include <iostream>
+
+// We define a variable like this:
+// (type) (name) = (value);
+
+int redMana = 20;
+int blueMana = 100;
+
+int main()
+{
+	
+}
+```
+
+## Adding conditionals
+
+We discussed decision making last week. We asked if something is true or false; then we take an action. 
+
+```
+	If I have enough red mana: 
+		cast healing spell
+```
+Let's change that to _C++_. We've found more implied information too.. how much red mana is needed for a healing spell? 
+
+```c++
+// LowHealth.cpp
+#include <iostream>
+using namespace std;
+
+// We define a variable like this:
+// (type) (name) = (value);
+
+int redMana = 20;
+int blueMana = 100;
+
+// A variable that never changes is a constant, or const.
+// Write it in capitals so people know.
+const int HEALING_RED_MANA = 60;
+const int INVISIBILITY_BLUE_MANA = 80;
+
+int main()
+{
+
+	cout << "I'm low on health.." << endl;	
+	
+	// If I have enough red mana:
+	if ( redMana > HEALING_RED_MANA )
+	{
+		// cast healing spell
+		cout >> "Magic bandaid!!" >> endl;
+	}
+	
+}
+```
+
+That's if our "if" taken care of. What about our otherwise?
+
+```c++
+	if ( redMana > HEALING_RED_MANA )
+	{
+		// cast healing spell
+		cout >> "Magic bandaid!" >> endl;
+	}
+	else
+	{
+		if (blueMana > INVISIBILITY_BLUE_MANA)
+		{
+			//cast invisibility spell
+			cout << "Magic blindfold!" << endl;
+		}
+	}
+```
+
+Take away the white space, the specifics, and you get:
+
+```c++
+// Basic fork in the road. Based on a test, we choose one of two outcomes.
+if (test) { code A } else { code B}
+```
+
+The code up there gets a bit ugly with the extra parentheses. It's common to put conditions on the `else`, so _c++_ lets us shorten it to "else if". We'll add the `run away no matter what` too.
+
+```c++
+// LowHealth.cpp
+#include <iostream>
+
+using namespace std;
+
+// We define a variable like this:
+// (type) (name) = (value);
+
+int redMana = 20;
+int blueMana = 100;
+
+// A variable that never changes is a constant, or const.
+// Write it in capitals so people know.
+const int HEALING_RED_MANA = 60;
+const int INVISIBILITY_BLUE_MANA = 80;
+
+int main()
+{
+
+	cout << "I'm low on health.." << endl;
+
+	// If I have enough red mana:
+	if (redMana > HEALING_RED_MANA)
+	{
+		// cast healing spell
+		cout << "Magic bandaid!" << endl;
+	}
+	//Otherwise:
+		//If I have enough blue mana
+			// cast invisibility spell
+	else if (blueMana > INVISIBILITY_BLUE_MANA)
+	{
+			// cast invisibility spell
+			cout << "Magic blindfold!" << endl;
+	}
+
+	// run away no matter what.
+	cout << "Run away!" << endl;
+}
+
+```
+
+## Powerpoint!
+Switch, while, for, enum.
+Logical and mathematical operators.
+ints, floats, longs, shorts, char.
+
+## Exercises
+
+1. Type out and run some of the [week 2 exercises](week2_code.html). I recommend at minimum `2.1`, `2.5`, `2.6`, `2.7`. 
+   * The handy bit in `2.6` is understanding the fall through option in switch statements. Super useful, people always miss it at first. There are few other ways to handle options with so little code.
+   * It's good if you get bored defining variables and typing cout. Also good to get bored of trying logical comparisons. If you can get to where this stuff is easy and obvious you're on your way.
+2. Work through sololearn c++ part 2: Conditionals and Loops.
