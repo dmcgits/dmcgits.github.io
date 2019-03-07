@@ -93,7 +93,7 @@ int main()
 	if ( redMana > HEALING_RED_MANA )
 	{
 		// cast healing spell
-		cout >> "Magic bandaid!!" >> endl;
+		cout << "Magic bandaid!!" << endl;
 	}
 	
 }
@@ -105,7 +105,7 @@ That's if our "if" taken care of. What about our otherwise?
 	if ( redMana > HEALING_RED_MANA )
 	{
 		// cast healing spell
-		cout >> "Magic bandaid!" >> endl;
+		cout << "Magic bandaid!" << endl;
 	}
 	else
 	{
