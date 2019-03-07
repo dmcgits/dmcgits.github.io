@@ -88,7 +88,7 @@ int main()
 }
 ```
 
-GameStats
+### GameStats
 ```c++
 // Game Stats
 // Demonstrates declaring and initializing variables
