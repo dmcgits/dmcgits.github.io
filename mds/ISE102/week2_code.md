@@ -1,7 +1,7 @@
 # Week 2 code samples
 Type code samples into a new project and compile to test. From there, experiment with the code. If you have a question about a how an operator or conditional works, test it out! 
 
-Google commands you don't recognise, it's all out there.
+Google any keywords or library functions you don't recognise, it's all out there.
 
 1. [Week 2 code samples](#week-2-code-samples)
    1. [2.1 Relational Operators](#21-relational-operators)
