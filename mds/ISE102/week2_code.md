@@ -1,7 +1,9 @@
-# Week 2 (Module 1.2) Code Samples
-Type each of these code samples into a new project and compile to test. From there experiment with the code. If you have a question about a how an operator or conditional works, test it out! Be sure to google commands you don't recognise and grow your understanding.
+# Week 2 code samples
+Type code samples into a new project and compile to test. From there, experiment with the code. If you have a question about a how an operator or conditional works, test it out! 
 
-1. [Week 2 (Module 1.2) Code Samples](#week-2-module-12-code-samples)
+Google commands you don't recognise, it's all out there.
+
+1. [Week 2 code samples](#week-2-code-samples)
    1. [2.1 Relational Operators](#21-relational-operators)
    2. [2.2 Truth Tables](#22-truth-tables)
    3. [2.3 Logical Operators](#23-logical-operators)
