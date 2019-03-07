@@ -182,3 +182,10 @@ ints, floats, longs, shorts, char.
    * The handy bit in `2.6` is understanding the fall through option in switch statements. Super useful, people always miss it at first. There are few other ways to handle options with so little code.
    * It's good if you get bored defining variables and typing cout. Also good to get bored of trying logical comparisons. If you can get to where this stuff is easy and obvious you're on your way.
 3. Work through sololearn c++ part 2: Conditionals and Loops.
+
+## Resources
+
+1. The book:
+   * [chap 1](book_1/cppgameprog_1_variables_io.pdf)
+   * [chap 2](book_1/cppgameprog_2_conditionals_game_loop.pdf)
+   * [chap 3](book_1/cppgameprog_3_loops_strings_arrays.pdf)
