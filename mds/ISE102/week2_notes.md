@@ -7,10 +7,10 @@ What we're learning is the _c++_ implementations of the absolute fundamentals of
 > **Logic Operators:** How to compare/test values.
 > **Math Operators:** +, -, = and all the rest.
 > **Conditionals:** Choose what to do next, based on a value or test. 
-> **Loops:** Yep
 > **Statements:** A line of code that does something
 > **Enums** Defining a few constants at once
 
+We'll start with simple variables and types, get into decision making and comparison, and then deep dive into types and assignment.
 
 ## Variables (and literals)
 
@@ -176,7 +176,9 @@ ints, floats, longs, shorts, char.
 
 ## Exercises
 
-1. Type out and run some of the [week 2 exercises](week2_code.html). I recommend at minimum `2.1`, `2.5`, `2.6`, `2.7`. 
+1. Code from the text book:
+   * [week2_book_bits.html](week2_book_bits.html)
+2. Type out and run some of the [week 2 exercises](week2_code.html). I recommend at minimum `2.1`, `2.5`, `2.6`, `2.7`. 
    * The handy bit in `2.6` is understanding the fall through option in switch statements. Super useful, people always miss it at first. There are few other ways to handle options with so little code.
    * It's good if you get bored defining variables and typing cout. Also good to get bored of trying logical comparisons. If you can get to where this stuff is easy and obvious you're on your way.
-2. Work through sololearn c++ part 2: Conditionals and Loops.
+3. Work through sololearn c++ part 2: Conditionals and Loops.

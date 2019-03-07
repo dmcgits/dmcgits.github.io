@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>week2_notes</title>
+      <title>week2_book_bits</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,170 +23,134 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="ise102-week-2">ISE102 Week 2</h1>
+      <p>Week 2 book bits</p>
+<p>Code and knowledge from C++ by Game Programming</p>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// MenuChooser.cpp </span>
+<span class="token comment">// Demonstrates the switch statement</span>
 
-<p>What we&apos;re learning is the <em>c++</em> implementations of the absolute fundamentals of coding.</p>
-<blockquote>
-<p><strong>Variables:</strong> defining values like <code>5</code>, <code>&quot;Kendrick&quot;</code>, <code>true</code>, <code>35.5</code><br>
-<strong>Logic Operators:</strong> How to compare/test values.<br>
-<strong>Math Operators:</strong> +, -, = and all the rest.<br>
-<strong>Conditionals:</strong> Choose what to do next, based on a value or test.<br>
-<strong>Statements:</strong> A line of code that does something<br>
-<strong>Enums</strong> Defining a few constants at once</p>
-</blockquote>
-<p>We&apos;ll start with simple variables and types, get into decision making and comparison, and then deep dive into types and assignment.</p>
-<h2 class="mume-header" id="variables-and-literals">Variables (and literals)</h2>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
-<p>Let&apos;s look at this psuedocode.</p>
-<pre data-role="codeBlock" data-info="" class="language-"><code>start program LOW_HEALTH
-
-	I have: red mana, blue mana
-
-	If I have enough red mana: 
-		cast healing spell
-	Otherwise:
-		If I have enough blue mana
-			cast invisibility spell
-		Otherwise:
-			Well we&apos;re out of options. Good luck.
-
-	let&apos;s run away no matter what
-
-end program HANDLE_A_LOW_ON_HEALTH_SITUATION
-</code></pre><p>I added something new this time: explicit information. In my <code>spilled_coffee</code> week 1 example it was implied: the shirt&apos;s dirtiness, the quality of the shirt, my location. This time we have <code>red mana</code> and <code>blue mana</code>, which are needed for spell casting.</p>
-<blockquote>
-<p>Handling a situation is:<br>
-<strong>1.</strong> Gathering information<br>
-<strong>2.</strong> Acting on it.<br>
-How do we put information in our C++ programs? <strong>Variables</strong>.</p>
-</blockquote>
-<p>Our psuedocode said we have <code>red mana, blue mana</code>. Let&apos;s write that in <em>C++</em>:</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-
-<span class="token comment">// We define a variable like this:</span>
-<span class="token comment">// (type) (name) = (value);</span>
-
-<span class="token keyword">int</span> redMana <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> blueMana <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-	
-<span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="adding-conditionals">Adding conditionals</h2>
 
-<p>We discussed decision making last week. We asked if something is true or false; then we take an action.</p>
-<pre data-role="codeBlock" data-info="" class="language-"><code>	If I have enough red mana: 
-		cast healing spell
-</code></pre><p>Let&apos;s change that to <em>C++</em>. We&apos;ve found more implied information too.. how much red mana is needed for a healing spell?</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// LowHealth.cpp</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Difficulty Levels\n\n&quot;</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;1 - Easy\n&quot;</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;2 - Normal\n&quot;</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;3 - Hard\n\n&quot;</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">int</span> choice<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Choice : &quot;</span><span class="token punctuation">;</span>
+	cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+
+	<span class="token keyword">switch</span> <span class="token punctuation">(</span>choice<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+	<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You picked Easy.\n&quot;</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You picked Normal.\n&quot;</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You picked Hard.\n&quot;</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token operator">:</span>
+
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You made an illegal choice.\n&quot;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="scoreratercpp">ScoreRater.cpp</h3>
+
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Score Rater</span>
+<span class="token comment">// Demonstrates the if statement</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-<span class="token comment">// We define a variable like this:</span>
-<span class="token comment">// (type) (name) = (value);</span>
-
-<span class="token keyword">int</span> redMana <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> blueMana <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-
-<span class="token comment">// A variable that never changes is a constant, or const.</span>
-<span class="token comment">// Write it in capitals so people know.</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> HEALING_RED_MANA <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> INVISIBILITY_BLUE_MANA <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
-
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;I&apos;m low on health..&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>	
-	
-	<span class="token comment">// If I have enough red mana:</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span> redMana <span class="token operator">&gt;</span> HEALING_RED_MANA <span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
 	<span class="token punctuation">{</span>
-		<span class="token comment">// cast healing spell</span>
-		cout <span class="token operator">&gt;&gt;</span> <span class="token string">&quot;Magic bandaid!!&quot;</span> <span class="token operator">&gt;&gt;</span> endl<span class="token punctuation">;</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is always displayed.\n\n&quot;</span><span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
-	
-<span class="token punctuation">}</span>
-</pre><p>That&apos;s if our &quot;if&quot; taken care of. What about our otherwise?</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp">	<span class="token keyword">if</span> <span class="token punctuation">(</span> redMana <span class="token operator">&gt;</span> HEALING_RED_MANA <span class="token punctuation">)</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
 	<span class="token punctuation">{</span>
-		<span class="token comment">// cast healing spell</span>
-		cout <span class="token operator">&gt;&gt;</span> <span class="token string">&quot;Magic bandaid!&quot;</span> <span class="token operator">&gt;&gt;</span> endl<span class="token punctuation">;</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is never displayed.\n\n&quot;</span><span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
-	<span class="token keyword">else</span>
+	<span class="token keyword">int</span> score <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>score<span class="token punctuation">)</span>
 	<span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>blueMana <span class="token operator">&gt;</span> INVISIBILITY_BLUE_MANA<span class="token punctuation">)</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;At least you didn&#x2019;t score zero.\n\n&quot;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>score <span class="token operator">&gt;=</span> <span class="token number">250</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You scored 250 or more. Decent.\n\n&quot;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>score <span class="token operator">&gt;=</span> <span class="token number">500</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You scored 500 or more. Nice.\n\n&quot;</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>score <span class="token operator">&gt;=</span> <span class="token number">1000</span><span class="token punctuation">)</span>
 		<span class="token punctuation">{</span>
-			<span class="token comment">//cast invisibility spell</span>
-			cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic blindfold!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+			cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You scored 1000 or more. Impressive!\n&quot;</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span>
-</pre><p>Take away the white space, the specifics, and you get:</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Basic fork in the road. Based on a test, we choose one of two outcomes.</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>test<span class="token punctuation">)</span> <span class="token punctuation">{</span> code A <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> code B<span class="token punctuation">}</span>
-</pre><p>The code up there gets a bit ugly with the extra parentheses. It&apos;s common to put conditions on the <code>else</code>, so <em>c++</em> lets us shorten it to &quot;else if&quot;. We&apos;ll add the <code>run away no matter what</code> too.</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// LowHealth.cpp</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>GameStats</p>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Game Stats</span>
+<span class="token comment">// Demonstrates declaring and initializing variables</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token comment">// We define a variable like this:</span>
-<span class="token comment">// (type) (name) = (value);</span>
-
-<span class="token keyword">int</span> redMana <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> blueMana <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-
-<span class="token comment">// A variable that never changes is a constant, or const.</span>
-<span class="token comment">// Write it in capitals so people know.</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> HEALING_RED_MANA <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> INVISIBILITY_BLUE_MANA <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
-
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;I&apos;m low on health..&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-
-	<span class="token comment">// If I have enough red mana:</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>redMana <span class="token operator">&gt;</span> HEALING_RED_MANA<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token comment">// cast healing spell</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic bandaid!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token comment">//Otherwise:</span>
-		<span class="token comment">//If I have enough blue mana</span>
-			<span class="token comment">// cast invisibility spell</span>
-	<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>blueMana <span class="token operator">&gt;</span> INVISIBILITY_BLUE_MANA<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-			<span class="token comment">// cast invisibility spell</span>
-			cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic blindfold!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token comment">// run away no matter what.</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Run away!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token comment">// defining variables of different types</span>
+	<span class="token keyword">int</span> score<span class="token punctuation">;</span>
+	<span class="token keyword">double</span> distance<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> playAgain<span class="token punctuation">;</span>
+	<span class="token keyword">bool</span> shieldsUp<span class="token punctuation">;</span>
+	<span class="token keyword">short</span> lives<span class="token punctuation">,</span> aliensKilled<span class="token punctuation">;</span>
+	
+	<span class="token comment">// assigning initial values to the types, aka initialising them.</span>
+	score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	distance <span class="token operator">=</span> <span class="token number">1200.76</span><span class="token punctuation">;</span>
+	playAgain <span class="token operator">=</span> &#x2019;y&#x2019;<span class="token punctuation">;</span>
+	shieldsUp <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	lives <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+	aliensKilled <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// defining a variable and initialiizing it </span>
+	<span class="token keyword">double</span> engineTemp <span class="token operator">=</span> <span class="token number">6572.89</span><span class="token punctuation">;</span>
+	
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nscore: &quot;</span> <span class="token operator">&lt;&lt;</span> score <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;distance: &quot;</span> <span class="token operator">&lt;&lt;</span> distance <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;playAgain: &quot;</span> <span class="token operator">&lt;&lt;</span> playAgain <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token comment">//skipping shieldsUp since you don&#x2019;t generally print Boolean values</span>
+	
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;lives: &quot;</span> <span class="token operator">&lt;&lt;</span> lives <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;aliensKilled: &quot;</span> <span class="token operator">&lt;&lt;</span> aliensKilled <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;engineTemp: &quot;</span> <span class="token operator">&lt;&lt;</span> engineTemp <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	
+	<span class="token keyword">int</span> fuel<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nHow much fuel do you have? (enter a whole number) &quot;</span><span class="token punctuation">;</span>
+	cin <span class="token operator">&gt;&gt;</span> fuel<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;fuel: &quot;</span> <span class="token operator">&lt;&lt;</span> fuel <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	
+	<span class="token comment">// with `typedef` you can create a convenient shortcut</span>
+	<span class="token comment">// for multi part types like `unsigned short int`</span>
+	<span class="token keyword">typedef</span> <span class="token keyword">unsigned</span> <span class="token keyword">short</span> <span class="token keyword">int</span> ushort<span class="token punctuation">;</span>
+	ushort bonus <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nbonus: &quot;</span> <span class="token operator">&lt;&lt;</span> bonus <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-
-</pre><h2 class="mume-header" id="powerpoint">Powerpoint!</h2>
-
-<p>Switch, while, for, enum.<br>
-Logical and mathematical operators.<br>
-ints, floats, longs, shorts, char.</p>
-<h2 class="mume-header" id="exercises">Exercises</h2>
-
-<ol>
-<li>Code from the text book:
-<ul>
-<li><a href="week2_book_bits.html">week2_book_bits.html</a></li>
-</ul>
-</li>
-<li>Type out and run some of the <a href="week2_code.html">week 2 exercises</a>. I recommend at minimum <code>2.1</code>, <code>2.5</code>, <code>2.6</code>, <code>2.7</code>.
-<ul>
-<li>The handy bit in <code>2.6</code> is understanding the fall through option in switch statements. Super useful, people always miss it at first. There are few other ways to handle options with so little code.</li>
-<li>It&apos;s good if you get bored defining variables and typing cout. Also good to get bored of trying logical comparisons. If you can get to where this stuff is easy and obvious you&apos;re on your way.</li>
-</ul>
-</li>
-<li>Work through sololearn c++ part 2: Conditionals and Loops.</li>
-</ol>
-
+</pre>
       </div>
       
       
