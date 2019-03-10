@@ -1,7 +1,26 @@
 #GPR103 week3 - Inheritance and Polymorphism.
 
+Designing objects with reuse and extension in mind.
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+* [GPR103 week3 - Inheritance and Polymorphism.](#gpr103-week3-inheritance-and-polymorphism)
+	* [Last week and homework](#last-week-and-homework)
+	* [Inheritance](#inheritance)
+		* [Examples of inheritance](#examples-of-inheritance)
+		* [Why inheritance in programming?](#why-inheritance-in-programming)
+		* [Towers to build](#towers-to-build)
+			* [Base Tower](#base-tower)
+			* [Tower.cs](#towercs)
+			* [Unique towers](#unique-towers)
+			* [GattlingTower.cs](#gattlingtowercs)
+			* [MissileTower.cs](#missiletowercs)
+	* [Polymorphism](#polymorphism)
+		* [Abstract](#abstract)
+
+<!-- /code_chunk_output -->
 
 ## Last week and homework
 
@@ -70,11 +89,54 @@ It's pretty obvious that we'll be starting from the base `Class Tower` here and 
   
 We won't go nuts and define a full game ready tower for this exercise.
 
+#### Tower.cs
 ```cs
-Class Tower
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Tower : MonoBehaviour
 {
+	protected int _health = 100;
+	protected Vector2 _position;
+    protected int _level = 1;
+
+    public Tower()
+    {
+        
+    }
+    
+    void Start() {
+    }
+    
+    public void Build(Vector2 position)
+    {
+        _position = position;
+    }
+
+    public void levelUp()
+    {
+        Debug.Log("Levelling up");
+    }
+    
+    public int CurrentLevel
+    {
+        get { return _level; }
+    }
+
+	public int Health
+	{
+		get { return _health; }
+		set { _health = value; }
+	}
+
+    private void Collapse()
+    {
+        Debug.Log("Collapse.");
+    }
 
 }
+
 ```
 
 > Some **terms used for a base class**: parent, ancestor, base, super.
@@ -89,6 +151,8 @@ Now our derived classes. Each is "derived" from Tower.
 >
 >**Class MissileTower**:
 >  * `pods`, `firingRate`, `damagePerProjectile`, fire()
+
+![Gattling Tower](assets/week3/sprite_gattling_tower.png)
 
 #### GattlingTower.cs
 
@@ -115,6 +179,7 @@ public class GattlingTower : Tower {
 }
 
 ```
+![Missile Tower](assets/week3/sprite_missile_tower.png)
 #### MissileTower.cs
 
 ```cs

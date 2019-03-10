@@ -25,6 +25,30 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="gpr103-week3-inheritance-and-polymorphism">GPR103 week3 - Inheritance and Polymorphism.</h1>
 
+<p>Designing objects with reuse and extension in mind.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<li><a href="#last-week-and-homework">Last week and homework</a></li>
+<li><a href="#inheritance">Inheritance</a>
+<ol>
+<li><a href="#examples-of-inheritance">Examples of inheritance</a></li>
+<li><a href="#why-inheritance-in-programming">Why inheritance in programming?</a></li>
+<li><a href="#towers-to-build">Towers to build</a>
+<ol>
+<li><a href="#base-tower">Base Tower</a></li>
+<li><a href="#towercs">Tower.cs</a></li>
+<li><a href="#unique-towers">Unique towers</a></li>
+<li><a href="#gattlingtowercs">GattlingTower.cs</a></li>
+<li><a href="#missiletowercs">MissileTower.cs</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#polymorphism">Polymorphism</a>
+<ol>
+<li><a href="#abstract">Abstract</a></li>
+</ol>
+</li>
+</ol>
 <h2 class="mume-header" id="last-week-and-homework">Last week and homework</h2>
 
 <p>Last week&apos;s topic was <strong>Object oriented design</strong>, specifically <strong>Encapsulation through Classes, Access Modifiers, Properties</strong></p>
@@ -89,10 +113,54 @@
 </li>
 </ul>
 <p>We won&apos;t go nuts and define a full game ready tower for this exercise.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token class-name">Class</span> Tower
+<h4 class="mume-header" id="towercs">Tower.cs</h4>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Tower</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
 <span class="token punctuation">{</span>
+	<span class="token keyword">protected</span> <span class="token keyword">int</span> _health <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+	<span class="token keyword">protected</span> <span class="token class-name">Vector2</span> _position<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> _level <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Tower</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _position <span class="token operator">=</span> position<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">levelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Levelling up&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">int</span> CurrentLevel
+    <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _level<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">int</span> Health
+	<span class="token punctuation">{</span>
+		<span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _health<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+		<span class="token keyword">set</span> <span class="token punctuation">{</span> _health <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Collapse</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Collapse.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
+
 </pre><blockquote>
 <p>Some <strong>terms used for a base class</strong>: parent, ancestor, base, super.</p>
 </blockquote>
@@ -110,6 +178,7 @@
 <li><code>pods</code>, <code>firingRate</code>, <code>damagePerProjectile</code>, fire()</li>
 </ul>
 </blockquote>
+<p><img src="assets/week3/sprite_gattling_tower.png" alt="Gattling Tower"></p>
 <h4 class="mume-header" id="gattlingtowercs">GattlingTower.cs</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
@@ -133,7 +202,8 @@
 	
 <span class="token punctuation">}</span>
 
-</pre><h4 class="mume-header" id="missiletowercs">MissileTower.cs</h4>
+</pre><p><img src="assets/week3/sprite_missile_tower.png" alt="Missile Tower"></p>
+<h4 class="mume-header" id="missiletowercs">MissileTower.cs</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
