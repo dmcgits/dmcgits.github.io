@@ -90,20 +90,69 @@ Now our derived classes. Each is "derived" from Tower.
 >**Class MissileTower**:
 >  * `pods`, `firingRate`, `damagePerProjectile`, fire()
 
+#### GattlingTower.cs
+
 ```cs
-Class GattlingTower : Tower
-{
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class GattlingTower : Tower {
+
+	protected int _turrets = 1;
+	protected int _damagePerSecond = 8;
+
+	// Use this for initialization
+	void Start() {
+		Debug.Log("I am Gattling.");
+	}
+	
+	public int DamagePerSecond
+	{ 
+		get { return _damagePerSecond; }
+	}
+	
 }
 
-Class MissileTower
-{
+```
+#### MissileTower.cs
 
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MissileTower : Tower {
+
+	protected int _firingRate = 1;
+	protected const int NUM_PODS = 9;
+	protected float _damagePerProjectile = 1.0f;
+
+	// Use this for initialization
+	void Start() {
+		Debug.Log("I am Missile.");
+	}
+
+	public float DamagePerProjectile
+	{
+		get { return _damagePerProjectile; }
+		//set	{ _damagePerSecond = value;	}
+	}
+
+	public int FiringRate
+	{
+		get { return _firingRate; }
+	}
+
+	protected void Fire()
+	{
+		Debug.Log("Fire!");
+	}
 }
-// code for GattlingTower, MissileTower
+
 ```
  
-> Food for thought: both are **tracking** towers. Doesn't really belong in a generic tower, but also duplication is bad. This is where `Class TrackingTower` might come up.
+> **Food for thought:** both towers **track** their opponents, but some won't. Where do we implement it? Doesn't really belong in a generic tower, but also duplication is bad. This is where `Class TrackingTower` might come up. Or we might want to mix inheritance and composition designs.
 
 ## Polymorphism
 
@@ -124,7 +173,6 @@ towers.add(new MissileTower());
 
 towers[0].build();
 ```
-
 
 A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.
 
