@@ -18,7 +18,10 @@ Designing objects with reuse and extension in mind.
 			* [GattlingTower.cs](#gattlingtowercs)
 			* [MissileTower.cs](#missiletowercs)
 	* [Polymorphism](#polymorphism)
-		* [Abstract](#abstract)
+	* [Assignment 1 part 2](#assignment-1-part-2)
+	* [Virtual/Abstract functions](#virtualabstract-functions)
+	* [Overriding functions](#overriding-functions)
+	* [Exercises](#exercises)
 
 <!-- /code_chunk_output -->
 
@@ -228,6 +231,8 @@ _They're all Bludgie though really - Aussie Pokedex by Paul Robertson_
 
 A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don't need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.
 
+_**Busted example, change to public list. Can't use prefab instantation.**_
+
 ```cs
 // List uses base type `Tower` even though we never make an instance of `Tower` directly.
 List<Tower> towers = new List<Tower>();
@@ -241,7 +246,13 @@ towers[0].build();
 
 A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.
 
-### Abstract
+## Assignment 1 part 2
+
+Polymorphism! Creating a **base class and 3 derived classes**. Store them in an **array of their base type**, and  **call functions**. Use and **override** a **virtual function**.
+
+This should be a [link to pdf brief on blackboard](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1). Make sure you're logged in to blackboard, and message me if it's not working.
+
+## Virtual/Abstract functions
 
 You can see then that a function we want to be in all children, like build(), might not have any need for code in the root Tower class. It's kind of a template to build all the towers off.
 
@@ -253,5 +264,19 @@ The `abstract` keyword lets us define a function with no content. It also fails 
 
 ```cs
 
-abstract example
+virtual example
 ```
+
+## Overriding functions
+
+> How do you make a function that has already been defined? **Override** it.
+
+## Exercises
+
+1. Watch the videos and type out the code in these Unity tutorials on inheritance, polymorphism, method overriding and collections (lists/dictionaries)
+   * <https://unity3d.com/learn/tutorials/topics/scripting/inheritance?playlist=17117>
+   * <https://unity3d.com/learn/tutorials/topics/scripting/polymorphism>
+   * <https://unity3d.com/learn/tutorials/topics/scripting/overriding?playlist=17117>
+   * <https://unity3d.com/learn/tutorials/modules/intermediate/scripting/lists-and-dictionaries?playlist=17117>
+2. Complete part 2 of assignment 1.
+

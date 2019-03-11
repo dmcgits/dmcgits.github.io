@@ -43,11 +43,11 @@
 </li>
 </ol>
 </li>
-<li><a href="#polymorphism">Polymorphism</a>
-<ol>
-<li><a href="#abstract">Abstract</a></li>
-</ol>
-</li>
+<li><a href="#polymorphism">Polymorphism</a></li>
+<li><a href="#assignment-1-part-2">Assignment 1 part 2</a></li>
+<li><a href="#virtualabstract-functions">Virtual/Abstract functions</a></li>
+<li><a href="#overriding-functions">Overriding functions</a></li>
+<li><a href="#exercises">Exercises</a></li>
 </ol>
 <h2 class="mume-header" id="last-week-and-homework">Last week and homework</h2>
 
@@ -246,6 +246,7 @@
 <p><img src="assets/week3/pokemon_bludgie.png" alt="Bludgie"><br>
 <em>They&apos;re all Bludgie though really - Aussie Pokedex by Paul Robertson</em></p>
 <p>A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don&apos;t need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.</p>
+<p><em><strong>Busted example, change to public list. Can&apos;t use prefab instantation.</strong></em></p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// List uses base type `Tower` even though we never make an instance of `Tower` directly.</span>
 List<span class="token operator">&lt;</span>Tower<span class="token operator">&gt;</span> towers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Tower</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -255,7 +256,11 @@ towers<span class="token punctuation">.</span><span class="token keyword">add</s
 
 towers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><p>A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.</p>
-<h3 class="mume-header" id="abstract">Abstract</h3>
+<h2 class="mume-header" id="assignment-1-part-2">Assignment 1 part 2</h2>
+
+<p>Polymorphism! Creating a <strong>base class and 3 derived classes</strong>. Store them in an <strong>array of their base type</strong>, and  <strong>call functions</strong>. Use and <strong>override</strong> a <strong>virtual function</strong>.</p>
+<p>This should be a <a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1">link to pdf brief on blackboard</a>. Make sure you&apos;re logged in to blackboard, and message me if it&apos;s not working.</p>
+<h2 class="mume-header" id="virtualabstract-functions">Virtual/Abstract functions</h2>
 
 <p>You can see then that a function we want to be in all children, like build(), might not have any need for code in the root Tower class. It&apos;s kind of a template to build all the towers off.</p>
 <blockquote>
@@ -263,8 +268,26 @@ towers<span class="token punctuation">[</span><span class="token number">0</span
 </blockquote>
 <p>What&apos;s better than asking? Forcing!</p>
 <p>The <code>abstract</code> keyword lets us define a function with no content. It also fails to compile unless the function is overriden by any Class that inherits from it.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">abstract</span> example
-</pre>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">virtual</span> example
+</pre><h2 class="mume-header" id="overriding-functions">Overriding functions</h2>
+
+<blockquote>
+<p>How do you make a function that has already been defined? <strong>Override</strong> it.</p>
+</blockquote>
+<h2 class="mume-header" id="exercises">Exercises</h2>
+
+<ol>
+<li>Watch the videos and type out the code in these Unity tutorials on inheritance, polymorphism, method overriding and collections (lists/dictionaries)
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/inheritance?playlist=17117">https://unity3d.com/learn/tutorials/topics/scripting/inheritance?playlist=17117</a></li>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/polymorphism">https://unity3d.com/learn/tutorials/topics/scripting/polymorphism</a></li>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/overriding?playlist=17117">https://unity3d.com/learn/tutorials/topics/scripting/overriding?playlist=17117</a></li>
+<li><a href="https://unity3d.com/learn/tutorials/modules/intermediate/scripting/lists-and-dictionaries?playlist=17117">https://unity3d.com/learn/tutorials/modules/intermediate/scripting/lists-and-dictionaries?playlist=17117</a></li>
+</ul>
+</li>
+<li>Complete part 2 of assignment 1.</li>
+</ol>
+
       </div>
       
       
