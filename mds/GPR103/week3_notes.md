@@ -21,12 +21,13 @@ Designing objects with reuse and extension in mind.
 	* [Getting Abstract](#getting-abstract)
 		* [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
 			* [Snippet: Tower.cs](#snippet-towercs)
-			* [Snippet: TowerFloating.cs](#snippet-towerfloatingcs)
+			* [Snippet: FloatingTower.cs](#snippet-floatingtowercs)
 		* [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
 			* [Snippet: TowerGattling.cs](#snippet-towergattlingcs)
 		* [Abstract](#abstract)
 			* [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
 	* [Exercises](#exercises)
+	* [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -158,7 +159,7 @@ Now our derived classes. Each is "derived" from Tower.
 >  * `turrets`, `damagePerSecond`
 >
 >**Class MissileTower**:
->  * `pods`, `firingRate`, `damagePerProjectile`, fire()
+>  * `pods`, `firingRate`, `damagePerProjectile`, `fire()`
 
 ![Gattling Tower](assets/week3/sprite_gattling_tower.png)
 
@@ -195,32 +196,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileTower : Tower {
+public class MissileTower : Tower
+{
 
-	protected int _firingRate = 1;
-	protected const int NUM_PODS = 9;
-	protected float _damagePerProjectile = 1.0f;
+    private int _firingRate = 1;
+    private float _damagePerProjectile = 1.0f;
+    private const int NUM_PODS = 9;
 
-	// Use this for initialization
-	void Start() {
-		Debug.Log("I am Missile.");
-	}
+    void Start()
+    {
+        Debug.Log("I am Missile.");
+    }
 
-	public float DamagePerProjectile
-	{
-		get { return _damagePerProjectile; }
-		//set	{ _damagePerSecond = value;	}
-	}
+    public float DamagePerProjectile
+    {
+        get { return _damagePerProjectile; }
+    }
 
-	public int FiringRate
-	{
-		get { return _firingRate; }
-	}
+    public int FiringRate
+    {
+        get { return _firingRate;  }
+    }
 
-	protected void Fire()
-	{
-		Debug.Log("Fire!");
-	}
+    protected void Fire()
+    {
+        Debug.Log("Fire!");
+    }
 }
 
 ```
@@ -236,6 +237,8 @@ _They're all Bludgie though really - Aussie Pokedex by Paul Robertson_
 
 A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don't need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.
 
+Here's how it might look if we were using basic classes like last week:
+
 ```cs
 // List uses base type `Tower` even though we never make an instance of `Tower` directly.
 List<Tower> towers = new List<Tower>();
@@ -245,6 +248,31 @@ towers.add(new GattlingTower());
 towers.add(new MissileTower());
 
 towers[0].build();
+```
+
+Here's how it looks in the TargetMaster class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
+
+```cs
+// Usual Unity includes go here
+public class TowerMaster : MonoBehaviour {
+
+    public List<Tower> towers;
+
+	void Start () {
+
+        Debug.Log("TowerMaster says hi");
+        Debug.Log("towers.Count = " + towers.Count);
+        int i=0;
+
+        // do this until we run out of towers
+        while (i < towers.Count)
+        {
+            // Call Build on all our towers
+            towers[i].Build(new Vector2(1.0f, 2.0f));
+            i++;
+        }
+    }
+}
 ```
 
 A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.
@@ -260,31 +288,33 @@ There are a few reasons want to make a base class, and they aren't all covered b
 
 ### Overriding functions and the `virtual` keyword
 
-If you want the base class to define the function and then change how it works, you can **override the function**. This is common to many languages but uses differing syntax. In _c#_ we add `virtual` to the function definition in the base class, and the same function definition (minus `virtual`) in the derived class.. then we change the contents.
+If you want the base class to define the function and then change how it works, you can **override the function**. This is common to many languages but uses differing syntax. In _c#_ we add `virtual` to the function definition in the base class, and the same function definition with `override` in the derived class.. then we change the contents.
 
-Here's an example where a TowerFloating stores its position in a variable called `_currentPosition`, since it's moving, and also in `_landingPosition` so it can return there.
+Here's an example where a FloatingTower stores its position in a variable called `_currentPosition`, since it's moving, and also in `_landingPosition` so it can return there.
 
 #### Snippet: Tower.cs
 
 ```cs
 // Note the virtual keyword. It allows overrides.
-virtual public function Build (Vector2 position)
+public virtual function Build (Vector2 position)
 {	
 	Debug.Log("Building Tower");
 	_position = position;
 }
 ```
 
-#### Snippet: TowerFloating.cs
+#### Snippet: FloatingTower.cs
 
 ```cs
-
-public function Build (Vector2 position)
+// note override in place of virtual here
+public override function Build (Vector2 position)
 {
 	 _landingPosition = _currentPosition = position;
 }
 
 ```
+
+> Say you have a list of type `Tower` and you call Build on a `FloatingTower` in that list. If you get the output from `Tower.Build` instead of `FloatingTower.Build` you've probably left out `override`.
 
 ### Partial code reuse with the `base` keyword
 
@@ -297,42 +327,28 @@ How can we alter our `Build(position)` function to set the position but also set
 ```cs
 
 // We can call it explicitly.
-public function Build(Vector2 position)
-{
-	// Run the base class's build code first
-	base.Build(Vector2 position);
-	
-	// Now do things specific to the gattling gun build.
-	// Instead of real functions, we'll just log out what code needs to come next.
-	// This can sometimes be a good way to block out your classes.
-	Debug.Log("Todo: Load Gattling Model");
-	Debug.Log("Todo: Play Gattling Tower 1 gun start animation");
-}
+    public override void Build(Vector2 position)
+    {
+        // Use base to call Build on Tower()
+        base.Build(position);
 
-// There's also a shorthand for this in c#,
-// we add the call to our function definition line
-// It's essentially the function call added after the ":" inheritance/extension symbol
-public function Build(Vector2 position) : base ( position )
-{
-	// Now do things specific to the gattling gun build.
-	Debug.Log("Todo: Load Gattling Model");
-	Debug.Log("Todo: Play Gattling Tower 1 gun start animation");
-}
+		// Do Gattling specific things
+        Debug.Log("Gattling.Build() here, just logging.");
+    }
+
+// I removed the : base (position) example here because it only worked on constructors.
 
 ```
 
-Both of these functions would output the same thing:
-
+Output: 
 ```
 Building Tower
-Todo: Load Gattling model
-Todo: Play Gattling Tower 1 gun start animation
+Gattling.Build() here, just logging.
 ```
 
 ### Abstract
 
 When none of the code in the base is useful, we an just override the whole `virtual function`. We can even leave the `virtual function` empty in base. The problem of course, is making sure the next coder to inherit your class actually does it. How?
-
 
 > We could make an empty function and put a comment asking all other coders to make sure to override it with their own code. But they might miss/ignore the comment.
 
@@ -355,16 +371,28 @@ abstract class Tower
 
 public class TowerGattling
 {
-	public void Build(Vector2 position)
+	public override void Build(Vector2 position)
 	{
 		// build
 	}
-
 }
-
 
 ```
 
 ## Exercises
 
-1: Assignment 1 Part 2
+1. Assignment 1, exercise 2. 
+   * [Direct blackboard Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1)
+   * As you come across issues, or even before you start, watch the unity videos in 2.
+2. Unity tutorial videos covering this week
+  	* [the scripting section](https://unity3d.com/learn/tutorials/s/scripting) 
+  	* Tutes: _Inheritance_, _Polymorphism_, _Overriding_ and _Lists & Dictionaries_.
+   * Watch the videos, and type in the code so you really remember it.
+
+## Resources
+
+1. [Download my TowerInheritance Unity project](assets/TowerInheritance.zip)
+2. Microsoft c# docs. This isn't a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
+   * [virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual)
+   * [abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
+   * [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2)

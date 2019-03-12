@@ -44,6 +44,7 @@
 </ul>
 </li>
 <li><a href="#exercises">Exercises</a></li>
+<li><a href="#resources">Resources</a></li>
 </ul>
 <h2 class="mume-header" id="last-week-and-homework">Last week and homework</h2>
 
@@ -171,7 +172,7 @@
 </ul>
 <p><strong>Class MissileTower</strong>:</p>
 <ul>
-<li><code>pods</code>, <code>firingRate</code>, <code>damagePerProjectile</code>, fire()</li>
+<li><code>pods</code>, <code>firingRate</code>, <code>damagePerProjectile</code>, <code>fire()</code></li>
 </ul>
 </blockquote>
 <p><img src="assets/week3/sprite_gattling_tower.png" alt="Gattling Tower"></p>
@@ -205,32 +206,32 @@
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
 <span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MissileTower</span> <span class="token punctuation">:</span> <span class="token class-name">Tower</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MissileTower</span> <span class="token punctuation">:</span> <span class="token class-name">Tower</span>
+<span class="token punctuation">{</span>
 
-	<span class="token keyword">protected</span> <span class="token keyword">int</span> _firingRate <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token keyword">protected</span> <span class="token keyword">const</span> <span class="token keyword">int</span> NUM_PODS <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
-	<span class="token keyword">protected</span> <span class="token keyword">float</span> _damagePerProjectile <span class="token operator">=</span> <span class="token number">1.0f</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> _firingRate <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">float</span> _damagePerProjectile <span class="token operator">=</span> <span class="token number">1.0f</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">const</span> <span class="token keyword">int</span> NUM_PODS <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
 
-	<span class="token comment">// Use this for initialization</span>
-	<span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;I am Missile.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;I am Missile.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-	<span class="token keyword">public</span> <span class="token keyword">float</span> DamagePerProjectile
-	<span class="token punctuation">{</span>
-		<span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _damagePerProjectile<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-		<span class="token comment">//set	{ _damagePerSecond = value;	}</span>
-	<span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">float</span> DamagePerProjectile
+    <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _damagePerProjectile<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-	<span class="token keyword">public</span> <span class="token keyword">int</span> FiringRate
-	<span class="token punctuation">{</span>
-		<span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _firingRate<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> FiringRate
+    <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _firingRate<span class="token punctuation">;</span>  <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-	<span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">Fire</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Fire!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">Fire</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Fire!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 </pre><blockquote>
@@ -242,6 +243,7 @@
 <p><img src="assets/week3/pokemon_bludgie.png" alt="Bludgie"><br>
 <em>They&#x2019;re all Bludgie though really - Aussie Pokedex by Paul Robertson</em></p>
 <p>A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don&#x2019;t need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.</p>
+<p>Here&#x2019;s how it might look if we were using basic classes like last week:</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// List uses base type `Tower` even though we never make an instance of `Tower` directly.</span>
 List<span class="token operator">&lt;</span>Tower<span class="token operator">&gt;</span> towers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Tower</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -250,6 +252,27 @@ towers<span class="token punctuation">.</span><span class="token keyword">add</s
 towers<span class="token punctuation">.</span><span class="token keyword">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MissileTower</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 towers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>Here&#x2019;s how it looks in the TargetMaster class I&#x2019;ve provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Usual Unity includes go here</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TowerMaster</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>Tower<span class="token operator">&gt;</span> towers<span class="token punctuation">;</span>
+
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;TowerMaster says hi&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;towers.Count = &quot;</span> <span class="token operator">+</span> towers<span class="token punctuation">.</span>Count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// do this until we run out of towers</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> towers<span class="token punctuation">.</span>Count<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// Call Build on all our towers</span>
+            towers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Vector2</span><span class="token punctuation">(</span><span class="token number">1.0f</span><span class="token punctuation">,</span> <span class="token number">2.0f</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </pre><p>A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.</p>
 <h2 class="mume-header" id="getting-abstract">Getting Abstract</h2>
 
@@ -264,56 +287,48 @@ towers<span class="token punctuation">[</span><span class="token number">0</span
 </blockquote>
 <h3 class="mume-header" id="overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</h3>
 
-<p>If you want the base class to define the function and then change how it works, you can <strong>override the function</strong>. This is common to many languages but uses differing syntax. In <em>c#</em> we add <code>virtual</code> to the function definition in the base class, and the same function definition (minus <code>virtual</code>) in the derived class&#x2026; then we change the contents.</p>
-<p>Here&#x2019;s an example where a TowerFloating stores its position in a variable called <code>_currentPosition</code>, since it&#x2019;s moving, and also in <code>_landingPosition</code> so it can return there.</p>
+<p>If you want the base class to define the function and then change how it works, you can <strong>override the function</strong>. This is common to many languages but uses differing syntax. In <em>c#</em> we add <code>virtual</code> to the function definition in the base class, and the same function definition with <code>override</code> in the derived class&#x2026; then we change the contents.</p>
+<p>Here&#x2019;s an example where a FloatingTower stores its position in a variable called <code>_currentPosition</code>, since it&#x2019;s moving, and also in <code>_landingPosition</code> so it can return there.</p>
 <h4 class="mume-header" id="snippet-towercs">Snippet: Tower.cs</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Note the virtual keyword. It allows overrides.</span>
-<span class="token keyword">virtual</span> <span class="token keyword">public</span> function <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">virtual</span> function <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>	
 	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Building Tower&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	_position <span class="token operator">=</span> position<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="snippet-towerfloatingcs">Snippet: TowerFloating.cs</h4>
+</pre><h4 class="mume-header" id="snippet-floatingtowercs">Snippet: FloatingTower.cs</h4>
 
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> function <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// note override in place of virtual here</span>
+<span class="token keyword">public</span> <span class="token keyword">override</span> function <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
 	 _landingPosition <span class="token operator">=</span> _currentPosition <span class="token operator">=</span> position<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><h3 class="mume-header" id="partial-code-reuse-with-the-base-keyword">Partial code reuse with the <code>base</code> keyword</h3>
+</pre><blockquote>
+<p>Say you have a list of type <code>Tower</code> and you call Build on a <code>FloatingTower</code> in that list. If you get the output from <code>Tower.Build</code> instead of <code>FloatingTower.Build</code> you&#x2019;ve probably left out <code>override</code>.</p>
+</blockquote>
+<h3 class="mume-header" id="partial-code-reuse-with-the-base-keyword">Partial code reuse with the <code>base</code> keyword</h3>
 
 <p>Overriding the function has come at a cost: no free code from the parent class! At least for that function. What if we could have it both ways?</p>
 <p>How can we alter our <code>Build(position)</code> function to set the position but also set up the specifics for a GattlingTower? We can <strong>call functions in the base class with the <code>base</code> keyword</strong>.</p>
 <h4 class="mume-header" id="snippet-towergattlingcs">Snippet: TowerGattling.cs</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// We can call it explicitly.</span>
-<span class="token keyword">public</span> function <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token comment">// Run the base class&apos;s build code first</span>
-	<span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	
-	<span class="token comment">// Now do things specific to the gattling gun build.</span>
-	<span class="token comment">// Instead of real functions, we&apos;ll just log out what code needs to come next.</span>
-	<span class="token comment">// This can sometimes be a good way to block out your classes.</span>
-	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Load Gattling Model&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Play Gattling Tower 1 gun start animation&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Use base to call Build on Tower()</span>
+        <span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">// There&apos;s also a shorthand for this in c#,</span>
-<span class="token comment">// we add the call to our function definition line</span>
-<span class="token comment">// It&apos;s essentially the function call added after the &quot;:&quot; inheritance/extension symbol</span>
-<span class="token keyword">public</span> function <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">base</span> <span class="token punctuation">(</span> position <span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token comment">// Now do things specific to the gattling gun build.</span>
-	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Load Gattling Model&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Play Gattling Tower 1 gun start animation&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+		<span class="token comment">// Do Gattling specific things</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Gattling.Build() here, just logging.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-</pre><p>Both of these functions would output the same thing:</p>
+<span class="token comment">// I removed the : base (position) example here because it only worked on constructors.</span>
+
+</pre><p>Output:</p>
 <pre data-role="codeBlock" data-info class="language-"><code>Building Tower
-Todo: Load Gattling model
-Todo: Play Gattling Tower 1 gun start animation
+Gattling.Build() here, just logging.
 </code></pre><h3 class="mume-header" id="abstract">Abstract</h3>
 
 <p>When none of the code in the base is useful, we an just override the whole <code>virtual function</code>. We can even leave the <code>virtual function</code> empty in base. The problem of course, is making sure the next coder to inherit your class actually does it. How?</p>
@@ -336,17 +351,41 @@ Todo: Play Gattling Tower 1 gun start animation
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TowerGattling</span>
 <span class="token punctuation">{</span>
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
 	<span class="token punctuation">{</span>
 		<span class="token comment">// build</span>
 	<span class="token punctuation">}</span>
-
 <span class="token punctuation">}</span>
-
 
 </pre><h2 class="mume-header" id="exercises">Exercises</h2>
 
-<p>1: Assignment 1 Part 2</p>
+<ol>
+<li>Assignment 1, exercise 2.
+<ul>
+<li><a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1">Direct blackboard Link</a></li>
+<li>As you come across issues, or even before you start, watch the unity videos in 2.</li>
+</ul>
+</li>
+<li>Unity tutorial videos covering this week
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/s/scripting">the scripting section</a></li>
+<li>Tutes: <em>Inheritance</em>, <em>Polymorphism</em>, <em>Overriding</em> and <em>Lists &amp; Dictionaries</em>.</li>
+<li>Watch the videos, and type in the code so you really remember it.</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<ol>
+<li><a href="assets/TowerInheritance.zip">Download my TowerInheritance Unity project</a></li>
+<li>Microsoft c# docs. This isn&#x2019;t a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual">virtual</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract">abstract</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2">List</a></li>
+</ul>
+</li>
+</ol>
 
       </div>
       
