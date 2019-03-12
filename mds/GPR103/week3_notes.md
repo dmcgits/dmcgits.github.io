@@ -384,7 +384,7 @@ public class TowerGattling
 
 ## Resources
 
-1. [Download my TowerInheritance Unity project](assets/TowerInheritance.zip)
+1. [Download my TowerInheritance Unity project](assets/week3/TowerInheritance.zip)
 2. Microsoft c# docs. This isn't a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
    * [virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual)
    * [abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
