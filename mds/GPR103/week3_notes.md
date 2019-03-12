@@ -6,26 +6,27 @@ Designing objects with reuse and extension in mind.
 
 <!-- code_chunk_output -->
 
-1. [Last week and homework](#last-week-and-homework)
-2. [Inheritance](#inheritance)
-	1. [Examples of inheritance](#examples-of-inheritance)
-	2. [Why inheritance in programming?](#why-inheritance-in-programming)
-	3. [Towers to build](#towers-to-build)
-		1. [Base Tower](#base-tower)
-		2. [Tower.cs](#towercs)
-		3. [Unique towers](#unique-towers)
-		4. [GattlingTower.cs](#gattlingtowercs)
-		5. [MissileTower.cs](#missiletowercs)
-3. [Polymorphism](#polymorphism)
-4. [Getting Abstract](#getting-abstract)
-	1. [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
-		1. [Snippet: Tower.cs](#snippet-towercs)
-		2. [Snippet: TowerFloating.cs](#snippet-towerfloatingcs)
-	2. [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
-		1. [Snippet: TowerGattling.cs](#snippet-towergattlingcs)
-	3. [Abstract](#abstract)
-		1. [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
-5. [Exercises](#exercises)
+* [GPR103 week3 - Inheritance and Polymorphism.](#gpr103-week3-inheritance-and-polymorphism)
+	* [Last week and homework](#last-week-and-homework)
+	* [Inheritance](#inheritance)
+		* [Examples of inheritance](#examples-of-inheritance)
+		* [Why inheritance in programming?](#why-inheritance-in-programming)
+		* [Towers to build](#towers-to-build)
+			* [Base Tower](#base-tower)
+			* [Tower.cs](#towercs)
+			* [Unique towers](#unique-towers)
+			* [GattlingTower.cs](#gattlingtowercs)
+			* [MissileTower.cs](#missiletowercs)
+	* [Polymorphism](#polymorphism)
+	* [Getting Abstract](#getting-abstract)
+		* [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
+			* [Snippet: Tower.cs](#snippet-towercs)
+			* [Snippet: TowerFloating.cs](#snippet-towerfloatingcs)
+		* [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
+			* [Snippet: TowerGattling.cs](#snippet-towergattlingcs)
+		* [Abstract](#abstract)
+			* [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
+	* [Exercises](#exercises)
 
 <!-- /code_chunk_output -->
 
@@ -106,7 +107,7 @@ public class Tower : MonoBehaviour
 {
 	protected int _health = 100;
 	protected Vector2 _position;
-    protected int _level = 1;
+	protected int _level = 1;
 
     public Tower()
     {
@@ -121,7 +122,7 @@ public class Tower : MonoBehaviour
         _position = position;
     }
 
-    public void levelUp()
+    public void LevelUp()
     {
         Debug.Log("Levelling up");
     }

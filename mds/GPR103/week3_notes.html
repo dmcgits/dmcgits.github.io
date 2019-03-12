@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.12\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.12\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -26,52 +26,32 @@
       <h1 class="mume-header" id="gpr103-week3-inheritance-and-polymorphism">GPR103 week3 - Inheritance and Polymorphism.</h1>
 
 <p>Designing objects with reuse and extension in mind.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#last-week-and-homework">Last week and homework</a></li>
 <li><a href="#inheritance">Inheritance</a>
-<ol>
+<ul>
 <li><a href="#examples-of-inheritance">Examples of inheritance</a></li>
 <li><a href="#why-inheritance-in-programming">Why inheritance in programming?</a></li>
-<li><a href="#towers-to-build">Towers to build</a>
-<ol>
-<li><a href="#base-tower">Base Tower</a></li>
-<li><a href="#towercs">Tower.cs</a></li>
-<li><a href="#unique-towers">Unique towers</a></li>
-<li><a href="#gattlingtowercs">GattlingTower.cs</a></li>
-<li><a href="#missiletowercs">MissileTower.cs</a></li>
-</ol>
-</li>
-</ol>
+<li><a href="#towers-to-build">Towers to build</a></li>
+</ul>
 </li>
 <li><a href="#polymorphism">Polymorphism</a></li>
 <li><a href="#getting-abstract">Getting Abstract</a>
-<ol>
-<li><a href="#overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</a>
-<ol>
-<li><a href="#snippet-towercs">Snippet: Tower.cs</a></li>
-<li><a href="#snippet-towerfloatingcs">Snippet: TowerFloating.cs</a></li>
-</ol>
+<ul>
+<li><a href="#overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</a></li>
+<li><a href="#partial-code-reuse-with-the-base-keyword">Partial code reuse with the <code>base</code> keyword</a></li>
+<li><a href="#abstract">Abstract</a></li>
+</ul>
 </li>
-<li><a href="#partial-code-reuse-with-the-base-keyword">Partial code reuse with the <code>base</code> keyword</a>
-<ol>
-<li><a href="#snippet-towergattlingcs">Snippet: TowerGattling.cs</a></li>
-</ol>
-</li>
-<li><a href="#abstract">Abstract</a>
-<ol>
-<li><a href="#whats-better-than-hoping-spitting-out-errors">What&apos;s better than hoping? Spitting out errors!</a></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
+<li><a href="#exercises">Exercises</a></li>
+</ul>
 <h2 class="mume-header" id="last-week-and-homework">Last week and homework</h2>
 
-<p>Last week&apos;s topic was <strong>Object oriented design</strong>, specifically <strong>Encapsulation through Classes, Access Modifiers, Properties</strong></p>
+<p>Last week&#x2019;s topic was <strong>Object oriented design</strong>, specifically <strong>Encapsulation through Classes, Access Modifiers, Properties</strong></p>
 <p>Part 1 of assignment.</p>
 <ul>
 <li>Did we get there?</li>
-<li>Did it make more sense once you&apos;d translated the ideas to your own Class vs copying the FireballTower.</li>
+<li>Did it make more sense once you&#x2019;d translated the ideas to your own Class vs copying the FireballTower.</li>
 <li>Did you come up with questions? If you answered them, where did you go for answers? Unity videos, Microsoft docs?</li>
 <li>Questions about wording?</li>
 </ul>
@@ -81,8 +61,8 @@
 <blockquote>
 <p>Inheritance in programming is receiving the properties and abilities of another class/object while adding your own on top, and even modifying/replacing some of what you received.</p>
 </blockquote>
-<p>It&apos;s like genetic inheritance, but it&apos;s also like how products/designs inherit elements from earlier products. Or how a PC inherits all the stuff Intel put in the CPU and chipset.</p>
-<p>We can do this because of the <strong>encapsulation</strong> we did last week. How on earth would you even approach this if things weren&apos;t globbed into Classes?</p>
+<p>It&#x2019;s like genetic inheritance, but it&#x2019;s also like how products/designs inherit elements from earlier products. Or how a PC inherits all the stuff Intel put in the CPU and chipset.</p>
+<p>We can do this because of the <strong>encapsulation</strong> we did last week. How on earth would you even approach this if things weren&#x2019;t globbed into Classes?</p>
 <h3 class="mume-header" id="examples-of-inheritance">Examples of inheritance</h3>
 
 <p><img src="assets/week3/controllers_geneology.jpg" alt="Controller Geneology"><br>
@@ -91,18 +71,18 @@
 <blockquote>
 <p>Classic programming class examples are <code>Canine::Dog::Labrador</code>, <code>Vehicle::Car::Hatchback::Jazz</code>. Notice <code>Canine</code> and <code>vehicle</code> are both fairly abstract; mostly words you see on forms. With each stage you get more concrete.</p>
 </blockquote>
-<p>Game engines evolve too. Here&apos;s a link to one tree of FPS engines: <a href="assets/week3/fps_geneology.png">fps engine inheritance</a></p>
+<p>Game engines evolve too. Here&#x2019;s a link to one tree of FPS engines: <a href="assets/week3/fps_geneology.png">fps engine inheritance</a></p>
 <h3 class="mume-header" id="why-inheritance-in-programming">Why inheritance in programming?</h3>
 
 <ol>
 <li>It helps us think about things. We can break a program down into units and understand their relationships. Especially true in games, which are basically simulations of (parts of) worlds.</li>
 <li>Avoids loads of duplicated code. If you have to change something basic about towers, like the code to click on them or place them, who wants to change every single tower type?</li>
-<li>Inheritance gives you stuff for free. Who doesn&apos;t love free stuff?</li>
+<li>Inheritance gives you stuff for free. Who doesn&#x2019;t love free stuff?</li>
 <li>Extending (inheriting from) a class lets you take something useful but generic and make it more specific.</li>
 </ol>
 <h3 class="mume-header" id="towers-to-build">Towers to build</h3>
 
-<p>We had a Fireball Tower last week. This week we&apos;re cloning Field Runners 2 and want a <strong>Gattling (gun) Tower</strong> and a <strong>Missile Tower</strong>.</p>
+<p>We had a Fireball Tower last week. This week we&#x2019;re cloning Field Runners 2 and want a <strong>Gattling (gun) Tower</strong> and a <strong>Missile Tower</strong>.</p>
 <p><img src="assets/week3/tower_fr_gattling.jpg" alt="Gattling"><br>
 <em>Gattling guns are the spinny ones</em></p>
 <p><img src="assets/week3/tower_fr_missile.jpg" alt="Missiles"><br>
@@ -114,7 +94,7 @@
 <hr>
 <h4 class="mume-header" id="base-tower">Base Tower</h4>
 
-<p>It&apos;s pretty obvious that we&apos;ll be starting from the base <code>Class Tower</code> here and extending it. What&apos;s common to both towers?</p>
+<p>It&#x2019;s pretty obvious that we&#x2019;ll be starting from the base <code>Class Tower</code> here and extending it. What&#x2019;s common to both towers?</p>
 <p><strong>Class: Tower</strong></p>
 <ul>
 <li>Attributes (information):
@@ -128,7 +108,7 @@
 </ul>
 </li>
 </ul>
-<p>We won&apos;t go nuts and define a full game ready tower for this exercise.</p>
+<p>We won&#x2019;t go nuts and define a full game ready tower for this exercise.</p>
 <h4 class="mume-header" id="towercs">Tower.cs</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
@@ -139,7 +119,7 @@
 <span class="token punctuation">{</span>
 	<span class="token keyword">protected</span> <span class="token keyword">int</span> _health <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
 	<span class="token keyword">protected</span> <span class="token class-name">Vector2</span> _position<span class="token punctuation">;</span>
-    <span class="token keyword">protected</span> <span class="token keyword">int</span> _level <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">protected</span> <span class="token keyword">int</span> _level <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token function">Tower</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
@@ -154,7 +134,7 @@
         _position <span class="token operator">=</span> position<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">levelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">LevelUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Levelling up&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -183,7 +163,7 @@
 <hr>
 <h4 class="mume-header" id="unique-towers">Unique towers</h4>
 
-<p>Now our derived classes. Each is &quot;derived&quot; from Tower.</p>
+<p>Now our derived classes. Each is &#x201C;derived&#x201D; from Tower.</p>
 <blockquote>
 <p><strong>Class GattlingTower</strong>:</p>
 <ul>
@@ -254,14 +234,14 @@
 <span class="token punctuation">}</span>
 
 </pre><blockquote>
-<p><strong>Food for thought:</strong> both towers <strong>track</strong> their opponents, but some won&apos;t. Where do we implement it? Doesn&apos;t really belong in a generic tower, but also duplication is bad. This is where <code>Class TrackingTower</code> might come up. Or we might want to mix inheritance and composition designs.</p>
+<p><strong>Food for thought:</strong> both towers <strong>track</strong> their opponents, but some won&#x2019;t. Where do we implement it? Doesn&#x2019;t really belong in a generic tower, but also duplication is bad. This is where <code>Class TrackingTower</code> might come up. Or we might want to mix inheritance and composition designs.</p>
 </blockquote>
 <h2 class="mume-header" id="polymorphism">Polymorphism</h2>
 
 <p>One thing taking on multiple forms.</p>
 <p><img src="assets/week3/pokemon_bludgie.png" alt="Bludgie"><br>
-<em>They&apos;re all Bludgie though really - Aussie Pokedex by Paul Robertson</em></p>
-<p>A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don&apos;t need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.</p>
+<em>They&#x2019;re all Bludgie though really - Aussie Pokedex by Paul Robertson</em></p>
+<p>A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don&#x2019;t need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// List uses base type `Tower` even though we never make an instance of `Tower` directly.</span>
 List<span class="token operator">&lt;</span>Tower<span class="token operator">&gt;</span> towers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Tower</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -273,19 +253,19 @@ towers<span class="token punctuation">[</span><span class="token number">0</span
 </pre><p>A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.</p>
 <h2 class="mume-header" id="getting-abstract">Getting Abstract</h2>
 
-<p>There are a few reasons want to make a base class, and they aren&apos;t all covered by simple inheritance of variables and functions. We need more flexibility.</p>
+<p>There are a few reasons want to make a base class, and they aren&#x2019;t all covered by simple inheritance of variables and functions. We need more flexibility.</p>
 <blockquote>
 <p>Reasons we might want to inherit include:</p>
 <ol>
-<li>So we don&apos;t have to write the same code over and over. We just call the function, say<code>Build(position)</code>, in the base.</li>
-<li>Because we know all <code>Tower</code> objects will do a thing. The problem is we only know the first bit of how they&apos;ll do it.</li>
-<li>Aaactually maybe we don&apos;t know how to do any of it yet. But we definitely want them all to <code>Build(position)</code>.</li>
+<li>So we don&#x2019;t have to write the same code over and over. We just call the function, say<code>Build(position)</code>, in the base.</li>
+<li>Because we know all <code>Tower</code> objects will do a thing. The problem is we only know the first bit of how they&#x2019;ll do it.</li>
+<li>Aaactually maybe we don&#x2019;t know how to do any of it yet. But we definitely want them all to <code>Build(position)</code>.</li>
 </ol>
 </blockquote>
 <h3 class="mume-header" id="overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</h3>
 
-<p>If you want the base class to define the function and then change how it works, you can <strong>override the function</strong>. This is common to many languages but uses differing syntax. In <em>c#</em> we add <code>virtual</code> to the function definition in the base class, and the same function definition (minus <code>virtual</code>) in the derived class.. then we change the contents.</p>
-<p>Here&apos;s an example where a TowerFloating stores its position in a variable called <code>_currentPosition</code>, since it&apos;s moving, and also in <code>_landingPosition</code> so it can return there.</p>
+<p>If you want the base class to define the function and then change how it works, you can <strong>override the function</strong>. This is common to many languages but uses differing syntax. In <em>c#</em> we add <code>virtual</code> to the function definition in the base class, and the same function definition (minus <code>virtual</code>) in the derived class&#x2026; then we change the contents.</p>
+<p>Here&#x2019;s an example where a TowerFloating stores its position in a variable called <code>_currentPosition</code>, since it&#x2019;s moving, and also in <code>_landingPosition</code> so it can return there.</p>
 <h4 class="mume-header" id="snippet-towercs">Snippet: Tower.cs</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Note the virtual keyword. It allows overrides.</span>
@@ -340,12 +320,12 @@ Todo: Play Gattling Tower 1 gun start animation
 <blockquote>
 <p>We could make an empty function and put a comment asking all other coders to make sure to override it with their own code. But they might miss/ignore the comment.</p>
 </blockquote>
-<h4 class="mume-header" id="whats-better-than-hoping-spitting-out-errors">What&apos;s better than hoping? Spitting out errors!</h4>
+<h4 class="mume-header" id="whats-better-than-hoping-spitting-out-errors">What&#x2019;s better than hoping? Spitting out errors!</h4>
 
 <p>The <code>abstract</code> keyword lets us define a function with no content. It also fails to compile unless the function is overriden by any Class that inherits from it.</p>
-<p><code>abstract</code> is like virtual in that it allows methods to be overridden. It&apos;s much more useful though, in that it can be used for Classes and variables.</p>
+<p><code>abstract</code> is like virtual in that it allows methods to be overridden. It&#x2019;s much more useful though, in that it can be used for Classes and variables.</p>
 <blockquote>
-<p>Objects can&apos;t be made from abstract classes. Only classes derived from them can be made. <code>new Tower()</code> won&apos;t work. <code>new GattlingTower()</code> will.</p>
+<p>Objects can&#x2019;t be made from abstract classes. Only classes derived from them can be made. <code>new Tower()</code> won&#x2019;t work. <code>new GattlingTower()</code> will.</p>
 </blockquote>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Tower</span>
 <span class="token punctuation">{</span>
@@ -364,7 +344,10 @@ Todo: Play Gattling Tower 1 gun start animation
 <span class="token punctuation">}</span>
 
 
-</pre>
+</pre><h2 class="mume-header" id="exercises">Exercises</h2>
+
+<p>1: Assignment 1 Part 2</p>
+
       </div>
       
       
