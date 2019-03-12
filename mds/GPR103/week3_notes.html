@@ -118,19 +118,12 @@
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Tower</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
 <span class="token punctuation">{</span>
-	<span class="token keyword">protected</span> <span class="token keyword">int</span> _health <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+	<span class="token keyword">protected</span> <span class="token keyword">int</span> _health 		<span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+	<span class="token keyword">protected</span> <span class="token keyword">int</span> _level 		<span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	
 	<span class="token keyword">protected</span> <span class="token class-name">Vector2</span> _position<span class="token punctuation">;</span>
-	<span class="token keyword">protected</span> <span class="token keyword">int</span> _level <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token function">Tower</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        
-    <span class="token punctuation">}</span>
     
-    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         _position <span class="token operator">=</span> position<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -184,19 +177,19 @@
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GattlingTower</span> <span class="token punctuation">:</span> <span class="token class-name">Tower</span> <span class="token punctuation">{</span>
 
-	<span class="token keyword">protected</span> <span class="token keyword">int</span> _turrets <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token keyword">protected</span> <span class="token keyword">int</span> _damagePerSecond <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> _turrets <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> _damagePerSecond <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
 
-	<span class="token comment">// Use this for initialization</span>
-	<span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;I am Gattling.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	
-	<span class="token keyword">public</span> <span class="token keyword">int</span> DamagePerSecond
-	<span class="token punctuation">{</span> 
-		<span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _damagePerSecond<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-	
+    <span class="token comment">// Use this for initialization</span>
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;I am Gattling.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> DamagePerSecond
+    <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _damagePerSecond<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 </pre><p><img src="assets/week3/sprite_missile_tower.png" alt="Missile Tower"></p>

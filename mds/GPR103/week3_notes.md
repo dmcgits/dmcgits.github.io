@@ -106,19 +106,12 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-	protected int _health = 100;
+	protected int _health 		= 100;
+	protected int _level 		= 1;
+	
 	protected Vector2 _position;
-	protected int _level = 1;
-
-    public Tower()
-    {
-        
-    }
     
-    void Start() {
-    }
-    
-    public void Build(Vector2 position)
+	public void Build(Vector2 position)
     {
         _position = position;
     }
@@ -172,19 +165,19 @@ using UnityEngine;
 
 public class GattlingTower : Tower {
 
-	protected int _turrets = 1;
-	protected int _damagePerSecond = 8;
+    protected int _turrets = 1;
+    protected int _damagePerSecond = 8;
 
-	// Use this for initialization
-	void Start() {
-		Debug.Log("I am Gattling.");
-	}
-	
-	public int DamagePerSecond
-	{ 
-		get { return _damagePerSecond; }
-	}
-	
+    // Use this for initialization
+    void Start() {
+        Debug.Log("I am Gattling.");
+
+    }
+
+    public int DamagePerSecond
+    {
+        get { return _damagePerSecond; }
+    }
 }
 
 ```
