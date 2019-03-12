@@ -43,9 +43,25 @@
 </li>
 </ol>
 </li>
-<li><a href="#polymorphism">Polymorphism</a>
+<li><a href="#polymorphism">Polymorphism</a></li>
+<li><a href="#getting-abstract">Getting Abstract</a>
 <ol>
-<li><a href="#abstract">Abstract</a></li>
+<li><a href="#overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</a>
+<ol>
+<li><a href="#snippet-towercs">Snippet: Tower.cs</a></li>
+<li><a href="#snippet-towerfloatingcs">Snippet: TowerFloating.cs</a></li>
+</ol>
+</li>
+<li><a href="#partial-code-reuse-with-the-base-keyword">Partial code reuse with the <code>base</code> keyword</a>
+<ol>
+<li><a href="#snippet-towergattlingcs">Snippet: TowerGattling.cs</a></li>
+</ol>
+</li>
+<li><a href="#abstract">Abstract</a>
+<ol>
+<li><a href="#whats-better-than-hoping-spitting-out-errors">What&apos;s better than hoping? Spitting out errors!</a></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -255,15 +271,99 @@ towers<span class="token punctuation">.</span><span class="token keyword">add</s
 
 towers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><p>A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.</p>
-<h3 class="mume-header" id="abstract">Abstract</h3>
+<h2 class="mume-header" id="getting-abstract">Getting Abstract</h2>
 
-<p>You can see then that a function we want to be in all children, like build(), might not have any need for code in the root Tower class. It&apos;s kind of a template to build all the towers off.</p>
+<p>There are a few reasons want to make a base class, and they aren&apos;t all covered by simple inheritance of variables and functions. We need more flexibility.</p>
+<blockquote>
+<p>Reasons we might want to inherit include:</p>
+<ol>
+<li>So we don&apos;t have to write the same code over and over. We just call the function, say<code>Build(position)</code>, in the base.</li>
+<li>Because we know all <code>Tower</code> objects will do a thing. The problem is we only know the first bit of how they&apos;ll do it.</li>
+<li>Aaactually maybe we don&apos;t know how to do any of it yet. But we definitely want them all to <code>Build(position)</code>.</li>
+</ol>
+</blockquote>
+<h3 class="mume-header" id="overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</h3>
+
+<p>If you want the base class to define the function and then change how it works, you can <strong>override the function</strong>. This is common to many languages but uses differing syntax. In <em>c#</em> we add <code>virtual</code> to the function definition in the base class, and the same function definition (minus <code>virtual</code>) in the derived class.. then we change the contents.</p>
+<p>Here&apos;s an example where a TowerFloating stores its position in a variable called <code>_currentPosition</code>, since it&apos;s moving, and also in <code>_landingPosition</code> so it can return there.</p>
+<h4 class="mume-header" id="snippet-towercs">Snippet: Tower.cs</h4>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Note the virtual keyword. It allows overrides.</span>
+<span class="token keyword">virtual</span> <span class="token keyword">public</span> function <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>	
+	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Building Tower&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	_position <span class="token operator">=</span> position<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="snippet-towerfloatingcs">Snippet: TowerFloating.cs</h4>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> function <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	 _landingPosition <span class="token operator">=</span> _currentPosition <span class="token operator">=</span> position<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><h3 class="mume-header" id="partial-code-reuse-with-the-base-keyword">Partial code reuse with the <code>base</code> keyword</h3>
+
+<p>Overriding the function has come at a cost: no free code from the parent class! At least for that function. What if we could have it both ways?</p>
+<p>How can we alter our <code>Build(position)</code> function to set the position but also set up the specifics for a GattlingTower? We can <strong>call functions in the base class with the <code>base</code> keyword</strong>.</p>
+<h4 class="mume-header" id="snippet-towergattlingcs">Snippet: TowerGattling.cs</h4>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// We can call it explicitly.</span>
+<span class="token keyword">public</span> function <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Run the base class&apos;s build code first</span>
+	<span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// Now do things specific to the gattling gun build.</span>
+	<span class="token comment">// Instead of real functions, we&apos;ll just log out what code needs to come next.</span>
+	<span class="token comment">// This can sometimes be a good way to block out your classes.</span>
+	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Load Gattling Model&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Play Gattling Tower 1 gun start animation&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// There&apos;s also a shorthand for this in c#,</span>
+<span class="token comment">// we add the call to our function definition line</span>
+<span class="token comment">// It&apos;s essentially the function call added after the &quot;:&quot; inheritance/extension symbol</span>
+<span class="token keyword">public</span> function <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">base</span> <span class="token punctuation">(</span> position <span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Now do things specific to the gattling gun build.</span>
+	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Load Gattling Model&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Todo: Play Gattling Tower 1 gun start animation&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><p>Both of these functions would output the same thing:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Building Tower
+Todo: Load Gattling model
+Todo: Play Gattling Tower 1 gun start animation
+</code></pre><h3 class="mume-header" id="abstract">Abstract</h3>
+
+<p>When none of the code in the base is useful, we an just override the whole <code>virtual function</code>. We can even leave the <code>virtual function</code> empty in base. The problem of course, is making sure the next coder to inherit your class actually does it. How?</p>
 <blockquote>
 <p>We could make an empty function and put a comment asking all other coders to make sure to override it with their own code. But they might miss/ignore the comment.</p>
 </blockquote>
-<p>What&apos;s better than asking? Forcing!</p>
+<h4 class="mume-header" id="whats-better-than-hoping-spitting-out-errors">What&apos;s better than hoping? Spitting out errors!</h4>
+
 <p>The <code>abstract</code> keyword lets us define a function with no content. It also fails to compile unless the function is overriden by any Class that inherits from it.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">abstract</span> example
+<p><code>abstract</code> is like virtual in that it allows methods to be overridden. It&apos;s much more useful though, in that it can be used for Classes and variables.</p>
+<blockquote>
+<p>Objects can&apos;t be made from abstract classes. Only classes derived from them can be made. <code>new Tower()</code> won&apos;t work. <code>new GattlingTower()</code> will.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Tower</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">Build</span> <span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ---</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TowerGattling</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Build</span><span class="token punctuation">(</span><span class="token class-name">Vector2</span> position<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token comment">// build</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+
 </pre>
       </div>
       

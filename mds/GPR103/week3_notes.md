@@ -6,19 +6,26 @@ Designing objects with reuse and extension in mind.
 
 <!-- code_chunk_output -->
 
-* [GPR103 week3 - Inheritance and Polymorphism.](#gpr103-week3-inheritance-and-polymorphism)
-	* [Last week and homework](#last-week-and-homework)
-	* [Inheritance](#inheritance)
-		* [Examples of inheritance](#examples-of-inheritance)
-		* [Why inheritance in programming?](#why-inheritance-in-programming)
-		* [Towers to build](#towers-to-build)
-			* [Base Tower](#base-tower)
-			* [Tower.cs](#towercs)
-			* [Unique towers](#unique-towers)
-			* [GattlingTower.cs](#gattlingtowercs)
-			* [MissileTower.cs](#missiletowercs)
-	* [Polymorphism](#polymorphism)
-		* [Abstract](#abstract)
+1. [Last week and homework](#last-week-and-homework)
+2. [Inheritance](#inheritance)
+	1. [Examples of inheritance](#examples-of-inheritance)
+	2. [Why inheritance in programming?](#why-inheritance-in-programming)
+	3. [Towers to build](#towers-to-build)
+		1. [Base Tower](#base-tower)
+		2. [Tower.cs](#towercs)
+		3. [Unique towers](#unique-towers)
+		4. [GattlingTower.cs](#gattlingtowercs)
+		5. [MissileTower.cs](#missiletowercs)
+3. [Polymorphism](#polymorphism)
+4. [Getting Abstract](#getting-abstract)
+	1. [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
+		1. [Snippet: Tower.cs](#snippet-towercs)
+		2. [Snippet: TowerFloating.cs](#snippet-towerfloatingcs)
+	2. [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
+		1. [Snippet: TowerGattling.cs](#snippet-towergattlingcs)
+	3. [Abstract](#abstract)
+		1. [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
+5. [Exercises](#exercises)
 
 <!-- /code_chunk_output -->
 
@@ -241,17 +248,122 @@ towers[0].build();
 
 A bit like boxes can be stacked regardless of contents, or a bottle of softdrink stored, cooled, poured.
 
-### Abstract
+## Getting Abstract
 
-You can see then that a function we want to be in all children, like build(), might not have any need for code in the root Tower class. It's kind of a template to build all the towers off.
+There are a few reasons want to make a base class, and they aren't all covered by simple inheritance of variables and functions. We need more flexibility.
 
-> We could make an empty function and put a comment asking all other coders to make sure to override it with their own code. But they might miss/ignore the comment.
+>Reasons we might want to inherit include:
+> 1. So we don't have to write the same code over and over. We just call the function, say`Build(position)`, in the base. 
+> 2. Because we know all `Tower` objects will do a thing. The problem is we only know the first bit of how they'll do it.
+> 3. Aaactually maybe we don't know how to do any of it yet. But we definitely want them all to `Build(position)`.
 
-What's better than asking? Forcing!
+### Overriding functions and the `virtual` keyword
 
-The `abstract` keyword lets us define a function with no content. It also fails to compile unless the function is overriden by any Class that inherits from it.
+If you want the base class to define the function and then change how it works, you can **override the function**. This is common to many languages but uses differing syntax. In _c#_ we add `virtual` to the function definition in the base class, and the same function definition (minus `virtual`) in the derived class.. then we change the contents.
+
+Here's an example where a TowerFloating stores its position in a variable called `_currentPosition`, since it's moving, and also in `_landingPosition` so it can return there.
+
+#### Snippet: Tower.cs
+
+```cs
+// Note the virtual keyword. It allows overrides.
+virtual public function Build (Vector2 position)
+{	
+	Debug.Log("Building Tower");
+	_position = position;
+}
+```
+
+#### Snippet: TowerFloating.cs
 
 ```cs
 
-abstract example
+public function Build (Vector2 position)
+{
+	 _landingPosition = _currentPosition = position;
+}
+
 ```
+
+### Partial code reuse with the `base` keyword
+
+Overriding the function has come at a cost: no free code from the parent class! At least for that function. What if we could have it both ways?
+
+How can we alter our `Build(position)` function to set the position but also set up the specifics for a GattlingTower? We can **call functions in the base class with the `base` keyword**.
+
+#### Snippet: TowerGattling.cs
+
+```cs
+
+// We can call it explicitly.
+public function Build(Vector2 position)
+{
+	// Run the base class's build code first
+	base.Build(Vector2 position);
+	
+	// Now do things specific to the gattling gun build.
+	// Instead of real functions, we'll just log out what code needs to come next.
+	// This can sometimes be a good way to block out your classes.
+	Debug.Log("Todo: Load Gattling Model");
+	Debug.Log("Todo: Play Gattling Tower 1 gun start animation");
+}
+
+// There's also a shorthand for this in c#,
+// we add the call to our function definition line
+// It's essentially the function call added after the ":" inheritance/extension symbol
+public function Build(Vector2 position) : base ( position )
+{
+	// Now do things specific to the gattling gun build.
+	Debug.Log("Todo: Load Gattling Model");
+	Debug.Log("Todo: Play Gattling Tower 1 gun start animation");
+}
+
+```
+
+Both of these functions would output the same thing:
+
+```
+Building Tower
+Todo: Load Gattling model
+Todo: Play Gattling Tower 1 gun start animation
+```
+
+### Abstract
+
+When none of the code in the base is useful, we an just override the whole `virtual function`. We can even leave the `virtual function` empty in base. The problem of course, is making sure the next coder to inherit your class actually does it. How?
+
+
+> We could make an empty function and put a comment asking all other coders to make sure to override it with their own code. But they might miss/ignore the comment.
+
+#### What's better than hoping? Spitting out errors!
+
+The `abstract` keyword lets us define a function with no content. It also fails to compile unless the function is overriden by any Class that inherits from it.
+
+`abstract` is like virtual in that it allows methods to be overridden. It's much more useful though, in that it can be used for Classes and variables. 
+
+> Objects can't be made from abstract classes. Only classes derived from them can be made. `new Tower()` won't work. `new GattlingTower()` will.
+
+```cs
+
+abstract class Tower
+{
+	public abstract void Build (Vector2 position);
+}
+
+// ---
+
+public class TowerGattling
+{
+	public void Build(Vector2 position)
+	{
+		// build
+	}
+
+}
+
+
+```
+
+## Exercises
+
+1: Assignment 1 Part 2
