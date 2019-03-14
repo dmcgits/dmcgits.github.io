@@ -7,27 +7,27 @@ intro
 
 <!-- code_chunk_output -->
 
-* [Week 2 recap](#week-2-recap)
-* [Loops](#loops)
-	* [While Loops](#while-loops)
-	* [Basketball in _C++_](#basketball-in-_c_)
-	* [Menu selection loop](#menu-selection-loop)
-		* [FarmSim.cpp](#farmsimcpp)
-	* [For Loops](#for-loops)
-	* [`Do..While` Loops](#dowhile-loops)
-* [Do some code Exercises](#do-some-code-exercises)
-* [Break](#break)
-* [Assignment 1 Discussion](#assignment-1-discussion)
-* [Collections](#collections)
-	* [Arrays](#arrays)
-		* [Initializing Arrays](#initializing-arrays)
-		* [Abilities](#abilities)
-		* [Shortcomings](#shortcomings)
-	* [Multidimensional Arrays](#multidimensional-arrays)
-		* [TicTacToe.cpp](#tictactoecpp)
-	* [Vectors](#vectors)
-* [Exercises](#exercises)
-* [Resources](#resources)
+1. [Week 2 recap](#week-2-recap)
+2. [Loops](#loops)
+	1. [While Loops](#while-loops)
+	2. [Basketball in _C++_](#basketball-in-_c_)
+	3. [Menu selection loop](#menu-selection-loop)
+		1. [FarmSim.cpp](#farmsimcpp)
+	4. [For Loops](#for-loops)
+	5. [`Do..While` Loops](#dowhile-loops)
+3. [Do some code Exercises](#do-some-code-exercises)
+4. [Break](#break)
+5. [Assignment 1 Discussion](#assignment-1-discussion)
+6. [Collections](#collections)
+	1. [Arrays](#arrays)
+		1. [Initializing Arrays](#initializing-arrays)
+		2. [Abilities](#abilities)
+		3. [Shortcomings](#shortcomings)
+	2. [Multidimensional Arrays](#multidimensional-arrays)
+		1. [TicTacToe.cpp](#tictactoecpp)
+	3. [Vectors](#vectors)
+7. [Exercises](#exercises)
+8. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -400,48 +400,6 @@ Once you set the size you're stuck with it. It can also be painful to check. You
 What if each cell in an array was.. an Array?
 
 #### TicTacToe.cpp
-```c++
-// Tic-Tac-Toe Board
-// Demonstrates multidimensional arrays
-#include <iostream>
-using namespace std;
-int main()
-{
-	const int ROWS = 3;
-	const int COLUMNS = 3;
-	// Pretty much what you might expect:
-	// Add another set of []
-	char board[ROWS][COLUMNS] = {{'O', 'X', 'O'},
-								 {' ', 'X', 'X'},
-								 {'X', 'O', 'O'}};
-								 
-	cout << "Here's the tic-tac-toe board:\n";
-	for (int i = 0; i < ROWS; ++i)
-	{
-		for (int j = 0; j < COLUMNS; ++j)
-		{
-			cout << board[i][j];
-		}
-		cout << endl;
-	}
-	
-	cout << "\n'X' moves to the empty location.\n\n";
-	board[1][0] = 'X';
-	cout << "Now the tic-tac-toe board is:\n";
-	
-	for (int i = 0; i < ROWS; ++i)
-	{
-		for (int j = 0; j < COLUMNS; ++j)
-		{
-			cout << board[i][j];
-		}
-		cout << endl;
-	}
-	
-	cout << "\n'X' wins!";
-	return 0;
-}
-```
 
 ___
 

@@ -25,44 +25,44 @@
       <div class="mume markdown-preview   ">
       <p>ISE102 Week 3 - Loops, Collections</p>
 <p>intro</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-2-recap">Week 2 recap</a></li>
 <li><a href="#loops">Loops</a>
-<ul>
+<ol>
 <li><a href="#while-loops">While Loops</a></li>
 <li><a href="#basketball-in-_c_">Basketball in <em>C++</em></a></li>
 <li><a href="#menu-selection-loop">Menu selection loop</a>
-<ul>
+<ol>
 <li><a href="#farmsimcpp">FarmSim.cpp</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#for-loops">For Loops</a></li>
 <li><a href="#dowhile-loops"><code>Do..While</code> Loops</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#do-some-code-exercises">Do some code Exercises</a></li>
 <li><a href="#break">Break</a></li>
 <li><a href="#assignment-1-discussion">Assignment 1 Discussion</a></li>
 <li><a href="#collections">Collections</a>
-<ul>
+<ol>
 <li><a href="#arrays">Arrays</a>
-<ul>
+<ol>
 <li><a href="#initializing-arrays">Initializing Arrays</a></li>
 <li><a href="#abilities">Abilities</a></li>
 <li><a href="#shortcomings">Shortcomings</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#multidimensional-arrays">Multidimensional Arrays</a>
-<ul>
+<ol>
 <li><a href="#tictactoecpp">TicTacToe.cpp</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#vectors">Vectors</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#exercises">Exercises</a></li>
 <li><a href="#resources">Resources</a></li>
-</ul>
+</ol>
 <h2 class="mume-header" id="week-2-recap">Week 2 recap</h2>
 
 <p>Data types and conditionals. <code>if</code>, <code>switch</code>, data types, declaring variables. Comparisons with operators like <code>&gt;=</code>, <code>==</code>, <code>!</code>, <code>\\</code>.</p>
@@ -377,47 +377,7 @@ y <span class="token operator">=</span> faveNumbers<span class="token punctuatio
 <p>What if each cell in an array was.. an Array?</p>
 <h4 class="mume-header" id="tictactoecpp">TicTacToe.cpp</h4>
 
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Tic-Tac-Toe Board</span>
-<span class="token comment">// Demonstrates multidimensional arrays</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token keyword">const</span> <span class="token keyword">int</span> ROWS <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-	<span class="token keyword">const</span> <span class="token keyword">int</span> COLUMNS <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-	<span class="token comment">// Pretty much what you might expect:</span>
-	<span class="token comment">// Add another set of []</span>
-	<span class="token keyword">char</span> board<span class="token punctuation">[</span>ROWS<span class="token punctuation">]</span><span class="token punctuation">[</span>COLUMNS<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token string">&apos;O&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;X&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;O&apos;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-								 <span class="token punctuation">{</span><span class="token string">&apos; &apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;X&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;X&apos;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-								 <span class="token punctuation">{</span><span class="token string">&apos;X&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;O&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;O&apos;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-								 
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Here&apos;s the tic-tac-toe board:\n&quot;</span><span class="token punctuation">;</span>
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ROWS<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> COLUMNS<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
-		<span class="token punctuation">{</span>
-			cout <span class="token operator">&lt;&lt;</span> board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\n&apos;X&apos; moves to the empty location.\n\n&quot;</span><span class="token punctuation">;</span>
-	board<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;X&apos;</span><span class="token punctuation">;</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Now the tic-tac-toe board is:\n&quot;</span><span class="token punctuation">;</span>
-	
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ROWS<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> COLUMNS<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
-		<span class="token punctuation">{</span>
-			cout <span class="token operator">&lt;&lt;</span> board<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\n&apos;X&apos; wins!&quot;</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><hr>
+<hr>
 <h3 class="mume-header" id="vectors">Vectors</h3>
 
 <p>A friendly, more flexible version of Arrays. Really, what we want from Arrays a lot of the time.</p>
