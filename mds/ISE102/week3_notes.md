@@ -1,33 +1,32 @@
-ISE102 Week 3 - Loops, Collections
-
-intro 
+# ISE102 Week 3 - Loops, Collections
 
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-1. [Week 2 recap](#week-2-recap)
-2. [Loops](#loops)
-	1. [While Loops](#while-loops)
-	2. [Basketball in _C++_](#basketball-in-_c_)
-	3. [Menu selection loop](#menu-selection-loop)
-		1. [FarmSim.cpp](#farmsimcpp)
-	4. [For Loops](#for-loops)
-	5. [`Do..While` Loops](#dowhile-loops)
-3. [Do some code Exercises](#do-some-code-exercises)
-4. [Break](#break)
-5. [Assignment 1 Discussion](#assignment-1-discussion)
-6. [Collections](#collections)
-	1. [Arrays](#arrays)
-		1. [Initializing Arrays](#initializing-arrays)
-		2. [Abilities](#abilities)
-		3. [Shortcomings](#shortcomings)
-	2. [Multidimensional Arrays](#multidimensional-arrays)
-		1. [TicTacToe.cpp](#tictactoecpp)
-	3. [Vectors](#vectors)
-7. [Exercises](#exercises)
-8. [Resources](#resources)
+1. [ISE102 Week 3 - Loops, Collections](#ise102-week-3---loops-collections)
+	1. [Week 2 recap](#week-2-recap)
+	2. [Loops](#loops)
+		1. [While Loops](#while-loops)
+		2. [Basketball in _C++_](#basketball-in-_c_)
+		3. [Menu selection loop](#menu-selection-loop)
+			1. [FarmSim.cpp](#farmsimcpp)
+		4. [For Loops](#for-loops)
+		5. [`Do..While` Loops](#dowhile-loops)
+	3. [Do some code Exercises](#do-some-code-exercises)
+	4. [Break](#break)
+	5. [Assignment 1 Discussion](#assignment-1-discussion)
+	6. [Collections](#collections)
+		1. [Arrays](#arrays)
+			1. [Initializing Arrays](#initializing-arrays)
+			2. [Abilities](#abilities)
+			3. [Shortcomings](#shortcomings)
+		2. [Multidimensional Arrays](#multidimensional-arrays)
+			1. [TicTacToe.cpp](#tictactoecpp)
+		3. [Vectors](#vectors)
+	7. [Exercises](#exercises)
+	8. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
