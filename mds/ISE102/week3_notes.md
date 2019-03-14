@@ -295,7 +295,8 @@ Like a while, with the condition checked at the end. Happens at least once no ma
 do
 {
 	cout << "Long cat is long"" << endl;
-} while ( catIsLong )
+	// now check if cat is still Long
+} while ( catIsLong );
 ```
 ## Do some code Exercises
 
