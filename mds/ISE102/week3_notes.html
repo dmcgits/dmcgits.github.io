@@ -170,12 +170,15 @@ while (<em><strong>condition</strong></em>)<br>
 		shotMade <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 		<span class="token comment">// Ask player to hit enter to shoot the ball</span>
 		cout __ <span class="token string">&quot;Hit enter to shoot&quot;</span> __ endl<span class="token punctuation">;</span>
+		cin<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 		<span class="token comment">//Decide if player made the shot</span>
 		shotMade <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
 		<span class="token comment">//If they did hit the shot:</span>
 		<span class="token keyword">if</span> <span class="token punctuation">(</span>_____<span class="token punctuation">)</span>
 		<span class="token punctuation">{</span>
+			___ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Noice! +3 Points.\n&quot;</span><span class="token punctuation">;</span>
 			<span class="token comment">// Give them 3 points</span>
 			score __ <span class="token number">3</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span> 
@@ -391,6 +394,7 @@ y <span class="token operator">=</span> faveNumbers<span class="token punctuatio
 
 <ol>
 <li>Vectors, Arrays</li>
+<li>Add a random outcome to the basketball game. Our shooter, over time, should hit 60% of their shots.</li>
 <li>Work on assessment 1</li>
 <li>Week 3 code exercises</li>
 <li>Book code. Learn random numbers!</li>

@@ -151,12 +151,15 @@ int main()
 		shotMade = false;
 		// Ask player to hit enter to shoot the ball
 		cout __ "Hit enter to shoot" __ endl;
+		cin.get();
+
 		//Decide if player made the shot
 		shotMade = true;
 
 		//If they did hit the shot:
 		if (_____)
 		{
+			___ << "Noice! +3 Points.\n";
 			// Give them 3 points
 			score __ 3;
 		} 
@@ -412,9 +415,10 @@ ___
 
 ## Exercises
 1. Vectors, Arrays
-2. Work on assessment 1
-3. Week 3 code exercises
-4. Book code. Learn random numbers!
+2. Add a random outcome to the basketball game. Our shooter, over time, should hit 60% of their shots.
+3. Work on assessment 1
+4. Week 3 code exercises
+5. Book code. Learn random numbers!
 ___
 
 ## Resources
