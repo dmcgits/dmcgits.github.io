@@ -155,7 +155,7 @@ int main()
 		shotMade = true;
 
 		//If they did hit the shot:
-		If (_____)
+		if (_____)
 		{
 			// Give them 3 points
 			score __ 3;
