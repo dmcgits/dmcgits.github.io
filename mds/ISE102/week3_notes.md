@@ -328,7 +328,8 @@ and reserve 5 integers worth of memory, and access each of them with the same na
 x = faveNumbers[2]; 
 y = faveNumbers[4];` 
 ```
-A more co
+
+Arrays for inventory items:
 
 ```c++
 #include <iostream>
