@@ -39,7 +39,7 @@
 </ol>
 </li>
 <li><a href="#for-loops">For Loops</a></li>
-<li><a href="#dowhile-loops"><code>Do..While</code> Loops</a></li>
+<li><a href="#dowhile-loops"><code>do..while</code> Loops</a></li>
 </ol>
 </li>
 <li><a href="#do-some-code-exercises">Do some code Exercises</a></li>
@@ -290,7 +290,7 @@ end_program FarmingSim
 </pre><p><strong>Pro</strong>: Shorter definition of loop all in one place. Less chance of forgetting to initialise or increment your counter variable.<br>
 <strong>Con</strong>: Harder syntax to read/remember for new programmers.</p>
 <hr>
-<h3 class="mume-header" id="dowhile-loops"><code>Do..While</code> Loops</h3>
+<h3 class="mume-header" id="dowhile-loops"><code>do..while</code> Loops</h3>
 
 <p>Like a while, with the condition checked at the end. Happens at least once no matter what. A normal while loop will execute 0 times if the condition is never met. I don&apos;t recall seeing these used.</p>
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">do</span>
@@ -389,8 +389,57 @@ y <span class="token operator">=</span> faveNumbers<span class="token punctuatio
 <h3 class="mume-header" id="vectors">Vectors</h3>
 
 <p>A friendly, more flexible version of Arrays. Really, what we want from Arrays a lot of the time.</p>
-<p><code>code example</code></p>
-<hr>
+<p>Vectors are provided in the c++ std library, are a class rather than a basic type, and provide useful functions and properties:</p>
+<ul>
+<li><code>capacity()</code>, <code>size()</code>: max size, actual size</li>
+<li><code>push_back()</code> to add a new element to the end</li>
+<li><code>begin()</code> and <code>end()</code> pointers</li>
+<li><code>insert()</code>, <code>erase()</code></li>
+<li>Read more: <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/">https://www.geeksforgeeks.org/vector-in-cpp-stl/</a></li>
+</ul>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// C++ program to illustrate the </span>
+<span class="token comment">// capacity function in vector </span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span> </span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span> </span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> g1<span class="token punctuation">;</span>
+
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+		g1<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Size : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nCapacity : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">capacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nMax_Size : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">max_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// resizes the vector size to 4 </span>
+	g1<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// prints the vector size after resize() </span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nSize : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// checks if the vector is empty or not </span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>g1<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nVector is not empty&quot;</span><span class="token punctuation">;</span>
+	<span class="token keyword">else</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nVector is empty&quot;</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Shrinks the vector </span>
+	g1<span class="token punctuation">.</span><span class="token function">shrink_to_fit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nVector elements are: &quot;</span><span class="token punctuation">;</span>
+	<span class="token comment">//for (auto it = g1.begin(); it != g1.end(); it++)</span>
+	<span class="token comment">//	cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> g1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		cout <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;, &quot;</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><hr>
 <h2 class="mume-header" id="exercises">Exercises</h2>
 
 <ol>

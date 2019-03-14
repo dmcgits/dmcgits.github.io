@@ -13,7 +13,7 @@
 		3. [Menu selection loop](#menu-selection-loop)
 			1. [FarmSim.cpp](#farmsimcpp)
 		4. [For Loops](#for-loops)
-		5. [`Do..While` Loops](#dowhile-loops)
+		5. [`do..while` Loops](#dowhile-loops)
 	3. [Do some code Exercises](#do-some-code-exercises)
 	4. [Break](#break)
 	5. [Assignment 1 Discussion](#assignment-1-discussion)
@@ -287,7 +287,7 @@ for ( int i = 0; i < 10; i++ )
 
 ___
 
-### `Do..While` Loops
+### `do..while` Loops
 
 Like a while, with the condition checked at the end. Happens at least once no matter what. A normal while loop will execute 0 times if the condition is never met. I don't recall seeing these used.
 
