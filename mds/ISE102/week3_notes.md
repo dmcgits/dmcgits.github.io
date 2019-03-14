@@ -410,7 +410,57 @@ ___
 
 A friendly, more flexible version of Arrays. Really, what we want from Arrays a lot of the time.
 
-`code example`
+Vectors are provided in the c++ std library, are a class rather than a basic type, and provide useful functions and properties:
+  * `capacity()`, `size()`: max size, actual size
+  * `push_back()` to add a new element to the end 
+  * `begin()` and `end()` pointers
+  * `insert()`, `erase()`
+  * Read more: <https://www.geeksforgeeks.org/vector-in-cpp-stl/>
+
+```c++
+// C++ program to illustrate the 
+// capacity function in vector 
+#include <iostream> 
+#include <vector> 
+
+using namespace std;
+
+int main()
+{
+	vector<int> g1;
+
+	for (int i = 1; i <= 5; i++)
+		g1.push_back(i);
+
+	cout << "Size : " << g1.size();
+	cout << "\nCapacity : " << g1.capacity();
+	cout << "\nMax_Size : " << g1.max_size();
+
+	// resizes the vector size to 4 
+	g1.resize(4);
+
+	// prints the vector size after resize() 
+	cout << "\nSize : " << g1.size();
+
+	// checks if the vector is empty or not 
+	if (g1.empty() == false)
+		cout << "\nVector is not empty";
+	else
+		cout << "\nVector is empty";
+
+	// Shrinks the vector 
+	g1.shrink_to_fit();
+	cout << "\nVector elements are: ";
+	//for (auto it = g1.begin(); it != g1.end(); it++)
+	//	cout << *it << " ";
+	for (int j = 0; j < g1.size(); j++)
+	{
+		cout << g1[j] << ", ";
+	}
+
+	return 0;
+}
+```
 
 ___
 
