@@ -23,13 +23,26 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="week-3-code">Week 3 Code</h1>
+      <h1 class="mume-header" id="week-3-exercises">Week 3 Exercises</h1>
 
 <p>Vectors, arrays, loops.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<li><a href="#week-3-exercises">Week 3 Exercises</a>
+<ol>
+<li><a href="#code">Code</a>
+<ol>
+<li><a href="#tictactoecpp">TicTacToe.cpp</a></li>
+<li><a href="#loopingenumeratedtypescpp">LoopingEnumeratedTypes.cpp</a></li>
+<li><a href="#breakcontinuecpp">BreakContinue.cpp</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 <h2 class="mume-header" id="code">Code</h2>
 
 <p>Type these in, don&apos;t cut and paste!</p>
-<h3 class="mume-header" id="tictactoecpp">TicTacToe.cpp</h3>
+<h4 class="mume-header" id="tictactoecpp">TicTacToe.cpp</h4>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Tic-Tac-Toe Board</span>
 <span class="token comment">// Demonstrates multidimensional arrays</span>
@@ -69,6 +82,114 @@
 	
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\n&apos;X&apos; wins!&quot;</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><hr>
+<h4 class="mume-header" id="loopingenumeratedtypescpp">LoopingEnumeratedTypes.cpp</h4>
+
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> EDAY
+<span class="token punctuation">{</span>
+    Monday<span class="token punctuation">,</span>
+    Tuesday<span class="token punctuation">,</span>
+    Wednesday<span class="token punctuation">,</span> 
+    Thursday<span class="token punctuation">,</span> 
+    Friday<span class="token punctuation">,</span> 
+    Saturday<span class="token punctuation">,</span> 
+    Sunday<span class="token punctuation">,</span>
+
+    EDAY_MAX
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">const</span> EDAY myFavouriteDay <span class="token operator">=</span> Friday<span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> today <span class="token operator">=</span> Monday <span class="token punctuation">;</span> today <span class="token operator">&lt;</span> EDAY_MAX <span class="token punctuation">;</span> <span class="token operator">++</span>today<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Friday <span class="token operator">==</span> today<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hooray! It is Friday!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>today <span class="token operator">&gt;</span> Friday<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;A relaxing weekend day.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Have to go to school today...&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>myFavouriteDay <span class="token operator">==</span> today<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Today is my favourite day!!!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Wait for input, stops the Command Prompt closing automatically.</span>
+    <span class="token keyword">int</span> iTemp<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> iTemp<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><hr>
+<h4 class="mume-header" id="breakcontinuecpp">BreakContinue.cpp</h4>
+
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Infinite loop.</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Ask the user if they wish to continue playing game.</span>
+        <span class="token keyword">char</span> playerChoice <span class="token operator">=</span> <span class="token string">&apos;n&apos;</span><span class="token punctuation">;</span>
+
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Continue to play? (Y)es or (N)o: &quot;</span><span class="token punctuation">;</span>
+        cin <span class="token operator">&gt;&gt;</span> playerChoice<span class="token punctuation">;</span>
+
+        <span class="token comment">// Test for upper and lower case.</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>playerChoice <span class="token operator">==</span> <span class="token string">&apos;n&apos;</span> <span class="token operator">||</span> playerChoice <span class="token operator">==</span> <span class="token string">&apos;N&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You have selected to exit the game.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+            <span class="token keyword">break</span><span class="token punctuation">;</span>    <span class="token comment">// Exits the infinite loop.</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Playing the game...&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">||</span> i <span class="token operator">==</span> <span class="token number">4</span> <span class="token operator">||</span> i <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Found a restricted number (2, 4, 8), &quot;</span><span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;using continue.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+            <span class="token keyword">continue</span><span class="token punctuation">;</span> <span class="token comment">// Jump to next cycle in for loop.</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// If &apos;continue&apos; did not happen, execute following code.</span>
+        sum <span class="token operator">+</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
+
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Current Value in i is: &quot;</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Current Value in sum is: &quot;</span> <span class="token operator">&lt;&lt;</span> sum <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Wait for input, stops the Command Prompt closing automatically.</span>
+    <span class="token keyword">int</span> iTemp<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> iTemp<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre>
       </div>

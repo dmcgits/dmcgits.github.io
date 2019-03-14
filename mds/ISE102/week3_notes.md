@@ -308,6 +308,8 @@ ___
 ___
 
 ## Assignment 1 Discussion
+
+Assessment pdf [Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7150381-dt-content-rid-8562028_1/xid-8562028_1)
 ___
 
 ## Collections
@@ -466,15 +468,17 @@ int main()
 ___
 
 ## Exercises
-1. Vectors, Arrays
+1. If you didn't type out the Array/Vector code above, do that.
 2. Add a random outcome to the basketball game. Our shooter, over time, should hit 60% of their shots.
 3. Work on assessment 1
-4. Week 3 code exercises
-5. Book code. Learn random numbers!
+4. Week 3 [code exercises](week3_code.html) 
 ___
 
 ## Resources
 
-1. Randomness `(!isRandom)` in computers.
+1. The book!
+   * [Chapter 1 pdf](book_1/cppgameprog_1_variables_io.pdf)
+   * [Chapter 2 pdf](book_1/cppgameprog_2_conditionals_game_loop.pdf)
+   * [Chapter 3 pdf](book_1/cppgameprog_3_loops_strings_arrays.pdf)
    
  
