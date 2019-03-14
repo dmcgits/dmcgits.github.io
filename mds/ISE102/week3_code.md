@@ -6,11 +6,11 @@ Vectors, arrays, loops.
 
 <!-- code_chunk_output -->
 
-1. [Week 3 Exercises](#week-3-exercises)
-   1. [Code](#code)
-         1. [TicTacToe.cpp](#tictactoecpp)
-         2. [LoopingEnumeratedTypes.cpp](#loopingenumeratedtypescpp)
-         3. [BreakContinue.cpp](#breakcontinuecpp)
+* [Week 3 Exercises](#week-3-exercises)
+	* [Code](#code)
+			* [TicTacToe.cpp](#tictactoecpp)
+			* [LoopingEnumeratedTypes.cpp](#loopingenumeratedtypescpp)
+			* [BreakContinue.cpp](#breakcontinuecpp)
 
 <!-- /code_chunk_output -->
 
