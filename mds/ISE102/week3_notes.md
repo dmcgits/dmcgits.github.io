@@ -313,7 +313,19 @@ Lots of data goes together. Potions, cows, seed types, gems collected.
 
 ### Arrays
 
-Basic, pretty fast, very limited
+Arrays are for storing collections of things. They aren't directly based on a real world storage metaphor like a pantry or toolbox. An array is just a series of chunks of memory, one after another, set aside to hold the same data type.
+
+We've declared integers like `int faveNumber;` grab 32bits of memory, and to use it by name. With an Array you can declare:
+
+`int faveNumbers[5]` 
+
+and reserve 5 integers worth of memory, and access each of them with the same name and an _index_ like so: 
+
+```c++
+x = faveNumbers[2]; 
+y = faveNumbers[4];` 
+```
+A more co
 
 ```c++
 #include <iostream>
