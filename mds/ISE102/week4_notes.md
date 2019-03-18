@@ -21,6 +21,34 @@ int main()
 
 A function can be thought of as a fancier variable. It's just a variable that does something clever.
 
+### Functions: smart variables
+
+
+### Functions: reduce all this code to an action
+
+
+### Functions: simple answer to complex question
+
+
+### Functions: take this data and do some work
+
+Get the angle to point my sprite at something:
+
+```c++
+struct Point {
+	float x = 0;
+	float y=0;
+};
+
+int main()
+{
+	Point myPos = { 3.5, 2.5 }
+	getLookAtAngle(myPos, targetPos);
+}
+
+```
+
+
 
 > **Variables:** defining values like `5`, `"Kendrick"`, `true`, `35.5`
 
