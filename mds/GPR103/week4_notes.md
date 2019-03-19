@@ -76,11 +76,23 @@ Trello, Jira, KanbanTool?
 7. Approved
 
 ![Trello](assets/week4/trello1.jpg)
+![hack](assets/week4/hackplan_sprint1.png)
+![hack](assets/week4/hackplan_metrics.png)
 
 ## Exercises
 
+1. Part 3 of Asessment 1
+2. Sign up for Trello, put in some cards for assignment 2
+3. Github:
+   1. Install git LFS at home too
+   1. Greate a repo on github
+   2. Clone that empty repo to your machine
+   3. Add a hello world unity project
+   4. Configure the .gitignore file for unity projects
+   5. Stage/commit/push that project up to the server.
+
 ## Resources
 
-1. Trello
-2. HacknPlan
-3. Kanban Tool
+1. Trello - google
+2. HacknPlan - google
+3. Look at more api calls on the Unity tutorial scripting site.
