@@ -1,6 +1,6 @@
 # Games Programming Week 4
 
- Source control and project management.
+ Storing your source files and collaborating. Project management and planning.
 
 ## Source Control
 
@@ -8,7 +8,7 @@ How do 10, 100, 1000 people work on a project together? How do they do it withou
 
 ### Git!
 
-Git. Acquire code:
+Git. Acquire code, merge people's work, keep history, branch out and merge from the main project trunk, much more.
 
 ![github1](assets/week4/github1.png)
 ![github2](assets/week4/github2.png)
@@ -84,12 +84,12 @@ Trello, Jira, KanbanTool?
 1. Part 3 of Asessment 1
 2. Sign up for Trello, put in some cards for assignment 2
 3. Github:
-   1. Install git LFS at home too
-   1. Greate a repo on github
-   2. Clone that empty repo to your machine
-   3. Add a hello world unity project
-   4. Configure the .gitignore file for unity projects
-   5. Stage/commit/push that project up to the server.
+   1. Install git and git LFS at home too
+   1. Greate a repository on github. When it asks if you want to create a .gitignore, select the Unity template from the dropdown.
+   2. Clone that empty repo to your home computer.
+   3. Add a hello world unity project, or copy last week's sprite demo tower to the folder.
+   4. Add/stage all the files using either the commandline, SourceTree or GitKraken. 
+   5. Commit the files and then push to github.
 
 ## Resources
 
