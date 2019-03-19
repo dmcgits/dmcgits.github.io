@@ -26,25 +26,49 @@
       <h1 class="mume-header" id="games-programming-week-4">Games Programming Week 4</h1>
 
 <p>Storing your source files and collaborating. Project management and planning.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#games-programming-week-4">Games Programming Week 4</a>
+<ul>
+<li><a href="#source-control">Source Control</a>
+<ul>
+<li><a href="#git">Git!</a></li>
+<li><a href="#fail-overwriting-changes">Fail: Overwriting changes</a></li>
+<li><a href="#big-picture-waterfalls-and-agility">Big picture: waterfalls and agility</a></li>
+<li><a href="#week-to-week-view">Week to week view</a></li>
+</ul>
+</li>
+<li><a href="#exercises">Exercises</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
 <h2 class="mume-header" id="source-control">Source Control</h2>
 
 <p>How do 10, 100, 1000 people work on a project together? How do they do it without constantly overwriting eachother&#x2019;s code?</p>
+<hr>
 <h3 class="mume-header" id="git">Git!</h3>
 
 <p>Git. Acquire code, merge people&#x2019;s work, keep history, branch out and merge from the main project trunk, much more.</p>
-<p><img src="assets/week4/github1.png" alt="github1"><br>
+<p>Shots of github:<br>
+<img src="assets/week4/github1.png" alt="github1"><br>
 <img src="assets/week4/github2.png" alt="github2"><br>
-<img src="assets/week4/git_clone.png" alt="github"><br>
-<img src="assets/week4/git_clone_bash.png" alt="github"><br>
-<img src="assets/week4/git_clone_sourcetree.png" alt="github"><br>
+<em>A typical github project page</em></p>
+<p><img src="assets/week4/git_clone.png" alt="github"><br>
+<em>Grabbing the cloning url</em></p>
+<p><img src="assets/week4/git_clone_bash.png" alt="github"><br>
+<em>Bash for Windows</em></p>
+<p><img src="assets/week4/git_clone_sourcetree.png" alt="github"><br>
 <img src="assets/week4/git_sourcetree.png" alt="github"><br>
-<img src="assets/week4/git_kraken.png" alt="gitkraken"></p>
+<em>Sourcetree</em></p>
+<p><img src="assets/week4/git_kraken.png" alt="gitkraken"><br>
+<em>Git Kraken</em></p>
 <p>There are loads of tricky things about working on source files with other people:</p>
 <ol>
 <li><strong>Overwriting</strong> other people&#x2019;s changes</li>
 <li>Opening a file someone has changed and <strong>figuring out what they changed</strong>&#x2026; was it just additions?</li>
 <li>5 people have edited a file and a url for a game server was changed to point to a different region at some point. <strong>Who made the change when, and what was the old value?</strong></li>
 </ol>
+<hr>
 <h3 class="mume-header" id="fail-overwriting-changes">Fail: Overwriting changes</h3>
 
 <blockquote>
@@ -60,21 +84,25 @@
 <p>When it can&#x2019;t merge changes, it notes a <strong>conflict</strong>. There are numerous interfaces for resolving conflicts, but they all boil down to showing you the two versions and letting you choose which change to keep from either version or hand editing.</p>
 <p><img src="assets/week4/conflicts1.png" alt="Conflicts 1"><br>
 <img src="assets/week4/conflicts2.png" alt="Conflicts 1"></p>
+<hr>
 <h2>Project Management</h2>
 <p>Games are big, people have their own ways of working, and making stuff is complicated.</p>
 <h3 class="mume-header" id="big-picture-waterfalls-and-agility">Big picture: waterfalls and agility</h3>
 
 <p>Usually a team project uses many resources over a fair amount of time to make something more complex than you would make on your own. Even ambitious one-person projects can be similar.</p>
 <p>You&#x2019;re attempting to take a big problem and use organisational skills and tools as a scaffolding to make things you can&#x2019;t just plan and hold all in your head.</p>
+<hr>
 <h4>Waterfall development</h4>
 <p>Is the God&#x2019;s Great Plan take on making things. You spend ages refining a document describing your project or game, get sign off, then just build till it&#x2019;s done. Graphic and concept design, modelling, texturing, shaders, animation. Program the code a module at a time till done. It&#x2019;s river passing over multiple falls (milestones) and it travels inexorably from source to destination.</p>
 <p><img src="assets/week4/waterfall_white.png" alt="Waterfall"></p>
 <blockquote>
 <p>It can certainly make things. Usually, you find a load of things you should have done differently, but often they can&#x2019;t be adjusted. Fine if you&#x2019;re making office software maybe, terrible if you find your game isn&#x2019;t good.</p>
 </blockquote>
+<hr>
 <h4>Iterative/agile dev</h4>
 <p>Iterative development, also referred to as agile, scrum and 200 other changing terms, is a process of sketching out your best idea of the project, and then going through a series of waterfalls on barebones products and features, then increasingly polished features. It has more in common with sketching thumbnails of comic pages, then pencilling, inking and colouring, making changes as you go.</p>
 <p><img src="assets/week4/iterative_grey.png" alt="Iterative"></p>
+<hr>
 <h3 class="mume-header" id="week-to-week-view">Week to week view</h3>
 
 <p>Kanban, Scrum?<br>
@@ -91,6 +119,7 @@ Trello, Jira, KanbanTool?</p>
 <p><img src="assets/week4/trello1.jpg" alt="Trello"><br>
 <img src="assets/week4/hackplan_sprint1.png" alt="hack"><br>
 <img src="assets/week4/hackplan_metrics.png" alt="hack"></p>
+<hr>
 <h2 class="mume-header" id="exercises">Exercises</h2>
 
 <ol>
@@ -107,6 +136,7 @@ Trello, Jira, KanbanTool?</p>
 </ol>
 </li>
 </ol>
+<hr>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ol>
