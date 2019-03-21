@@ -42,7 +42,20 @@ int getHeight()
 	int answer = 5+5;
 	return (answer);
 }
+
+long long int timeSinceUniverseStarted;
+
+long long int tsus()
+{
+	return (currentTime - wheneverUniverseStarted);
+}
+
+cout << timeSinceUniverseStarted << endl;
+
+```
+
 ### Functions: reduce all this code to an action
+
 
 
 ### Functions: simple answer to complex question
