@@ -7,6 +7,21 @@ Functions! Taking chunks of code and breaking them out into reusable bits.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+1. [ISE102 Week 4](#ise102-week-4)
+	1. [Reusing code](#reusing-code)
+	2. [First Function](#first-function)
+	3. [Ways to consider functions](#ways-to-consider-functions)
+		1. [Functions: smart variables](#functions-smart-variables)
+		2. [Functions: macros to run a bunch of code](#functions-macros-to-run-a-bunch-of-code)
+		3. [Functions: Getting values that are always changing](#functions-getting-values-that-are-always-changing)
+		4. [Functions: sending data off for calculation](#functions-sending-data-off-for-calculation)
+	4. [Exercises](#exercises)
+	5. [Resources](#resources)
+
+<!-- /code_chunk_output -->
+
 
 ## Reusing code
 
