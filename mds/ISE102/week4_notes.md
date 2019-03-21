@@ -3,6 +3,11 @@
 
 Functions! Taking chunks of code and breaking them out into reusable bits.
 
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+
 ## Reusing code
 
 
