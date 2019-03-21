@@ -29,14 +29,16 @@
 <h2 class="mume-header" id="reusing-code">Reusing code</h2>
 
 <p>We&apos;ll end up writing code that is really useful, and wanting to call on it a lot. Loops let us do that last week, but there are plenty of times it won&apos;t be that simple. Reacting when a player clicks or taps, for example.</p>
-<h3 class="mume-header" id="first-function">First Function</h3>
+<h2 class="mume-header" id="first-function">First Function</h2>
 
 <p>You&apos;ve already written it!</p>
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
 	<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</pre><p>A function can be thought of as a fancier variable. It&apos;s just a variable that does something clever.</p>
+</pre><h2 class="mume-header" id="ways-to-consider-functions">Ways to consider functions</h2>
+
+<p>A function can be thought of as a fancier variable. It&apos;s just a variable that does something clever.</p>
 <h3 class="mume-header" id="functions-smart-variables">Functions: smart variables</h3>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">int</span> height <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
@@ -63,35 +65,69 @@ cout <span class="token operator">&lt;&lt;</span> height <span class="token oper
 
 cout <span class="token operator">&lt;&lt;</span> timeSinceUniverseStarted <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 
-</pre><h3 class="mume-header" id="functions-reduce-all-this-code-to-an-action">Functions: reduce all this code to an action</h3>
+</pre><h3 class="mume-header" id="functions-macros-to-run-a-bunch-of-code">Functions: macros to run a bunch of code</h3>
 
-<h3 class="mume-header" id="functions-simple-answer-to-complex-question">Functions: simple answer to complex question</h3>
+<p>Encapsulating useful code in a function that may not even need to return anything. It can be of type <code>void</code>.</p>
+<hr>
+<h3 class="mume-header" id="functions-getting-values-that-are-always-changing">Functions: Getting values that are always changing</h3>
 
-<h3 class="mume-header" id="functions-take-this-data-and-do-some-work">Functions: take this data and do some work</h3>
+<p><code>int TimeSinceUniverseStarted</code> above can&apos;t just be stored as a constant as it&apos;s forever changing. A function just adds <code>()</code> to the definition and now we can add code to get the up to date answer.</p>
+<hr>
+<h3 class="mume-header" id="functions-sending-data-off-for-calculation">Functions: sending data off for calculation</h3>
 
 <p>Get the angle to point my sprite at something:</p>
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">struct</span> Point <span class="token punctuation">{</span>
-	<span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-	<span class="token keyword">float</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+	<span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> Sprite <span class="token punctuation">{</span>
+	<span class="token keyword">float</span> rotation <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">float</span> <span class="token function">getLookAtAngle</span><span class="token punctuation">(</span>Point lookerPoint<span class="token punctuation">,</span> Point targetPoint<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Use pythagoras and aTan2 to get the angle</span>
+	<span class="token keyword">float</span> result <span class="token operator">=</span> <span class="token number">0f</span><span class="token punctuation">;</span>
+	<span class="token comment">// result = all that pythagoras and trig stuff;</span>
+	<span class="token comment">// Always return data matching our function&apos;s declared type (float)</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-	Point myPos <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">3.5</span><span class="token punctuation">,</span> <span class="token number">2.5</span> <span class="token punctuation">}</span>
-	<span class="token function">getLookAtAngle</span><span class="token punctuation">(</span>myPos<span class="token punctuation">,</span> targetPos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Point myPos <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">3.5f</span><span class="token punctuation">,</span> <span class="token number">2.5f</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+	Point targetPos <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1.1f</span><span class="token punctuation">,</span> <span class="token number">6.2f</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+	Sprite arrow<span class="token punctuation">;</span>
+
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">float</span> angle <span class="token operator">=</span> <span class="token function">getLookAtAngle</span><span class="token punctuation">(</span>myPos<span class="token punctuation">,</span> targetPos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		arrow<span class="token punctuation">.</span>rotation <span class="token operator">=</span> angle<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
 <span class="token punctuation">}</span>
 
-</pre><blockquote>
-<p><strong>Variables:</strong> defining values like <code>5</code>, <code>&quot;Kendrick&quot;</code>, <code>true</code>, <code>35.5</code></p>
-</blockquote>
+</pre><hr>
+<h2 class="mume-header" id="exercises">Exercises</h2>
+
+<ol>
+<li>Write out and run the code in:
+<ul>
+<li><a href="week4_code.html">week4_code.html</a></li>
+<li><a href="week4_book_bits.html">week4_book_bits.html</a></li>
+</ul>
+</li>
+<li><strong>Work on Assignment.</strong> You have everything you need now to complete it.</li>
+<li><strong>Complete the 4th module in Sololearn: Functions.</strong> And yep, you need to complete the first 3 to unlock it.</li>
+</ol>
+<hr>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ol>
-<li>Book chapters:
+<li>Read the chapter on functions in our C++ through games textbook. Skim the bits that are easy but you&apos;ll learn some things as you go.
 <ul>
-<li><a href="book_1/cppgameprog_4_stdlib_hangman.pdf">Standard library, vectors</a></li>
-<li><a href="book_1/cppgameprog_5_funcs_madlib.pdf">Functions</a></li>
-<li></li>
+<li>Functions: <a href="book_1/cppgameprog_5_funcs_madlib.pdf">book_1/cppgameprog_5_funcs_madlib.pdf</a></li>
 </ul>
 </li>
 </ol>

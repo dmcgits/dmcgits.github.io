@@ -1,12 +1,104 @@
 # Week 4 Exercises
 
-Functions
+Functions and scope
+
+## Contents
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+1. [Week 4 Exercises](#week-4-exercises)
+   1. [Contents](#contents)
+   2. [Code](#code)
+         1. [4.1 SlotsGame](#41-slotsgame)
+         2. [4.2 Scope](#42-scope)
+         3. [4.3 Function](#43-function)
+         4. [4.4 Function with prototype (definition)](#44-function-with-prototype-definition)
+
+<!-- /code_chunk_output -->
+
 
 ## Code
 
 Type these in, don't cut and paste!
 
-#### 4.1 Scope
+#### 4.1 SlotsGame
+
+The **most important outcome** of this really short and pretty easy exercise is this: **You have a working core for your game that matches the brief!** It gets a menu choice and exits if it's 2. 
+
+> It doesn't matter that you faked the choice, didn't show the menu, or deal with other menu choices. You have functions with names that tell you, later, where to put the code that does it for real. 
+
+You can forget about the big picture for a bit and write code to display the choices, or how to validate the numbers they entered. That's just grindwork you know you can eventually do. 
+
+> It's hard to panic about a project that already appears to work. If you mess up calculations later or forget a bit, **you're still able to compile, zip and submit a working assignment at any point.**
+
+Shows a few things:
+1. Figuring out the the birds-eye-view structure of your game in pseudocode but basically translating the first part of the assignment brief.
+2. Replacing that pseudocode with a couple variables, some if/while statments, and function calls!
+3. Figuring out a function declaration based on plain english description of it's job and the answer it's meant to give you. A menu choice is 1, 2 or 3 so getValidMenuChoice has to give you an int, who cares how it does it right now.
+4. How to return data from a function. All it needs to do is be of the right type. Return 0 works for a function of type int, return false or true returns for a bool function.
+5. How to use void as the return type for functions that just do work.
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int getValidMenuChoice();
+void displayFinalWords();
+
+int five = 5;
+
+int main()
+{
+	bool playerHasntQuit = true;
+	int menuChoice = -1;
+
+	while (playerHasntQuit)
+	{
+		int whileFive = 5;
+		menuChoice = getValidMenuChoice();
+		if (menuChoice != 2)
+		{
+			// Go to a section
+		}
+		else
+		{
+			playerHasntQuit = false;
+			displayFinalWords();
+		}
+	}
+	
+	/*
+	While player hasn't quit: 
+		Get a valid menu choice
+		If they haven't chosen to quit:
+			Use their choice to jump into section
+		otherwise
+			Note they've quit
+			Display final words
+	loop
+	*/
+}
+
+int getValidMenuChoice()
+{
+	int menuFive = 5;
+	cout << "Choose from menu: (i chose 2 for you);" << endl;
+	return (2);
+}
+
+void displayFinalWords()
+{
+	cout << "Bye loser" << five << endl;
+	return;
+}
+```
+___
+
+#### 4.2 Scope
 
 ```c++
 #include <iostream>
@@ -46,7 +138,7 @@ int main()
 ```
 ___
 
-#### 4.2 Function
+#### 4.3 Function
 
 ```c++
 
@@ -91,7 +183,7 @@ int main()
 
 ___
 
-#### 4.3 Function with prototype (definition) 
+#### 4.4 Function with prototype (definition) 
 
 
 ```c++
@@ -137,29 +229,3 @@ float cube(float x)
 ```
 
 ___
-
-#### 4.1 Scope
-
-```c++
-```
-
-___
-
-#### 4.1 Scope
-
-```c++
-```
-
-___
-
-#### 4.1 Scope
-
-```c++
-```
-
-___
-
-#### 4.1 Scope
-
-```c++
-```

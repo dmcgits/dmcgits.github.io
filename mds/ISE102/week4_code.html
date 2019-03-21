@@ -25,11 +25,100 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-4-exercises">Week 4 Exercises</h1>
 
-<p>Functions</p>
+<p>Functions and scope</p>
+<h2 class="mume-header" id="contents">Contents</h2>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<li><a href="#week-4-exercises">Week 4 Exercises</a>
+<ol>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#code">Code</a>
+<ol>
+<li><a href="#41-slotsgame">4.1 SlotsGame</a></li>
+<li><a href="#42-scope">4.2 Scope</a></li>
+<li><a href="#43-function">4.3 Function</a></li>
+<li><a href="#44-function-with-prototype-definition">4.4 Function with prototype (definition)</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 <h2 class="mume-header" id="code">Code</h2>
 
 <p>Type these in, don&apos;t cut and paste!</p>
-<h4 class="mume-header" id="41-scope">4.1 Scope</h4>
+<h4 class="mume-header" id="41-slotsgame">4.1 SlotsGame</h4>
+
+<p>The <strong>most important outcome</strong> of this really short and pretty easy exercise is this: <strong>You have a working core for your game that matches the brief!</strong> It gets a menu choice and exits if it&apos;s 2.</p>
+<blockquote>
+<p>It doesn&apos;t matter that you faked the choice, didn&apos;t show the menu, or deal with other menu choices. You have functions with names that tell you, later, where to put the code that does it for real.</p>
+</blockquote>
+<p>You can forget about the big picture for a bit and write code to display the choices, or how to validate the numbers they entered. That&apos;s just grindwork you know you can eventually do.</p>
+<blockquote>
+<p>It&apos;s hard to panic about a project that already appears to work. If you mess up calculations later or forget a bit, <strong>you&apos;re still able to compile, zip and submit a working assignment at any point.</strong></p>
+</blockquote>
+<p>Shows a few things:</p>
+<ol>
+<li>Figuring out the the birds-eye-view structure of your game in pseudocode but basically translating the first part of the assignment brief.</li>
+<li>Replacing that pseudocode with a couple variables, some if/while statments, and function calls!</li>
+<li>Figuring out a function declaration based on plain english description of it&apos;s job and the answer it&apos;s meant to give you. A menu choice is 1, 2 or 3 so getValidMenuChoice has to give you an int, who cares how it does it right now.</li>
+<li>How to return data from a function. All it needs to do is be of the right type. Return 0 works for a function of type int, return false or true returns for a bool function.</li>
+<li>How to use void as the return type for functions that just do work.</li>
+</ol>
+<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">getValidMenuChoice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">displayFinalWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> five <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">bool</span> playerHasntQuit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> menuChoice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>playerHasntQuit<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">int</span> whileFive <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+		menuChoice <span class="token operator">=</span> <span class="token function">getValidMenuChoice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>menuChoice <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token comment">// Go to a section</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">else</span>
+		<span class="token punctuation">{</span>
+			playerHasntQuit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+			<span class="token function">displayFinalWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">/*
+	While player hasn&apos;t quit: 
+		Get a valid menu choice
+		If they haven&apos;t chosen to quit:
+			Use their choice to jump into section
+		otherwise
+			Note they&apos;ve quit
+			Display final words
+	loop
+	*/</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">getValidMenuChoice</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">int</span> menuFive <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Choose from menu: (i chose 2 for you);&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">displayFinalWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Bye loser&quot;</span> <span class="token operator">&lt;&lt;</span> five <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><hr>
+<h4 class="mume-header" id="42-scope">4.2 Scope</h4>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -66,7 +155,7 @@
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><hr>
-<h4 class="mume-header" id="42-function">4.2 Function</h4>
+<h4 class="mume-header" id="43-function">4.3 Function</h4>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -106,7 +195,7 @@
 <span class="token punctuation">}</span>
 
 </pre><hr>
-<h4 class="mume-header" id="43-function-with-prototype-definition">4.3 Function with prototype (definition)</h4>
+<h4 class="mume-header" id="44-function-with-prototype-definition">4.4 Function with prototype (definition)</h4>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -148,18 +237,7 @@
 <span class="token punctuation">}</span>
 
 </pre><hr>
-<h4 class="mume-header" id="41-scope-1">4.1 Scope</h4>
 
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"></pre><hr>
-<h4 class="mume-header" id="41-scope-2">4.1 Scope</h4>
-
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"></pre><hr>
-<h4 class="mume-header" id="41-scope-3">4.1 Scope</h4>
-
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"></pre><hr>
-<h4 class="mume-header" id="41-scope-4">4.1 Scope</h4>
-
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"></pre>
       </div>
       
       
