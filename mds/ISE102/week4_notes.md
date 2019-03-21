@@ -23,7 +23,25 @@ A function can be thought of as a fancier variable. It's just a variable that do
 
 ### Functions: smart variables
 
+```c++
+int height = 10;
+cout << height << endl;
+// outputs 10
+```
+When we write a variable name in c++, like height, it's replaced by whatever data (say an integer) is in the bit of memory height points to. The variable is "evaluated". The variable points to some memory, and the evaluation is whatever data is there.
 
+A function, then, in a sense, is just a variable that points to code and returns the expected data type:
+
+```cpp
+//Variable: 
+ int height = 10;
+
+// function
+int getHeight()
+{
+	int answer = 5+5;
+	return (answer);
+}
 ### Functions: reduce all this code to an action
 
 
