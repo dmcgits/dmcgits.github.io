@@ -18,12 +18,6 @@ Designing objects with reuse and extension in mind.
 			* [GattlingTower.cs](#gattlingtowercs)
 			* [MissileTower.cs](#missiletowercs)
 	* [Polymorphism](#polymorphism)
-<<<<<<< HEAD
-	* [Assignment 1 part 2](#assignment-1-part-2)
-	* [Virtual/Abstract functions](#virtualabstract-functions)
-	* [Overriding functions](#overriding-functions)
-	* [Exercises](#exercises)
-=======
 	* [Getting Abstract](#getting-abstract)
 		* [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
 			* [Snippet: Tower.cs](#snippet-towercs)
@@ -34,7 +28,6 @@ Designing objects with reuse and extension in mind.
 			* [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
 	* [Exercises](#exercises)
 	* [Resources](#resources)
->>>>>>> 88e91a906380598e9058df2d76fd9be4290f547b
 
 <!-- /code_chunk_output -->
 
@@ -237,11 +230,7 @@ _They're all Bludgie though really - Aussie Pokedex by Paul Robertson_
 
 A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don't need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.
 
-<<<<<<< HEAD
-_**Busted example, change to public list. Can't use prefab instantation.**_
-=======
 Here's how it might look if we were using basic classes like last week:
->>>>>>> 88e91a906380598e9058df2d76fd9be4290f547b
 
 ```cs
 // List uses base type `Tower` even though we never make an instance of `Tower` directly.
@@ -254,7 +243,7 @@ towers.add(new MissileTower());
 towers[0].build();
 ```
 
-Here's how it looks in the TargetMaster class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
+Here's how it looks in the TowerMaster class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
 
 ```cs
 // Usual Unity includes go here

@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.12\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -45,13 +45,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#polymorphism">Polymorphism</a><br>
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</li>
-<li><a href="#assignment-1-part-2">Assignment 1 part 2</a></li>
-<li><a href="#virtualabstract-functions">Virtual/Abstract functions</a></li>
-<li><a href="#overriding-functions">Overriding functions</a></li>
-<li><a href="#exercises">Exercises</a><br>
-=======</li>
+<li><a href="#polymorphism">Polymorphism</a></li>
 <li><a href="#getting-abstract">Getting Abstract</a>
 <ul>
 <li><a href="#overriding-functions-and-the-virtual-keyword">Overriding functions and the <code>virtual</code> keyword</a>
@@ -77,21 +71,6 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>88e91a906380598e9058df2d76fd9be4290f547b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <h2 class="mume-header" id="last-week-and-homework">Last week and homework</h2>
 
 <p>Last week&#x2019;s topic was <strong>Object oriented design</strong>, specifically <strong>Encapsulation through Classes, Access Modifiers, Properties</strong></p>
@@ -282,24 +261,7 @@
 <p><img src="assets/week3/pokemon_bludgie.png" alt="Bludgie"><br>
 <em>They&#x2019;re all Bludgie though really - Aussie Pokedex by Paul Robertson</em></p>
 <p>A bunch of towers can all return a type, a cost, an id, a footprint. They can be asked to level up, take damage, build, collapse/refund. We don&#x2019;t need to know what type of tower we have for those generic things. That means we can handle them in a collection as plain old Towers - using them as their base class.</p>
-<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>
-<em><strong>Busted example, change to public list. Can&#x2019;t use prefab instantation.</strong></em></h1>
 <p>Here&#x2019;s how it might look if we were using basic classes like last week:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>88e91a906380598e9058df2d76fd9be4290f547b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// List uses base type `Tower` even though we never make an instance of `Tower` directly.</span>
 List<span class="token operator">&lt;</span>Tower<span class="token operator">&gt;</span> towers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Tower</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -308,7 +270,7 @@ towers<span class="token punctuation">.</span><span class="token keyword">add</s
 towers<span class="token punctuation">.</span><span class="token keyword">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MissileTower</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 towers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre><p>Here&#x2019;s how it looks in the TargetMaster class I&#x2019;ve provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.</p>
+</pre><p>Here&#x2019;s how it looks in the TowerMaster class I&#x2019;ve provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Usual Unity includes go here</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TowerMaster</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
 
