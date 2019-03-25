@@ -4,7 +4,10 @@
 
 #### FollowTheMouse.cs
 
+Make a sprite, use the _knob_ circle from the sprite library. Scale it up a bit and add a script to follow the mouse.
+
 ```cs
+// FollowTheMouse.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +31,18 @@ public class FollowTheMouse : MonoBehaviour {
 }
 ```
 #### LookAtAThing.cs
+
+![triangle1](assets/week5/triangle1.png)
+Make a `graphics` folder in the `assets` folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it's there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle. 
+
+Make sure to hit the badly placed **"**apply** button up top.
+
+![Sprite editor](assets/week5/triangle_edit.png)
+
+Put it on your stage and then make  a new script, `LookAtAThing.cs`.
+
 ```cs
+// LookAtAThing.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,9 +69,11 @@ public class LookAtAThing : MonoBehaviour {
 
 #### Handies.cs
 
-Does all the hard work. Is this class cohesive? Maybe?
+None of that worked. Because those components are lazy. Handies is going to do the hard work. 
+>Is this class cohesive? Maybe?
 
 ```cs
+//Handies.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
