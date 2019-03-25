@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>week5_notes</title>
+      <title>week5_code_utility</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,131 +23,84 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="week-5-design-patterns">Week 5: Design Patterns</h1>
+      <h1 class="mume-header" id="demo-utility-class-with-static-function">Demo: Utility class with static function</h1>
 
-<p>Programming leads to lots of code. Lots of code leads to lots of files and objects and madness.</p>
-<blockquote>
-<p>Design patterns are abstract ways of thinking about big programs and saves us from madness.</p>
-</blockquote>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week-5-design-patterns">Week 5: Design Patterns</a>
-<ul>
-<li><a href="#assessment-1-due-end-of-this-week">Assessment 1 due end of this week.</a>
-<ul>
-<li><a href="#encapsulation-exercise">Encapsulation exercise</a></li>
-<li><a href="#inheritancepolymorphism-exercise">Inheritance/Polymorphism exercise</a></li>
-<li><a href="#engine-implementation">Engine Implementation</a></li>
-</ul>
-</li>
-<li><a href="#design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</a>
-<ul>
-<li><a href="#patterns-in-game-design">Patterns in Game Design</a></li>
-</ul>
-</li>
-<li><a href="#static-functions-and-variables">Static functions and variables</a>
-<ul>
-<li><a href="#i-lied-about-classes">I lied about classes</a></li>
-<li><a href="#using-statics-to-make-utility-classes">Using statics to make utility classes</a></li>
-<li><a href="#singletons">Singletons</a></li>
-<li><a href="#example-of-needing-to-access-an-important-object">Example of needing to access an important object.</a></li>
-</ul>
-</li>
-<li><a href="#exercises">Exercises</a></li>
-<li><a href="#resources">Resources</a></li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="assessment-1-due-end-of-this-week">Assessment 1 due end of this week.</h2>
+<p><img src="assets/week5/utility_pointy_unity.png" alt="Pointy demo in Unity"></p>
+<h4 class="mume-header" id="followthemousecs">FollowTheMouse.cs</h4>
 
-<p>Yes, it is <strong>due end of Sunday, March 31.</strong><br>
-These are brief reminders, in my own words, of what is in each exercise. READ THE PDF BRIEF CAREFULLY.<br>
-<strong><a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1">Assessment 1 pdf on the server</a></strong></p>
-<p>You are delivering 3 Exercises:</p>
-<h3 class="mume-header" id="encapsulation-exercise">Encapsulation exercise</h3>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<p>Create the <code>Player</code> class which is tested by a test class, eg: <code>TestPlayer</code>. If you&#x2019;re at all confused about this <a href="https://dmcgits.github.io/mds/GPR103/week2_notes.html?nocache#access-functions-aka-properties">do the exercise in week 2&#x2019;s notes.</a>. It creates a test class, puts it on a sprite, and uses it to create and test a class.</p>
-<h3 class="mume-header" id="inheritancepolymorphism-exercise">Inheritance/Polymorphism exercise</h3>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FollowTheMouse</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
 
-<p>Create a base <code>Class</code> with variables and functions. Create classes that derive from it. <code>Override</code> a <code>virtual</code> function. Put the different child classes in one <code>List</code> and iterate over them, calling a function. Almost exactly what we did in <a href="https://dmcgits.github.io/mds/GPR103/week3_notes.html#polymorphism">week 3 in the section on polymorphism</a>. The classes themselves are up to you. Inventory items, types of spells, types of door lock, whatever.</p>
-<h3 class="mume-header" id="engine-implementation">Engine Implementation</h3>
+    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTrans<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Camera</span> cam<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Vector3</span> mousePoint<span class="token punctuation">;</span>
+	<span class="token comment">// Use this for initialization</span>
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        myTrans <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+        cam <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">;</span>    
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">// Update is called once per frame</span>
+	<span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mousePoint <span class="token operator">=</span> Handies<span class="token punctuation">.</span><span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        myTrans<span class="token punctuation">.</span>position <span class="token operator">=</span> mousePoint<span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="lookatathingcs">LookAtAThing.cs</h4>
 
-<p>You need to create a <code>Class</code> that provides a useful, fairly generic function. This function should make use of <strong>at least 2 Unity API calls</strong> and return a result. Having it call multiple Unity API calls instead of just one is what makes it useful&#x2026; otherwise we&#x2019;d just make the api call. Create a <strong>test class</strong> that shows this off running in the engine.<br>
-<strong>We&#x2019;ll write out an example of this today using a Singleton or a static class.</strong></p>
-<hr>
-<h2 class="mume-header" id="design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</h2>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<p>Design patterns, a group of dudes called the Gang Of Four. In the photos they turned out to be disappointing. You&#x2019;ve seen kinda pudgey white programmers from the 80s. So imagine there were 6 and this is them:</p>
-<p><img src="assets/week5/special_six.png" alt="special six"><br>
-<em>Programming patterns were based on animal movements.</em></p>
-<h3 class="mume-header" id="patterns-in-game-design">Patterns in Game Design</h3>
 
-<ul>
-<li>Game Loop (game logic)</li>
-<li>Double buffering (graphics)</li>
-<li>Composition - Unity components</li>
-<li>Type Object - A little like composition. A way to create variants from a text file rather than a million class definitions.</li>
-<li>Subclass Sandbox - beats me. <a href="http://gameprogrammingpatterns.com/subclass-sandbox.html">Better read.</a></li>
-</ul>
-<hr>
-<h2 class="mume-header" id="static-functions-and-variables">Static functions and variables</h2>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LookAtAThing</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
 
-<p>If you&#x2019;ve ever used a unity api function without creating an object, say <code>Mathf.Round(number)</code>, or <code>Camera.main</code>, or <code>Input.mousePosition</code>, you&#x2019;ve used a static function/variable. Classes like <code>Mathf</code> and <code>Input</code> can be thought of as utility classes. You don&#x2019;t make objects out of them, you use them .</p>
-<h3 class="mume-header" id="i-lied-about-classes">I lied about classes</h3>
+    <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> targetTransform<span class="token punctuation">;</span>
 
-<p>Sort of. For most purposes yes, classes are simply designs that are made real in the form of objects. But it turns out it&#x2019;s useful to be able to call functions on classes without wasting cycles and memory creating objects. The way to achieve this is with static functions.</p>
-<h3 class="mume-header" id="using-statics-to-make-utility-classes">Using statics to make utility classes</h3>
+    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTransform<span class="token punctuation">;</span>
 
-<p>Sounds a lot like something we might do in an assessment. Let&#x2019;s look at how we can enclose a couple of <em>Unity API</em> calls in a single function, and call it from an object.</p>
-<h4 class="mume-header" id="what-are-unity-api-calls">What are Unity API calls</h4>
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        myTransform <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-<blockquote>
-<p><strong>API</strong> stands for <strong>Application Programming Interface</strong>. What it actually means is <strong>a way to control something with code</strong>. Whether it&#x2019;s facebook&#x2019;s platform and user data, or an arduino, or the unity game engine. They write a bunch of code that does amazing things, and then give us a bunch of functions we can call to control it.</p>
-</blockquote>
-<p>The Unity API is documented here:<br>
-<a href="https://docs.unity3d.com/ScriptReference/">https://docs.unity3d.com/ScriptReference/</a></p>
-<p><img src="assets/week5/unity_api_camera.png" alt="Unity API reference for Camera.main"></p>
-<p>It&#x2019;s dead easy: you look up the Camera class, find a function you need, and they explain it. They have source code too. All those autocomplete suggestions in Unity when you type Transform or Camera or Vector3? They&#x2019;re all fully explained and demonstrated.</p>
-<h4 class="mume-header" id="our-utility-class-helpies">Our utility class, Helpies</h4>
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Handies<span class="token punctuation">.</span><span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span>myTransform<span class="token punctuation">,</span> targetTransform<span class="token punctuation">)</span><span class="token punctuation">;</span>     
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="handiescs">Handies.cs</h4>
 
-<p><a href="week5_code_utility.html">week5_code_utility.html</a></p>
-<p><img src="assets/week5/utility_pointy_unity.png" alt="Utility test: pointy"></p>
-<h3 class="mume-header" id="singletons">Singletons</h3>
+<p>Does all the hard work. Is this class cohesive? Maybe?</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<p>Make a singleton. I can be called handyutils. Because I want it to have some state, I&#x2019;ll make it a singleton, not a static.<br>
-GetAngleFromAToB</p>
-<hr>
-<h3 class="mume-header" id="example-of-needing-to-access-an-important-object">Example of needing to access an important object.</h3>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Handies</span> <span class="token punctuation">{</span>
 
-<p>Some code showing two different classes in two different places that need to access the game model. How do they to that? If they each make one, it&#x2019;ll be different. Do all classes have to know how to find it? What if that method changes?</p>
-<h4 class="mume-header" id="singleton-code">Singleton code</h4>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span><span class="token class-name">Transform</span> o1<span class="token punctuation">,</span> <span class="token class-name">Transform</span> o2<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//o1.LookAt(o2);</span>
+        <span class="token keyword">float</span> angleRad <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Atan2</span><span class="token punctuation">(</span>o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> angleDeg <span class="token operator">=</span> Mathf<span class="token punctuation">.</span>Rad2Deg <span class="token operator">*</span> angleRad<span class="token punctuation">;</span>
 
-<h4 class="mume-header" id="singletons-work-because-of-statics">Singletons work because of statics</h4>
+        o1<span class="token punctuation">.</span>rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> angleDeg<span class="token operator">-</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//Debug.Log(angleDeg);</span>
+    <span class="token punctuation">}</span>
 
-<p>Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It&#x2019;s like quantum entanglement.</p>
-<hr>
-<h2 class="mume-header" id="exercises">Exercises</h2>
-
-<ol>
-<li>Finish the assignment!</li>
-<li>Catch up on Sololearn, you need a certain amount of <em>c#</em> to be automatic. Time you lose looking up basics, or on confusing errors, that&#x2019;s all potential coding time gone.</li>
-</ol>
-<h2 class="mume-header" id="resources">Resources</h2>
-
-<p>More detail on what we&#x2019;ve covered here today. If a pattern  sounds like a good thing to use in assessment 2 or 3, go read more about it.</p>
-<h4 class="mume-header" id="gameprogrammingpatterns-dot-com">gameprogrammingpatterns dot com:</h4>
-
-<p>Easy to read, gaming focussed.</p>
-<ol>
-<li><a href="http://gameprogrammingpatterns.com/component.html">http://gameprogrammingpatterns.com/component.html</a></li>
-<li><a href="http://gameprogrammingpatterns.com/double-buffer.html">http://gameprogrammingpatterns.com/double-buffer.html</a></li>
-<li><a href="http://gameprogrammingpatterns.com/subclass-sandbox.html">http://gameprogrammingpatterns.com/subclass-sandbox.html</a></li>
-<li><a href="http://gameprogrammingpatterns.com/type-object.html">http://gameprogrammingpatterns.com/type-object.html</a></li>
-</ol>
-<h4 class="mume-header" id="do-factory">Do factory</h4>
-
-<p>Has loads of patterns explaine in c#/.net<br>
-<a href="https://www.dofactory.com/net/design-patterns">https://www.dofactory.com/net/design-patterns</a></p>
-
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Vector3</span> <span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Camera</span> cam <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">;</span>
+        <span class="token class-name">Vector3</span> mousePoint <span class="token operator">=</span> cam<span class="token punctuation">.</span><span class="token function">ScreenToWorldPoint</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Vector3</span><span class="token punctuation">(</span>Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">.</span>x<span class="token punctuation">,</span> Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mousePoint<span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// ScreenToWorld sets z to -10, which is makes the sprite invisible</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>mousePoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre>
       </div>
       
       
