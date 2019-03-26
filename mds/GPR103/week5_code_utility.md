@@ -33,6 +33,7 @@ public class FollowTheMouse : MonoBehaviour {
 #### LookAtAThing.cs
 
 ![triangle1](assets/week5/triangle1.png)
+
 Make a `graphics` folder in the `assets` folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it's there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle. 
 
 Make sure to hit the badly placed **"**apply** button up top.

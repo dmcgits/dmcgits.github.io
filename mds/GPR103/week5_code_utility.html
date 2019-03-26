@@ -28,7 +28,9 @@
 <p><img src="assets/week5/utility_pointy_unity.png" alt="Pointy demo in Unity"></p>
 <h4 class="mume-header" id="followthemousecs">FollowTheMouse.cs</h4>
 
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<p>Make a sprite, use the <em>knob</em> circle from the sprite library. Scale it up a bit and add a script to follow the mouse.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// FollowTheMouse.cs</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
 <span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
@@ -51,7 +53,13 @@
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="lookatathingcs">LookAtAThing.cs</h4>
 
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<p><img src="assets/week5/triangle1.png" alt="triangle1"><br>
+Make a <code>graphics</code> folder in the <code>assets</code> folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it&#x2019;s there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle.</p>
+<p>Make sure to hit the badly placed **&quot;<strong>apply</strong> button up top.</p>
+<p><img src="assets/week5/triangle_edit.png" alt="Sprite editor"></p>
+<p>Put it on your stage and then make  a new script, <code>LookAtAThing.cs</code>.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// LookAtAThing.cs</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
 <span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
@@ -75,8 +83,12 @@
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="handiescs">Handies.cs</h4>
 
-<p>Does all the hard work. Is this class cohesive? Maybe?</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<p>None of that worked. Because those components are lazy. Handies is going to do the hard work.</p>
+<blockquote>
+<p>Is this class cohesive? Maybe?</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">//Handies.cs</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
 <span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 

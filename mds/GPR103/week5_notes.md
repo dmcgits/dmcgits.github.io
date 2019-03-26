@@ -26,6 +26,7 @@ Programming leads to lots of code. Lots of code leads to lots of files and objec
 		* [Our utility class, Helpies](#our-utility-class-helpies)
 		* [Singletons](#singletons)
 		* [Component/Composition](#componentcomposition)
+		* [Object Pooling](#object-pooling)
 	* [HacknPlan](#hacknplan)
 	* [Exercises](#exercises)
 	* [Resources](#resources)
@@ -158,6 +159,10 @@ A Singleton is basically a trick to make all the objects you create from a class
 ### Component/Composition
 
 How we've been doing things in Unity!
+
+
+### Object Pooling
+
 
 ___
 
