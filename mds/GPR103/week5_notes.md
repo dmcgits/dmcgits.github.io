@@ -15,10 +15,10 @@ Programming leads to lots of code. Lots of code leads to lots of files and objec
 		* [Inheritance/Polymorphism exercise](#inheritancepolymorphism-exercise)
 		* [Engine Implementation](#engine-implementation)
 	* [Design patterns and the Gang Of Four](#design-patterns-and-the-gang-of-four)
-		* [Patterns in Game Design](#patterns-in-game-design)
-			* [Game Loop](#game-loop)
-			* [Observer Pattern](#observer-pattern)
-			* [Utility classes: Static functions and variables](#utility-classes-static-functions-and-variables)
+	* [Patterns in Game Design](#patterns-in-game-design)
+		* [Game Loop](#game-loop)
+		* [Observer Pattern](#observer-pattern)
+		* [Utility classes: Static functions and variables](#utility-classes-static-functions-and-variables)
 		* [I lied about classes](#i-lied-about-classes)
 			* [Statics](#statics)
 			* [Using statics to make utility classes](#using-statics-to-make-utility-classes)
@@ -26,7 +26,6 @@ Programming leads to lots of code. Lots of code leads to lots of files and objec
 		* [Our utility class, Helpies](#our-utility-class-helpies)
 		* [Singletons](#singletons)
 		* [Component/Composition](#componentcomposition)
-		* [Object Pooling](#object-pooling)
 	* [HacknPlan](#hacknplan)
 	* [Exercises](#exercises)
 	* [Resources](#resources)
@@ -70,7 +69,7 @@ _The Gang of 4 (+2)_
 
 ___
 
-### Patterns in Game Design
+## Patterns in Game Design
 
 Some patterns common to game design
 
@@ -80,7 +79,7 @@ Some patterns common to game design
 * Double buffering (graphics)
 ___
 
-#### Game Loop
+### Game Loop
 
 **Long view:** All games are loops. The menu system. Finding a game, joining, ending. 
 
@@ -94,7 +93,7 @@ _[http://gameprogrammingpatterns.com/game-loop.html](http://gameprogrammingpatte
 
 ___
 
-#### Observer Pattern
+### Observer Pattern
 
 At the core of a lot of modern programs and games is the _Model, View, Controller_ pattern or _**MVC**_. It can create a lot of extra code and inflexibility though, but you can use the simpler underlying _observer_ pattern. 
 
@@ -113,7 +112,7 @@ Make sure to read up properly on it here, because it's absolutely fundamental an
 <http://gameprogrammingpatterns.com/observer.html> 
 ___
 
-#### Utility classes: Static functions and variables
+### Utility classes: Static functions and variables
 
 If you've ever used a unity api function without creating an object, say `Mathf.Round(number)`, or `Camera.main`, or `Input.mousePosition`, you've used a static function/variable. Classes like `Mathf` and `Input` can be thought of as utility classes. You don't make objects out of them, you use them .
 
@@ -127,6 +126,8 @@ Statics are like exceptions to the rule of encapsulation. Instead of every chair
 #### Using statics to make utility classes
 
 Sounds a lot like something we might do in an assessment. Let's look at how we can enclose a couple of _Unity API_ calls in a single function, and call it from an object.
+
+___ 
 
 ### What are Unity API calls
 
@@ -145,6 +146,8 @@ It's dead easy: you look up the Camera class, find a function you need, and they
 
 ![Utility test: pointy](assets/week5/utility_pointy_unity.png)
 
+___
+
 ### Singletons
 
 A Singleton is basically a trick to make all the objects you create from a class, say your custom "GameManager" class, essentially be the same object. 
@@ -155,17 +158,13 @@ A Singleton is basically a trick to make all the objects you create from a class
 
 [Trent's Singletons pdf](assets/week5/singleton_cs_trent.pdf)
 
+___
 
 ### Component/Composition
 
 How we've been doing things in Unity!
 
-
-### Object Pooling
-
-
 ___
-
 
 ## HacknPlan
 

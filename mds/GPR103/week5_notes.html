@@ -39,10 +39,18 @@
 <li><a href="#engine-implementation">Engine Implementation</a></li>
 </ul>
 </li>
-<li><a href="#design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</a>
+<li><a href="#design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</a></li>
+<li><a href="#patterns-in-game-design">Patterns in Game Design</a>
 <ul>
-<li><a href="#patterns-in-game-design">Patterns in Game Design</a></li>
-<li><a href="#i-lied-about-classes">I lied about classes</a></li>
+<li><a href="#game-loop">Game Loop</a></li>
+<li><a href="#observer-pattern">Observer Pattern</a></li>
+<li><a href="#utility-classes-static-functions-and-variables">Utility classes: Static functions and variables</a></li>
+<li><a href="#i-lied-about-classes">I lied about classes</a>
+<ul>
+<li><a href="#statics">Statics</a></li>
+<li><a href="#using-statics-to-make-utility-classes">Using statics to make utility classes</a></li>
+</ul>
+</li>
 <li><a href="#what-are-unity-api-calls">What are Unity API calls</a></li>
 <li><a href="#our-utility-class-helpies">Our utility class, Helpies</a></li>
 <li><a href="#singletons">Singletons</a></li>
@@ -51,7 +59,11 @@
 </li>
 <li><a href="#hacknplan">HacknPlan</a></li>
 <li><a href="#exercises">Exercises</a></li>
-<li><a href="#resources">Resources</a></li>
+<li><a href="#resources">Resources</a><br>
+* <a href="#double-buffering">Double Buffering</a><br>
+* <a href="#free-examples-of-design-patterns-in-unity-c">Free examples of Design Patterns in unity c#</a><br>
+* <a href="#gameprogrammingpatterns-dot-com">gameprogrammingpatterns dot com:</a><br>
+* <a href="#do-factory">Do factory</a></li>
 </ul>
 </li>
 </ul>
@@ -83,7 +95,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <p><img src="assets/week5/special_six.png" alt="special six"><br>
 <em>The Gang of 4 (+2)</em></p>
 <hr>
-<h3 class="mume-header" id="patterns-in-game-design">Patterns in Game Design</h3>
+<h2 class="mume-header" id="patterns-in-game-design">Patterns in Game Design</h2>
 
 <p>Some patterns common to game design</p>
 <ul>
@@ -93,7 +105,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <li>Double buffering (graphics)</li>
 </ul>
 <hr>
-<h4 class="mume-header" id="game-loop">Game Loop</h4>
+<h3 class="mume-header" id="game-loop">Game Loop</h3>
 
 <p><strong>Long view:</strong> All games are loops. The menu system. Finding a game, joining, ending.</p>
 <p><strong>Short view</strong> Every frame is a pass through a loop.<br>
@@ -103,7 +115,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <p><img src="assets/week5/game-loop-fixed.png" alt="Frame loop"><br>
 <em><a href="http://gameprogrammingpatterns.com/game-loop.html">http://gameprogrammingpatterns.com/game-loop.html</a></em></p>
 <hr>
-<h4 class="mume-header" id="observer-pattern">Observer Pattern</h4>
+<h3 class="mume-header" id="observer-pattern">Observer Pattern</h3>
 
 <p>At the core of a lot of modern programs and games is the <em>Model, View, Controller</em> pattern or <em><strong>MVC</strong></em>. It can create a lot of extra code and inflexibility though, but you can use the simpler underlying <em>observer</em> pattern.</p>
 <blockquote>
@@ -120,7 +132,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <p>Make sure to read up properly on it here, because it&#x2019;s absolutely fundamental and will be a big part of assessment 2:<br>
 <a href="http://gameprogrammingpatterns.com/observer.html">http://gameprogrammingpatterns.com/observer.html</a></p>
 <hr>
-<h4 class="mume-header" id="utility-classes-static-functions-and-variables">Utility classes: Static functions and variables</h4>
+<h3 class="mume-header" id="utility-classes-static-functions-and-variables">Utility classes: Static functions and variables</h3>
 
 <p>If you&#x2019;ve ever used a unity api function without creating an object, say <code>Mathf.Round(number)</code>, or <code>Camera.main</code>, or <code>Input.mousePosition</code>, you&#x2019;ve used a static function/variable. Classes like <code>Mathf</code> and <code>Input</code> can be thought of as utility classes. You don&#x2019;t make objects out of them, you use them .</p>
 <h3 class="mume-header" id="i-lied-about-classes">I lied about classes</h3>
@@ -132,6 +144,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <h4 class="mume-header" id="using-statics-to-make-utility-classes">Using statics to make utility classes</h4>
 
 <p>Sounds a lot like something we might do in an assessment. Let&#x2019;s look at how we can enclose a couple of <em>Unity API</em> calls in a single function, and call it from an object.</p>
+<hr>
 <h3 class="mume-header" id="what-are-unity-api-calls">What are Unity API calls</h3>
 
 <blockquote>
@@ -145,6 +158,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 
 <p><a href="week5_code_utility.html">week5_code_utility.html</a></p>
 <p><img src="assets/week5/utility_pointy_unity.png" alt="Utility test: pointy"></p>
+<hr>
 <h3 class="mume-header" id="singletons">Singletons</h3>
 
 <p>A Singleton is basically a trick to make all the objects you create from a class, say your custom &#x201C;GameManager&#x201D; class, essentially be the same object.</p>
@@ -154,6 +168,7 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <li>It kinda breaks the rules of OO and should ideally be avoided. But it&#x2019;s super handy and the alternatives are&#x2026; not perfect either.</li>
 </ul>
 <p><a href="assets/week5/singleton_cs_trent.pdf">Trent&#x2019;s Singletons pdf</a></p>
+<hr>
 <h3 class="mume-header" id="componentcomposition">Component/Composition</h3>
 
 <p>How we&#x2019;ve been doing things in Unity!</p>

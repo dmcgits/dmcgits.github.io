@@ -37,12 +37,11 @@
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FollowTheMouse</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTrans<span class="token punctuation">;</span>
-    <span class="token keyword">protected</span> <span class="token class-name">Camera</span> cam<span class="token punctuation">;</span>
     <span class="token keyword">protected</span> <span class="token class-name">Vector3</span> mousePoint<span class="token punctuation">;</span>
 	<span class="token comment">// Use this for initialization</span>
 	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         myTrans <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
-        cam <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">;</span>    
+ 
 	<span class="token punctuation">}</span>
 	
 	<span class="token comment">// Update is called once per frame</span>
@@ -53,8 +52,8 @@
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="lookatathingcs">LookAtAThing.cs</h4>
 
-<p><img src="assets/week5/triangle1.png" alt="triangle1"><br>
-Make a <code>graphics</code> folder in the <code>assets</code> folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it&#x2019;s there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle.</p>
+<p><img src="assets/week5/triangle1.png" alt="triangle1"></p>
+<p>Make a <code>graphics</code> folder in the <code>assets</code> folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it&#x2019;s there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle.</p>
 <p>Make sure to hit the badly placed **&quot;<strong>apply</strong> button up top.</p>
 <p><img src="assets/week5/triangle_edit.png" alt="Sprite editor"></p>
 <p>Put it on your stage and then make  a new script, <code>LookAtAThing.cs</code>.</p>
