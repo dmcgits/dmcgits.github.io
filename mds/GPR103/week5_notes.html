@@ -42,16 +42,14 @@
 <li><a href="#design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</a>
 <ul>
 <li><a href="#patterns-in-game-design">Patterns in Game Design</a></li>
-</ul>
-</li>
-<li><a href="#static-functions-and-variables">Static functions and variables</a>
-<ul>
 <li><a href="#i-lied-about-classes">I lied about classes</a></li>
-<li><a href="#using-statics-to-make-utility-classes">Using statics to make utility classes</a></li>
+<li><a href="#what-are-unity-api-calls">What are Unity API calls</a></li>
+<li><a href="#our-utility-class-helpies">Our utility class, Helpies</a></li>
 <li><a href="#singletons">Singletons</a></li>
-<li><a href="#example-of-needing-to-access-an-important-object">Example of needing to access an important object.</a></li>
+<li><a href="#componentcomposition">Component/Composition</a></li>
 </ul>
 </li>
+<li><a href="#hacknplan">HacknPlan</a></li>
 <li><a href="#exercises">Exercises</a></li>
 <li><a href="#resources">Resources</a></li>
 </ul>
@@ -76,29 +74,65 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <hr>
 <h2 class="mume-header" id="design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</h2>
 
-<p>Design patterns, a group of dudes called the Gang Of Four. In the photos they turned out to be disappointing. You&#x2019;ve seen kinda pudgey white programmers from the 80s. So imagine there were 6 and this is them:</p>
+<ul>
+<li>Patterns of programming design were hotly discussed through the late 70s and 80s</li>
+<li>In 1994 a book called <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> caught on with computer scientists. It was produced by the awesomely named &#x201C;Gang Of Four&#x201D;.</li>
+<li>Growth and discussion of pattern design hasn&#x2019;t slowed.</li>
+<li>Sadly, the Gang of Four were very disappointing in photographs</li>
+</ul>
 <p><img src="assets/week5/special_six.png" alt="special six"><br>
-<em>Programming patterns were based on animal movements.</em></p>
+<em>The Gang of 4 (+2)</em></p>
+<hr>
 <h3 class="mume-header" id="patterns-in-game-design">Patterns in Game Design</h3>
 
+<p>Some patterns common to game design</p>
 <ul>
 <li>Game Loop (game logic)</li>
-<li>Double buffering (graphics)</li>
 <li>Composition - Unity components</li>
 <li>Type Object - A little like composition. A way to create variants from a text file rather than a million class definitions.</li>
-<li>Subclass Sandbox - beats me. <a href="http://gameprogrammingpatterns.com/subclass-sandbox.html">Better read.</a></li>
+<li>Double buffering (graphics)</li>
 </ul>
 <hr>
-<h2 class="mume-header" id="static-functions-and-variables">Static functions and variables</h2>
+<h4 class="mume-header" id="game-loop">Game Loop</h4>
+
+<p><strong>Long view:</strong> All games are loops. The menu system. Finding a game, joining, ending.</p>
+<p><strong>Short view</strong> Every frame is a pass through a loop.<br>
+1: Get user input.<br>
+2: One frame of simulation and consequences<br>
+3: Draw the results to the screen, vibrate controllers, play sounds.</p>
+<p><img src="assets/week5/game-loop-fixed.png" alt="Frame loop"><br>
+<em><a href="http://gameprogrammingpatterns.com/game-loop.html">http://gameprogrammingpatterns.com/game-loop.html</a></em></p>
+<hr>
+<h4 class="mume-header" id="observer-pattern">Observer Pattern</h4>
+
+<p>At the core of a lot of modern programs and games is the <em>Model, View, Controller</em> pattern or <em><strong>MVC</strong></em>. It can create a lot of extra code and inflexibility though, but you can use the simpler underlying <em>observer</em> pattern.</p>
+<blockquote>
+<p>The observer pattern is where parts of your code can choose to keep an eye open for certain things that happen to other objects.</p>
+</blockquote>
+<p>Say our subject below is a player:</p>
+<ol>
+<li>Our player might equip her first magical armour.</li>
+<li>The Achievements system hears &#x201C;magical_armour_equipped&#x201D; and grants you a &#x201C;Untouchable. Almost!&#x201D; achievement and shows a popup.</li>
+<li>The sound audio system hears the same thing and plays a tingly magic sound.</li>
+</ol>
+<p><img src="assets/week5/observer_1.png" alt="Observer 1"></p>
+<p>This can be done by passing function pointers around, or having anythign that listens for events implement a certain interface. Next week, we&#x2019;ll do it with events.</p>
+<p>Make sure to read up properly on it here, because it&#x2019;s absolutely fundamental and will be a big part of assessment 2:<br>
+<a href="http://gameprogrammingpatterns.com/observer.html">http://gameprogrammingpatterns.com/observer.html</a></p>
+<hr>
+<h4 class="mume-header" id="utility-classes-static-functions-and-variables">Utility classes: Static functions and variables</h4>
 
 <p>If you&#x2019;ve ever used a unity api function without creating an object, say <code>Mathf.Round(number)</code>, or <code>Camera.main</code>, or <code>Input.mousePosition</code>, you&#x2019;ve used a static function/variable. Classes like <code>Mathf</code> and <code>Input</code> can be thought of as utility classes. You don&#x2019;t make objects out of them, you use them .</p>
 <h3 class="mume-header" id="i-lied-about-classes">I lied about classes</h3>
 
 <p>Sort of. For most purposes yes, classes are simply designs that are made real in the form of objects. But it turns out it&#x2019;s useful to be able to call functions on classes without wasting cycles and memory creating objects. The way to achieve this is with static functions.</p>
-<h3 class="mume-header" id="using-statics-to-make-utility-classes">Using statics to make utility classes</h3>
+<h4 class="mume-header" id="statics">Statics</h4>
+
+<p>Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It&#x2019;s like quantum entanglement.</p>
+<h4 class="mume-header" id="using-statics-to-make-utility-classes">Using statics to make utility classes</h4>
 
 <p>Sounds a lot like something we might do in an assessment. Let&#x2019;s look at how we can enclose a couple of <em>Unity API</em> calls in a single function, and call it from an object.</p>
-<h4 class="mume-header" id="what-are-unity-api-calls">What are Unity API calls</h4>
+<h3 class="mume-header" id="what-are-unity-api-calls">What are Unity API calls</h3>
 
 <blockquote>
 <p><strong>API</strong> stands for <strong>Application Programming Interface</strong>. What it actually means is <strong>a way to control something with code</strong>. Whether it&#x2019;s facebook&#x2019;s platform and user data, or an arduino, or the unity game engine. They write a bunch of code that does amazing things, and then give us a bunch of functions we can call to control it.</p>
@@ -107,34 +141,53 @@ These are brief reminders, in my own words, of what is in each exercise. READ TH
 <a href="https://docs.unity3d.com/ScriptReference/">https://docs.unity3d.com/ScriptReference/</a></p>
 <p><img src="assets/week5/unity_api_camera.png" alt="Unity API reference for Camera.main"></p>
 <p>It&#x2019;s dead easy: you look up the Camera class, find a function you need, and they explain it. They have source code too. All those autocomplete suggestions in Unity when you type Transform or Camera or Vector3? They&#x2019;re all fully explained and demonstrated.</p>
-<h4 class="mume-header" id="our-utility-class-helpies">Our utility class, Helpies</h4>
+<h3 class="mume-header" id="our-utility-class-helpies">Our utility class, Helpies</h3>
 
 <p><a href="week5_code_utility.html">week5_code_utility.html</a></p>
 <p><img src="assets/week5/utility_pointy_unity.png" alt="Utility test: pointy"></p>
 <h3 class="mume-header" id="singletons">Singletons</h3>
 
-<p>Make a singleton. I can be called handyutils. Because I want it to have some state, I&#x2019;ll make it a singleton, not a static.<br>
-GetAngleFromAToB</p>
+<p>A Singleton is basically a trick to make all the objects you create from a class, say your custom &#x201C;GameManager&#x201D; class, essentially be the same object.</p>
+<ul>
+<li>It has all the state upside of an object</li>
+<li>It has the access anywhere upside of static functions</li>
+<li>It kinda breaks the rules of OO and should ideally be avoided. But it&#x2019;s super handy and the alternatives are&#x2026; not perfect either.</li>
+</ul>
+<p><a href="assets/week5/singleton_cs_trent">Trent&#x2019;s Singletons pdf</a></p>
+<h3 class="mume-header" id="componentcomposition">Component/Composition</h3>
+
+<p>How we&#x2019;ve been doing things in Unity!</p>
 <hr>
-<h3 class="mume-header" id="example-of-needing-to-access-an-important-object">Example of needing to access an important object.</h3>
+<h2 class="mume-header" id="hacknplan">HacknPlan</h2>
 
-<p>Some code showing two different classes in two different places that need to access the game model. How do they to that? If they each make one, it&#x2019;ll be different. Do all classes have to know how to find it? What if that method changes?</p>
-<h4 class="mume-header" id="singleton-code">Singleton code</h4>
-
-<h4 class="mume-header" id="singletons-work-because-of-statics">Singletons work because of statics</h4>
-
-<p>Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It&#x2019;s like quantum entanglement.</p>
+<ul>
+<li>Make sure you create an account this week on <a href="http://www.hacknplan.com/">hacknPlan</a>.</li>
+<li>Then make a project and choose &#x201C;agile&#x201D; from the types allowed.</li>
+<li>Go to <em>Boards</em> (left menu) and sprint 1 (it&#x2019;ll make a first sprint for you.)</li>
+<li>Create a few cards under &#x201C;art&#x201D; and &#x201C;programming&#x201D; tasks, just to get the hang of it. Expect to make mistakes, it&#x2019;s fine!</li>
+</ul>
+<p><img src="assets/week5/hack_n_plan.png" alt="Hack n plan"></p>
 <hr>
 <h2 class="mume-header" id="exercises">Exercises</h2>
 
 <ol>
-<li>Finish the assignment!</li>
+<li>Finish assignment 1</li>
 <li>Catch up on Sololearn, you need a certain amount of <em>c#</em> to be automatic. Time you lose looking up basics, or on confusing errors, that&#x2019;s all potential coding time gone.</li>
+<li>Sign up to HacknPlan.</li>
 </ol>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <p>More detail on what we&#x2019;ve covered here today. If a pattern  sounds like a good thing to use in assessment 2 or 3, go read more about it.</p>
-<h4 class="mume-header" id="gameprogrammingpatterns-dot-com">gameprogrammingpatterns dot com:</h4>
+<h4 class="mume-header" id="double-buffering">Double Buffering</h4>
+
+<p>Double buffering is important to know about, but for Unity for now that&#x2019;s handled by the engine. I wrote notes on it though, so here the are!<br>
+<a href="week5_leftovers.html">week 5 leftovers - double buffering</a></p>
+<h4 class="mume-header" id="free-examples-of-design-patterns-in-unity-c">Free examples of Design Patterns in unity c#</h4>
+
+<p><a href="https://github.com/dmcgits/unity-design-patterns-naphier">https://github.com/dmcgits/unity-design-patterns-naphier</a><br>
+You can grab the code with gitkraken, sourctree, or typing the following in a dos/bash window:</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token function">git</span> clone https://github.com/dmcgits/unity-design-patterns-naphier
+</pre><h4 class="mume-header" id="gameprogrammingpatterns-dot-com">gameprogrammingpatterns dot com:</h4>
 
 <p>Easy to read, gaming focussed.</p>
 <ol>
@@ -145,7 +198,7 @@ GetAngleFromAToB</p>
 </ol>
 <h4 class="mume-header" id="do-factory">Do factory</h4>
 
-<p>Has loads of patterns explaine in c#/.net<br>
+<p>Has loads of patterns explaine in c#, though this time for .net (not unity specific)<br>
 <a href="https://www.dofactory.com/net/design-patterns">https://www.dofactory.com/net/design-patterns</a></p>
 
       </div>
