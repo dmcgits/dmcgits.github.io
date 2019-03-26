@@ -152,7 +152,7 @@ A Singleton is basically a trick to make all the objects you create from a class
 * It has the access anywhere upside of static functions
 * It kinda breaks the rules of OO and should ideally be avoided. But it's super handy and the alternatives are.. not perfect either. 
 
-[Trent's Singletons pdf](assets/week5/singleton_cs_trent)
+[Trent's Singletons pdf](assets/week5/singleton_cs_trent.pdf)
 
 
 ### Component/Composition
