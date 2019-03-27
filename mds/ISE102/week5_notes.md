@@ -9,15 +9,13 @@ Code in the notes is duplicated here: [week5_code.html](week5_code.html)
 
 <!-- code_chunk_output -->
 
-* [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
-	* [First, easier visual studio](#first-easier-visual-studio)
-	* [Default arguments](#default-arguments)
-			* [Solution 1: Pass an argument](#solution-1-pass-an-argument)
-			* [Solution 2: Default values for arguments!](#solution-2-default-values-for-arguments)
-	* [Function Overloading](#function-overloading)
-	* [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
+- [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
+	- [First, easier visual studio](#first-easier-visual-studio)
+	- [Default arguments](#default-arguments)
+	- [Function Overloading](#function-overloading)
+	- [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
+	- [To Do](#to-do)
+	- [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -184,8 +182,10 @@ int main()
 Let's jump to [week5_code.html](week5_code.html) for the other two examples.
 
 
-## Exercises
+## To Do
 1. Your assignment should be basically done and bug free this week, you only want to be cleaning up bugs and adding extra features/polish next week.
+2. Complete all Sololearn modules up to and including functions. (It's weird you have to do pointers before functions, but push through)
+3. Book chapter?
 
 ## Resources
 
