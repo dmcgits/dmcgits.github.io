@@ -3,3 +3,5 @@ desktop.ini
 VSWorkspace*.json
 mds/ACR103/.vs/slnx.sqlite
 folderico*.ico
+*.ipch
+*.bin
