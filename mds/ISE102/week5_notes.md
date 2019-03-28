@@ -114,6 +114,33 @@ _Now you have his attention_
 
 ___
 
+#### Defaults for multiple arguments
+
+Some funcs have multiple args, and a couple will be rarey changed. It's good to be able to default those ones that aren't often used.
+
+From the textbook:
+```c++
+// setting up a displaywidth and height
+// colourdepth and fullscreen become optional
+// with default values
+
+void setDisplay(int height, int width, int depth = 32, bool fullScreen = true);
+
+```
+
+Once you start supplying defaults, you can't stop:
+
+```
+void setDisplay(int width, int height, int depth = 32, bool fullScreen);
+
+// compile error, the final argument is missing a default.
+```
+
+The same goes for passing arguments. you can't leave out bit depth and leave in depth but then supply a value for fullscreen. the compiler would know what you mean here because there are different types. If they were both bools or ints it would have no idea which one you mean.
+
+**eg**
+___
+
 ## Function Overloading
 
 > Sometimes you might want the same function to do a very similar thing but with different argument types. 
