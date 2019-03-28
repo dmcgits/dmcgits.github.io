@@ -27,18 +27,21 @@
 
 <p>Functions are the main workhorse of your programs. You&apos;ll make objects to hold functions, an you&apos;ll create variables for functions to act on them. Functions are the <strong>do</strong> in programming.</p>
 <p>Code in the notes is duplicated here: <a href="week5_code.html">week5_code.html</a></p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#ise102-week-5-more-about-functions">ISE102 Week 5: More about functions</a>
-<ul>
+<ol>
 <li><a href="#first-easier-visual-studio">First, easier visual studio</a></li>
-<li><a href="#default-arguments">Default arguments</a></li>
+<li><a href="#default-arguments">Default arguments</a><br>
+1. <a href="#solution-1-pass-an-argument">Solution 1: Pass an argument</a><br>
+2. <a href="#solution-2-default-values-for-arguments">Solution 2: Default values for arguments!</a><br>
+3. <a href="#defaults-for-multiple-arguments">Defaults for multiple arguments</a></li>
 <li><a href="#function-overloading">Function Overloading</a></li>
 <li><a href="#passing-values-and-vectors-versus-arrays">Passing values and vectors versus arrays</a></li>
 <li><a href="#to-do">To Do</a></li>
 <li><a href="#resources">Resources</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="first-easier-visual-studio">First, easier visual studio</h2>
 
 <p>We&apos;ll make a template project that already has the <em>linker-system-console</em> preference set and contains a basic Main.cpp</p>
@@ -119,10 +122,10 @@ Rotation:  -135
 <span class="token keyword">void</span> <span class="token function">setDisplay</span><span class="token punctuation">(</span><span class="token keyword">int</span> height<span class="token punctuation">,</span> <span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> depth <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token keyword">bool</span> fullScreen <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </pre><p>Once you start supplying defaults, you can&apos;t stop:</p>
-<pre data-role="codeBlock" data-info="" class="language-"><code>void setDisplay(int width, int height, int depth = 32, bool fullScreen);
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token keyword">void</span> <span class="token function">setDisplay</span><span class="token punctuation">(</span><span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> height<span class="token punctuation">,</span> <span class="token keyword">int</span> depth <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token keyword">bool</span> fullScreen<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// compile error, the final argument is missing a default.
-</code></pre><p>The same goes for passing arguments. you can&apos;t leave out bit depth and leave in depth but then supply a value for fullscreen. the compiler would know what you mean here because there are different types. If they were both bools or ints it would have no idea which one you mean.</p>
+<span class="token comment">// compile error, the final argument is missing a default.</span>
+</pre><p>The same goes for passing arguments. you can&apos;t leave out bit depth and leave in depth but then supply a value for fullscreen. the compiler would know what you mean here because there are different types. If they were both bools or ints it would have no idea which one you mean.</p>
 <p><strong>eg</strong></p>
 <hr>
 <h2 class="mume-header" id="function-overloading">Function Overloading</h2>

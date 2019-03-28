@@ -9,13 +9,16 @@ Code in the notes is duplicated here: [week5_code.html](week5_code.html)
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
-	- [First, easier visual studio](#first-easier-visual-studio)
-	- [Default arguments](#default-arguments)
-	- [Function Overloading](#function-overloading)
-	- [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
-	- [To Do](#to-do)
-	- [Resources](#resources)
+1. [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
+	1. [First, easier visual studio](#first-easier-visual-studio)
+	2. [Default arguments](#default-arguments)
+			1. [Solution 1: Pass an argument](#solution-1-pass-an-argument)
+			2. [Solution 2: Default values for arguments!](#solution-2-default-values-for-arguments)
+			3. [Defaults for multiple arguments](#defaults-for-multiple-arguments)
+	3. [Function Overloading](#function-overloading)
+	4. [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
+	5. [To Do](#to-do)
+	6. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -130,7 +133,7 @@ void setDisplay(int height, int width, int depth = 32, bool fullScreen = true);
 
 Once you start supplying defaults, you can't stop:
 
-```
+```C++
 void setDisplay(int width, int height, int depth = 32, bool fullScreen);
 
 // compile error, the final argument is missing a default.
