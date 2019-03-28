@@ -219,4 +219,4 @@ Let's jump to [week5_code.html](week5_code.html) for the other two examples.
 
 ## Resources
 
-..
+1. Termcolor: [termcolor.h](assets/week5/termcolor.h)
