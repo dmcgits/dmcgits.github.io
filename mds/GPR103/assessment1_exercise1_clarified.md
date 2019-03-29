@@ -2,16 +2,29 @@
 
 I've chatted to a few people and **exercise 1 still has ambiguity problems**. Looking at it myself I can see two ways, and both need clarifying. 
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Clarification of exercise 1](#clarification-of-exercise-1)
+	* [Two valid interpretations](#two-valid-interpretations)
+	* [1: In class interpretation:](#1-in-class-interpretation)
+	* [2: How I think it was probably intended](#2-how-i-think-it-was-probably-intended)
+
+<!-- /code_chunk_output -->
+
+## Two valid interpretations
+
 My goal is to **solve any final problems you guys are having by being more specific about both interpretations**:  
 
 >1. The way we spoke about it in class 
 >2. How I now think it was probably intended and maybe some of you did too. 
 
-My goal is not to make you change it from interpretation 1 to 2 or vice versa. I think both are valid.
+My goal is not to make you change it from interpretation 1 to 2 or vice versa. Both are ok at this stage.
 
-On the other I hand I do think **you should be very close to one of these two or you're off track**. If that sounds like you please message me asap so we can discuss it.
+On the other I hand I do think **you should be very close to one of these two or you're off track**. If so please message me asap so we can discuss it.
 
-## 1: In class/collaborate interpretation:
+## 1: In class interpretation:
 
 > A class of type `Player`:
 
@@ -36,7 +49,7 @@ It does the following:
 3) Does damage to the player
 4) Prints out the player's health again to the console
 
-## How I now think it was probably intended
+## 2: How I think it was probably intended
 
 > A class of type `Player`:
 
