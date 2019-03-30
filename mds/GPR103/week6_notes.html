@@ -37,7 +37,15 @@
 </li>
 <li><a href="#events">Events</a>
 <ul>
-<li><a href="#generics-aka-what-is-that">Generics aka what is &lt;that&gt;?</a></li>
+<li><a href="#throwing-an-event">Throwing an event</a></li>
+<li><a href="#listening-for-an-event">Listening for an event</a></li>
+<li><a href="#reacting-to-an-event">Reacting to an event</a></li>
+</ul>
+</li>
+<li><a href="#how-did-that-actually-happen">How did that actually happen?</a>
+<ul>
+<li><a href="#function-delegates">Function delegates</a></li>
+<li><a href="#generics-aka-what-is-that">Generics aka what is <code>&lt;that&gt;</code>?</a></li>
 </ul>
 </li>
 <li><a href="#to-do--exercises">To do / exercises</a></li>
@@ -82,8 +90,24 @@
 <li>Clever people instead broadcast indiscriminately on  <em>Twitter</em></li>
 </ul>
 <p><img src="assets\week6\scenario_1.png" alt="scenario 1"></p>
+<h3 class="mume-header" id="throwing-an-event">Throwing an event</h3>
+
+<h3 class="mume-header" id="listening-for-an-event">Listening for an event</h3>
+
+<h3 class="mume-header" id="reacting-to-an-event">Reacting to an event</h3>
+
 <hr>
-<h3 class="mume-header" id="generics-aka-what-is-that">Generics aka what is &lt;that&gt;?</h3>
+<h2 class="mume-header" id="how-did-that-actually-happen">How did that actually happen?</h2>
+
+<p><code>event</code> is a built in keyword and part of how it happened is just, that&#x2019;s a thing c# can do. But it depends on some new we just wrote, and we need to understand those.</p>
+<hr>
+<h3 class="mume-header" id="function-delegates">Function delegates</h3>
+
+<p>Have you ever made a windows folder shortcut? No matter where the shortcut is on your drive, it&#x2019;ll open the folder it was created from.</p>
+<p><img src="assets/week6/folder_shortcut.png" alt="windows shortcut"></p>
+<p>So it is with function delegates. When you call them, they call another function with the same signature, and it does the work. They delegate the work to others.</p>
+<hr>
+<h3 class="mume-header" id="generics-aka-what-is-that">Generics aka what is <code>&lt;that&gt;</code>?</h3>
 
 <p>Rather than start with a theoretical description, be relieved that you&#x2019;ve already used generics and it wasn&#x2019;t that hard.</p>
 <blockquote>
@@ -104,12 +128,22 @@
 <ol>
 <li>Write down assessment 2 in your own words</li>
 <li>Make cards for A2 on your hacknPlan board.</li>
+<li>Learning Activity 3.3: Create a simple GUI window event system</li>
 </ol>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <p>Helpful things</p>
 <ul>
-<li></li>
+<li>Unity official <em>events</em> tutorial video
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/events">https://unity3d.com/learn/tutorials/topics/scripting/events</a></li>
+</ul>
+</li>
+<li>Unity official <em>delegates</em> tutorial video.
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/delegates?playlist=17117">https://unity3d.com/learn/tutorials/topics/scripting/delegates?playlist=17117</a></li>
+</ul>
+</li>
 </ul>
 
       </div>

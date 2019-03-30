@@ -12,7 +12,12 @@ Sharing, decoupling and triggering in Unity. No, this is not relationship advice
 		* [Decoupling, why](#decoupling-why)
 		* [A simpler example](#a-simpler-example)
 	* [Events](#events)
-		* [Generics aka what is \<that\>?](#generics-aka-what-is-that)
+		* [Throwing an event](#throwing-an-event)
+		* [Listening for an event](#listening-for-an-event)
+		* [Reacting to an event](#reacting-to-an-event)
+	* [How did that actually happen?](#how-did-that-actually-happen)
+		* [Function delegates](#function-delegates)
+		* [Generics aka what is `<that>`?](#generics-aka-what-is-that)
 	* [To do / exercises](#to-do-exercises)
 	* [Resources](#resources)
 
@@ -58,9 +63,32 @@ Here I've just made a project to move a few things up and down, when they are un
 
 ![scenario 1](/assets/week6/scenario_1.png)
 
+### Throwing an event
+
+### Listening for an event
+
+### Reacting to an event
+
 ___
 
-### Generics aka what is \<that\>?
+## How did that actually happen?
+
+`event` is a built in keyword and part of how it happened is just, that's a thing c# can do. But it depends on some new we just wrote, and we need to understand those.
+___
+
+### Function delegates
+
+Have you ever made a windows folder shortcut? No matter where the shortcut is on your drive, it'll open the folder it was created from.
+
+![windows shortcut](assets/week6/folder_shortcut.png)
+
+So it is with function delegates. When you call them, they call another function with the same signature, and it does the work. They delegate the work to others.
+
+
+
+___
+
+### Generics aka what is `<that>`?
 
 Rather than start with a theoretical description, be relieved that you've already used generics and it wasn't that hard.
 
@@ -80,9 +108,14 @@ Do these things if you want to get good.
 
 1. Write down assessment 2 in your own words
 2. Make cards for A2 on your hacknPlan board.
+3. Learning Activity 3.3: Create a simple GUI window event system
+
 
 ## Resources
 
 Helpful things
 
-*
+* Unity official _events_ tutorial video
+  * <https://unity3d.com/learn/tutorials/topics/scripting/events>
+* Unity official _delegates_ tutorial video.
+  * https://unity3d.com/learn/tutorials/topics/scripting/delegates?playlist=17117
