@@ -7,14 +7,14 @@ Sharing, decoupling and triggering in Unity. No, this is not relationship advice
 
 <!-- code_chunk_output -->
 
-- [GPR106 Week 6 notes](#gpr106-week-6-notes)
-	- [Decoupling: what](#decoupling-what)
-		- [Decoupling, why](#decoupling-why)
-		- [A simpler example](#a-simpler-example)
-	- [Events](#events)
-		- [Generics aka what is \<that\>?](#generics-aka-what-is-that)
-	- [To do / exercises](#to-do--exercises)
-	- [Resources](#resources)
+* [GPR106 Week 6 notes](#gpr106-week-6-notes)
+	* [Decoupling: what](#decoupling-what)
+		* [Decoupling, why](#decoupling-why)
+		* [A simpler example](#a-simpler-example)
+	* [Events](#events)
+		* [Generics aka what is \<that\>?](#generics-aka-what-is-that)
+	* [To do / exercises](#to-do-exercises)
+	* [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -56,7 +56,7 @@ Here I've just made a project to move a few things up and down, when they are un
 * Getting people to your house is hard and complicated
 * Clever people instead broadcast indiscriminately on  _Twitter_
 
-![scenario_1](/assets/week6/scenario_1.png)
+![scenario 1](/assets/week6/scenario_1.png)
 
 ___
 
@@ -70,7 +70,7 @@ Rather than start with a theoretical description, be relieved that you've alread
 The **generic** bit means:
 * Someone was able to write the `List` class not knowing what type of object you'd store in it. They did that by **putting** `<T>` **for type** wherever you would put your object type.
 
-![list_generic](/assets/week6/list_generic.png)
+![list ](/assets/week6/list_generic.png)
 
 Notice when I hover over "List" in VS I see `List<T>` and `T is string`
 
