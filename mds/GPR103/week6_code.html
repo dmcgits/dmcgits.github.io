@@ -93,8 +93,50 @@
 
 </pre><h2 class="mume-header" id="office-delegation">Office Delegation</h2>
 
-<p>Class</p>
+<h3 class="mume-header" id="officedelegationcs">OfficeDelegation.cs</h3>
 
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OfficeDelegation</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">delegate</span> <span class="token keyword">void</span> <span class="token function">BossWork</span><span class="token punctuation">(</span><span class="token keyword">string</span> task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">BossWork</span> bossSandrasWork<span class="token punctuation">;</span>
+
+	<span class="token comment">// Use this for initialization</span>
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Sandra is a very busy boss. Meanwhile, she says, her \&quot;staff spend all day chatting and using Facebook.\&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;What are they chatting about?&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;   &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bossSandrasWork <span class="token operator">=</span> GeraldsTimeEnergy<span class="token punctuation">;</span>
+        <span class="token function">bossSandrasWork</span><span class="token punctuation">(</span><span class="token string">&quot;writing her proposals.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        bossSandrasWork <span class="token operator">=</span> SharmeensConstanstEfforts<span class="token punctuation">;</span>
+        <span class="token function">bossSandrasWork</span><span class="token punctuation">(</span><span class="token string">&quot;sheduling work for her 60 staff.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        bossSandrasWork <span class="token operator">=</span> MaureensEvenings<span class="token punctuation">;</span>
+        <span class="token function">bossSandrasWork</span><span class="token punctuation">(</span><span class="token string">&quot;ghost writing her emails.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+	
+    <span class="token keyword">void</span> <span class="token function">GeraldsTimeEnergy</span><span class="token punctuation">(</span><span class="token keyword">string</span> task<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;\&quot;Sandra drives me mental. All my time and energy is spent &quot;</span> <span class="token operator">+</span> task <span class="token operator">+</span> <span class="token string">&quot;\&quot; grumbles Gerald to noone.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">SharmeensConstanstEfforts</span><span class="token punctuation">(</span><span class="token keyword">string</span> task<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;\&quot;Sandra is the worst,\&quot; groans Sharmeen to her older colleague Maureen, \&quot;I&apos;m constantly &quot;</span> <span class="token operator">+</span> task <span class="token operator">+</span> <span class="token string">&quot;\&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">MaureensEvenings</span><span class="token punctuation">(</span><span class="token keyword">string</span> task<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;\&quot;Yeah.. One day you&apos;ll be 45, still &quot;</span> <span class="token operator">+</span> task <span class="token operator">+</span> <span class="token string">&quot;\&quot; Maureen replies distantly.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre>
       </div>
       
       
