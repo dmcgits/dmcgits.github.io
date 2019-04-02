@@ -18,13 +18,19 @@ Sharing, decoupling and triggering in Unity. No, this is not relationship advice
 	* [How did that actually happen?](#how-did-that-actually-happen)
 		* [Function delegates](#function-delegates)
 		* [Generics aka what is `<that>`?](#generics-aka-what-is-that)
-	* [Assessment 3: how?](#assessment-3-how)
+	* [Assessment 3: Character cusomiser](#assessment-3-character-cusomiser)
+		* [How do we structure it?](#how-do-we-structure-it)
+		* [The self propelled vehicle is the real system](#the-self-propelled-vehicle-is-the-real-system)
+	* [System, Controls, Readouts applied](#system-controls-readouts-applied)
+		* [System: The model/simulation](#system-the-modelsimulation)
+		* [Controls](#controls)
+		* [The Readouts](#the-readouts)
+		* [Configuring](#configuring)
+	* [How to make it](#how-to-make-it)
 		* [Step 1: Scamp up the interface](#step-1-scamp-up-the-interface)
 		* [Step 2: Plan up your broad structure/strategy](#step-2-plan-up-your-broad-structurestrategy)
-		* [State: The model/simulation](#state-the-modelsimulation)
-		* [The controls](#the-controls)
-		* [The views](#the-views)
-		* [Configuring](#configuring)
+		* [Step 3: Classes/components](#step-3-classescomponents)
+		* [Step 4: Build something and iterate](#step-4-build-something-and-iterate)
 	* [To do / exercises](#to-do-exercises)
 	* [Resources](#resources)
 
@@ -69,7 +75,7 @@ Here I've just made a project to move a few things up and down, when they are un
 * Getting people to your house is hard and complicated
 * Clever people instead broadcast indiscriminately on  _Twitter_
 
-![scenario 1](/assets/week6/scenario_1.png)
+![scenario 1](/assets/week6/keys_moving_2.png)
 _Let's watch this in action_
 
 Up the top are just some rectangles with numbers. I was thinking of them as keyboard keys (visually) at the time. Move Up and Move Down are buttons to control them.
@@ -82,6 +88,8 @@ How it's put together:
 Imagine having to code all this from the button perspective, each button needing four references to the keys. Then imagine if there were 16 or 128 keys. 
 
 ### Throwing an event
+
+Buttons have my TriggerMoveEventOnClick Component. I should have called it MoveRequesterClickable maybe.
 
 ```cs
 // I make a component to put on my buttons. Nothing special, 
@@ -107,6 +115,8 @@ public class TriggerMoveEventOnClick : MonoBehaviour {
 
 ### Listening for an event
 
+Keys, the guys up top, have a KeyMover:
+
 ```cs
 // On each key is a component: the KeyMover class.
 // In start is this line, which means:
@@ -118,6 +128,8 @@ TriggerMoveEventOnClick.OnMoveRequested += MoveRequestedHandler;
 ```
 
 ### Reacting to an event
+
+Again, KeyMover
 
 ```cs
 // Here's the function, further down in keyMover. Notice it
@@ -192,27 +204,77 @@ The **generic** bit means:
 
 Notice when I hover over "List" in VS I see `List<T>` and `T is string`
 
-## Assessment 3: how?
+## Assessment 3: Character cusomiser
 
-Before we could talk about a solid way of approaching the assignment we had to have the concept of events. 
+>First, here's the brief:
+>[Assessment 1 brief on blackboard](https://laureate-au.blackboard.com/bbcswebdav/pid-7197507-dt-content-rid-11808949_1/xid-11808949_1)
+ 
+![example customiser](assets/week6/character_customiser.png)
+_an example of a customiser
 
-Our assessment interface isn't a tree, it has :
-* potentially lots of buttons, 
-* loads of customisation sprites and strings, 
-* questions about where to record the state of things so
-* some central place to store all this. 
+### How do we structure it?
 
-This as a tree would be complex and noodly. You often end up with a big god class trying to control all this stuff with calls to lots of things in lists.
+This is why we just learned events. When you make classic examples of inheritance, like a library system they have a natural heirarchy. 
 
-We don't want noodles snaking everywhere. 
-* We want our *interface* over here split into 
-  * controls
-  * sprites of the outcomes 
-* our *simulation/model* over there,
-* and our *configuration stuff* not in the code at all (next week)
-* Finally, we want them all to check post on/check twitter and magically coordinate via events.
+The relationships between character parts and the controls are are more like the readouts and controls in a car:
+> readouts are all doing a similar job but aren't really related
+> readouts have a closer relationship to distant parts of the car than eachother and very different sensors
+> the controls don't control the readouts.. the control fuel entering a cylinder, or wheels turning, or lights toggling.
 
-It's more mentally complex at first, understanding the magic, but the it's less taxing than the situation you'd get later.
+If we tried to make this into a heirarchy it just wouldn't make much sense. You often end up with a big god class trying to control all this stuff with loads of references to things that behave differently. It gets unwieldy and, worst, hard to change or debug.
+
+### The self propelled vehicle is the real system
+
+The engine, the wheels, the chemicals, these are the system. 
+
+> 1. We feed it inputs through the controls
+> 2. The system changes
+> 3. The sensors perceive these changes and tell us.
+> **1 and 3 are the interface. We are the user. What's left is the system.**
+
+
+## System, Controls, Readouts applied
+
+Our customiser maps well to this setup
+
+### System: The model/simulation
+
+Picturing our program this way, we need a system. We're not making a physical thing, we're making a simulation or model of it. 
+
+> When scientists make a copy of a system to test, like a bacteria or a molecule or global weather system they make a "model" of the system and run a simulation.
+ 
+* _word_ is simulating a **document being edited**.
+* _warcraft 3_ is simulating a **great conflict in a (square area) of a distant land**
+* _windows_ is simulating a **desktop** where you're doing jobs, and beneath that it's simulating **one computer with many processors (whether you have them or not)** from a bunch of separately sourced constructions of silicon, exotic metals, plastic etc.
+
+A simulation is always in some "state": the result of inputs to the model, and its resulting condition.
+
+### Controls
+
+> The **controls (steering wheel, pedal) are our buttons, text fields etc** that want to change the system. They request changes to the name, gender eyes, hair or shirt. 
+
+Instead of levers, wires and shafts we use can just throw out events. The model listens for them.
+
+```cs
+// for example
+class GenderButton
+...
+public static event Action<String> onGenderChanged = delegate {};
+```
+
+### The Readouts
+
+>The car readouts (engine light, speedometer, beeping seatbelt warning) are, for us, sprites of our character changes. Pictures of eyes, hair or shirt. Text labels showing name, skill points etc.
+
+Instead of sensors connected by wires, we can listen for for changes in the model. The model announces them as events. 
+
+### Configuring
+
+Next week!
+
+## How to make it
+
+So, applying these ideas in real life to our assignment? 
 
 ### Step 1: Scamp up the interface
 
@@ -221,36 +283,26 @@ You can't plan your code till you plan your program
 ### Step 2: Plan up your broad structure/strategy
 
 * How will the big pieces be arranged? 
-* How will the communicate 
-* Where will state be kept
+* Which will need events and which will be directly referenced?
+* What will our model look like
 * How will you configure things in the long run?
-  
-### State: The model/simulation
 
-We'll start with that. Programs are generally an interface (views) that let us look into a simulation. 
-* _word_ is simulating a **document being edited**.
-* _warcraft 3_ is simulating a **great conflict** in a square area of a distant land
-* _windows_ is simulating a **desktop** where you're doing jobs, and beneath that it's simulating **one computer with many processors (whether you have them or not)** from a bunch of separately sourced constructions of silicon, exotic metals, plastic etc.
+### Step 3: Classes/components
 
-A simulation is always in some "state", the result of what has happened and the cause of what happens next.
+What classes/components will we need to make it all happen?
 
-**When programs are bigger it helps a lot to think about them this way first**, rather than a bunch of "how can I make a computer do x". We get back to that after we have things tidy.
+### Step 4: Build something and iterate
 
-### The controls
-
-These are buttons that send out events asking for the eyes, hair or shirt to change. The simulation listens for button events, and changes state accordingly.
-
-### The views
-
-Thse are sprites that show the current eyes, hair or shirt. They listen for simulation change events and update their visuals.
-
-### Configuring
-
-Next week!
+1. Make a very simple beginning. 
+2. Begin to map out the structure in stubs with dummy return info
+3. Build and test.
+4. Refine/expand a bit
+5. Build and test.
+6. Loop 4,5 till finished.
 
 ## To do / exercises
 
-This 3 week assignment is serious go time. If you don't work hard this week you'll be in pretty bad shape.
+This 3 week assignment is serious go time. If you don't work hard this week you'll be in pretty bad shape. At a minimum do the first four.
 
 1. Type in my Event code and run it, understand it.
 2. Type in my delegates code, run and understand it.

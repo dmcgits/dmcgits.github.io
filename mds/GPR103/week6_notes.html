@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,44 +25,56 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="gpr106-week-6-notes">GPR106 Week 6 notes</h1>
 
-<p>Sharing, decoupling and triggering in Unity. No, this is not relationship advice. We&apos;re talking <strong>events</strong>, <strong>delegates</strong> and <strong>messages</strong>.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<p>Sharing, decoupling and triggering in Unity. No, this is not relationship advice. We&#x2019;re talking <strong>events</strong>, <strong>delegates</strong> and <strong>messages</strong>.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#gpr106-week-6-notes">GPR106 Week 6 notes</a>
-<ol>
+<ul>
 <li><a href="#decoupling-what">Decoupling: what</a>
-<ol>
+<ul>
 <li><a href="#decoupling-why">Decoupling, why</a></li>
 <li><a href="#a-simpler-example">A simpler example</a></li>
-</ol>
+</ul>
 </li>
 <li><a href="#events">Events</a>
-<ol>
+<ul>
 <li><a href="#throwing-an-event">Throwing an event</a></li>
 <li><a href="#listening-for-an-event">Listening for an event</a></li>
 <li><a href="#reacting-to-an-event">Reacting to an event</a></li>
-</ol>
+</ul>
 </li>
 <li><a href="#how-did-that-actually-happen">How did that actually happen?</a>
-<ol>
+<ul>
 <li><a href="#function-delegates">Function delegates</a></li>
 <li><a href="#generics-aka-what-is-that">Generics aka what is <code>&lt;that&gt;</code>?</a></li>
-</ol>
+</ul>
 </li>
-<li><a href="#assessment-3-how">Assessment 3: how?</a>
-<ol>
+<li><a href="#assessment-3-character-cusomiser">Assessment 3: Character cusomiser</a>
+<ul>
+<li><a href="#how-do-we-structure-it">How do we structure it?</a></li>
+<li><a href="#the-self-propelled-vehicle-is-the-real-system">The self propelled vehicle is the real system</a></li>
+</ul>
+</li>
+<li><a href="#system-controls-readouts-applied">System, Controls, Readouts applied</a>
+<ul>
+<li><a href="#system-the-modelsimulation">System: The model/simulation</a></li>
+<li><a href="#controls">Controls</a></li>
+<li><a href="#the-readouts">The Readouts</a></li>
+<li><a href="#configuring">Configuring</a></li>
+</ul>
+</li>
+<li><a href="#how-to-make-it">How to make it</a>
+<ul>
 <li><a href="#step-1-scamp-up-the-interface">Step 1: Scamp up the interface</a></li>
 <li><a href="#step-2-plan-up-your-broad-structurestrategy">Step 2: Plan up your broad structure/strategy</a></li>
-<li><a href="#state-the-modelsimulation">State: The model/simulation</a></li>
-<li><a href="#the-controls">The controls</a></li>
-<li><a href="#the-views">The views</a></li>
-<li><a href="#configuring">Configuring</a></li>
-</ol>
+<li><a href="#step-3-classescomponents">Step 3: Classes/components</a></li>
+<li><a href="#step-4-build-something-and-iterate">Step 4: Build something and iterate</a></li>
+</ul>
 </li>
-<li><a href="#to-do--exercises">To do / exercises</a></li>
+<li><a href="#to-do-exercises">To do / exercises</a></li>
 <li><a href="#resources">Resources</a></li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 <hr>
 <h2 class="mume-header" id="decoupling-what">Decoupling: what</h2>
 
@@ -74,14 +86,14 @@
 <hr>
 <h3 class="mume-header" id="decoupling-why">Decoupling, why</h3>
 
-<p>What scenario moves us from talking about <em>functions</em> and <em>inheritance</em> to discussing <strong>decoupling</strong>? Just when we gained control of our objects and their public interface.. why avoid it?</p>
+<p>What scenario moves us from talking about <em>functions</em> and <em>inheritance</em> to discussing <strong>decoupling</strong>? Just when we gained control of our objects and their public interface&#x2026; why avoid it?</p>
 <p><img src="assets\week6\swarm.png" alt="swarm"><br>
 <em>In the long term, this.</em></p>
-<p>In the short term, even our next assignment will quickly become a quagmire if we don&apos;t decouple.</p>
+<p>In the short term, even our next assignment will quickly become a quagmire if we don&#x2019;t decouple.</p>
 <h3 class="mume-header" id="a-simpler-example">A simpler example</h3>
 
 <p><img src="assets\week6\scenario_1.png" alt="scenario_1"></p>
-<p>Here I&apos;ve just made a project to move a few things up and down, when they are unlocked.</p>
+<p>Here I&#x2019;ve just made a project to move a few things up and down, when they are unlocked.</p>
 <ul>
 <li>Even on this teeny thing, look at the heirarchy on the left there.</li>
 <li>How much do you like repeating the same action on 20 things.</li>
@@ -100,10 +112,10 @@
 <li>Getting people to your house is hard and complicated</li>
 <li>Clever people instead broadcast indiscriminately on  <em>Twitter</em></li>
 </ul>
-<p><img src="assets\week6\scenario_1.png" alt="scenario 1"><br>
-<em>Let&apos;s watch this in action</em></p>
+<p><img src="assets\week6\keys_moving_2.png" alt="scenario 1"><br>
+<em>Let&#x2019;s watch this in action</em></p>
 <p>Up the top are just some rectangles with numbers. I was thinking of them as keyboard keys (visually) at the time. Move Up and Move Down are buttons to control them.</p>
-<p>How it&apos;s put together:</p>
+<p>How it&#x2019;s put together:</p>
 <ol>
 <li>The <strong>move buttons</strong> are saying to the twitterverse <strong>&quot;I Request a move&quot;</strong></li>
 <li>The <strong>keys are listening</strong> out for those events</li>
@@ -112,6 +124,7 @@
 <p>Imagine having to code all this from the button perspective, each button needing four references to the keys. Then imagine if there were 16 or 128 keys.</p>
 <h3 class="mume-header" id="throwing-an-event">Throwing an event</h3>
 
+<p>Buttons have my TriggerMoveEventOnClick Component. I should have called it MoveRequesterClickable maybe.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// I make a component to put on my buttons. Nothing special, </span>
 <span class="token comment">// just a class that coule be called anything. </span>
 <span class="token comment">// I want it to trigger a move event on click, so I called it:</span>
@@ -130,6 +143,7 @@
 	<span class="token punctuation">}</span>
 </pre><h3 class="mume-header" id="listening-for-an-event">Listening for an event</h3>
 
+<p>Keys, the guys up top, have a KeyMover:</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// On each key is a component: the KeyMover class.</span>
 <span class="token comment">// In start is this line, which means:</span>
 <span class="token comment">// When a move is requested, I want my function</span>
@@ -139,6 +153,7 @@ TriggerMoveEventOnClick<span class="token punctuation">.</span>OnMoveRequested <
 
 </pre><h3 class="mume-header" id="reacting-to-an-event">Reacting to an event</h3>
 
+<p>Again, KeyMover</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Here&apos;s the function, further down in keyMover. Notice it</span>
 <span class="token comment">// has signature that matches the event&apos;s: </span>
 <span class="token comment">// Action&lt;string&gt; where Action means function and string is the // //// argument type</span>
@@ -149,11 +164,11 @@ TriggerMoveEventOnClick<span class="token punctuation">.</span>OnMoveRequested <
 </pre><hr>
 <h2 class="mume-header" id="how-did-that-actually-happen">How did that actually happen?</h2>
 
-<p><code>event</code> is a built in keyword and part of how it happened is just, that&apos;s a thing c# can do. But it depends on some new we just wrote, and we need to understand those.</p>
+<p><code>event</code> is a built in keyword and part of how it happened is just, that&#x2019;s a thing c# can do. But it depends on some new we just wrote, and we need to understand those.</p>
 <hr>
 <h3 class="mume-header" id="function-delegates">Function delegates</h3>
 
-<p>Have you ever made a windows folder shortcut? No matter where the shortcut is on your drive, it&apos;ll open the folder it was created from.</p>
+<p>Have you ever made a windows folder shortcut? No matter where the shortcut is on your drive, it&#x2019;ll open the folder it was created from.</p>
 <p><img src="assets/week6/folder_shortcut.png" alt="windows shortcut"></p>
 <p>Same same with function delegates. When you call them, they call another function with the same signature, and it does the work. They delegate the work to others.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// This code makes a delegate Type BossWork. This is a bit like making shortcut folders available</span>
@@ -173,7 +188,7 @@ bossSandrasWork <span class="token operator">=</span> GeraldsTimeEnergy<span cla
 <span class="token function">bossSandrasWork</span><span class="token punctuation">(</span><span class="token string">&quot;writing her proposals.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><p>Why do we see this output of bossSandrasWork?</p>
 <blockquote>
-<p>&quot;Sandra drives me mental. All my time and energy is spent writing her proposals&quot; grumbles Gerald to noone.</p>
+<p>&#x201C;Sandra drives me mental. All my time and energy is spent writing her proposals&#x201D; grumbles Gerald to noone.</p>
 </blockquote>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Notice the delegate has to have the same function signature as</span>
 <span class="token comment">// the function that delegated the work. If not you&apos;d have random </span>
@@ -187,76 +202,112 @@ bossSandrasWork <span class="token operator">=</span> GeraldsTimeEnergy<span cla
 </pre><hr>
 <h3 class="mume-header" id="generics-aka-what-is-that">Generics aka what is <code>&lt;that&gt;</code>?</h3>
 
-<p>Rather than start with a theoretical description, be relieved that you&apos;ve already used generics and it wasn&apos;t that hard.</p>
+<p>Rather than start with a theoretical description, be relieved that you&#x2019;ve already used generics and it wasn&#x2019;t that hard.</p>
 <blockquote>
 <ul>
-<li>Here in <em>c#</em> you&apos;ve used <code>List&lt;Tower&gt;</code>, maybe <code>Dictionary&lt;Weapon&gt;</code>.</li>
+<li>Here in <em>c#</em> you&#x2019;ve used <code>List&lt;Tower&gt;</code>, maybe <code>Dictionary&lt;Weapon&gt;</code>.</li>
 <li>In <em>c++</em> some of you used <code>vector&lt;string&gt;</code></li>
 </ul>
 </blockquote>
 <p>The <strong>generic</strong> bit means:</p>
 <ul>
-<li>Someone was able to write the <code>List</code> class not knowing what type of object you&apos;d store in it. They did that by <strong>putting</strong> <code>&lt;T&gt;</code> <strong>for type</strong> wherever you would put your object type.</li>
+<li>Someone was able to write the <code>List</code> class not knowing what type of object you&#x2019;d store in it. They did that by <strong>putting</strong> <code>&lt;T&gt;</code> <strong>for type</strong> wherever you would put your object type.</li>
 </ul>
 <p><img src="assets\week6\list_generic.png" alt="list "></p>
-<p>Notice when I hover over &quot;List&quot; in VS I see <code>List&lt;T&gt;</code> and <code>T is string</code></p>
-<h2 class="mume-header" id="assessment-3-how">Assessment 3: how?</h2>
+<p>Notice when I hover over &#x201C;List&#x201D; in VS I see <code>List&lt;T&gt;</code> and <code>T is string</code></p>
+<h2 class="mume-header" id="assessment-3-character-cusomiser">Assessment 3: Character cusomiser</h2>
 
-<p>Before we could talk about a solid way of approaching the assignment we had to have the concept of events.</p>
-<p>Our assessment interface isn&apos;t a tree, it has :</p>
+<blockquote>
+<p>First, here&#x2019;s the brief:<br>
+<a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197507-dt-content-rid-11808949_1/xid-11808949_1">Assessment 1 brief on blackboard</a></p>
+</blockquote>
+<p><img src="assets/week6/character_customiser.png" alt="example customiser"><br>
+_an example of a customiser</p>
+<h3 class="mume-header" id="how-do-we-structure-it">How do we structure it?</h3>
+
+<p>This is why we just learned events. When you make classic examples of inheritance, like a library system they have a natural heirarchy.</p>
+<p>The relationships between character parts and the controls are are more like the readouts and controls in a car:</p>
+<blockquote>
+<p>readouts are all doing a similar job but aren&#x2019;t really related<br>
+readouts have a closer relationship to distant parts of the car than eachother and very different sensors<br>
+the controls don&#x2019;t control the readouts&#x2026; the control fuel entering a cylinder, or wheels turning, or lights toggling.</p>
+</blockquote>
+<p>If we tried to make this into a heirarchy it just wouldn&#x2019;t make much sense. You often end up with a big god class trying to control all this stuff with loads of references to things that behave differently. It gets unwieldy and, worst, hard to change or debug.</p>
+<h3 class="mume-header" id="the-self-propelled-vehicle-is-the-real-system">The self propelled vehicle is the real system</h3>
+
+<p>The engine, the wheels, the chemicals, these are the system.</p>
+<blockquote>
+<ol>
+<li>We feed it inputs through the controls</li>
+<li>The system changes</li>
+<li>The sensors perceive these changes and tell us.<br>
+<strong>1 and 3 are the interface. We are the user. What&#x2019;s left is the system.</strong></li>
+</ol>
+</blockquote>
+<h2 class="mume-header" id="system-controls-readouts-applied">System, Controls, Readouts applied</h2>
+
+<p>Our customiser maps well to this setup</p>
+<h3 class="mume-header" id="system-the-modelsimulation">System: The model/simulation</h3>
+
+<p>Picturing our program this way, we need a system. We&#x2019;re not making a physical thing, we&#x2019;re making a simulation or model of it.</p>
+<blockquote>
+<p>When scientists make a copy of a system to test, like a bacteria or a molecule or global weather system they make a &#x201C;model&#x201D; of the system and run a simulation.</p>
+</blockquote>
 <ul>
-<li>potentially lots of buttons,</li>
-<li>loads of customisation sprites and strings,</li>
-<li>questions about where to record the state of things so</li>
-<li>some central place to store all this.</li>
+<li><em>word</em> is simulating a <strong>document being edited</strong>.</li>
+<li><em>warcraft 3</em> is simulating a <strong>great conflict in a (square area) of a distant land</strong></li>
+<li><em>windows</em> is simulating a <strong>desktop</strong> where you&#x2019;re doing jobs, and beneath that it&#x2019;s simulating <strong>one computer with many processors (whether you have them or not)</strong> from a bunch of separately sourced constructions of silicon, exotic metals, plastic etc.</li>
 </ul>
-<p>This as a tree would be complex and noodly. You often end up with a big god class trying to control all this stuff with calls to lots of things in lists.</p>
-<p>We don&apos;t want noodles snaking everywhere.</p>
-<ul>
-<li>We want our <em>interface</em> over here split into
-<ul>
-<li>controls</li>
-<li>sprites of the outcomes</li>
-</ul>
-</li>
-<li>our <em>simulation/model</em> over there,</li>
-<li>and our <em>configuration stuff</em> not in the code at all (next week)</li>
-<li>Finally, we want them all to check post on/check twitter and magically coordinate via events.</li>
-</ul>
-<p>It&apos;s more mentally complex at first, understanding the magic, but the it&apos;s less taxing than the situation you&apos;d get later.</p>
+<p>A simulation is always in some &#x201C;state&#x201D;: the result of inputs to the model, and its resulting condition.</p>
+<h3 class="mume-header" id="controls">Controls</h3>
+
+<blockquote>
+<p>The <strong>controls (steering wheel, pedal) are our buttons, text fields etc</strong> that want to change the system. They request changes to the name, gender eyes, hair or shirt.</p>
+</blockquote>
+<p>Instead of levers, wires and shafts we use can just throw out events. The model listens for them.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// for example</span>
+<span class="token keyword">class</span> <span class="token class-name">GenderButton</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">event</span> Action<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> onGenderChanged <span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="the-readouts">The Readouts</h3>
+
+<blockquote>
+<p>The car readouts (engine light, speedometer, beeping seatbelt warning) are, for us, sprites of our character changes. Pictures of eyes, hair or shirt. Text labels showing name, skill points etc.</p>
+</blockquote>
+<p>Instead of sensors connected by wires, we can listen for for changes in the model. The model announces them as events.</p>
+<h3 class="mume-header" id="configuring">Configuring</h3>
+
+<p>Next week!</p>
+<h2 class="mume-header" id="how-to-make-it">How to make it</h2>
+
+<p>So, applying these ideas in real life to our assignment?</p>
 <h3 class="mume-header" id="step-1-scamp-up-the-interface">Step 1: Scamp up the interface</h3>
 
-<p>You can&apos;t plan your code till you plan your program</p>
+<p>You can&#x2019;t plan your code till you plan your program</p>
 <h3 class="mume-header" id="step-2-plan-up-your-broad-structurestrategy">Step 2: Plan up your broad structure/strategy</h3>
 
 <ul>
 <li>How will the big pieces be arranged?</li>
-<li>How will the communicate</li>
-<li>Where will state be kept</li>
+<li>Which will need events and which will be directly referenced?</li>
+<li>What will our model look like</li>
 <li>How will you configure things in the long run?</li>
 </ul>
-<h3 class="mume-header" id="state-the-modelsimulation">State: The model/simulation</h3>
+<h3 class="mume-header" id="step-3-classescomponents">Step 3: Classes/components</h3>
 
-<p>We&apos;ll start with that. Programs are generally an interface (views) that let us look into a simulation.</p>
-<ul>
-<li><em>word</em> is simulating a <strong>document being edited</strong>.</li>
-<li><em>warcraft 3</em> is simulating a <strong>great conflict</strong> in a square area of a distant land</li>
-<li><em>windows</em> is simulating a <strong>desktop</strong> where you&apos;re doing jobs, and beneath that it&apos;s simulating <strong>one computer with many processors (whether you have them or not)</strong> from a bunch of separately sourced constructions of silicon, exotic metals, plastic etc.</li>
-</ul>
-<p>A simulation is always in some &quot;state&quot;, the result of what has happened and the cause of what happens next.</p>
-<p><strong>When programs are bigger it helps a lot to think about them this way first</strong>, rather than a bunch of &quot;how can I make a computer do x&quot;. We get back to that after we have things tidy.</p>
-<h3 class="mume-header" id="the-controls">The controls</h3>
+<p>What classes/components will we need to make it all happen?</p>
+<h3 class="mume-header" id="step-4-build-something-and-iterate">Step 4: Build something and iterate</h3>
 
-<p>These are buttons that send out events asking for the eyes, hair or shirt to change. The simulation listens for button events, and changes state accordingly.</p>
-<h3 class="mume-header" id="the-views">The views</h3>
-
-<p>Thse are sprites that show the current eyes, hair or shirt. They listen for simulation change events and update their visuals.</p>
-<h3 class="mume-header" id="configuring">Configuring</h3>
-
-<p>Next week!</p>
+<ol>
+<li>Make a very simple beginning.</li>
+<li>Begin to map out the structure in stubs with dummy return info</li>
+<li>Build and test.</li>
+<li>Refine/expand a bit</li>
+<li>Build and test.</li>
+<li>Loop 4,5 till finished.</li>
+</ol>
 <h2 class="mume-header" id="to-do-exercises">To do / exercises</h2>
 
-<p>This 3 week assignment is serious go time. If you don&apos;t work hard this week you&apos;ll be in pretty bad shape.</p>
+<p>This 3 week assignment is serious go time. If you don&#x2019;t work hard this week you&#x2019;ll be in pretty bad shape. At a minimum do the first four.</p>
 <ol>
 <li>Type in my Event code and run it, understand it.</li>
 <li>Type in my delegates code, run and understand it.</li>
