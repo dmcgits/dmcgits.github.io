@@ -3,7 +3,7 @@
 
 ## Events Etc
 
-### TriggerMouseEventOnClick.cs
+### TriggerMoveEventOnClick.cs
 
 ```cs
 using System;
