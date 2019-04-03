@@ -7,32 +7,32 @@ Sharing, decoupling and triggering in Unity. No, this is not relationship advice
 
 <!-- code_chunk_output -->
 
-* [GPR106 Week 6 notes](#gpr106-week-6-notes)
-	* [Decoupling: what](#decoupling-what)
-		* [Decoupling, why](#decoupling-why)
-		* [A simpler example](#a-simpler-example)
-	* [Events](#events)
-		* [Throwing an event](#throwing-an-event)
-		* [Listening for an event](#listening-for-an-event)
-		* [Reacting to an event](#reacting-to-an-event)
-	* [How did that actually happen?](#how-did-that-actually-happen)
-		* [Function delegates](#function-delegates)
-		* [Generics aka what is `<that>`?](#generics-aka-what-is-that)
-	* [Assessment 3: Character cusomiser](#assessment-3-character-cusomiser)
-		* [How do we structure it?](#how-do-we-structure-it)
-		* [The self propelled vehicle is the real system](#the-self-propelled-vehicle-is-the-real-system)
-	* [System, Controls, Readouts applied](#system-controls-readouts-applied)
-		* [System: The model/simulation](#system-the-modelsimulation)
-		* [Controls](#controls)
-		* [The Readouts](#the-readouts)
-		* [Configuring](#configuring)
-	* [How to make it](#how-to-make-it)
-		* [Step 1: Scamp up the interface](#step-1-scamp-up-the-interface)
-		* [Step 2: Plan up your broad structure/strategy](#step-2-plan-up-your-broad-structurestrategy)
-		* [Step 3: Classes/components](#step-3-classescomponents)
-		* [Step 4: Build something and iterate](#step-4-build-something-and-iterate)
-	* [To do / exercises](#to-do-exercises)
-	* [Resources](#resources)
+1. [GPR106 Week 6 notes](#gpr106-week-6-notes)
+	1. [Decoupling: what](#decoupling-what)
+		1. [Decoupling, why](#decoupling-why)
+		2. [A simpler example](#a-simpler-example)
+	2. [Events](#events)
+		1. [Throwing an event](#throwing-an-event)
+		2. [Listening for an event](#listening-for-an-event)
+		3. [Reacting to an event](#reacting-to-an-event)
+	3. [How did that actually happen?](#how-did-that-actually-happen)
+		1. [Function delegates](#function-delegates)
+		2. [Generics aka what is `<that>`?](#generics-aka-what-is-that)
+	4. [Assessment 3: Character cusomiser](#assessment-3-character-cusomiser)
+		1. [How do we structure it?](#how-do-we-structure-it)
+		2. [The self propelled vehicle is the real system](#the-self-propelled-vehicle-is-the-real-system)
+	5. [System, Controls, Readouts applied](#system-controls-readouts-applied)
+		1. [System: The model/simulation](#system-the-modelsimulation)
+		2. [Controls](#controls)
+		3. [The Readouts](#the-readouts)
+		4. [Configuring](#configuring)
+	6. [How to make it](#how-to-make-it)
+		1. [Step 1: Scamp up the interface](#step-1-scamp-up-the-interface)
+		2. [Step 2: Plan up your broad structure/strategy](#step-2-plan-up-your-broad-structurestrategy)
+		3. [Step 3: Classes/components](#step-3-classescomponents)
+		4. [Step 4: Build something and iterate](#step-4-build-something-and-iterate)
+	7. [To do / exercises](#to-do--exercises)
+	8. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -311,6 +311,10 @@ This 3 week assignment is serious go time. If you don't work hard this week you'
 5. Make cards for it on your hacknPlan board.
 
 ## Resources
+
+Sprites
+
+[Example google search](https://www.google.com/search?rlz=1C1GCEB_enAU837AU837&q=behance+sprite+character&tbm=isch&source=univ&sa=X&ved=2ahUKEwjw1c_e97LhAhWGWisKHW4aBNQQsAR6BAgJEAE&biw=1536&bih=775&dpr=1.25#imgrc=t4ieyaimi7ILVM:)
 
 Helpful things
 
