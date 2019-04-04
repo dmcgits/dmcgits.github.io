@@ -78,12 +78,18 @@
 <p>Pointers are the more technical, deeper version of references. In fact they&#x2019;re the mechanism behind references.</p>
 <p>They do the same thing as references except you get the actual memory address. You can then &#x201C;dereference&#x201D; that address to get the object, or you can do math on the actual address to access objects. Arrays work a bit like that.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> garysAge <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span><span class="token operator">*</span> age_p <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
 
 age_p <span class="token operator">=</span> <span class="token operator">&amp;</span>age<span class="token punctuation">;</span> <span class="token comment">// get address.</span>
 cout <span class="token operator">&lt;&lt;</span> age_p <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token comment">// prints a memory address</span>
 cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>age_p <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+<span class="token operator">*</span>age_p <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> 
+age_p <span class="token operator">=</span> <span class="token operator">&amp;</span>garysAge<span class="token punctuation">;</span>
+
 <span class="token comment">// prints 5;</span>
 <span class="token comment">// Output:</span>
 <span class="token comment">// 0x0af3d</span>

@@ -11,9 +11,9 @@ On the technical side, we're really we're getting a look behind the curtain at t
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 6: References & Pointers](#ise102-week-6-references--pointers)
-	- [Different and the same](#different-and-the-same)
-	- [References](#references)
+* [ISE102 Week 6: References & Pointers](#ise102-week-6-references-pointers)
+	* [Different and the same](#different-and-the-same)
+	* [References](#references)
 
 <!-- /code_chunk_output -->
 
@@ -68,12 +68,18 @@ They do the same thing as references except you get the actual memory address. Y
 
 ```cpp
 int age = 5;
+int garysAge = 10;
 int* age_p = NULL;
+
 
 age_p = &age; // get address.
 cout << age_p << endl;
 // prints a memory address
 cout << *age_p << endl;
+
+*age_p = 6; 
+age_p = &garysAge;
+
 // prints 5;
 // Output:
 // 0x0af3d
