@@ -80,6 +80,9 @@ cout << *age_p << endl;
 // 5
 ```
 
+## Meanings of * and &
+
+![star v amper](assets/week6/point_ref_doodle1.png)
 
 ## Things to do
 

@@ -72,3 +72,41 @@ int main()
 
 }
 ```
+
+### Gary's Pointers on Pointers
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	// declare a variable
+	int age = 27;
+	// declare a pointer to age (address)
+	int* age_p = &age; // assigning the address of age
+
+	cout << "age: " << age << endl;
+	cout << "&age: " << &age << endl;
+
+
+	cout << age_p << endl;
+	// print the memory address.
+	cout << *age_p << endl;
+	// print out the real value of age_p's target
+
+	string gary = "gary";
+	string* gary_p = &gary;
+
+	cout << "\n\n gary.size() = " << gary.size() << endl;
+
+	cout << "\n\n (*gary).size() = " << (*gary_p).size() << endl;
+	
+	cout << "\n\n gary_p->size() = " << gary_p->size() << endl;
+
+
+	return 0;
+}
+```
