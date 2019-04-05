@@ -11,9 +11,9 @@ On the technical side, we're really we're getting a look behind the curtain at t
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 6: References & Pointers](#ise102-week-6-references--pointers)
-	1. [Different and the same](#different-and-the-same)
-	2. [References](#references)
+* [ISE102 Week 6: References & Pointers](#ise102-week-6-references-pointers)
+	* [Different and the same](#different-and-the-same)
+	* [References](#references)
 
 <!-- /code_chunk_output -->
 
