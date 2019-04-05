@@ -2,7 +2,11 @@
 
 Nicknames, passing around addresses. Really we're getting a look behind the curtain at the memory in which our data is stored.
 
-### Getting Memory Addresses
+### Varible Memory Addresses
+
+If you're not on the left side of a variable declaration:
+    * `variableName` evaluates to the data stored for that variable
+    * `&variableName` evaluates to the address of that variable's data in memory
 
 ```cpp
 #include <iostream>
@@ -34,7 +38,36 @@ int main()
 }
 ```
 
-### Pointers
+### References 1
+
+If you're on the left side of a declaration:
+    * `string operaHouse = "Opera House";` declares a variable that will evaluate to "Opera House". Using `=` you can change the string contents later.
+    * `int& building = otherVariableName;` creates a reference variable called `building` that evaluates to _whatever data is stored for the `operHouse` variable, and can be used with `=` to change the contents later.
+References can't be changed.
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string operaHouse = "Opera House"; 
+    string& building = operaHouse;
+
+    cout << "operaHouse: " << operaHouse << endl;
+    cout << "building: " << building << endl;
+
+    cout << "\n -Assigning \"Oprah Haus\" to buiding. -" << endl;
+    building = "Oprah Haus";
+
+    cout << "operaHouse: " << operaHouse << endl;
+    cout << "building: " << building << endl;
+}
+```
+
+### Pointers Tute Code
 
 ```cpp
 #include <iostream>

@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,9 +25,12 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-6-code-pointers-and-references">Week 6 Code: Pointers and References</h1>
 
-<p>Nicknames, passing around addresses. Really we&#x2019;re getting a look behind the curtain at the memory in which our data is stored.</p>
-<h3 class="mume-header" id="getting-memory-addresses">Getting Memory Addresses</h3>
+<p>Nicknames, passing around addresses. Really we&apos;re getting a look behind the curtain at the memory in which our data is stored.</p>
+<h3 class="mume-header" id="varible-memory-addresses">Varible Memory Addresses</h3>
 
+<p>If you&apos;re not on the left side of a variable declaration:<br>
+* <code>variableName</code> evaluates to the data stored for that variable<br>
+* <code>&amp;variableName</code> evaluates to the address of that variable&apos;s data in memory</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -55,7 +58,32 @@
 
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</pre><h3 class="mume-header" id="pointers">Pointers</h3>
+</pre><h3 class="mume-header" id="references-1">References 1</h3>
+
+<p>If you&apos;re on the left side of a declaration:<br>
+* <code>string operaHouse = &quot;Opera House&quot;;</code> declares a variable that will evaluate to &quot;Opera House&quot;. Using <code>=</code> you can change the string contents later.<br>
+* <code>int&amp; building = otherVariableName;</code> creates a reference variable called <code>building</code> that evaluates to _whatever data is stored for the <code>operHouse</code> variable, and can be used with <code>=</code> to change the contents later.<br>
+References can&apos;t be changed.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    string operaHouse <span class="token operator">=</span> <span class="token string">&quot;Opera House&quot;</span><span class="token punctuation">;</span> 
+    string<span class="token operator">&amp;</span> building <span class="token operator">=</span> operaHouse<span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;operaHouse: &quot;</span> <span class="token operator">&lt;&lt;</span> operaHouse <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;building: &quot;</span> <span class="token operator">&lt;&lt;</span> building <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\n -Assigning \&quot;Oprah Haus\&quot; to buiding. -&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    building <span class="token operator">=</span> <span class="token string">&quot;Oprah Haus&quot;</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;operaHouse: &quot;</span> <span class="token operator">&lt;&lt;</span> operaHouse <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;building: &quot;</span> <span class="token operator">&lt;&lt;</span> building <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="pointers-tute-code">Pointers Tute Code</h3>
 
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
@@ -91,7 +119,7 @@
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span>
-</pre><h3 class="mume-header" id="garys-pointers-on-pointers">Gary&#x2019;s Pointers on Pointers</h3>
+</pre><h3 class="mume-header" id="garys-pointers-on-pointers">Gary&apos;s Pointers on Pointers</h3>
 
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
