@@ -1,6 +1,6 @@
 # ISE102 Week 6: References & Pointers 
 
-References and pointers are ways to **pass _access to_ data around. A bit like google Docs, you're able to both edit the same thing.
+References and pointers are ways to pass _access to_ data around. A bit like google Docs, you're able to both edit the same thing.
 
 On the technical side, we're really we're getting a look behind the curtain at the memory in which our data is stored.
 
