@@ -38,7 +38,7 @@ int main()
 }
 ```
 
-### References 1
+### References Opera House
 
 If you're on the left side of a declaration:
     * `string operaHouse = "Opera House";` declares a variable that will evaluate to "Opera House". Using `=` you can change the string contents later.
@@ -67,7 +67,78 @@ int main()
 }
 ```
 
-### Pointers Tute Code
+### References myScore
+
+```cpp
+int main()
+{
+	int myScore = 1000;
+	int& mikesScore = myScore; //create a reference. 
+	// The & goes on the TYPE, not the NAME
+	
+	cout << "myScore is: " << myScore << "\n";
+	cout << "mikesScore is: " << mikesScore << "\n\n";
+
+	// Edit myScore to see both change, if they both point to same thing.
+	cout << "Adding 500 to myScore\n\n";
+    myScore += 500;						 
+	
+	// 
+	cout << "myScore is: " << myScore << "\n";
+	cout << "mikesScore is: " << mikesScore << "\n\n";
+
+}
+```
+
+### Gary's Pointers on Pointers
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	// declare a variable
+	int age = 27;
+	// declare a pointer to age (address)
+	int* age_p = &age; // assigning the address of age
+
+	cout << "age: " << age << endl;
+	cout << "&age: " << &age << endl;
+
+
+	cout << age_p << endl;
+	// print the memory address.
+	cout << *age_p << endl;
+	// print out the real value of age_p's target
+
+    // How do we dereference when using the functions or variables
+    // inside an object with dot notation ie myString_p.size();
+
+	string gary = "gary";
+	string* gary_p = &gary;     // pointer to `string gary` memory address
+
+    // regular gary with dot notation
+	cout << "\n\n gary.size() = " << gary.size() << endl;
+    
+    // What's happening here?
+    cout << "\n\n *gary_p.size() = " << *gary_p.size() << endl;
+
+    // How we have to do it so we don't try to dereference entire expression
+	cout << "\n\n (*gary_p).size() = " << (*gary_p).size() << endl;
+
+    // if you substitute `->` for `.` you can use object pointers as though
+    // they were objects, no * or () required
+	cout << "\n\n gary_p->size() = " << gary_p->size() << endl;
+
+
+	return 0;
+}
+```
+
+### Pointers Older Tute Code
 
 ```cpp
 #include <iostream>
@@ -104,42 +175,5 @@ int main()
     return (0);
 
 }
-```
 
-### Gary's Pointers on Pointers
-
-```cpp
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-int main()
-{
-	// declare a variable
-	int age = 27;
-	// declare a pointer to age (address)
-	int* age_p = &age; // assigning the address of age
-
-	cout << "age: " << age << endl;
-	cout << "&age: " << &age << endl;
-
-
-	cout << age_p << endl;
-	// print the memory address.
-	cout << *age_p << endl;
-	// print out the real value of age_p's target
-
-	string gary = "gary";
-	string* gary_p = &gary;
-
-	cout << "\n\n gary.size() = " << gary.size() << endl;
-
-	cout << "\n\n (*gary).size() = " << (*gary_p).size() << endl;
-	
-	cout << "\n\n gary_p->size() = " << gary_p->size() << endl;
-
-
-	return 0;
-}
 ```

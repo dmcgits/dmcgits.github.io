@@ -11,9 +11,9 @@ On the technical side, we're really we're getting a look behind the curtain at t
 
 <!-- code_chunk_output -->
 
-* [ISE102 Week 6: References & Pointers](#ise102-week-6-references-pointers)
-	* [Different and the same](#different-and-the-same)
-	* [References](#references)
+1. [ISE102 Week 6: References & Pointers](#ise102-week-6-references--pointers)
+	1. [Different and the same](#different-and-the-same)
+	2. [References](#references)
 
 <!-- /code_chunk_output -->
 
@@ -26,6 +26,8 @@ We've been passing things by value (copies). Kinda emailing a copy of your sourc
 > Passing things by reference is kinda like sharing an exercise book with someone. You can both sit down and write in it individually or at the same time, scribble over eachother's work.
  
 That's the concept. In practise you're making a second variable name that is just an alias or nickname for another variable/function.
+
+Open up [week6_code.html](week6_code.html) for more
 
 ```cpp
 int main()
