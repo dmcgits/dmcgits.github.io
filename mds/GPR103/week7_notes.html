@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,8 +25,115 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-7-sprites-managers-models">Week 7: Sprites, managers, models.</h1>
 
-<p>This week&apos;s lesson uses my example of assignment 2 to explore Sprites, UI and Singleton use.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h2 class="mume-header" id="sprites">Sprites</h2>
+<p>This week&#x2019;s lesson uses my example of assignment 2 to explore Sprites, UI and Singleton use.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-7-sprites-managers-models">Week 7: Sprites, managers, models.</a>
+<ul>
+<li><a href="#singleton-game-manager">Singleton Game Manager</a>
+<ul>
+<li><a href="#why-singleton">Why Singleton</a></li>
+<li><a href="#making-the-model-the-heart-of-our-game">Making the model the heart of our game</a></li>
+</ul>
+</li>
+<li><a href="#sprites">Sprites</a>
+<ul>
+<li><a href="#quick-history">Quick history</a></li>
+<li><a href="#now">Now</a></li>
+<li><a href="#atlasses-sprite-sheets">Atlasses, sprite sheets</a></li>
+<li><a href="#unity-atlas-creator">Unity atlas creator</a></li>
+</ul>
+</li>
+<li><a href="#unity-ui">Unity UI</a>
+<ul>
+<li><a href="#buttons-and-states">Buttons and states</a></li>
+<li><a href="#ui-canvas-is-huge">UI canvas is huge</a></li>
+<li><a href="#uh-oh-different-events">Uh oh. Different events.</a></li>
+</ul>
+</li>
+<li><a href="#todo">ToDo</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="singleton-game-manager">Singleton Game Manager</h2>
+
+<p>We only want one game manager. We can make that so with singletons&#x2026; A single instance of an object accessible from anywhere through a class static variable.</p>
+<blockquote>
+<p>The trick with a Singleton: it&#x2019;s a vicious opportunist occupying the only home in its universe (the class it was made from). It&#x2019;s clever and awful.</p>
+</blockquote>
+<ol>
+<li>When Unity instantiates the gameObject, it instantiates our component.</li>
+<li>When awake is called, our component does something dirty: it stores itself in a static variable in the CustoBrain class it was made from</li>
+<li>Any future objects check if an instance has taken the only available home, the instance static variable.</li>
+<li>If the space is taken, they are compelled to destroy themselves.</li>
+</ol>
+<p>This is basically all that is needed to make a singleton.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustoBrain</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">CustoBrain</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>              
+	<span class="token comment">//Static instance of GameManager which allows it to be accessed by any other script.</span>
+
+    <span class="token comment">//Awake is always called before any Start functions</span>
+    <span class="token keyword">void</span> <span class="token function">Awake</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//Check if instance already exists</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+
+            <span class="token comment">//if not, set instance to this</span>
+            instance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//If instance already exists and it&apos;s not this:</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">!=</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
+
+            <span class="token comment">//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.</span>
+			<span class="token comment">// Despicable. It&apos;s like the cuckoo chick whose first living act is to turf</span>
+			<span class="token comment">// all the host birds&apos; own eggs out of the nest.</span>
+            <span class="token function">Destroy</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//Sets this to not be destroyed when reloading scene</span>
+        <span class="token function">DontDestroyOnLoad</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//Call the InitGame function to initialize the first level </span>
+        <span class="token function">InitGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><p>Now we can make calls to non static functions like so:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>	CustoBrain.instance.DoAThing();
+</code></pre><h3 class="mume-header" id="why-singleton">Why Singleton</h3>
+
+<ul>
+<li>They generally manage all the core stuff for your game.</li>
+<li>There is only one game, it needs only one brain/manager.</li>
+<li>Sort of like a main in c++ but also different</li>
+<li>Accessible anywhere you want to instantiate it</li>
+<li>Copies become references</li>
+</ul>
+<p>We don&#x2019;t reeeeally have a game so we could do without it.</p>
+<ul>
+<li>Mine just creates the model and keeps it in a variable.</li>
+<li>I could have made the model a singleton instead.</li>
+<li>Better though to work as though our game will be a little larger, and not make our model do extra things.</li>
+</ul>
+<h3 class="mume-header" id="making-the-model-the-heart-of-our-game">Making the model the heart of our game</h3>
+
+<p>In simple terms, when a button is clicked</p>
+<blockquote>
+<ol>
+<li>Buttons yell that something incredible has happened.</li>
+<li>When our model hears this news it is changed forever. It yells to the world about how different it is now.</li>
+<li>The sprites, who are gossips, put up big billboards to tell everyone the model&#x2019;s news.</li>
+</ol>
+</blockquote>
+<p>It&#x2019;s a straightforward linear process, glued together with a little event magic:</p>
+<ol>
+<li>click button</li>
+<li>button throws event</li>
+<li>model hears button event and updates</li>
+<li>model throws modelUpdated event</li>
+<li>Sprites hear model event and change to match the new model state</li>
+</ol>
+<p><img src="assets/week7/character_changed.png" alt="character changed"></p>
+<h2 class="mume-header" id="sprites">Sprites</h2>
 
 <p>What are they? How to use?</p>
 <p><img src="assets/week7/sheet_bomberman.png" alt="bomberman"><br>
@@ -43,6 +150,13 @@
 <li>Things often in powers of 2 due to binary and registers/memory. Anything that leaned on what a computer was best at gained performance.</li>
 </ul>
 <p><img src="assets/week7/bubble_bobble.png" alt="bubble bobble"></p>
+<p>Sprites grew larger and more complex as 2D hardware improved and memory grew.</p>
+<p><img src="assets/week7/bb_sprites_1.png" alt="Sprite complexity 1"><br>
+<img src="assets/week7/fgc_sprite_res_1.png" alt="Sprite complexity 2"><br>
+<img src="assets/week7/fgc_sprite_res_2.jpg" alt="Sprite complexity 2"></p>
+<h3 class="mume-header" id="now">Now</h3>
+
+<p>Sprites aren&#x2019;t really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware</p>
 <h3 class="mume-header" id="atlasses-sprite-sheets">Atlasses, sprite sheets</h3>
 
 <p>Keeping draw calls, memory usage, file size down.</p>
@@ -50,31 +164,64 @@
 
 <p>Take multiple sprites and generate a packed atlas. Save the work.<br>
 (how do names/replacement work? 2D texture or sprite?)</p>
+<h4 class="mume-header" id="making-an-atlas">Making an Atlas</h4>
+
+<p>They&#x2019;re created like materials and sprites, then you populate them:</p>
+<ol>
+<li>In project window right click-&gt;create-&gt;sprite atlas</li>
+<li>In the atlas under <em>Objects For Packing</em> you can add folders, sprites, 2D textures. <strong>I added my folder and it auto packs my sprites as I add images</strong></li>
+<li>Set <em>Filter Mode</em> to <em>Point</em> if you are using pixelated art and might scale.</li>
+</ol>
+<p><img src="assets/week7/atlas_charabits.png" alt="atlas charabits"></p>
 <h2 class="mume-header" id="unity-ui">Unity UI</h2>
 
-<p>About the UI, why I used it</p>
-<h3 class="mume-header" id="button-states">Button states</h3>
+<p>I started to make the buttons manually, to stick with just using sprites and code, but no need to reinvent that on assessment 2. I used the unity UI goodies.</p>
+<h3 class="mume-header" id="buttons-and-states">Buttons and states</h3>
 
-<p>Don&apos;t want to reinvent the wheel.</p>
-<h3 class="mume-header" id="oddness">Oddness</h3>
+<p>We can create a button by:</p>
+<ol>
+<li>Creating a Canvas <em>GameObject -&gt; UI -&gt; Canvas</em>.</li>
+<li>Tweak canvas settings (picture below)</li>
+<li>With canvas selected, <em>GameObject -&gt; UI -&gt; Button</em></li>
+</ol>
+<p>The easy part was using a UI button to drop in the states of my button sprite.</p>
+<p><img src="assets/week7/ui_canvas_button.png" alt="ui canvas button"></p>
+<h3 class="mume-header" id="ui-canvas-is-huge">UI canvas is huge</h3>
 
 <p>Working in a big off screen thing that it projects back to screen space.</p>
 <ul>
 <li>a lot of power</li>
 <li>a little odd to work with at first</li>
 </ul>
-<h2 class="mume-header" id="singleton-game-manager">Singleton Game Manager</h2>
+<p><img src="assets/week7/big_ui.png" alt="big ui"></p>
+<h3 class="mume-header" id="uh-oh-different-events">Uh oh. Different events.</h3>
 
-<p>Adding a game manager to your scene</p>
-<h3 class="mume-header" id="howwhy-singleton">How/why Singleton</h3>
+<p>Yeah the UI stuff doesn&#x2019;t use the same events, or box colliders. So, how do we integrate it into our controls-&gt;model-&gt;readouts design.</p>
+<p>Good news: the model doesn&#x2019;t care, it looks like we&#x2019;d expect. These code snips are from PrevNextItemOnClick, a monobehaviour component I add to any gui buttons with left or right arrows.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp">PrevNextItemOnClick<span class="token punctuation">.</span>OnPrevNextRequested <span class="token operator">+=</span> OnPrevNextHandler<span class="token punctuation">;</span>
+</pre><p>The tricky bit isn&#x2019;t too tricky either.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp">	<span class="token comment">// Set up an outgoing event just like last week</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">event</span> Action<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> OnPrevNextRequested <span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+	<span class="token comment">// Get ready to store a button</span>
+    <span class="token keyword">private</span> <span class="token class-name">Button</span> btn<span class="token punctuation">;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token comment">// On Start, grab the button component</span>
+		btn <span class="token operator">=</span> gameObject<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetComponent</span><span class="token punctuation">&lt;</span><span class="token class-name">Button</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+		<span class="token comment">// Use the special onClick events &quot;addListener&quot; function </span>
+		<span class="token comment">// every button exposes. I just googled this till I figured it out.</span>
+		btn<span class="token punctuation">.</span>onClick<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span>OnMouseClick<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
 
-<ul>
-<li>There is only one game, it needs only one brain/manager.</li>
-<li>Sort of like a main in c++ but also different</li>
-<li>Accessible anywhere you want to instantiate it</li>
-<li>Copies become references</li>
-</ul>
-<h2 class="mume-header" id="todo">ToDo</h2>
+	<span class="token comment">// In OnMouseClick do exactly what we did last week with OnMouseUpAsButton</span>
+	<span class="token keyword">void</span> <span class="token function">OnMouseClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//Debug.Log(gameObject.name);</span>
+        <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>item <span class="token operator">+</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">+</span> previousOrNext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="todo">ToDo</h2>
 
 <ol>
 <li>Watch Unity video on Singletons (resources)</li>
@@ -83,7 +230,7 @@
 <li>Your final sprites must be chosen.</li>
 <li>Rough cut outs of chosen sprites, enough to test pivot points, fit, code</li>
 <li>UI elements throw events, model hears, sprites hear from model.</li>
-<li>You can&apos;t plan everything fully in advance, you need a prototype early to test and inform your ideas.</li>
+<li>You can&#x2019;t plan everything fully in advance, you need a prototype early to test and inform your ideas.</li>
 </ul>
 </li>
 <li>Read up on atlasses</li>
