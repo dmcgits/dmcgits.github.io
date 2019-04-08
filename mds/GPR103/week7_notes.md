@@ -10,12 +10,12 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
 	* [Singleton Game Manager](#singleton-game-manager)
 		* [Why Singleton](#why-singleton)
 		* [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
+		* [Code Together:](#code-together)
 	* [Sprites](#sprites)
 		* [Quick history](#quick-history)
 		* [Now](#now)
 		* [Atlasses, sprite sheets](#atlasses-sprite-sheets)
 		* [Unity atlas creator](#unity-atlas-creator)
-			* [Making an Atlas](#making-an-atlas)
 	* [Unity UI](#unity-ui)
 		* [Buttons and states](#buttons-and-states)
 		* [UI canvas is huge](#ui-canvas-is-huge)
@@ -24,6 +24,8 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
 	* [Resources](#resources)
 
 <!-- /code_chunk_output -->
+
+___
 
 ## Singleton Game Manager
 
@@ -73,6 +75,7 @@ Now we can make calls to non static functions like so:
 ```
 	CustoBrain.instance.DoAThing();
 ```
+___
 
 ### Why Singleton
 
@@ -86,6 +89,8 @@ We don't reeeeally have a game so we could do without it.
 * Mine just creates the model and keeps it in a variable.
 * I could have made the model a singleton instead.
 * Better though to work as though our game will be a little larger, and not make our model do extra things.
+
+___
 
 ### Making the model the heart of our game
 
@@ -105,6 +110,19 @@ It's a straightforward linear process, glued together with a little event magic:
 
 ![character changed](assets/week7/character_changed.png)
 
+___
+
+### Code Together:
+
+Make a game manager
+Make a model
+Make a button
+Make a sprite
+
+click button, change model, sprite changes.
+
+___
+
 ## Sprites
 
 What are they? How to use?
@@ -115,6 +133,8 @@ _Bomberman Super Nintendo sprites_
 
 ![sonic](assets/week7/sheet_sonic.png)
 _Sonic by Neweegee!_
+
+___
 
 ### Quick history
 Sprites are just 2D drawings. 
@@ -131,20 +151,19 @@ Sprites grew larger and more complex as 2D hardware improved and memory grew.
 ![Sprite complexity 2](assets/week7/fgc_sprite_res_1.png)
 ![Sprite complexity 2](assets/week7/fgc_sprite_res_2.jpg)
 
+___
+
 ### Now
 
 Sprites aren't really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware 
+
+___
 
 ### Atlasses, sprite sheets
 
 Keeping draw calls, memory usage, file size down. 
 
 ### Unity atlas creator
-
-Take multiple sprites and generate a packed atlas. Save the work.
-(how do names/replacement work? 2D texture or sprite?)
-
-#### Making an Atlas
 
 They're created like materials and sprites, then you populate them:
 
@@ -153,6 +172,8 @@ They're created like materials and sprites, then you populate them:
 3. Set _Filter Mode_ to _Point_ if you are using pixelated art and might scale.
 
 ![atlas charabits](assets/week7/atlas_charabits.png)
+
+___
 
 ## Unity UI
 
@@ -169,12 +190,16 @@ The easy part was using a UI button to drop in the states of my button sprite.
 
 ![ui canvas button](assets/week7/ui_canvas_button.png)
 
+___
+
 ### UI canvas is huge
 Working in a big off screen thing that it projects back to screen space. 
 * a lot of power
 * a little odd to work with at first
 
 ![big ui](assets/week7/big_ui.png)
+
+___
 
 ### Uh oh. Different events.
 
@@ -212,6 +237,7 @@ The tricky bit isn't too tricky either.
     }
 ```
 
+___
 ## ToDo
 
 1. Watch Unity video on Singletons (resources)
@@ -222,7 +248,10 @@ The tricky bit isn't too tricky either.
    * You can't plan everything fully in advance, you need a prototype early to test and inform your ideas.
 3. Read up on atlasses
 
+___
+
 ## Resources
 
 1. Game Manager singleton class at Unity _Roguelike 2D tutorial_:
    <https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager>
+

@@ -33,6 +33,7 @@
 <ul>
 <li><a href="#why-singleton">Why Singleton</a></li>
 <li><a href="#making-the-model-the-heart-of-our-game">Making the model the heart of our game</a></li>
+<li><a href="#code-together">Code Together:</a></li>
 </ul>
 </li>
 <li><a href="#sprites">Sprites</a>
@@ -55,6 +56,7 @@
 </ul>
 </li>
 </ul>
+<hr>
 <h2 class="mume-header" id="singleton-game-manager">Singleton Game Manager</h2>
 
 <p>We only want one game manager. We can make that so with singletons&#x2026; A single instance of an object accessible from anywhere through a class static variable.</p>
@@ -99,7 +101,8 @@
     <span class="token punctuation">}</span>
 </pre><p>Now we can make calls to non static functions like so:</p>
 <pre data-role="codeBlock" data-info class="language-"><code>	CustoBrain.instance.DoAThing();
-</code></pre><h3 class="mume-header" id="why-singleton">Why Singleton</h3>
+</code></pre><hr>
+<h3 class="mume-header" id="why-singleton">Why Singleton</h3>
 
 <ul>
 <li>They generally manage all the core stuff for your game.</li>
@@ -114,6 +117,7 @@
 <li>I could have made the model a singleton instead.</li>
 <li>Better though to work as though our game will be a little larger, and not make our model do extra things.</li>
 </ul>
+<hr>
 <h3 class="mume-header" id="making-the-model-the-heart-of-our-game">Making the model the heart of our game</h3>
 
 <p>In simple terms, when a button is clicked</p>
@@ -133,6 +137,15 @@
 <li>Sprites hear model event and change to match the new model state</li>
 </ol>
 <p><img src="assets/week7/character_changed.png" alt="character changed"></p>
+<hr>
+<h3 class="mume-header" id="code-together">Code Together:</h3>
+
+<p>Make a game manager<br>
+Make a model<br>
+Make a button<br>
+Make a sprite</p>
+<p>click button, change model, sprite changes.</p>
+<hr>
 <h2 class="mume-header" id="sprites">Sprites</h2>
 
 <p>What are they? How to use?</p>
@@ -140,6 +153,7 @@
 <em>Bomberman Super Nintendo sprites</em></p>
 <p><img src="assets/week7/sheet_sonic.png" alt="sonic"><br>
 <em>Sonic by Neweegee!</em></p>
+<hr>
 <h3 class="mume-header" id="quick-history">Quick history</h3>
 
 <p>Sprites are just 2D drawings.</p>
@@ -154,17 +168,15 @@
 <p><img src="assets/week7/bb_sprites_1.png" alt="Sprite complexity 1"><br>
 <img src="assets/week7/fgc_sprite_res_1.png" alt="Sprite complexity 2"><br>
 <img src="assets/week7/fgc_sprite_res_2.jpg" alt="Sprite complexity 2"></p>
+<hr>
 <h3 class="mume-header" id="now">Now</h3>
 
 <p>Sprites aren&#x2019;t really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware</p>
+<hr>
 <h3 class="mume-header" id="atlasses-sprite-sheets">Atlasses, sprite sheets</h3>
 
 <p>Keeping draw calls, memory usage, file size down.</p>
 <h3 class="mume-header" id="unity-atlas-creator">Unity atlas creator</h3>
-
-<p>Take multiple sprites and generate a packed atlas. Save the work.<br>
-(how do names/replacement work? 2D texture or sprite?)</p>
-<h4 class="mume-header" id="making-an-atlas">Making an Atlas</h4>
 
 <p>They&#x2019;re created like materials and sprites, then you populate them:</p>
 <ol>
@@ -173,6 +185,7 @@
 <li>Set <em>Filter Mode</em> to <em>Point</em> if you are using pixelated art and might scale.</li>
 </ol>
 <p><img src="assets/week7/atlas_charabits.png" alt="atlas charabits"></p>
+<hr>
 <h2 class="mume-header" id="unity-ui">Unity UI</h2>
 
 <p>I started to make the buttons manually, to stick with just using sprites and code, but no need to reinvent that on assessment 2. I used the unity UI goodies.</p>
@@ -186,6 +199,7 @@
 </ol>
 <p>The easy part was using a UI button to drop in the states of my button sprite.</p>
 <p><img src="assets/week7/ui_canvas_button.png" alt="ui canvas button"></p>
+<hr>
 <h3 class="mume-header" id="ui-canvas-is-huge">UI canvas is huge</h3>
 
 <p>Working in a big off screen thing that it projects back to screen space.</p>
@@ -194,6 +208,7 @@
 <li>a little odd to work with at first</li>
 </ul>
 <p><img src="assets/week7/big_ui.png" alt="big ui"></p>
+<hr>
 <h3 class="mume-header" id="uh-oh-different-events">Uh oh. Different events.</h3>
 
 <p>Yeah the UI stuff doesn&#x2019;t use the same events, or box colliders. So, how do we integrate it into our controls-&gt;model-&gt;readouts design.</p>
@@ -221,7 +236,8 @@
         <span class="token comment">//Debug.Log(gameObject.name);</span>
         <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>item <span class="token operator">+</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">+</span> previousOrNext<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="todo">ToDo</h2>
+</pre><hr>
+<h2 class="mume-header" id="todo">ToDo</h2>
 
 <ol>
 <li>Watch Unity video on Singletons (resources)</li>
@@ -235,6 +251,7 @@
 </li>
 <li>Read up on atlasses</li>
 </ol>
+<hr>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ol>
