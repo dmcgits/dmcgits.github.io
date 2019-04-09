@@ -6,27 +6,39 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
 
 <!-- code_chunk_output -->
 
-- [Week 7: Sprites, managers, models.](#week-7-sprites-managers-models)
-  - [Singleton Game Manager](#singleton-game-manager)
-    - [Why Singleton](#why-singleton)
-    - [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
-    - [Code Together:](#code-together)
-  - [Sprites](#sprites)
-    - [Quick history](#quick-history)
-    - [Now](#now)
-    - [Atlasses, sprite sheets](#atlasses-sprite-sheets)
-    - [Unity atlas creator](#unity-atlas-creator)
-  - [Unity UI](#unity-ui)
-    - [Buttons and states](#buttons-and-states)
-    - [UI canvas is huge](#ui-canvas-is-huge)
-    - [Uh oh. Different events.](#uh-oh-different-events)
-  - [ToDo](#todo)
-  - [Resources](#resources)
+* [Week 7: Sprites, managers, models.](#week-7-sprites-managers-models)
+	* [Assessment 2 progress Q&A](#assessment-2-progress-qa)
+	* [Singleton Game Manager](#singleton-game-manager)
+		* [Why Singleton](#why-singleton)
+		* [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
+		* [Code Together:](#code-together)
+	* [Sprites](#sprites)
+		* [Quick history](#quick-history)
+		* [Now](#now)
+		* [Atlasses, sprite sheets](#atlasses-sprite-sheets)
+		* [Unity atlas creator](#unity-atlas-creator)
+	* [Unity UI](#unity-ui)
+		* [Buttons and states](#buttons-and-states)
+		* [UI canvas is huge](#ui-canvas-is-huge)
+		* [Uh oh. Different events.](#uh-oh-different-events)
+	* [ToDo](#todo)
+	* [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
 ___
 
+## Assessment 2 progress Q&A
+
+Things to have done by now at minimum
+
+* Scamps
+* Written plan
+* Final sprite choices
+
+[My demo assessment](https://dmcgits.github.io/mds/GPR103/code/week7/index.html)
+
+![Mine](assets/week7/mine_design.png)
 ## Singleton Game Manager
 
 We only want one game manager. We can make that so with singletons.. A single instance of an object accessible from anywhere through a class static variable.
