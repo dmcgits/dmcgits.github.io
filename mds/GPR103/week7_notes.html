@@ -73,32 +73,31 @@
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustoBrain</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
 <span class="token punctuation">{</span>
 
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">CustoBrain</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>              
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">CustoBrain</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>              
 	<span class="token comment">//Static instance of GameManager which allows it to be accessed by any other script.</span>
 
-    <span class="token comment">//Awake is always called before any Start functions</span>
-    <span class="token keyword">void</span> <span class="token function">Awake</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment">//Awake is always called before any Start functions</span>
+  <span class="token keyword">void</span> <span class="token function">Awake</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      <span class="token comment">//Check if instance already exists</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token comment">//Check if instance already exists</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-
-            <span class="token comment">//if not, set instance to this</span>
-            instance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//If instance already exists and it&apos;s not this:</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">!=</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
-
-            <span class="token comment">//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.</span>
-			<span class="token comment">// Despicable. It&apos;s like the cuckoo chick whose first living act is to turf</span>
-			<span class="token comment">// all the host birds&apos; own eggs out of the nest.</span>
-            <span class="token function">Destroy</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//Sets this to not be destroyed when reloading scene</span>
-        <span class="token function">DontDestroyOnLoad</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//Call the InitGame function to initialize the first level </span>
-        <span class="token function">InitGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//if not, set instance to this</span>
+        instance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+    <span class="token comment">//If instance already exists and it&apos;s not this:</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">!=</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
+
+    <span class="token comment">//Then destroy this. This enforces our singleton pattern. Zero mercy.</span>
+    <span class="token function">Destroy</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//Sets this one to not be destroyed when reloading scene</span>
+    <span class="token function">DontDestroyOnLoad</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//Call the InitGame function to initialize the first level </span>
+    <span class="token function">InitGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </pre><p>Now we can make calls to non static functions like so:</p>
 <pre data-role="codeBlock" data-info class="language-"><code>	CustoBrain.instance.DoAThing();
 </code></pre><hr>

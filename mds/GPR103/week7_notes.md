@@ -6,22 +6,22 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
 
 <!-- code_chunk_output -->
 
-* [Week 7: Sprites, managers, models.](#week-7-sprites-managers-models)
-	* [Singleton Game Manager](#singleton-game-manager)
-		* [Why Singleton](#why-singleton)
-		* [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
-		* [Code Together:](#code-together)
-	* [Sprites](#sprites)
-		* [Quick history](#quick-history)
-		* [Now](#now)
-		* [Atlasses, sprite sheets](#atlasses-sprite-sheets)
-		* [Unity atlas creator](#unity-atlas-creator)
-	* [Unity UI](#unity-ui)
-		* [Buttons and states](#buttons-and-states)
-		* [UI canvas is huge](#ui-canvas-is-huge)
-		* [Uh oh. Different events.](#uh-oh-different-events)
-	* [ToDo](#todo)
-	* [Resources](#resources)
+- [Week 7: Sprites, managers, models.](#week-7-sprites-managers-models)
+  - [Singleton Game Manager](#singleton-game-manager)
+    - [Why Singleton](#why-singleton)
+    - [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
+    - [Code Together:](#code-together)
+  - [Sprites](#sprites)
+    - [Quick history](#quick-history)
+    - [Now](#now)
+    - [Atlasses, sprite sheets](#atlasses-sprite-sheets)
+    - [Unity atlas creator](#unity-atlas-creator)
+  - [Unity UI](#unity-ui)
+    - [Buttons and states](#buttons-and-states)
+    - [UI canvas is huge](#ui-canvas-is-huge)
+    - [Uh oh. Different events.](#uh-oh-different-events)
+  - [ToDo](#todo)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -43,32 +43,31 @@ This is basically all that is needed to make a singleton.
 public class CustoBrain : MonoBehaviour
 {
 
-    public static CustoBrain instance = null;              
+  public static CustoBrain instance = null;              
 	//Static instance of GameManager which allows it to be accessed by any other script.
 
-    //Awake is always called before any Start functions
-    void Awake()
+  //Awake is always called before any Start functions
+  void Awake()
+  {
+      //Check if instance already exists
+    if (instance == null)
     {
-        //Check if instance already exists
-        if (instance == null)
-
-            //if not, set instance to this
-            instance = this;
-
-        //If instance already exists and it's not this:
-        else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-			// Despicable. It's like the cuckoo chick whose first living act is to turf
-			// all the host birds' own eggs out of the nest.
-            Destroy(gameObject);
-
-        //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(gameObject);
-
-        //Call the InitGame function to initialize the first level 
-        InitGame();
+        //if not, set instance to this
+        instance = this;
     }
+    //If instance already exists and it's not this:
+    else if (instance != this)
+
+    //Then destroy this. This enforces our singleton pattern. Zero mercy.
+    Destroy(gameObject);
+
+    //Sets this one to not be destroyed when reloading scene
+    DontDestroyOnLoad(gameObject);
+
+    //Call the InitGame function to initialize the first level 
+    InitGame();
+  }
+}
 ```
 
 Now we can make calls to non static functions like so:
