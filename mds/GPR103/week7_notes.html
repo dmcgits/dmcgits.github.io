@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,38 +25,38 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-7-sprites-managers-models">Week 7: Sprites, managers, models.</h1>
 
-<p>This week&#x2019;s lesson uses my example of assignment 2 to explore Sprites, UI and Singleton use.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<p>This week&apos;s lesson uses my example of assignment 2 to explore Sprites, UI and Singleton use.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-7-sprites-managers-models">Week 7: Sprites, managers, models.</a>
-<ul>
+<ol>
 <li><a href="#assessment-2-progress-qa">Assessment 2 progress Q&amp;A</a></li>
 <li><a href="#singleton-game-manager">Singleton Game Manager</a>
-<ul>
+<ol>
 <li><a href="#why-singleton">Why Singleton</a></li>
 <li><a href="#making-the-model-the-heart-of-our-game">Making the model the heart of our game</a></li>
 <li><a href="#code-together">Code Together:</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#sprites">Sprites</a>
-<ul>
+<ol>
 <li><a href="#quick-history">Quick history</a></li>
 <li><a href="#now">Now</a></li>
 <li><a href="#atlasses-sprite-sheets">Atlasses, sprite sheets</a></li>
 <li><a href="#unity-atlas-creator">Unity atlas creator</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#unity-ui">Unity UI</a>
-<ul>
+<ol>
 <li><a href="#buttons-and-states">Buttons and states</a></li>
 <li><a href="#ui-canvas-is-huge">UI canvas is huge</a></li>
 <li><a href="#uh-oh-different-events">Uh oh. Different events.</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#todo">ToDo</a></li>
 <li><a href="#resources">Resources</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <hr>
 <h2 class="mume-header" id="assessment-2-progress-qa">Assessment 2 progress Q&amp;A</h2>
 
@@ -70,9 +70,9 @@
 <p><img src="assets/week7/mine_design.png" alt="Mine"></p>
 <h2 class="mume-header" id="singleton-game-manager">Singleton Game Manager</h2>
 
-<p>We only want one game manager. We can make that so with singletons&#x2026; A single instance of an object accessible from anywhere through a class static variable.</p>
+<p>We only want one game manager. We can make that so with singletons.. A single instance of an object accessible from anywhere through a class static variable.</p>
 <blockquote>
-<p>The trick with a Singleton: it&#x2019;s a vicious opportunist occupying the only home in its universe (the class it was made from). It&#x2019;s clever and awful.</p>
+<p>The trick with a Singleton: it&apos;s a vicious opportunist occupying the only home in its universe (the class it was made from). It&apos;s clever and awful.</p>
 </blockquote>
 <ol>
 <li>When Unity instantiates the gameObject, it instantiates our component.</li>
@@ -121,7 +121,7 @@
 <li>Accessible anywhere you want to instantiate it</li>
 <li>Copies become references</li>
 </ul>
-<p>We don&#x2019;t reeeeally have a game so we could do without it.</p>
+<p>We don&apos;t reeeeally have a game so we could do without it.</p>
 <ul>
 <li>Mine just creates the model and keeps it in a variable.</li>
 <li>I could have made the model a singleton instead.</li>
@@ -135,10 +135,10 @@
 <ol>
 <li>Buttons yell that something incredible has happened.</li>
 <li>When our model hears this news it is changed forever. It yells to the world about how different it is now.</li>
-<li>The sprites, who are gossips, put up big billboards to tell everyone the model&#x2019;s news.</li>
+<li>The sprites, who are gossips, put up big billboards to tell everyone the model&apos;s news.</li>
 </ol>
 </blockquote>
-<p>It&#x2019;s a straightforward linear process, glued together with a little event magic:</p>
+<p>It&apos;s a straightforward linear process, glued together with a little event magic:</p>
 <ol>
 <li>click button</li>
 <li>button throws event</li>
@@ -181,14 +181,14 @@ Make a sprite</p>
 <hr>
 <h3 class="mume-header" id="now">Now</h3>
 
-<p>Sprites aren&#x2019;t really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware</p>
+<p>Sprites aren&apos;t really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware</p>
 <hr>
 <h3 class="mume-header" id="atlasses-sprite-sheets">Atlasses, sprite sheets</h3>
 
 <p>Keeping draw calls, memory usage, file size down.</p>
 <h3 class="mume-header" id="unity-atlas-creator">Unity atlas creator</h3>
 
-<p>They&#x2019;re created like materials and sprites, then you populate them:</p>
+<p>They&apos;re created like materials and sprites, then you populate them:</p>
 <ol>
 <li>In project window right click-&gt;create-&gt;sprite atlas</li>
 <li>In the atlas under <em>Objects For Packing</em> you can add folders, sprites, 2D textures. <strong>I added my folder and it auto packs my sprites as I add images</strong></li>
@@ -221,10 +221,10 @@ Make a sprite</p>
 <hr>
 <h3 class="mume-header" id="uh-oh-different-events">Uh oh. Different events.</h3>
 
-<p>Yeah the UI stuff doesn&#x2019;t use the same events, or box colliders. So, how do we integrate it into our controls-&gt;model-&gt;readouts design.</p>
-<p>Good news: the model doesn&#x2019;t care, it looks like we&#x2019;d expect. These code snips are from PrevNextItemOnClick, a monobehaviour component I add to any gui buttons with left or right arrows.</p>
+<p>Yeah the UI stuff doesn&apos;t use the same events, or box colliders. So, how do we integrate it into our controls-&gt;model-&gt;readouts design.</p>
+<p>Good news: the model doesn&apos;t care, it looks like we&apos;d expect. These code snips are from PrevNextItemOnClick, a monobehaviour component I add to any gui buttons with left or right arrows.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp">PrevNextItemOnClick<span class="token punctuation">.</span>OnPrevNextRequested <span class="token operator">+=</span> OnPrevNextHandler<span class="token punctuation">;</span>
-</pre><p>The tricky bit isn&#x2019;t too tricky either.</p>
+</pre><p>The tricky bit isn&apos;t too tricky either.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp">	<span class="token comment">// Set up an outgoing event just like last week</span>
 	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">event</span> Action<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> OnPrevNextRequested <span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 	<span class="token comment">// Get ready to store a button</span>
@@ -256,7 +256,7 @@ Make a sprite</p>
 <li>Your final sprites must be chosen.</li>
 <li>Rough cut outs of chosen sprites, enough to test pivot points, fit, code</li>
 <li>UI elements throw events, model hears, sprites hear from model.</li>
-<li>You can&#x2019;t plan everything fully in advance, you need a prototype early to test and inform your ideas.</li>
+<li>You can&apos;t plan everything fully in advance, you need a prototype early to test and inform your ideas.</li>
 </ul>
 </li>
 <li>Read up on atlasses</li>
@@ -267,6 +267,8 @@ Make a sprite</p>
 <ol>
 <li>Game Manager singleton class at Unity <em>Roguelike 2D tutorial</em>:<br>
 <a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager</a></li>
+<li>Here&apos;s the week 7 Unity project, puts a simulation of our game world (the model) between the controls and visual output. It has cleaned up code, piles of comments and icons where the coloured UI sprites were.<br>
+<a href="assets/week7/MoveIconsGame.7z">assets/week7/MoveIconsGame.7z</a></li>
 </ol>
 
       </div>

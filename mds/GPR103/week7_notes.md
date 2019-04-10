@@ -265,4 +265,6 @@ ___
 
 1. Game Manager singleton class at Unity _Roguelike 2D tutorial_:
    <https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager>
+2. Here's the week 7 Unity project, puts a simulation of our game world (the model) between the controls and visual output. It has cleaned up code, piles of comments and icons where the coloured UI sprites were.
+   [assets/week7/MoveIconsGame.7z](assets/week7/MoveIconsGame.7z)
 
