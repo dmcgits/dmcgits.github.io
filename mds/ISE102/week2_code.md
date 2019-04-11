@@ -11,6 +11,7 @@ Google any keywords or library functions you don't recognise, it's all out there
    5. [2.5 Switch](#25-switch)
    6. [2.6 Switch, with fall through](#26-switch-with-fall-through)
    7. [2.7 Enumerated constants](#27-enumerated-constants)
+      1. [Enums are strange when initialised](#enums-are-strange-when-initialised)
 
 ## 2.1 Relational Operators
 
@@ -379,5 +380,29 @@ int main()
     cin >> iTemp;
 
     return (0);
+}
+```
+### Enums are strange when initialised
+
+You'll struggle to predict the output.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+enum Foo { a, b, c =10, d, e = 1, f, g = f+c };
+
+int main()
+{
+    cout << "  foo values: " << endl;
+    cout << "---------------" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+    cout << "c: " << c << endl;
+    cout << "d: " << d << endl;
+    cout << "e: " << e << endl;
+    cout << "f: " << f << endl;
+    cout << "g: " << g << endl;
 }
 ```
