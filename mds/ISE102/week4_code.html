@@ -28,21 +28,23 @@
 <p>Functions and scope</p>
 <h2 class="mume-header" id="contents">Contents</h2>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-4-exercises">Week 4 Exercises</a>
-<ol>
+<ul>
 <li><a href="#contents">Contents</a></li>
-<li><a href="#code">Code</a>
-<ol>
-<li><a href="#41-slotsgame">4.1 SlotsGame</a></li>
+<li><a href="#code">Code</a><br>
+* <a href="#41-slotsgame">4.1 SlotsGame</a>
+<ul>
 <li><a href="#42-scope">4.2 Scope</a></li>
 <li><a href="#43-function">4.3 Function</a></li>
 <li><a href="#44-function-with-prototype-definition">4.4 Function with prototype (definition)</a></li>
-</ol>
+<li><a href="#45-limiting-rand-range">4.5 Limiting Rand Range</a></li>
+<li><a href="#46-variable-scope-with-range">4.6 Variable Scope With Range</a></li>
+</ul>
 </li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 <h2 class="mume-header" id="code">Code</h2>
 
 <p>Type these in, don&apos;t cut and paste!</p>
@@ -118,7 +120,7 @@
 	<span class="token keyword">return</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><hr>
-<h4 class="mume-header" id="42-scope">4.2 Scope</h4>
+<h3 class="mume-header" id="42-scope">4.2 Scope</h3>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -155,7 +157,7 @@
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><hr>
-<h4 class="mume-header" id="43-function">4.3 Function</h4>
+<h3 class="mume-header" id="43-function">4.3 Function</h3>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -195,7 +197,7 @@
 <span class="token punctuation">}</span>
 
 </pre><hr>
-<h4 class="mume-header" id="44-function-with-prototype-definition">4.4 Function with prototype (definition)</h4>
+<h3 class="mume-header" id="44-function-with-prototype-definition">4.4 Function with prototype (definition)</h3>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -237,7 +239,75 @@
 <span class="token punctuation">}</span>
 
 </pre><hr>
+<h3 class="mume-header" id="45-limiting-rand-range">4.5 Limiting Rand Range</h3>
 
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib&gt;</span> </span><span class="token comment">// Provides rand()</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime&gt;</span> </span><span class="token comment">// Provides time()</span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">srand</span><span class="token punctuation">(</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Seed the random generator.</span>
+  <span class="token keyword">signed</span> <span class="token keyword">int</span> iRand1 <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token keyword">signed</span> <span class="token keyword">int</span> iRand2 <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;d20 rolled = &quot;</span> <span class="token operator">&lt;&lt;</span> iRand1 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>iRand1 <span class="token operator">&gt;</span> <span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Possible Critical...&quot;</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;d20 rolled = &quot;</span> <span class="token operator">&lt;&lt;</span> iRand2 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>iRand1 <span class="token operator">&gt;</span> <span class="token number">18</span> <span class="token operator">&amp;&amp;</span> iRand2 <span class="token operator">&gt;</span> <span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;CRITICAL!!! Damage x2!&quot;</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span>
+  <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;No critical. Just normal damage.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="46-variable-scope-with-range">4.6 Variable Scope With Range</h3>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// Declare global PI value</span>
+<span class="token keyword">float</span> g_PI <span class="token operator">=</span> <span class="token number">3.14f</span><span class="token punctuation">;</span>
+<span class="token comment">// Declare function</span>
+<span class="token keyword">float</span> <span class="token function">SphereVolume</span><span class="token punctuation">(</span><span class="token keyword">float</span> fRadius<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;PI = &quot;</span> <span class="token operator">&lt;&lt;</span> g_PI <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token keyword">float</span> fInput0 <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+  
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Enter a sphere radius: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> fInput0<span class="token punctuation">;</span>
+
+  <span class="token comment">// Ask SphereVolume to return the volume of a sphere</span>
+  <span class="token comment">// for the user&apos;s entered radius  </span>
+  <span class="token keyword">float</span> fV <span class="token operator">=</span> <span class="token function">SphereVolume</span><span class="token punctuation">(</span>fInput0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;V = &quot;</span> <span class="token operator">&lt;&lt;</span> fV <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">float</span> <span class="token function">SphereVolume</span><span class="token punctuation">(</span><span class="token keyword">float</span> fRadius<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// Using a global along with the argument (local scope) </span>
+  <span class="token comment">// to calculate the sphere volume</span>
+  <span class="token keyword">float</span> fV <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">4.0f</span> <span class="token operator">/</span> <span class="token number">3.0f</span><span class="token punctuation">)</span> <span class="token operator">*</span> g_PI <span class="token operator">*</span> fRadius <span class="token operator">*</span> fRadius <span class="token operator">*</span> fRadius<span class="token punctuation">;</span>
+  
+  <span class="token comment">// Do a job, pass back a value.</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>fV<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre>
       </div>
       
       

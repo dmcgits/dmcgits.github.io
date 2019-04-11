@@ -9,13 +9,15 @@ Functions and scope
 
 <!-- code_chunk_output -->
 
-1. [Week 4 Exercises](#week-4-exercises)
-   1. [Contents](#contents)
-   2. [Code](#code)
-         1. [4.1 SlotsGame](#41-slotsgame)
-         2. [4.2 Scope](#42-scope)
-         3. [4.3 Function](#43-function)
-         4. [4.4 Function with prototype (definition)](#44-function-with-prototype-definition)
+* [Week 4 Exercises](#week-4-exercises)
+	* [Contents](#contents)
+	* [Code](#code)
+			* [4.1 SlotsGame](#41-slotsgame)
+		* [4.2 Scope](#42-scope)
+		* [4.3 Function](#43-function)
+		* [4.4 Function with prototype (definition)](#44-function-with-prototype-definition)
+		* [4.5 Limiting Rand Range](#45-limiting-rand-range)
+		* [4.6 Variable Scope With Range](#46-variable-scope-with-range)
 
 <!-- /code_chunk_output -->
 
@@ -98,7 +100,7 @@ void displayFinalWords()
 ```
 ___
 
-#### 4.2 Scope
+### 4.2 Scope
 
 ```c++
 #include <iostream>
@@ -138,7 +140,7 @@ int main()
 ```
 ___
 
-#### 4.3 Function
+### 4.3 Function
 
 ```c++
 
@@ -183,7 +185,7 @@ int main()
 
 ___
 
-#### 4.4 Function with prototype (definition) 
+### 4.4 Function with prototype (definition) 
 
 
 ```c++
@@ -227,5 +229,78 @@ float cube(float x)
 }
 
 ```
-
 ___
+
+### 4.5 Limiting Rand Range
+
+```cpp
+#include <iostream>
+#include <cstdlib> // Provides rand()
+#include <ctime> // Provides time()
+
+using namespace std;
+
+int main()
+{
+  srand( time(0) ); // Seed the random generator.
+  signed int iRand1 = 1 + rand() % 20;
+  signed int iRand2 = 1 + rand() % 20;
+  cout << "d20 rolled = " << iRand1 << endl;
+  
+  if (iRand1 > 18)
+  {
+    cout << "Possible Critical..." << endl << endl;
+  }
+  cout << "d20 rolled = " << iRand2 << endl;
+  
+  if (iRand1 > 18 && iRand2 > 18)
+  {
+    cout << "CRITICAL!!! Damage x2!" << endl << endl;
+  } else
+  {
+    cout << "No critical. Just normal damage." << endl;
+  }
+  
+  return (0);
+}
+```
+
+### 4.6 Variable Scope With Range
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+// Declare global PI value
+float g_PI = 3.14f;
+// Declare function
+float SphereVolume(float fRadius);
+
+int main()
+{
+  cout << "PI = " << g_PI << endl;
+  cout << endl;
+  float fInput0 = 0.0f;
+  
+  cout << "Enter a sphere radius: ";
+  cin >> fInput0;
+
+  // Ask SphereVolume to return the volume of a sphere
+  // for the user's entered radius  
+  float fV = SphereVolume(fInput0);
+  cout << "V = " << fV << endl;
+  
+  return (0);
+}
+
+float SphereVolume(float fRadius)
+{
+  // Using a global along with the argument (local scope) 
+  // to calculate the sphere volume
+  float fV = (4.0f / 3.0f) * g_PI * fRadius * fRadius * fRadius;
+  
+  // Do a job, pass back a value.
+  return (fV);
+}
+```

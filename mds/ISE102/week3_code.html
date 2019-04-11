@@ -29,17 +29,22 @@
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-3-exercises">Week 3 Exercises</a>
 <ul>
-<li><a href="#code">Code</a><br>
-* <a href="#tictactoecpp">TicTacToe.cpp</a><br>
-* <a href="#loopingenumeratedtypescpp">LoopingEnumeratedTypes.cpp</a><br>
-* <a href="#breakcontinuecpp">BreakContinue.cpp</a></li>
+<li><a href="#code">Code</a>
+<ul>
+<li><a href="#tictactoecpp">TicTacToe.cpp</a></li>
+<li><a href="#loopingenumeratedtypescpp">LoopingEnumeratedTypes.cpp</a></li>
+<li><a href="#breakcontinuecpp">BreakContinue.cpp</a></li>
+<li><a href="#array-iteration">Array Iteration</a></li>
+<li><a href="#nested-loops-1">Nested Loops 1</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h2 class="mume-header" id="code">Code</h2>
 
 <p>Type these in, don&apos;t cut and paste!</p>
-<h4 class="mume-header" id="tictactoecpp">TicTacToe.cpp</h4>
+<h3 class="mume-header" id="tictactoecpp">TicTacToe.cpp</h3>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Tic-Tac-Toe Board</span>
 <span class="token comment">// Demonstrates multidimensional arrays</span>
@@ -81,7 +86,7 @@
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><hr>
-<h4 class="mume-header" id="loopingenumeratedtypescpp">LoopingEnumeratedTypes.cpp</h4>
+<h3 class="mume-header" id="loopingenumeratedtypescpp">LoopingEnumeratedTypes.cpp</h3>
 
 <pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
@@ -132,7 +137,7 @@
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><hr>
-<h4 class="mume-header" id="breakcontinuecpp">BreakContinue.cpp</h4>
+<h3 class="mume-header" id="breakcontinuecpp">BreakContinue.cpp</h3>
 
 <pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
@@ -187,6 +192,53 @@
     cin <span class="token operator">&gt;&gt;</span> iTemp<span class="token punctuation">;</span>
 
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="array-iteration">Array Iteration</h3>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> enemyHealth<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">22</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> npcHealth<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">44</span><span class="token punctuation">,</span> <span class="token number">38</span><span class="token punctuation">,</span> <span class="token number">61</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Enemy number [&quot;</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;] &quot;</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;health value is: &quot;</span> <span class="token operator">&lt;&lt;</span> enemyHealth<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;NPC number [&quot;</span> <span class="token operator">&lt;&lt;</span> j <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;] health value is: &quot;</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> npcHealth<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// Error generating code - uncomment to see...</span>
+    <span class="token comment">// cout &lt;&lt; &quot;Enemy number [11] health value is: &quot; &lt;&lt; enemyHealth[11];</span>
+    <span class="token comment">// cout &lt;&lt; endl;</span>
+    <span class="token comment">// cout &lt;&lt; &quot;NPC number [5] health value is: &quot; &lt;&lt; npcHealth[5];</span>
+    <span class="token comment">// cout &lt;&lt; endl;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="nested-loops-1">Nested Loops 1</h3>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;+++++++++++++++++++++++++&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;-------------------------&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Value in i: &quot;</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre>
       </div>

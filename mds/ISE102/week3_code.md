@@ -8,9 +8,11 @@ Vectors, arrays, loops.
 
 * [Week 3 Exercises](#week-3-exercises)
 	* [Code](#code)
-			* [TicTacToe.cpp](#tictactoecpp)
-			* [LoopingEnumeratedTypes.cpp](#loopingenumeratedtypescpp)
-			* [BreakContinue.cpp](#breakcontinuecpp)
+		* [TicTacToe.cpp](#tictactoecpp)
+		* [LoopingEnumeratedTypes.cpp](#loopingenumeratedtypescpp)
+		* [BreakContinue.cpp](#breakcontinuecpp)
+		* [Array Iteration](#array-iteration)
+		* [Nested Loops 1](#nested-loops-1)
 
 <!-- /code_chunk_output -->
 
@@ -19,7 +21,7 @@ Vectors, arrays, loops.
 
 Type these in, don't cut and paste!
 
-#### TicTacToe.cpp
+### TicTacToe.cpp
 
 ```c++
 // Tic-Tac-Toe Board
@@ -64,7 +66,7 @@ int main()
 ```
 ___
 
-#### LoopingEnumeratedTypes.cpp
+### LoopingEnumeratedTypes.cpp
 
 ```c++
 #include <iostream>
@@ -118,7 +120,7 @@ int main()
 ```
 ___
 
-#### BreakContinue.cpp
+### BreakContinue.cpp
 
 ```C++
 #include <iostream>
@@ -174,5 +176,58 @@ int main()
     cin >> iTemp;
 
     return (0);
+}
+```
+
+### Array Iteration
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    int enemyHealth[] = { 11, 15, 16, 13, 22 };
+    int npcHealth[] = { 44, 38, 61 };
+    
+    for (int i = 0; i < 5; ++i)
+    {
+        cout << "Enemy number [" << i << "] ";
+        cout << "health value is: " << enemyHealth[i] << endl;
+    }
+    
+    for (int j = 0; j < 3; ++j)
+    {
+        cout << "NPC number [" << j << "] health value is: ";
+        cout << npcHealth[j] << endl;
+    }
+    
+    // Error generating code - uncomment to see...
+    // cout << "Enemy number [11] health value is: " << enemyHealth[11];
+    // cout << endl;
+    // cout << "NPC number [5] health value is: " << npcHealth[5];
+    // cout << endl;
+
+    return (0);
+}
+```
+
+### Nested Loops 1
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+  for(int i = 0; i < 1000; i++)
+  {
+    if (i % 2 == 0)
+    {
+      cout << "+++++++++++++++++++++++++" << endl;
+    } else {
+      cout << "-------------------------" << endl;
+    }
+    cout << "Value in i: " << i << endl;
+  }
+  return (0);
 }
 ```
