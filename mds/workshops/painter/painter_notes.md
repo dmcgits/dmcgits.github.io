@@ -10,9 +10,26 @@
 30K vs 12 million
 
 ** Look at our low poly axe. **
+![axe wires](assets/axe_wires.png)
 
 ** Show the original in ZBrush **
 Now this guy is the original axe. See all those little details? A big triangle doesn't have those.
+
+## Game resolution info:
+
+Very low poly might be 500 or fewer! **Tom talian's low poly, painted TF2 characters**. 
+* One texture, 256x256.
+
+![tf2 pyro](assets/tf2_low_pyro.jpg)
+
+Quite high poly, we have **DVa from overwatch**. 
+* 20,000 polys for her, 
+* 22,000 for her mech base, 
+* 15,000 for mech guns.
+* 10 textures just for her body and hair, some asa large as 1024x2048
+
+![dva textures](assets/dva_textures.jpg)
+
 
 ### There are polygons, and there are textures
 
