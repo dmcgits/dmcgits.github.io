@@ -30,6 +30,7 @@ A lot of week 2 and week 3 details
 > * enumerators ( including how assign in different situations )
 > * char type and strings
 > * flow charts (end of week 2 powerpoint)
+> * psuedocode (reading, writing)
 
 Grab the resources
 
@@ -38,9 +39,9 @@ Grab the resources
 Don't forget you can code on <http://cpp.sh> if you don't want to start a project for each little code idea you want to try. Input can be a pain, but other stuff is fine.
 
 ### book chapters
-* [chap 1 variables io](book_1\cppgameprog_1_variables_io.pdf)
-* [chap 2 conditionals game loop ](book_1\cppgameprog_2_conditionals_game_loop.pdf)
-* [chap 3 strings arrays loops](book_1\cppgameprog_3_loops_strings_arrays.pdf)
+* [chap 1 variables io](book_1/cppgameprog_1_variables_io.pdf)
+* [chap 2 conditionals game loop ](book_1/cppgameprog_2_conditionals_game_loop.pdf)
+* [chap 3 strings arrays loops](book_1/cppgameprog_3_loops_strings_arrays.pdf)
 
 ### Week 2
 * [week 2 powerpoint 1 variables, expressions, operators](https://laureate-au.blackboard.com/bbcswebdav/xid-8618158_1)
