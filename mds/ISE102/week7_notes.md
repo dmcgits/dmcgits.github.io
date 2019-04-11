@@ -23,6 +23,8 @@ Assessment 2 is an online test you'll be delivering by the end of week 8. Let's 
 
 A lot of week 2 and week 3 details
 
+[pdf brief on blackboard](https://laureate-au.blackboard.com/bbcswebdav/pid-7194293-dt-content-rid-19541202_1/xid-19541202_1)
+
 > * Data type, assignment, operators.
 > * Particulars of multi assignment x = y = ++d
 > * enumerators ( including how assign in different situations )
