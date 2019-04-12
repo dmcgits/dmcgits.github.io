@@ -7,20 +7,20 @@ Exploring game asset creation from high res meshes with Substance Painter.
 
 <!-- code_chunk_output -->
 
-* [Substance Painter Workshop](#substance-painter-workshop)
-	* [Welcome](#welcome)
-	* [Games](#games)
-	* [Today's goal](#todays-goal)
-	* [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
-		* [Triangles are really flat](#triangles-are-really-flat)
-		* [Game resolution info:](#game-resolution-info)
-	* [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
-		* [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
-		* [Apply a few materials](#apply-a-few-materials)
-	* [Lighting](#lighting)
-	* [Procedural power!](#procedural-power)
-	* [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
-	* [take home](#take-home)
+- [Substance Painter Workshop](#substance-painter-workshop)
+  - [Welcome](#welcome)
+  - [Games](#games)
+  - [Today's goal](#todays-goal)
+  - [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
+    - [Triangles are really flat](#triangles-are-really-flat)
+    - [Game resolution info:](#game-resolution-info)
+  - [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
+    - [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
+    - [Apply a few materials](#apply-a-few-materials)
+  - [Lighting](#lighting)
+  - [Procedural power!](#procedural-power)
+  - [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
+  - [take home](#take-home)
 
 <!-- /code_chunk_output -->
 
