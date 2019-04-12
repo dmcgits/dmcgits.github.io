@@ -23,48 +23,176 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="workshop">Workshop</h1>
+      <h1 class="mume-header" id="substance-painter-workshop">Substance Painter Workshop</h1>
 
-<h2 class="mume-header" id="intro">Intro</h2>
+<p>Exploring game asset creation from high res meshes with Substance Painter.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#substance-painter-workshop">Substance Painter Workshop</a>
+<ul>
+<li><a href="#welcome">Welcome</a></li>
+<li><a href="#games">Games</a></li>
+<li><a href="#todays-goal">Today&#x2019;s goal</a></li>
+<li><a href="#so-how-does-3d-game-art-work">So! How does 3D game art work?</a>
+<ul>
+<li><a href="#triangles-are-really-flat">Triangles are really flat</a></li>
+<li><a href="#game-resolution-info">Game resolution info:</a></li>
+</ul>
+</li>
+<li><a href="#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make">There are in game resolution meshes, and the meshes we really make</a>
+<ul>
+<li><a href="#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail">What we really need is that detail so light can shine on all our nice detail</a></li>
+<li><a href="#apply-a-few-materials">Apply a few materials</a></li>
+</ul>
+</li>
+<li><a href="#lighting">Lighting</a></li>
+<li><a href="#procedural-power">Procedural power!</a></li>
+<li><a href="#finally-were-missing-something-this-doesnt-look-like-a-ps4-game">Finally, we&#x2019;re missing something, this doesn&#x2019;t look like a PS4 game</a></li>
+<li><a href="#take-home">take home</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="welcome">Welcome</h2>
 
-<h2 class="mume-header" id="real-time-in-graphics-are-hard-to-produce-at-60-frames">Real time in graphics are hard to produce at 60 frames</h2>
+<ul>
+<li>Who am I</li>
+<li>Who&#x2019;s here?</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="games">Games</h2>
 
+<p>Whatever else we have in common, we&#x2019;re all here because we like games.</p>
+<p>Who plays:</p>
+<ul>
+<li>rts games?</li>
+<li>moba?</li>
+<li>fps?</li>
+<li>racers?</li>
+<li>lawyering sims?</li>
+<li>brawlers?</li>
+</ul>
+<p>There are a lot of games in a lot of genres, they all need art, and increasingly 3D.</p>
+<blockquote>
+<p>I&#x2019;ll be showing a stylized axe today that belongs most in maybe a 3rd person fantasy brawler.</p>
+</blockquote>
+<p><img src="assets/axe_with_concept.jpg" alt="Axey"></p>
+<hr>
+<h2 class="mume-header" id="todays-goal">Today&#x2019;s goal</h2>
+
+<p>Some of you will have done some art or 3D, some of you won&#x2019;t. But whatever your level, whatever part of this resonates with you, I hope you all feel a little walk away feeling a bit of the, sort of buzz I do when I see an idea turning into a real game model.</p>
+<p>Substance Painter doesn&#x2019;t have a magic button by any stretch, even if this demo makes it look like it does, but it still feels a bit like magic. Also, you can screenshot some renders and take them with you on the pen drives on your desks.</p>
+<hr>
+<h2 class="mume-header" id="so-how-does-3d-game-art-work">So! How does 3D game art work?</h2>
+
+<p><strong>Triangles!</strong></p>
+<p><img src="assets/these_are_triangles.gif" alt="triangles"><br>
+<em>the kings of 3D graphics, as shown at <a href="http://www.geom.uiuc.edu/~wanous/definitionofatriangle.html">uiuc.edu</a></em></p>
+<ul>
+<li>Lot of tools to make these, arrange them and colour them in</li>
+<li>Half a gpu&#x2019;s job is moving these, the other is painting them.</li>
+<li>It&#x2019;s what reviewers are talking about with polygons per frame or per second when a new Playstation is about to drop. We&#x2019;ll come back to those and fill rate.</li>
+</ul>
+<hr>
+<h3 class="mume-header" id="triangles-are-really-flat">Triangles are really flat</h3>
+
+<p>Triangles, no matter how you abuse them, are flat.</p>
+<blockquote>
+<p>A triangle is the simplest shape we can make.</p>
+</blockquote>
+<p>Now, add another triangle, and things start to get interesting. We have a lot of play. then another, we can make a roiling carpet. If you have enough of them, and they&#x2019;re small enough, and you are free to make the edges as long or short as you need, you can make anything.</p>
+<p>About half the power of this goes into triangles:</p>
+<p><img src="assets/2080_exposed.jpg" alt="2080 strix"></p>
+<p>Lets look at our axe as&#x2026; triangles a game can push.</p>
+<h3 class="mume-header" id="game-resolution-info">Game resolution info:</h3>
+
+<p>Very low poly might be 500 or fewer! <strong>Tom talian&#x2019;s low poly, painted TF2 characters</strong>.</p>
+<ul>
+<li>One texture, 256x256.</li>
+</ul>
+<p><img src="assets/tf2_low_pyro.jpg" alt="tf2 pyro"></p>
+<p>Quite high poly, we have <strong>DVa from overwatch</strong>.</p>
+<ul>
+<li>20,000 polys for her,</li>
+<li>22,000 for her mech base,</li>
+<li>15,000 for mech guns.</li>
+<li>10 textures just for her body and hair, some asa large as 1024x2048</li>
+</ul>
+<p><img src="assets/dva_in_game.jpg" alt="dva textures"><br>
+<img src="assets/dva_textures.jpg" alt="dva textures"><br>
+<img src="assets/dva_shaded.png" alt="dva shaded"><br>
+<img src="assets/dva_wires.png" alt="dva shaded"></p>
+<hr>
 <h2 class="mume-header" id="there-are-in-game-resolution-meshes-and-the-meshes-we-really-make">There are in game resolution meshes, and the meshes we really make</h2>
 
 <p>30K vs 12 million</p>
-<p>** Look at our low poly axe. **</p>
-<p>** Show the original in ZBrush **<br>
-Now this guy is the original axe. See all those little details? A big triangle doesn&#x2019;t have those.</p>
-<h3 class="mume-header" id="there-are-polygons-and-there-are-textures">There are polygons, and there are textures</h3>
-
-<p>People got really good at painting in the missing detail.<br>
-But: no reaction to light! Turn them upside down and the light seems to come from the ground.</p>
-<h2 class="mume-header" id="what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail">What we really need is that detail so light can shine on all our nice detail</h2>
+<blockquote>
+<p>Open substance, look at our sad low poly axe.<br>
+<img src="assets/axe_wires.png" alt="axe wires"></p>
+</blockquote>
+<p>Now this guy is the original axe. See all those little details? A big triangle doesn&#x2019;t have those.</p>
+<ul>
+<li>Hold one up to a button or an eyebrow, that&#x2019;s one big flat nothing.</li>
+</ul>
+<p><img src="assets/axe_high.png" alt="axe wires"></p>
+<hr>
+<h3 class="mume-header" id="what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail">What we really need is that detail so light can shine on all our nice detail</h3>
 
 <p>How do we get it back? Well, graphics cards are built to do what you just saw. Put nice textures on as many polygons as possible.</p>
-<p>It has two sides, oen that moves the triangles and the other that draws the textures. Turns out it has some power left to burn, and clever people found a way to add textures that bring all the information back&#x2026; kinda! Close enough! And fast.</p>
-<p>** Import the normal map, apply some metal **</p>
+<p><img src="assets/2080_strix.jpg" alt="gpu 2"></p>
+<p>It has two pipelines:</p>
+<ul>
+<li>one that moves those triangles</li>
+<li>and the other that draws the textures.</li>
+</ul>
+<p>Turns out the texturing circuitry has power left to burn, and clever people found a way to bring back all that physical form by using textures as data rather than paint info, and they can use that data to draw the surface detail.</p>
+<p>It has limits but it&#x2019;s close enough! And fast.</p>
+<blockquote>
+<p>Importing normal map</p>
+</blockquote>
+<hr>
 <h3 class="mume-header" id="apply-a-few-materials">Apply a few materials</h3>
 
-<p>Oooo</p>
-<p>** Apply some other materials, some basic wood, some basic cloth **</p>
+<p>Materials! We&#x2019;re kinda getting somewhere.</p>
+<blockquote>
+<p>Try materials, masking with colour</p>
+</blockquote>
 <h2 class="mume-header" id="lighting">Lighting</h2>
 
 <p>Well, it&#x2019;s all a bit black and white isn&#x2019;t it? Do we have to paint in moodlighting?</p>
-<p>** Switch environment maps. Rotate them **</p>
+<blockquote>
+<p>First play with environments, shader quality</p>
+</blockquote>
+<hr>
 <h2 class="mume-header" id="procedural-power">Procedural power!</h2>
 
-<p>Okay that&#x2019;s all nice, but we still have a lot of painting to do. Allt he edges of the metal have no damage, the wood isn&#x2019;t shiney where you&#x2019;ve touched it.</p>
-<p>Well it turns out those smart people found other ways to use textures. Like to say where edge wear is likely, or where light can&#x2019;t reach. It takes a long time to bake these maps, but once they&#x2019;re made, painter can make textures out of them.  And we can bake out the maps that any game engine needs to run quick!</p>
-<p>** Bring in the other maps and bam, smart materials**</p>
+<p>Still, these materials just wrap around the shape and make it look shrinkwrapped. There&#x2019;s no wear and tear, no dirt in the crevices, no shine from use or friction.</p>
+<ul>
+<li>Turned out smart people found other ways to use textures.</li>
+<li>What sticks out, what&#x2019;s protected? Where can light reach?</li>
+<li>What&#x2019;s up, down?</li>
+</ul>
+<blockquote>
+<p>Import the other maps and see some real smart materials in action</p>
+</blockquote>
+<p>It takes a long time to bake these maps, but once they&#x2019;re made, painter can make textures out of them.  And we can bake out the maps that any game engine needs to run quick!</p>
+<blockquote>
+<p>Customise the textures! Try messing with colorus</p>
+</blockquote>
+<hr>
 <h2 class="mume-header" id="finally-were-missing-something-this-doesnt-look-like-a-ps4-game">Finally, we&#x2019;re missing something, this doesn&#x2019;t look like a PS4 game</h2>
 
-<p>** Turn on some post effects: bloom, contrast, depth of field **</p>
+<blockquote>
+<p>Turn on some post effects: bloom, contrast, depth of field</p>
+</blockquote>
 <p>Hooray!</p>
+<hr>
 <h2 class="mume-header" id="take-home">take home</h2>
 
-<p>Take some screen shots!<br>
-Set up an export maybe that they can view on their own computers at home??  FBX, some maps already set for a free viewer?</p>
+<blockquote>
+<p>Take some screen shots!</p>
+</blockquote>
+<p>Try out iRay, use the snipping tool.</p>
+<p><img src="assets/snipping.png" alt="snipping tool"></p>
 
       </div>
       
