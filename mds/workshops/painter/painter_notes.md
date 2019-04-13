@@ -7,20 +7,22 @@ Exploring game asset creation from high res meshes with Substance Painter.
 
 <!-- code_chunk_output -->
 
-- [Substance Painter Workshop](#substance-painter-workshop)
-  - [Welcome](#welcome)
-  - [Games](#games)
-  - [Today's goal](#todays-goal)
-  - [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
-    - [Triangles are really flat](#triangles-are-really-flat)
-    - [Game resolution info:](#game-resolution-info)
-  - [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
-    - [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
-    - [Apply a few materials](#apply-a-few-materials)
-  - [Lighting](#lighting)
-  - [Procedural power!](#procedural-power)
-  - [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
-  - [take home](#take-home)
+1. [Substance Painter Workshop](#substance-painter-workshop)
+   1. [Welcome](#welcome)
+   2. [Games](#games)
+   3. [Today's goal](#todays-goal)
+   4. [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
+      1. [Triangles are really flat](#triangles-are-really-flat)
+      2. [Few triangles and hand painting](#few-triangles-and-hand-painting)
+      3. [More polys much more paint](#more-polys-much-more-paint)
+      4. [High poly plus normal maps (and more)](#high-poly-plus-normal-maps-and-more)
+   5. [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
+      1. [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
+      2. [Apply a few materials](#apply-a-few-materials)
+   6. [Lighting](#lighting)
+   7. [Procedural power!](#procedural-power)
+   8. [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
+   9. [take home](#take-home)
 
 <!-- /code_chunk_output -->
 
@@ -87,12 +89,30 @@ About half the power of this goes into triangles:
 
 Lets look at our axe as.. triangles a game can push.
 
-### Game resolution info:
+### Few triangles and hand painting
+
+This is how things were done up until around when the Doom reboot came out. It's still how things are done on cute mobile games.
 
 Very low poly might be 500 or fewer! **Tom talian's low poly, painted TF2 characters**. 
 * One texture, 256x256.
 
 ![tf2 pyro](assets/tf2_low_pyro.jpg)
+___
+
+### More polys much more paint
+
+Those looked pretty cool, but things got really going when people could paint higher res textures in photoshop and use more polys:
+
+https://www.artstation.com/artwork/DOLmR
+![mina](assets/hand_paint_5_root_4.jpg)
+
+Mina Kim hand paint example](https://www.artstation.com/artwork/DOLmR)
+
+Why wasn't this enough? Well those hand painted textures can't react to light! It's like when you shine a light on a real painting: you get a big glossy hilight and the illusion breaks down.
+
+___
+
+### High poly plus normal maps (and more)
 
 Quite high poly, we have **DVa from overwatch**. 
 * 20,000 polys for her, 
@@ -132,6 +152,9 @@ It has two pipelines:
 
 Turns out the texturing circuitry has power left to burn, and clever people found a way to bring back all that physical form by using textures as data rather than paint info, and they can use that data to draw the surface detail.
 
+![lava1](assets/normal_lava_1.jpg)
+![lava2](assets/normal_lava_2.jpg)
+
 It has limits but it's close enough! And fast.
 
 > Importing normal map 
@@ -146,7 +169,9 @@ Materials! We're kinda getting somewhere.
 
 ## Lighting
 
-Well, it's all a bit black and white isn't it? Do we have to paint in moodlighting?
+The whole point of normal maps and pbr texturing is that it reacts to light in ways we couldn't with handpainting.
+
+The key to making that look amazing is **image based lighting**, so lets try some environments.
 
 > First play with environments, shader quality
 
