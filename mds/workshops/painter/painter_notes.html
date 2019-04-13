@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -26,42 +26,44 @@
       <h1 class="mume-header" id="substance-painter-workshop">Substance Painter Workshop</h1>
 
 <p>Exploring game asset creation from high res meshes with Substance Painter.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#substance-painter-workshop">Substance Painter Workshop</a>
-<ul>
+<ol>
 <li><a href="#welcome">Welcome</a></li>
 <li><a href="#games">Games</a></li>
-<li><a href="#todays-goal">Today&#x2019;s goal</a></li>
+<li><a href="#todays-goal">Today&apos;s goal</a></li>
 <li><a href="#so-how-does-3d-game-art-work">So! How does 3D game art work?</a>
-<ul>
+<ol>
 <li><a href="#triangles-are-really-flat">Triangles are really flat</a></li>
-<li><a href="#game-resolution-info">Game resolution info:</a></li>
-</ul>
+<li><a href="#few-triangles-and-hand-painting">Few triangles and hand painting</a></li>
+<li><a href="#more-polys-much-more-paint">More polys much more paint</a></li>
+<li><a href="#high-poly-plus-normal-maps-and-more">High poly plus normal maps (and more)</a></li>
+</ol>
 </li>
 <li><a href="#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make">There are in game resolution meshes, and the meshes we really make</a>
-<ul>
+<ol>
 <li><a href="#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail">What we really need is that detail so light can shine on all our nice detail</a></li>
 <li><a href="#apply-a-few-materials">Apply a few materials</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#lighting">Lighting</a></li>
 <li><a href="#procedural-power">Procedural power!</a></li>
-<li><a href="#finally-were-missing-something-this-doesnt-look-like-a-ps4-game">Finally, we&#x2019;re missing something, this doesn&#x2019;t look like a PS4 game</a></li>
+<li><a href="#finally-were-missing-something-this-doesnt-look-like-a-ps4-game">Finally, we&apos;re missing something, this doesn&apos;t look like a PS4 game</a></li>
 <li><a href="#take-home">take home</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <hr>
 <h2 class="mume-header" id="welcome">Welcome</h2>
 
 <ul>
 <li>Who am I</li>
-<li>Who&#x2019;s here?</li>
+<li>Who&apos;s here?</li>
 </ul>
 <hr>
 <h2 class="mume-header" id="games">Games</h2>
 
-<p>Whatever else we have in common, we&#x2019;re all here because we like games.</p>
+<p>Whatever else we have in common, we&apos;re all here because we like games.</p>
 <p>Who plays:</p>
 <ul>
 <li>rts games?</li>
@@ -73,14 +75,14 @@
 </ul>
 <p>There are a lot of games in a lot of genres, they all need art, and increasingly 3D.</p>
 <blockquote>
-<p>I&#x2019;ll be showing a stylized axe today that belongs most in maybe a 3rd person fantasy brawler.</p>
+<p>I&apos;ll be showing a stylized axe today that belongs most in maybe a 3rd person fantasy brawler.</p>
 </blockquote>
 <p><img src="assets/axe_with_concept.jpg" alt="Axey"></p>
 <hr>
-<h2 class="mume-header" id="todays-goal">Today&#x2019;s goal</h2>
+<h2 class="mume-header" id="todays-goal">Today&apos;s goal</h2>
 
-<p>Some of you will have done some art or 3D, some of you won&#x2019;t. But whatever your level, whatever part of this resonates with you, I hope you all feel a little walk away feeling a bit of the, sort of buzz I do when I see an idea turning into a real game model.</p>
-<p>Substance Painter doesn&#x2019;t have a magic button by any stretch, even if this demo makes it look like it does, but it still feels a bit like magic. Also, you can screenshot some renders and take them with you on the pen drives on your desks.</p>
+<p>Some of you will have done some art or 3D, some of you won&apos;t. But whatever your level, whatever part of this resonates with you, I hope you all feel a little walk away feeling a bit of the, sort of buzz I do when I see an idea turning into a real game model.</p>
+<p>Substance Painter doesn&apos;t have a magic button by any stretch, even if this demo makes it look like it does, but it still feels a bit like magic. Also, you can screenshot some renders and take them with you on the pen drives on your desks.</p>
 <hr>
 <h2 class="mume-header" id="so-how-does-3d-game-art-work">So! How does 3D game art work?</h2>
 
@@ -89,8 +91,8 @@
 <em>the kings of 3D graphics, as shown at <a href="http://www.geom.uiuc.edu/~wanous/definitionofatriangle.html">uiuc.edu</a></em></p>
 <ul>
 <li>Lot of tools to make these, arrange them and colour them in</li>
-<li>Half a gpu&#x2019;s job is moving these, the other is painting them.</li>
-<li>It&#x2019;s what reviewers are talking about with polygons per frame or per second when a new Playstation is about to drop. We&#x2019;ll come back to those and fill rate.</li>
+<li>Half a gpu&apos;s job is moving these, the other is painting them.</li>
+<li>It&apos;s what reviewers are talking about with polygons per frame or per second when a new Playstation is about to drop. We&apos;ll come back to those and fill rate.</li>
 </ul>
 <hr>
 <h3 class="mume-header" id="triangles-are-really-flat">Triangles are really flat</h3>
@@ -99,17 +101,29 @@
 <blockquote>
 <p>A triangle is the simplest shape we can make.</p>
 </blockquote>
-<p>Now, add another triangle, and things start to get interesting. We have a lot of play. then another, we can make a roiling carpet. If you have enough of them, and they&#x2019;re small enough, and you are free to make the edges as long or short as you need, you can make anything.</p>
+<p>Now, add another triangle, and things start to get interesting. We have a lot of play. then another, we can make a roiling carpet. If you have enough of them, and they&apos;re small enough, and you are free to make the edges as long or short as you need, you can make anything.</p>
 <p>About half the power of this goes into triangles:</p>
 <p><img src="assets/2080_exposed.jpg" alt="2080 strix"></p>
-<p>Lets look at our axe as&#x2026; triangles a game can push.</p>
-<h3 class="mume-header" id="game-resolution-info">Game resolution info:</h3>
+<p>Lets look at our axe as.. triangles a game can push.</p>
+<h3 class="mume-header" id="few-triangles-and-hand-painting">Few triangles and hand painting</h3>
 
-<p>Very low poly might be 500 or fewer! <strong>Tom talian&#x2019;s low poly, painted TF2 characters</strong>.</p>
+<p>This is how things were done up until around when the Doom reboot came out. It&apos;s still how things are done on cute mobile games.</p>
+<p>Very low poly might be 500 or fewer! <strong>Tom talian&apos;s low poly, painted TF2 characters</strong>.</p>
 <ul>
 <li>One texture, 256x256.</li>
 </ul>
 <p><img src="assets/tf2_low_pyro.jpg" alt="tf2 pyro"></p>
+<hr>
+<h3 class="mume-header" id="more-polys-much-more-paint">More polys much more paint</h3>
+
+<p>Those looked pretty cool, but things got really going when people could paint higher res textures in photoshop and use more polys:</p>
+<p><a href="https://www.artstation.com/artwork/DOLmR">https://www.artstation.com/artwork/DOLmR</a><br>
+<img src="assets/hand_paint_5_root_4.jpg" alt="mina"></p>
+<p>Mina Kim hand paint example](<a href="https://www.artstation.com/artwork/DOLmR">https://www.artstation.com/artwork/DOLmR</a>)</p>
+<p>Why wasn&apos;t this enough? Well those hand painted textures can&apos;t react to light! It&apos;s like when you shine a light on a real painting: you get a big glossy hilight and the illusion breaks down.</p>
+<hr>
+<h3 class="mume-header" id="high-poly-plus-normal-maps-and-more">High poly plus normal maps (and more)</h3>
+
 <p>Quite high poly, we have <strong>DVa from overwatch</strong>.</p>
 <ul>
 <li>20,000 polys for her,</li>
@@ -129,9 +143,9 @@
 <p>Open substance, look at our sad low poly axe.<br>
 <img src="assets/axe_wires.png" alt="axe wires"></p>
 </blockquote>
-<p>Now this guy is the original axe. See all those little details? A big triangle doesn&#x2019;t have those.</p>
+<p>Now this guy is the original axe. See all those little details? A big triangle doesn&apos;t have those.</p>
 <ul>
-<li>Hold one up to a button or an eyebrow, that&#x2019;s one big flat nothing.</li>
+<li>Hold one up to a button or an eyebrow, that&apos;s one big flat nothing.</li>
 </ul>
 <p><img src="assets/axe_high.png" alt="axe wires"></p>
 <hr>
@@ -145,41 +159,44 @@
 <li>and the other that draws the textures.</li>
 </ul>
 <p>Turns out the texturing circuitry has power left to burn, and clever people found a way to bring back all that physical form by using textures as data rather than paint info, and they can use that data to draw the surface detail.</p>
-<p>It has limits but it&#x2019;s close enough! And fast.</p>
+<p><img src="assets/normal_lava_1.jpg" alt="lava1"><br>
+<img src="assets/normal_lava_2.jpg" alt="lava2"></p>
+<p>It has limits but it&apos;s close enough! And fast.</p>
 <blockquote>
 <p>Importing normal map</p>
 </blockquote>
 <hr>
 <h3 class="mume-header" id="apply-a-few-materials">Apply a few materials</h3>
 
-<p>Materials! We&#x2019;re kinda getting somewhere.</p>
+<p>Materials! We&apos;re kinda getting somewhere.</p>
 <blockquote>
 <p>Try materials, masking with colour</p>
 </blockquote>
 <h2 class="mume-header" id="lighting">Lighting</h2>
 
-<p>Well, it&#x2019;s all a bit black and white isn&#x2019;t it? Do we have to paint in moodlighting?</p>
+<p>The whole point of normal maps and pbr texturing is that it reacts to light in ways we couldn&apos;t with handpainting.</p>
+<p>The key to making that look amazing is <strong>image based lighting</strong>, so lets try some environments.</p>
 <blockquote>
 <p>First play with environments, shader quality</p>
 </blockquote>
 <hr>
 <h2 class="mume-header" id="procedural-power">Procedural power!</h2>
 
-<p>Still, these materials just wrap around the shape and make it look shrinkwrapped. There&#x2019;s no wear and tear, no dirt in the crevices, no shine from use or friction.</p>
+<p>Still, these materials just wrap around the shape and make it look shrinkwrapped. There&apos;s no wear and tear, no dirt in the crevices, no shine from use or friction.</p>
 <ul>
 <li>Turned out smart people found other ways to use textures.</li>
-<li>What sticks out, what&#x2019;s protected? Where can light reach?</li>
-<li>What&#x2019;s up, down?</li>
+<li>What sticks out, what&apos;s protected? Where can light reach?</li>
+<li>What&apos;s up, down?</li>
 </ul>
 <blockquote>
 <p>Import the other maps and see some real smart materials in action</p>
 </blockquote>
-<p>It takes a long time to bake these maps, but once they&#x2019;re made, painter can make textures out of them.  And we can bake out the maps that any game engine needs to run quick!</p>
+<p>It takes a long time to bake these maps, but once they&apos;re made, painter can make textures out of them.  And we can bake out the maps that any game engine needs to run quick!</p>
 <blockquote>
 <p>Customise the textures! Try messing with colorus</p>
 </blockquote>
 <hr>
-<h2 class="mume-header" id="finally-were-missing-something-this-doesnt-look-like-a-ps4-game">Finally, we&#x2019;re missing something, this doesn&#x2019;t look like a PS4 game</h2>
+<h2 class="mume-header" id="finally-were-missing-something-this-doesnt-look-like-a-ps4-game">Finally, we&apos;re missing something, this doesn&apos;t look like a PS4 game</h2>
 
 <blockquote>
 <p>Turn on some post effects: bloom, contrast, depth of field</p>

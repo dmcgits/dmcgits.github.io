@@ -7,22 +7,22 @@ Exploring game asset creation from high res meshes with Substance Painter.
 
 <!-- code_chunk_output -->
 
-1. [Substance Painter Workshop](#substance-painter-workshop)
-   1. [Welcome](#welcome)
-   2. [Games](#games)
-   3. [Today's goal](#todays-goal)
-   4. [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
-      1. [Triangles are really flat](#triangles-are-really-flat)
-      2. [Few triangles and hand painting](#few-triangles-and-hand-painting)
-      3. [More polys much more paint](#more-polys-much-more-paint)
-      4. [High poly plus normal maps (and more)](#high-poly-plus-normal-maps-and-more)
-   5. [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
-      1. [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
-      2. [Apply a few materials](#apply-a-few-materials)
-   6. [Lighting](#lighting)
-   7. [Procedural power!](#procedural-power)
-   8. [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
-   9. [take home](#take-home)
+* [Substance Painter Workshop](#substance-painter-workshop)
+	* [Welcome](#welcome)
+	* [Games](#games)
+	* [Today's goal](#todays-goal)
+	* [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
+		* [Triangles are really flat](#triangles-are-really-flat)
+		* [Few triangles and hand painting](#few-triangles-and-hand-painting)
+		* [More polys much more paint](#more-polys-much-more-paint)
+		* [High poly plus normal maps (and more)](#high-poly-plus-normal-maps-and-more)
+	* [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
+		* [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
+		* [Apply a few materials](#apply-a-few-materials)
+	* [Lighting](#lighting)
+	* [Procedural power!](#procedural-power)
+	* [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
+	* [take home](#take-home)
 
 <!-- /code_chunk_output -->
 
