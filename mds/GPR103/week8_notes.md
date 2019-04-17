@@ -13,14 +13,12 @@ Atlasses, loading and swapping sprites, loading and saving to JSON.
 		* [Now](#now)
 		* [Atlasses, sprite sheets](#atlasses-sprite-sheets)
 		* [Unity atlas creator](#unity-atlas-creator)
-	* [Unity UI](#unity-ui)
-		* [Buttons and states](#buttons-and-states)
-		* [UI canvas is huge](#ui-canvas-is-huge)
-		* [Uh oh. Different events.](#uh-oh-different-events)
+	* [New example git repo](#new-example-git-repo)
+	* [Loading from a sprite atlas](#loading-from-a-sprite-atlas)
+		* [The code:](#the-code)
 	* [Load/Save](#loadsave)
 		* [What? (config/state)](#what-configstate)
 		* [Keeping your stuff ready to save](#keeping-your-stuff-ready-to-save)
-		* [Git repo](#git-repo)
 		* [Parser/JSON](#parserjson)
 		* [Using Json.net in unity](#using-jsonnet-in-unity)
 	* [Writing/Reading files.](#writingreading-files)
@@ -82,70 +80,54 @@ They're created like materials and sprites, then you populate them:
 
 ___
 
-## Unity UI
+## New example git repo
 
-I started to make the buttons manually, to stick with just using sprites and code, but no need to reinvent that on assessment 2. I used the unity UI goodies.
+I've made a simplified example. Grab this project that uses the sprite swapper from git. You can download it into a folder called _week8_code_ (for example) using this command, or just use GitKraken/SourceTree.
 
-### Buttons and states
+`git clone https://github.com/dmcgits/gpr_week8.git week8_code`
 
-We can create a button by:
-1. Creating a Canvas _GameObject -> UI -> Canvas_.
-2. Tweak canvas settings (picture below)
-3. With canvas selected, _GameObject -> UI -> Button_
+![save switch](assets/week8/sprite_save_switch.jpg)
 
-The easy part was using a UI button to drop in the states of my button sprite.
+---
 
-![ui canvas button](assets/week7/ui_canvas_button.png)
+## Loading from a sprite atlas
 
-___
+There are two easy steps to loading from a sprite atlas. First here's our Graphics folder, note the file names and the packed atlas preview.
 
-### UI canvas is huge
-Working in a big off screen thing that it projects back to screen space. 
-* a lot of power
-* a little odd to work with at first
+![atlas folder preview](assets/week8/atlas_folder_preview.png)
 
-![big ui](assets/week7/big_ui.png)
+Here's the inspector for our character game object, with its **sprite renderer** and slot for a sprite **atlas**.
 
-___
+![sprite inspector](assets/week8/inspector_sprite.png)
 
-### Uh oh. Different events.
+### The code:
 
-Yeah the UI stuff doesn't use the same events, or box colliders. So, how do we integrate it into our controls->model->readouts design.
+>The code, then, just needs to change the sprite in the renderer, and do so with a sprite pulled from the atlas by file name.
 
-Good news: the model doesn't care, it looks like we'd expect. These code snips are from PrevNextItemOnClick, a monobehaviour component I add to any gui buttons with left or right arrows.
+In this simple example I've put it in `SwappySprite`, a component on the character. In your customiser you'd put it on the model.
 
 ```cs
-PrevNextItemOnClick.OnPrevNextRequested += OnPrevNextHandler;
-```
+[SerializeField]    // Make a slot for our sprite atlas in the inspector
+private SpriteAtlas _atlas;  // Make sure you drag it over from the project
 
-The tricky bit isn't too tricky either.
+private SpriteRenderer _renderer; // keep a reference to our sprite renderer
 
-```cs
-	// Set up an outgoing event just like last week
-	public static event Action<string> OnPrevNextRequested = delegate { };
-	// Get ready to store a button
-    private Button btn;
-	...
-	private void Start()
-	{
-		// On Start, grab the button component
-		btn = gameObject.GetComponent<Button>();
-        
-		// Use the special onClick events "addListener" function 
-		// every button exposes. I just googled this till I figured it out.
-		btn.onClick.AddListener(OnMouseClick);
-	}
+private void Awake()
+{
+  _renderer = gameObject.GetComponent<SpriteRenderer>(); // get reference to renderer
+}
 
-	// In OnMouseClick do exactly what we did last week with OnMouseUpAsButton
-	void OnMouseClick()
+ private void ChangeSprite()
     {
-        //Debug.Log(gameObject.name);
-        OnPrevNextRequested(item + "_" + previousOrNext);
+        // We can assign directly to the renderer's sprite, and
+        // the atlas can give us any packed sprite by file name.
+        _renderer.sprite = _atlas.GetSprite("spr_zelda");
     }
 ```
 
 ## Load/Save
 
+Before we ask how to save, we need to know what we're saving.
 
 ### What? (config/state)
 
@@ -185,15 +167,6 @@ private void Awake()
 }
 
 ```
-
-### Git repo
-
-Grab the little app that uses the sprite swapper. You can download it into a folder called _week8_code_ (for example) like so. Or use GitKraken/SourceTree.
-
-`git clone https://github.com/dmcgits/gpr_week8.git week8_code`
-
-![save switch](assets/week8/sprite_save_switch.jpg)
-
 
 ### Parser/JSON
 

@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -26,39 +26,37 @@
       <h1 class="mume-header" id="week8-sprites-saving-state">Week8: Sprites, saving state</h1>
 
 <p>Atlasses, loading and swapping sprites, loading and saving to JSON.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week8-sprites-saving-state">Week8: Sprites, saving state</a>
-<ol>
+<ul>
 <li><a href="#sprites">Sprites</a>
-<ol>
+<ul>
 <li><a href="#quick-history">Quick history</a></li>
 <li><a href="#now">Now</a></li>
 <li><a href="#atlasses-sprite-sheets">Atlasses, sprite sheets</a></li>
 <li><a href="#unity-atlas-creator">Unity atlas creator</a></li>
-</ol>
+</ul>
 </li>
-<li><a href="#unity-ui">Unity UI</a>
-<ol>
-<li><a href="#buttons-and-states">Buttons and states</a></li>
-<li><a href="#ui-canvas-is-huge">UI canvas is huge</a></li>
-<li><a href="#uh-oh-different-events">Uh oh. Different events.</a></li>
-</ol>
+<li><a href="#new-example-git-repo">New example git repo</a></li>
+<li><a href="#loading-from-a-sprite-atlas">Loading from a sprite atlas</a>
+<ul>
+<li><a href="#the-code">The code:</a></li>
+</ul>
 </li>
 <li><a href="#loadsave">Load/Save</a>
-<ol>
+<ul>
 <li><a href="#what-configstate">What? (config/state)</a></li>
 <li><a href="#keeping-your-stuff-ready-to-save">Keeping your stuff ready to save</a></li>
-<li><a href="#git-repo">Git repo</a></li>
 <li><a href="#parserjson">Parser/JSON</a></li>
 <li><a href="#using-jsonnet-in-unity">Using Json.net in unity</a></li>
-</ol>
+</ul>
 </li>
 <li><a href="#writingreading-files">Writing/Reading files.</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#todo">Todo</a></li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 <h2 class="mume-header" id="sprites">Sprites</h2>
 
 <p>What are they? How to use?</p>
@@ -84,14 +82,14 @@
 <hr>
 <h3 class="mume-header" id="now">Now</h3>
 
-<p>Sprites aren&apos;t really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware</p>
+<p>Sprites aren&#x2019;t really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware</p>
 <hr>
 <h3 class="mume-header" id="atlasses-sprite-sheets">Atlasses, sprite sheets</h3>
 
 <p>Keeping draw calls, memory usage, file size down.</p>
 <h3 class="mume-header" id="unity-atlas-creator">Unity atlas creator</h3>
 
-<p>They&apos;re created like materials and sprites, then you populate them:</p>
+<p>They&#x2019;re created like materials and sprites, then you populate them:</p>
 <ol>
 <li>In project window right click-&gt;create-&gt;sprite atlas</li>
 <li>In the atlas under <em>Objects For Packing</em> you can add folders, sprites, 2D textures. <strong>I added my folder and it auto packs my sprites as I add images</strong></li>
@@ -99,71 +97,56 @@
 </ol>
 <p><img src="assets/week7/atlas_charabits.png" alt="atlas charabits"></p>
 <hr>
-<h2 class="mume-header" id="unity-ui">Unity UI</h2>
+<h2 class="mume-header" id="new-example-git-repo">New example git repo</h2>
 
-<p>I started to make the buttons manually, to stick with just using sprites and code, but no need to reinvent that on assessment 2. I used the unity UI goodies.</p>
-<h3 class="mume-header" id="buttons-and-states">Buttons and states</h3>
-
-<p>We can create a button by:</p>
-<ol>
-<li>Creating a Canvas <em>GameObject -&gt; UI -&gt; Canvas</em>.</li>
-<li>Tweak canvas settings (picture below)</li>
-<li>With canvas selected, <em>GameObject -&gt; UI -&gt; Button</em></li>
-</ol>
-<p>The easy part was using a UI button to drop in the states of my button sprite.</p>
-<p><img src="assets/week7/ui_canvas_button.png" alt="ui canvas button"></p>
+<p>I&#x2019;ve made a simplified example. Grab this project that uses the sprite swapper from git. You can download it into a folder called <em>week8_code</em> (for example) using this command, or just use GitKraken/SourceTree.</p>
+<p><code>git clone https://github.com/dmcgits/gpr_week8.git week8_code</code></p>
+<p><img src="assets/week8/sprite_save_switch.jpg" alt="save switch"></p>
 <hr>
-<h3 class="mume-header" id="ui-canvas-is-huge">UI canvas is huge</h3>
+<h2 class="mume-header" id="loading-from-a-sprite-atlas">Loading from a sprite atlas</h2>
 
-<p>Working in a big off screen thing that it projects back to screen space.</p>
-<ul>
-<li>a lot of power</li>
-<li>a little odd to work with at first</li>
-</ul>
-<p><img src="assets/week7/big_ui.png" alt="big ui"></p>
-<hr>
-<h3 class="mume-header" id="uh-oh-different-events">Uh oh. Different events.</h3>
+<p>There are two easy steps to loading from a sprite atlas. First here&#x2019;s our Graphics folder, note the file names and the packed atlas preview.</p>
+<p><img src="assets/week8/atlas_folder_preview.png" alt="atlas folder preview"></p>
+<p>Here&#x2019;s the inspector for our character game object, with its <strong>sprite renderer</strong> and slot for a sprite <strong>atlas</strong>.</p>
+<p><img src="assets/week8/inspector_sprite.png" alt="sprite inspector"></p>
+<h3 class="mume-header" id="the-code">The code:</h3>
 
-<p>Yeah the UI stuff doesn&apos;t use the same events, or box colliders. So, how do we integrate it into our controls-&gt;model-&gt;readouts design.</p>
-<p>Good news: the model doesn&apos;t care, it looks like we&apos;d expect. These code snips are from PrevNextItemOnClick, a monobehaviour component I add to any gui buttons with left or right arrows.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp">PrevNextItemOnClick<span class="token punctuation">.</span>OnPrevNextRequested <span class="token operator">+=</span> OnPrevNextHandler<span class="token punctuation">;</span>
-</pre><p>The tricky bit isn&apos;t too tricky either.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp">	<span class="token comment">// Set up an outgoing event just like last week</span>
-	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">event</span> Action<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> OnPrevNextRequested <span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-	<span class="token comment">// Get ready to store a button</span>
-    <span class="token keyword">private</span> <span class="token class-name">Button</span> btn<span class="token punctuation">;</span>
-	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token comment">// On Start, grab the button component</span>
-		btn <span class="token operator">=</span> gameObject<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetComponent</span><span class="token punctuation">&lt;</span><span class="token class-name">Button</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        
-		<span class="token comment">// Use the special onClick events &quot;addListener&quot; function </span>
-		<span class="token comment">// every button exposes. I just googled this till I figured it out.</span>
-		btn<span class="token punctuation">.</span>onClick<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span>OnMouseClick<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
+<blockquote>
+<p>The code, then, just needs to change the sprite in the renderer, and do so with a sprite pulled from the atlas by file name.</p>
+</blockquote>
+<p>In this simple example I&#x2019;ve put it in <code>SwappySprite</code>, a component on the character. In your customiser you&#x2019;d put it on the model.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>    <span class="token comment">// Make a slot for our sprite atlas in the inspector</span>
+<span class="token keyword">private</span> <span class="token class-name">SpriteAtlas</span> _atlas<span class="token punctuation">;</span>  <span class="token comment">// Make sure you drag it over from the project</span>
 
-	<span class="token comment">// In OnMouseClick do exactly what we did last week with OnMouseUpAsButton</span>
-	<span class="token keyword">void</span> <span class="token function">OnMouseClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">SpriteRenderer</span> _renderer<span class="token punctuation">;</span> <span class="token comment">// keep a reference to our sprite renderer</span>
+
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Awake</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  _renderer <span class="token operator">=</span> gameObject<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetComponent</span><span class="token punctuation">&lt;</span><span class="token class-name">SpriteRenderer</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// get reference to renderer</span>
+<span class="token punctuation">}</span>
+
+ <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">ChangeSprite</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
-        <span class="token comment">//Debug.Log(gameObject.name);</span>
-        <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>item <span class="token operator">+</span> <span class="token string">&quot;_&quot;</span> <span class="token operator">+</span> previousOrNext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// We can assign directly to the renderer&apos;s sprite, and</span>
+        <span class="token comment">// the atlas can give us any packed sprite by file name.</span>
+        _renderer<span class="token punctuation">.</span>sprite <span class="token operator">=</span> _atlas<span class="token punctuation">.</span><span class="token function">GetSprite</span><span class="token punctuation">(</span><span class="token string">&quot;spr_zelda&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </pre><h2 class="mume-header" id="loadsave">Load/Save</h2>
 
+<p>Before we ask how to save, we need to know what we&#x2019;re saving.</p>
 <h3 class="mume-header" id="what-configstate">What? (config/state)</h3>
 
 <blockquote>
 <p>When we save a game or character we want to go back to where we were. Same ammo, same position on map, monsters in same places etc.</p>
 </blockquote>
-<p>If it&apos;s a customiser, we want our character to load, and the interface to be in the right state. If you&apos;re a troll warlock you shouldn&apos;t see a list of human outfits for example.</p>
-<p>To do that, we need to <strong>save the <em>state</em> or <em>config</em> of our game</strong>. If you&apos;re using a model this is easy because your state is really just what the variables in your model currently hold.</p>
+<p>If it&#x2019;s a customiser, we want our character to load, and the interface to be in the right state. If you&#x2019;re a troll warlock you shouldn&#x2019;t see a list of human outfits for example.</p>
+<p>To do that, we need to <strong>save the <em>state</em> or <em>config</em> of our game</strong>. If you&#x2019;re using a model this is easy because your state is really just what the variables in your model currently hold.</p>
 <h3 class="mume-header" id="keeping-your-stuff-ready-to-save">Keeping your stuff ready to save</h3>
 
 <blockquote>
-<p>Whether you use a model/game manager/whatever it&apos;s easiest to save that config if you already have it in an object or a struct.</p>
+<p>Whether you use a model/game manager/whatever it&#x2019;s easiest to save that config if you already have it in an object or a struct.</p>
 </blockquote>
-<p>Here&apos;s an example struct for our sprite swapper. Structs are basically objects/classes minus the functions (except constructor).</p>
+<p>Here&#x2019;s an example struct for our sprite swapper. Structs are basically objects/classes minus the functions (except constructor).</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">struct</span> SpriteConfig
     <span class="token punctuation">{</span>
         <span class="token keyword">public</span> List<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> names<span class="token punctuation">;</span>	<span class="token comment">// file names of our sprites</span>
@@ -186,14 +169,9 @@
         _config <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SpriteConfig</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// create+init an instance of our SpriteConfig struct</span>
 <span class="token punctuation">}</span>
 
-</pre><h3 class="mume-header" id="git-repo">Git repo</h3>
+</pre><h3 class="mume-header" id="parserjson">Parser/JSON</h3>
 
-<p>Grab the little app that uses the sprite swapper. You can download it into a folder called <em>week8_code</em> (for example) like so. Or use GitKraken/SourceTree.</p>
-<p><code>git clone https://github.com/dmcgits/gpr_week8.git week8_code</code></p>
-<p><img src="assets/week8/sprite_save_switch.jpg" alt="save switch"></p>
-<h3 class="mume-header" id="parserjson">Parser/JSON</h3>
-
-<p>If we&apos;re using an object to store all our state, it would be great if we had a text format that easily held object information.</p>
+<p>If we&#x2019;re using an object to store all our state, it would be great if we had a text format that easily held object information.</p>
 <blockquote>
 <p>JSON, or Javascript Object Notation, is that text format.</p>
 <ul>
@@ -202,7 +180,7 @@
 <li>Unity has a crap convertor but the proper c# .net one is free the asset store</li>
 </ul>
 </blockquote>
-<p>Here&apos;s some json. It looks a lot like the set notation we use to define a list or a dictionary. You can see a sub object car, which is maybe a dictionary of cars, or an object with 3 variables. You can clear that up on import by specifying the type to convert to.</p>
+<p>Here&#x2019;s some json. It looks a lot like the set notation we use to define a list or a dictionary. You can see a sub object car, which is maybe a dictionary of cars, or an object with 3 variables. You can clear that up on import by specifying the type to convert to.</p>
 <pre data-role="codeBlock" data-info="json" class="language-json">myObj = <span class="token punctuation">{</span>
   <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
   <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">30</span><span class="token punctuation">,</span>
@@ -216,7 +194,7 @@
 <p><img src="assets/week8/json_dot_net_asset.jpg" alt="Json.net"></p>
 <h3 class="mume-header" id="using-jsonnet-in-unity">Using <a href="http://Json.net">Json.net</a> in unity</h3>
 
-<p>Converting an object from something in memory to a string you can store in a file is known as <em>serializing</em>. It&apos;s just a thing you&apos;ll remember. Serialize, deserialize. A string is a <em>series</em> of characters.</p>
+<p>Converting an object from something in memory to a string you can store in a file is known as <em>serializing</em>. It&#x2019;s just a thing you&#x2019;ll remember. Serialize, deserialize. A string is a <em>series</em> of characters.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> Newtonsoft<span class="token punctuation">.</span>Json<span class="token punctuation">;</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">string</span> <span class="token function">toJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
