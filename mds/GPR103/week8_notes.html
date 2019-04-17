@@ -26,35 +26,39 @@
       <h1 class="mume-header" id="week8-sprites-saving-state">Week8: Sprites, saving state</h1>
 
 <p>Atlasses, loading and swapping sprites, loading and saving to JSON.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week8-sprites-saving-state">Week8: Sprites, saving state</a>
-<ul>
+<ol>
 <li><a href="#sprites">Sprites</a>
-<ul>
+<ol>
 <li><a href="#quick-history">Quick history</a></li>
 <li><a href="#now">Now</a></li>
 <li><a href="#atlasses-sprite-sheets">Atlasses, sprite sheets</a></li>
 <li><a href="#unity-atlas-creator">Unity atlas creator</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#unity-ui">Unity UI</a>
-<ul>
+<ol>
 <li><a href="#buttons-and-states">Buttons and states</a></li>
 <li><a href="#ui-canvas-is-huge">UI canvas is huge</a></li>
 <li><a href="#uh-oh-different-events">Uh oh. Different events.</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#loadsave">Load/Save</a>
-<ul>
-<li><a href="#what-state">What? (state)</a></li>
+<ol>
+<li><a href="#what-configstate">What? (config/state)</a></li>
+<li><a href="#keeping-your-stuff-ready-to-save">Keeping your stuff ready to save</a></li>
+<li><a href="#git-repo">Git repo</a></li>
 <li><a href="#parserjson">Parser/JSON</a></li>
-</ul>
+<li><a href="#using-jsonnet-in-unity">Using Json.net in unity</a></li>
+</ol>
 </li>
+<li><a href="#writingreading-files">Writing/Reading files.</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#todo">Todo</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="sprites">Sprites</h2>
 
 <p>What are they? How to use?</p>
@@ -147,10 +151,108 @@
     <span class="token punctuation">}</span>
 </pre><h2 class="mume-header" id="loadsave">Load/Save</h2>
 
-<h3 class="mume-header" id="what-state">What? (state)</h3>
+<h3 class="mume-header" id="what-configstate">What? (config/state)</h3>
 
+<blockquote>
+<p>When we save a game or character we want to go back to where we were. Same ammo, same position on map, monsters in same places etc.</p>
+</blockquote>
+<p>If it&apos;s a customiser, we want our character to load, and the interface to be in the right state. If you&apos;re a troll warlock you shouldn&apos;t see a list of human outfits for example.</p>
+<p>To do that, we need to <strong>save the <em>state</em> or <em>config</em> of our game</strong>. If you&apos;re using a model this is easy because your state is really just what the variables in your model currently hold.</p>
+<h3 class="mume-header" id="keeping-your-stuff-ready-to-save">Keeping your stuff ready to save</h3>
+
+<blockquote>
+<p>Whether you use a model/game manager/whatever it&apos;s easiest to save that config if you already have it in an object or a struct.</p>
+</blockquote>
+<p>Here&apos;s an example struct for our sprite swapper. Structs are basically objects/classes minus the functions (except constructor).</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">struct</span> SpriteConfig
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> List<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> names<span class="token punctuation">;</span>	<span class="token comment">// file names of our sprites</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> index<span class="token punctuation">;</span>			<span class="token comment">// index of displayed sprite</span>
+
+		<span class="token comment">// simple constructor</span>
+        <span class="token keyword">public</span> <span class="token function">SpriteConfig</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> spriteNames<span class="token punctuation">,</span> <span class="token keyword">int</span> spriteIndex<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            names <span class="token operator">=</span> spriteNames<span class="token punctuation">;</span>
+            index <span class="token operator">=</span> spriteIndex<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Awake</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+		<span class="token comment">// Make a list of filenames</span>
+		<span class="token keyword">var</span> names <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token string">&quot;spr_zelda&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;spr_link&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;spr_zelda_roar&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;spr_link_hide&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        _config <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SpriteConfig</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// create+init an instance of our SpriteConfig struct</span>
+<span class="token punctuation">}</span>
+
+</pre><h3 class="mume-header" id="git-repo">Git repo</h3>
+
+<p>Grab the little app that uses the sprite swapper. You can download it into a folder called <em>week8_code</em> (for example) like so. Or use GitKraken/SourceTree.</p>
+<p><code>git clone https://github.com/dmcgits/gpr_week8.git week8_code</code></p>
+<p><img src="assets/week8/sprite_save_switch.jpg" alt="save switch"></p>
 <h3 class="mume-header" id="parserjson">Parser/JSON</h3>
 
+<p>If we&apos;re using an object to store all our state, it would be great if we had a text format that easily held object information.</p>
+<blockquote>
+<p>JSON, or Javascript Object Notation, is that text format.</p>
+<ul>
+<li>It is a very widely used standard</li>
+<li>There are writers and parsers for most languages</li>
+<li>Unity has a crap convertor but the proper c# .net one is free the asset store</li>
+</ul>
+</blockquote>
+<p>Here&apos;s some json. It looks a lot like the set notation we use to define a list or a dictionary. You can see a sub object car, which is maybe a dictionary of cars, or an object with 3 variables. You can clear that up on import by specifying the type to convert to.</p>
+<pre data-role="codeBlock" data-info="json" class="language-json">myObj = <span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;age&quot;</span><span class="token operator">:</span><span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cars&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;car1&quot;</span><span class="token operator">:</span><span class="token string">&quot;Ford&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;car2&quot;</span><span class="token operator">:</span><span class="token string">&quot;BMW&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;car3&quot;</span><span class="token operator">:</span><span class="token string">&quot;Fiat&quot;</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</pre><p>The Json .net asset on the store: <a href="https://www.assetstore.unity3d.com/en/#!/content/11347">https://www.assetstore.unity3d.com/en/#!/content/11347</a></p>
+<p><img src="assets/week8/json_dot_net_asset.jpg" alt="Json.net"></p>
+<h3 class="mume-header" id="using-jsonnet-in-unity">Using <a href="http://Json.net">Json.net</a> in unity</h3>
+
+<p>Converting an object from something in memory to a string you can store in a file is known as <em>serializing</em>. It&apos;s just a thing you&apos;ll remember. Serialize, deserialize. A string is a <em>series</em> of characters.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> Newtonsoft<span class="token punctuation">.</span>Json<span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">string</span> <span class="token function">toJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// Serialize the SpriteConfig stored in our variable _config</span>
+	<span class="token keyword">string</span> configJson <span class="token operator">=</span> JsonConvert<span class="token punctuation">.</span><span class="token function">SerializeObject</span><span class="token punctuation">(</span>_config<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+	<span class="token keyword">return</span> configJson
+<span class="token punctuation">}</span>
+
+<span class="token class-name">SpriteConfig</span> <span class="token function">fromJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// If we don&apos;t tell deserialize what type of objects to make, it might make </span>
+	<span class="token comment">// conversions (list? array? object?) we don&apos;t want.</span>
+	<span class="token keyword">object</span> config <span class="token operator">=</span> JsonConvert<span class="token punctuation">.</span><span class="token function">DeserializeObject</span><span class="token punctuation">(</span>loadedJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// But we can also pass it in the type we want it to produce using</span>
+	<span class="token comment">// our old friends the angle brackets</span>
+	<span class="token class-name">SpriteConfig</span> loadedConfig <span class="token operator">=</span> JsonConvert<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">DeserializeObject</span><span class="token punctuation">&lt;</span><span class="token class-name">SpriteConfig</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>loadedJson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> loadedConfig<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="writingreading-files">Writing/Reading files.</h2>
+
+<p>Veeeerry tricky.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>IO<span class="token punctuation">;</span>
+
+<span class="token keyword">string</span> _savePath <span class="token operator">=</span> Path<span class="token punctuation">.</span><span class="token function">Combine</span><span class="token punctuation">(</span>Application<span class="token punctuation">.</span>persistentDataPath<span class="token punctuation">,</span> <span class="token string">&quot;swappy_sprite_config.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+File<span class="token punctuation">.</span><span class="token function">WriteAllText</span><span class="token punctuation">(</span>_savePath<span class="token punctuation">,</span> configJson<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Save file</span>
+
+</pre><pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">if</span> <span class="token punctuation">(</span>File<span class="token punctuation">.</span><span class="token function">Exists</span><span class="token punctuation">(</span>_savePath<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// Don&apos;t try to load a file that isn&apos;t there</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">string</span> loadedJson <span class="token operator">=</span> File<span class="token punctuation">.</span><span class="token function">ReadAllText</span><span class="token punctuation">(</span>_savePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>Not really.</p>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <h2 class="mume-header" id="todo">Todo</h2>
