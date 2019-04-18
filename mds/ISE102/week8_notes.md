@@ -3,6 +3,23 @@
 In previous years, week 8 has covered FileIO. Since we don't use it in the assignments, I'm going to use this week to introduce you to Object Oriented Programming instead, because I think you'll all make better snake games.
 
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [ise102 week 8:  Objects and Classes](#ise102-week-8-objects-and-classes)
+	* [OO](#oo)
+	* [Debugging](#debugging)
+		* [Debugger mode](#debugger-mode)
+		* [Stepping](#stepping)
+		* [Step into, step out:](#step-into-step-out)
+		* [Step over:](#step-over)
+		* [Breakpoints](#breakpoints)
+		* [Info!](#info)
+	* [Resources](#resources)
+
+<!-- /code_chunk_output -->
+
 ## OO
 
 ## Debugging
