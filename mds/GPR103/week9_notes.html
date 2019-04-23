@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,21 +25,88 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-9">Week 9</h1>
 
-<p>Recap A2,  Look at A3.</p>
+<p>Recap A2.</p>
+<p>Look at A3. Our goal is to get rid of the blank page and get things OUT of our head and onto paper/documents/hacknplan/github. Give yourself a base.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h2 class="mume-header" id="your-todos-for-next-week">Your todos for next week</h2>
+
+<ul>
+<li>Set up your hacknplan, message me a screenshot on blackboard.</li>
+<li>Watch finding objects video</li>
+<li>Watch prefabs video</li>
+</ul>
 <h2 class="mume-header" id="assessment-2">Assessment 2</h2>
 
 <p>My code. Questions, suggestions.</p>
 <h2 class="mume-header" id="assessment-3">Assessment 3</h2>
 
-<p>Missile command using what we&apos;ve learnt and proper project management.</p>
+<p>Missile command using what we&#x2019;ve learnt and proper project management.</p>
+<h3 class="mume-header" id="gameplay">Gameplay</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Missile_Command#Gameplay">https://en.wikipedia.org/wiki/Missile_Command#Gameplay</a></p>
+<p>A few design points:</p>
+<ul>
+<li>One trackball, 3 buttons</li>
+<li>3 batteries have 10 missiles each, each controlled by one button.</li>
+<li>central battery is fastest</li>
+<li>If you&#x2019;re out of missiles before the attack stops, you must watch helplessly.</li>
+</ul>
 <h3 class="mume-header" id="set-up-hacknplan">Set up Hacknplan</h3>
 
-<h3 class="mume-header" id="sprites">Sprites</h3>
+<p>Think of cards as cohesive chunks of work, and as problems that need cracking. Early ones are pretty easy, setting up</p>
+<ul>
+<li>Set up git</li>
+<li>Set up a working folder for the assessment, make aunity project.</li>
+<li>Example structure:</li>
+</ul>
+<blockquote>
+<ul>
+<li>missileCommand
+<ul>
+<li>unity</li>
+<li>psd</li>
+<li>resources</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>I add a project code to the end of the folders - super useful when they show up in your quick links or recent folders.</p>
+<p><img src="assets/week9/project_folders.png" alt="folders"></p>
+<h3 class="mume-header" id="git-project">Git project</h3>
 
-<h3 class="mume-header" id="git">git.</h3>
+<p>Set it up, then clone the project into your <code>missileCommand/unity</code></p>
+<p><img src="assets/week9/gitkraken_new_clone.png" alt="gitkraken new clone"></p>
+<h3 class="mume-header" id="unity-project">Unity Project</h3>
 
-<h3 class="mume-header" id="base-project">Base project.</h3>
+<p>Create a unity 2d project in another folder, say unityProject or unityTemp</p>
+<p><img src="assets/week9/folders_unity_git.png" alt="unity git folders"></p>
+<ul>
+<li>Now you can move the contents of the unityProject folder over to the unity folder you checked out from git and delete the empty folder.</li>
+<li>Changes appear in gitkraken</li>
+<li>Stage all the files, commit, push.</li>
+</ul>
+<h2 class="mume-header" id="systems-and-psuedocode">Systems and Psuedocode</h2>
 
+<p>Before figuring out classes needed, write down all the systems you can think of in this game</p>
+<ul>
+<li>level setup and oversight: level manager. runs the model, starts stops game.</li>
+<li>game world model: contains entities and updates them, notifies listeners.</li>
+<li>Enemy attack spawner - wave
+<ul>
+<li>incoming missiles</li>
+<li>planes</li>
+</ul>
+</li>
+<li>player missile firing</li>
+<li>scoring system</li>
+<li>hud</li>
+<li>gameplay physics:
+<ul>
+<li>enemy missiles colliding with explosions, cities</li>
+<li>planes being destroyed</li>
+</ul>
+</li>
+</ul>
+<p>Try writing basic pseudocode, just to get your brain going, starting with simplest form of game.</p>
 <h3 class="mume-header" id="notesthoughts-doc">Notes/Thoughts doc?</h3>
 
 
