@@ -35,6 +35,8 @@ My code. Questions, suggestions.
 
 ## Assessment 3
 
+pdf: <https://laureate-au.blackboard.com/bbcswebdav/pid-7197509-dt-content-rid-11808950_1/xid-11808950_1>
+
 Missile command using what we've learnt and proper project management.
 
 ### Gameplay
