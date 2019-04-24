@@ -17,6 +17,7 @@ Look at A3. Our goal is to get rid of the blank page and get things OUT of our h
 		* [Set up Hacknplan](#set-up-hacknplan)
 		* [Git project](#git-project)
 		* [Unity Project](#unity-project)
+	* [Art](#art)
 	* [Systems and Psuedocode](#systems-and-psuedocode)
 		* [Notes/Thoughts doc?](#notesthoughts-doc)
 
@@ -25,9 +26,15 @@ Look at A3. Our goal is to get rid of the blank page and get things OUT of our h
 
 ## Your todos for next week
 
+The Unity3D College videos below are more advanced than things I've shared before, but you don't have to understand every part of his videos to benefit.
+
 * Set up your hacknplan, message me a screenshot on blackboard.
 * Watch finding objects video
-* Watch prefabs video
+  - [5 ways to reference gameobjects by Unity3D College](https://www.youtube.com/watch?v=ymq2AUckws0)
+* Watch prefabs videos. We're on unity 2018.2, so we don't have nested prefabs  yet. 
+  - [prefab concepts](https://unity3d.com/learn/tutorials/topics/interface-essentials/prefabs-concept-usage?playlist=17090)
+  v=SMH8wY4HQ0I)
+  - I haven't watched this yet but I watch his videos on everything, he's great. [prefabs 101 on Unity3D College](https://www.youtube.com/watch?v=46BxZNP0WXk)
 
 ## Assessment 2
 
@@ -80,6 +87,19 @@ Create a unity 2d project in another folder, say unityProject or unityTemp
 * Now you can move the contents of the unityProject folder over to the unity folder you checked out from git and delete the empty folder.
 * Changes appear in gitkraken
 * Stage all the files, commit, push.
+
+## Art
+
+Here's some pixel art cut from the arcade/atari original. They're tiny, so you want to scale them up in _photoshop_ or _krita_ using the  _nearest neighbour_ resampling option. Otherwise you can bring them into Unity at this tiny size and set _filtering_ to _point_.
+
+[arcade art starter zip](assets/week9/arcade_art.zip)
+
+More screens to pull from:
+
+![screen 1](assets/week9/original_screen_1.png)
+![screen 2](assets/week9/original_screen_2.png)
+![screen 3](assets/week9/original_screen_3.png)
+
 
 ## Systems and Psuedocode
 
