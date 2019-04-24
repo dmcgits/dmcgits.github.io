@@ -35,6 +35,7 @@ The Unity3D College videos below are more advanced than things I've shared befor
   - [prefab concepts](https://unity3d.com/learn/tutorials/topics/interface-essentials/prefabs-concept-usage?playlist=17090)
   v=SMH8wY4HQ0I)
   - I haven't watched this yet but I watch his videos on everything, he's great. [prefabs 101 on Unity3D College](https://www.youtube.com/watch?v=46BxZNP0WXk)
+* If you like Unity3D College guy, watch his top unity mistakes video and some others. Some stuff will go over your head, but you'll pick things up. Brackeys is solid too if you don't mind lots of smiling man face and bad jokes.
 
 ## Assessment 2
 
