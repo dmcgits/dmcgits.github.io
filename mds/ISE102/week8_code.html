@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -157,7 +157,7 @@ Monster<span class="token operator">::</span><span class="token function">Monste
   gerald<span class="token punctuation">.</span><span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><h2 class="mume-header" id="monster-multi-file">Monster Multi file</h2>
+</pre><h2 class="mume-header" id="simple-monster-multi-file">Simple Monster Multi file</h2>
 
 <h3 class="mume-header" id="maincpp">main.cpp</h3>
 
@@ -173,10 +173,10 @@ Monster<span class="token operator">::</span><span class="token function">Monste
 	Monster anne<span class="token punctuation">;</span>
 
 	gerald<span class="token punctuation">.</span><span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Calling member functions</span>
-	anne<span class="token punctuation">.</span><span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	anne<span class="token punctuation">.</span><span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-	anne<span class="token punctuation">.</span>armour <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>  <span class="token comment">// assigning to member variables.</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;monster armour: &quot;</span> <span class="token operator">&lt;&lt;</span> anne<span class="token punctuation">.</span>armour <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	anne<span class="token punctuation">.</span>hitPoints <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>  <span class="token comment">// assigning to member variables.</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;monster hitpoints: &quot;</span> <span class="token operator">&lt;&lt;</span> anne<span class="token punctuation">.</span>hitPoints <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span>
 </pre><h3 class="mume-header" id="monsterh">Monster.h</h3>
@@ -186,8 +186,6 @@ Monster<span class="token operator">::</span><span class="token function">Monste
 <span class="token macro property">#<span class="token directive keyword">ifndef</span> __MONSTER_H__</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> __MONSTER_H__</span>
 
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-
 <span class="token comment">// A class definiition begins</span>
 <span class="token keyword">class</span> <span class="token class-name">Monster</span>
 <span class="token punctuation">{</span>
@@ -195,11 +193,9 @@ Monster<span class="token operator">::</span><span class="token function">Monste
 <span class="token keyword">public</span><span class="token operator">:</span>	
 	<span class="token function">Monster</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// public member functions</span>
 	<span class="token keyword">void</span> <span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">void</span> <span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	
 	<span class="token keyword">int</span> hitPoints<span class="token punctuation">;</span>  <span class="token comment">// public member variables</span>
-	<span class="token keyword">int</span> armour<span class="token punctuation">;</span>
-
+	
 <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// end of monster declaration. Looks a lot like a struct.</span>
 
 <span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment">//__MONSTER_H__</span>
@@ -207,6 +203,7 @@ Monster<span class="token operator">::</span><span class="token function">Monste
 
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// start by including our definitions</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Monster.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -218,11 +215,6 @@ Monster<span class="token operator">::</span><span class="token function">Monste
 <span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Fighting!! \n\n&quot;</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">talk</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Wait.. no more fight. Talk now. \n\n&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 </pre>

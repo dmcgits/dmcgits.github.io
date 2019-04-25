@@ -141,7 +141,7 @@ int main()
 
 ```
 
-## Monster Multi file
+## Simple Monster Multi file
 
 ### main.cpp
 
@@ -158,10 +158,10 @@ int main()
 	Monster anne;
 
 	gerald.fight();  // Calling member functions
-	anne.talk();
+	anne.fight();
 
-	anne.armour = 10;  // assigning to member variables.
-	cout << "monster armour: " << anne.armour << endl << endl;
+	anne.hitPoints = 10;  // assigning to member variables.
+	cout << "monster hitpoints: " << anne.hitPoints << endl << endl;
 
 }
 ```
@@ -174,8 +174,6 @@ int main()
 #ifndef __MONSTER_H__
 #define __MONSTER_H__
 
-#include <iostream>
-
 // A class definiition begins
 class Monster
 {
@@ -183,11 +181,9 @@ class Monster
 public:	
 	Monster();      // public member functions
 	void fight();
-	void talk();
 	
 	int hitPoints;  // public member variables
-	int armour;
-
+	
 }; // end of monster declaration. Looks a lot like a struct.
 
 #endif //__MONSTER_H__
@@ -198,6 +194,7 @@ public:
 ```cpp
 // start by including our definitions
 #include "Monster.h"
+#include <iostream>
 
 using namespace std;
 
@@ -209,11 +206,6 @@ Monster::Monster()
 void Monster::fight()
 {
 	cout << "Fighting!! \n\n";
-}
-
-void Monster::talk()
-{
-	cout << "Wait.. no more fight. Talk now. \n\n" << endl;
 }
 
 ```

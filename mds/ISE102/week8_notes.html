@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,27 +25,101 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="ise102-week-8-objects-and-classes">ise102 week 8:  Objects and Classes</h1>
 
-<p>In previous years, week 8 has covered FileIO. Since we don&apos;t use it in the assignments, I&apos;m going to use this week to introduce you to Object Oriented Programming instead, because I think you&apos;ll all make better snake games.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-8-objects-and-classes">ise102 week 8:  Objects and Classes</a>
-<ul>
-<li><a href="#oo">OO</a></li>
+<p>In previous years, week 8 has covered FileIO. Since we don&#x2019;t use it in the assignments, I&#x2019;m going to use this week to introduce you to Object Oriented Programming instead, because I think you&#x2019;ll all make better snake games.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<li><a href="#ise102-week-8-objects-and-classes">ise102 week 8: Objects and Classes</a>
+<ol>
+<li><a href="#oo">OO</a>
+<ol>
+<li><a href="#what-is-encapsulation">What is encapsulation?</a>
+<ol>
+<li><a href="#goldilocks-factor">Goldilocks factor</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#encapsulation-in-practice">Encapsulation in practice</a>
+<ol>
+<li><a href="#structs">Structs</a></li>
+<li><a href="#classes">Classes</a></li>
+</ol>
+</li>
 <li><a href="#debugging">Debugging</a>
-<ul>
+<ol>
 <li><a href="#debugger-mode">Debugger mode</a></li>
 <li><a href="#stepping">Stepping</a></li>
 <li><a href="#step-into-step-out">Step into, step out:</a></li>
 <li><a href="#step-over">Step over:</a></li>
 <li><a href="#breakpoints">Breakpoints</a></li>
 <li><a href="#info">Info!</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#resources">Resources</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="oo">OO</h2>
 
+<h3 class="mume-header" id="what-is-encapsulation">What is encapsulation?</h3>
+
+<p>It&#x2019;s a long word but it&#x2019;s a simple thing we experience every day.</p>
+<p><img src="assets/week8/kinder_surprise.jpg" alt="kinder"><br>
+<em>capsule: a thing with things inside</em></p>
+<p>The objects in our every day life usually <strong>hide the bits we don&#x2019;t need to know about:</strong></p>
+<p><img src="assets/week8/shaver_real.jpg" alt="shaver real"><br>
+<img src="assets/week8/shaver_patent.jpg" alt="shaver patent"><br>
+<em>outside v inside</em></p>
+<h4 class="mume-header" id="goldilocks-factor">Goldilocks factor</h4>
+
+<blockquote>
+<p>How much to hide? The answer is, as with most design questions: it depends.</p>
+</blockquote>
+<p>If you only open and read things on your computer, the simple magic mouse is a nice thing. If you play MOBAs, you might live or die by the macro buttons on your razer naga.</p>
+<p><img src="assets/week8/mouse_magic.jpg" alt="magicmouse"><br>
+<img src="assets/week8/mouse_naga.jpg" alt="naga"></p>
+<h2 class="mume-header" id="encapsulation-in-practice">Encapsulation in practice</h2>
+
+<p>Object Oriented design is all about encapsulation, and classes/objects are made for it.</p>
+<h3 class="mume-header" id="structs">Structs</h3>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// the keyword &quot;struct&quot; lets us define our own types of data collections.</span>
+<span class="token keyword">struct</span> InventoryItem
+<span class="token punctuation">{</span>  
+	string title<span class="token punctuation">;</span>
+	string category<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> quantityMls<span class="token punctuation">;</span>
+	string iconPath<span class="token punctuation">;</span>
+	string description<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// now we can make InventoryItems</span>
+
+InventoryItem myAxe<span class="token punctuation">;</span>
+myAxe<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">&quot;My battleAxe of cleaving&quot;</span>
+</pre><hr>
+<h3 class="mume-header" id="classes">Classes</h3>
+
+<p>You can see that the <strong>struct declares a type of data, it&#x2019;s not a variable itself</strong>. Like float or string, you must now declare a thing of type InventoryItem.</p>
+<p><strong>Classes do the same, but for Objects</strong>. They are like structs with methods (and a bit more).</p>
+<blockquote>
+<p>Classes are to recipes as objects are to meals. One is a design, the other is one of many products of that design and some work.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//======================== Declare Monster class =====================</span>
+<span class="token keyword">class</span> <span class="token class-name">Monster</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  
+  <span class="token keyword">void</span> <span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// public member function</span>
+  
+  <span class="token keyword">int</span> hitPoints<span class="token punctuation">;</span>  <span class="token comment">// public member variable</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//===================== Actually Define Monster class functions =====</span>
+
+<span class="token keyword">void</span> Monster<span class="token operator">::</span><span class="token function">fight</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	cout <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Fighting!! \n\n&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>That code goes between your <code>#include</code>s and your <code>main()</code>,like variable declarations do.</p>
 <h2 class="mume-header" id="debugging">Debugging</h2>
 
 <p>We&#x2019;ve been using visual studio to compile our code and run the executable (.exe) file it produces in a separate console window.<br>
