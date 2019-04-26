@@ -16,6 +16,11 @@ Recapping last week, taking it further. Making games with the game loop.
 		* [Coding obects (week 8)](#coding-obects-week-8)
 		* [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
 	* [Inheritance](#inheritance)
+	* [A Game Is A Simulation](#a-game-is-a-simulation)
+		* [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
+		* [Things happen](#things-happen)
+		* [Input](#input)
+		* [The game loop, then.](#the-game-loop-then)
 
 <!-- /code_chunk_output -->
 
@@ -151,6 +156,7 @@ class FireballTower : Tower
 {
   // Fireball tower things.
 }
+```
 
 ## A Game Is A Simulation
 
@@ -201,6 +207,7 @@ end program myGame
 ```
 
 Here's more detail about those stages
+
 ```
   while game isn't over
     Input:
