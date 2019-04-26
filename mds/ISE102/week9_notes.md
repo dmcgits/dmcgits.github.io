@@ -1,4 +1,4 @@
-# Week 10 - Objects/Classes 2, Games.
+# Week 9 - Objects/Classes 2, Making Games.
 
 Recapping last week, taking it further. Making games with the game loop.
 
@@ -7,20 +7,20 @@ Recapping last week, taking it further. Making games with the game loop.
 
 <!-- code_chunk_output -->
 
-* [Week 10 - Objects/Classes 2, Games.](#week-10-objectsclasses-2-games)
-	* [Resources](#resources)
-	* [Todo by week 10](#todo-by-week-10)
-	* [Objects classes recap](#objects-classes-recap)
-		* [Hiding complexity](#hiding-complexity)
-		* [Objects in code](#objects-in-code)
-		* [Coding obects (week 8)](#coding-obects-week-8)
-	* [A Game Is A Simulation](#a-game-is-a-simulation)
-		* [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
-		* [Things happen](#things-happen)
-		* [Input](#input)
-		* [The game loop, then.](#the-game-loop-then)
-	* [Inheritance](#inheritance)
-		* [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
+- [Week 9 - Objects/Classes 2, Making Games.](#week-9---objectsclasses-2-making-games)
+  - [Resources](#resources)
+  - [Todo by week 10](#todo-by-week-10)
+  - [Objects classes recap](#objects-classes-recap)
+    - [Hiding complexity](#hiding-complexity)
+    - [Objects in code](#objects-in-code)
+    - [Coding obects (week 8)](#coding-obects-week-8)
+  - [A Game Is A Simulation](#a-game-is-a-simulation)
+    - [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
+    - [Things happen](#things-happen)
+    - [Input](#input)
+    - [The game loop, then.](#the-game-loop-then)
+  - [Inheritance](#inheritance)
+    - [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
 
 <!-- /code_chunk_output -->
 
