@@ -2,6 +2,24 @@
 
 Recapping last week, taking it further. Making games with the game loop.
 
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Week 10 - Objects/Classes 2, Games.](#week-10-objectsclasses-2-games)
+	* [Resources](#resources)
+	* [Todo by week 10](#todo-by-week-10)
+	* [Objects classes recap](#objects-classes-recap)
+		* [Hiding complexity](#hiding-complexity)
+		* [Objects in code](#objects-in-code)
+		* [Coding obects (week 8)](#coding-obects-week-8)
+		* [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
+	* [Inheritance](#inheritance)
+
+<!-- /code_chunk_output -->
+
+
 ## Resources
 
 * Grab this: [olc and termcolor include files](assets/week9/olcAndTermColor.zip)
