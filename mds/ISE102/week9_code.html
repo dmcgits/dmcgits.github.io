@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -27,8 +27,25 @@
 
 <p><img src="assets/week9/hello_olc.png" alt="Hello olc"><br>
 <em>Hello olc</em></p>
+<hr>
+<h2 class="mume-header" id="create-the-project">Create the project</h2>
+
+<p>In Visual Studio</p>
+<ol>
+<li>create a new project from your quick start template (we made earlier).</li>
+<li>If you don&#x2019;t have a template create a new empty project called olcHelloWorld, to project properties -&gt; Linker -&gt; System and set Console in the first drop down.</li>
+<li>Create your main.cpp if you don&#x2019;t have one</li>
+<li><strong>The game engine uses unicode,</strong> so go to <em>project properties - general - character set</em> and change from multi byte to unicode.</li>
+</ol>
+<hr>
+<h2 class="mume-header" id="olcconsolegameengineoop-includes">olcConsoleGameEngineOOP includes</h2>
+
+<p>You need <a href="assets/week9/olcAndTermColor.zip">this zip file</a></p>
+<p>From it copy <code>olcConsoleGameEngineOOP.c</code> and <code>olcConsoleGameEngineOOP.h</code> and paste them into the same folder as your main.cpp.</p>
+<p><img src="assets/week9/olc_files_in_project_folder.png" alt="olc in project folder"></p>
 <h2 class="mume-header" id="maincpp">main.cpp</h2>
 
+<p>We can&#x2019;t include SnakeGame or use it until we create the object, so skip past main.cpp and create the <code>SnakeGame.h</code> and <code>SnakeGame.cpp</code> files.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;SnakeGame.h&quot;</span></span>
 
