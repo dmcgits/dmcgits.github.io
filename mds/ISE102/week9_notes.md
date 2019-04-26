@@ -14,13 +14,13 @@ Recapping last week, taking it further. Making games with the game loop.
 		* [Hiding complexity](#hiding-complexity)
 		* [Objects in code](#objects-in-code)
 		* [Coding obects (week 8)](#coding-obects-week-8)
-		* [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
-	* [Inheritance](#inheritance)
 	* [A Game Is A Simulation](#a-game-is-a-simulation)
 		* [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
 		* [Things happen](#things-happen)
 		* [Input](#input)
 		* [The game loop, then.](#the-game-loop-then)
+	* [Inheritance](#inheritance)
+		* [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
 
 <!-- /code_chunk_output -->
 
@@ -120,46 +120,6 @@ Looking at that code we can see the user isn't a human driver or phone user, it'
 
 At it's most basic an object happened between our includes area and our main function. Separating it out was mostly pulling that zone out into two files (h, cpp) and then using _#include_, exactly like we do with string and vector objects.
 
-### Coding in a class instead of main.cpp
-
-To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don't know your way around a class.
-
-We'll be coding from [week9_code.html](week9_code.html)
-
-Here's were we have put our global variables and function declarations in main.cpp
-![declarations](assets/week9/oo_bit_main_declarations.png)
-
-Here I've moved them to the class' .h file, SnakeGame.h:
-![declarations .h](assets/week9/oo_bit_class_header.png)
-
-Here's where you put your full function definitions in a main.cpp, below main:
-
-![definitions below main](assets/week9/oo_bit_main_definitions.png)
-
-And here's where they'd go in OO, the class' cpp file:
-
-![function definitions cpp](assets/week9/oo_bit_class_cpp.png)
-
-## Inheritance
-
-We will introduce basic inheritance today. We'll hit it more next week, but first we need to understand it to use olcConsoleGameEngine. 
-
-Olc is an "is a" relationship. 
-* A dog is a canine, 
-* A person is a human > biped > animal > living thing.
-
-So in a Tower Defense game, for example, a FireballTower is a Tower.
-
-```cpp
-#include "Tower.h"
-#include "FireballTower.h"
-
-class FireballTower : Tower
-{
-  // Fireball tower things.
-}
-```
-
 ## A Game Is A Simulation
 
 Teaching games programming last year started with the gameloop, but I want to talk about something more fundamental first. A loop is an implementation thing. But what are we impleenting? What is a game?
@@ -247,3 +207,44 @@ int main()
 
 }
 ```
+
+## Inheritance
+
+We will introduce basic inheritance today. We'll hit it more next week, but first we need to understand it to use olcConsoleGameEngine. 
+
+Olc is an "is a" relationship. 
+* A dog is a canine, 
+* A person is a human > biped > animal > living thing.
+
+So in a Tower Defense game, for example, a FireballTower is a Tower.
+
+```cpp
+#include "Tower.h"
+#include "FireballTower.h"
+
+class FireballTower : Tower
+{
+  // Fireball tower things.
+}
+```
+
+### Coding in a class instead of main.cpp
+
+To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don't know your way around a class.
+
+We'll be coding from [week9_code.html](week9_code.html)
+
+Here's were we have put our global variables and function declarations in main.cpp
+![declarations](assets/week9/oo_bit_main_declarations.png)
+
+Here I've moved them to the class' .h file, SnakeGame.h:
+![declarations .h](assets/week9/oo_bit_class_header.png)
+
+Here's where you put your full function definitions in a main.cpp, below main:
+
+![definitions below main](assets/week9/oo_bit_main_definitions.png)
+
+And here's where they'd go in OO, the class' cpp file:
+
+![function definitions cpp](assets/week9/oo_bit_class_cpp.png)
+

@@ -26,31 +26,31 @@
       <h1 class="mume-header" id="week-10-objectsclasses-2-games">Week 10 - Objects/Classes 2, Games.</h1>
 
 <p>Recapping last week, taking it further. Making games with the game loop.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
-<li><a href="#week-10---objectsclasses-2-games">Week 10 - Objects/Classes 2, Games.</a>
-<ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-10-objectsclasses-2-games">Week 10 - Objects/Classes 2, Games.</a>
+<ul>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#todo-by-week-10">Todo by week 10</a></li>
 <li><a href="#objects-classes-recap">Objects classes recap</a>
-<ol>
+<ul>
 <li><a href="#hiding-complexity">Hiding complexity</a></li>
 <li><a href="#objects-in-code">Objects in code</a></li>
 <li><a href="#coding-obects-week-8">Coding obects (week 8)</a></li>
 <li><a href="#coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</a></li>
-</ol>
+</ul>
 </li>
 <li><a href="#inheritance">Inheritance</a></li>
 <li><a href="#a-game-is-a-simulation">A Game Is A Simulation</a>
-<ol>
+<ul>
 <li><a href="#starting-at-the-end-graphics-are-just-the-output">Starting at the end: Graphics are just the output</a></li>
 <li><a href="#things-happen">Things happen</a></li>
 <li><a href="#input">Input</a></li>
 <li><a href="#the-game-loop-then">The game loop, then.</a></li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ul>
@@ -154,35 +154,7 @@ string <span class="token function">commentOnNameLength</span><span class="token
 </li>
 </ul>
 <p>At it&apos;s most basic an object happened between our includes area and our main function. Separating it out was mostly pulling that zone out into two files (h, cpp) and then using <em>#include</em>, exactly like we do with string and vector objects.</p>
-<h3 class="mume-header" id="coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</h3>
-
-<p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&apos;t know your way around a class.</p>
-<p>We&apos;ll be coding from <a href="week9_code.html">week9_code.html</a></p>
-<p>Here&apos;s were we have put our global variables and function declarations in main.cpp<br>
-<img src="assets/week9/oo_bit_main_declarations.png" alt="declarations"></p>
-<p>Here I&apos;ve moved them to the class&apos; .h file, SnakeGame.h:<br>
-<img src="assets/week9/oo_bit_class_header.png" alt="declarations .h"></p>
-<p>Here&apos;s where you put your full function definitions in a main.cpp, below main:</p>
-<p><img src="assets/week9/oo_bit_main_definitions.png" alt="definitions below main"></p>
-<p>And here&apos;s where they&apos;d go in OO, the class&apos; cpp file:</p>
-<p><img src="assets/week9/oo_bit_class_cpp.png" alt="function definitions cpp"></p>
-<h2 class="mume-header" id="inheritance">Inheritance</h2>
-
-<p>We will introduce basic inheritance today. We&apos;ll hit it more next week, but first we need to understand it to use olcConsoleGameEngine.</p>
-<p>Olc is an &quot;is a&quot; relationship.</p>
-<ul>
-<li>A dog is a canine,</li>
-<li>A person is a human &gt; biped &gt; animal &gt; living thing.</li>
-</ul>
-<p>So in a Tower Defense game, for example, a FireballTower is a Tower.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Tower.h&quot;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;FireballTower.h&quot;</span></span>
-
-<span class="token keyword">class</span> <span class="token class-name">FireballTower</span> <span class="token operator">:</span> Tower
-<span class="token punctuation">{</span>
-  <span class="token comment">// Fireball tower things.</span>
-<span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="a-game-is-a-simulation">A Game Is A Simulation</h2>
+<h2 class="mume-header" id="a-game-is-a-simulation">A Game Is A Simulation</h2>
 
 <p>Teaching games programming last year started with the gameloop, but I want to talk about something more fundamental first. A loop is an implementation thing. But what are we impleenting? What is a game?</p>
 <p>It&apos;s a simulation. Not just the ones with sim in the name, like Sim City and the Sims.</p>
@@ -257,7 +229,35 @@ end program myGame
   <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
-</pre>
+</pre><h2 class="mume-header" id="inheritance">Inheritance</h2>
+
+<p>We will introduce basic inheritance today. We&apos;ll hit it more next week, but first we need to understand it to use olcConsoleGameEngine.</p>
+<p>Olc is an &quot;is a&quot; relationship.</p>
+<ul>
+<li>A dog is a canine,</li>
+<li>A person is a human &gt; biped &gt; animal &gt; living thing.</li>
+</ul>
+<p>So in a Tower Defense game, for example, a FireballTower is a Tower.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Tower.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;FireballTower.h&quot;</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">FireballTower</span> <span class="token operator">:</span> Tower
+<span class="token punctuation">{</span>
+  <span class="token comment">// Fireball tower things.</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</h3>
+
+<p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&apos;t know your way around a class.</p>
+<p>We&apos;ll be coding from <a href="week9_code.html">week9_code.html</a></p>
+<p>Here&apos;s were we have put our global variables and function declarations in main.cpp<br>
+<img src="assets/week9/oo_bit_main_declarations.png" alt="declarations"></p>
+<p>Here I&apos;ve moved them to the class&apos; .h file, SnakeGame.h:<br>
+<img src="assets/week9/oo_bit_class_header.png" alt="declarations .h"></p>
+<p>Here&apos;s where you put your full function definitions in a main.cpp, below main:</p>
+<p><img src="assets/week9/oo_bit_main_definitions.png" alt="definitions below main"></p>
+<p>And here&apos;s where they&apos;d go in OO, the class&apos; cpp file:</p>
+<p><img src="assets/week9/oo_bit_class_cpp.png" alt="function definitions cpp"></p>
+
       </div>
       
       
