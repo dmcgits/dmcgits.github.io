@@ -124,6 +124,8 @@ At it's most basic an object happened between our includes area and our main fun
 
 To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don't know your way around a class.
 
+We'll be coding from [week9_code.html](week9_code.html)
+
 Here's were we have put our global variables and function declarations in main.cpp
 ![declarations](assets/week9/oo_bit_main_declarations.png)
 
