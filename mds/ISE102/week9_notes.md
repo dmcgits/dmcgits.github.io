@@ -2,6 +2,17 @@
 
 Recapping last week, taking it further. Making games with the game loop.
 
+## Resources
+
+* Grab this: [olc and termcolor include files](assets/week9/olcAndTermColor.zip)
+
+* Doesn't exist yet: [week 9 code html](week9_code.html)
+
+## Todo by week 10
+* Plan out key parts of your assessment in pseudocode
+* Read/code Chapters 8 and 10 and of textbook. Objects, inheritance.
+  - <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727>
+
 ## Objects classes recap
 
 Some missed last week due to maniac at redfern, also objects are so important it's worth a little refresh.

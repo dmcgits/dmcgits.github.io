@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -26,9 +26,21 @@
       <h1 class="mume-header" id="week-10-objectsclasses-2-games">Week 10 - Objects/Classes 2, Games.</h1>
 
 <p>Recapping last week, taking it further. Making games with the game loop.</p>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<ul>
+<li>
+<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
+</li>
+<li>
+<p>Doesn&apos;t exist yet: <a href="week9_code.html">week 9 code html</a></p>
+</li>
+</ul>
+<h2 class="mume-header" id="todo-by-week-10">Todo by week 10</h2>
+
 <h2 class="mume-header" id="objects-classes-recap">Objects classes recap</h2>
 
-<p>Some missed last week due to maniac at redfern, also objects are so important it&#x2019;s worth a little refresh.</p>
+<p>Some missed last week due to maniac at redfern, also objects are so important it&apos;s worth a little refresh.</p>
 <h3 class="mume-header" id="hiding-complexity">Hiding complexity</h3>
 
 <blockquote>
@@ -40,7 +52,7 @@
 <hr>
 <h3 class="mume-header" id="objects-in-code">Objects in code</h3>
 
-<p>In our c++ programs <strong>we already use objects</strong>. They&#x2019;re just data types that offer functions: you&#x2019;ve seen it on <code>string</code> and <code>vector</code>.</p>
+<p>In our c++ programs <strong>we already use objects</strong>. They&apos;re just data types that offer functions: you&apos;ve seen it on <code>string</code> and <code>vector</code>.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;termcolor.h&quot;</span></span>
@@ -93,9 +105,9 @@ string <span class="token function">commentOnNameLength</span><span class="token
 	<span class="token keyword">return</span> <span class="token punctuation">(</span>comment<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><p>Looking at that code we can see the user isn&#x2019;t a human driver or phone user, it&#x2019;s our code. <strong>A line of our main function or getValidBet function is the user</strong>.</p>
+</pre><p>Looking at that code we can see the user isn&apos;t a human driver or phone user, it&apos;s our code. <strong>A line of our main function or getValidBet function is the user</strong>.</p>
 <blockquote>
-<p>The easy to use package (interface) isn&#x2019;t a touch screen or button, it&#x2019;s a <code>push_back()</code> function to add new data to our vector,or a <code>length()</code> function telling us how many characters our string has.</p>
+<p>The easy to use package (interface) isn&apos;t a touch screen or button, it&apos;s a <code>push_back()</code> function to add new data to our vector,or a <code>length()</code> function telling us how many characters our string has.</p>
 </blockquote>
 <h3 class="mume-header" id="coding-obects-week-8">Coding obects (week 8)</h3>
 
@@ -104,26 +116,26 @@ string <span class="token function">commentOnNameLength</span><span class="token
 <ul>
 <li><a href="week8_code.html">week8 code: objects</a></li>
 <li>1: A Struct  2: A Class  3: A class in its own files.</li>
-<li>If you didn&#x2019;t come last week, start typing that code out now!</li>
+<li>If you didn&apos;t come last week, start typing that code out now!</li>
 </ul>
 </li>
 </ul>
-<p>At it&#x2019;s most basic an object happened between our includes area and our main function. Separating it out was mostly pulling that zone out into two files (h, cpp) and then using <em>#include</em>, exactly like we do with string and vector objects.</p>
+<p>At it&apos;s most basic an object happened between our includes area and our main function. Separating it out was mostly pulling that zone out into two files (h, cpp) and then using <em>#include</em>, exactly like we do with string and vector objects.</p>
 <h3 class="mume-header" id="coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</h3>
 
-<p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&#x2019;t know your way around a class.</p>
-<p>Here&#x2019;s were we have put our global variables and function declarations in main.cpp<br>
+<p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&apos;t know your way around a class.</p>
+<p>Here&apos;s were we have put our global variables and function declarations in main.cpp<br>
 <img src="assets/week9/oo_bit_main_declarations.png" alt="declarations"></p>
-<p>Here I&#x2019;ve moved them to the class&#x2019; .h file, SnakeGame.h:<br>
+<p>Here I&apos;ve moved them to the class&apos; .h file, SnakeGame.h:<br>
 <img src="assets/week9/oo_bit_class_header.png" alt="declarations .h"></p>
-<p>Here&#x2019;s where you put your full function definitions in a main.cpp, below main:</p>
+<p>Here&apos;s where you put your full function definitions in a main.cpp, below main:</p>
 <p><img src="assets/week9/oo_bit_main_definitions.png" alt="definitions below main"></p>
-<p>And here&#x2019;s where they&#x2019;d go in OO, the class&#x2019; cpp file:</p>
+<p>And here&apos;s where they&apos;d go in OO, the class&apos; cpp file:</p>
 <p><img src="assets/week9/oo_bit_class_cpp.png" alt="function definitions cpp"></p>
 <h2 class="mume-header" id="inheritance">Inheritance</h2>
 
-<p>We will introduce basic inheritance today. We&#x2019;ll hit it more next week, but first we need to understand it to use olcConsoleGameEngine.</p>
-<p>Olc is an &#x201C;is a&#x201D; relationship.</p>
+<p>We will introduce basic inheritance today. We&apos;ll hit it more next week, but first we need to understand it to use olcConsoleGameEngine.</p>
+<p>Olc is an &quot;is a&quot; relationship.</p>
 <ul>
 <li>A dog is a canine,</li>
 <li>A person is a human &gt; biped &gt; animal &gt; living thing.</li>
@@ -173,14 +185,14 @@ The game loop<span class="token punctuation">,</span> very simplified<span class
 
 </pre><p>program myGame</p>
 <p>initialise game.</p>
-<p>while game isn&#x2019;t over<br>
+<p>while game isn&apos;t over<br>
 handleInput<br>
 simulate everything else<br>
 draw it all on screen<br>
 loop</p>
 <p>end program myGame</p>
 <pre data-role="codeBlock" data-info class="language-"><code>Here&apos;s more detail about those stages
-</code></pre><p>while game isn&#x2019;t over<br>
+</code></pre><p>while game isn&apos;t over<br>
 Input:<br>
 listen to input (maybe e key or x button) and do player things<br>
 (like step forward or press accelerator)<br>
