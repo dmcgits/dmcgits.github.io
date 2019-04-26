@@ -97,6 +97,8 @@ string <span class="token function">commentOnNameLength</span><span class="token
 <blockquote>
 <p>The easy to use package (interface) isn&#x2019;t a touch screen or button, it&#x2019;s a <code>push_back()</code> function to add new data to our vector,or a <code>length()</code> function telling us how many characters our string has.</p>
 </blockquote>
+<h3 class="mume-header" id="coding-obects-week-8">Coding obects (week 8)</h3>
+
 <ul>
 <li>Look again at code we wrote
 <ul>
@@ -107,15 +109,111 @@ string <span class="token function">commentOnNameLength</span><span class="token
 </li>
 </ul>
 <p>At it&#x2019;s most basic an object happened between our includes area and our main function. Separating it out was mostly pulling that zone out into two files (h, cpp) and then using <em>#include</em>, exactly like we do with string and vector objects.</p>
+<h3 class="mume-header" id="coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</h3>
+
+<p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&#x2019;t know your way around a class.</p>
+<p>Here&#x2019;s were we have put our global variables and function declarations in main.cpp<br>
+<img src="assets/week9/oo_bit_main_declarations.png" alt="declarations"></p>
+<p>Here I&#x2019;ve moved them to the class&#x2019; .h file, SnakeGame.h:<br>
+<img src="assets/week9/oo_bit_class_header.png" alt="declarations .h"></p>
+<p>Here&#x2019;s where you put your full function definitions in a main.cpp, below main:</p>
+<p><img src="assets/week9/oo_bit_main_definitions.png" alt="definitions below main"></p>
+<p>And here&#x2019;s where they&#x2019;d go in OO, the class&#x2019; cpp file:</p>
+<p><img src="assets/week9/oo_bit_class_cpp.png" alt="function definitions cpp"></p>
 <h2 class="mume-header" id="inheritance">Inheritance</h2>
 
 <p>We will introduce basic inheritance today. We&#x2019;ll hit it more next week, but first we need to understand it to use olcConsoleGameEngine.</p>
-<p>To use olcConsoleGameEngine we will need to code above the main function, which can be disorienting after coding down in main.</p>
-<h2 class="mume-header" id="a-game-is-a-simulation">A Game Is A Simulation</h2>
+<p>Olc is an &#x201C;is a&#x201D; relationship.</p>
+<ul>
+<li>A dog is a canine,</li>
+<li>A person is a human &gt; biped &gt; animal &gt; living thing.</li>
+</ul>
+<p>So in a Tower Defense game, for example, a FireballTower is a Tower.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Tower.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;FireballTower.h&quot;</span></span>
 
-<p>I started teaching games programming last year by going into the gameloop, but I want to talk first about what a game is. Sure a loop is structurally what it is, but conceptually it&#x2019;s a simulation.</p>
-<p>We are simulating a snake, and the fruit it will eat, and the world she moves in.</p>
+<span class="token keyword">class</span> <span class="token class-name">FireballTower</span> <span class="token operator">:</span> Tower
+<span class="token punctuation">{</span>
+  <span class="token comment">// Fireball tower things.</span>
+<span class="token punctuation">}</span>
 
+## A Game Is A Simulation
+
+Teaching games programming last year started with the gameloop<span class="token punctuation">,</span> but I want to talk about something more fundamental first<span class="token punctuation">.</span> A loop is an implementation thing<span class="token punctuation">.</span> But what are we impleenting<span class="token operator">?</span> What is a game<span class="token operator">?</span>
+
+It&apos;s a simulation<span class="token punctuation">.</span> Not just the ones with sim in the name<span class="token punctuation">,</span> like Sim City <span class="token operator">and</span> the Sims<span class="token punctuation">.</span>
+
+<span class="token operator">&gt;</span> GTA<span class="token operator">:</span> _Day to day crook life_ sim<span class="token punctuation">.</span>
+<span class="token operator">&gt;</span> Doom<span class="token operator">:</span> _Escape from sci fi hell with guns_ sim<span class="token punctuation">.</span>
+<span class="token operator">&gt;</span> Portal<span class="token operator">:</span> _Escape from AI captivity with a portal maker_ sim<span class="token punctuation">.</span>
+<span class="token operator">&gt;</span> Fifa<span class="token operator">:</span> _Football_ sim<span class="token punctuation">.</span>
+
+We are simulating a snake<span class="token punctuation">,</span> <span class="token operator">and</span> the fruit it will eat<span class="token punctuation">,</span> <span class="token operator">and</span> the world she moves in<span class="token punctuation">.</span>
+
+### Starting at the end<span class="token operator">:</span> Graphics are just the output
+
+The last stage of a game running is drawing to the screen<span class="token punctuation">.</span> The temptation is to start trying to draw things right away<span class="token punctuation">.</span> First though<span class="token punctuation">,</span> we need user input<span class="token punctuation">,</span> then things happen in our simulation<span class="token punctuation">,</span> finally we draw the outcomes to the screen<span class="token punctuation">.</span>
+
+### Things happen
+
+A game is built like a scientist builds a computer model of weather <span class="token operator">or</span> a microbe community in a computer<span class="token punctuation">.</span> That means organising the data<span class="token operator">/</span>objects that represent real world things <span class="token operator">and</span> then changing them over time<span class="token punctuation">.</span>
+
+<span class="token operator">&gt;</span> A simulation is stored data being changed by code<span class="token punctuation">,</span> over time<span class="token punctuation">.</span>
+
+### Input
+
+Our model is different to a scientists<span class="token punctuation">.</span>
+<span class="token operator">*</span> Sciency input is a bunch of data defining the beginning conditions of a weather system<span class="token punctuation">,</span> <span class="token operator">or</span> stats of their bacteria colony <span class="token operator">and</span> environment<span class="token punctuation">.</span> Then the sim runs<span class="token punctuation">.</span>
+  
+<span class="token operator">&gt;</span> Game <span class="token function">input</span> <span class="token punctuation">(</span>via controller<span class="token punctuation">)</span> is present throughout the whole game<span class="token punctuation">,</span> putting our player into the sim as a constant affecting force<span class="token punctuation">.</span> The rest of the sim<span class="token punctuation">,</span> yeah that runs like a sciency one<span class="token punctuation">.</span>
+
+### The game loop<span class="token punctuation">,</span> then<span class="token punctuation">.</span>
+
+The game loop<span class="token punctuation">,</span> very simplified<span class="token punctuation">,</span> is <span class="token keyword">this</span><span class="token operator">:</span>
+
+</pre><p>program myGame</p>
+<p>initialise game.</p>
+<p>while game isn&#x2019;t over<br>
+handleInput<br>
+simulate everything else<br>
+draw it all on screen<br>
+loop</p>
+<p>end program myGame</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Here&apos;s more detail about those stages
+</code></pre><p>while game isn&#x2019;t over<br>
+Input:<br>
+listen to input (maybe e key or x button) and do player things<br>
+(like step forward or press accelerator)<br>
+All other things:<br>
+do all npc actions, physics etc. register hits, take hitpoints, do a bit of mining etc.<br>
+Assess game status (game over, still going, level finished)<br>
+Output:<br>
+draw to screen, play sounds, vibrate controller<br>
+loop</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Here&apos;s a bodge of how it would look in code
+
+```cpp
+int main()
+{
+  bool gameOver = false;
+
+  while (!gameOver) // not game over
+  {
+    // input and player simulation
+    doPlayerInputThings();
+    
+    // update non-player simulation
+    updateAllUpdateableThings(); // move, grow, spawn, brew, mine etc
+    checkForInteractions(); // collisions, traps, pickups, level exit etc 
+    setNewGameStateIfChanged();
+
+    //
+    drawGraphics();
+    playSounds();
+  }
+
+}
+</code></pre>
       </div>
       
       
