@@ -49,13 +49,18 @@
 <li><a href="#talking-to-and-commanding-things">Talking to and commanding things</a>
 <ol>
 <li><a href="#sendmessage">SendMessage</a></li>
-<li><a href="#broadcastmessage">BroadcastMessage</a></li>
+<li><a href="#broadcastmessage"><code>BroadcastMessage</code></a></li>
 <li><a href="#events-1">Events</a></li>
 <li><a href="#getcomponent-and-call-functions">GetComponent and call functions</a></li>
 </ol>
 </li>
 <li><a href="#prefabs">Prefabs</a></li>
-<li><a href="#expanding-the-things-we-might-need">Expanding the things we might need</a></li>
+<li><a href="#expanding-the-things-we-might-need">Expanding the things we might need</a>
+<ol>
+<li><a href="#drawover">Drawover</a></li>
+<li><a href="#attributes-of-our-classes">Attributes of our classes</a></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -107,13 +112,98 @@
 <p>There are more ways than we&#x2019;ve used so far to inform and  command objects</p>
 <h3 class="mume-header" id="sendmessage">SendMessage</h3>
 
-<h3 class="mume-header" id="broadcastmessage">BroadcastMessage</h3>
+<p>If you have a reference to a gameObject you can ask for a function to be called on any monobehaviour it has. This is useful if multiple components on one object with the same function, say <code>Update()</code> or <code>ApplyTeamColour(TeamColours.GREEN))</code>, or you want to make things Damageable with component, so they can <code>TakeDamage()</code>.</p>
+<p>This is handy for building things up in a modular way using components.</p>
+<blockquote>
+<p>&lt;//https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html&gt;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// More info in the unity docs</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<h3 class="mume-header" id="events-1">Events</h3>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Tester</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token class-name">GameObject</span> structure<span class="token punctuation">;</span>
 
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Some structures are damageable, if they have a </span>
+        <span class="token comment">// Damageable component. Try to do damage:</span>
+        structure<span class="token punctuation">.</span><span class="token function">SendMessage</span><span class="token punctuation">(</span><span class="token string">&quot;TakeDamage&quot;</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>Here are components you&#x2019;ll find on the structure.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Damageable</span> <span class="token punctuation">:</span> <span class="token class-name">Monobehaviour</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> _health<span class="token punctuation">;</span>
+
+    <span class="token comment">// A public function that can </span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">TakeDamage</span><span class="token punctuation">(</span><span class="token keyword">float</span> damage<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Ow. Seriously, &quot;</span> <span class="token operator">+</span> damage <span class="token operator">+</span> <span class="token string">&quot; damage?&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      _health <span class="token operator">-=</span> damage<span class="token punctuation">;</span>
+      <span class="token comment">// You can call sendmessage on other gameObjects or the current one.</span>
+      <span class="token comment">// If there&apos;s a component on this unit/structure that can change the visuals on damage, call it.</span>
+      gameObject<span class="token punctuation">.</span><span class="token function">SendMessage</span><span class="token punctuation">(</span><span class="token function">ShowDamage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> Health
+    <span class="token punctuation">{</span>
+      <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> _health<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token keyword">private</span> <span class="token keyword">set</span>
+      <span class="token punctuation">{</span>
+          <span class="token comment">// Prevent health going below 0.</span>
+          <span class="token comment">// If (value &gt;= 0) _health = value, else health = 0 </span>
+         _health <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">value</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> <span class="token keyword">value</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DamagedArtController</span> <span class="token punctuation">:</span> <span class="token class-name">Monobehaviour</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">ShowDamage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// swap the sprite, jump to an animation frame,</span>
+    <span class="token comment">// start particle smoke etc</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;showing damage&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="broadcastmessage"><code>BroadcastMessage</code></h3>
+
+<p>Similar deal to <code>SendMessage</code>, but it applies it to all components on the current object <em>and any child objects</em> - anything in the scene heirarchy that this object is parent to. Note this function is local to the <code>Component/MonoBehaviour</code>, we don&#x2019;t need to use the <code>gameObject</code>.</p>
+<blockquote>
+<p><a href="https://docs.unity3d.com/ScriptReference/Component.BroadcastMessage.html">https://docs.unity3d.com/ScriptReference/Component.BroadcastMessage.html</a></p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Tower</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Make sure nothing is firing or tracking till round starts</span>
+        <span class="token function">BroadCastMessage</span><span class="token punctuation">(</span><span class="token string">&quot;SetStatus&quot;</span><span class="token punctuation">,</span> GameUnitStatus<span class="token punctuation">.</span>READY_INACTIVE<span class="token punctuation">)</span>
+        <span class="token comment">// Listen for the level/round to start</span>
+        GameController<span class="token punctuation">.</span>OnRoundStart <span class="token operator">+=</span> OnRoundStartHandler<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">OnRoundStartHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// Any turrets/zappers components on this object or it&apos;s children start tracking and firing</span>
+      <span class="token function">BroadCastMessage</span><span class="token punctuation">(</span><span class="token string">&quot;SetStatus&quot;</span><span class="token punctuation">,</span> GameUnitStatus<span class="token punctuation">.</span>ACTIVE<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="events-1">Events</h3>
+
+<p>As we&#x2019;ve already already used, and seen in the example above (BroadcastMessage).</p>
 <h3 class="mume-header" id="getcomponent-and-call-functions">GetComponent and call functions</h3>
 
-<h2 class="mume-header" id="prefabs">Prefabs</h2>
+<p>As we did with <code>SpriteRenderer.Sprite</code>. We can call these on current gameObject or on ones we have a reference to.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp">  <span class="token keyword">void</span> <span class="token function">ExplodeAThing</span><span class="token punctuation">(</span><span class="token class-name">GameObject</span> thing<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    thing<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetComponent</span><span class="token punctuation">&lt;</span><span class="token class-name">Explodeable</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Explode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment">// IRL we&apos;d check the result of GetComponent before calling Explode</span>
+  <span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="prefabs">Prefabs</h2>
 
 <p>Create-&gt;prefab<br>
 Drag a thing from the scene heirarchy onto it.<br>
@@ -123,13 +213,14 @@ Drag another from assets/prefabs to the stage to see it</p>
 <img src="assets/week10/prefab_made_used.png" alt="Prefab made used"></p>
 <h2 class="mume-header" id="expanding-the-things-we-might-need">Expanding the things we might need</h2>
 
-<p>In missile command there are  good few objects, and we need to figure out their properties.</p>
-<p>Luckily this isn&#x2019;t a code exercise, it&#x2019;s just imagination and things we know about games.</p>
-<p><strong>alienBatteries</strong></p>
-<ul>
-<li>position</li>
-</ul>
-<p><strong>playerBatteries</strong></p>
+<p>In missile command there are  good few objects, and we need to figure out their properties. Luckily this isn&#x2019;t a code exercise, it&#x2019;s just imagination and things we know about games.</p>
+<h3 class="mume-header" id="drawover">Drawover</h3>
+
+<p>A quick doodle over the game screen can help us figure out the code, instead of having to visualise everything in our head.</p>
+<p>// Here lies a drawing</p>
+<h3 class="mume-header" id="attributes-of-our-classes">Attributes of our classes</h3>
+
+<p><strong>PlayerBattery</strong></p>
 <ul>
 <li>position</li>
 <li>capacity</li>
@@ -138,7 +229,11 @@ Drag another from assets/prefabs to the stage to see it</p>
 <li>isOnline</li>
 <li>collider</li>
 </ul>
-<p><strong>cities</strong></p>
+<p><strong>AlienBattery</strong></p>
+<ul>
+<li>position</li>
+</ul>
+<p><strong>City</strong></p>
 <ul>
 <li>position</li>
 <li>isDestroyed</li>
@@ -168,7 +263,7 @@ Prefab with long tail rect with emissive mat</p>
 <li>explode</li>
 <li>collider</li>
 </ul>
-<p><strong>Planes</strong></p>
+<p><strong>Plane</strong></p>
 <p><strong>ScoreText</strong></p>
 
       </div>

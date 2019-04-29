@@ -20,11 +20,13 @@
 			* [Singleton](#singleton)
 	* [Talking to and commanding things](#talking-to-and-commanding-things)
 		* [SendMessage](#sendmessage)
-		* [BroadcastMessage](#broadcastmessage)
+		* [`BroadcastMessage`](#broadcastmessage)
 		* [Events](#events-1)
 		* [GetComponent and call functions](#getcomponent-and-call-functions)
 	* [Prefabs](#prefabs)
 	* [Expanding the things we might need](#expanding-the-things-we-might-need)
+		* [Drawover](#drawover)
+		* [Attributes of our classes](#attributes-of-our-classes)
 
 <!-- /code_chunk_output -->
 
@@ -87,11 +89,109 @@ There are more ways than we've used so far to inform and  command objects
 
 ### SendMessage
 
-### BroadcastMessage
+If you have a reference to a gameObject you can ask for a function to be called on any monobehaviour it has. This is useful if multiple components on one object with the same function, say `Update()` or `ApplyTeamColour(TeamColours.GREEN))`, or you want to make things Damageable with component, so they can `TakeDamage()`. 
+
+This is handy for building things up in a modular way using components.
+
+> <//https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html>
+
+```cs
+// More info in the unity docs
+using UnityEngine;
+
+public class Tester : MonoBehaviour
+{
+  public GameObject structure;
+
+    void Start()
+    {
+        // Some structures are damageable, if they have a 
+        // Damageable component. Try to do damage:
+        structure.SendMessage("TakeDamage", 20);
+    }
+}
+```
+Here are components you'll find on the structure.
+```cs
+public class Damageable : Monobehaviour
+{
+  private int _health;
+
+    // A public function that can 
+    public void TakeDamage(float damage)
+    {
+      Debug.Log("Ow. Seriously, " + damage + " damage?");
+      _health -= damage;
+      // You can call sendmessage on other gameObjects or the current one.
+      // If there's a component on this unit/structure that can change the visuals on damage, call it.
+      gameObject.SendMessage(ShowDamage()); 
+    }
+
+    public int Health
+    {
+      get { return _health; }
+      private set
+      {
+          // Prevent health going below 0.
+          // If (value >= 0) _health = value, else health = 0 
+         _health = (value >= 0) ? value : 0;
+      } 
+    }
+
+}
+
+public class DamagedArtController : Monobehaviour
+{
+  public void ShowDamage()
+  {
+    // swap the sprite, jump to an animation frame,
+    // start particle smoke etc
+    Debug.Log("showing damage");
+  }
+}
+```
+### `BroadcastMessage`
+
+Similar deal to `SendMessage`, but it applies it to all components on the current object _and any child objects_ - anything in the scene heirarchy that this object is parent to. Note this function is local to the `Component/MonoBehaviour`, we don't need to use the `gameObject`.
+
+> <https://docs.unity3d.com/ScriptReference/Component.BroadcastMessage.html>
+
+```cs
+using UnityEngine;
+
+public class Tower : MonoBehaviour
+{
+    void Start()
+    {
+        // Make sure nothing is firing or tracking till round starts
+        BroadCastMessage("SetStatus", GameUnitStatus.READY_INACTIVE)
+        // Listen for the level/round to start
+        GameController.OnRoundStart += OnRoundStartHandler;
+    }
+
+    void OnRoundStartHandler()
+    {
+      // Any turrets/zappers components on this object or it's children start tracking and firing
+      BroadCastMessage("SetStatus", GameUnitStatus.ACTIVE)
+    }
+}
+```
 
 ### Events
 
+As we've already already used, and seen in the example above (BroadcastMessage).
+
 ### GetComponent and call functions
+
+As we did with `SpriteRenderer.Sprite`. We can call these on current gameObject or on ones we have a reference to.
+
+```cs
+  void ExplodeAThing(GameObject thing)
+  {
+    thing.GetComponent<Explodeable>().Explode(); 
+    // IRL we'd check the result of GetComponent before calling Explode
+  }
+```
 
 ## Prefabs
 
@@ -105,14 +205,17 @@ Drag another from assets/prefabs to the stage to see it
 
 ## Expanding the things we might need
 
-In missile command there are  good few objects, and we need to figure out their properties.
+In missile command there are  good few objects, and we need to figure out their properties. Luckily this isn't a code exercise, it's just imagination and things we know about games.
 
-Luckily this isn't a code exercise, it's just imagination and things we know about games.
+### Drawover
 
-**alienBatteries**
-  - position
+A quick doodle over the game screen can help us figure out the code, instead of having to visualise everything in our head.
 
-**playerBatteries**
+// Here lies a drawing
+
+### Attributes of our classes
+
+**PlayerBattery**
   - position
   - capacity
   - MissileCount
@@ -120,7 +223,10 @@ Luckily this isn't a code exercise, it's just imagination and things we know abo
   - isOnline
   - collider
 
-**cities**
+**AlienBattery**
+  - position
+
+**City**
   - position
   - isDestroyed
   - collider
@@ -147,7 +253,7 @@ Prefab with long tail rect with emissive mat
   - explode
   - collider
 
-**Planes**
+**Plane**
 
 **ScoreText**
 
