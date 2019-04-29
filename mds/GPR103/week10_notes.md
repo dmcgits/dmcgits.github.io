@@ -5,19 +5,26 @@
 
 <!-- code_chunk_output -->
 
-- [Week 10 - Finding things, Reusing things, shooting things](#week-10---finding-things-reusing-things-shooting-things)
-  - [Todo before next lecture](#todo-before-next-lecture)
-  - [Resources](#resources)
-  - [Laying out our game](#laying-out-our-game)
-    - [Things we may need in our game](#things-we-may-need-in-our-game)
-    - [Finding those things](#finding-those-things)
-  - [Talking to and commanding things](#talking-to-and-commanding-things)
-    - [SendMessage](#sendmessage)
-    - [BroadcastMessage](#broadcastmessage)
-    - [Events](#events)
-    - [GetComponent and call functions](#getcomponent-and-call-functions)
-  - [Prefabs](#prefabs)
-  - [Expanding the things we might need](#expanding-the-things-we-might-need)
+* [Week 10 - Finding things, Reusing things, shooting things](#week-10-finding-things-reusing-things-shooting-things)
+	* [Todo before next lecture](#todo-before-next-lecture)
+	* [Resources](#resources)
+	* [Laying out our game](#laying-out-our-game)
+		* [Things we may need in our game](#things-we-may-need-in-our-game)
+		* [Finding those things](#finding-those-things)
+			* [Inspector variables](#inspector-variables)
+			* [Creating things](#creating-things)
+			* [Events](#events)
+			* [Find By Name](#find-by-name)
+			* [Find By Tag](#find-by-tag)
+			* [Find By Type](#find-by-type)
+			* [Singleton](#singleton)
+	* [Talking to and commanding things](#talking-to-and-commanding-things)
+		* [SendMessage](#sendmessage)
+		* [BroadcastMessage](#broadcastmessage)
+		* [Events](#events-1)
+		* [GetComponent and call functions](#getcomponent-and-call-functions)
+	* [Prefabs](#prefabs)
+	* [Expanding the things we might need](#expanding-the-things-we-might-need)
 
 <!-- /code_chunk_output -->
 
@@ -87,6 +94,14 @@ There are more ways than we've used so far to inform and  command objects
 ### GetComponent and call functions
 
 ## Prefabs
+
+Create->prefab
+Drag a thing from the scene heirarchy onto it.
+The thing in the scene is now an instance of the new prefab
+Drag another from assets/prefabs to the stage to see it
+
+![Create Prefab](assets/week10/prefab_create.png)
+![Prefab made used](assets/week10/prefab_made_used.png)
 
 ## Expanding the things we might need
 
