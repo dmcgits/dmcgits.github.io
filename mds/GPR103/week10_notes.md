@@ -50,6 +50,11 @@ Very powerful tools this week.
   - Clone it to your machine and open in Unity
   - <https://github.com/dmcgits/gpr_week10.git>
 
+* Pics
+  - ![gattling tower](assets/week10/sprite_gattling_tower.png)
+  - ![gattling tower](assets/week10/sprite_missile_tower.png)
+  - ![gattling tower](assets/week10/field_bg.png)
+
 ## Laying out our game
 
 Sometimes we can't solely create everything in our game model/manager and adjust the stage to suit. It's handy to lay out things visually.
