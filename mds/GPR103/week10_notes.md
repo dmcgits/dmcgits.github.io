@@ -1,6 +1,6 @@
 # Week 10 - Finding things, Reusing things, shooting things
 
-
+Very powerful tools this week.
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
@@ -9,41 +9,69 @@
 	* [Todo before next lecture](#todo-before-next-lecture)
 	* [Resources](#resources)
 	* [Laying out our game](#laying-out-our-game)
-		* [Things we may need in our game](#things-we-may-need-in-our-game)
-		* [Finding those things](#finding-those-things)
-			* [Inspector variables](#inspector-variables)
-			* [Creating things](#creating-things)
-			* [Events](#events)
-			* [Find By Name](#find-by-name)
-			* [Find By Tag](#find-by-tag)
-			* [Find By Type](#find-by-type)
-			* [Singleton](#singleton)
+		* [Resolution](#resolution)
+		* [Figuring out the things in our game](#figuring-out-the-things-in-our-game)
+		* [A partial list of them](#a-partial-list-of-them)
+	* [Finding the scene things](#finding-the-scene-things)
+		* [Inspector variables](#inspector-variables)
+		* [Creating things](#creating-things)
+		* [Events](#events)
+		* [GameObject find methods](#gameobject-find-methods)
+		* [Find By Name](#find-by-name)
+		* [Find By Tag](#find-by-tag)
+		* [Find By Type](#find-by-type)
+		* [Singleton](#singleton)
 	* [Talking to and commanding things](#talking-to-and-commanding-things)
-		* [SendMessage](#sendmessage)
+		* [`SendMessage`](#sendmessage)
 		* [`BroadcastMessage`](#broadcastmessage)
 		* [Events](#events-1)
 		* [GetComponent and call functions](#getcomponent-and-call-functions)
 	* [Prefabs](#prefabs)
-	* [Expanding the things we might need](#expanding-the-things-we-might-need)
-		* [Drawover](#drawover)
-		* [Attributes of our classes](#attributes-of-our-classes)
+	* [Making](#making)
+		* [Using on stage](#using-on-stage)
+		* [Changing Prefabs](#changing-prefabs)
+		* [Individualising](#individualising)
+		* [Instantiating prefabs in code](#instantiating-prefabs-in-code)
+	* [A longer list of attributes of our classes](#a-longer-list-of-attributes-of-our-classes)
 
 <!-- /code_chunk_output -->
 
 
 ## Todo before next lecture
 
+* Lay out sprites on your game stage. Set your resolution.
+* Create a bunch of classes
+* Make useful prefabs (missile batteries, missiles, cities etc)
+* Update your Hacknplan to reflect all the new knowledge you have and the tasks it suggests.
+
 ## Resources
+
+* PrefabsTalkin project for in-class use:
+  - Clone it to your machine and open in Unity
+  - <https://github.com/dmcgits/gpr_week10.git>
 
 ## Laying out our game
 
-Sometimes we can't solely create everything in our game model/manager and adjust the stage to suit. It's handy to lay out things visually. But to benefit from that, we need to gather info about items on the stage. How can we do that and avoid noodly confusion?
+Sometimes we can't solely create everything in our game model/manager and adjust the stage to suit. It's handy to lay out things visually.
 
-### Things we may need in our game
+### Resolution
 
-Well, before we get into how we'd find things, lets consider things we might need to find in our game.
+Set our resolution so we have consistency.
+
+### Figuring out the things in our game
+
+First here's a drawover of things we might see in this game. This picture isn't just a lecture aid, I'll draw over a design like this to see the game world itself, rather than the final graphics. Remember we're simulating a world, and the job of the graphics is to communicate that world. How will that world be structured? 
+
+![in game things](assets/week10/drawover_things.png)
+
+>Luckily you don't have to be an coder to figure out the things in your game: just a gamer. Imagine the game playing, and think about the things that happen. Write down the things that do those things.
+
+___
+
+### A partial list of them
 
 * alienBatteries
+  - Grouped under stomething? Select a subset of arranged points, or generate random ones? Or pull from a level definition?
 * playerBatteries
 * cities
 * AlienMissile
@@ -52,42 +80,64 @@ Well, before we get into how we'd find things, lets consider things we might nee
 * ScoreText
 * DefendPrompt
 
-### Finding those things
+___
 
-Instead of setting positions in our model using an array or reading from a text file, let's read from the scene. Those of you who watched last weeks video will remember some of these
+## Finding the scene things
 
-#### Inspector variables
+There are quite a few things, and this isn't the dark ages so we want to lay them out visually in unity, instead of setting positions in variables manually. 
+
+> We can look at the objects, as placed, and get their position or any other info they contain. There are a number of ways.
+
+Some of these were covered in the video I asked you to watch last week. If you did watch it you'll have the benefit of further engraving it into your memory, along with some new examples.
+
+### Inspector variables
 
 `public vector3 location` or `[SerializeField]` are familiar friends since weeks 2/3. 
 
-#### Creating things
+### Creating things
 
 If an object creates another, it stores it as a variable.
 
-#### Events
+### Events
 
 We can listen for events, and objects can pass us information, whole components, or their whole selves (`GameObject gameObject`).
 
-#### Find By Name
+### GameObject find methods
 
-#### Find By Tag
+The GameObject offers a number of static methods that are very powerful. Those methods help it to act a bit like a higher level game manager that already has lists of everything in our game. **It can find them by name, tag, category and more**.
 
-#### Find By Type
+> GameObject find methods are slow/resource intensive. They're not something you do every frame. If you're going to use them, do it during awake or sleep and cache the results in a local variable.
 
-#### Singleton
+### Find By Name
 
-You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. That singleton of course will have to find all the objects too, but it does all of that and all other objects grab from it.
+Search by the name in the inspector.
+
+### Find By Tag
+
+Tags can be created and applied in unity as a way of grouping things without requiring other similarities to rely on (like sharing a component type). 
+
+### Find By Type
+
+Searching by type is super handy: if you're looking for all your lightning towers, or any damageable items, just search for anything with that component.
+
+I'm not sure how it goes with Polymorphism and finding LightningTower while looking for Tower, so we'll google it together.
+
+### Singleton
+
+You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It's sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.
+That singleton of course will have to find all the objects too, using techniques above and others, but it does all of that and all other objects grab from it.
 
 ```cpp
 
 GameObject battery_1 = GameManager.instance.Batteries[GameManager.BATTERY_1];
 
 ```
+___
 ## Talking to and commanding things
 
-There are more ways than we've used so far to inform and  command objects 
+Once you have your list of objects, we know we can get info from them by accessing their components (monobehaviours) and the variables we exposed. We can call functions on them. But how else can we inform and command objects 
 
-### SendMessage
+### `SendMessage`
 
 If you have a reference to a gameObject you can ask for a function to be called on any monobehaviour it has. This is useful if multiple components on one object with the same function, say `Update()` or `ApplyTeamColour(TeamColours.GREEN))`, or you want to make things Damageable with component, so they can `TakeDamage()`. 
 
@@ -192,6 +242,7 @@ As we did with `SpriteRenderer.Sprite`. We can call these on current gameObject 
     // IRL we'd check the result of GetComponent before calling Explode
   }
 ```
+___
 
 ## Prefabs
 
@@ -203,17 +254,33 @@ Drag another from assets/prefabs to the stage to see it
 ![Create Prefab](assets/week10/prefab_create.png)
 ![Prefab made used](assets/week10/prefab_made_used.png)
 
-## Expanding the things we might need
+## Making
 
-In missile command there are  good few objects, and we need to figure out their properties. Luckily this isn't a code exercise, it's just imagination and things we know about games.
+![Making Prefabs](assets/week10/prefab_create.png)
 
-### Drawover
+### Using on stage
 
-A quick doodle over the game screen can help us figure out the code, instead of having to visualise everything in our head.
+![Made used prefabs](assets/week10/prefab_made_used.png)
 
-// Here lies a drawing
+### Changing Prefabs
 
-### Attributes of our classes
+Getting into our prefab and editing, propagating.
+
+### Individualising
+
+Do things have to all be the same? Is conformity the cost of reusability?
+
+No, we can change our individual prefab instances a bit, and not apply the change. This is a deeper topic, so look into it and explore.
+
+### Instantiating prefabs in code
+
+Yes, you can spawn prefabs. That's one of their main use: peach trees, missiles, cherry pies, cherry pie customers, these are all things we'll be constantly spawning.
+
+Lets look it up the details together. Google is our friend.
+
+___
+
+## A longer list of attributes of our classes
 
 **PlayerBattery**
   - position

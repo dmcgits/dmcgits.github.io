@@ -25,6 +25,7 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-10-finding-things-reusing-things-shooting-things">Week 10 - Finding things, Reusing things, shooting things</h1>
 
+<p>Very powerful tools this week.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-10---finding-things-reusing-things-shooting-things">Week 10 - Finding things, Reusing things, shooting things</a>
 <ol>
@@ -32,50 +33,84 @@
 <li><a href="#resources">Resources</a></li>
 <li><a href="#laying-out-our-game">Laying out our game</a>
 <ol>
-<li><a href="#things-we-may-need-in-our-game">Things we may need in our game</a></li>
-<li><a href="#finding-those-things">Finding those things</a>
+<li><a href="#resolution">Resolution</a></li>
+<li><a href="#figuring-out-the-things-in-our-game">Figuring out the things in our game</a></li>
+<li><a href="#a-partial-list-of-them">A partial list of them</a></li>
+</ol>
+</li>
+<li><a href="#finding-the-scene-things">Finding the scene things</a>
 <ol>
 <li><a href="#inspector-variables">Inspector variables</a></li>
 <li><a href="#creating-things">Creating things</a></li>
 <li><a href="#events">Events</a></li>
+<li><a href="#gameobject-find-methods">GameObject find methods</a></li>
 <li><a href="#find-by-name">Find By Name</a></li>
 <li><a href="#find-by-tag">Find By Tag</a></li>
 <li><a href="#find-by-type">Find By Type</a></li>
 <li><a href="#singleton">Singleton</a></li>
 </ol>
 </li>
-</ol>
-</li>
 <li><a href="#talking-to-and-commanding-things">Talking to and commanding things</a>
 <ol>
-<li><a href="#sendmessage">SendMessage</a></li>
+<li><a href="#sendmessage"><code>SendMessage</code></a></li>
 <li><a href="#broadcastmessage"><code>BroadcastMessage</code></a></li>
 <li><a href="#events-1">Events</a></li>
 <li><a href="#getcomponent-and-call-functions">GetComponent and call functions</a></li>
 </ol>
 </li>
 <li><a href="#prefabs">Prefabs</a></li>
-<li><a href="#expanding-the-things-we-might-need">Expanding the things we might need</a>
+<li><a href="#making">Making</a>
 <ol>
-<li><a href="#drawover">Drawover</a></li>
-<li><a href="#attributes-of-our-classes">Attributes of our classes</a></li>
+<li><a href="#using-on-stage">Using on stage</a></li>
+<li><a href="#changing-prefabs">Changing Prefabs</a></li>
+<li><a href="#individualising">Individualising</a></li>
+<li><a href="#instantiating-prefabs-in-code">Instantiating prefabs in code</a></li>
 </ol>
 </li>
+<li><a href="#a-longer-list-of-attributes-of-our-classes">A longer list of attributes of our classes</a></li>
 </ol>
 </li>
 </ol>
 <h2 class="mume-header" id="todo-before-next-lecture">Todo before next lecture</h2>
 
+<ul>
+<li>Lay out sprites on your game stage. Set your resolution.</li>
+<li>Create a bunch of classes</li>
+<li>Make useful prefabs (missile batteries, missiles, cities etc)</li>
+<li>Update your Hacknplan to reflect all the new knowledge you have and the tasks it suggests.</li>
+</ul>
 <h2 class="mume-header" id="resources">Resources</h2>
 
+<ul>
+<li>PrefabsTalkin project for in-class use:
+<ul>
+<li>Clone it to your machine and open in Unity</li>
+<li><a href="https://github.com/dmcgits/gpr_week10.git">https://github.com/dmcgits/gpr_week10.git</a></li>
+</ul>
+</li>
+</ul>
 <h2 class="mume-header" id="laying-out-our-game">Laying out our game</h2>
 
-<p>Sometimes we can&#x2019;t solely create everything in our game model/manager and adjust the stage to suit. It&#x2019;s handy to lay out things visually. But to benefit from that, we need to gather info about items on the stage. How can we do that and avoid noodly confusion?</p>
-<h3 class="mume-header" id="things-we-may-need-in-our-game">Things we may need in our game</h3>
+<p>Sometimes we can&#x2019;t solely create everything in our game model/manager and adjust the stage to suit. It&#x2019;s handy to lay out things visually.</p>
+<h3 class="mume-header" id="resolution">Resolution</h3>
 
-<p>Well, before we get into how we&#x2019;d find things, lets consider things we might need to find in our game.</p>
+<p>Set our resolution so we have consistency.</p>
+<h3 class="mume-header" id="figuring-out-the-things-in-our-game">Figuring out the things in our game</h3>
+
+<p>First here&#x2019;s a drawover of things we might see in this game. This picture isn&#x2019;t just a lecture aid, I&#x2019;ll draw over a design like this to see the game world itself, rather than the final graphics. Remember we&#x2019;re simulating a world, and the job of the graphics is to communicate that world. How will that world be structured?</p>
+<p><img src="assets/week10/drawover_things.png" alt="in game things"></p>
+<blockquote>
+<p>Luckily you don&#x2019;t have to be an coder to figure out the things in your game: just a gamer. Imagine the game playing, and think about the things that happen. Write down the things that do those things.</p>
+</blockquote>
+<hr>
+<h3 class="mume-header" id="a-partial-list-of-them">A partial list of them</h3>
+
 <ul>
-<li>alienBatteries</li>
+<li>alienBatteries
+<ul>
+<li>Grouped under stomething? Select a subset of arranged points, or generate random ones? Or pull from a level definition?</li>
+</ul>
+</li>
 <li>playerBatteries</li>
 <li>cities</li>
 <li>AlienMissile</li>
@@ -84,33 +119,50 @@
 <li>ScoreText</li>
 <li>DefendPrompt</li>
 </ul>
-<h3 class="mume-header" id="finding-those-things">Finding those things</h3>
+<hr>
+<h2 class="mume-header" id="finding-the-scene-things">Finding the scene things</h2>
 
-<p>Instead of setting positions in our model using an array or reading from a text file, let&#x2019;s read from the scene. Those of you who watched last weeks video will remember some of these</p>
-<h4 class="mume-header" id="inspector-variables">Inspector variables</h4>
+<p>There are quite a few things, and this isn&#x2019;t the dark ages so we want to lay them out visually in unity, instead of setting positions in variables manually.</p>
+<blockquote>
+<p>We can look at the objects, as placed, and get their position or any other info they contain. There are a number of ways.</p>
+</blockquote>
+<p>Some of these were covered in the video I asked you to watch last week. If you did watch it you&#x2019;ll have the benefit of further engraving it into your memory, along with some new examples.</p>
+<h3 class="mume-header" id="inspector-variables">Inspector variables</h3>
 
 <p><code>public vector3 location</code> or <code>[SerializeField]</code> are familiar friends since weeks 2/3.</p>
-<h4 class="mume-header" id="creating-things">Creating things</h4>
+<h3 class="mume-header" id="creating-things">Creating things</h3>
 
 <p>If an object creates another, it stores it as a variable.</p>
-<h4 class="mume-header" id="events">Events</h4>
+<h3 class="mume-header" id="events">Events</h3>
 
 <p>We can listen for events, and objects can pass us information, whole components, or their whole selves (<code>GameObject gameObject</code>).</p>
-<h4 class="mume-header" id="find-by-name">Find By Name</h4>
+<h3 class="mume-header" id="gameobject-find-methods">GameObject find methods</h3>
 
-<h4 class="mume-header" id="find-by-tag">Find By Tag</h4>
+<p>The GameObject offers a number of static methods that are very powerful. Those methods help it to act a bit like a higher level game manager that already has lists of everything in our game. <strong>It can find them by name, tag, category and more</strong>.</p>
+<blockquote>
+<p>GameObject find methods are slow/resource intensive. They&#x2019;re not something you do every frame. If you&#x2019;re going to use them, do it during awake or sleep and cache the results in a local variable.</p>
+</blockquote>
+<h3 class="mume-header" id="find-by-name">Find By Name</h3>
 
-<h4 class="mume-header" id="find-by-type">Find By Type</h4>
+<p>Search by the name in the inspector.</p>
+<h3 class="mume-header" id="find-by-tag">Find By Tag</h3>
 
-<h4 class="mume-header" id="singleton">Singleton</h4>
+<p>Tags can be created and applied in unity as a way of grouping things without requiring other similarities to rely on (like sharing a component type).</p>
+<h3 class="mume-header" id="find-by-type">Find By Type</h3>
 
-<p>You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. That singleton of course will have to find all the objects too, but it does all of that and all other objects grab from it.</p>
+<p>Searching by type is super handy: if you&#x2019;re looking for all your lightning towers, or any damageable items, just search for anything with that component.</p>
+<p>I&#x2019;m not sure how it goes with Polymorphism and finding LightningTower while looking for Tower, so we&#x2019;ll google it together.</p>
+<h3 class="mume-header" id="singleton">Singleton</h3>
+
+<p>You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It&#x2019;s sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.<br>
+That singleton of course will have to find all the objects too, using techniques above and others, but it does all of that and all other objects grab from it.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">GameObject battery_1 <span class="token operator">=</span> GameManager<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>Batteries<span class="token punctuation">[</span>GameManager<span class="token punctuation">.</span>BATTERY_1<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-</pre><h2 class="mume-header" id="talking-to-and-commanding-things">Talking to and commanding things</h2>
+</pre><hr>
+<h2 class="mume-header" id="talking-to-and-commanding-things">Talking to and commanding things</h2>
 
-<p>There are more ways than we&#x2019;ve used so far to inform and  command objects</p>
-<h3 class="mume-header" id="sendmessage">SendMessage</h3>
+<p>Once you have your list of objects, we know we can get info from them by accessing their components (monobehaviours) and the variables we exposed. We can call functions on them. But how else can we inform and command objects</p>
+<h3 class="mume-header" id="sendmessage"><code>SendMessage</code></h3>
 
 <p>If you have a reference to a gameObject you can ask for a function to be called on any monobehaviour it has. This is useful if multiple components on one object with the same function, say <code>Update()</code> or <code>ApplyTeamColour(TeamColours.GREEN))</code>, or you want to make things Damageable with component, so they can <code>TakeDamage()</code>.</p>
 <p>This is handy for building things up in a modular way using components.</p>
@@ -203,7 +255,8 @@
     thing<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetComponent</span><span class="token punctuation">&lt;</span><span class="token class-name">Explodeable</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Explode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token comment">// IRL we&apos;d check the result of GetComponent before calling Explode</span>
   <span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="prefabs">Prefabs</h2>
+</pre><hr>
+<h2 class="mume-header" id="prefabs">Prefabs</h2>
 
 <p>Create-&gt;prefab<br>
 Drag a thing from the scene heirarchy onto it.<br>
@@ -211,14 +264,25 @@ The thing in the scene is now an instance of the new prefab<br>
 Drag another from assets/prefabs to the stage to see it</p>
 <p><img src="assets/week10/prefab_create.png" alt="Create Prefab"><br>
 <img src="assets/week10/prefab_made_used.png" alt="Prefab made used"></p>
-<h2 class="mume-header" id="expanding-the-things-we-might-need">Expanding the things we might need</h2>
+<h2 class="mume-header" id="making">Making</h2>
 
-<p>In missile command there are  good few objects, and we need to figure out their properties. Luckily this isn&#x2019;t a code exercise, it&#x2019;s just imagination and things we know about games.</p>
-<h3 class="mume-header" id="drawover">Drawover</h3>
+<p><img src="assets/week10/prefab_create.png" alt="Making Prefabs"></p>
+<h3 class="mume-header" id="using-on-stage">Using on stage</h3>
 
-<p>A quick doodle over the game screen can help us figure out the code, instead of having to visualise everything in our head.</p>
-<p>// Here lies a drawing</p>
-<h3 class="mume-header" id="attributes-of-our-classes">Attributes of our classes</h3>
+<p><img src="assets/week10/prefab_made_used.png" alt="Made used prefabs"></p>
+<h3 class="mume-header" id="changing-prefabs">Changing Prefabs</h3>
+
+<p>Getting into our prefab and editing, propagating.</p>
+<h3 class="mume-header" id="individualising">Individualising</h3>
+
+<p>Do things have to all be the same? Is conformity the cost of reusability?</p>
+<p>No, we can change our individual prefab instances a bit, and not apply the change. This is a deeper topic, so look into it and explore.</p>
+<h3 class="mume-header" id="instantiating-prefabs-in-code">Instantiating prefabs in code</h3>
+
+<p>Yes, you can spawn prefabs. That&#x2019;s one of their main use: peach trees, missiles, cherry pies, cherry pie customers, these are all things we&#x2019;ll be constantly spawning.</p>
+<p>Lets look it up the details together. Google is our friend.</p>
+<hr>
+<h2 class="mume-header" id="a-longer-list-of-attributes-of-our-classes">A longer list of attributes of our classes</h2>
 
 <p><strong>PlayerBattery</strong></p>
 <ul>
