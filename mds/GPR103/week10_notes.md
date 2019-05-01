@@ -9,9 +9,14 @@ Very powerful tools this week.
 	* [Todo before next lecture](#todo-before-next-lecture)
 	* [Resources](#resources)
 	* [Laying out our game](#laying-out-our-game)
-		* [Resolution](#resolution)
 		* [Figuring out the things in our game](#figuring-out-the-things-in-our-game)
 		* [A partial list of them](#a-partial-list-of-them)
+	* [Practise laying out a scene](#practise-laying-out-a-scene)
+		* [Resolution](#resolution)
+	* [Prefabs](#prefabs)
+		* [Changing prefabs](#changing-prefabs)
+		* [Individualising prefabs](#individualising-prefabs)
+		* [Instantiating prefabs in code](#instantiating-prefabs-in-code)
 	* [Finding the scene things](#finding-the-scene-things)
 		* [Inspector variables](#inspector-variables)
 		* [Creating things](#creating-things)
@@ -26,12 +31,6 @@ Very powerful tools this week.
 		* [`BroadcastMessage`](#broadcastmessage)
 		* [Events](#events-1)
 		* [GetComponent and call functions](#getcomponent-and-call-functions)
-	* [Prefabs](#prefabs)
-	* [Making](#making)
-		* [Using on stage](#using-on-stage)
-		* [Changing Prefabs](#changing-prefabs)
-		* [Individualising](#individualising)
-		* [Instantiating prefabs in code](#instantiating-prefabs-in-code)
 	* [A longer list of attributes of our classes](#a-longer-list-of-attributes-of-our-classes)
 
 <!-- /code_chunk_output -->
@@ -41,16 +40,13 @@ Very powerful tools this week.
 
 * Lay out sprites on your game stage. Set your resolution.
 * Create a bunch of classes
+* Practise SendMessage, BroadcastMessage
 * Make useful prefabs (missile batteries, missiles, cities etc)
 * Update your Hacknplan to reflect all the new knowledge you have and the tasks it suggests.
 
 ## Resources
 
-* PrefabsTalkin project for in-class use:
-  - Clone it to your machine and open in Unity
-  - <https://github.com/dmcgits/gpr_week10.git>
-
-* Pics
+* Pics for unity project
   - ![gattling tower](assets/week10/sprite_gattling_tower.png)
   - ![gattling tower](assets/week10/sprite_missile_tower.png)
   - ![gattling tower](assets/week10/field_bg.png)
@@ -60,10 +56,6 @@ Very powerful tools this week.
 ## Laying out our game
 
 Sometimes we can't solely create everything in our game model/manager and adjust the stage to suit. It's handy to lay out things visually.
-
-### Resolution
-
-Set our resolution so we have consistency.
 
 ### Figuring out the things in our game
 
@@ -87,11 +79,66 @@ ___
 * ScoreText
 * DefendPrompt
 
+Later we'll look at how to find and these pre-layed-out elements. First we need a scene to work with.
+___
+
+## Practise laying out a scene
+
+* Create Unity 2D project PrefabBits
+* Make Sprites and Scripts folders in Assets
+* Save images (above in resources) to Sprites folder
+* Drag images from project window to stage
+
+### Resolution
+
+* Set our resolution so we have consistency.
+  - File -> Build settings -> player settings
+  - 1280x720 to match our bg 
+* Set the pixel density of our various sprites
+  - click sprites in the Sprites folder, import properties show in inspector
+  - set 72 pixels per inch (common digital screen res)
+  - apply
+* Scale buildings
+  - 1.5x x, y, z. They'll pretty much match the ground now.
+
+___
+
+## Prefabs
+
+Take things you've built in the scene from parts and scripts, then reuse them.
+
+* Make a new folder: Assets -> Prefabs
+* Create->prefab
+* Drag a thing from the scene heirarchy onto it.
+* The thing in the scene is now an instance of the new prefab (text turned blue)
+* Drag another from assets/prefabs to the stage to see it
+
+![Making Prefabs](assets/week10/prefab_create.png)
+_creating_
+
+![Made used prefabs](assets/week10/prefab_made_used.png)
+_duplicating or dragging from Assets
+
+### Changing prefabs
+
+Getting into our prefab and editing, propagating.
+
+### Individualising prefabs
+
+Do things have to all be the same? Is conformity the cost of reusability?
+
+No, we can change our individual prefab instances a bit, and not apply the change. This is a deeper topic, so look into it and explore.
+
+### Instantiating prefabs in code
+
+Yes, you can spawn prefabs. That's one of their main use: peach trees, missiles, cherry pies, cherry pie customers, these are all things we'll be constantly spawning.
+
+Lets look it up the details together. Google is our friend.
 ___
 
 ## Finding the scene things
 
-There are quite a few things, and this isn't the dark ages so we want to lay them out visually in unity, instead of setting positions in variables manually. 
+There are quite a few things, and this isn't the dark ages so we want to use our visual layout from unity for position info at the very least.
 
 > We can look at the objects, as placed, and get their position or any other info they contain. There are a number of ways.
 
@@ -99,11 +146,11 @@ Some of these were covered in the video I asked you to watch last week. If you d
 
 ### Inspector variables
 
-`public vector3 location` or `[SerializeField]` are familiar friends since weeks 2/3. 
+`public vector3 thingTransform` or `[SerializeField]` are familiar friends since weeks 2/3. 
 
 ### Creating things
 
-If an object creates another, it stores it as a variable.
+If an object creates another, like we did with our Test and Player classes, it keeps a reference in a variable. That won't work for outside objects.
 
 ### Events
 
@@ -119,9 +166,17 @@ The GameObject offers a number of static methods that are very powerful. Those m
 
 Search by the name in the inspector.
 
+```cs
+GameObject.Find("MissileTower_charlie");
+```
+
 ### Find By Tag
 
 Tags can be created and applied in unity as a way of grouping things without requiring other similarities to rely on (like sharing a component type). 
+
+```cs
+GameObjects[] spawnPoints = GameObject.FindObjectsByTag('Spawn');
+```
 
 ### Find By Type
 
@@ -129,17 +184,24 @@ Searching by type is super handy: if you're looking for all your lightning tower
 
 I'm not sure how it goes with Polymorphism and finding LightningTower while looking for Tower, so we'll google it together.
 
+```cs
+GameObjects[] towers = GameObject.FindObjectsOfType<BaseTower>();
+```
+
 ### Singleton
 
 You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It's sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.
 That singleton of course will have to find all the objects too, using techniques above and others, but it does all of that and all other objects grab from it.
 
-```cpp
+```cs
 
 GameObject battery_1 = GameManager.instance.Batteries[GameManager.BATTERY_1];
 
 ```
 ___
+
+
+
 ## Talking to and commanding things
 
 Once you have your list of objects, we know we can get info from them by accessing their components (monobehaviours) and the variables we exposed. We can call functions on them. But how else can we inform and command objects 
@@ -249,42 +311,6 @@ As we did with `SpriteRenderer.Sprite`. We can call these on current gameObject 
     // IRL we'd check the result of GetComponent before calling Explode
   }
 ```
-___
-
-## Prefabs
-
-Create->prefab
-Drag a thing from the scene heirarchy onto it.
-The thing in the scene is now an instance of the new prefab
-Drag another from assets/prefabs to the stage to see it
-
-![Create Prefab](assets/week10/prefab_create.png)
-![Prefab made used](assets/week10/prefab_made_used.png)
-
-## Making
-
-![Making Prefabs](assets/week10/prefab_create.png)
-
-### Using on stage
-
-![Made used prefabs](assets/week10/prefab_made_used.png)
-
-### Changing Prefabs
-
-Getting into our prefab and editing, propagating.
-
-### Individualising
-
-Do things have to all be the same? Is conformity the cost of reusability?
-
-No, we can change our individual prefab instances a bit, and not apply the change. This is a deeper topic, so look into it and explore.
-
-### Instantiating prefabs in code
-
-Yes, you can spawn prefabs. That's one of their main use: peach trees, missiles, cherry pies, cherry pie customers, these are all things we'll be constantly spawning.
-
-Lets look it up the details together. Google is our friend.
-
 ___
 
 ## A longer list of attributes of our classes

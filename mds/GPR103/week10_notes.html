@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -26,20 +26,31 @@
       <h1 class="mume-header" id="week-10-finding-things-reusing-things-shooting-things">Week 10 - Finding things, Reusing things, shooting things</h1>
 
 <p>Very powerful tools this week.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-10---finding-things-reusing-things-shooting-things">Week 10 - Finding things, Reusing things, shooting things</a>
-<ul>
+<ol>
 <li><a href="#todo-before-next-lecture">Todo before next lecture</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#laying-out-our-game">Laying out our game</a>
-<ul>
-<li><a href="#resolution">Resolution</a></li>
+<ol>
 <li><a href="#figuring-out-the-things-in-our-game">Figuring out the things in our game</a></li>
 <li><a href="#a-partial-list-of-them">A partial list of them</a></li>
-</ul>
+</ol>
+</li>
+<li><a href="#practise-laying-out-a-scene">Practise laying out a scene</a>
+<ol>
+<li><a href="#resolution">Resolution</a></li>
+</ol>
+</li>
+<li><a href="#prefabs">Prefabs</a>
+<ol>
+<li><a href="#changing-prefabs">Changing prefabs</a></li>
+<li><a href="#individualising-prefabs">Individualising prefabs</a></li>
+<li><a href="#instantiating-prefabs-in-code">Instantiating prefabs in code</a></li>
+</ol>
 </li>
 <li><a href="#finding-the-scene-things">Finding the scene things</a>
-<ul>
+<ol>
 <li><a href="#inspector-variables">Inspector variables</a></li>
 <li><a href="#creating-things">Creating things</a></li>
 <li><a href="#events">Events</a></li>
@@ -48,49 +59,33 @@
 <li><a href="#find-by-tag">Find By Tag</a></li>
 <li><a href="#find-by-type">Find By Type</a></li>
 <li><a href="#singleton">Singleton</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#talking-to-and-commanding-things">Talking to and commanding things</a>
-<ul>
+<ol>
 <li><a href="#sendmessage"><code>SendMessage</code></a></li>
 <li><a href="#broadcastmessage"><code>BroadcastMessage</code></a></li>
 <li><a href="#events-1">Events</a></li>
 <li><a href="#getcomponent-and-call-functions">GetComponent and call functions</a></li>
-</ul>
-</li>
-<li><a href="#prefabs">Prefabs</a></li>
-<li><a href="#making">Making</a>
-<ul>
-<li><a href="#using-on-stage">Using on stage</a></li>
-<li><a href="#changing-prefabs">Changing Prefabs</a></li>
-<li><a href="#individualising">Individualising</a></li>
-<li><a href="#instantiating-prefabs-in-code">Instantiating prefabs in code</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="#a-longer-list-of-attributes-of-our-classes">A longer list of attributes of our classes</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="todo-before-next-lecture">Todo before next lecture</h2>
 
 <ul>
 <li>Lay out sprites on your game stage. Set your resolution.</li>
 <li>Create a bunch of classes</li>
+<li>Practise SendMessage, BroadcastMessage</li>
 <li>Make useful prefabs (missile batteries, missiles, cities etc)</li>
 <li>Update your Hacknplan to reflect all the new knowledge you have and the tasks it suggests.</li>
 </ul>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ul>
-<li>
-<p>PrefabsTalkin project for in-class use:</p>
-<ul>
-<li>Clone it to your machine and open in Unity</li>
-<li><a href="https://github.com/dmcgits/gpr_week10.git">https://github.com/dmcgits/gpr_week10.git</a></li>
-</ul>
-</li>
-<li>
-<p>Pics</p>
+<li>Pics for unity project
 <ul>
 <li><img src="assets/week10/sprite_gattling_tower.png" alt="gattling tower"></li>
 <li><img src="assets/week10/sprite_missile_tower.png" alt="gattling tower"></li>
@@ -102,9 +97,6 @@
 <h2 class="mume-header" id="laying-out-our-game">Laying out our game</h2>
 
 <p>Sometimes we can&#x2019;t solely create everything in our game model/manager and adjust the stage to suit. It&#x2019;s handy to lay out things visually.</p>
-<h3 class="mume-header" id="resolution">Resolution</h3>
-
-<p>Set our resolution so we have consistency.</p>
 <h3 class="mume-header" id="figuring-out-the-things-in-our-game">Figuring out the things in our game</h3>
 
 <p>First here&#x2019;s a drawover of things we might see in this game. This picture isn&#x2019;t just a lecture aid, I&#x2019;ll draw over a design like this to see the game world itself, rather than the final graphics. Remember we&#x2019;re simulating a world, and the job of the graphics is to communicate that world. How will that world be structured?</p>
@@ -129,20 +121,78 @@
 <li>ScoreText</li>
 <li>DefendPrompt</li>
 </ul>
+<p>Later we&#x2019;ll look at how to find and these pre-layed-out elements. First we need a scene to work with.</p>
+<hr>
+<h2 class="mume-header" id="practise-laying-out-a-scene">Practise laying out a scene</h2>
+
+<ul>
+<li>Create Unity 2D project PrefabBits</li>
+<li>Make Sprites and Scripts folders in Assets</li>
+<li>Save images (above in resources) to Sprites folder</li>
+<li>Drag images from project window to stage</li>
+</ul>
+<h3 class="mume-header" id="resolution">Resolution</h3>
+
+<ul>
+<li>Set our resolution so we have consistency.
+<ul>
+<li>File -&gt; Build settings -&gt; player settings</li>
+<li>1280x720 to match our bg</li>
+</ul>
+</li>
+<li>Set the pixel density of our various sprites
+<ul>
+<li>click sprites in the Sprites folder, import properties show in inspector</li>
+<li>set 72 pixels per inch (common digital screen res)</li>
+<li>apply</li>
+</ul>
+</li>
+<li>Scale buildings
+<ul>
+<li>1.5x x, y, z. They&#x2019;ll pretty much match the ground now.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="prefabs">Prefabs</h2>
+
+<p>Take things you&#x2019;ve built in the scene from parts and scripts, then reuse them.</p>
+<ul>
+<li>Make a new folder: Assets -&gt; Prefabs</li>
+<li>Create-&gt;prefab</li>
+<li>Drag a thing from the scene heirarchy onto it.</li>
+<li>The thing in the scene is now an instance of the new prefab (text turned blue)</li>
+<li>Drag another from assets/prefabs to the stage to see it</li>
+</ul>
+<p><img src="assets/week10/prefab_create.png" alt="Making Prefabs"><br>
+<em>creating</em></p>
+<p><img src="assets/week10/prefab_made_used.png" alt="Made used prefabs"><br>
+_duplicating or dragging from Assets</p>
+<h3 class="mume-header" id="changing-prefabs">Changing prefabs</h3>
+
+<p>Getting into our prefab and editing, propagating.</p>
+<h3 class="mume-header" id="individualising-prefabs">Individualising prefabs</h3>
+
+<p>Do things have to all be the same? Is conformity the cost of reusability?</p>
+<p>No, we can change our individual prefab instances a bit, and not apply the change. This is a deeper topic, so look into it and explore.</p>
+<h3 class="mume-header" id="instantiating-prefabs-in-code">Instantiating prefabs in code</h3>
+
+<p>Yes, you can spawn prefabs. That&#x2019;s one of their main use: peach trees, missiles, cherry pies, cherry pie customers, these are all things we&#x2019;ll be constantly spawning.</p>
+<p>Lets look it up the details together. Google is our friend.</p>
 <hr>
 <h2 class="mume-header" id="finding-the-scene-things">Finding the scene things</h2>
 
-<p>There are quite a few things, and this isn&#x2019;t the dark ages so we want to lay them out visually in unity, instead of setting positions in variables manually.</p>
+<p>There are quite a few things, and this isn&#x2019;t the dark ages so we want to use our visual layout from unity for position info at the very least.</p>
 <blockquote>
 <p>We can look at the objects, as placed, and get their position or any other info they contain. There are a number of ways.</p>
 </blockquote>
 <p>Some of these were covered in the video I asked you to watch last week. If you did watch it you&#x2019;ll have the benefit of further engraving it into your memory, along with some new examples.</p>
 <h3 class="mume-header" id="inspector-variables">Inspector variables</h3>
 
-<p><code>public vector3 location</code> or <code>[SerializeField]</code> are familiar friends since weeks 2/3.</p>
+<p><code>public vector3 thingTransform</code> or <code>[SerializeField]</code> are familiar friends since weeks 2/3.</p>
 <h3 class="mume-header" id="creating-things">Creating things</h3>
 
-<p>If an object creates another, it stores it as a variable.</p>
+<p>If an object creates another, like we did with our Test and Player classes, it keeps a reference in a variable. That won&#x2019;t work for outside objects.</p>
 <h3 class="mume-header" id="events">Events</h3>
 
 <p>We can listen for events, and objects can pass us information, whole components, or their whole selves (<code>GameObject gameObject</code>).</p>
@@ -155,18 +205,21 @@
 <h3 class="mume-header" id="find-by-name">Find By Name</h3>
 
 <p>Search by the name in the inspector.</p>
-<h3 class="mume-header" id="find-by-tag">Find By Tag</h3>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp">GameObject<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token string">&quot;MissileTower_charlie&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="find-by-tag">Find By Tag</h3>
 
 <p>Tags can be created and applied in unity as a way of grouping things without requiring other similarities to rely on (like sharing a component type).</p>
-<h3 class="mume-header" id="find-by-type">Find By Type</h3>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp">GameObjects<span class="token punctuation">[</span><span class="token punctuation">]</span> spawnPoints <span class="token operator">=</span> GameObject<span class="token punctuation">.</span><span class="token function">FindObjectsByTag</span><span class="token punctuation">(</span><span class="token string">&apos;Spawn&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="find-by-type">Find By Type</h3>
 
 <p>Searching by type is super handy: if you&#x2019;re looking for all your lightning towers, or any damageable items, just search for anything with that component.</p>
 <p>I&#x2019;m not sure how it goes with Polymorphism and finding LightningTower while looking for Tower, so we&#x2019;ll google it together.</p>
-<h3 class="mume-header" id="singleton">Singleton</h3>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp">GameObjects<span class="token punctuation">[</span><span class="token punctuation">]</span> towers <span class="token operator">=</span> GameObject<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">FindObjectsOfType</span><span class="token punctuation">&lt;</span><span class="token class-name">BaseTower</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="singleton">Singleton</h3>
 
 <p>You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It&#x2019;s sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.<br>
 That singleton of course will have to find all the objects too, using techniques above and others, but it does all of that and all other objects grab from it.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp">GameObject battery_1 <span class="token operator">=</span> GameManager<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>Batteries<span class="token punctuation">[</span>GameManager<span class="token punctuation">.</span>BATTERY_1<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token class-name">GameObject</span> battery_1 <span class="token operator">=</span> GameManager<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>Batteries<span class="token punctuation">[</span><span class="token class-name">GameManager<span class="token punctuation">.</span>BATTERY_1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 </pre><hr>
 <h2 class="mume-header" id="talking-to-and-commanding-things">Talking to and commanding things</h2>
@@ -266,32 +319,6 @@ That singleton of course will have to find all the objects too, using techniques
     <span class="token comment">// IRL we&apos;d check the result of GetComponent before calling Explode</span>
   <span class="token punctuation">}</span>
 </pre><hr>
-<h2 class="mume-header" id="prefabs">Prefabs</h2>
-
-<p>Create-&gt;prefab<br>
-Drag a thing from the scene heirarchy onto it.<br>
-The thing in the scene is now an instance of the new prefab<br>
-Drag another from assets/prefabs to the stage to see it</p>
-<p><img src="assets/week10/prefab_create.png" alt="Create Prefab"><br>
-<img src="assets/week10/prefab_made_used.png" alt="Prefab made used"></p>
-<h2 class="mume-header" id="making">Making</h2>
-
-<p><img src="assets/week10/prefab_create.png" alt="Making Prefabs"></p>
-<h3 class="mume-header" id="using-on-stage">Using on stage</h3>
-
-<p><img src="assets/week10/prefab_made_used.png" alt="Made used prefabs"></p>
-<h3 class="mume-header" id="changing-prefabs">Changing Prefabs</h3>
-
-<p>Getting into our prefab and editing, propagating.</p>
-<h3 class="mume-header" id="individualising">Individualising</h3>
-
-<p>Do things have to all be the same? Is conformity the cost of reusability?</p>
-<p>No, we can change our individual prefab instances a bit, and not apply the change. This is a deeper topic, so look into it and explore.</p>
-<h3 class="mume-header" id="instantiating-prefabs-in-code">Instantiating prefabs in code</h3>
-
-<p>Yes, you can spawn prefabs. That&#x2019;s one of their main use: peach trees, missiles, cherry pies, cherry pie customers, these are all things we&#x2019;ll be constantly spawning.</p>
-<p>Lets look it up the details together. Google is our friend.</p>
-<hr>
 <h2 class="mume-header" id="a-longer-list-of-attributes-of-our-classes">A longer list of attributes of our classes</h2>
 
 <p><strong>PlayerBattery</strong></p>
