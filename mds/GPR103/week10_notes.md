@@ -89,6 +89,9 @@ ___
 * Save images (above in resources) to Sprites folder
 * Drag images from project window to stage
 
+![background field](assets/week10/field_bg.png)
+_I photoshopped out some towers, we'll add them back_
+
 ### Resolution
 
 * Set our resolution so we have consistency.
