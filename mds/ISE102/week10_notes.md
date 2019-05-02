@@ -14,6 +14,7 @@ A fly stands in for our snake.
 			* [FlyGame.h](#flygameh)
 			* [FlyGame.cpp](#flygamecpp)
 	* [Movement](#movement)
+		* [Torment: the wormhole](#torment-the-wormhole)
 
 <!-- /code_chunk_output -->
 
@@ -65,10 +66,10 @@ public:
   // A new type of data collection, the fly
   struct Fly
   {
-    int xPos;
-    int yPos;
+    int x;
+    int y;
     int colour;
-  }
+  };
 
 private:
   // These could be in OnUserCreate but I've put them into
@@ -76,7 +77,7 @@ private:
   // On a bigger game we'd move them to a configuration class
   // or maybe a JSON/ini text file
   const int START_X = 10;
-  const int FLY_COLOUR = FG_BLUE;
+  const int FLY_COLOUR = BG_DARK_YELLOW | FG_BLUE;
   const int GROUND_COLOUR = FG_DARK_YELLOW;
 
   // private variables can feel bad at first, like using globals
@@ -90,7 +91,7 @@ private:
 ```cpp
 bool FlyGame::OnUserCreate()
 {
-  blueFly.xPos = blueFly.yPos = START_X;
+  blueFly.x = blueFly.y = START_X;
   blueFly.colour = FLY_COLOUR;
   return true;
 }
@@ -110,7 +111,7 @@ void FlyGame::RenderWorld()
 	Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, GROUND_COLOUR); //
 
   // Draw the fly
-  Draw(_blueFly.xPos, _blueFly.yPos, PIXEL_SOLID, _blueFly.colour); //
+  Draw(_blueFly.x, _blueFly.y, *L"Y", _blueFly.colour);
 }
 ```
 
@@ -118,12 +119,69 @@ void FlyGame::RenderWorld()
 
 We can move our fly by stepping a little way each frame.
 
+
 ```cpp
-fly.yPos += fly.speed;
+struct Fly
+  {
+    int x;
+    int y;
+    int speed;
+    int colour;
+  };
+
+...
+
+bool isUpKeyHeld_ = false;
+bool isDownKeyHeld_ = false;
+
+...
+
+bool OnUserUpdate(float fElapsedTime)
+{
+    // Get input
+    isUpKeyHeld_ = (m_keys[VK_UP].bHeld || m_keys[VK_UP].bPressed) ? true : false;
+		isDownKeyHeld_ = (m_keys[VK_DOWN].bHeld || m_keys[VK_DOWN].bPressed) ? true : false;
+
+    // update everything
+    if (isUpKeyHeld_) _blueFly.y -= _blueFly.speed;
+		if (isDownKeyHeld_) _blueFly.y += _blueFly.speed;;
+
+    // Draw the world
+    RenderWorld();
+    
+}
+
 ```
 
 How's that look? We barely see it because it's gone from the screen in an instant. If our framerate is 1000fps our fly just moved 1000 pixels in a second. If your machine was slower and ran at 200fps, it would have moved 200 pixels.
 
-We need to:
+We need to either
 1. Move by much tinier amounts
 2. Not let the frame rate dictate our movements.
+
+or
+limit the frame rate and make it predictable.
+
+For now we'll hack the framerate with sleep. At the end of OnUserUpdate:
+
+```cpp
+    ...
+    RenderWorld();
+
+    this_thread::sleep_for(chrono::milliseconds(16));
+
+```
+
+### Torment: the wormhole
+
+```cpp
+
+if (_blueFly.y == -1)
+  {
+    _blueFly.y = ScreenHeight();
+  } else if (frog_.posY == ScreenHeight()+1)
+  {
+    frog_.posY = 0;
+  }
+
+```
