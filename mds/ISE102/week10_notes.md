@@ -16,6 +16,7 @@ A fly stands in for our snake.
    4. [Movement](#movement)
       1. [Refine movement](#refine-movement)
       2. [Torment: the wormhole](#torment-the-wormhole)
+   5. [Thoughts on things following things](#thoughts-on-things-following-things)
 
 <!-- /code_chunk_output -->
 
@@ -186,3 +187,9 @@ if (_blueFly.y == -1)
   }
 
 ```
+
+## Thoughts on things following things
+
+To follow something you have to know where it's been. It has to have left a record, or be willing to answer your question: what's the last pixel you were in?
+
+The world remembers (history book/story teller) or the leader you are following remembers.
