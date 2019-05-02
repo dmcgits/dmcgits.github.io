@@ -6,15 +6,16 @@ A fly stands in for our snake.
 
 <!-- code_chunk_output -->
 
-* [Week10 Drawing and Moving](#week10-drawing-and-moving)
-	* [A refresher on simulated things](#a-refresher-on-simulated-things)
-	* [Rendering / Drawing](#rendering-drawing)
-	* [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-		* [A Fly is data](#a-fly-is-data)
-			* [FlyGame.h](#flygameh)
-			* [FlyGame.cpp](#flygamecpp)
-	* [Movement](#movement)
-		* [Torment: the wormhole](#torment-the-wormhole)
+1. [Week10 Drawing and Moving](#week10-drawing-and-moving)
+   1. [A refresher on simulated things](#a-refresher-on-simulated-things)
+   2. [Rendering / Drawing](#rendering--drawing)
+   3. [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
+      1. [A Fly is data](#a-fly-is-data)
+         1. [FlyGame.h](#flygameh)
+         2. [FlyGame.cpp](#flygamecpp)
+   4. [Movement](#movement)
+      1. [Refine movement](#refine-movement)
+      2. [Torment: the wormhole](#torment-the-wormhole)
 
 <!-- /code_chunk_output -->
 
@@ -119,7 +120,6 @@ void FlyGame::RenderWorld()
 
 We can move our fly by stepping a little way each frame.
 
-
 ```cpp
 struct Fly
   {
@@ -152,6 +152,7 @@ bool OnUserUpdate(float fElapsedTime)
 }
 
 ```
+### Refine movement
 
 How's that look? We barely see it because it's gone from the screen in an instant. If our framerate is 1000fps our fly just moved 1000 pixels in a second. If your machine was slower and ran at 200fps, it would have moved 200 pixels.
 
@@ -179,9 +180,9 @@ For now we'll hack the framerate with sleep. At the end of OnUserUpdate:
 if (_blueFly.y == -1)
   {
     _blueFly.y = ScreenHeight();
-  } else if (frog_.posY == ScreenHeight()+1)
+  } else if (_blueFly.posY == ScreenHeight()+1)
   {
-    frog_.posY = 0;
+    _blueFly.posY = 0;
   }
 
 ```

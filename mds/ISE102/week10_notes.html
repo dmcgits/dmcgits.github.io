@@ -43,6 +43,7 @@
 </li>
 <li><a href="#movement">Movement</a>
 <ol>
+<li><a href="#refine-movement">Refine movement</a></li>
 <li><a href="#torment-the-wormhole">Torment: the wormhole</a></li>
 </ol>
 </li>
@@ -186,7 +187,9 @@
     
 <span class="token punctuation">}</span>
 
-</pre><p>How&apos;s that look? We barely see it because it&apos;s gone from the screen in an instant. If our framerate is 1000fps our fly just moved 1000 pixels in a second. If your machine was slower and ran at 200fps, it would have moved 200 pixels.</p>
+</pre><h3 class="mume-header" id="refine-movement">Refine movement</h3>
+
+<p>How&apos;s that look? We barely see it because it&apos;s gone from the screen in an instant. If our framerate is 1000fps our fly just moved 1000 pixels in a second. If your machine was slower and ran at 200fps, it would have moved 200 pixels.</p>
 <p>We need to either</p>
 <ol>
 <li>Move by much tinier amounts</li>
@@ -205,9 +208,9 @@ limit the frame rate and make it predictable.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>y <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
     _blueFly<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>frog_<span class="token punctuation">.</span>posY <span class="token operator">==</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>posY <span class="token operator">==</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
-    frog_<span class="token punctuation">.</span>posY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    _blueFly<span class="token punctuation">.</span>posY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
 </pre>
