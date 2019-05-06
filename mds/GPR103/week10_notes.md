@@ -1,4 +1,4 @@
-# Week 10 - Finding things, Reusing things, shooting things
+# Week 10 - Finding things, Reusing things, messaging
 
 Very powerful tools this week.
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
