@@ -39,6 +39,11 @@
 </ul>
 <h2 class="mume-header" id="resources">Resources</h2>
 
+<p>Collisions:</p>
+<ul>
+<li>Official docs <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html">https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html</a></li>
+<li>Colliders and triggers <a href="https://youtu.be/RxG7YYEdmVE">https://youtu.be/RxG7YYEdmVE</a></li>
+</ul>
 <p>Timers:</p>
 <ul>
 <li>Blog tute: <a href="https://medium.com/@jaredehalpern/build-a-reusable-timer-in-unity-to-control-explosions-and-other-fun-stuff-too-1689210b733">Build a reusable timer</a></li>
@@ -170,6 +175,13 @@ Threads: long intense operations like file save, AI, path finding. If you&#x2019
 <p>Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.</p>
 <h2 class="mume-header" id="colliding-things">Colliding things</h2>
 
+<h3 class="mume-header" id="missile-explosions">Missile explosions</h3>
+
+<ul>
+<li>spawn where our rocket stops (ie where we clicked)</li>
+<li>instantiate/spawn an explosion</li>
+</ul>
+<p>Explosions can be grown with unity animation tools, Lerp(linear interpolation/tweening), or just scaling over a series of updates.</p>
 <p>Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.</p>
 <p>Options: triggers, colliders. Throw events that game sim and scoremanager hear. Maybe scoremanager hears it from sim</p>
 

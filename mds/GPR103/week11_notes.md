@@ -12,6 +12,9 @@ Very powerful tools this week.
 
 ## Resources
 
+Collisions:
+  - Official docs https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html
+  - Colliders and triggers https://youtu.be/RxG7YYEdmVE
 
 Timers:
   - Blog tute: [Build a reusable timer](https://medium.com/@jaredehalpern/build-a-reusable-timer-in-unity-to-control-explosions-and-other-fun-stuff-too-1689210b733)
@@ -166,6 +169,13 @@ Waves like alien batteries
 Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.
 
 ## Colliding things
+
+### Missile explosions
+
+* spawn where our rocket stops (ie where we clicked)
+* instantiate/spawn an explosion
+  
+Explosions can be grown with unity animation tools, Lerp(linear interpolation/tweening), or just scaling over a series of updates.
 
 Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.
 
