@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,11 +25,43 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-11-time-text-collisions">Week 11 - Time, text, collisions</h1>
 
-<p>Very powerful tools this week.</p>
+<p>Hitting as many useful assignment-finishing tools as we can.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<li><a href="#week-11---time-text-collisions">Week 11 - Time, text, collisions</a>
+<ol>
+<li><a href="#todo">Todo</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#scoringdisplaying-text">Scoring/Displaying text</a></li>
+<li><a href="#doing-things-over-time">Doing things over time</a>
+<ol>
+<li><a href="#things-that-need-timing">Things that need timing</a></li>
+<li><a href="#ways-to-time">Ways to time</a>
+<ol>
+<li><a href="#invoke">Invoke</a></li>
+<li><a href="#update-and-timedeltatime">Update and time.deltaTime.</a></li>
+<li><a href="#coroutines">Coroutines</a></li>
+</ol>
+</li>
+<li><a href="#time-with-a-coroutine">Time with a coroutine</a></li>
+<li><a href="#more-info-on-coroutines-and-threads">More info on coroutines and threads</a></li>
+<li><a href="#releasing-waves---spawning">Releasing waves - spawning</a></li>
+<li><a href="#psuedocoding-the-waves">Psuedocoding the waves</a></li>
+</ol>
+</li>
+<li><a href="#missiles">Missiles</a>
+<ol>
+<li><a href="#aiming-things-at-things">Aiming things at things</a></li>
+<li><a href="#moving-things-at-a-given-speed">Moving things at a given speed</a></li>
+<li><a href="#colliding-things">Colliding things</a></li>
+<li><a href="#missile-explosions">Missile explosions</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 <h2 class="mume-header" id="todo">Todo</h2>
 
 <ul>
-<li>Get your UI up and running</li>
 <li>Finalise, as much as you can, hacknplan tasks
 <ul>
 <li>You&#x2019;ll notice the burndown doesn&#x2019;t progress if you&#x2019;re still adding new tasks at the rate you&#x2019;re finishing others</li>
@@ -85,7 +117,7 @@
 
 <h4 class="mume-header" id="invoke">Invoke</h4>
 
-<p>Invoke will call a function after a given delay. Question to investigate: does the program halt and wait?</p>
+<p>Invoke will call a function after a given delay. This doesn&#x2019;t pause your program like sleep would in c++. Execution continues.</p>
 <p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -132,7 +164,7 @@
 
 <p>What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it&#x2019;s paused. A coroutine is a function, but it&#x2019;s also a similar to a process that can be stopped and started, returning control to our main execution.</p>
 <p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"></pre><h3 class="mume-header" id="time-with-a-coroutine">Time with a coroutine</h3>
+<h3 class="mume-header" id="time-with-a-coroutine">Time with a coroutine</h3>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> _times<span class="token punctuation">;</span>
 
@@ -160,7 +192,9 @@
   Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Releasewaves done, signing off&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><p>Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn&#x2019;t establish a system thread.<br>
+</pre><h3 class="mume-header" id="more-info-on-coroutines-and-threads">More info on coroutines and threads</h3>
+
+<p>Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn&#x2019;t establish a system thread.<br>
 Up: doesn&#x2019;t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.</p>
 <p>Down: not a true thread so can&#x2019;t run on a separate core for performance boost, will bog down all code if heavy</p>
 <p>Coroutines: asynchronous things, simple timers<br>
@@ -168,12 +202,65 @@ Threads: long intense operations like file save, AI, path finding. If you&#x2019
 <p>You cant necessarily prove that threads are bug free/safe, because the scenarios that can affect them (stopping in the middle of any of millions of individual machine code instructions in any order) aren&#x2019;t realistically reproduceable.</p>
 <h3 class="mume-header" id="releasing-waves-spawning">Releasing waves - spawning</h3>
 
-<p>Spawn some prefabs</p>
-<p>Waves like alien batteries</p>
-<h2 class="mume-header" id="other-things">Other Things</h2>
+<blockquote>
+<p>Within each wave you can spawn your missiles. It&#x2019;s just a matter of knowing how many you want to launch, from where, and in what direction.</p>
+</blockquote>
+<ul>
+<li>Some sort of WaveManager could handle this</li>
+<li>Or code in GameManager, a GameModel or elsewhere.</li>
+</ul>
+<h3 class="mume-header" id="psuedocoding-the-waves">Psuedocoding the waves</h3>
+
+<pre data-role="codeBlock" data-info class="language-"><code>//////// LevelManager -
+
+A MissileShot has a launch angle and position
+A Wave has all the missile shots for one wave and a duration
+A Level has all the waves for a level
+A list of levels exists
+
+When asked to:
+  
+  grab next level from list
+  while there are waves left in level
+    
+    for each MissileShot
+      create an alien missile from a prefab, add to a list
+      add listener for demise of any missiles, which removes from list
+      Rotate and position it accordingly
+      Fire it
+      Publicise the info with a link to the missile
+      
+    Wait for wave duration
+
+  loop for remaining waves
+
+  while there are still missiles in list
+    listen for and remove any remaining missiles
+  loop while
+  announce level complete
+
+//////////////// Game Manager/Model:
+start game
+
+While player isn&apos;t dead
+  Ask Level Manager to kick off a level
+  Listen for level complete
+  Show results of level, wait a bit
+loop
+
+show final result.
+play again?
+</code></pre><h2 class="mume-header" id="missiles">Missiles</h2>
 
 <p>Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.</p>
-<h2 class="mume-header" id="colliding-things">Colliding things</h2>
+<h3 class="mume-header" id="aiming-things-at-things">Aiming things at things</h3>
+
+<p>Remember when we&#x2019;re doing trig in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise. If you want a sprite to point at things properly, have their axis at 0,0 and their pointy end along the x axis.</p>
+<p><img src="assets/week11/orientation_for_trig_rotation.png" alt="orientation for trig rotation"></p>
+<h3 class="mume-header" id="moving-things-at-a-given-speed">Moving things at a given speed</h3>
+
+<p>2D objects can&#x2019;t use transform.forward, because that&#x2019;s the Z axis. Use transform.right.</p>
+<h3 class="mume-header" id="colliding-things">Colliding things</h3>
 
 <h3 class="mume-header" id="missile-explosions">Missile explosions</h3>
 
@@ -181,7 +268,12 @@ Threads: long intense operations like file save, AI, path finding. If you&#x2019
 <li>spawn where our rocket stops (ie where we clicked)</li>
 <li>instantiate/spawn an explosion</li>
 </ul>
-<p>Explosions can be grown with unity animation tools, Lerp(linear interpolation/tweening), or just scaling over a series of updates.</p>
+<p>Explosions can be grown</p>
+<ul>
+<li>with unity animation tools</li>
+<li>Lerp(linear interpolation/tweening)</li>
+<li>just scaling over a series of frames in Update.</li>
+</ul>
 <p>Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.</p>
 <p>Options: triggers, colliders. Throw events that game sim and scoremanager hear. Maybe scoremanager hears it from sim</p>
 

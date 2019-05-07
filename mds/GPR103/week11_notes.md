@@ -1,11 +1,37 @@
 # Week 11 - Time, text, collisions
 
-Very powerful tools this week.
+Hitting as many useful assignment-finishing tools as we can.
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Week 11 - Time, text, collisions](#week-11-time-text-collisions)
+	* [Todo](#todo)
+	* [Resources](#resources)
+	* [Scoring/Displaying text](#scoringdisplaying-text)
+	* [Doing things over time](#doing-things-over-time)
+		* [Things that need timing](#things-that-need-timing)
+		* [Ways to time](#ways-to-time)
+			* [Invoke](#invoke)
+			* [Update and time.deltaTime.](#update-and-timedeltatime)
+			* [Coroutines](#coroutines)
+		* [Time with a coroutine](#time-with-a-coroutine)
+		* [More info on coroutines and threads](#more-info-on-coroutines-and-threads)
+		* [Releasing waves - spawning](#releasing-waves-spawning)
+		* [Psuedocoding the waves](#psuedocoding-the-waves)
+	* [Missiles](#missiles)
+		* [Aiming things at things](#aiming-things-at-things)
+		* [Moving things at a given speed](#moving-things-at-a-given-speed)
+		* [Colliding things](#colliding-things)
+		* [Missile explosions](#missile-explosions)
+
+<!-- /code_chunk_output -->
 
 
 ## Todo
 
-* Get your UI up and running
 * Finalise, as much as you can, hacknplan tasks
   - You'll notice the burndown doesn't progress if you're still adding new tasks at the rate you're finishing others
 * Game should be basically done by next class.
@@ -55,7 +81,7 @@ How do we specify a series of times, say:
 
 #### Invoke
 
-Invoke will call a function after a given delay. Question to investigate: does the program halt and wait?
+Invoke will call a function after a given delay. This doesn't pause your program like sleep would in c++. Execution continues.
 
 From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
 ```cs
@@ -109,10 +135,6 @@ void feedDog()
 What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it's paused. A coroutine is a function, but it's also a similar to a process that can be stopped and started, returning control to our main execution.
 
 From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
-```cpp
-
-```
-
 
 ### Time with a coroutine
 
@@ -146,6 +168,7 @@ private IEnumerator ReleaseWaves(List<float> waitTimes)
 
 ```
 
+### More info on coroutines and threads
 Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn’t establish a system thread.
 Up: doesn’t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.
 
@@ -158,24 +181,80 @@ You cant necessarily prove that threads are bug free/safe, because the scenarios
 
 ### Releasing waves - spawning
 
-Spawn some prefabs
+> Within each wave you can spawn your missiles. It's just a matter of knowing how many you want to launch, from where, and in what direction. 
 
-Waves like alien batteries
+* Some sort of WaveManager could handle this
+* Or code in GameManager, a GameModel or elsewhere.
 
+### Psuedocoding the waves
 
-## Other Things
+```
+//////// LevelManager -
 
+A MissileShot has a launch angle and position
+A Wave has all the missile shots for one wave and a duration
+A Level has all the waves for a level
+A list of levels exists
+
+When asked to:
+  
+  grab next level from list
+  while there are waves left in level
+    
+    for each MissileShot
+      create an alien missile from a prefab, add to a list
+      add listener for demise of any missiles, which removes from list
+      Rotate and position it accordingly
+      Fire it
+      Publicise the info with a link to the missile
+      
+    Wait for wave duration
+
+  loop for remaining waves
+
+  while there are still missiles in list
+    listen for and remove any remaining missiles
+  loop while
+  announce level complete
+
+//////////////// Game Manager/Model:
+start game
+
+While player isn't dead
+  Ask Level Manager to kick off a level
+  Listen for level complete
+  Show results of level, wait a bit
+loop
+
+show final result.
+play again?
+```
+
+## Missiles
 
 Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.
 
-## Colliding things
+### Aiming things at things
+
+Remember when we're doing trig in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise. If you want a sprite to point at things properly, have their axis at 0,0 and their pointy end along the x axis.
+
+![orientation for trig rotation](assets/week11/orientation_for_trig_rotation.png)
+
+### Moving things at a given speed
+
+2D objects can't use transform.forward, because that's the Z axis. Use transform.right.
+
+### Colliding things
 
 ### Missile explosions
 
 * spawn where our rocket stops (ie where we clicked)
 * instantiate/spawn an explosion
   
-Explosions can be grown with unity animation tools, Lerp(linear interpolation/tweening), or just scaling over a series of updates.
+Explosions can be grown
+* with unity animation tools
+* Lerp(linear interpolation/tweening)
+* just scaling over a series of frames in Update.
 
 Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.
 
