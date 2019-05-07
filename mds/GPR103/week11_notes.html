@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -45,6 +45,16 @@
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/MonoBehaviour.StartCoroutine.html">StartCoroutine</a></li>
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSeconds.html">Waiting for game seconds</a></li>
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSecondsRealtime.html">Waiting for real world seconds</a></li>
+</ul>
+<h2 class="mume-header" id="scoringdisplaying-text">Scoring/Displaying text</h2>
+
+<p>Displaying 2D text in 3D.</p>
+<p>Pop an image on a quad, which is two triangles.</p>
+<ul>
+<li>using textmeshpro to generate and use an atlas from the ready/start player 2 font.</li>
+<li>Adding a ui canvas</li>
+<li>Creating text label</li>
+<li>Editing text in script</li>
 </ul>
 <h2 class="mume-header" id="doing-things-over-time">Doing things over time</h2>
 
@@ -145,19 +155,23 @@
   Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Releasewaves done, signing off&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><h3 class="mume-header" id="releasing-waves-spawning">Releasing waves - spawning</h3>
+</pre><p>Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn&#x2019;t establish a system thread.<br>
+Up: doesn&#x2019;t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.</p>
+<p>Down: not a true thread so can&#x2019;t run on a separate core for performance boost, will bog down all code if heavy</p>
+<p>Coroutines: asynchronous things, simple timers<br>
+Threads: long intense operations like file save, AI, path finding. If you&#x2019;ve studied threading. They are simple in concept and stupendously complex in action. The bugs they generate are capricious in the extreme.</p>
+<p>You cant necessarily prove that threads are bug free/safe, because the scenarios that can affect them (stopping in the middle of any of millions of individual machine code instructions in any order) aren&#x2019;t realistically reproduceable.</p>
+<h3 class="mume-header" id="releasing-waves-spawning">Releasing waves - spawning</h3>
 
 <p>Spawn some prefabs</p>
 <p>Waves like alien batteries</p>
 <h2 class="mume-header" id="other-things">Other Things</h2>
 
-<h2 class="mume-header" id="scoring">Scoring</h2>
-
-<p>using textmeshpro to generate and use an atlas from the ready/start player 2 font.</p>
 <p>Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.</p>
 <h2 class="mume-header" id="colliding-things">Colliding things</h2>
 
-<p>Our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.</p>
+<p>Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.</p>
+<p>Options: triggers, colliders. Throw events that game sim and scoremanager hear. Maybe scoremanager hears it from sim</p>
 
       </div>
       

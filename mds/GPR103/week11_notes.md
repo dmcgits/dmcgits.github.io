@@ -19,6 +19,16 @@ Timers:
   - Docs: [Waiting for game seconds](https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSeconds.html)
   - Docs: [Waiting for real world seconds](https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSecondsRealtime.html)
 
+## Scoring/Displaying text
+
+Displaying 2D text in 3D.
+
+Pop an image on a quad, which is two triangles.
+* using textmeshpro to generate and use an atlas from the ready/start player 2 font.
+* Adding a ui canvas
+* Creating text label
+* Editing text in script
+
 ## Doing things over time
 
 We've all played games where time is critical. Time to finish a level, time per lap, time to get out of a space station before it blows.
@@ -133,6 +143,15 @@ private IEnumerator ReleaseWaves(List<float> waitTimes)
 
 ```
 
+Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn’t establish a system thread.
+Up: doesn’t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.
+
+Down: not a true thread so can’t run on a separate core for performance boost, will bog down all code if heavy
+
+Coroutines: asynchronous things, simple timers
+Threads: long intense operations like file save, AI, path finding. If you’ve studied threading. They are simple in concept and stupendously complex in action. The bugs they generate are capricious in the extreme.
+
+You cant necessarily prove that threads are bug free/safe, because the scenarios that can affect them (stopping in the middle of any of millions of individual machine code instructions in any order) aren’t realistically reproduceable.
 
 ### Releasing waves - spawning
 
@@ -144,12 +163,11 @@ Waves like alien batteries
 ## Other Things
 
 
-
-##Scoring
-
-using textmeshpro to generate and use an atlas from the ready/start player 2 font.
-
 Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.
 
 ## Colliding things
-Our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.
+
+Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.
+
+Options: triggers, colliders. Throw events that game sim and scoremanager hear. Maybe scoremanager hears it from sim
+
