@@ -7,25 +7,26 @@ Hitting as many useful assignment-finishing tools as we can.
 
 <!-- code_chunk_output -->
 
-* [Week 11 - Time, text, collisions](#week-11-time-text-collisions)
-	* [Todo](#todo)
-	* [Resources](#resources)
-	* [Scoring/Displaying text](#scoringdisplaying-text)
-	* [Doing things over time](#doing-things-over-time)
-		* [Things that need timing](#things-that-need-timing)
-		* [Ways to time](#ways-to-time)
-			* [Invoke](#invoke)
-			* [Update and time.deltaTime.](#update-and-timedeltatime)
-			* [Coroutines](#coroutines)
-		* [Time with a coroutine](#time-with-a-coroutine)
-		* [More info on coroutines and threads](#more-info-on-coroutines-and-threads)
-		* [Releasing waves - spawning](#releasing-waves-spawning)
-		* [Psuedocoding the waves](#psuedocoding-the-waves)
-	* [Missiles](#missiles)
-		* [Aiming things at things](#aiming-things-at-things)
-		* [Moving things at a given speed](#moving-things-at-a-given-speed)
-		* [Colliding things](#colliding-things)
-		* [Missile explosions](#missile-explosions)
+1. [Week 11 - Time, text, collisions](#week-11---time-text-collisions)
+   1. [Todo](#todo)
+   2. [Resources](#resources)
+   3. [Scoring/Displaying text](#scoringdisplaying-text)
+      1. [Adding UI canvas and text](#adding-ui-canvas-and-text)
+   4. [Doing things over time](#doing-things-over-time)
+      1. [Things that need timing](#things-that-need-timing)
+      2. [Ways to time](#ways-to-time)
+         1. [Invoke](#invoke)
+         2. [Update and time.deltaTime.](#update-and-timedeltatime)
+         3. [Coroutines](#coroutines)
+      3. [Time with a coroutine](#time-with-a-coroutine)
+      4. [More info on coroutines and threads](#more-info-on-coroutines-and-threads)
+      5. [Releasing waves - spawning](#releasing-waves---spawning)
+      6. [Psuedocoding the waves](#psuedocoding-the-waves)
+   5. [Missiles](#missiles)
+      1. [Aiming things at things](#aiming-things-at-things)
+      2. [Moving things at a given speed](#moving-things-at-a-given-speed)
+      3. [Colliding things](#colliding-things)
+      4. [Missile explosions](#missile-explosions)
 
 <!-- /code_chunk_output -->
 
@@ -48,13 +49,27 @@ Timers:
   - Docs: [Waiting for game seconds](https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSeconds.html)
   - Docs: [Waiting for real world seconds](https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSecondsRealtime.html)
 
+TextMeshPro:
+  - Unity Blog: <https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/>
+
 ## Scoring/Displaying text
 
-Displaying 2D text in 3D.
+We're used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?
 
-Pop an image on a quad, which is two triangles.
-* using textmeshpro to generate and use an atlas from the ready/start player 2 font.
-* Adding a ui canvas
+Traditionally:
+1. Use an image editor to **place all the characters and symbols you want in a bitmap**
+2. Arrange them all to fit in a power of 2 square (256x256, etc)
+3. **Define rectangles for each letter** in your game engine
+4. Create a material with the font atlas as a teture
+5. For each letter in a string **generate a quad with UV coordinates** to match the letter's rectangle, add the font material.
+
+That's a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.
+
+> TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.
+
+![UI text](assets/week11/textmesh_components.png)
+
+### Adding UI canvas and text
 * Creating text label
 * Editing text in script
 
