@@ -12,21 +12,22 @@ Hitting as many useful assignment-finishing tools as we can.
 	* [Resources](#resources)
 	* [Scoring/Displaying text](#scoringdisplaying-text)
 		* [Adding UI canvas and text](#adding-ui-canvas-and-text)
+		* [Editing TMP text in script](#editing-tmp-text-in-script)
+	* [Missiles come in waves in each level](#missiles-come-in-waves-in-each-level)
+		* [Psuedocoding the waves](#psuedocoding-the-waves)
 	* [Doing things over time](#doing-things-over-time)
 		* [Things that need timing](#things-that-need-timing)
 		* [Ways to time](#ways-to-time)
-			* [Invoke](#invoke)
-			* [Update and time.deltaTime.](#update-and-timedeltatime)
-			* [Coroutines](#coroutines)
-		* [Time with a coroutine](#time-with-a-coroutine)
-		* [More info on coroutines and threads](#more-info-on-coroutines-and-threads)
-		* [Releasing waves - spawning](#releasing-waves-spawning)
-		* [Psuedocoding the waves](#psuedocoding-the-waves)
+		* [Invoke](#invoke)
+		* [Update and time.deltaTime.](#update-and-timedeltatime)
+		* [Coroutines](#coroutines)
+			* [Waves with a coroutine](#waves-with-a-coroutine)
+			* [Side notes on coroutines and threads for the curious](#side-notes-on-coroutines-and-threads-for-the-curious)
 	* [Missiles](#missiles)
 		* [Aiming things at things](#aiming-things-at-things)
-		* [Moving things at a given speed](#moving-things-at-a-given-speed)
-		* [Colliding things](#colliding-things)
+		* [Moving at a given speed](#moving-at-a-given-speed)
 		* [Missile explosions](#missile-explosions)
+		* [Hitting things](#hitting-things)
 
 <!-- /code_chunk_output -->
 
@@ -78,142 +79,32 @@ Unity UIs are contained within a component called a **canvas**. It does a lot, i
 
 * Creating a UI Canvas
 * Creating tex mesh pro (TMP) label
-* Editing TMP text in script
+
+
+### Editing TMP text in script
 
 ```cs
 // Code from unity incoming
 
 ```
+---
 
-## Doing things over time
+## Missiles come in waves in each level
 
-We've all played games where time is critical. Time to finish a level, time per lap, time to get out of a space station before it blows.
+A level in Missile Command consists of _n_ wave of missiles, where _n=5_ last time I checked. It might vary?
 
-Timings affect us in lots of other scenarios. Cooldown times, facility/vehicle upgrade and repair times, rounds fired per second.
+* Within each wave you spawn _n_ missiles. 
+* It's just a matter of knowing how many you want to launch, from what point in space, and in what direction. 
 
-### Things that need timing
+> You could handle these waves in a special `LevelManager`, directly in a large `GameManager`, in a `GameModel`: Choose the structure you understand best and think you have time to finish.
 
-Potential things that need timing
-
-> - From press play 
-> - From level finish (last missile destroyed) till next level, showing results
-> - From game over till game over graphics appear, play out and show play again or return to home screen
-
-How do we specify a series of times, say:
- 1. 0s
- 2. 1.3s, 
- 3. 3.1s
-
-### Ways to time
-
-#### Invoke
-
-Invoke will call a function after a given delay. This doesn't pause your program like sleep would in c++. Execution continues.
-
-From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
-```cs
-void Start()
-{
-    Invoke("feedDog", 5);
-    Debug.Log("Will feed dog after 5 seconds");
-}
-
-void feedDog()
-{
-    Debug.Log("Now feeding Dog");
-}
-```
-
-#### Update and time.deltaTime.
-
-Basically counting time as update executes over and over. Then after a certain time, doing something. 
-* This is okay for the same thing happening at intervals.
-* A sequence of things happening with various timings gets trickier/messier. Maybe a combo of a list and a function?
-
-From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
-```cs
-float timer = 0;
-bool timerReached = false;
-
-// Modified from stackoverflow a little
-void Update()
-{
-  if (!timerReached)
-    timer += Time.deltaTime;
-    if (timer > 5)
-    {
-      Debug.Log("Done waiting");
-      feedDog();
-
-      //Set to false so that We don't run this again
-      timerReached = true;
-    }
-  }
-}
-
-void feedDog()
-{
-    Debug.Log("Now feeding Dog");
-}
-```
-
-#### Coroutines
-
-What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it's paused. A coroutine is a function, but it's also a similar to a process that can be stopped and started, returning control to our main execution.
-
-From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
-
-### Time with a coroutine
-
-```cs
-
-private List<float> _times;
-
-void Start() {
-  TriggerAWave();
-}
-
-// Regular old routine kicking off a special routine, one that can stop and start.
-void TriggerAWave()
-{
-  List<float> times = new List<float>() { 0.0f, 4.0f, 2.5f, 6.0f };
-  Debug.Log("We'll call the wave releaser");
-  StartCoroutine(ReleaseWaves(times));
-  Debug.Log("While it does its wave thing we keep going.");
-}
-
-private IEnumerator ReleaseWaves(List<float> waitTimes)
-{
-  Debug.Log("ReleaseWaves here, starting.");
-  foreach (float waitTime in waitTimes)
-  {
-    yield return new WaitForSeconds(waitTime);
-    Debug.Log("Waited for " + waitTime + " seconds");
-  }
-  Debug.Log("Releasewaves done, signing off");
-}
-
-```
-
-### More info on coroutines and threads
-Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn’t establish a system thread.
-Up: doesn’t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.
-
-Down: not a true thread so can’t run on a separate core for performance boost, will bog down all code if heavy
-
-Coroutines: asynchronous things, simple timers
-Threads: long intense operations like file save, AI, path finding. If you’ve studied threading. They are simple in concept and stupendously complex in action. The bugs they generate are capricious in the extreme.
-
-You cant necessarily prove that threads are bug free/safe, because the scenarios that can affect them (stopping in the middle of any of millions of individual machine code instructions in any order) aren’t realistically reproduceable.
-
-### Releasing waves - spawning
-
-> Within each wave you can spawn your missiles. It's just a matter of knowing how many you want to launch, from where, and in what direction. 
-
-* Some sort of WaveManager could handle this
-* Or code in GameManager, a GameModel or elsewhere.
+___
 
 ### Psuedocoding the waves
+
+Here's one way to break it down. **It's just the missile firing and tracking loop,** without collisions, scoring, a "click to play" or final game over stats. All those can come **once I have missiles in the air.** 
+
+You might think of a better way, or just one that suits you better.
 
 ```
 //////// LevelManager -
@@ -256,6 +147,146 @@ loop
 show final result.
 play again?
 ```
+---
+
+## Doing things over time
+
+We've all played games where time is critical. Time to finish a level, time per lap, time to get out of a space station before it blows.
+
+Timings affect us in lots of other scenarios. Cooldown times, facility/vehicle upgrade and repair times, rounds fired per second.
+
+### Things that need timing
+
+Potential things that need timing
+
+> - From press play 
+> - From level finish (last missile destroyed) till next level, showing results
+> - From game over till game over graphics appear, play out and show play again or return to home screen
+
+How do we specify a series of times, say:
+ 1. 0s
+ 2. 1.3s, 
+ 3. 3.1s
+
+### Ways to time
+
+`Invoke`, counting time in `Update()`, `StartCoroutine` and more.
+
+### Invoke
+
+Invoke will call a function after a given delay. This doesn't pause your program like sleep would in c++. Execution continues.
+
+From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
+```cs
+void Start()
+{
+    Invoke("feedDog", 5);
+    Debug.Log("Will feed dog after 5 seconds");
+}
+
+void feedDog()
+{
+    Debug.Log("Now feeding Dog");
+}
+```
+---
+
+### Update and time.deltaTime.
+
+Basically counting time as update executes over and over. Then after a certain time, doing something. 
+* This is okay for the same thing happening at intervals.
+* A sequence of things happening with various timings gets trickier/messier. Maybe a combo of a list and a function?
+
+From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
+```cs
+float timer = 0;
+bool timerReached = false;
+
+// Modified from stackoverflow a little
+void Update()
+{
+  if (!timerReached)
+    timer += Time.deltaTime;
+    if (timer > 5)
+    {
+      Debug.Log("Done waiting");
+      feedDog();
+
+      //Set to false so that We don't run this again
+      timerReached = true;
+    }
+  }
+}
+
+void feedDog()
+{
+    Debug.Log("Now feeding Dog");
+}
+```
+
+### Coroutines
+
+What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it's paused. A coroutine is a function, but it's also a similar to a process that can be stopped and started, returning control to our main execution.
+
+From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
+
+#### Waves with a coroutine
+
+```cs
+
+private List<float> _times;
+
+void Start() {
+  SpawnWaves();
+}
+
+// Regular old routine kicking off a special routine, one that can stop and start.
+void SpawnWaves())
+{
+  // A list of intervals to wait. 0s for first, 4s for second, and so on.
+  List<float> times = new List<float>() { 0.0f, 4.0f, 2.5f, 6.0f };
+  
+  StartCoroutine(ReleaseWaves(times));
+  Debug.Log("This line will run right away");
+}
+
+// The unity engine needs to track these coroutines so we can do
+// things like start and top them. They need to be of type "IEnumerator"
+// for it to do that.
+private IEnumerator ReleaseWaves(List<float> waitTimes)
+{
+  // For each number of seconds to wait
+  foreach (float waitTime in waitTimes)
+  {
+    // Stop this function running until waitTime has ended
+    yield return new WaitForSeconds(waitTime);
+    // Then this code will run. Here's where I'd spawn all the missiles
+    // in this particular wave, if I had a list of positions and angles.
+    Debug.Log("Waited for " + waitTime + " seconds");
+  }
+  Debug.Log("Releasewaves done, signing off");
+  // Call yield break; to end function, much like return
+  yield break;
+}
+
+```
+---
+
+#### Side notes on coroutines and threads for the curious
+
+I didn't discuss threads above, but Unity c# does provide them.
+
+**Coroutines**: multiprocessing/multitasking within the main game engine loop/thread. Doesn’t establish a system thread.
+
+* **Pro**: doesn’t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.
+
+* **Con**: not a true thread so can’t run on a separate core for performance boost, will bog down all code if heavy
+
+**Coroutine and thread use cases**
+**Coroutines:** most simple timed operations inside component
+**Threads:** long intense operations like file save. Also used at higher levels for AI, path finding. If you’ve studied threading. They are simple in concept and stupendously complex to syncronise/manage in real life. The bugs they generate are capricious in the extreme.
+
+---
 
 ## Missiles
 
@@ -263,27 +294,68 @@ Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are ai
 
 ### Aiming things at things
 
-Remember when we're doing trig in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise. If you want a sprite to point at things properly, have their axis at 0,0 and their pointy end along the x axis.
+Remember when we're doing trigenometry in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise. 
+
+* You want a sprite to point at things properly when rotation (theta θ) is applied: lie them along the x axis. 
+* Also **use the Sprite Editor to set the pivot point** of your rocket near where the hot gases are exiting.
 
 ![orientation for trig rotation](assets/week11/orientation_for_trig_rotation.png)
 
-### Moving things at a given speed
+> Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket's position, and some math using **distance, degrees to radians and atan2. Google some of those** with the usual "unity c#" keywords added.
+
+---
+
+### Moving at a given speed
 
 2D objects can't use transform.forward, because that's the Z axis. Use transform.right.
 
-### Colliding things
+Use deltaTime (time since last frame) adapt your movments to the changing length of time each frame runs for. This will avoid jittery movement.
+
+```cs
+// MissileAlien
+void Update()
+{
+  // Right is the x axis in trig. We travel along that.
+  // Any rotation of the object is applied after position, so
+  // we'll go whatever way the thing is pointing.
+  transform.position += transform.right * Time.deltaTime * _speed;
+}
+```
+---
 
 ### Missile explosions
 
 * spawn where our rocket stops (ie where we clicked)
-* instantiate/spawn an explosion
-  
+* grow over time, with a collider, and listen for impacts.
+   
 Explosions can be grown
 * with unity animation tools
 * Lerp(linear interpolation/tweening)
 * just scaling over a series of frames in Update.
 
-Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.
+---
 
-Options: triggers, colliders. Throw events that game sim and scoremanager hear. Maybe scoremanager hears it from sim
+### Hitting things
+
+Unity has a built in physics engine for this. We'll use it just to check if one sprite has contacted another, but not sign up for the actual physical action and reaction.
+
+* Both objects need to have a `RigidBody2D` component
+* also a collider such as `BoxCollider2D` or `CircleCollider2D`. Add them via the inspector
+* set their Rigidbody Body Type to Kinematic
+* enable "Use Full Kinematic Contacts". This lets us check for intersection of colliders without the smash and bounce.
+
+Any object with the setup above will have `OnCollisionEnter2D` called  if you define it. `Collider2D collision` will be passed in, filled with info about the collision and its participants.
+
+```cs
+// In MissileAlien component
+void OnCollisionEnter2D( Collision2D collision )
+  {
+    Debug.Log(gameObject.name + " 2D Collided with " + collision.gameObject.name);
+    
+    // Use collision.GetContact to grab the collision point, 
+    // Code here to instantiate AlienExplosionPrefab at that point
+    // Maybe throw an event about collision, passing the collided object?
+  }
+
+```
 

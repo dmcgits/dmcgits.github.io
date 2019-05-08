@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -34,30 +34,34 @@
 <li><a href="#scoringdisplaying-text">Scoring/Displaying text</a>
 <ol>
 <li><a href="#adding-ui-canvas-and-text">Adding UI canvas and text</a></li>
+<li><a href="#editing-tmp-text-in-script">Editing TMP text in script</a></li>
+</ol>
+</li>
+<li><a href="#missiles-come-in-waves-in-each-level">Missiles come in waves in each level</a>
+<ol>
+<li><a href="#psuedocoding-the-waves">Psuedocoding the waves</a></li>
 </ol>
 </li>
 <li><a href="#doing-things-over-time">Doing things over time</a>
 <ol>
 <li><a href="#things-that-need-timing">Things that need timing</a></li>
-<li><a href="#ways-to-time">Ways to time</a>
-<ol>
+<li><a href="#ways-to-time">Ways to time</a></li>
 <li><a href="#invoke">Invoke</a></li>
 <li><a href="#update-and-timedeltatime">Update and time.deltaTime.</a></li>
-<li><a href="#coroutines">Coroutines</a></li>
+<li><a href="#coroutines">Coroutines</a>
+<ol>
+<li><a href="#waves-with-a-coroutine">Waves with a coroutine</a></li>
+<li><a href="#side-notes-on-coroutines-and-threads-for-the-curious">Side notes on coroutines and threads for the curious</a></li>
 </ol>
 </li>
-<li><a href="#time-with-a-coroutine">Time with a coroutine</a></li>
-<li><a href="#more-info-on-coroutines-and-threads">More info on coroutines and threads</a></li>
-<li><a href="#releasing-waves---spawning">Releasing waves - spawning</a></li>
-<li><a href="#psuedocoding-the-waves">Psuedocoding the waves</a></li>
 </ol>
 </li>
 <li><a href="#missiles">Missiles</a>
 <ol>
 <li><a href="#aiming-things-at-things">Aiming things at things</a></li>
-<li><a href="#moving-things-at-a-given-speed">Moving things at a given speed</a></li>
-<li><a href="#colliding-things">Colliding things</a></li>
+<li><a href="#moving-at-a-given-speed">Moving at a given speed</a></li>
 <li><a href="#missile-explosions">Missile explosions</a></li>
+<li><a href="#hitting-things">Hitting things</a></li>
 </ol>
 </li>
 </ol>
@@ -68,7 +72,7 @@
 <ul>
 <li>Finalise, as much as you can, hacknplan tasks
 <ul>
-<li>You&#x2019;ll notice the burndown doesn&#x2019;t progress if you&#x2019;re still adding new tasks at the rate you&#x2019;re finishing others</li>
+<li>You&apos;ll notice the burndown doesn&apos;t progress if you&apos;re still adding new tasks at the rate you&apos;re finishing others</li>
 </ul>
 </li>
 <li>Game should be basically done by next class.</li>
@@ -93,17 +97,17 @@
 </ul>
 <h2 class="mume-header" id="scoringdisplaying-text">Scoring/Displaying text</h2>
 
-<p>We&#x2019;re used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?</p>
+<p>We&apos;re used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?</p>
 <p>Traditionally:</p>
 <ol>
 <li>Use an image editor to <strong>place all the characters and symbols you want in a bitmap</strong></li>
 <li>Arrange them all to fit in a power of 2 square (256x256, etc)</li>
 <li><strong>Define rectangles for each letter</strong> in your game engine</li>
 <li>Create a material with the font atlas as a teture</li>
-<li>For each letter in a string <strong>generate a quad with UV coordinates</strong> to match the letter&#x2019;s rectangle, add the font material.</li>
+<li>For each letter in a string <strong>generate a quad with UV coordinates</strong> to match the letter&apos;s rectangle, add the font material.</li>
 </ol>
 <p><img src="assets/week11/textmesh_atlas.jpg" alt="Font atlas"></p>
-<p>That&#x2019;s a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.</p>
+<p>That&apos;s a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.</p>
 <blockquote>
 <p>TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.</p>
 </blockquote>
@@ -115,128 +119,27 @@
 <ul>
 <li>Creating a UI Canvas</li>
 <li>Creating tex mesh pro (TMP) label</li>
-<li>Editing TMP text in script</li>
 </ul>
+<h3 class="mume-header" id="editing-tmp-text-in-script">Editing TMP text in script</h3>
+
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Code from unity incoming</span>
 
-</pre><h2 class="mume-header" id="doing-things-over-time">Doing things over time</h2>
+</pre><hr>
+<h2 class="mume-header" id="missiles-come-in-waves-in-each-level">Missiles come in waves in each level</h2>
 
-<p>We&#x2019;ve all played games where time is critical. Time to finish a level, time per lap, time to get out of a space station before it blows.</p>
-<p>Timings affect us in lots of other scenarios. Cooldown times, facility/vehicle upgrade and repair times, rounds fired per second.</p>
-<h3 class="mume-header" id="things-that-need-timing">Things that need timing</h3>
-
-<p>Potential things that need timing</p>
+<p>A level in Missile Command consists of <em>n</em> wave of missiles, where <em>n=5</em> last time I checked. It might vary?</p>
+<ul>
+<li>Within each wave you spawn <em>n</em> missiles.</li>
+<li>It&apos;s just a matter of knowing how many you want to launch, from what point in space, and in what direction.</li>
+</ul>
 <blockquote>
-<ul>
-<li>From press play</li>
-<li>From level finish (last missile destroyed) till next level, showing results</li>
-<li>From game over till game over graphics appear, play out and show play again or return to home screen</li>
-</ul>
+<p>You could handle these waves in a special <code>LevelManager</code>, directly in a large <code>GameManager</code>, in a <code>GameModel</code>: Choose the structure you understand best and think you have time to finish.</p>
 </blockquote>
-<p>How do we specify a series of times, say:</p>
-<ol>
-<li>0s</li>
-<li>1.3s,</li>
-<li>3.1s</li>
-</ol>
-<h3 class="mume-header" id="ways-to-time">Ways to time</h3>
-
-<h4 class="mume-header" id="invoke">Invoke</h4>
-
-<p>Invoke will call a function after a given delay. This doesn&#x2019;t pause your program like sleep would in c++. Execution continues.</p>
-<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">Invoke</span><span class="token punctuation">(</span><span class="token string">&quot;feedDog&quot;</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Will feed dog after 5 seconds&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">feedDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Now feeding Dog&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="update-and-timedeltatime">Update and time.deltaTime.</h4>
-
-<p>Basically counting time as update executes over and over. Then after a certain time, doing something.</p>
-<ul>
-<li>This is okay for the same thing happening at intervals.</li>
-<li>A sequence of things happening with various timings gets trickier/messier. Maybe a combo of a list and a function?</li>
-</ul>
-<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">float</span> timer <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">bool</span> timerReached <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Modified from stackoverflow a little</span>
-<span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>timerReached<span class="token punctuation">)</span>
-    timer <span class="token operator">+=</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>timer <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-      Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Done waiting&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token function">feedDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-      <span class="token comment">//Set to false so that We don&apos;t run this again</span>
-      timerReached <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">void</span> <span class="token function">feedDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Now feeding Dog&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="coroutines">Coroutines</h4>
-
-<p>What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it&#x2019;s paused. A coroutine is a function, but it&#x2019;s also a similar to a process that can be stopped and started, returning control to our main execution.</p>
-<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
-<h3 class="mume-header" id="time-with-a-coroutine">Time with a coroutine</h3>
-
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> _times<span class="token punctuation">;</span>
-
-<span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">TriggerAWave</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment">// Regular old routine kicking off a special routine, one that can stop and start.</span>
-<span class="token keyword">void</span> <span class="token function">TriggerAWave</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> times <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token keyword">float</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token number">0.0f</span><span class="token punctuation">,</span> <span class="token number">4.0f</span><span class="token punctuation">,</span> <span class="token number">2.5f</span><span class="token punctuation">,</span> <span class="token number">6.0f</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;We&apos;ll call the wave releaser&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">StartCoroutine</span><span class="token punctuation">(</span><span class="token function">ReleaseWaves</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;While it does its wave thing we keep going.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">private</span> <span class="token class-name">IEnumerator</span> <span class="token function">ReleaseWaves</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> waitTimes<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;ReleaseWaves here, starting.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">float</span> waitTime <span class="token keyword">in</span> waitTimes<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    <span class="token keyword">yield</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WaitForSeconds</span><span class="token punctuation">(</span>waitTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Waited for &quot;</span> <span class="token operator">+</span> waitTime <span class="token operator">+</span> <span class="token string">&quot; seconds&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Releasewaves done, signing off&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-</pre><h3 class="mume-header" id="more-info-on-coroutines-and-threads">More info on coroutines and threads</h3>
-
-<p>Coroutines: multiprocessing/multitasking within the main game engine loop/thread. Doesn&#x2019;t establish a system thread.<br>
-Up: doesn&#x2019;t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.</p>
-<p>Down: not a true thread so can&#x2019;t run on a separate core for performance boost, will bog down all code if heavy</p>
-<p>Coroutines: asynchronous things, simple timers<br>
-Threads: long intense operations like file save, AI, path finding. If you&#x2019;ve studied threading. They are simple in concept and stupendously complex in action. The bugs they generate are capricious in the extreme.</p>
-<p>You cant necessarily prove that threads are bug free/safe, because the scenarios that can affect them (stopping in the middle of any of millions of individual machine code instructions in any order) aren&#x2019;t realistically reproduceable.</p>
-<h3 class="mume-header" id="releasing-waves-spawning">Releasing waves - spawning</h3>
-
-<blockquote>
-<p>Within each wave you can spawn your missiles. It&#x2019;s just a matter of knowing how many you want to launch, from where, and in what direction.</p>
-</blockquote>
-<ul>
-<li>Some sort of WaveManager could handle this</li>
-<li>Or code in GameManager, a GameModel or elsewhere.</li>
-</ul>
+<hr>
 <h3 class="mume-header" id="psuedocoding-the-waves">Psuedocoding the waves</h3>
 
+<p>Here&apos;s one way to break it down. <strong>It&apos;s just the missile firing and tracking loop,</strong> without collisions, scoring, a &quot;click to play&quot; or final game over stats. All those can come <strong>once I have missiles in the air.</strong></p>
+<p>You might think of a better way, or just one that suits you better.</p>
 <pre data-role="codeBlock" data-info class="language-"><code>//////// LevelManager -
 
 A MissileShot has a launch angle and position
@@ -276,23 +179,167 @@ loop
 
 show final result.
 play again?
-</code></pre><h2 class="mume-header" id="missiles">Missiles</h2>
+</code></pre><hr>
+<h2 class="mume-header" id="doing-things-over-time">Doing things over time</h2>
+
+<p>We&apos;ve all played games where time is critical. Time to finish a level, time per lap, time to get out of a space station before it blows.</p>
+<p>Timings affect us in lots of other scenarios. Cooldown times, facility/vehicle upgrade and repair times, rounds fired per second.</p>
+<h3 class="mume-header" id="things-that-need-timing">Things that need timing</h3>
+
+<p>Potential things that need timing</p>
+<blockquote>
+<ul>
+<li>From press play</li>
+<li>From level finish (last missile destroyed) till next level, showing results</li>
+<li>From game over till game over graphics appear, play out and show play again or return to home screen</li>
+</ul>
+</blockquote>
+<p>How do we specify a series of times, say:</p>
+<ol>
+<li>0s</li>
+<li>1.3s,</li>
+<li>3.1s</li>
+</ol>
+<h3 class="mume-header" id="ways-to-time">Ways to time</h3>
+
+<p><code>Invoke</code>, counting time in <code>Update()</code>, <code>StartCoroutine</code> and more.</p>
+<h3 class="mume-header" id="invoke">Invoke</h3>
+
+<p>Invoke will call a function after a given delay. This doesn&apos;t pause your program like sleep would in c++. Execution continues.</p>
+<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">Invoke</span><span class="token punctuation">(</span><span class="token string">&quot;feedDog&quot;</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Will feed dog after 5 seconds&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">feedDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Now feeding Dog&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><hr>
+<h3 class="mume-header" id="update-and-timedeltatime">Update and time.deltaTime.</h3>
+
+<p>Basically counting time as update executes over and over. Then after a certain time, doing something.</p>
+<ul>
+<li>This is okay for the same thing happening at intervals.</li>
+<li>A sequence of things happening with various timings gets trickier/messier. Maybe a combo of a list and a function?</li>
+</ul>
+<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">float</span> timer <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">bool</span> timerReached <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Modified from stackoverflow a little</span>
+<span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>timerReached<span class="token punctuation">)</span>
+    timer <span class="token operator">+=</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>timer <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Done waiting&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">feedDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">//Set to false so that We don&apos;t run this again</span>
+      timerReached <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">feedDog</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Now feeding Dog&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="coroutines">Coroutines</h3>
+
+<p>What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it&apos;s paused. A coroutine is a function, but it&apos;s also a similar to a process that can be stopped and started, returning control to our main execution.</p>
+<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
+<h4 class="mume-header" id="waves-with-a-coroutine">Waves with a coroutine</h4>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> _times<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">SpawnWaves</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Regular old routine kicking off a special routine, one that can stop and start.</span>
+<span class="token keyword">void</span> <span class="token function">SpawnWaves</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// A list of intervals to wait. 0s for first, 4s for second, and so on.</span>
+  List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> times <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token generic-method"><span class="token function">List</span><span class="token punctuation">&lt;</span><span class="token keyword">float</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token number">0.0f</span><span class="token punctuation">,</span> <span class="token number">4.0f</span><span class="token punctuation">,</span> <span class="token number">2.5f</span><span class="token punctuation">,</span> <span class="token number">6.0f</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  
+  <span class="token function">StartCoroutine</span><span class="token punctuation">(</span><span class="token function">ReleaseWaves</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;This line will run right away&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// The unity engine needs to track these coroutines so we can do</span>
+<span class="token comment">// things like start and top them. They need to be of type &quot;IEnumerator&quot;</span>
+<span class="token comment">// for it to do that.</span>
+<span class="token keyword">private</span> <span class="token class-name">IEnumerator</span> <span class="token function">ReleaseWaves</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> waitTimes<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// For each number of seconds to wait</span>
+  <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">float</span> waitTime <span class="token keyword">in</span> waitTimes<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Stop this function running until waitTime has ended</span>
+    <span class="token keyword">yield</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WaitForSeconds</span><span class="token punctuation">(</span>waitTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Then this code will run. Here&apos;s where I&apos;d spawn all the missiles</span>
+    <span class="token comment">// in this particular wave, if I had a list of positions and angles.</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Waited for &quot;</span> <span class="token operator">+</span> waitTime <span class="token operator">+</span> <span class="token string">&quot; seconds&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Releasewaves done, signing off&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Call yield break; to end function, much like return</span>
+  <span class="token keyword">yield</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><hr>
+<h4 class="mume-header" id="side-notes-on-coroutines-and-threads-for-the-curious">Side notes on coroutines and threads for the curious</h4>
+
+<p>I didn&apos;t discuss threads above, but Unity c# does provide them.</p>
+<p><strong>Coroutines</strong>: multiprocessing/multitasking within the main game engine loop/thread. Doesn&#x2019;t establish a system thread.</p>
+<ul>
+<li>
+<p><strong>Pro</strong>: doesn&#x2019;t risk race conditions, threads corrupting data, easy to follow, allows multitasking. Before multi core processors and multithreaded applications,all multitasking was achieved like this. Most games still rely on single core performance like this.</p>
+</li>
+<li>
+<p><strong>Con</strong>: not a true thread so can&#x2019;t run on a separate core for performance boost, will bog down all code if heavy</p>
+</li>
+</ul>
+<p><strong>Coroutine and thread use cases</strong><br>
+<strong>Coroutines:</strong> most simple timed operations inside component<br>
+<strong>Threads:</strong> long intense operations like file save. Also used at higher levels for AI, path finding. If you&#x2019;ve studied threading. They are simple in concept and stupendously complex to syncronise/manage in real life. The bugs they generate are capricious in the extreme.</p>
+<hr>
+<h2 class="mume-header" id="missiles">Missiles</h2>
 
 <p>Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.</p>
 <h3 class="mume-header" id="aiming-things-at-things">Aiming things at things</h3>
 
-<p>Remember when we&#x2019;re doing trig in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise. If you want a sprite to point at things properly, have their axis at 0,0 and their pointy end along the x axis.</p>
+<p>Remember when we&apos;re doing trigenometry in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise.</p>
+<ul>
+<li>You want a sprite to point at things properly when rotation (theta &#x3B8;) is applied: lie them along the x axis.</li>
+<li>Also <strong>use the Sprite Editor to set the pivot point</strong> of your rocket near where the hot gases are exiting.</li>
+</ul>
 <p><img src="assets/week11/orientation_for_trig_rotation.png" alt="orientation for trig rotation"></p>
-<h3 class="mume-header" id="moving-things-at-a-given-speed">Moving things at a given speed</h3>
+<blockquote>
+<p>Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket&apos;s position, and some math using <strong>distance, degrees to radians and atan2. Google some of those</strong> with the usual &quot;unity c#&quot; keywords added.</p>
+</blockquote>
+<hr>
+<h3 class="mume-header" id="moving-at-a-given-speed">Moving at a given speed</h3>
 
-<p>2D objects can&#x2019;t use transform.forward, because that&#x2019;s the Z axis. Use transform.right.</p>
-<h3 class="mume-header" id="colliding-things">Colliding things</h3>
-
+<p>2D objects can&apos;t use transform.forward, because that&apos;s the Z axis. Use transform.right.</p>
+<p>Use deltaTime (time since last frame) adapt your movments to the changing length of time each frame runs for. This will avoid jittery movement.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// MissileAlien</span>
+<span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// Right is the x axis in trig. We travel along that.</span>
+  <span class="token comment">// Any rotation of the object is applied after position, so</span>
+  <span class="token comment">// we&apos;ll go whatever way the thing is pointing.</span>
+  transform<span class="token punctuation">.</span>position <span class="token operator">+=</span> transform<span class="token punctuation">.</span>right <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime <span class="token operator">*</span> _speed<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><hr>
 <h3 class="mume-header" id="missile-explosions">Missile explosions</h3>
 
 <ul>
 <li>spawn where our rocket stops (ie where we clicked)</li>
-<li>instantiate/spawn an explosion</li>
+<li>grow over time, with a collider, and listen for impacts.</li>
 </ul>
 <p>Explosions can be grown</p>
 <ul>
@@ -300,9 +347,28 @@ play again?
 <li>Lerp(linear interpolation/tweening)</li>
 <li>just scaling over a series of frames in Update.</li>
 </ul>
-<p>Colliding things: our missiles grow, so must their collider. Check for a hit. We meed to know what hit what, to assess damage.</p>
-<p>Options: triggers, colliders. Throw events that game sim and scoremanager hear. Maybe scoremanager hears it from sim</p>
+<hr>
+<h3 class="mume-header" id="hitting-things">Hitting things</h3>
 
+<p>Unity has a built in physics engine for this. We&apos;ll use it just to check if one sprite has contacted another, but not sign up for the actual physical action and reaction.</p>
+<ul>
+<li>Both objects need to have a <code>RigidBody2D</code> component</li>
+<li>also a collider such as <code>BoxCollider2D</code> or <code>CircleCollider2D</code>. Add them via the inspector</li>
+<li>set their Rigidbody Body Type to Kinematic</li>
+<li>enable &quot;Use Full Kinematic Contacts&quot;. This lets us check for intersection of colliders without the smash and bounce.</li>
+</ul>
+<p>Any object with the setup above will have <code>OnCollisionEnter2D</code> called  if you define it. <code>Collider2D collision</code> will be passed in, filled with info about the collision and its participants.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// In MissileAlien component</span>
+<span class="token keyword">void</span> <span class="token function">OnCollisionEnter2D</span><span class="token punctuation">(</span> <span class="token class-name">Collision2D</span> collision <span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span>gameObject<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">&quot; 2D Collided with &quot;</span> <span class="token operator">+</span> collision<span class="token punctuation">.</span>gameObject<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Use collision.GetContact to grab the collision point, </span>
+    <span class="token comment">// Code here to instantiate AlienExplosionPrefab at that point</span>
+    <span class="token comment">// Maybe throw an event about collision, passing the collided object?</span>
+  <span class="token punctuation">}</span>
+
+</pre>
       </div>
       
       
