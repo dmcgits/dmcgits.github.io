@@ -102,18 +102,24 @@
 <li>Create a material with the font atlas as a teture</li>
 <li>For each letter in a string <strong>generate a quad with UV coordinates</strong> to match the letter&#x2019;s rectangle, add the font material.</li>
 </ol>
+<p><img src="assets/week11/textmesh_atlas.jpg" alt="Font atlas"></p>
 <p>That&#x2019;s a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.</p>
 <blockquote>
 <p>TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.</p>
 </blockquote>
-<p><img src="assets/week11/textmesh_components.png" alt="UI text"></p>
+<p><img src="assets/week11/textmesh_font_asset_creator.jpg" alt="asset creator"><br>
+<img src="assets/week11/textmesh_components.png" alt="components"></p>
 <h3 class="mume-header" id="adding-ui-canvas-and-text">Adding UI canvas and text</h3>
 
+<p>Unity UIs are contained within a component called a <strong>canvas</strong>. It does a lot, including fitting our UI to our window and adapting to resolution changes.</p>
 <ul>
-<li>Creating text label</li>
-<li>Editing text in script</li>
+<li>Creating a UI Canvas</li>
+<li>Creating tex mesh pro (TMP) label</li>
+<li>Editing TMP text in script</li>
 </ul>
-<h2 class="mume-header" id="doing-things-over-time">Doing things over time</h2>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Code from unity incoming</span>
+
+</pre><h2 class="mume-header" id="doing-things-over-time">Doing things over time</h2>
 
 <p>We&#x2019;ve all played games where time is critical. Time to finish a level, time per lap, time to get out of a space station before it blows.</p>
 <p>Timings affect us in lots of other scenarios. Cooldown times, facility/vehicle upgrade and repair times, rounds fired per second.</p>
