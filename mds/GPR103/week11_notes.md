@@ -63,15 +63,27 @@ Traditionally:
 4. Create a material with the font atlas as a teture
 5. For each letter in a string **generate a quad with UV coordinates** to match the letter's rectangle, add the font material.
 
+![Font atlas](assets/week11/textmesh_atlas.jpg)
+
 That's a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.
 
 > TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.
 
-![UI text](assets/week11/textmesh_components.png)
+![asset creator](assets/week11/textmesh_font_asset_creator.jpg)
+![components](assets/week11/textmesh_components.png)
 
 ### Adding UI canvas and text
-* Creating text label
-* Editing text in script
+
+Unity UIs are contained within a component called a **canvas**. It does a lot, including fitting our UI to our window and adapting to resolution changes.
+
+* Creating a UI Canvas
+* Creating tex mesh pro (TMP) label
+* Editing TMP text in script
+
+```cs
+// Code from unity incoming
+
+```
 
 ## Doing things over time
 

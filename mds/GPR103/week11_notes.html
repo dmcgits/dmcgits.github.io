@@ -31,7 +31,11 @@
 <ol>
 <li><a href="#todo">Todo</a></li>
 <li><a href="#resources">Resources</a></li>
-<li><a href="#scoringdisplaying-text">Scoring/Displaying text</a></li>
+<li><a href="#scoringdisplaying-text">Scoring/Displaying text</a>
+<ol>
+<li><a href="#adding-ui-canvas-and-text">Adding UI canvas and text</a></li>
+</ol>
+</li>
 <li><a href="#doing-things-over-time">Doing things over time</a>
 <ol>
 <li><a href="#things-that-need-timing">Things that need timing</a></li>
@@ -83,13 +87,29 @@
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSeconds.html">Waiting for game seconds</a></li>
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSecondsRealtime.html">Waiting for real world seconds</a></li>
 </ul>
+<p>TextMeshPro:</p>
+<ul>
+<li>Unity Blog: <a href="https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/">https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/</a></li>
+</ul>
 <h2 class="mume-header" id="scoringdisplaying-text">Scoring/Displaying text</h2>
 
-<p>Displaying 2D text in 3D.</p>
-<p>Pop an image on a quad, which is two triangles.</p>
+<p>We&#x2019;re used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?</p>
+<p>Traditionally:</p>
+<ol>
+<li>Use an image editor to <strong>place all the characters and symbols you want in a bitmap</strong></li>
+<li>Arrange them all to fit in a power of 2 square (256x256, etc)</li>
+<li><strong>Define rectangles for each letter</strong> in your game engine</li>
+<li>Create a material with the font atlas as a teture</li>
+<li>For each letter in a string <strong>generate a quad with UV coordinates</strong> to match the letter&#x2019;s rectangle, add the font material.</li>
+</ol>
+<p>That&#x2019;s a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.</p>
+<blockquote>
+<p>TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.</p>
+</blockquote>
+<p><img src="assets/week11/textmesh_components.png" alt="UI text"></p>
+<h3 class="mume-header" id="adding-ui-canvas-and-text">Adding UI canvas and text</h3>
+
 <ul>
-<li>using textmeshpro to generate and use an atlas from the ready/start player 2 font.</li>
-<li>Adding a ui canvas</li>
 <li>Creating text label</li>
 <li>Editing text in script</li>
 </ul>
