@@ -36,7 +36,7 @@
 <ol>
 <li><a href="#the-game-broadly">The game, broadly</a></li>
 <li><a href="#the-snake-specifically">The snake, specifically</a></li>
-<li><a href="#what-i-see-there">What I see there</a>
+<li><a href="#what-i-learned-there">What I learned there</a>
 <ol>
 <li><a href="#moving-in-whole-cells">Moving in whole cells</a></li>
 <li><a href="#moving-in-fractions-of-a-cell">Moving in fractions of a cell</a></li>
@@ -114,6 +114,8 @@
 <strong>2.</strong> That data arranged/encapsulated for easiest use<br>
 <strong>3.</strong> Simulate movement and interactions for things in the garden.<br>
 <strong>4.</strong> Communicate score, position of things, life and death.</p>
+<p><strong>See how this reads:</strong></p>
+<p>Does it do the trick aside from snake stuff?</p>
 <pre data-role="codeBlock" data-info="md" class="language-gfm"><code>Start Program GrowingSnakeEatingFruitInDetentionGarden ----------
     We have some collections:
         A garden is a grid of spaces that can be occupied
@@ -132,7 +134,7 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 
 </code></pre><h3 class="mume-header" id="the-snake-specifically">The snake, specifically</h3>
 
-<p>Pretty straightforward. Let&#x2019;s zoom into DO SNAKE THINGS and see what&#x2019;s happening.</p>
+<p>Let&#x2019;s zoom into DO SNAKE THINGS and see what&#x2019;s happening.</p>
 <pre data-role="codeBlock" data-info class="language-"><code>  ...
     If player hits up, left, right or down
         change snake head direction
@@ -159,13 +161,13 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 
     end if (snake head new cell)
   ...
-</code></pre><h3 class="mume-header" id="what-i-see-there">What I see there</h3>
+</code></pre><h3 class="mume-header" id="what-i-learned-there">What I learned there</h3>
 
-<p>Yes, writing this, I learned things. Which sounds crazy. But,</p>
+<p>I learned things from writing that down, which you&#x2019;ve probably experienced before. It&#x2019;s super valuable.</p>
 <blockquote>
-<p><em>Sometimes writing down things you know reveals things you didn&#x2019;t know you knew.</em></p>
+<p><em>Writing down things you know sometimes reveals things you didn&#x2019;t know you knew.</em></p>
 </blockquote>
-<p>I learned that everything that matters happens when the snake head enters a new cell.</p>
+<p>I learned that everything starts to happen when the snake head enters a new cell.</p>
 <h4 class="mume-header" id="moving-in-whole-cells">Moving in whole cells</h4>
 
 <blockquote>

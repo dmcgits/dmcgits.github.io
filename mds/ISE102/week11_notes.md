@@ -13,7 +13,7 @@ This may be enough content for both weeks..
 	* [The Garden, the Snake](#the-garden-the-snake)
 		* [The game, broadly](#the-game-broadly)
 		* [The snake, specifically](#the-snake-specifically)
-		* [What I see there](#what-i-see-there)
+		* [What I learned there](#what-i-learned-there)
 			* [Moving in whole cells](#moving-in-whole-cells)
 			* [Moving in fractions of a cell](#moving-in-fractions-of-a-cell)
 		* [Change of cell](#change-of-cell)
@@ -84,6 +84,10 @@ Lets psuedocode the game so we know where the snake bit fits.
 **3.** Simulate movement and interactions for things in the garden.
 **4.** Communicate score, position of things, life and death.
 
+**See how this reads:**
+
+Does it do the trick aside from snake stuff?
+
 ```md
 Start Program GrowingSnakeEatingFruitInDetentionGarden ----------
     We have some collections:
@@ -105,7 +109,7 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 
 ### The snake, specifically
 
-Pretty straightforward. Let's zoom into DO SNAKE THINGS and see what's happening.
+Let's zoom into DO SNAKE THINGS and see what's happening.
 
 ```
   ...
@@ -136,13 +140,13 @@ Pretty straightforward. Let's zoom into DO SNAKE THINGS and see what's happening
   ...
 ```
 
-### What I see there
+### What I learned there
 
-Yes, writing this, I learned things. Which sounds crazy. But, 
+I learned things from writing that down, which you've probably experienced before. It's super valuable. 
 
-> _Sometimes writing down things you know reveals things you didn't know you knew._
+> _Writing down things you know sometimes reveals things you didn't know you knew._
 
-I learned that everything that matters happens when the snake head enters a new cell.
+I learned that everything starts to happen when the snake head enters a new cell.
 
 #### Moving in whole cells
 
