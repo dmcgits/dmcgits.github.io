@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\dmac\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -25,6 +25,24 @@
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="week-12-performance-debugging">Week 12 - Performance, debugging</h1>
 
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-12-performance-debugging">Week 12 - Performance, debugging</a>
+<ul>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#multi-argument-events">Multi argument events!</a>
+<ul>
+<li><a href="#example-of-action-with-2-arguments">Example of Action with 2 arguments</a>
+<ul>
+<li><a href="#prevnextitemonclickcs-partial">PrevNextItemOnClick.cs partial</a></li>
+<li><a href="#customodelcs-partial">CustoModel.cs partial</a></li>
+<li><a href="#quicky-how-did-you-get-the-string-dropdowns">Quicky: how did you get the string dropdowns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ul>
@@ -53,14 +71,18 @@
 </ul>
 </li>
 </ul>
+<hr>
 <h2 class="mume-header" id="multi-argument-events">Multi argument events!</h2>
 
-<p>Good news, the course notes were wrong about multiple arguments to Action&lt;&gt;/delegate events! Turns out there are multiple overrides of Action: Action<t>, Action&lt;T1,T2&gt; and so on up to 16.</t></p>
+<p>Good news! During assessment marking I realised I was wrong about multiple arguments to our static events using <code>Action&lt;&gt;</code> and <code>delegate</code>! Luckily Gian looked into it harder, and I&#x2019;ll be updating the old course resources and my notes to show there are multiple overrides of Action.</p>
+<p>You can specify argument counts with Action<t>, Action&lt;T1,T2&gt; and so on up to 16!</t></p>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-2?view=netframework-4.8">Microsoft docs for System.Action variants</a></p>
-<p>Here&#x2019;s my inspector, setting two variables:</p>
+<h3 class="mume-header" id="example-of-action-with-2-arguments">Example of Action with 2 arguments</h3>
+
+<p>Here&#x2019;s my inspector showing 2 arguments.</p>
 <p><img src="assets/week12/prevNext_dropdowns_inspector.png" alt="PrevNext Item Inspector"></p>
 <p>Here&#x2019;s the code to pass them in an event</p>
-<h4 class="mume-header" id="in-prevnextitemonclickcs">In PrevNextItemOnClick.cs</h4>
+<h4 class="mume-header" id="prevnextitemonclickcs-partial">PrevNextItemOnClick.cs partial</h4>
 
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PrevNextItemOnClick</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
 <span class="token punctuation">{</span>
@@ -75,10 +97,10 @@
   <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
+</pre><p>And to receive them</p>
+<h4 class="mume-header" id="customodelcs-partial">CustoModel.cs partial</h4>
 
-<span class="token preprocessor property">#### In CustoModel.cs</span>
-```cs
-<span class="token comment">// Giving our handler to PrevNextItemOnClick doesn&apos;t change,</span>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Giving our handler to PrevNextItemOnClick doesn&apos;t change,</span>
 <span class="token comment">// Just the signature of the handler</span>
 
 <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">OnPrevNextHandler</span><span class="token punctuation">(</span><span class="token keyword">string</span> item<span class="token punctuation">,</span> <span class="token keyword">string</span> prevOrNext<span class="token punctuation">)</span>
@@ -89,7 +111,8 @@
     <span class="token comment">// Then throw a modelUpdate event that lets peeps look at the state</span>
     <span class="token function">OnCharacterChanged</span><span class="token punctuation">(</span>charState<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-</pre><h4>Quicky: how did you get the string dropdowns</h4>
+</pre><h4 class="mume-header" id="quicky-how-did-you-get-the-string-dropdowns">Quicky how did you get the string dropdowns</h4>
+
 <p>I declared some enums, which we already know about. What you might not have discovered is the ToString() function you can call on them to get their defined name.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// ... includes</span>
 
@@ -175,12 +198,14 @@
 </ul>
 </li>
 </ul>
-<p><strong>Attach Editor prefs unity</strong></p>
-<p><strong>breakpoint picture</strong></p>
-<p><strong>stopped at breakpoint</strong></p>
-<p><strong>Inspecting variables</strong></p>
+<p>Coming pictures<br>
+<strong>Attach Editor prefs unity</strong><br>
+<strong>breakpoint picture</strong><br>
+<strong>stopped at breakpoint</strong><br>
+<strong>Inspecting variables</strong></p>
 <h3 class="mume-header" id="where-to-break-how-to-step">Where to break, how to step</h3>
 
+<p>Breaking, stepping over, stepping through.</p>
 <h3 class="mume-header" id="now-do-it-with-your-project">Now do it with your project</h3>
 
 <p>Try putting a break point at any of the following and exploring:</p>
@@ -194,6 +219,7 @@
 
 <p>So far we&#x2019;ve usually tried to debug by coming up with a theory and then putting in Console.Log. That only helps us if our theories are on point.</p>
 <p>Using the debugger lets us look much more quickly at loads of things, gather loads of evidence, and a surprise result in that evidence can lead you to a bug source you&#x2019;d never considered.</p>
+<hr>
 <h2 class="mume-header" id="responsiveness">Responsiveness</h2>
 
 <p>Missile Command: As wave after wave of death dealing alien hardware is flung at the homes and businesses of everyday earthlings, <strong>masses of resources are going into the creation of weapons and cleaning up in their aftermath.</strong></p>
@@ -201,6 +227,7 @@
 <blockquote>
 <p>We&#x2019;re instantiating human and alien missiles, trails and explosions for potentially hunderes of waves. Each one uses memory and processor time, and it takes time and effort for unity to recover resources when each is finished with.</p>
 </blockquote>
+<p>We often see failures of optimisations as constant low frame rates, or sudden frame drops.</p>
 <h3 class="mume-header" id="limited-resources">Limited resources</h3>
 
 <p>You might think about this much on quade core Windows machines with 16GB of RAM, but if you&#x2019;re outputting to other platforms this becomes critical</p>
@@ -212,6 +239,16 @@
 <h3 class="mume-header" id="manual-memory-management">Manual Memory Management</h3>
 
 <p>What we had. Malloc, dealloc.</p>
+<h2 class="mume-header" id="seeing-performance">Seeing Performance</h2>
+
+<p>Profiler!<br>
+Last week I gave you guys a function to move a missile over time, and it used time.elapsedTime to make sure things moved well regardless of how long frames took to render.<br>
+Today we talked about how garbage collection can impact your game.</p>
+<p><img src="assets/week12/profiler_cpu_frametime.png" alt="profiler cpu frames"></p>
+<p>How can we visualise it?</p>
+<h2 class="mume-header" id="optimising">Optimising</h2>
+
+<p>How can we manage problems like big garbage collection hits and constant resource creation</p>
 <h3 class="mume-header" id="garbage-collection">Garbage Collection</h3>
 
 <p>Let the garbage man decide what&#x2019;s unwanted and take it away.</p>
@@ -223,16 +260,6 @@ Almost no manual memory management!</p>
 <li>Give them a lot to clean up and like anyone else, they need time and resources. And that causes stutters in your game&#x2019;s frame rate and response.</li>
 </ul>
 <p><img src="assets/week12/garbage_collection_peaks.png" alt="GC Peaks"></p>
-<h2 class="mume-header" id="looking-at-performance">Looking at performance</h2>
-
-<p>Profiler!<br>
-Last week I gave you guys a function to move a missile over time, and it used time.elapsedTime to make sure things moved well regardless of how long frames took to render.<br>
-Today we talked about how garbage collection can impact your game.</p>
-<p><img src="assets/week12/profiler_cpu_frametime.png" alt="profiler cpu frames"></p>
-<p>How can we visualise it?</p>
-<h2 class="mume-header" id="optimising">Optimising</h2>
-
-<p>How can we manage problems like big garbage collection hits and constant resource creation</p>
 <h3 class="mume-header" id="object-pooling">Object pooling!</h3>
 
 <p>Concept of object pooling.</p>

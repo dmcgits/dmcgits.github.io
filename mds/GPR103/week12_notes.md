@@ -1,6 +1,38 @@
 # Week 12 - Performance, debugging
 
 
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Week 12 - Performance, debugging](#week-12-performance-debugging)
+	* [Resources](#resources)
+	* [Multi argument events!](#multi-argument-events)
+		* [Example of Action with 2 arguments](#example-of-action-with-2-arguments)
+			* [PrevNextItemOnClick.cs partial](#prevnextitemonclickcs-partial)
+			* [CustoModel.cs partial](#customodelcs-partial)
+			* [Quicky how did you get the string dropdowns](#quicky-how-did-you-get-the-string-dropdowns)
+		* [Joining and splitting string arguments](#joining-and-splitting-string-arguments)
+		* [Structs and objects?](#structs-and-objects)
+	* [Squashing bugs](#squashing-bugs)
+		* [Enter the debugger](#enter-the-debugger)
+		* [Example walk through](#example-walk-through)
+		* [Where to break, how to step](#where-to-break-how-to-step)
+		* [Now do it with your project](#now-do-it-with-your-project)
+		* [Forensic debugging!](#forensic-debugging)
+	* [Responsiveness](#responsiveness)
+		* [Limited resources](#limited-resources)
+		* [Manual Memory Management](#manual-memory-management)
+	* [Seeing Performance](#seeing-performance)
+	* [Optimising](#optimising)
+		* [Garbage Collection](#garbage-collection)
+		* [Object pooling!](#object-pooling)
+		* [implementation of object pooling?](#implementation-of-object-pooling)
+
+<!-- /code_chunk_output -->
+
+
 ## Resources
 
 * Events with multiple arguments
@@ -13,19 +45,29 @@
 * Unity official: optimization garbage collection
   - https://unity3d.com/learn/tutorials/topics/performance-optimization/optimizing-garbage-collection-unity-games
 
+___
+
+## Chat
+
+Assessments marked, assessments incoming. Topics for today etc.
+
 ## Multi argument events!
 
-Good news, the course notes were wrong about multiple arguments to Action<>/delegate events! Turns out there are multiple overrides of Action: Action<T>, Action<T1,T2> and so on up to 16.
+Good news! During assessment marking I realised I was wrong about multiple arguments to our static events using `Action<>` and `delegate`! Luckily Gian looked into it harder, and I'll be updating the old course resources and my notes to show there are multiple overrides of Action. 
+
+You can specify argument counts with Action<T>, Action<T1,T2> and so on up to 16!
 
 [Microsoft docs for System.Action variants](https://docs.microsoft.com/en-us/dotnet/api/system.action-2?view=netframework-4.8)
 
-Here's my inspector, setting two variables:
+### Example of Action with 2 arguments 
+
+Here's my inspector showing 2 arguments.
 
 ![PrevNext Item Inspector](assets/week12/prevNext_dropdowns_inspector.png)
 
 Here's the code to pass them in an event
 
-#### In PrevNextItemOnClick.cs
+#### PrevNextItemOnClick.cs partial
 
 ```cs
 public class PrevNextItemOnClick : MonoBehaviour
@@ -41,8 +83,10 @@ public class PrevNextItemOnClick : MonoBehaviour
   }
 
 }
+```
+And to receive them
 
-#### In CustoModel.cs
+#### CustoModel.cs partial
 ```cs
 // Giving our handler to PrevNextItemOnClick doesn't change,
 // Just the signature of the handler
@@ -57,7 +101,7 @@ private void OnPrevNextHandler(string item, string prevOrNext)
   }
 ```
 
-#### Quicky: how did you get the string dropdowns
+#### Quicky how did you get the string dropdowns
 
 I declared some enums, which we already know about. What you might not have discovered is the ToString() function you can call on them to get their defined name.
 
@@ -93,7 +137,7 @@ public class PrevNextItemOnClick : MonoBehaviour
       OnPrevNextRequested(_customItem.ToString(), _prevNext.ToString());
   }
 
- ```
+```
 
 ### Joining and splitting string arguments
 
@@ -153,15 +197,15 @@ Some of you will have used a debugger in say visual studio for c++/c sharp, or e
   - See that it's called without needing debug.log
   - Look through passed arguments, look through object!
 
+Coming pictures
 **Attach Editor prefs unity**
-
 **breakpoint picture**
-
 **stopped at breakpoint**
-
 **Inspecting variables**
 
 ### Where to break, how to step
+
+Breaking, stepping over, stepping through.
 
 ### Now do it with your project
 
@@ -177,6 +221,7 @@ So far we've usually tried to debug by coming up with a theory and then putting 
 
 Using the debugger lets us look much more quickly at loads of things, gather loads of evidence, and a surprise result in that evidence can lead you to a bug source you'd never considered.
 
+___
 
 ## Responsiveness
 
@@ -185,6 +230,8 @@ Missile Command: As wave after wave of death dealing alien hardware is flung at 
 This describes life in the game, but also life for our game engine.
 
 > We're instantiating human and alien missiles, trails and explosions for potentially hunderes of waves. Each one uses memory and processor time, and it takes time and effort for unity to recover resources when each is finished with.
+
+We often see failures of optimisations as constant low frame rates, or sudden frame drops.
 
 ### Limited resources
 
@@ -196,6 +243,20 @@ You might think about this much on quade core Windows machines with 16GB of RAM,
 ### Manual Memory Management
 
 What we had. Malloc, dealloc.
+
+## Seeing Performance
+
+Profiler!
+Last week I gave you guys a function to move a missile over time, and it used time.elapsedTime to make sure things moved well regardless of how long frames took to render. 
+Today we talked about how garbage collection can impact your game.
+
+![profiler cpu frames](assets/week12/profiler_cpu_frametime.png)
+
+How can we visualise it?
+
+## Optimising
+
+How can we manage problems like big garbage collection hits and constant resource creation
 
 ### Garbage Collection
 
@@ -210,19 +271,7 @@ Dangers for the inexperienced: Garbage collection tends to take what would have 
 
 ![GC Peaks](assets/week12/garbage_collection_peaks.png)
 
-## Looking at performance
 
-Profiler!
-Last week I gave you guys a function to move a missile over time, and it used time.elapsedTime to make sure things moved well regardless of how long frames took to render. 
-Today we talked about how garbage collection can impact your game.
-
-![profiler cpu frames](assets/week12/profiler_cpu_frametime.png)
-
-How can we visualise it?
-
-## Optimising
-
-How can we manage problems like big garbage collection hits and constant resource creation
 
 ### Object pooling!
 
