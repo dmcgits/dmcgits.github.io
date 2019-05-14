@@ -28,17 +28,124 @@
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ul>
-<li>Unity 3D college on debugging:
+<li>
+<p>Events with multiple arguments</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-2?view=netframework-4.8">Microsoft docs for System.Action variants</a></li>
+</ul>
+</li>
+<li>
+<p>Unity 3D college on debugging:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=y3kqIlLzIig">https://www.youtube.com/watch?v=y3kqIlLzIig</a></li>
 </ul>
 </li>
-<li>Unity official: optimization garbage collection
+<li>
+<p>Unity Debugging video tute:</p>
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/debugging-unity-games-visual-studio">https://unity3d.com/learn/tutorials/topics/scripting/debugging-unity-games-visual-studio</a></li>
+</ul>
+</li>
+<li>
+<p>Unity official: optimization garbage collection</p>
 <ul>
 <li><a href="https://unity3d.com/learn/tutorials/topics/performance-optimization/optimizing-garbage-collection-unity-games">https://unity3d.com/learn/tutorials/topics/performance-optimization/optimizing-garbage-collection-unity-games</a></li>
 </ul>
 </li>
 </ul>
+<h2 class="mume-header" id="multi-argument-events">Multi argument events!</h2>
+
+<p>Good news, the course notes were wrong about multiple arguments to Action&lt;&gt;/delegate events! Turns out there are multiple overrides of Action: Action<t>, Action&lt;T1,T2&gt; and so on up to 16.</t></p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-2?view=netframework-4.8">Microsoft docs for System.Action variants</a></p>
+<p>Here&#x2019;s my inspector, setting two variables:</p>
+<p><img src="assets/week12/prevNext_dropdowns_inspector.png" alt="PrevNext Item Inspector"></p>
+<p>Here&#x2019;s the code to pass them in an event</p>
+<h4 class="mume-header" id="in-prevnextitemonclickcs">In PrevNextItemOnClick.cs</h4>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PrevNextItemOnClick</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">event</span> Action<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token operator">&gt;</span> OnPrevNextRequested <span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+   
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+  <span class="token keyword">void</span> <span class="token function">OnMouseClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Now we can call with two strings</span>
+    <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>_customItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _prevNext<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token preprocessor property">#### In CustoModel.cs</span>
+```cs
+<span class="token comment">// Giving our handler to PrevNextItemOnClick doesn&apos;t change,</span>
+<span class="token comment">// Just the signature of the handler</span>
+
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">OnPrevNextHandler</span><span class="token punctuation">(</span><span class="token keyword">string</span> item<span class="token punctuation">,</span> <span class="token keyword">string</span> prevOrNext<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Model heard arrow say &quot;</span> <span class="token operator">+</span> item <span class="token operator">+</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">+</span> prevOrNext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>prevOrNext <span class="token operator">==</span> <span class="token string">&quot;previous&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> <span class="token function">decrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">incrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Then throw a modelUpdate event that lets peeps look at the state</span>
+    <span class="token function">OnCharacterChanged</span><span class="token punctuation">(</span>charState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</pre><h4>Quicky: how did you get the string dropdowns</h4>
+<p>I declared some enums, which we already know about. What you might not have discovered is the ToString() function you can call on them to get their defined name.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// ... includes</span>
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> PrevNext
+<span class="token punctuation">{</span>
+  previous<span class="token punctuation">,</span>
+  next
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> Customisable
+<span class="token punctuation">{</span>
+  hat<span class="token punctuation">,</span>
+  face<span class="token punctuation">,</span>
+  body
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PrevNextItemOnClick</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// Declare a variable of enum&apos;s type, expose to editor with SerializeField</span>
+  <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
+  <span class="token keyword">protected</span> <span class="token class-name">Customisable</span> _customItem<span class="token punctuation">;</span>
+
+  <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
+  <span class="token keyword">protected</span> <span class="token class-name">PrevNext</span> _prevNext<span class="token punctuation">;</span>
+  
+  <span class="token comment">//... later in class:</span>
+  
+  <span class="token keyword">void</span> <span class="token function">OnMouseClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>_customItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _prevNext<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+</pre><h3 class="mume-header" id="joining-and-splitting-string-arguments">Joining and splitting string arguments</h3>
+
+<p>I went with the first idea that came to mind for character customiser arrow clicks: typing <code>next</code> and <code>previous</code> into the inspector fields, then joining them in a string with a separator: <code>next_hat</code>. That was sent to the model, which split them apart.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">OnPrevNextHandler</span><span class="token punctuation">(</span><span class="token keyword">string</span> itemPrevOrNext<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">string</span> item <span class="token operator">=</span> itemPrevOrNext<span class="token punctuation">.</span><span class="token function">Substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> itemPrevOrNext<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">&quot;_&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">string</span> prevOrNext <span class="token operator">=</span> itemPrevOrNext<span class="token punctuation">.</span><span class="token function">Substring</span><span class="token punctuation">(</span>itemPrevOrNext<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">&quot;_&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>prevOrNext <span class="token operator">==</span> <span class="token string">&quot;previous&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> 
+    
+    <span class="token comment">// Go down or up, looping at extens</span>
+    <span class="token function">decrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">incrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Then throw a modelUpdate event that lets peeps look at the state</span>
+    <span class="token function">OnCharacterChanged</span><span class="token punctuation">(</span>charState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</pre><p>It was an easy workaround for me because I&#x2019;ve chopped up strings in the past, but it has a few downsides:</p>
+<ul>
+<li>My version with text fields required looking up the right strings in the code.</li>
+<li>Joining and splitting strings is pretty low cpu but it&#x2019;s still pointlessly wasteful.</li>
+</ul>
+<p>Inspector screen shot</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"></pre><h3 class="mume-header" id="structs-and-objects">Structs and objects?</h3>
+
+<p>Yep, you could just pass your own custom struct or object.</p>
 <h2 class="mume-header" id="squashing-bugs">Squashing bugs</h2>
 
 <p>The types of bugs in our code seem to be at least as numerous as the tools available to us. So far we&#x2019;ve had a pretty limited set of techniques for finding them: logging to console, running the build often, working in small scale/isolation when trying something out.</p>
@@ -58,10 +165,39 @@
 <li>often include a few performance stats</li>
 </ul>
 <p>Some of you will have used a debugger in say visual studio for c++/c sharp, or elsewhere for python. You might think</p>
-<h2 class="mume-header" id="spaceship-earth">Spaceship earth</h2>
+<h3 class="mume-header" id="example-walk-through">Example walk through</h3>
 
-<p>As wave after wave of death dealing alien hardware is flung at the homes and businesses of everyday earthlings, <strong>masses of resources are going into the creation of weapons and cleaning up in their aftermath.</strong></p>
-<p>This isn&#x2019;t just in the fantasy of the game.</p>
+<ul>
+<li>Hearing a click in Character Customiser
+<ul>
+<li>See that it&#x2019;s called without needing debug.log</li>
+<li>Look through passed arguments, look through object!</li>
+</ul>
+</li>
+</ul>
+<p><strong>Attach Editor prefs unity</strong></p>
+<p><strong>breakpoint picture</strong></p>
+<p><strong>stopped at breakpoint</strong></p>
+<p><strong>Inspecting variables</strong></p>
+<h3 class="mume-header" id="where-to-break-how-to-step">Where to break, how to step</h3>
+
+<h3 class="mume-header" id="now-do-it-with-your-project">Now do it with your project</h3>
+
+<p>Try putting a break point at any of the following and exploring:</p>
+<ul>
+<li>When you catch a click and generate a missile</li>
+<li>When a missile collider hits an explosion collider</li>
+<li>Is a missile hitting your city but you can&#x2019;t see what&#x2019;s hitting it? Look at the colliders of each.</li>
+<li>Updating score field: Why&#x2019;s it empty? Why are you getting a crash trying to change it? See if your variable referring to the component is null. See if the string you&#x2019;re creating from your score number is empty. Work out why later.</li>
+</ul>
+<h3 class="mume-header" id="forensic-debugging">Forensic debugging!</h3>
+
+<p>So far we&#x2019;ve usually tried to debug by coming up with a theory and then putting in Console.Log. That only helps us if our theories are on point.</p>
+<p>Using the debugger lets us look much more quickly at loads of things, gather loads of evidence, and a surprise result in that evidence can lead you to a bug source you&#x2019;d never considered.</p>
+<h2 class="mume-header" id="responsiveness">Responsiveness</h2>
+
+<p>Missile Command: As wave after wave of death dealing alien hardware is flung at the homes and businesses of everyday earthlings, <strong>masses of resources are going into the creation of weapons and cleaning up in their aftermath.</strong></p>
+<p>This describes life in the game, but also life for our game engine.</p>
 <blockquote>
 <p>We&#x2019;re instantiating human and alien missiles, trails and explosions for potentially hunderes of waves. Each one uses memory and processor time, and it takes time and effort for unity to recover resources when each is finished with.</p>
 </blockquote>
