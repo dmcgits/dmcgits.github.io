@@ -8,6 +8,7 @@
 
 * [Week 12 - Performance, debugging](#week-12-performance-debugging)
 	* [Resources](#resources)
+	* [Chat](#chat)
 	* [Multi argument events!](#multi-argument-events)
 		* [Example of Action with 2 arguments](#example-of-action-with-2-arguments)
 			* [PrevNextItemOnClick.cs partial](#prevnextitemonclickcs-partial)
