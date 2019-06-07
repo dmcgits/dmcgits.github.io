@@ -27,9 +27,12 @@ Welcome, Object Oriented Design, C#
 		* [Installing Unity](#installing-unity)
 		* [Installing Visual Studio](#installing-visual-studio)
 	* [Hello world.](#hello-world)
-		* [Inheritance and Composition](#inheritance-and-composition)
+		* [Inheritance vs Composition](#inheritance-vs-composition)
 			* [Inheritance](#inheritance)
 			* [Composition:](#composition)
+		* [First, GameObjects](#first-gameobjects)
+		* [Creating Objects vs Components/Monobehaviours](#creating-objects-vs-componentsmonobehaviours)
+	* [Inheritance and Composition work together in Unity](#inheritance-and-composition-work-together-in-unity)
 		* [Cohesion and Coupling](#cohesion-and-coupling)
 	* [Part 3: Exercises](#part-3-exercises)
 			* [1. Learn basic Unity](#1-learn-basic-unity)
@@ -201,18 +204,19 @@ _Missile command screenshot - for gameplay description see [wikipedia](https://e
 
 ### Installing Unity 
 
-1. Head over to https://unity3d.com/get-unity/download and download the Unity Hub, then install it. 
-2. Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to 2018.2.20f1. The download button is missing below because I've installed already.
-![Unity Hub Install 2018.2.2](assets/week1/unity_hub_install_22.png)
-1. When it the Add Components window appears make sure documentation is checked, click the "Done" button and wait for it to install.
+Important note: we'll be using **2019.1**, not the latest unity editor.
+
+1. Head over to https://unity3d.com/get-unity/download and download the **Unity Hub**, then install it. 
+2. Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to **2019.1**. This will not be the latest version, so pay attention to this step. **If you install the wrong version and then submit an assignment that doesn't compile in 2019.1 it'll cost you marks**. 
+1. When the "Add Components" window appears make sure documentation is checked, click the "Done" button and wait for it to install.
 
 
 ### Installing Visual Studio
 
+We also won't be using the latest Visual studio, **we'll use Visual Studio Community 2017** (not 2019) so be careful.
 If you already have Visual Studio: search for and run the Visual Studio Installer, select More > Modify (next to the launch button), then go to step 2. 
 
-1. Go to https://visualstudio.microsoft.com/downloads/ and, under "community", click Free Download.
- ![Visual Studio Download](assets/week1/visual_studio_install.png)
+1. Go to https://visualstudio.microsoft.com/vs/older-downloads/. Don't click "Download Visual Studio", scroll down and expand "2017" to download.
 2. Under _Workloads_ scroll down to _Mobile and Gaming_ and check the **Game development with Unity** option.
 3. Select _install while downloading_ and click _modify_. Or Install if that's what you have instead of modify.
 
@@ -232,9 +236,9 @@ I'll be running through this in class. It'll move fairly quickly but you can re-
 * Cube says "hello world, she is circle."
 * Have her pass a string to reduce coupling.
 
-### Inheritance and Composition
+### Inheritance vs Composition
 
-Object oriented design, we've talked about inheritance. What we're seeing in Unity isn't just that though, is it? Monobehaviour, sure. But we're making these components and adding them on to our sprite.
+Object oriented design, we've talked about inheritance. What we're now seeing in Unity isn't just that though, is it? Monobehaviour, sure. But we're making these components and adding them on to our sprite.
 
 #### Inheritance
 
@@ -263,9 +267,31 @@ Inheritance can't really handle this kind of crossover. We're moving away from a
 
 #### Composition: 
 
-More of a "has a" relationship, or a "can" relationship. Has a collider, can collide.
+More of a "has a" relationship, or a "can" relationship. Has a collider, can collide. Gun has a grenade launcher and has a sight. But how? Unity components!
 
-Gun has a grenade launcher and has a sight. But how? Unity components!
+### First, GameObjects
+
+These are things created by unity at runtime. They are created from the things in your scene when you hit play. 
+
+*SCREEN OF OBJECTS IN UNITY WITH INSPECTOR OR VIEW IN DEMO WE JUST MADE*
+
+### Creating Objects vs Components/Monobehaviours
+
+*THIS SECTION NEEDS DIAGRAMS*
+
+This is important, and a lot of students missed it last trimester so I'll be drilling it in a bit.
+
+If you make a script that doesn't inherit from anything, it's just a basic c# class. You create basic Objects from them using the `new` keyword, like `Tower trashTower = new Tower();`. This is consistent with other object oriented languages, and normal in c#.
+
+> Scripts created in Unity extend Monobehaviour, making them components: they add functionality to other GameObjects. You're going to drag them to or add them in the inspector panel. You don't create them with new, that's already handled by unity.
+
+If you try to call "TowerComponent noobTower = new TowerComponent()" it'll work, but it'll throw errors in Unity, which will hurt your marks. It'll hurt them for a good reason, because you're including a bunch of stuff in your object that is totally unused.
+
+If you want to create GameObjects at runtime along with components, rather than relying on what's in the scene, you can do it by instantiating prefabs. We'll talk about that another week.
+
+## Inheritance and Composition work together in Unity
+
+We can make components that inherit from eachother. We can make objects that don't inherit from anything. It'll be important to know the difference, so keep it in the back of your mind.
 
 ### Cohesion and Coupling
 
