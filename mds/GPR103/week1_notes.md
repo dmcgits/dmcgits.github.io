@@ -7,36 +7,32 @@ Welcome, Object Oriented Design, C#
 
 <!-- code_chunk_output -->
 
-* [GPR103 Week 1](#gpr103-week-1)
-	* [Part 1 - Studying 2D Games Programming](#part-1-studying-2d-games-programming)
-	* [Who are we?](#who-are-we)
-	* [How will we make 2D games?](#how-will-we-make-2d-games)
-		* [C++?](#c)
-		* [Unity, C#?](#unity-c)
-		* [Visual Studio Community](#visual-studio-community)
-		* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
-		* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
-	* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
-		* [Blackboard is your friend](#blackboard-is-your-friend)
-		* [My notes are your friends](#my-notes-are-your-friends)
-	* [Assessments](#assessments)
-		* [Assessment 1 - Programming exercises](#assessment-1-programming-exercises)
-		* [Assessment 2 - Character customiser](#assessment-2-character-customiser)
-		* [Assessment 3 - Missile Command](#assessment-3-missile-command)
-	* [Part 2: Programming and Unity](#part-2-programming-and-unity)
-		* [Installing Unity](#installing-unity)
-		* [Installing Visual Studio](#installing-visual-studio)
-	* [Hello world.](#hello-world)
-		* [Inheritance vs Composition](#inheritance-vs-composition)
-			* [Inheritance](#inheritance)
-			* [Composition:](#composition)
-		* [First, GameObjects](#first-gameobjects)
-		* [Creating Objects vs Components/Monobehaviours](#creating-objects-vs-componentsmonobehaviours)
-	* [Inheritance and Composition work together in Unity](#inheritance-and-composition-work-together-in-unity)
-		* [Cohesion and Coupling](#cohesion-and-coupling)
-	* [Part 3: Exercises](#part-3-exercises)
-			* [1. Learn basic Unity](#1-learn-basic-unity)
-			* [2. Learn basic C# with Sololearn](#2-learn-basic-c-with-sololearn)
+- [GPR103 Week 1](#gpr103-week-1)
+  - [Part 1 - Studying 2D Games Programming](#part-1---studying-2d-games-programming)
+  - [Who are we?](#who-are-we)
+  - [How will we make 2D games?](#how-will-we-make-2d-games)
+    - [C++?](#c)
+    - [Unity, C#?](#unity-c)
+    - [Visual Studio Community](#visual-studio-community)
+    - [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
+    - [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
+  - [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+    - [Blackboard is your friend](#blackboard-is-your-friend)
+    - [My notes are your friends](#my-notes-are-your-friends)
+  - [Assessments](#assessments)
+    - [Assessment 1 - Programming exercises](#assessment-1---programming-exercises)
+    - [Assessment 2 - Character customiser](#assessment-2---character-customiser)
+    - [Assessment 3 - Missile Command](#assessment-3---missile-command)
+  - [Part 2: Programming and Unity](#part-2-programming-and-unity)
+    - [Installing Unity](#installing-unity)
+    - [Installing Visual Studio](#installing-visual-studio)
+  - [Hello world.](#hello-world)
+    - [Inheritance vs Composition](#inheritance-vs-composition)
+    - [First, GameObjects](#first-gameobjects)
+    - [Creating Objects vs Components/Monobehaviours](#creating-objects-vs-componentsmonobehaviours)
+  - [Inheritance and Composition work together in Unity](#inheritance-and-composition-work-together-in-unity)
+    - [Cohesion and Coupling](#cohesion-and-coupling)
+  - [Part 3: Exercises](#part-3-exercises)
 
 <!-- /code_chunk_output -->
 
@@ -204,12 +200,15 @@ _Missile command screenshot - for gameplay description see [wikipedia](https://e
 
 ### Installing Unity 
 
-Important note: we'll be using **2019.1**, not the latest unity editor.
+Important note: we'll be using **2018.2**, not the latest unity editor.
 
 1. Head over to https://unity3d.com/get-unity/download and download the **Unity Hub**, then install it. 
-2. Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to **2019.1**. This will not be the latest version, so pay attention to this step. **If you install the wrong version and then submit an assignment that doesn't compile in 2019.1 it'll cost you marks**. 
-1. When the "Add Components" window appears make sure documentation is checked, click the "Done" button and wait for it to install.
+2. Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to **2018.2.21f1**. This will not be the latest version, so pay attention to this step. **If you install the wrong version and then submit an assignment that doesn't compile in 2018.2 it'll cost you marks**. 
 
+![unity hub 1](assets/week1/unity_hub_install_22.png)
+_You'll see 21f1 rather than 20f1 in hub now_
+
+1. When the "Add Components" window appears make sure documentation is checked, click the "Done" button and wait for it to install.
 
 ### Installing Visual Studio
 
@@ -219,6 +218,8 @@ If you already have Visual Studio: search for and run the Visual Studio Installe
 1. Go to https://visualstudio.microsoft.com/vs/older-downloads/. Don't click "Download Visual Studio", scroll down and expand "2017" to download.
 2. Under _Workloads_ scroll down to _Mobile and Gaming_ and check the **Game development with Unity** option.
 3. Select _install while downloading_ and click _modify_. Or Install if that's what you have instead of modify.
+
+![unity workload](assets/week1/visual_studio_unity.jpg)
 
 ---
 

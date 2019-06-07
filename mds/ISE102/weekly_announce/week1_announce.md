@@ -1,5 +1,23 @@
 # Announcement 1, Welcome
 
+## Face To Face FIX RESCHEDULE
+
+Apologies to anyone who read the first version of this announcement. The lab rooms aren't available Tuesday, so everyone please see below:
+
+
+Hi guys, and welcome to Intro to Software Engineering. As you've probably seen from your timetable, classes are normally Mondays from 11:30am, but this Monday is a public holiday so class will be rescheduled. I'm aiming for a lab room at 3pm on Thursday, pending booking confirmation.  
+
+Please do your best not to miss the first class, despite the time change: we'll be hitting the ground running, learning to create and compile C++ projects in visual studio on day 1.
+
+CLASS REQUIREMENT: if you're using your own laptop install Visual Studio Community 2017 before Wednesday, because we'll be writing our first program in class! You can find it here: https://visualstudio.microsoft.com/vs/older-downloads/. Don't click "Download Visual Studio", scroll down and expand "2017" to download. When it asks you what workloads/languages you want to install, select: "Desktop development with C++" in the windows section.
+
+For a step by step visit my notes at https://dmcgits.github.io/mds/ISE102/week1_notes.html where it's the last item in the contents. Click on Appendix 1: Install Visual Studio Community.
+
+Outside of class time I have another hour or so each week dedicated to answering messsages/email etc. When I'm not in teaching or marking I'll usually answer email fastest, followed by blackboard. Reach me at daniel.mcgillick@laureate.edu.au.
+
+Thanks,
+Danny 
+
 ## Face To Face
 
 Hi guys, and welcome to Intro to Software Engineering. As you've probably seen from your timetable, classes are each Monday from 11:30am. That said:
