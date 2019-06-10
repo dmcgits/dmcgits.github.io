@@ -17,6 +17,7 @@ Welcome, Object Oriented Design, C#
 		* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
 		* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
 	* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+		* [Ask questions!](#ask-questions)
 		* [Blackboard is your friend](#blackboard-is-your-friend)
 		* [My notes are your friends](#my-notes-are-your-friends)
 	* [Assessments](#assessments)
@@ -147,6 +148,16 @@ Unity makes programming life a lot easier than starting out in C++.
 > **70%** studying, programming, gaining experience. 
 
 The benefit of these courses comes from putting in work between classes. What we learn in class won't stick if you don't work and experiment at home.
+
+### Ask questions!
+
+Come to class, and when you're working at home send me questions.
+
+My:
+* uni email: daniel.mcgillick laureate edu au
+* discord server: https://discord.gg/xEh5J4J
+* discord name: DMacMakes#3457 (case sensitive)
+
 
 ### Blackboard is your friend
 
