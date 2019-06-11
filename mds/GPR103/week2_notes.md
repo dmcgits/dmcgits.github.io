@@ -1,5 +1,15 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # GPR103 Week 2 (module 1.2)
 
+Learning to hide the grease, pistons and wires.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
@@ -15,6 +25,7 @@
 		* [Access modifiers](#access-modifiers)
 		* [Using functions to hide variables](#using-functions-to-hide-variables)
 		* [Access functions aka properties](#access-functions-aka-properties)
+		* [Creating Objects vs Components/Monobehaviours](#creating-objects-vs-componentsmonobehaviours)
 		* [Constructors and destructors](#constructors-and-destructors)
 	* [More detail on Cohesion](#more-detail-on-cohesion)
 			* [Medium Cohesion](#medium-cohesion)
@@ -308,6 +319,22 @@ Here's **the output.** (Tip: in the Console's top right menu you can change log 
 ![tower test ouput](assets/week2/fireball_tower_test_output.png)
 
 ___
+
+
+### Creating Objects vs Components/Monobehaviours
+
+*THIS SECTION NEEDS DIAGRAMS*
+
+This is important, and a lot of students missed it last trimester so I'll be drilling it in a bit.
+
+If you make a script that doesn't inherit from anything, it's just a basic c# class. You create basic Objects from them using the `new` keyword, like `Tower trashTower = new Tower();`. This is consistent with other object oriented languages, and normal in c#.
+
+> Scripts created in Unity extend Monobehaviour, making them components: they add functionality to other GameObjects. You're going to drag them to or add them in the inspector panel. You don't create them with new, that's already handled by unity.
+
+If you try to call "TowerComponent noobTower = new TowerComponent()" it'll work, but it'll throw errors in Unity, which will hurt your marks. It'll hurt them for a good reason, because you're including a bunch of stuff in your object that is totally unused.
+
+If you want to create GameObjects at runtime along with components, rather than relying on what's in the scene, you can do it by instantiating prefabs. We'll talk about that another week.
+
 
 ### Constructors and destructors
 

@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # GPR103 Week 1
 
 Welcome, Object Oriented Design, C#
@@ -14,8 +23,9 @@ Welcome, Object Oriented Design, C#
 		* [C++?](#c)
 		* [Unity, C#?](#unity-c)
 		* [Visual Studio Community](#visual-studio-community)
-		* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
-		* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
+		* [Mixing Worlds](#mixing-worlds)
+			* [Dammit Jim! I'm a programmer, not an artist.](#dammit-jim-im-a-programmer-not-an-artist)
+			* [Dammit Jim! I'm an artist, not a programmer!](#dammit-jim-im-an-artist-not-a-programmer)
 	* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
 		* [Ask questions!](#ask-questions)
 		* [Blackboard is your friend](#blackboard-is-your-friend)
@@ -27,17 +37,20 @@ Welcome, Object Oriented Design, C#
 	* [Part 2: Programming and Unity](#part-2-programming-and-unity)
 		* [Installing Unity](#installing-unity)
 		* [Installing Visual Studio](#installing-visual-studio)
-	* [Hello world.](#hello-world)
-		* [Inheritance vs Composition](#inheritance-vs-composition)
-			* [Inheritance](#inheritance)
-			* [Composition:](#composition)
-		* [First, GameObjects](#first-gameobjects)
-		* [Creating Objects vs Components/Monobehaviours](#creating-objects-vs-componentsmonobehaviours)
-	* [Inheritance and Composition work together in Unity](#inheritance-and-composition-work-together-in-unity)
-		* [Cohesion and Coupling](#cohesion-and-coupling)
+		* [Hello Unity.](#hello-unity)
+	* [New design pattern, Composition!](#new-design-pattern-composition)
+	* [Why not just inheritance?](#why-not-just-inheritance)
+		* [Inheritance in Unity](#inheritance-in-unity)
+		* [Limits of Inheritance](#limits-of-inheritance)
+	* [Composition saves the day:](#composition-saves-the-day)
+		* [Put your components on GameObjects](#put-your-components-on-gameobjects)
+	* [Making a rifle with inheritance and composition](#making-a-rifle-with-inheritance-and-composition)
+		* [Inheritance: From Monobehaviour to Rifle and Pistol.](#inheritance-from-monobehaviour-to-rifle-and-pistol)
+		* [Composition: add ons](#composition-add-ons)
+		* [Handy tip: RequireComponent](#handy-tip-requirecomponent)
 	* [Part 3: Exercises](#part-3-exercises)
-			* [1. Learn basic Unity](#1-learn-basic-unity)
-			* [2. Learn basic C# with Sololearn](#2-learn-basic-c-with-sololearn)
+			* [1. Learn Unity Fundamentals](#1-learn-unity-fundamentals)
+			* [2. Learn C# fundamentals with Sololearn](#2-learn-c-fundamentals-with-sololearn)
 
 <!-- /code_chunk_output -->
 
@@ -116,27 +129,36 @@ Either way, you'll need Microsoft Visual Studio Community. Not to be confused wi
 
 ___
 
-### Dammit Jim! I'm a programmer, not an artist.
+### Mixing Worlds
+
+The Unity IDE is used by artists, programmers and game designers, and blends a lot of disciplines. This class gets students from art and software engineering streams too, and you might have reservations.
+
+There's nothing to worry about. I'll let two generations of a fictional space doctor explain.
+
+#### Dammit Jim! I'm a programmer, not an artist.
 
 ![McCoy Old](assets/week1/mccoy_old.jpg)
 
 
-That's okay, we're here to focus on the building of games. The [asset store](https://assetstore.unity.com/categories/2d) is full of sprites for people like us.
+That's okay, we don't have to create art for the games we're making this trimester. The [asset store](https://assetstore.unity.com/categories/2d) is full of sprites, both free and paid, and so is [opengameart.org](http://opengameart.org)
+
+Also, assessments won't be marked on quality of art.
 
 ![Asset store](assets/week1/asset_store_web.jpg)
 
 ___
 
-### Dammit Jim! I'm an artist, not a programmer!
+#### Dammit Jim! I'm an artist, not a programmer!
  
 ![McCoy New](assets/week1/mccoy_new.jpg)
 
-Unity makes programming life a lot easier than starting out in C++.
+Unity makes programming life a lot easier for artists or casual scripters than starting out in, say, C++.
 
-* No compiler, command line! Very visual.
-* Unity's API/engine does most of the dirty work, we just have to order it around.
-* Drag and drop used for lots of things you'd normally have to manage in code.
-* Code can run in the editor each time we save and scripts can be disabled with a check box. Testing becomes much easier.
+* We can add scripts to things in our scene by hitting "add component", get away with writing just one line of code, and hit "Play"
+* The Unity team already wrote code to do most of the dirty work, we just script on top of it. All the image/model/sound/physics/input stuff is there
+* Drag and drop or editing text fields/forms can change your variables without having to go back to the code.
+* Compiling happens in the background. 
+* You can disable scripts and objects by just clicking a checkbox. Testing becomes much easier.
 
 ![Script in Inspector](assets/week1/script_inspector.png)
 
@@ -211,7 +233,7 @@ _Missile command screenshot - for gameplay description see [wikipedia](https://e
 
 ## Part 2: Programming and Unity
 
-> Let's learn by doing. We'll create a unity project, add something to our game, and give it behaviour.
+Let's learn by doing. We'll create a unity project, add something to our game, and give it behaviour.
 
 ### Installing Unity 
 
@@ -238,87 +260,271 @@ If you already have Visual Studio: search for and run the Visual Studio Installe
 
 ---
 
-## Hello world.
+### Hello Unity.
 
-I'll be running through this in class. It'll move fairly quickly but you can re-watch the video.
+I'll be running through this in class. For online students it'll move fairly quickly but you can re-watch the video.
 
-* Create a new 2D project
-* Drop in a talking square, add a script.
-* Log hello world, I am square
-* Add a collider, log hello world on click.
-* Add a shy circle, with a collider, add a script.
-* Give circle a public variable talker.
-* Have shy circle pass call a function on square.
-* Cube says "hello world, she is circle."
-* Have her pass a string to reduce coupling.
+1. Create a new 2D project
+2. Drop in a square, add a talking script.
+3. Log hello world, I am square
+4. Add a collider, log hello world on click.
+5. Add a shy circle, with a collider, add a script.
+6. Give circle a public variable talker.
+7. Have shy circle pass call a function on square.
+8. Cube says "hello world, she is circle."
 
-### Inheritance vs Composition
+![Hello](assets/week1/hello_unity.png)
 
-Object oriented design, we've talked about inheritance. What we're now seeing in Unity isn't just that though, is it? Monobehaviour, sure. But we're making these components and adding them on to our sprite.
+___
 
-#### Inheritance
+## New design pattern, Composition!
 
-The "is a" relationship. Human -> Mammal -> Animal is our classic.
+That was probably easier than you expected. It was **easy but also strange** when you think about it.
+
+1. We made a Class/Object and.. 
+2. put on another class already in the scene? It's not like inheritance!
+
+> This design pattern is called **composition** and it's less **Rifle is a Gun (inheritance)** and more **Rifle has a Laser Sight and Bayonet**. 
+
+![inspector components](assets/week1/inspector_gameobject.png)
+_Multiple components on TalkySquare not just our Talk script._
 
 
-    1. Animal
-    2. Mammal animal
-       - inherits animal
-    3. Human mammal animal
-       - inherits mammal animal.
+---
 
-That all works. However..
+## Why not just inheritance?
 
-    1. Gun
-    2. Gun With Grenade Launcher 
-       - inherits gun
-    3. Gun w Grenade Launcher and Laser sight 
-       - inherits gun w grenade
-    4. Gun w Laser sight and bayonet 
-       - um inherit gun w nade w laser sight and use if-then to hide grenade launcher?
-    5. Gun with grenade launcher and bayonet. 
-       - We might need gun w everything and lots of if-then or case statements? 
+We learned inheritance last trimester in c++, and you may have seen it in other languages. 
+* Its the **"is a" relationship**. 
+* Human -> Mammal -> Animal is a classic example
 
-Inheritance can't really handle this kind of crossover. We're moving away from a tree diagram.
+```dot
+digraph graphname {
+     LivingThing -> Animal -> Mammal -> Human;
+     Mammal -> Racoon; 
+     Animal -> Reptile -> NinjaTurtle;
+     Reptile -> Gecko;
+ }
+```
 
-#### Composition: 
+### Inheritance in Unity
 
-More of a "has a" relationship, or a "can" relationship. Has a collider, can collide. Gun has a grenade launcher and has a sight. But how? Unity components!
+Our `Rifle` can still be a `Gun`, gaining useful things, **c# and Unity are fine with inheritance.**
 
-### First, GameObjects
+```dot
+digraph Rifle{
+  Weapon -> RubberHulkFist
+  Weapon -> Gun -> Rifle;
+  Gun -> Pistol
+}
+```
 
-These are things created by unity at runtime. They are created from the things in your scene when you hit play. 
+```cs
+// The syntax is familiar to c++ users, minus all the header nonsense
+public class Rifle : Gun { // Rifle is a gun
 
-*SCREEN OF OBJECTS IN UNITY WITH INSPECTOR OR VIEW IN DEMO WE JUST MADE*
+	void Start () {		
+	}
+}
 
-### Creating Objects vs Components/Monobehaviours
+// Your inheritance has to start with Monobehaviour if you want to use it in the inspector.
+public class Gun : MonoBehaviour { // Gun is a component
 
-*THIS SECTION NEEDS DIAGRAMS*
+	void Start () {		
+	}
+}
+```
 
-This is important, and a lot of students missed it last trimester so I'll be drilling it in a bit.
+### Limits of Inheritance
 
-If you make a script that doesn't inherit from anything, it's just a basic c# class. You create basic Objects from them using the `new` keyword, like `Tower trashTower = new Tower();`. This is consistent with other object oriented languages, and normal in c#.
+Thing is, when you add _optional_ things rather than _evolving_, inheritance gets.. silly.
 
-> Scripts created in Unity extend Monobehaviour, making them components: they add functionality to other GameObjects. You're going to drag them to or add them in the inspector panel. You don't create them with new, that's already handled by unity.
+* To equip **multiple options in combination** do you try to inherit from multiple classes?
+```dot
+digraph Rifle{
+  Gun -> Rifle -> RifleWLaser
+  Rifle -> RifleWBayonet->RifleWNadesAndBayonet
+  Rifle -> RifleWNades
+  RifleWLaser -> RifleWLaserAndBayonet
+  RifleWNades -> RifleWNadesAndLaser
+  RifleWLaser -> RifleWNadesAndLaser
+  RifleWBayonet -> RifleWLaserAndBayonet
+  RifleWNades -> RifleWNadesAndBayonet
+}
+```
 
-If you try to call "TowerComponent noobTower = new TowerComponent()" it'll work, but it'll throw errors in Unity, which will hurt your marks. It'll hurt them for a good reason, because you're including a bunch of stuff in your object that is totally unused.
+* Or do you
+  1. Build a big dumb class with everything
+  2. Pretend all that stuff isn't there, using just bits you want? Sort of de-evolving?
 
-If you want to create GameObjects at runtime along with components, rather than relying on what's in the scene, you can do it by instantiating prefabs. We'll talk about that another week.
 
-## Inheritance and Composition work together in Unity
+```dot
+digraph Rifle {
+  Gun -> Rifle
+  Rifle -> RifleWBayonet->RifleWNadesAndBayonet -> RifleWNadesAndBayonetAndLaser
+  RifleWNadesAndBayonetAndLaser -> RifleWLaserAndBayonet
+  RifleWNadesAndBayonetAndLaser -> RifleWLaserAndNades
+  RifleWNadesAndBayonetAndLaser -> RifleWLaser
+}
+```
 
-We can make components that inherit from eachother. We can make objects that don't inherit from anything. It'll be important to know the difference, so keep it in the back of your mind.
+No.
+___
 
-### Cohesion and Coupling
+## Composition saves the day: 
 
-> Cohesion: putting stuff where it belongs.
-> Coupling: making objects dependent on eachother.
+This sort of thing matters when making games, so Unity loves components.
+
+* inheritance defined an "is a" relationship
+* **composition defines the "has a" relationship**. Has a collider, has a sprite renderer. 
+* Great, a rifle can just be a rifle and _have_ a grenade launcher and/or a sight. 
+
+But how to do? 
+
+* You've already made one, by extending _MonoBehaviour_
+
+**A MonoBehaviour is, for our purposes, the same thing as a Component.** 
+
+___
+
+### Put your components on GameObjects
+
+In Unity, everything on the stage extends `GameObject`.
+* When you select a thing in your Unity scene, the Inspector is showing the **GameObject.**
+* Each panel in the inspector is a **component**, added to the GameObject
+* **If your script extends MonoBehaviour, it's a component you can add!**
+
+![Gameobject inspector](assets/week1/inspector_gameobject.png)
+_Look again. See them, see the components/MonoBehaviours_
+
+## Making a rifle with inheritance and composition
+
+Here's the combo that really gets work done in Unity: use inheritance to make the components you want, and then add them in combination!
+
+1. A `Rifle` is a `Gun` is a `Monobehaviour`, thanks to inheritance
+2. Add `Rifle` to a sprite plus `GrenadeLauncher`, `LaserSight` and `Bayonet` thanks to composition!
+
+![Rifle Inspector](assets/week1/inspector_gun_components.png)
+
+### Inheritance: From Monobehaviour to Rifle and Pistol.
+
+Just like we'd have done in c++ or another OO language.
+
+```dot {engine="dot"}
+digraph Gun
+{
+  MonoBehaviour -> Gun -> Rifle;
+  Gun -> Pistol;
+}
+```
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// Gun is a component
+public class Gun : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+    Debug.Log("pew");
+	}
+	
+}
+
+// Rifle is a gun. Dead easy inheritance.
+public class Rifle : Gun {
+
+	void Start () {
+		
+	}
+
+}
+```
+
+### Composition: add ons
+
+Season our gameobject with components like Nade, Laser, Bayonet in any combination.
+
+```dot {engine="dot"}
+digraph Rifle
+{
+  MonoBehaviour -> Gun -> Rifle;
+  Gun -> Pistol;
+  Pistol -> LaserSight [dir=none, style=dotted];
+  Rifle -> LaserSight [dir=none, style=dotted];
+  Pistol -> GrenadeLauncher [dir=none, style=dotted];
+  Rifle -> GrenadeLauncher [dir=none, style=dotted];
+  Pistol -> Bayonet [dir=none, style=dotted];
+  Rifle -> Bayonet [dir=none, style=dotted];
+}
+```
+
+That looks noodley as a diagram, but as you saw it's clear in Unity:
+
+![Gun addons](assets/week1/inspector_gun_components.png)
+_Inheritance isn't directly visible, except that these all must be descended from MonoBehaviour_
+
+1. Obviously `LaserSight`, `GrenadeLauncher` and `Bayonet` all extend `MonoBehaviour` too.
+
+```dot {engine="dot"}
+digraph GunAddOn
+{
+  MonoBehaviour -> LaserSight
+  MonoBehaviour -> GrenadeLauncher;
+  MonoBehaviour -> Bayonet ;
+}
+```
+
+But would add an evolution between them say `GunAddOn`, to add things common to all addOns. Still using inheritance where it helps!
+
+```dot {engine="dot"}
+digraph GunAddOn
+{
+  MonoBehaviour -> GunAddOn -> LaserSight
+  GunAddOn -> GrenadeLauncher;
+  GunAddOn -> Bayonet ;
+}
+```
+
+___
+
+### Handy tip: RequireComponent
+
+GunAddOns are all going to need a gun to be useful right? What if someone tries to delete the Rifle component?
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// This line means you can't have a GunAddOn component unless 
+// another component is descended from Gun.
+[RequireComponent(typeof(Gun))]
+
+public class GunAddon : MonoBehaviour {
+  //no functions at all  
+}
+
+```
+
+```cs
+public class GrenadeLauncher : GunAddon {
+
+	// Use this for initialization
+	void Start () {
+    Debug.Log("I spew pineapples");	
+	}
+	
+}
+```
 
 ---
 
 ## Part 3: Exercises
 
-#### 1. Learn basic Unity
+#### 1. Learn Unity Fundamentals
 
 Unity is deep, and the interface might seem deceptively minimal. In order to get on with the fun stuff in class, you'll need to get a familiar with the basics at home. These official Unity tutorials will get you across the fundamentals quickly. There are maybe 2 hours of videos here total, and they'll save you loads of time.
 
@@ -331,7 +537,7 @@ These Unity official tutorials have embedded Youtube videos. Make sure you click
 * "Beginner Gameplay Scripting". Watch **1-8, 10, 11, 18, 19, 22**. "Intermediate Gameplay Scripting" Watch **1, 6**.
   <https://unity3d.com/learn/tutorials/s/scripting>
   
-#### 2. Learn basic C# with Sololearn
+#### 2. Learn C# fundamentals with Sololearn
 
 We'll be focussing in the class on higher level programming concepts of designing programs/games, so there **won't be a lot of in-class explanation of basic c#.** For c++ coders a lot will be familiar in c#, but there are also significant differences (no .h files!). These quizzes will check how you went with the unity tutes above.
 

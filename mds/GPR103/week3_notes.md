@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 #GPR103 week3 - Inheritance and Polymorphism.
 
 Designing objects with reuse and extension in mind.
@@ -6,28 +15,18 @@ Designing objects with reuse and extension in mind.
 
 <!-- code_chunk_output -->
 
-* [GPR103 week3 - Inheritance and Polymorphism.](#gpr103-week3-inheritance-and-polymorphism)
-	* [Last week and homework](#last-week-and-homework)
-	* [Inheritance](#inheritance)
-		* [Examples of inheritance](#examples-of-inheritance)
-		* [Why inheritance in programming?](#why-inheritance-in-programming)
-		* [Towers to build](#towers-to-build)
-			* [Base Tower](#base-tower)
-			* [Tower.cs](#towercs)
-			* [Unique towers](#unique-towers)
-			* [GattlingTower.cs](#gattlingtowercs)
-			* [MissileTower.cs](#missiletowercs)
-	* [Polymorphism](#polymorphism)
-	* [Getting Abstract](#getting-abstract)
-		* [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
-			* [Snippet: Tower.cs](#snippet-towercs)
-			* [Snippet: FloatingTower.cs](#snippet-floatingtowercs)
-		* [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
-			* [Snippet: TowerGattling.cs](#snippet-towergattlingcs)
-		* [Abstract](#abstract)
-			* [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
+- [Last week and homework](#last-week-and-homework)
+- [Inheritance](#inheritance)
+  - [Examples of inheritance](#examples-of-inheritance)
+  - [Why inheritance in programming?](#why-inheritance-in-programming)
+  - [Towers to build](#towers-to-build)
+- [Polymorphism](#polymorphism)
+- [Getting Abstract](#getting-abstract)
+  - [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
+  - [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
+  - [Abstract](#abstract)
+- [Exercises](#exercises)
+- [Resources](#resources)
 
 <!-- /code_chunk_output -->
 

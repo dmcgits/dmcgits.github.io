@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Exercise: Killer Robot (Classes)
 We're going to create a little simulation as an exercise in object oriented design.
 
