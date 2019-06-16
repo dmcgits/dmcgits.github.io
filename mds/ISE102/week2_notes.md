@@ -1,6 +1,25 @@
 # ISE102 Week 2
 
 
+Within a code block `{ .. }` C++ is, mostly, a series of statements. A statement is easiest to think of as a mathematical formula, or physics equation.
+
+On the left is the result, or a place to store it. Here’s a line function and Einstein’s baby:
+```math
+y=mx + b
+
+E=mc^2
+```
+
+Everything on the right is collapsed into a result, and can be used interchangeably with the term on the left.
+```math
+y=mx+b
+y=(2*1)+1
+y=3
+3
+```
+
+### Statement building blocks
+
 What we're learning is the _c++_ implementations of the absolute fundamentals of coding. 
 
 > **Variables:** defining values like `5`, `"Kendrick"`, `true`, `35.5`
