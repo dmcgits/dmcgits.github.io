@@ -1,5 +1,12 @@
 # ISE102 Week 2
 
+Analogue and later digital Computers were invented partly for practical reasons like doing faster than even very large rooms filled with women with analogue calculators. 
+They also rendered physical various ideas such as boolean logic and, with digital machines, the ability of 0s and 1s to represent all information.
+16th/17th century binary mathematics
+19th century boolean logic functions, old mate bool
+
+They were used early on to calculate tables for aiming artillery, 
+It’s not a surprise then
 
 Within a code block `{ .. }` C++ is, mostly, a series of statements. A statement is easiest to think of as a mathematical formula, or physics equation.
 
