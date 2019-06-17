@@ -1,33 +1,87 @@
 # ISE102 Week 2
 
-Analogue and later digital Computers were invented partly for practical reasons like doing faster than even very large rooms filled with women with analogue calculators. 
-They also rendered physical various ideas such as boolean logic and, with digital machines, the ability of 0s and 1s to represent all information.
-16th/17th century binary mathematics
-19th century boolean logic functions, old mate bool
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-They were used early on to calculate tables for aiming artillery, 
-It’s not a surprise then
+<!-- code_chunk_output -->
 
-Within a code block `{ .. }` C++ is, mostly, a series of statements. A statement is easiest to think of as a mathematical formula, or physics equation.
+* [ISE102 Week 2](#ise102-week-2)
+	* [Computer, do maths.](#computer-do-maths)
+		* [Equations in mathematics / physics](#equations-in-mathematics-physics)
+		* [In C++](#in-c)
+		* [Variables (and literals)](#variables-and-literals)
+	* [Statement building blocks](#statement-building-blocks)
+		* [Games!](#games)
+		* [Adding conditionals](#adding-conditionals)
+	* [Powerpoint!](#powerpoint)
+	* [Exercises](#exercises)
+	* [Resources](#resources)
 
-On the left is the result, or a place to store it. Here’s a line function and Einstein’s baby:
-```math
-y=mx + b
+<!-- /code_chunk_output -->
 
-E=mc^2
+## Computer, do maths.
+
+Computers (analogue and digital ) were designed by mathematicians and logicians like Alan Turing and John Von Neumann, based on centuries of theory by their predecessors. They were built by engineers.
+
+Universal computers like we have now (as opposed to machine's like Turing's enigma breaker)replaced and outperformed even very large rooms of women with analog calculators. They took over the calculations of firing tables for artillery and solving the physics of explosives arranged to compress the uranium core of an atomic bomb into criticality. When they weren't busy on this work, they might also run simulations of cellular automata (Arthur Burks).
+
+No wonder then, that statements in code looks mathemathical equations/functions.
+
+>Within a code block `{ .. }` C++ is, mostly, a series of statements. A statement brings to mind a mathematical/logical expression, or physics equation.
+>
+> On the left is a symbol for the result. On the right, an expression which is solved, collapsed into a result. 
+
+### Equations in mathematics / physics
+
+Here’s a line function and Einstein’s baby:
+
+\[ y=mx + b\] \[ E=mc^2 \]
+
+A solution for a line:
+
+\[ y=mx+b \]\[ y=(2*1)+1 \]\[ y=3 \]\[ 3 \]
+
+### In C++
+
+These formulas/functions in C++ statement form
+  * a variable on the left. A symbol to store your answer in.
+  * an equals sign denotes assignment: assigning the right side to the left
+  * an expression on the right side. This reduces to a solution like our line equation above.
+
+```cpp
+y = m * x + b;
+
+E = m * pow(c, 2);
 ```
 
-Everything on the right is collapsed into a result, and can be used interchangeably with the term on the left.
-```math
-y=mx+b
-y=(2*1)+1
-y=3
-3
+### Variables (and literals)
+
+How do we define these symbols, these places information is stored. First, variables for our line equation:
+
+```cpp
+float y = 0.0f; // initialising y to 0. The decimal point and f make it floating point aka decimal.
+float m, x, b;
+
+// imagine code here where things are assigned to m, x and b.
+
+y = m * x + b;
+
+cout << "y is: " << y << endl;
 ```
 
-### Statement building blocks
+Variables are _declared_ as _type_, _name_ and _initial value_.
 
-What we're learning is the _c++_ implementations of the absolute fundamentals of coding. 
+```cpp
+float pi = 3.14f;
+int polygonSides = 5;
+
+string warriorName = "HillPuncher";
+```
+
+___
+
+## Statement building blocks
+
+Storage, maths, logic and decision making, all in c++.
 
 > **Variables:** defining values like `5`, `"Kendrick"`, `true`, `35.5`
 > **Logic Operators:** How to compare/test values.
@@ -36,9 +90,9 @@ What we're learning is the _c++_ implementations of the absolute fundamentals of
 > **Statements:** A line of code that does something
 > **Enums** Defining a few constants at once
 
-We'll start with simple variables and types, get into decision making and comparison, and then deep dive into types and assignment.
+We'll start with simple variables and types, get into decision making and comparison, and then dive further into types and assignment.
 
-## Variables (and literals)
+### Games!
 
 Let's look at this psuedocode.
 
@@ -60,12 +114,7 @@ start program LOW_HEALTH
 end program HANDLE_A_LOW_ON_HEALTH_SITUATION
 ```
 
-I added something new this time: explicit information. In my `spilled_coffee` week 1 example it was implied: the shirt's dirtiness, the quality of the shirt, my location. This time we have `red mana` and `blue mana`, which are needed for spell casting.
-
-> Handling a situation is: 
-> **1.** Gathering information 
-> **2.** Acting on it.
-> How do we put information in our C++ programs? **Variables**.
+>I added something new to the pseudocode this time: explicit information. In my `spilled_coffee` week 1 example it was implied: the shirt's dirtiness, the quality of the shirt, my location. This time we have `red mana` and `blue mana`, which are needed for spell casting. They're like variables in c++ but not nailed down yet.
 
 Our psuedocode said we have `red mana, blue mana`. Let's write that in _C++_:
 
@@ -84,7 +133,7 @@ int main()
 }
 ```
 
-## Adding conditionals
+### Adding conditionals
 
 We discussed decision making last week. We asked if something is true or false; then we take an action. 
 
