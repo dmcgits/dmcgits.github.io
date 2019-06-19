@@ -110,7 +110,7 @@ string warriorName <span class="token operator">=</span> <span class="token stri
 <h3 class="mume-header" id="games">Games!</h3>
 
 <p>Let&#x2019;s look at this psuedocode.</p>
-<pre data-role="codeBlock" data-info class="language-"><code>start program LOW_HEALTH
+<pre data-role="codeBlock" data-info class="language-"><code>start program LOW_HEALTH_ENCOUNTER
 
 	I have: red mana, blue mana
   I know: Spells require an amount of mana of a certain colour
@@ -125,7 +125,7 @@ string warriorName <span class="token operator">=</span> <span class="token stri
 
 	let&apos;s run away no matter what
 
-end program HANDLE_A_LOW_ON_HEALTH_SITUATION
+end program LOW_HEALTH_ENCOUNTER
 </code></pre><blockquote>
 <p>I added something new to the pseudocode this time: explicit information. Things I have, things I know.</p>
 <p>In my <code>spilled_coffee</code> week 1 example it was implied: the shirt&#x2019;s dirtiness, the quality of the shirt, my location. This time we have <code>red mana</code> and <code>blue mana</code>, which are needed for spell casting. They&#x2019;re like variables in c++ but not nailed down yet.</p>

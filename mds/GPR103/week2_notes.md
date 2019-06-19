@@ -16,6 +16,16 @@ Learning to hide the grease, pistons and wires.
 <!-- code_chunk_output -->
 
 * [GPR103 Week 2 (module 1.2)](#gpr103-week-2-module-12)
+	* [New design pattern, Composition!](#new-design-pattern-composition)
+	* [Why not just inheritance?](#why-not-just-inheritance)
+		* [Inheritance in Unity](#inheritance-in-unity)
+		* [Limits of Inheritance](#limits-of-inheritance)
+	* [Composition saves the day:](#composition-saves-the-day)
+		* [Put your components on GameObjects](#put-your-components-on-gameobjects)
+	* [Making a rifle with inheritance and composition](#making-a-rifle-with-inheritance-and-composition)
+		* [Inheritance: From Monobehaviour to Rifle and Pistol.](#inheritance-from-monobehaviour-to-rifle-and-pistol)
+		* [Composition: add ons](#composition-add-ons)
+		* [Handy tip: RequireComponent](#handy-tip-requirecomponent)
 	* [Object oriented design principles.](#object-oriented-design-principles)
 		* [What is encapsulation?](#what-is-encapsulation)
 			* [Goldilocks factor](#goldilocks-factor)
@@ -36,6 +46,279 @@ Learning to hide the grease, pistons and wires.
 
 <!-- /code_chunk_output -->
 
+
+___
+
+## About Assignment 1 Part 1
+
+___
+
+## Exercises to do before next class
+
+1. Assessment progression - Player Class Exercise.
+    * [assess1_ex1.html](assess1_ex1.html)
+
+2. conditionals etc up to objects in sololearn. 
+
+___
+
+## Resources
+Assignment 1 Exercise 1 [rebrief is here](a1_exercise1_brief.html).
+
+Rifle Unity Project: [WeaponAddOns.7z](assets/week2/WeaponAddOns.7z)
+
+Documentation and Tutes:
+1. Finalizers/destructors in [Microsoft's c# documentation](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors)
+2. Constructors in [Microsoft's docs](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors)
+3. Creating Properties video in [official Unity tutorials](https://unity3d.com/learn/tutorials/topics/scripting/properties?playlist=17117)
+4. [Using Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties) and [all their syntax](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties) in the Microsoft docs.  
+
+ 
+
+## New design pattern, Composition!
+
+That was probably easier than you expected. It was **easy but also strange** when you think about it.
+
+1. We made a Class/Object and.. 
+2. put on another class already in the scene? It's not like inheritance!
+
+> This design pattern is called **composition** and it's less **Rifle is a Gun (inheritance)** and more **Rifle has a Laser Sight and Bayonet**. 
+
+![inspector components](assets/week1/inspector_gameobject.png)
+_Multiple components on TalkySquare not just our Talk script._
+
+
+---
+
+## Why not just inheritance?
+
+We learned inheritance last trimester in c++, and you may have seen it in other languages. 
+* Its the **"is a" relationship**. 
+* Human -> Mammal -> Animal is a classic example
+
+```dot
+digraph graphname {
+     LivingThing -> Plant;
+     LivingThing -> Animal -> Reptile;
+     Animal-> Mammal -> Racoon;
+     Mammal -> Human; 
+ }
+```
+
+### Inheritance in Unity
+
+Our `Rifle` can still be a `Gun`, gaining useful things, **c# and Unity are fine with inheritance.**
+
+```dot
+digraph Rifle{
+  Weapon -> Gun -> Rifle;
+  Gun -> Pistol
+}
+```
+
+```cs
+// The syntax is familiar to c++ users, minus all the header nonsense
+public class Rifle : Gun { // Rifle is a gun
+
+	void Start () {		
+	}
+}
+
+// Your inheritance has to start with Monobehaviour if you want to use it in the inspector.
+public class Gun : MonoBehaviour { // Gun is a component
+
+	void Start () {		
+	}
+}
+```
+
+### Limits of Inheritance
+
+Thing is, when you add _optional_ things rather than _evolving_, inheritance gets.. silly.
+
+* To equip **multiple options in combination** do you try to inherit from multiple classes?
+```dot
+digraph Rifle{
+  Gun -> Rifle -> RifleWLaser
+  Rifle -> RifleWBayonet->RifleWNadesAndBayonet
+  Rifle -> RifleWNades
+  RifleWLaser -> RifleWLaserAndBayonet
+  RifleWNades -> RifleWNadesAndLaser
+  RifleWLaser -> RifleWNadesAndLaser
+  RifleWBayonet -> RifleWLaserAndBayonet
+  RifleWNades -> RifleWNadesAndBayonet
+}
+```
+
+* Or do you
+  1. Build a big dumb class with everything
+  2. Pretend all that stuff isn't there, using just bits you want? Sort of de-evolving?
+
+
+```dot
+digraph Rifle {
+  Gun -> Rifle
+  Rifle -> RifleWBayonet->RifleWNadesAndBayonet -> RifleWNadesAndBayonetAndLaser
+  RifleWNadesAndBayonetAndLaser -> RifleWLaserAndBayonet
+  RifleWNadesAndBayonetAndLaser -> RifleWLaserAndNades
+  RifleWNadesAndBayonetAndLaser -> RifleWLaser
+}
+```
+
+No.
+___
+
+## Composition saves the day: 
+
+This sort of thing matters when making games, so Unity loves components.
+
+* inheritance defined an "is a" relationship
+* **composition defines the "has a" relationship**. Has a collider, has a sprite renderer. 
+* Great, a rifle can just be a rifle and _have_ a grenade launcher and/or a sight. 
+
+But how to do? 
+
+* You've already made one, by extending _MonoBehaviour_
+
+**A MonoBehaviour is, for our purposes, the same thing as a Component.** 
+
+___
+
+### Put your components on GameObjects
+
+In Unity, everything on the stage extends `GameObject`.
+* When you select a thing in your Unity scene, the Inspector is showing the **GameObject.**
+* Each panel in the inspector is a **component**, added to the GameObject
+* **If your script extends MonoBehaviour, it's a component you can add!**
+
+![Gameobject inspector](assets/week1/inspector_gameobject.png)
+_Look again. See them, see the components/MonoBehaviours_
+
+## Making a rifle with inheritance and composition
+
+Here's the combo that really gets work done in Unity: use inheritance to make the components you want, and then add them in combination!
+
+1. A `Rifle` is a `Gun` is a `Monobehaviour`, thanks to inheritance
+2. Add `Rifle` to a sprite plus `GrenadeLauncher`, `LaserSight` and `Bayonet` thanks to composition!
+
+![Rifle Inspector](assets/week1/inspector_gun_components.png)
+_If you haven't grabbed the unity project, [download it here](assets/week2/WeaponAddOns.7z)_
+
+### Inheritance: From Monobehaviour to Rifle and Pistol.
+
+Just like we'd have done in c++ or another OO language.
+
+```dot {engine="dot"}
+digraph Gun
+{
+  MonoBehaviour -> Gun -> Rifle;
+  Gun -> Pistol;
+}
+```
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// Gun is a component
+public class Gun : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+    Debug.Log("pew");
+	}
+	
+}
+
+// Rifle is a gun. Dead easy inheritance.
+public class Rifle : Gun {
+
+	void Start () {
+		
+	}
+
+}
+```
+
+### Composition: add ons
+
+Season our gameobject with components like Nade, Laser, Bayonet in any combination.
+
+```dot {engine="dot"}
+digraph Rifle
+{
+  MonoBehaviour -> Gun -> Rifle;
+  Gun -> Pistol;
+  Pistol -> LaserSight [dir=none, style=dotted];
+  Rifle -> LaserSight [dir=none, style=dotted];
+  Pistol -> GrenadeLauncher [dir=none, style=dotted];
+  Rifle -> GrenadeLauncher [dir=none, style=dotted];
+  Pistol -> Bayonet [dir=none, style=dotted];
+  Rifle -> Bayonet [dir=none, style=dotted];
+}
+```
+
+That looks noodley as a diagram, but as you saw it's clear in Unity:
+
+![Gun addons](assets/week1/inspector_gun_components.png)
+_Inheritance isn't directly visible, except that these all must be descended from MonoBehaviour_
+
+1. Obviously `LaserSight`, `GrenadeLauncher` and `Bayonet` all extend `MonoBehaviour` too.
+
+```dot {engine="dot"}
+digraph GunAddOn
+{
+  MonoBehaviour -> LaserSight
+  MonoBehaviour -> GrenadeLauncher;
+  MonoBehaviour -> Bayonet ;
+}
+```
+
+But would add an evolution between them say `GunAddOn`, to add things common to all addOns. Still using inheritance where it helps!
+
+```dot {engine="dot"}
+digraph GunAddOn
+{
+  MonoBehaviour -> GunAddOn -> LaserSight
+  GunAddOn -> GrenadeLauncher;
+  GunAddOn -> Bayonet;
+}
+```
+
+___
+
+### Handy tip: RequireComponent
+
+GunAddOns are all going to need a gun to be useful right? What if someone tries to delete the Rifle component?
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// This line means you can't have a GunAddOn component unless 
+// another component is descended from Gun.
+[RequireComponent(typeof(Gun))]
+
+public class GunAddon : MonoBehaviour {
+  //no functions at all  
+}
+
+```
+
+```cs
+public class GrenadeLauncher : GunAddon {
+
+	// Use this for initialization
+	void Start () {
+    Debug.Log("I spew pineapples");	
+	}
+	
+}
+```
+
+---
 
 ## Object oriented design principles.
 > **Quick definitions:**

@@ -97,7 +97,7 @@ We'll start with simple variables and types, get into decision making and compar
 Let's look at this psuedocode.
 
 ```
-start program LOW_HEALTH
+start program LOW_HEALTH_ENCOUNTER
 
 	I have: red mana, blue mana
   I know: Spells require an amount of mana of a certain colour
@@ -112,7 +112,7 @@ start program LOW_HEALTH
 
 	let's run away no matter what
 
-end program HANDLE_A_LOW_ON_HEALTH_SITUATION
+end program LOW_HEALTH_ENCOUNTER
 ```
 
 >I added something new to the pseudocode this time: explicit information. Things I have, things I know.
