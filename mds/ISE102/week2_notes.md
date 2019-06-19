@@ -100,6 +100,7 @@ Let's look at this psuedocode.
 start program LOW_HEALTH
 
 	I have: red mana, blue mana
+  I know: Spells require an amount of mana of a certain colour
 
 	If I have enough red mana: 
 		cast healing spell
@@ -114,7 +115,9 @@ start program LOW_HEALTH
 end program HANDLE_A_LOW_ON_HEALTH_SITUATION
 ```
 
->I added something new to the pseudocode this time: explicit information. In my `spilled_coffee` week 1 example it was implied: the shirt's dirtiness, the quality of the shirt, my location. This time we have `red mana` and `blue mana`, which are needed for spell casting. They're like variables in c++ but not nailed down yet.
+>I added something new to the pseudocode this time: explicit information. Things I have, things I know.
+>
+> In my `spilled_coffee` week 1 example it was implied: the shirt's dirtiness, the quality of the shirt, my location. This time we have `red mana` and `blue mana`, which are needed for spell casting. They're like variables in c++ but not nailed down yet.
 
 Our psuedocode said we have `red mana, blue mana`. Let's write that in _C++_:
 
