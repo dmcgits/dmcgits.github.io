@@ -15,18 +15,52 @@ Designing objects with reuse and extension in mind.
 
 <!-- code_chunk_output -->
 
-- [Last week and homework](#last-week-and-homework)
-- [Inheritance](#inheritance)
-  - [Examples of inheritance](#examples-of-inheritance)
-  - [Why inheritance in programming?](#why-inheritance-in-programming)
-  - [Towers to build](#towers-to-build)
-- [Polymorphism](#polymorphism)
-- [Getting Abstract](#getting-abstract)
-  - [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
-  - [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
-  - [Abstract](#abstract)
-- [Exercises](#exercises)
-- [Resources](#resources)
+- [GPR103 week3 - Inheritance and Polymorphism.
+](#gpr103-week3-inheritance-and-polymorphism)
+  - [ Last week and homework
+](#last-week-and-homework)
+  - [ Inheritance
+](#inheritance)
+    - [ Examples of inheritance
+](#examples-of-inheritance)
+    - [ Why inheritance in programming?
+](#why-inheritance-in-programming)
+    - [ Towers to build
+](#towers-to-build)
+      - [ Base Tower
+](#base-tower)
+      - [ Tower.cs
+](#towercs)
+      - [ Unique towers
+](#unique-towers)
+      - [ GattlingTower.cs
+](#gattlingtowercs)
+      - [ MissileTower.cs
+](#missiletowercs)
+  - [ Polymorphism
+](#polymorphism)
+  - [ Getting Abstract
+](#getting-abstract)
+    - [ Overriding functions and the `virtual` keyword
+](#overriding-functions-and-the-virtual-keyword)
+      - [ Snippet: Tower.cs
+](#snippet-towercs)
+      - [ Snippet: GattlingTower.cs
+](#snippet-gattlingtowercs)
+      - [ Snippet: MissileTower.cs
+](#snippet-missiletowercs)
+    - [ Partial code reuse with the `base` keyword
+](#partial-code-reuse-with-the-base-keyword)
+      - [ Snippet: TowerGattling.cs
+](#snippet-towergattlingcs)
+    - [ Abstract
+](#abstract)
+      - [ What's better than hoping? Spitting out errors!
+](#whats-better-than-hoping-spitting-out-errors)
+  - [ Exercises
+](#exercises)
+  - [ Resources
+](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -242,17 +276,17 @@ towers.add(new MissileTower());
 towers[0].build();
 ```
 
-Here's how it looks in the TowerMaster class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
+Here's how it looks in the TowerTester class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
 
 ```cs
 // Usual Unity includes go here
-public class TowerMaster : MonoBehaviour {
+public class TowerTester : MonoBehaviour {
 
     public List<Tower> towers;
 
 	void Start () {
 
-        Debug.Log("TowerMaster says hi");
+        Debug.Log("TowerTester says hi");
         Debug.Log("towers.Count = " + towers.Count);
         int i=0;
 
@@ -291,17 +325,27 @@ Here's an example where a FloatingTower stores its position in a variable called
 public virtual function Build (Vector2 position)
 {	
 	Debug.Log("Building Tower");
-	_position = position;
 }
 ```
 
-#### Snippet: FloatingTower.cs
+#### Snippet: GattlingTower.cs
 
 ```cs
 // note override in place of virtual here
 public override function Build (Vector2 position)
 {
-	 _landingPosition = _currentPosition = position;
+  Debug.Log("Building GattlingTower");
+}
+
+```
+
+#### Snippet: MissileTower.cs
+
+```cs
+// note override in place of virtual here
+public override function Build (Vector2 position)
+{
+  Debug.Log("Building MissileTower");
 }
 
 ```
