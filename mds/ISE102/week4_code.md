@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 4 Exercises
 
 Functions and scope
@@ -9,15 +18,24 @@ Functions and scope
 
 <!-- code_chunk_output -->
 
-* [Week 4 Exercises](#week-4-exercises)
-	* [Contents](#contents)
-	* [Code](#code)
-			* [4.1 SlotsGame](#41-slotsgame)
-		* [4.2 Scope](#42-scope)
-		* [4.3 Function](#43-function)
-		* [4.4 Function with prototype (definition)](#44-function-with-prototype-definition)
-		* [4.5 Limiting Rand Range](#45-limiting-rand-range)
-		* [4.6 Variable Scope With Range](#46-variable-scope-with-range)
+- [ Week 4 Exercises
+](#week-4-exercises)
+  - [ Contents
+](#contents)
+  - [ Code
+](#code)
+      - [ 4.1 SlotsGame
+](#41-slotsgame)
+    - [ 4.2 Scope
+](#42-scope)
+    - [ 4.3 Function
+](#43-function)
+    - [ 4.4 Function with prototype (definition) 
+](#44-function-with-prototype-definition)
+    - [ 4.5 Limiting Rand Range
+](#45-limiting-rand-range)
+    - [ 4.6 Variable Scope With Range
+](#46-variable-scope-with-range)
 
 <!-- /code_chunk_output -->
 
@@ -43,7 +61,7 @@ Shows a few things:
 4. How to return data from a function. All it needs to do is be of the right type. Return 0 works for a function of type int, return false or true returns for a bool function.
 5. How to use void as the return type for functions that just do work.
 
-```c++
+```c++ { .line-numbers }
 #include <iostream>
 
 using namespace std;
@@ -102,7 +120,7 @@ ___
 
 ### 4.2 Scope
 
-```c++
+```c++ { .line-numbers }
 #include <iostream>
 using namespace std;
 
@@ -142,7 +160,7 @@ ___
 
 ### 4.3 Function
 
-```c++
+```c++ { .line-numbers }
 
 #include <iostream>
 using namespace std;
@@ -188,7 +206,7 @@ ___
 ### 4.4 Function with prototype (definition) 
 
 
-```c++
+```c++ { .line-numbers }
 #include <iostream>
 using namespace std;
 
@@ -233,7 +251,7 @@ ___
 
 ### 4.5 Limiting Rand Range
 
-```cpp
+```c++ { .line-numbers }
 #include <iostream>
 #include <cstdlib> // Provides rand()
 #include <ctime> // Provides time()
@@ -267,7 +285,7 @@ int main()
 
 ### 4.6 Variable Scope With Range
 
-```cpp
+```c++ { .line-numbers }
 #include <iostream>
 
 using namespace std;

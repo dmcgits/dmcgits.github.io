@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Code for Week 5: more function fun
 
 Passing different variable types, default arguments.
@@ -7,11 +16,16 @@ Passing different variable types, default arguments.
 
 <!-- code_chunk_output -->
 
-* [Code for Week 5: more function fun](#code-for-week-5-more-function-fun)
-		* [TurnRight.cpp](#turnrightcpp)
-		* [PassingValues.cpp](#passingvaluescpp)
-		* [PassingArrays.cpp](#passingarrayscpp)
-		* [PassingVectors.cpp](#passingvectorscpp)
+- [ Code for Week 5: more function fun
+](#code-for-week-5-more-function-fun)
+    - [ TurnRight.cpp
+](#turnrightcpp)
+    - [ PassingValues.cpp
+](#passingvaluescpp)
+    - [ PassingArrays.cpp
+](#passingarrayscpp)
+    - [ PassingVectors.cpp
+](#passingvectorscpp)
 
 <!-- /code_chunk_output -->
 

@@ -1,4 +1,12 @@
-
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ISE102 Week 4
 
 Functions! Taking chunks of code and breaking them out into reusable bits.
@@ -9,16 +17,26 @@ Functions! Taking chunks of code and breaking them out into reusable bits.
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 4](#ise102-week-4)
-	1. [Reusing code](#reusing-code)
-	2. [First Function](#first-function)
-	3. [Ways to consider functions](#ways-to-consider-functions)
-		1. [Functions: smart variables](#functions-smart-variables)
-		2. [Functions: macros to run a bunch of code](#functions-macros-to-run-a-bunch-of-code)
-		3. [Functions: Getting values that are always changing](#functions-getting-values-that-are-always-changing)
-		4. [Functions: sending data off for calculation](#functions-sending-data-off-for-calculation)
-	4. [Exercises](#exercises)
-	5. [Resources](#resources)
+- [ ISE102 Week 4
+](#ise102-week-4)
+  - [ Reusing code
+](#reusing-code)
+  - [ First Function
+](#first-function)
+  - [ Ways to consider functions
+](#ways-to-consider-functions)
+    - [ Functions: smart variables
+](#functions-smart-variables)
+    - [ Functions: macros to run a bunch of code
+](#functions-macros-to-run-a-bunch-of-code)
+    - [ Functions: Getting values that are always changing
+](#functions-getting-values-that-are-always-changing)
+    - [ Functions: sending data off for calculation
+](#functions-sending-data-off-for-calculation)
+  - [ Exercises
+](#exercises)
+  - [ Resources
+](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -32,7 +50,7 @@ We'll end up writing code that is really useful, and wanting to call on it a lot
 
 You've already written it!
 
-```c++
+```c++ { .line-numbers }
 
 int main()
 {
@@ -46,7 +64,7 @@ A function can be thought of as a fancier variable. It's just a variable that do
 
 ### Functions: smart variables
 
-```c++
+```c++ { .line-numbers }
 int height = 10;
 cout << height << endl;
 // outputs 10
@@ -92,7 +110,7 @@ ___
 
 Get the angle to point my sprite at something:
 
-```c++
+```c++ { .line-numbers }
 struct Point {
 	float x = 0.0f;
 	float y = 0.0f;
