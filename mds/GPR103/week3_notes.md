@@ -64,6 +64,24 @@ Designing objects with reuse and extension in mind.
 
 <!-- /code_chunk_output -->
 
+## Exercises
+
+1. Assignment 1, exercise 2. 
+   * [Direct blackboard Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1)
+   * As you come across issues, or even before you start, watch the unity videos in 2.
+2. Unity tutorial videos covering this week
+  	* [the scripting section](https://unity3d.com/learn/tutorials/s/scripting) 
+  	* Tutes: _Inheritance_, _Polymorphism_, _Overriding_ and _Lists & Dictionaries_.
+   * Watch the videos, and type in the code so you really remember it.
+
+## Resources
+
+1. [Download my TowerInheritance Unity project](assets/week3/TowerInheritance.zip)
+2. Microsoft c# docs. This isn't a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
+   * [virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual)
+   * [abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
+   * [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2)
+
 ## Last week and homework
 
 Last week's topic was **Object oriented design**, specifically **Encapsulation through Classes, Access Modifiers, Properties**
@@ -414,20 +432,3 @@ public class TowerGattling
 
 ```
 
-## Exercises
-
-1. Assignment 1, exercise 2. 
-   * [Direct blackboard Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1)
-   * As you come across issues, or even before you start, watch the unity videos in 2.
-2. Unity tutorial videos covering this week
-  	* [the scripting section](https://unity3d.com/learn/tutorials/s/scripting) 
-  	* Tutes: _Inheritance_, _Polymorphism_, _Overriding_ and _Lists & Dictionaries_.
-   * Watch the videos, and type in the code so you really remember it.
-
-## Resources
-
-1. [Download my TowerInheritance Unity project](assets/week3/TowerInheritance.zip)
-2. Microsoft c# docs. This isn't a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
-   * [virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual)
-   * [abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
-   * [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2)
