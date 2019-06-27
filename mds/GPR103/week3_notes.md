@@ -70,9 +70,8 @@ Last week's topic was **Object oriented design**, specifically **Encapsulation t
 
 Part 1 of assignment. 
 * Did we get there? 
-* Did it make more sense once you'd translated the ideas to your own Class vs copying the FireballTower.
-* Did you come up with questions? If you answered them, where did you go for answers? Unity videos, Microsoft docs?
-* Questions about wording?
+* Did it make more sense once you'd translated the ideas to your own class?
+* Did you come up with questions?
 
 ## Inheritance
 
@@ -113,9 +112,8 @@ _Gattling guns are the spinny ones_
 _Missiles in an array (hint?)_
 
 **1:** Gattling fire is effectively hitscan (instant hit), missiles are projectiles
-**2:** Bullets travel in a straight line. Missiles can course correct, home in.
 **3:** Gattling fire is nonstop. Missiles fire in volleys.
-**4:** Gattling towers add guns. Missile towers just shoot faster.
+**4:** Gattling towers add turrets. Missile towers just fire more rounds, maybe more damaging missiles?
 
 ___
 
@@ -316,7 +314,7 @@ There are a few reasons want to make a base class, and they aren't all covered b
 
 If you want the base class to define the function and then change how it works, you can **override the function**. This is common to many languages but uses differing syntax. In _c#_ we add `virtual` to the function definition in the base class, and the same function definition with `override` in the derived class.. then we change the contents.
 
-Here's an example where a FloatingTower stores its position in a variable called `_currentPosition`, since it's moving, and also in `_landingPosition` so it can return there.
+Let's override the Build function. In a real game the build sequence of towers might need some custom code, and the inherited function might not be enough. For this demo, however, we're going to log a unique string to the console for each tower and GattlingTower will reveal its coordinates.
 
 #### Snippet: Tower.cs
 
@@ -334,7 +332,7 @@ public virtual function Build (Vector2 position)
 // note override in place of virtual here
 public override function Build (Vector2 position)
 {
-  Debug.Log("Building GattlingTower");
+  Debug.Log("Building GattlingTower at coordinates " + gameObject.transform.position.x + ", " + gameObject.transform.position.y);
 }
 
 ```
@@ -350,13 +348,13 @@ public override function Build (Vector2 position)
 
 ```
 
-> Say you have a list of type `Tower` and you call Build on a `FloatingTower` in that list. If you get the output from `Tower.Build` instead of `FloatingTower.Build` you've probably left out `override`.
+> Say you have a list of type `Tower` and you call Build on a `MissileTower` in that list. If you get the output from `Tower.Build` instead of `MissileTower.Build` you've probably left out `override`.
 
 ### Partial code reuse with the `base` keyword
 
 Overriding the function has come at a cost: no free code from the parent class! At least for that function. What if we could have it both ways?
 
-How can we alter our `Build(position)` function to set the position but also set up the specifics for a GattlingTower? We can **call functions in the base class with the `base` keyword**.
+How can we alter our `Build(position)` function to call Tower.Build and still do something unique? We can **call functions in the base class with the `base` keyword**.
 
 #### Snippet: TowerGattling.cs
 
@@ -368,9 +366,10 @@ How can we alter our `Build(position)` function to set the position but also set
         // Use base to call Build on Tower()
         base.Build(position);
 
-		// Do Gattling specific things
-        Debug.Log("Gattling.Build() here, just logging.");
-    }
+      // Do Gattling specific things
+          
+      Debug.Log("Building GattlingTower at coordinates " + gameObject.transform.position.x + ", " + gameObject.transform.position.y);
+}
 
 // I removed the : base (position) example here because it only worked on constructors.
 
