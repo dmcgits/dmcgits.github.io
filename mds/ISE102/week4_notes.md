@@ -322,7 +322,7 @@ using namespace std;
 
 const int PERFECT_COOKING_TIME = 4;
 
-bool toastIsReady( int whenCookingStarted, int timeToCook )  // functions are just like variables, they have a type.
+bool toastIsReady( int whenCookingStarted, int timeToCook )
 {
   int timeCooking = time(0) - whenCookingStarted;
   cout << "\t[Time cooking so far: " << timeCooking << "]\n";
@@ -338,7 +338,7 @@ int main()
   cout << "\n\tStart time: " << timeCookingStarted << endl << endl;
 
   Sleep(2000);  //buuut sleep takes milliseconds
-  if ( toastIsReady() ) 
+  if ( toastIsReady( timeCookingStarted, PERFECT_COOKING_TIME) ) 
   {
     cout << "\tToast is cooked already??\n\n";
   } else {
@@ -346,7 +346,7 @@ int main()
   }
 
   Sleep(3000);  //wait a different bit..
-  if (toastIsReady()) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
+  if (toastIsReady( timeCookingStarted, PERFECT_COOKING_TIME )) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
 }
 ```
 

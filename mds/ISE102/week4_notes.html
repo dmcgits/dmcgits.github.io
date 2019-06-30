@@ -325,7 +325,7 @@ The <strong>arguments</strong> tells us the data it needs to do its job.</p>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> PERFECT_COOKING_TIME <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
 
-<span class="token keyword">bool</span> <span class="token function">toastIsReady</span><span class="token punctuation">(</span> <span class="token keyword">int</span> whenCookingStarted<span class="token punctuation">,</span> <span class="token keyword">int</span> timeToCook <span class="token punctuation">)</span>  <span class="token comment">// functions are just like variables, they have a type.</span>
+<span class="token keyword">bool</span> <span class="token function">toastIsReady</span><span class="token punctuation">(</span> <span class="token keyword">int</span> whenCookingStarted<span class="token punctuation">,</span> <span class="token keyword">int</span> timeToCook <span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
   <span class="token keyword">int</span> timeCooking <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span> whenCookingStarted<span class="token punctuation">;</span>
   cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t[Time cooking so far: &quot;</span> <span class="token operator">&lt;&lt;</span> timeCooking <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;]\n&quot;</span><span class="token punctuation">;</span>
@@ -341,7 +341,7 @@ The <strong>arguments</strong> tells us the data it needs to do its job.</p>
   cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\n\tStart time: &quot;</span> <span class="token operator">&lt;&lt;</span> timeCookingStarted <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 
   <span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//buuut sleep takes milliseconds</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">toastIsReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> 
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">toastIsReady</span><span class="token punctuation">(</span> timeCookingStarted<span class="token punctuation">,</span> PERFECT_COOKING_TIME<span class="token punctuation">)</span> <span class="token punctuation">)</span> 
   <span class="token punctuation">{</span>
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\tToast is cooked already??\n\n&quot;</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
@@ -349,7 +349,7 @@ The <strong>arguments</strong> tells us the data it needs to do its job.</p>
   <span class="token punctuation">}</span>
 
   <span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//wait a different bit..</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">toastIsReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\tFinally, toast is cooked. Adding nutella, eating.\n&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">toastIsReady</span><span class="token punctuation">(</span> timeCookingStarted<span class="token punctuation">,</span> PERFECT_COOKING_TIME <span class="token punctuation">)</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\tFinally, toast is cooked. Adding nutella, eating.\n&quot;</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
 
