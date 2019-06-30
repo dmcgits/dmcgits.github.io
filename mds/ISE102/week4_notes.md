@@ -35,6 +35,8 @@ Functions and variable scope.
 ](#functions-as-macros)
     - [ Arguments: sending data off for calculation
 ](#arguments-sending-data-off-for-calculation)
+  - [ Scope
+](#scope)
     - [ Function signatures: keeping functions in their place
 ](#function-signatures-keeping-functions-in-their-place)
         - [ Elements of a signature:
@@ -43,8 +45,6 @@ Functions and variable scope.
 ](#example-signature)
     - [ Making toast with better contracts.
 ](#making-toast-with-better-contracts)
-  - [ Scope
-](#scope)
 
 <!-- /code_chunk_output -->
 
@@ -263,6 +263,18 @@ int main()
 
 ```
 
+
+## Scope
+
+* Variables outside main can be seen/modified by all functions.
+* Variables inside functions can only be seen by them, but can be passed to other functions.
+* When a function finishes executing, the variables it declared are gone with it.
+* Define your variables only where you need them
+
+Scope of variables:
+![scope](assets/week4/scope_coloured.png)
+_**red** = things defined globally | **green** = things defined in main | **brown** = things defined in getPlanetName_
+
 ### Function signatures: keeping functions in their place
 
 If we let functions go looking at data and writing to global variables, we're giving up a lot of control and transparency. As in business, a **contract** is a good way to make things more predictable.
@@ -337,13 +349,6 @@ int main()
   if (toastIsReady()) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
 }
 ```
-
-## Scope
-
-* Variables outside main can be seen/modified by all functions.
-* Variables inside functions can only be seen by them, but can be passed to other functions.
-* When a function finishes executing, the variables it declared are gone with it.
-* Define your variables only where you need them
 
 
 ___

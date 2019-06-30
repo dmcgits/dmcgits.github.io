@@ -57,6 +57,11 @@
 </a></li>
 <li><a href="#arguments-sending-data-off-for-calculation"> Arguments: sending data off for calculation<br>
 </a></li>
+</ul>
+</li>
+<li><a href="#scope"> Scope<br>
+</a>
+<ul>
 <li><a href="#function-signatures-keeping-functions-in-their-place"> Function signatures: keeping functions in their place<br>
 </a>
 <ul>
@@ -70,8 +75,6 @@
 </a></li>
 </ul>
 </li>
-<li><a href="#scope"> Scope<br>
-</a></li>
 </ul>
 </li>
 </ul>
@@ -272,7 +275,18 @@
 <span class="token punctuation">}</span>
 <span class="token operator">--</span><span class="token operator">-</span> 
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="function-signatures-keeping-functions-in-their-place">Function signatures: keeping functions in their place</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="scope">Scope</h2>
+
+<ul>
+<li>Variables outside main can be seen/modified by all functions.</li>
+<li>Variables inside functions can only be seen by them, but can be passed to other functions.</li>
+<li>When a function finishes executing, the variables it declared are gone with it.</li>
+<li>Define your variables only where you need them</li>
+</ul>
+<p>Scope of variables:<br>
+<img src="assets/week4/scope_coloured.png" alt="scope"><br>
+<em><strong>red</strong> = things defined globally | <strong>green</strong> = things defined in main | <strong>brown</strong> = things defined in getPlanetName</em></p>
+<h3 class="mume-header" id="function-signatures-keeping-functions-in-their-place">Function signatures: keeping functions in their place</h3>
 
 <p>If we let functions go looking at data and writing to global variables, we&#x2019;re giving up a lot of control and transparency. As in business, a <strong>contract</strong> is a good way to make things more predictable.</p>
 <ul>
@@ -337,15 +351,7 @@ The <strong>arguments</strong> tells us the data it needs to do its job.</p>
   <span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//wait a different bit..</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">toastIsReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\tFinally, toast is cooked. Adding nutella, eating.\n&quot;</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="scope">Scope</h2>
-
-<ul>
-<li>Variables outside main can be seen/modified by all functions.</li>
-<li>Variables inside functions can only be seen by them, but can be passed to other functions.</li>
-<li>When a function finishes executing, the variables it declared are gone with it.</li>
-<li>Define your variables only where you need them</li>
-</ul>
-<hr>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
 
       </div>
       
