@@ -9,9 +9,7 @@ export_on_save:
 ---
 # ISE102 Week 4
 
-Functions! Taking chunks of code and breaking them out into reusable bits.
-
-
+Functions!
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
@@ -19,16 +17,14 @@ Functions! Taking chunks of code and breaking them out into reusable bits.
 
 - [ ISE102 Week 4
 ](#ise102-week-4)
-  - [ Reusing code
-](#reusing-code)
+  - [ Functions: like smart variables
+](#functions-like-smart-variables)
   - [ First Function
 ](#first-function)
-  - [ Ways to consider functions
-](#ways-to-consider-functions)
     - [ Functions: smart variables
 ](#functions-smart-variables)
-    - [ Functions: macros to run a bunch of code
-](#functions-macros-to-run-a-bunch-of-code)
+    - [ Functions as macros
+](#functions-as-macros)
     - [ Functions: Getting values that are always changing
 ](#functions-getting-values-that-are-always-changing)
     - [ Functions: sending data off for calculation
@@ -41,10 +37,52 @@ Functions! Taking chunks of code and breaking them out into reusable bits.
 <!-- /code_chunk_output -->
 
 
-## Reusing code
+## Functions: like smart variables
 
+What if variables could do more than just store information? What if they could return different answers each time, depending on various factors?
 
-We'll end up writing code that is really useful, and wanting to call on it a lot. Loops let us do that last week, but there are plenty of times it won't be that simple. Reacting when a player clicks or taps, for example.
+> I want to know much potion was drunk, but I only know the potion remaining and the capacity of the bottle.
+
+Psuedocode
+```
+start_program PRINT_POTION_DRUNK
+
+  I know: potion remaining, bottle capacity
+
+  print out result of CALC_POTION_DRUNK 
+  print out "mls of potion has been drunk."
+
+------
+  function CALC_POTION_DRUNK
+    subtract potion remaining from bottle capacity, store result
+    return the resulting number
+  end_function CALC_POTION_DRUNK 
+------
+
+end_program PRINT_POTION_DRUNK
+```
+Now in c++:
+```cpp
+#include <iostream>
+using namespace std;
+
+int potionRemaining = 30;
+int bottleCapacity = 100;
+
+int potionDrunk()
+{
+  int amountDrunk = bottleCapacity - potionRemaining;
+
+  return (amountDrunk);
+}
+
+int main()
+{
+  int drunk = potionDrunk();
+
+  cout << drunk << "mls of potion have been drunk.";
+}
+```
 
 ## First Function
 
@@ -57,10 +95,6 @@ int main()
 	return (0);
 }
 ```
-
-## Ways to consider functions
-
-A function can be thought of as a fancier variable. It's just a variable that does something clever.
 
 ### Functions: smart variables
 
@@ -94,10 +128,38 @@ long long int tsus()
 cout << timeSinceUniverseStarted << endl;
 
 ```
+`
+### Functions as macros
 
-### Functions: macros to run a bunch of code
+Macros in games or productivity apps usually just do a series of things fo you. 
+* Macros save you clicks/keypresses
+* `void` functions save you writing the same code multiple times
+* `void` means "nothing"; functions of type `void` return nothing.
 
-Encapsulating useful code in a function that may not even need to return anything. It can be of type `void`.
+```cpp
+#include <iostream>
+using namespace std;
+
+void displayQuitMessage()
+{
+  // \n\n inserts 2 empty rows, \t inserts 4 spaces
+  cout << "\n\n"; // Move down 2 rows
+  cout << "\tQuitting again? Aren't you tired of running away?" <<  endl;
+  cout << "\tPress enter to confirm you are running away: ";
+  
+  cin.get(); //Listen for input ending with enter
+
+  // A void function doesn't return anything. 
+  // Return here just means "return to point were this function was called"
+  return;
+}
+
+int main()
+{
+  // call a function to display quit message.
+  displayQuitMessage();  
+}
+```
 
 ___
 ### Functions: Getting values that are always changing

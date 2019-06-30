@@ -67,7 +67,7 @@ Shows a few things:
 using namespace std;
 
 int getValidMenuChoice();
-void displayFinalWords();
+void displayQuitMessage();
 
 int five = 5;
 
@@ -110,7 +110,7 @@ int getValidMenuChoice()
 	return (2);
 }
 
-void displayFinalWords()
+void displayQuitMessage()
 {
 	cout << "Bye loser" << five << endl;
 	return;
