@@ -53,7 +53,7 @@ You are delivering 3 Exercises:
 
 ### Engine Implementation
 You need to create a `Class` that provides a useful, fairly generic function. This function should make use of **at least 2 Unity API calls** and return a result. Having it call multiple Unity API calls instead of just one is what makes it useful.. otherwise we'd just make the api call. Create a **test class** that shows this off running in the engine.
-**We'll write out an example of this today using a Singleton or a static class.**
+
   
 ___
 

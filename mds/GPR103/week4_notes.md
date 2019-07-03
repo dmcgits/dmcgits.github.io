@@ -18,6 +18,10 @@ export_on_save:
 
 - [ Games Programming Week 4
 ](#games-programming-week-4)
+  - [ A1 exercise 3: Unity api, static utility functions
+](#a1-exercise-3-unity-api-static-utility-functions)
+    - [ Engine Implementation
+](#engine-implementation)
     - [ Utility classes: Static functions and variables
 ](#utility-classes-static-functions-and-variables)
     - [ I lied about classes
