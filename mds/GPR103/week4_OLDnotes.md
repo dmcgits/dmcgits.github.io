@@ -7,15 +7,15 @@
 
 <!-- code_chunk_output -->
 
-* [Games Programming Week 4](#games-programming-week-4)
-	* [Source Control](#source-control)
-		* [Git!](#git)
-		* [Fail: Overwriting changes](#fail-overwriting-changes)
-			* [Solution: Conflicts and merging](#solution-conflicts-and-merging)
-		* [Big picture: waterfalls and agility](#big-picture-waterfalls-and-agility)
-		* [Week to week view](#week-to-week-view)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
+1. [Games Programming Week 4](#Games-Programming-Week-4)
+   1. [Source Control](#Source-Control)
+      1. [Git!](#Git)
+      2. [Fail: Overwriting changes](#Fail-Overwriting-changes)
+         1. [Solution: Conflicts and merging](#Solution-Conflicts-and-merging)
+      3. [Big picture: waterfalls and agility](#Big-picture-waterfalls-and-agility)
+      4. [Week to week view](#Week-to-week-view)
+   2. [Exercises](#Exercises)
+   3. [Resources](#Resources)
 
 <!-- /code_chunk_output -->
 
