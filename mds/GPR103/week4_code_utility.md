@@ -11,7 +11,7 @@ export_on_save:
 
 ![Pointy demo in Unity](assets/week4/utility_pointy_unity.png)
 
-#### FollowTheMouse.cs
+### FollowTheMouse.cs
 
 Make a sprite, use the _knob_ circle from the sprite library. Scale it up a bit and add a script to follow the mouse.
 
@@ -33,7 +33,7 @@ public class FollowMouse : MonoBehaviour {
 
 }
 ```
-#### LookAtAThing.cs
+### PointAtAThing.cs
 
 ![triangle1](assets/week4/triangle1.png)
 
@@ -43,28 +43,28 @@ Make sure to hit the badly placed **"**apply** button up top.
 
 ![Sprite editor](assets/week4/triangle_edit.png)
 
-Put it on your stage and then make  a new script, `LookAtAThing.cs`.
+Put it on your stage and then make  a new script, `PointAtAThing.cs`.
 
 ```cs
-// LookAtAThing.cs
+// PointAtAThing.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class PointAtAThing : MonoBehaviour {
 
-public class LookAtAThing : MonoBehaviour {
+  [SerializeField]
+  protected Transform targetTransform;
 
-    [SerializeField]
-    protected Transform targetTransform;
-
-    // Update is called once per frame
-    void Update () {
-        Handies.PointObjectAtAnother(transform, targetTransform);     
-	}
+  // Update is called once per frame
+  void Update()
+  {
+    Handies.PointObjectAtAnother(transform, targetTransform);
+  }
 }
 ```
 
-#### Handies.cs
+### Handies.cs
 
 None of that worked. Because those components are lazy. Handies is going to do the hard work. 
 >Is this class cohesive? Maybe?
@@ -80,16 +80,6 @@ public class Handies {
   protected static Vector2 mousePoint;
   protected static Camera cam;
 
-  public static void PointObjectAtAnother(Transform o1, Transform o2)
-  {
-    //o1.LookAt(o2);
-    float angleRad = Mathf.Atan2(o2.position.y - o1.position.y, o2.position.x - o1.position.x);
-    float angleDeg = Mathf.Rad2Deg * angleRad;
-
-    o1.rotation = Quaternion.Euler(0, 0, angleDeg-90);
-    //Debug.Log(angleDeg);
-  }
-
   public static Vector2 MousePosToWorldVec()
   {
     if (cam == null) cam = Camera.main;
@@ -97,5 +87,15 @@ public class Handies {
     mousePoint = Input.mousePosition;
     return ( cam.ScreenToWorldPoint(mousePoint) );
   }
+
+  public static void PointObjectAtAnother( Transform o1, Transform o2 )
+  {
+    //o1.LookAt(o2);
+    float angleRad = Mathf.Atan2(o2.position.y - o1.position.y, o2.position.x - o1.position.x);
+    float angleDeg = Mathf.Rad2Deg * angleRad;
+
+    o1.rotation = Quaternion.Euler(0, 0, angleDeg - 90);
+  }
+
 }
 ```

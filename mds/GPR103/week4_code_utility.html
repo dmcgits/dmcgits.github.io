@@ -31,7 +31,7 @@
       <h1 class="mume-header" id="demo-utility-class-with-static-function">Demo: Utility class with static function</h1>
 
 <p><img src="assets/week4/utility_pointy_unity.png" alt="Pointy demo in Unity"></p>
-<h4 class="mume-header" id="followthemousecs">FollowTheMouse.cs</h4>
+<h3 class="mume-header" id="followthemousecs">FollowTheMouse.cs</h3>
 
 <p>Make a sprite, use the <em>knob</em> circle from the sprite library. Scale it up a bit and add a script to follow the mouse.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// FollowTheMouse.cs</span>
@@ -50,30 +50,30 @@
 	<span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="lookatathingcs">LookAtAThing.cs</h4>
+</pre><h3 class="mume-header" id="pointatathingcs">PointAtAThing.cs</h3>
 
 <p><img src="assets/week4/triangle1.png" alt="triangle1"></p>
 <p>Make a <code>graphics</code> folder in the <code>assets</code> folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it&#x2019;s there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle.</p>
 <p>Make sure to hit the badly placed **&quot;<strong>apply</strong> button up top.</p>
 <p><img src="assets/week4/triangle_edit.png" alt="Sprite editor"></p>
-<p>Put it on your stage and then make  a new script, <code>LookAtAThing.cs</code>.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// LookAtAThing.cs</span>
+<p>Put it on your stage and then make  a new script, <code>PointAtAThing.cs</code>.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// PointAtAThing.cs</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
 <span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PointAtAThing</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LookAtAThing</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
+  <span class="token keyword">protected</span> <span class="token class-name">Transform</span> targetTransform<span class="token punctuation">;</span>
 
-    <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
-    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> targetTransform<span class="token punctuation">;</span>
-
-    <span class="token comment">// Update is called once per frame</span>
-    <span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Handies<span class="token punctuation">.</span><span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span>transform<span class="token punctuation">,</span> targetTransform<span class="token punctuation">)</span><span class="token punctuation">;</span>     
-	<span class="token punctuation">}</span>
+  <span class="token comment">// Update is called once per frame</span>
+  <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    Handies<span class="token punctuation">.</span><span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span>transform<span class="token punctuation">,</span> targetTransform<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="handiescs">Handies.cs</h4>
+</pre><h3 class="mume-header" id="handiescs">Handies.cs</h3>
 
 <p>None of that worked. Because those components are lazy. Handies is going to do the hard work.</p>
 <blockquote>
@@ -89,16 +89,6 @@
   <span class="token keyword">protected</span> <span class="token keyword">static</span> <span class="token class-name">Vector2</span> mousePoint<span class="token punctuation">;</span>
   <span class="token keyword">protected</span> <span class="token keyword">static</span> <span class="token class-name">Camera</span> cam<span class="token punctuation">;</span>
 
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span><span class="token class-name">Transform</span> o1<span class="token punctuation">,</span> <span class="token class-name">Transform</span> o2<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    <span class="token comment">//o1.LookAt(o2);</span>
-    <span class="token keyword">float</span> angleRad <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Atan2</span><span class="token punctuation">(</span>o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">float</span> angleDeg <span class="token operator">=</span> Mathf<span class="token punctuation">.</span>Rad2Deg <span class="token operator">*</span> angleRad<span class="token punctuation">;</span>
-
-    o1<span class="token punctuation">.</span>rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> angleDeg<span class="token operator">-</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//Debug.Log(angleDeg);</span>
-  <span class="token punctuation">}</span>
-
   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Vector2</span> <span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>cam <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> cam <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">;</span>
@@ -106,6 +96,16 @@
     mousePoint <span class="token operator">=</span> Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span> cam<span class="token punctuation">.</span><span class="token function">ScreenToWorldPoint</span><span class="token punctuation">(</span>mousePoint<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span> <span class="token class-name">Transform</span> o1<span class="token punctuation">,</span> <span class="token class-name">Transform</span> o2 <span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//o1.LookAt(o2);</span>
+    <span class="token keyword">float</span> angleRad <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Atan2</span><span class="token punctuation">(</span>o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> angleDeg <span class="token operator">=</span> Mathf<span class="token punctuation">.</span>Rad2Deg <span class="token operator">*</span> angleRad<span class="token punctuation">;</span>
+
+    o1<span class="token punctuation">.</span>rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> angleDeg <span class="token operator">-</span> <span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
 <span class="token punctuation">}</span>
 </pre>
       </div>
