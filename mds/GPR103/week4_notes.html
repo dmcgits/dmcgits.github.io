@@ -88,7 +88,33 @@
 <h3 class="mume-header" id="statics-wth">Statics WTH</h3>
 
 <p>Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It&#x2019;s like quantum entanglement.</p>
-<p><img src="assets/week4/classes_file_vs_memory.png" alt="classes statics"></p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">Orc</span> 
+<span class="token punctuation">{</span>
+  <span class="token keyword">string</span> _name <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> _age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token function">Orc</span><span class="token punctuation">(</span> <span class="token keyword">string</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    _name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    _age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Tester</span> <span class="token punctuation">:</span> <span class="token class-name">Monobehaviour</span>
+<span class="token punctuation">{</span>
+  <span class="token class-name">Orc</span> _orcPenny<span class="token punctuation">;</span>
+  <span class="token class-name">Orc</span> _orcEric<span class="token punctuation">;</span>
+
+  <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    _orcPenny <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Orc</span><span class="token punctuation">(</span><span class="token string">&quot;penny the new&quot;</span><span class="token punctuation">,</span> <span class="token number">160</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    _orcEric <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Orc</span><span class="token punctuation">(</span><span class="token string">&quot;eric the pensive&quot;</span><span class="token punctuation">,</span> <span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</pre><p><img src="assets/week4/classes_file_vs_memory.png" alt="classes statics"></p>
 <h3 class="mume-header" id="using-statics-to-make-utility-classes">Using statics to make utility classes</h3>
 
 <p>Sounds a lot like something we might do in an assessment. Let&#x2019;s look at how we can enclose a couple of <em>Unity API</em> calls in a single function, and call it from an object.</p>

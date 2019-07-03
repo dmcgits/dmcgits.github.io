@@ -67,6 +67,36 @@ Sort of. For most purposes yes, classes are simply designs that are made real in
 
 Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It's like quantum entanglement.
 
+```cs
+
+class Orc 
+{
+  string _name = "";
+  int _age = 0;
+
+  public Orc( string name, int age)
+  {
+    _name = name;
+    _age = age;
+  }
+}
+
+
+class Tester : Monobehaviour
+{
+  Orc _orcPenny;
+  Orc _orcEric;
+
+  void Start()
+  {
+    _orcPenny = new Orc("penny the new", 160);
+    _orcEric = new Orc("eric the pensive", 600);
+    
+  }
+}
+
+```
+
 ![classes statics](assets/week4/classes_file_vs_memory.png)
 
 ### Using statics to make utility classes
