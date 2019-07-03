@@ -88,7 +88,7 @@ It's dead easy: you look up the Camera class, find a function you need, and they
 
 ### Our utility class, Helpies
 
-[week5_code_utility.html](week5_code_utility.html)
+[week4_code_utility.html](week4_code_utility.html)
 
 ![Utility test: pointy](assets/week4/utility_pointy_unity.png)
 
