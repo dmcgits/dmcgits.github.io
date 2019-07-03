@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>week4_notes</title>
+      <title>week4_code_utility</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,95 +23,95 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="games-programming-week-4">Games Programming Week 4</h1>
+      <h1 class="mume-header" id="demo-utility-class-with-static-function">Demo: Utility class with static function</h1>
 
-<p>Storing your source files and collaborating. Project management and planning.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#games-programming-week-4"> Games Programming Week 4<br>
-</a>
-<ul>
-<li><a href="#utility-classes-static-functions-and-variables"> Utility classes: Static functions and variables<br>
-</a></li>
-<li><a href="#i-lied-about-classes"> I lied about classes<br>
-</a>
-<ul>
-<li><a href="#statics"> Statics<br>
-</a></li>
-<li><a href="#using-statics-to-make-utility-classes"> Using statics to make utility classes<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#what-are-unity-api-calls"> What are Unity API calls<br>
-</a></li>
-<li><a href="#our-utility-class-helpies"> Our utility class, Helpies<br>
-</a></li>
-<li><a href="#singletons"> Singletons<br>
-</a></li>
-<li><a href="#exercises"> Exercises<br>
-</a></li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="a1-exercise-3-unity-api-static-utility-functions">A1 exercise 3: Unity api, static utility functions</h2>
+<p><img src="assets/week4/utility_pointy_unity.png" alt="Pointy demo in Unity"></p>
+<h4 class="mume-header" id="followthemousecs">FollowTheMouse.cs</h4>
 
-<h3 class="mume-header" id="engine-implementation">Engine Implementation</h3>
+<p>Make a sprite, use the <em>knob</em> circle from the sprite library. Scale it up a bit and add a script to follow the mouse.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// FollowTheMouse.cs</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<p>You need to create a <code>Class</code> that provides a useful, fairly generic function. This function should make use of <strong>at least 2 Unity API calls</strong> and return a result. Having it call multiple Unity API calls instead of just one is what makes it useful&#x2026; otherwise we&#x2019;d just make the api call. Create a <strong>test class</strong> that shows this off running in the engine.</p>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FollowTheMouse</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTrans<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Vector3</span> mousePoint<span class="token punctuation">;</span>
+	<span class="token comment">// Use this for initialization</span>
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        myTrans <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+ 
+	<span class="token punctuation">}</span>
+	
+	<span class="token comment">// Update is called once per frame</span>
+	<span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        mousePoint <span class="token operator">=</span> Handies<span class="token punctuation">.</span><span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        myTrans<span class="token punctuation">.</span>position <span class="token operator">=</span> mousePoint<span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="lookatathingcs">LookAtAThing.cs</h4>
+
+<p><img src="assets/week4/triangle1.png" alt="triangle1"></p>
+<p>Make a <code>graphics</code> folder in the <code>assets</code> folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it&#x2019;s there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle.</p>
+<p>Make sure to hit the badly placed **&quot;<strong>apply</strong> button up top.</p>
+<p><img src="assets/week4/triangle_edit.png" alt="Sprite editor"></p>
+<p>Put it on your stage and then make  a new script, <code>LookAtAThing.cs</code>.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// LookAtAThing.cs</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LookAtAThing</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> targetTransform<span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTransform<span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        myTransform <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Update is called once per frame</span>
+    <span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Handies<span class="token punctuation">.</span><span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span>myTransform<span class="token punctuation">,</span> targetTransform<span class="token punctuation">)</span><span class="token punctuation">;</span>     
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="handiescs">Handies.cs</h4>
+
+<p>None of that worked. Because those components are lazy. Handies is going to do the hard work.</p>
 <blockquote>
-<p>We&#x2019;ll write out an example of this today using a Singleton or a static class.</p>
+<p>Is this class cohesive? Maybe?</p>
 </blockquote>
-<h3 class="mume-header" id="utility-classes-static-functions-and-variables">Utility classes: Static functions and variables</h3>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">//Handies.cs</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
 
-<p>If you&#x2019;ve ever used a unity api function without creating an object,you&#x2019;ve used a static function/variable.</p>
-<ul>
-<li><code>Debug.Log(string)</code></li>
-<li><code>Mathf.Round(number)</code></li>
-<li><code>Camera.main</code></li>
-<li><code>Input.mousePosition</code>,</li>
-</ul>
-<p>Classes like <code>Mathf</code> and <code>Input</code> can be thought of as utility classes. You don&#x2019;t make objects out of them, you use them .</p>
-<h3 class="mume-header" id="i-lied-about-classes">I lied about classes</h3>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Handies</span> <span class="token punctuation">{</span>
 
-<p>Sort of. For most purposes yes, classes are simply designs that are made real in the form of objects. But it turns out it&#x2019;s useful to be able to call functions on classes without wasting cycles and memory creating objects. The way to achieve this is with static functions.</p>
-<h4 class="mume-header" id="statics">Statics</h4>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span><span class="token class-name">Transform</span> o1<span class="token punctuation">,</span> <span class="token class-name">Transform</span> o2<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//o1.LookAt(o2);</span>
+        <span class="token keyword">float</span> angleRad <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Atan2</span><span class="token punctuation">(</span>o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> angleDeg <span class="token operator">=</span> Mathf<span class="token punctuation">.</span>Rad2Deg <span class="token operator">*</span> angleRad<span class="token punctuation">;</span>
 
-<p>Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It&#x2019;s like quantum entanglement.</p>
-<h4 class="mume-header" id="using-statics-to-make-utility-classes">Using statics to make utility classes</h4>
+        o1<span class="token punctuation">.</span>rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> angleDeg<span class="token operator">-</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//Debug.Log(angleDeg);</span>
+    <span class="token punctuation">}</span>
 
-<p>Sounds a lot like something we might do in an assessment. Let&#x2019;s look at how we can enclose a couple of <em>Unity API</em> calls in a single function, and call it from an object.</p>
-<hr>
-<h3 class="mume-header" id="what-are-unity-api-calls">What are Unity API calls</h3>
-
-<blockquote>
-<p><strong>API</strong> stands for <strong>Application Programming Interface</strong>. What it actually means is <strong>a way to control something with code</strong>. Whether it&#x2019;s facebook&#x2019;s platform and user data, or an arduino, or the unity game engine. They write a bunch of code that does amazing things, and then give us a bunch of functions we can call to control it.</p>
-</blockquote>
-<p>The Unity API is documented here:<br>
-<a href="https://docs.unity3d.com/ScriptReference/">https://docs.unity3d.com/ScriptReference/</a></p>
-<p><img src="assets/week4/unity_api_camera.png" alt="Unity API reference for Camera.main"></p>
-<p>It&#x2019;s dead easy: you look up the Camera class, find a function you need, and they explain it. They have source code too. All those autocomplete suggestions in Unity when you type Transform or Camera or Vector3? They&#x2019;re all fully explained and demonstrated.</p>
-<h3 class="mume-header" id="our-utility-class-helpies">Our utility class, Helpies</h3>
-
-<p><a href="week5_code_utility.html">week5_code_utility.html</a></p>
-<p><img src="assets/week4/utility_pointy_unity.png" alt="Utility test: pointy"></p>
-<hr>
-<h3 class="mume-header" id="singletons">Singletons</h3>
-
-<p>A Singleton is basically a trick to make all the objects you create from a class, say your custom &#x201C;GameManager&#x201D; class, essentially be the same object.</p>
-<ul>
-<li>It has all the state upside of an object</li>
-<li>It has the access anywhere upside of static functions</li>
-<li>It kinda breaks the rules of OO and should ideally be avoided. But it&#x2019;s super handy and the alternatives are&#x2026; not perfect either.</li>
-</ul>
-<p><a href="assets/week4/singleton_cs_trent.pdf">Trent&#x2019;s Singletons pdf</a></p>
-<hr>
-<hr>
-<h2 class="mume-header" id="exercises">Exercises</h2>
-
-<ol>
-<li>Part 3 of Asessment 1</li>
-</ol>
-<hr>
-
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Vector3</span> <span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Camera</span> cam <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">;</span>
+        <span class="token class-name">Vector3</span> mousePoint <span class="token operator">=</span> cam<span class="token punctuation">.</span><span class="token function">ScreenToWorldPoint</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Vector3</span><span class="token punctuation">(</span>Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">.</span>x<span class="token punctuation">,</span> Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        mousePoint<span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// ScreenToWorld sets z to -10, which is makes the sprite invisible</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>mousePoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre>
       </div>
       
       

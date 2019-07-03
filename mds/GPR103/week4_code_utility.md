@@ -1,6 +1,15 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Demo: Utility class with static function
 
-![Pointy demo in Unity](assets/week5/utility_pointy_unity.png)
+![Pointy demo in Unity](assets/week4/utility_pointy_unity.png)
 
 #### FollowTheMouse.cs
 
@@ -31,13 +40,13 @@ public class FollowTheMouse : MonoBehaviour {
 ```
 #### LookAtAThing.cs
 
-![triangle1](assets/week5/triangle1.png)
+![triangle1](assets/week4/triangle1.png)
 
 Make a `graphics` folder in the `assets` folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it's there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle. 
 
 Make sure to hit the badly placed **"**apply** button up top.
 
-![Sprite editor](assets/week5/triangle_edit.png)
+![Sprite editor](assets/week4/triangle_edit.png)
 
 Put it on your stage and then make  a new script, `LookAtAThing.cs`.
 

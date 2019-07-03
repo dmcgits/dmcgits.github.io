@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 5: Design Patterns
 
 Programming leads to lots of code. Lots of code leads to lots of files and objects and madness. 
@@ -9,34 +18,75 @@ Programming leads to lots of code. Lots of code leads to lots of files and objec
 
 <!-- code_chunk_output -->
 
-* [Week 5: Design Patterns](#week-5-design-patterns)
-	* [Assessment 1 due end of this week.](#assessment-1-due-end-of-this-week)
-		* [Encapsulation exercise](#encapsulation-exercise)
-		* [Inheritance/Polymorphism exercise](#inheritancepolymorphism-exercise)
-		* [Engine Implementation](#engine-implementation)
-	* [Design patterns and the Gang Of Four](#design-patterns-and-the-gang-of-four)
-	* [Patterns in Game Design](#patterns-in-game-design)
-		* [Game Loop](#game-loop)
-		* [Observer Pattern](#observer-pattern)
-		* [Utility classes: Static functions and variables](#utility-classes-static-functions-and-variables)
-		* [I lied about classes](#i-lied-about-classes)
-			* [Statics](#statics)
-			* [Using statics to make utility classes](#using-statics-to-make-utility-classes)
-		* [What are Unity API calls](#what-are-unity-api-calls)
-		* [Our utility class, Helpies](#our-utility-class-helpies)
-		* [Singletons](#singletons)
-		* [Component/Composition](#componentcomposition)
-	* [HacknPlan](#hacknplan)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
-			* [Double Buffering](#double-buffering)
-			* [Free examples of Design Patterns in unity c#](#free-examples-of-design-patterns-in-unity-c)
-			* [gameprogrammingpatterns dot com:](#gameprogrammingpatterns-dot-com)
-			* [Do factory](#do-factory)
+- [ Week 5: Design Patterns
+](#week-5-design-patterns)
+  - [ Exercides
+](#exercides)
+  - [ Resources
+](#resources)
+  - [ Assessment 1 due end of this week.
+](#assessment-1-due-end-of-this-week)
+    - [ Encapsulation exercise
+](#encapsulation-exercise)
+    - [ Inheritance/Polymorphism exercise
+](#inheritancepolymorphism-exercise)
+    - [ Engine Implementation
+](#engine-implementation)
+  - [ Design patterns and the Gang Of Four
+](#design-patterns-and-the-gang-of-four)
+  - [ Patterns in Game Design
+](#patterns-in-game-design)
+    - [ Game Loop
+](#game-loop)
+    - [ Observer Pattern
+](#observer-pattern)
+    - [ Component/Composition
+](#componentcomposition)
+  - [ HacknPlan
+](#hacknplan)
+  - [ Exercises
+](#exercises)
+      - [ Free examples of Design Patterns in unity c#
+](#free-examples-of-design-patterns-in-unity-c)
+      - [ gameprogrammingpatterns dot com:
+](#gameprogrammingpatterns-dot-com)
+      - [ Do factory
+](#do-factory)
+  - [ Source Control
+](#source-control)
+    - [ Git!
+](#git)
+    - [ Fail: Overwriting changes
+](#fail-overwriting-changes)
+      - [ Solution: Conflicts and merging
+](#solution-conflicts-and-merging)
+    - [ Big picture: waterfalls and agility
+](#big-picture-waterfalls-and-agility)
+    - [ Week to week view
+](#week-to-week-view)
+  - [ Exercises
+](#exercises-1)
+  - [ Resources
+](#resources-1)
 
 <!-- /code_chunk_output -->
 
+## Exercides
+2. Sign up for Trello, put in some cards for assignment 2
+3. Github:
+   1. Install git and git LFS at home too
+   2. Greate a repository on github. When it asks if you want to create a .gitignore, select the Unity template from the dropdown.
+   3. Clone that empty repo to your home computer.
+   4. Add a hello world unity project, or copy last week's sprite demo tower to the folder.
+   5. Add/stage all the files using either the commandline, SourceTree or GitKraken. 
+   6. Commit the files and then push to github.
 
+## Resources
+
+1. Trello - google
+2. HacknPlan - google
+3. Look at more api calls on the Unity tutorial scripting site.
+   
 ## Assessment 1 due end of this week.
 
 Yes, it is **due end of Sunday, March 31.** 
@@ -112,53 +162,7 @@ Make sure to read up properly on it here, because it's absolutely fundamental an
 <http://gameprogrammingpatterns.com/observer.html> 
 ___
 
-### Utility classes: Static functions and variables
 
-If you've ever used a unity api function without creating an object, say `Mathf.Round(number)`, or `Camera.main`, or `Input.mousePosition`, you've used a static function/variable. Classes like `Mathf` and `Input` can be thought of as utility classes. You don't make objects out of them, you use them .
-
-### I lied about classes
-
-Sort of. For most purposes yes, classes are simply designs that are made real in the form of objects. But it turns out it's useful to be able to call functions on classes without wasting cycles and memory creating objects. The way to achieve this is with static functions. 
-
-#### Statics
-Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It's like quantum entanglement.
-
-#### Using statics to make utility classes
-
-Sounds a lot like something we might do in an assessment. Let's look at how we can enclose a couple of _Unity API_ calls in a single function, and call it from an object.
-
-___ 
-
-### What are Unity API calls
-
-> **API** stands for **Application Programming Interface**. What it actually means is **a way to control something with code**. Whether it's facebook's platform and user data, or an arduino, or the unity game engine. They write a bunch of code that does amazing things, and then give us a bunch of functions we can call to control it.
-
-The Unity API is documented here:
-<https://docs.unity3d.com/ScriptReference/>
-
-![Unity API reference for Camera.main](assets/week5/unity_api_camera.png)
-
-It's dead easy: you look up the Camera class, find a function you need, and they explain it. They have source code too. All those autocomplete suggestions in Unity when you type Transform or Camera or Vector3? They're all fully explained and demonstrated.
-
-### Our utility class, Helpies
-
-[week5_code_utility.html](week5_code_utility.html)
-
-![Utility test: pointy](assets/week5/utility_pointy_unity.png)
-
-___
-
-### Singletons
-
-A Singleton is basically a trick to make all the objects you create from a class, say your custom "GameManager" class, essentially be the same object. 
-
-* It has all the state upside of an object
-* It has the access anywhere upside of static functions
-* It kinda breaks the rules of OO and should ideally be avoided. But it's super handy and the alternatives are.. not perfect either. 
-
-[Trent's Singletons pdf](assets/week5/singleton_cs_trent.pdf)
-
-___
 
 ### Component/Composition
 
@@ -183,14 +187,6 @@ ___
 2. Catch up on Sololearn, you need a certain amount of _c#_ to be automatic. Time you lose looking up basics, or on confusing errors, that's all potential coding time gone.
 3. Sign up to HacknPlan. 
 
-## Resources
-
-More detail on what we've covered here today. If a pattern  sounds like a good thing to use in assessment 2 or 3, go read more about it.
-
-#### Double Buffering
-
-Double buffering is important to know about, but for Unity for now that's handled by the engine. I wrote notes on it though, so here the are!
-[week 5 leftovers - double buffering](week5_leftovers.html)
 
 #### Free examples of Design Patterns in unity c#
 
@@ -211,3 +207,142 @@ Easy to read, gaming focussed.
 #### Do factory
  Has loads of patterns explaine in c#, though this time for .net (not unity specific)
  <https://www.dofactory.com/net/design-patterns>
+
+ Storing your source files and collaborating. Project management and planning.
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Games Programming Week 4](#games-programming-week-4)
+	* [Source Control](#source-control)
+		* [Git!](#git)
+		* [Fail: Overwriting changes](#fail-overwriting-changes)
+			* [Solution: Conflicts and merging](#solution-conflicts-and-merging)
+		* [Big picture: waterfalls and agility](#big-picture-waterfalls-and-agility)
+		* [Week to week view](#week-to-week-view)
+	* [Exercises](#exercises)
+	* [Resources](#resources)
+
+<!-- /code_chunk_output -->
+
+
+## Source Control
+
+How do 10, 100, 1000 people work on a project together? How do they do it without constantly overwriting eachother's code?
+___
+
+### Git!
+
+Git. Acquire code, merge people's work, keep history, branch out and merge from the main project trunk, much more.
+
+Shots of github:
+![github1](assets/week5/github1.png)
+![github2](assets/week5/github2.png)
+_A typical github project page_
+
+![github](assets/week5/git_clone.png)
+_Grabbing the cloning url_
+
+![github](assets/week5/git_clone_bash.png)
+_Bash for Windows_
+
+![github](assets/week5/git_clone_sourcetree.png)
+![github](assets/week5/git_sourcetree.png)
+_Sourcetree_
+
+![gitkraken](assets/week5/git_kraken.png)
+_Git Kraken_
+
+There are loads of tricky things about working on source files with other people:
+
+1. **Overwriting** other people's changes
+2. Opening a file someone has changed and **figuring out what they changed**.. was it just additions?
+3. 5 people have edited a file and a url for a game server was changed to point to a different region at some point. **Who made the change when, and what was the old value?**
+___
+
+### Fail: Overwriting changes
+
+> 1. James grabs PlayerController.cs from the files server and adds crouch movement.
+> 2. Darlene does the  same but adds double jump.
+> 3. If Darlene copies hers to the server last, it's bye bye crouch movement. If it's vice versa, no more double jump.
+
+#### Solution: Conflicts and merging
+
+Git can do a solid job of **merging changes** automatically, especially if they are in different sections of the file.
+
+When it can't merge changes, it notes a **conflict**. There are numerous interfaces for resolving conflicts, but they all boil down to showing you the two versions and letting you choose which change to keep from either version or hand editing.
+
+![Conflicts 1](assets/week5/conflicts1.png)
+![Conflicts 1](assets/week5/conflicts2.png)
+
+___
+
+ ## Project Management
+
+Games are big, people have their own ways of working, and making stuff is complicated.
+
+### Big picture: waterfalls and agility
+
+Usually a team project uses many resources over a fair amount of time to make something more complex than you would make on your own. Even ambitious one-person projects can be similar.
+
+You're attempting to take a big problem and use organisational skills and tools as a scaffolding to make things you can't just plan and hold all in your head.
+
+___
+
+ #### Waterfall development 
+ Is the God's Great Plan take on making things. You spend ages refining a document describing your project or game, get sign off, then just build till it's done. Graphic and concept design, modelling, texturing, shaders, animation. Program the code a module at a time till done. It's river passing over multiple falls (milestones) and it travels inexorably from source to destination. 
+ 
+ ![Waterfall](assets/week5/waterfall_white.png)
+ 
+ > It can certainly make things. Usually, you find a load of things you should have done differently, but often they can't be adjusted. Fine if you're making office software maybe, terrible if you find your game isn't good.
+ 
+ ___
+
+ #### Iterative/agile dev
+
+Iterative development, also referred to as agile, scrum and 200 other changing terms, is a process of sketching out your best idea of the project, and then going through a series of waterfalls on barebones products and features, then increasingly polished features. It has more in common with sketching thumbnails of comic pages, then pencilling, inking and colouring, making changes as you go.
+
+![Iterative](assets/week5/iterative_grey.png)
+
+___
+
+### Week to week view
+
+Kanban, Scrum?
+Trello, Jira, KanbanTool?
+
+1. backlog (features to go in)
+2. pre production
+3. ready
+4. in production
+5. Blocked 
+6. QA
+7. Approved
+
+![Trello](assets/week5/trello1.jpg)
+![hack](assets/week5/hackplan_sprint1.png)
+![hack](assets/week5/hackplan_metrics.png)
+
+___
+
+## Exercises
+
+1. Part 3 of Asessment 1
+2. Sign up for Trello, put in some cards for assignment 2
+3. Github:
+   1. Install git and git LFS at home too
+   1. Greate a repository on github. When it asks if you want to create a .gitignore, select the Unity template from the dropdown.
+   2. Clone that empty repo to your home computer.
+   3. Add a hello world unity project, or copy last week's sprite demo tower to the folder.
+   4. Add/stage all the files using either the commandline, SourceTree or GitKraken. 
+   5. Commit the files and then push to github.
+
+___
+
+## Resources
+
+1. Trello - google
+2. HacknPlan - google
+3. Look at more api calls on the Unity tutorial scripting site.

@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>week5_code_utility</title>
+      <title>week4_notes</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,95 +23,128 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="demo-utility-class-with-static-function">Demo: Utility class with static function</h1>
+      <h1 class="mume-header" id="games-programming-week-4">Games Programming Week 4</h1>
 
-<p><img src="assets/week5/utility_pointy_unity.png" alt="Pointy demo in Unity"></p>
-<h4 class="mume-header" id="followthemousecs">FollowTheMouse.cs</h4>
+<p>Storing your source files and collaborating. Project management and planning.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#games-programming-week-4">Games Programming Week 4</a>
+<ul>
+<li><a href="#source-control">Source Control</a>
+<ul>
+<li><a href="#git">Git!</a></li>
+<li><a href="#fail-overwriting-changes">Fail: Overwriting changes</a></li>
+<li><a href="#big-picture-waterfalls-and-agility">Big picture: waterfalls and agility</a></li>
+<li><a href="#week-to-week-view">Week to week view</a></li>
+</ul>
+</li>
+<li><a href="#exercises">Exercises</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="source-control">Source Control</h2>
 
-<p>Make a sprite, use the <em>knob</em> circle from the sprite library. Scale it up a bit and add a script to follow the mouse.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// FollowTheMouse.cs</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
-<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+<p>How do 10, 100, 1000 people work on a project together? How do they do it without constantly overwriting eachother&#x2019;s code?</p>
+<hr>
+<h3 class="mume-header" id="git">Git!</h3>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FollowTheMouse</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+<p>Git. Acquire code, merge people&#x2019;s work, keep history, branch out and merge from the main project trunk, much more.</p>
+<p>Shots of github:<br>
+<img src="assets/week4/github1.png" alt="github1"><br>
+<img src="assets/week4/github2.png" alt="github2"><br>
+<em>A typical github project page</em></p>
+<p><img src="assets/week4/git_clone.png" alt="github"><br>
+<em>Grabbing the cloning url</em></p>
+<p><img src="assets/week4/git_clone_bash.png" alt="github"><br>
+<em>Bash for Windows</em></p>
+<p><img src="assets/week4/git_clone_sourcetree.png" alt="github"><br>
+<img src="assets/week4/git_sourcetree.png" alt="github"><br>
+<em>Sourcetree</em></p>
+<p><img src="assets/week4/git_kraken.png" alt="gitkraken"><br>
+<em>Git Kraken</em></p>
+<p>There are loads of tricky things about working on source files with other people:</p>
+<ol>
+<li><strong>Overwriting</strong> other people&#x2019;s changes</li>
+<li>Opening a file someone has changed and <strong>figuring out what they changed</strong>&#x2026; was it just additions?</li>
+<li>5 people have edited a file and a url for a game server was changed to point to a different region at some point. <strong>Who made the change when, and what was the old value?</strong></li>
+</ol>
+<hr>
+<h3 class="mume-header" id="fail-overwriting-changes">Fail: Overwriting changes</h3>
 
-    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTrans<span class="token punctuation">;</span>
-    <span class="token keyword">protected</span> <span class="token class-name">Vector3</span> mousePoint<span class="token punctuation">;</span>
-	<span class="token comment">// Use this for initialization</span>
-	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        myTrans <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
- 
-	<span class="token punctuation">}</span>
-	
-	<span class="token comment">// Update is called once per frame</span>
-	<span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        mousePoint <span class="token operator">=</span> Handies<span class="token punctuation">.</span><span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        myTrans<span class="token punctuation">.</span>position <span class="token operator">=</span> mousePoint<span class="token punctuation">;</span> 
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="lookatathingcs">LookAtAThing.cs</h4>
-
-<p><img src="assets/week5/triangle1.png" alt="triangle1"></p>
-<p>Make a <code>graphics</code> folder in the <code>assets</code> folder in your Unity project window. Put this amazing triangle in there. Click the sprite once it&#x2019;s there and use the sprite editor (in the inspector) to put the blue pivot point circle at the bottom middle of the triangle.</p>
-<p>Make sure to hit the badly placed **&quot;<strong>apply</strong> button up top.</p>
-<p><img src="assets/week5/triangle_edit.png" alt="Sprite editor"></p>
-<p>Put it on your stage and then make  a new script, <code>LookAtAThing.cs</code>.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// LookAtAThing.cs</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
-<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
-
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LookAtAThing</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
-
-    <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
-    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> targetTransform<span class="token punctuation">;</span>
-
-    <span class="token keyword">protected</span> <span class="token class-name">Transform</span> myTransform<span class="token punctuation">;</span>
-
-    <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        myTransform <span class="token operator">=</span> gameObject<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment">// Update is called once per frame</span>
-    <span class="token keyword">void</span> <span class="token function">Update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Handies<span class="token punctuation">.</span><span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span>myTransform<span class="token punctuation">,</span> targetTransform<span class="token punctuation">)</span><span class="token punctuation">;</span>     
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="handiescs">Handies.cs</h4>
-
-<p>None of that worked. Because those components are lazy. Handies is going to do the hard work.</p>
 <blockquote>
-<p>Is this class cohesive? Maybe?</p>
+<ol>
+<li>James grabs PlayerController.cs from the files server and adds crouch movement.</li>
+<li>Darlene does the  same but adds double jump.</li>
+<li>If Darlene copies hers to the server last, it&#x2019;s bye bye crouch movement. If it&#x2019;s vice versa, no more double jump.</li>
+</ol>
 </blockquote>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">//Handies.cs</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
-<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
-<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+<h4 class="mume-header" id="solution-conflicts-and-merging">Solution: Conflicts and merging</h4>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Handies</span> <span class="token punctuation">{</span>
+<p>Git can do a solid job of <strong>merging changes</strong> automatically, especially if they are in different sections of the file.</p>
+<p>When it can&#x2019;t merge changes, it notes a <strong>conflict</strong>. There are numerous interfaces for resolving conflicts, but they all boil down to showing you the two versions and letting you choose which change to keep from either version or hand editing.</p>
+<p><img src="assets/week4/conflicts1.png" alt="Conflicts 1"><br>
+<img src="assets/week4/conflicts2.png" alt="Conflicts 1"></p>
+<hr>
+<h2>Project Management</h2>
+<p>Games are big, people have their own ways of working, and making stuff is complicated.</p>
+<h3 class="mume-header" id="big-picture-waterfalls-and-agility">Big picture: waterfalls and agility</h3>
 
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">PointObjectAtAnother</span><span class="token punctuation">(</span><span class="token class-name">Transform</span> o1<span class="token punctuation">,</span> <span class="token class-name">Transform</span> o2<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token comment">//o1.LookAt(o2);</span>
-        <span class="token keyword">float</span> angleRad <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Atan2</span><span class="token punctuation">(</span>o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o2<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x <span class="token operator">-</span> o1<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">float</span> angleDeg <span class="token operator">=</span> Mathf<span class="token punctuation">.</span>Rad2Deg <span class="token operator">*</span> angleRad<span class="token punctuation">;</span>
+<p>Usually a team project uses many resources over a fair amount of time to make something more complex than you would make on your own. Even ambitious one-person projects can be similar.</p>
+<p>You&#x2019;re attempting to take a big problem and use organisational skills and tools as a scaffolding to make things you can&#x2019;t just plan and hold all in your head.</p>
+<hr>
+<h4>Waterfall development</h4>
+<p>Is the God&#x2019;s Great Plan take on making things. You spend ages refining a document describing your project or game, get sign off, then just build till it&#x2019;s done. Graphic and concept design, modelling, texturing, shaders, animation. Program the code a module at a time till done. It&#x2019;s river passing over multiple falls (milestones) and it travels inexorably from source to destination.</p>
+<p><img src="assets/week4/waterfall_white.png" alt="Waterfall"></p>
+<blockquote>
+<p>It can certainly make things. Usually, you find a load of things you should have done differently, but often they can&#x2019;t be adjusted. Fine if you&#x2019;re making office software maybe, terrible if you find your game isn&#x2019;t good.</p>
+</blockquote>
+<hr>
+<h4>Iterative/agile dev</h4>
+<p>Iterative development, also referred to as agile, scrum and 200 other changing terms, is a process of sketching out your best idea of the project, and then going through a series of waterfalls on barebones products and features, then increasingly polished features. It has more in common with sketching thumbnails of comic pages, then pencilling, inking and colouring, making changes as you go.</p>
+<p><img src="assets/week4/iterative_grey.png" alt="Iterative"></p>
+<hr>
+<h3 class="mume-header" id="week-to-week-view">Week to week view</h3>
 
-        o1<span class="token punctuation">.</span>rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> angleDeg<span class="token operator">-</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//Debug.Log(angleDeg);</span>
-    <span class="token punctuation">}</span>
+<p>Kanban, Scrum?<br>
+Trello, Jira, KanbanTool?</p>
+<ol>
+<li>backlog (features to go in)</li>
+<li>pre production</li>
+<li>ready</li>
+<li>in production</li>
+<li>Blocked</li>
+<li>QA</li>
+<li>Approved</li>
+</ol>
+<p><img src="assets/week4/trello1.jpg" alt="Trello"><br>
+<img src="assets/week4/hackplan_sprint1.png" alt="hack"><br>
+<img src="assets/week4/hackplan_metrics.png" alt="hack"></p>
+<hr>
+<h2 class="mume-header" id="exercises">Exercises</h2>
 
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Vector3</span> <span class="token function">MousePosToWorldVec</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token class-name">Camera</span> cam <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">;</span>
-        <span class="token class-name">Vector3</span> mousePoint <span class="token operator">=</span> cam<span class="token punctuation">.</span><span class="token function">ScreenToWorldPoint</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Vector3</span><span class="token punctuation">(</span>Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">.</span>x<span class="token punctuation">,</span> Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        mousePoint<span class="token punctuation">.</span>z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// ScreenToWorld sets z to -10, which is makes the sprite invisible</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>mousePoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</pre>
+<ol>
+<li>Part 3 of Asessment 1</li>
+<li>Sign up for Trello, put in some cards for assignment 2</li>
+<li>Github:
+<ol>
+<li>Install git and git LFS at home too</li>
+<li>Greate a repository on github. When it asks if you want to create a .gitignore, select the Unity template from the dropdown.</li>
+<li>Clone that empty repo to your home computer.</li>
+<li>Add a hello world unity project, or copy last week&#x2019;s sprite demo tower to the folder.</li>
+<li>Add/stage all the files using either the commandline, SourceTree or GitKraken.</li>
+<li>Commit the files and then push to github.</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<ol>
+<li>Trello - google</li>
+<li>HacknPlan - google</li>
+<li>Look at more api calls on the Unity tutorial scripting site.</li>
+</ol>
+
       </div>
       
       

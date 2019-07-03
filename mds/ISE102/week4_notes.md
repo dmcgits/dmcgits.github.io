@@ -347,7 +347,7 @@ int main()
 
   Sleep(3000);  //wait a different bit..
   if (toastIsReady( timeCookingStarted, PERFECT_COOKING_TIME )) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
-}
+} 
 ```
 
 
