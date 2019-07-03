@@ -89,14 +89,11 @@ class Orc
     _age = age;
   }
 
-
-
   public string GetName()
   {
     return (_name);
   }
 }
-
 
 class Tester : Monobehaviour
 {
