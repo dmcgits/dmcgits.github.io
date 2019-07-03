@@ -71,13 +71,29 @@ Statics are like exceptions to the rule of encapsulation. Instead of every chair
 
 class Orc 
 {
-  string _name = "";
-  int _age = 0;
+  static public int gestationMonths = 6;
+  protected string _name = "";
+  protected int _age = 0;
+
+  static public string TranslateToOrcish(string englishWords)
+  {
+      // do some lookup
+      // in a orc dictionary
+      string orcishWords;
+      return (orcishWords);
+  }
 
   public Orc( string name, int age)
   {
     _name = name;
     _age = age;
+  }
+
+
+
+  public string GetName()
+  {
+    return (_name);
   }
 }
 
@@ -91,6 +107,12 @@ class Tester : Monobehaviour
   {
     _orcPenny = new Orc("penny the new", 160);
     _orcEric = new Orc("eric the pensive", 600);
+
+    Debug.Log("Her title is " + _orcPenny.GetName());
+    Debug.Log("An orc usually born about " + Orc.gestationMonths + " months after parent kisses.");
+
+    Debug.Log("Big hammer in orcish is: " + Orc.TranslateToOrcish("Big hammer");
+    
     
   }
 }
