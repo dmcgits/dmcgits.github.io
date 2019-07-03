@@ -22,13 +22,13 @@ export_on_save:
 ](#a1-exercise-3-unity-api-static-utility-functions)
     - [ Engine Implementation
 ](#engine-implementation)
-    - [ Utility classes: Static functions and variables
+  - [ Utility classes: Static functions and variables
 ](#utility-classes-static-functions-and-variables)
-    - [ I lied about classes
-](#i-lied-about-classes)
-      - [ Statics
-](#statics)
-      - [ Using statics to make utility classes
+    - [ They lied about classes
+](#they-lied-about-classes)
+    - [ Statics WTH
+](#statics-wth)
+    - [ Using statics to make utility classes
 ](#using-statics-to-make-utility-classes)
     - [ What are Unity API calls
 ](#what-are-unity-api-calls)
@@ -48,7 +48,7 @@ You need to create a `Class` that provides a useful, fairly generic function. Th
 
 > We'll write out an example of this today using a Singleton or a static class.
 
-### Utility classes: Static functions and variables
+## Utility classes: Static functions and variables
 
 If you've ever used a unity api function without creating an object,you've used a static function/variable. 
 
@@ -59,14 +59,17 @@ If you've ever used a unity api function without creating an object,you've used 
 
 Classes like `Mathf` and `Input` can be thought of as utility classes. You don't make objects out of them, you use them .
 
-### I lied about classes
+### They lied about classes
 
 Sort of. For most purposes yes, classes are simply designs that are made real in the form of objects. But it turns out it's useful to be able to call functions on classes without wasting cycles and memory creating objects. The way to achieve this is with static functions. 
 
-#### Statics
+### Statics WTH
+
 Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It's like quantum entanglement.
 
-#### Using statics to make utility classes
+![classes statics](assets/week4/classes_file_vs_memory.png)
+
+### Using statics to make utility classes
 
 Sounds a lot like something we might do in an assessment. Let's look at how we can enclose a couple of _Unity API_ calls in a single function, and call it from an object.
 
