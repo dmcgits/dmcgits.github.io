@@ -66,7 +66,7 @@ I started in 2D and try to follow the principles of character design developed a
 - Concept, solve early forms for turnarounds in *ZBrush* using base meshes reducing revisions of 2D.  -
 
 #Change creative tech to programming skills, this section is
-## Creative Technologist
+### Creative Technologist
 Working for *TBWA* and *We Are Social* bridging design and programming departments, delivering 3D sites, augmented reality, motion sensing apps, games and banners to clients including _Nissan_, _Roadshow_, _Sony Playstation_, _Coopers Brewery_. *Flash (AS3)* and later *Unity*.
 
 ### Demonstration and product support
