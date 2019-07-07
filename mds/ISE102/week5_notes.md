@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ISE102 Week 5: More about functions
 
 Functions are the main workhorse of your programs. You'll make objects to hold functions, an you'll create variables for functions to act on them. Functions are the **do** in programming.
@@ -9,108 +18,226 @@ Code in the notes is duplicated here: [week5_code.html](week5_code.html)
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
-	1. [First, easier visual studio](#first-easier-visual-studio)
-	2. [Default arguments](#default-arguments)
-			1. [Solution 1: Pass an argument](#solution-1-pass-an-argument)
-			2. [Solution 2: Default values for arguments!](#solution-2-default-values-for-arguments)
-			3. [Defaults for multiple arguments](#defaults-for-multiple-arguments)
-	3. [Function Overloading](#function-overloading)
-	4. [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
-	5. [To Do](#to-do)
-	6. [Resources](#resources)
+- [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
+  - [Default arguments](#default-arguments)
+    - [Arguments in a game](#arguments-in-a-game)
+    - [Hadoken with arguments](#hadoken-with-arguments)
+    - [Default values for arguments](#default-values-for-arguments)
+      - [Defaults for multiple arguments](#defaults-for-multiple-arguments)
+  - [Function Overloading](#function-overloading)
+  - [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
+  - [To Do](#to-do)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
-## First, easier visual studio
-
-We'll make a template project that already has the _linker-system-console_ preference set and contains a basic Main.cpp
-
 ## Default arguments
 
-_Parameters_, or _arguments_, are the info you give to a function to do its work. Here's some psuedocode to remind us what a function passing an argument is all about.
+_Parameters_, or _arguments_, are the info you give to a function to do its work. Here's some psuedocode for a real life example. In real life we're constantly asking for help that requires something be passed to the helper.
 
 ```
-Hey guy, put my drink in the fridge (this can of coke)
+situation NeedDrinkRefrigerated --------------------------
 
-// Guy puts the coke in the fridge
+  Ask a helper:
+    put my drink in the fridge (this can of coke), watch to see if they did.
+  If helper did put drink in fridge:
+    say thanks
+
+end ----------------------------------------------------
+
+...
+
+helper PutDrinkInFridge ( can of drink ) ----
+
+  if (got can of drink ):
+    put can of drink in fridge
+    return confirmation that yes, it's in fridge
+  otherwise:
+    ERROR: CANNOT REFRIGERATE IMAGINARY DRINK IN REAL FRIDGE
+
+end ----------------------------------------------
+
 ```
 
-This function obviously needs a parameter whenever you call it, of type drink!
+Also: 
+  * Going to post office and supplying a letter or parcel to the clerk. 
+  * Ordering McDonalds and supplying credit card
+  * Asking DJ to play your jam requires the name of your jam.
 
-```
-Hey guy, put my drink in the fridge ()
+### Arguments in a game
 
-// Guy: ERROR Your imaginary drink?
-```
+In Street Fighter 4, Ryu throws balls of chi energy (_hadoken_) from his hands. They can be **blue** (air) or **red** (fire). Each also has different affects. There are also more variants for other characters.
 
-Here's our fail in code:
+![hadoken](assets/week5/hadoken_variants.jpg)
 
-```c++
+> If we're going to have a function that throws hadokens, it'll need to know what colour type throwing.
 
+### Hadoken with arguments
+
+```cpp
 #include <iostream>
-// This function has an argument, degrees, of type int.
-void turnRight( int degrees )
-{
-	return;
-}
-
-int main()
-{
-	turnRight(); // calling with no argument..
-}
-```
-
-![error no argument](assets/week5/no_arguments_ide_error.png)
-_IDE error_
-
-![Bjarne](assets/week1/bjarne.jpg)
-_He's not angry, just disappointed_
-
-___
-
-
-#### Solution 1: Pass an argument
-Obviously. Just never forget to pass an argument. But if it's a public function, there's a risk people will fail to pass an argument. 
-
-___
-
-#### Solution 2: Default values for arguments!
-
-Turns out **you can define a default value for an argument**. The function doesn't cause an error, you can compile.
-
-It won't always make sense. If you tell your mate to put your drink in the fridge and just hold out your empty hand.. he won't just put a random drink in the fridge. Some functions don't have sensible defaults.
-
-On the other hand if you ask a character to turn right, 90 degrees might be totally reasonable as a default.
-
-```c++
-#include <iostream>
-// This function has an argument, degrees, of type int.
+#include <Windows.h>
 using namespace std;
 
-int _rotation = 0;
-
-void turnRight( int degrees = 90 )
+enum HadokenType
 {
-	_rotation -= degrees;
-	return;
+  AIR_HADOKEN,
+  FIRE_HADOKEN,
+  METSU_HADOKEN
+};
+
+void throwHadoken(HadokenType type)
+{
+  switch (type)
+  {
+  case AIR_HADOKEN:
+    cout << "\tAIR HADOKEN!! ~~~~*O}\n\n";
+    break;
+  case FIRE_HADOKEN:
+    cout << "\tFIRE HADOKEN!! ~~~~33}}\n\n";
+    break;
+  }
+  return;
 }
 
 int main()
 {
-	cout << "Rotation:  " << _rotation << endl;
-	turnRight(45); // calling with no argument..
-	cout << "Rotation:  " << _rotation << endl;
-	turnRight();
-	cout << "Rotation:  " << _rotation << endl;
-	return 0;
+  cout << "\n\n\tPress A for air hadoken, F for fire hadoken, Q for Quit. \n\n";
+
+  bool userHasQuit = false;
+  bool aIsHeld = false;
+  bool fIsHeld = false;
+
+  while (!userHasQuit)
+  {
+    if (GetKeyState('A') & 0x8000)
+    {
+      // if a isn't already down, throw a fireball
+      if (!aIsHeld)
+      {
+        aIsHeld = true;
+        throwHadoken(AIR_HADOKEN);
+      }
+    }
+    else {
+      if (aIsHeld) aIsHeld = false;
+    }
+
+    if (GetKeyState('F') & 0x8000)
+    {
+      // if a isn't already down, throw a fireball
+      if (!fIsHeld)
+      {
+        fIsHeld = true;
+        throwHadoken(FIRE_HADOKEN);
+      }
+    }
+    else {
+      if (fIsHeld) fIsHeld = false;
+    }
+
+    if (GetKeyState('Q') & 0x8000)
+    {
+      userHasQuit = true;
+    }
+
+  }
+  return(0);
+
+}
+```
+___
+
+### Default values for arguments
+
+Some things are so common that people would reasonably expect them to just be the default setting. Air hadokens are thrown so much more than fire hadokens that people just think of them as _the_ hadoken.
+
+In C++ **you can define a default value for an argument**. 
+* If you call the function with no argument it will use the default value.
+* If you provide an argument itt'll be used instead. The default is ignored.
+
+Make a new project, DefaultArgs.
+
+> I've added some color spice to the example. 
+> * Save [termcolor.h](code/week5/termcolor.hpp) to your DefaultArgs project folder, where the cpp files are already located.
+> * In solution explorer, under the DefaultsArgs project: right click _Header Files_ and _add -> existing item_
+
+
+```c++
+#include <iostream>
+#include <Windows.h>
+#include "termcolor.hpp"
+using namespace std;
+
+enum HadokenType
+{
+  AIR_HADOKEN,
+  FIRE_HADOKEN,
+  METSU_HADOKEN
+};
+
+// Air hadokens are thrown so often (compared to fire) that 
+// people think of them as just "hadokens". I'll set them as default.
+void throwHadoken(HadokenType type = AIR_HADOKEN)
+{
+  switch (type)
+  {
+  case AIR_HADOKEN:
+    cout << "\tAIR HADOKEN!! " << termcolor::white << termcolor::on_blue << "~~~~*O}\n\n" << termcolor::reset;
+    break;
+  case FIRE_HADOKEN:
+    cout << "\tFIRE HADOKEN!! " << termcolor::yellow << termcolor::on_red << "~~~~33}}\n\n" << termcolor::reset;
+    break;
+  }
+  return;
 }
 
-/* Output:
-Rotation:  0
-Rotation:  -45
-Rotation:  -135
-*/
+int main()
+{
+  cout << termcolor::reset << "\n\tPress A for air hadoken, F for fire hadoken, Q for Quit. \n\n";
+
+  bool userHasQuit = false;
+  bool aIsHeld = false;
+  bool fIsHeld = false;
+
+  while (!userHasQuit)
+  {
+    if (GetKeyState('A') & 0x8000)
+    {
+      // if a isn't already down, throw a fireball
+      if (!aIsHeld)
+      {
+        aIsHeld = true;
+        throwHadoken();
+      }
+    }
+    else {
+      if (aIsHeld) aIsHeld = false;
+    }
+
+    if (GetKeyState('F') & 0x8000)
+    {
+      // if a isn't already down, throw a fireball
+      if (!fIsHeld)
+      {
+        fIsHeld = true;
+        throwHadoken(FIRE_HADOKEN);
+      }
+    }
+    else {
+      if (fIsHeld) fIsHeld = false;
+    }
+
+    if (GetKeyState('Q') & 0x8000)
+    {
+      cout << termcolor::reset;
+      userHasQuit = true;
+    }
+
+  }
+  return(0);
+
+}
 ```
 ![Bjarne not bad](assets/week5/bjarne_oo.jpg)
 _Now you have his attention_
