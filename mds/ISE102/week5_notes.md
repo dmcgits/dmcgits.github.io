@@ -18,16 +18,26 @@ Code in the notes is duplicated here: [week5_code.html](week5_code.html)
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 5: More about functions](#ise102-week-5-more-about-functions)
-  - [Default arguments](#default-arguments)
-    - [Arguments in a game](#arguments-in-a-game)
-    - [Hadoken with arguments](#hadoken-with-arguments)
-    - [Default values for arguments](#default-values-for-arguments)
-      - [Defaults for multiple arguments](#defaults-for-multiple-arguments)
-  - [Function Overloading](#function-overloading)
-  - [Passing values and vectors versus arrays](#passing-values-and-vectors-versus-arrays)
-  - [To Do](#to-do)
-  - [Resources](#resources)
+- [ ISE102 Week 5: More about functions
+](#ise102-week-5-more-about-functions)
+  - [ Default arguments
+](#default-arguments)
+    - [ Arguments in a game
+](#arguments-in-a-game)
+    - [ Hadoken with arguments
+](#hadoken-with-arguments)
+    - [ Default values for arguments
+](#default-values-for-arguments)
+      - [ Defaults for multiple arguments
+](#defaults-for-multiple-arguments)
+  - [ Function Overloading
+](#function-overloading)
+  - [ Passing values and vectors versus arrays
+](#passing-values-and-vectors-versus-arrays)
+  - [ To Do
+](#to-do)
+  - [ Resources
+](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -75,10 +85,11 @@ In Street Fighter 4, Ryu throws balls of chi energy (_hadoken_) from his hands. 
 ### Hadoken with arguments
 
 ```cpp
-#include <iostream>
+#include ________
 #include <Windows.h>
-using namespace std;
+using namespace ___;
 
+// Set up constants to describe each hadoken. These will be /// integers 0, 1 and 2, to computer but readable english to us.
 enum HadokenType
 {
   AIR_HADOKEN,
@@ -86,14 +97,15 @@ enum HadokenType
   METSU_HADOKEN
 };
 
-void throwHadoken(HadokenType type)
+// A function we call each time someone executes a hadoken
+____ throwHadoken(HadokenType type)
 {
   switch (type)
   {
-  case AIR_HADOKEN:
+  ____ AIR_HADOKEN:
     cout << "\tAIR HADOKEN!! ~~~~*O}\n\n";
     break;
-  case FIRE_HADOKEN:
+  ____ FIRE_HADOKEN:
     cout << "\tFIRE HADOKEN!! ~~~~33}}\n\n";
     break;
   }
@@ -104,15 +116,17 @@ int main()
 {
   cout << "\n\n\tPress A for air hadoken, F for fire hadoken, Q for Quit. \n\n";
 
-  bool userHasQuit = false;
-  bool aIsHeld = false;
-  bool fIsHeld = false;
+/// Variables to keep track of the state of keyboard presses
+  ____ userHasQuit = false;
+  ____ aIsHeld = false;
+  ____ fIsHeld = false; // Initialise each as unheld
 
   while (!userHasQuit)
   {
+    // The 0x8000 thing a flag windows uses to represent key state. The single & joins the two using "binary and"
     if (GetKeyState('A') & 0x8000)
     {
-      // if a isn't already down, throw a fireball
+      // if a isn't already down, throw a hadoken
       if (!aIsHeld)
       {
         aIsHeld = true;
@@ -129,20 +143,20 @@ int main()
       if (!fIsHeld)
       {
         fIsHeld = true;
-        throwHadoken(FIRE_HADOKEN);
+        throwHadoken(__________);
       }
     }
     else {
-      if (fIsHeld) fIsHeld = false;
+      if (fIsHeld) fIsHeld = ____;
     }
 
     if (GetKeyState('Q') & 0x8000)
     {
-      userHasQuit = true;
+      userHasQuit = ____;
     }
 
   }
-  return(0);
+  return(_);
 
 }
 ```
@@ -164,10 +178,10 @@ Make a new project, DefaultArgs.
 
 
 ```c++
-#include <iostream>
+#include _________
 #include <Windows.h>
 #include "termcolor.hpp"
-using namespace std;
+using namespace ___;
 
 enum HadokenType
 {
@@ -178,14 +192,14 @@ enum HadokenType
 
 // Air hadokens are thrown so often (compared to fire) that 
 // people think of them as just "hadokens". I'll set them as default.
-void throwHadoken(HadokenType type = AIR_HADOKEN)
+____ throwHadoken(HadokenType type = AIR_HADOKEN)
 {
   switch (type)
   {
-  case AIR_HADOKEN:
+  ____ AIR_HADOKEN:
     cout << "\tAIR HADOKEN!! " << termcolor::white << termcolor::on_blue << "~~~~*O}\n\n" << termcolor::reset;
     break;
-  case FIRE_HADOKEN:
+  ____ FIRE_HADOKEN:
     cout << "\tFIRE HADOKEN!! " << termcolor::yellow << termcolor::on_red << "~~~~33}}\n\n" << termcolor::reset;
     break;
   }
@@ -196,9 +210,9 @@ int main()
 {
   cout << termcolor::reset << "\n\tPress A for air hadoken, F for fire hadoken, Q for Quit. \n\n";
 
-  bool userHasQuit = false;
-  bool aIsHeld = false;
-  bool fIsHeld = false;
+  ____ userHasQuit = false;
+  ____ aIsHeld = false;
+  ____ fIsHeld = false;
 
   while (!userHasQuit)
   {
@@ -221,21 +235,21 @@ int main()
       if (!fIsHeld)
       {
         fIsHeld = true;
-        throwHadoken(FIRE_HADOKEN);
+        throwHadoken(__________);
       }
     }
     else {
-      if (fIsHeld) fIsHeld = false;
+      if (fIsHeld) fIsHeld = _____;
     }
 
     if (GetKeyState('Q') & 0x8000)
     {
-      cout << termcolor::reset;
-      userHasQuit = true;
+      ____ << termcolor::reset;
+      userHasQuit = ___;
     }
 
   }
-  return(0);
+  return(_);
 
 }
 ```
