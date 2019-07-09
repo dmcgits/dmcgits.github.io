@@ -26,63 +26,64 @@
       <h1 class="mume-header" id="gpr103-week-2-module-12">GPR103 Week 2 (module 1.2)</h1>
 
 <p>Learning to hide the grease, pistons and wires.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#gpr103-week-2-module-12">GPR103 Week 2 (module 1.2)</a>
-<ul>
-<li><a href="#about-assignment-1-part-1">About Assignment 1 Part 1</a></li>
-<li><a href="#exercises-to-do-before-next-class">Exercises to do before next class</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#new-design-pattern-composition">New design pattern, Composition!</a></li>
-<li><a href="#why-not-just-inheritance">Why not just inheritance?</a>
-<ul>
-<li><a href="#inheritance-in-unity">Inheritance in Unity</a></li>
-<li><a href="#limits-of-inheritance">Limits of Inheritance</a></li>
-</ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<li><a href="#GPR103-Week-2-module-12">GPR103 Week 2 (module 1.2)</a>
+<ol>
+<li><a href="#About-Assignment-1-Part-1">About Assignment 1 Part 1</a></li>
+<li><a href="#Exercises-to-do-before-next-class">Exercises to do before next class</a></li>
+<li><a href="#Resources">Resources</a></li>
+<li><a href="#New-design-pattern-Composition">New design pattern, Composition!</a></li>
+<li><a href="#Why-not-just-inheritance">Why not just inheritance?</a>
+<ol>
+<li><a href="#Inheritance-in-Unity">Inheritance in Unity</a></li>
+<li><a href="#Limits-of-Inheritance">Limits of Inheritance</a></li>
+</ol>
 </li>
-<li><a href="#composition-saves-the-day">Composition saves the day:</a>
-<ul>
-<li><a href="#put-your-components-on-gameobjects">Put your components on GameObjects</a></li>
-</ul>
+<li><a href="#Composition-saves-the-day">Composition saves the day:</a>
+<ol>
+<li><a href="#Put-your-components-on-GameObjects">Put your components on GameObjects</a></li>
+</ol>
 </li>
-<li><a href="#making-a-rifle-with-inheritance-and-composition">Making a rifle with inheritance and composition</a>
-<ul>
-<li><a href="#inheritance-from-monobehaviour-to-rifle-and-pistol">Inheritance: From Monobehaviour to Rifle and Pistol.</a></li>
-<li><a href="#composition-add-ons">Composition: add ons</a></li>
-<li><a href="#handy-tip-requirecomponent">Handy tip: RequireComponent</a></li>
-</ul>
+<li><a href="#Making-a-rifle-with-inheritance-and-composition">Making a rifle with inheritance and composition</a>
+<ol>
+<li><a href="#Inheritance-From-Monobehaviour-to-Rifle-and-Pistol">Inheritance: From Monobehaviour to Rifle and Pistol.</a></li>
+<li><a href="#Composition-add-ons">Composition: add ons</a></li>
+<li><a href="#Handy-tip-RequireComponent">Handy tip: RequireComponent</a></li>
+</ol>
 </li>
-<li><a href="#object-oriented-design-principles">Object oriented design principles.</a>
-<ul>
-<li><a href="#what-is-encapsulation">What is encapsulation?</a>
-<ul>
-<li><a href="#goldilocks-factor">Goldilocks factor</a></li>
-</ul>
+<li><a href="#Object-oriented-design-principles">Object oriented design principles.</a>
+<ol>
+<li><a href="#What-is-encapsulation">What is encapsulation?</a>
+<ol>
+<li><a href="#Goldilocks-factor">Goldilocks factor</a></li>
+</ol>
 </li>
-</ul>
+</ol>
 </li>
-<li><a href="#encapsulation-in-practice">Encapsulation in practice</a>
-<ul>
-<li><a href="#classes-and-objects-refresher">Classes and Objects refresher</a></li>
-<li><a href="#scope-in-_c_-and-_c_">Scope in <em>C#</em> and <em>C++</em></a></li>
-<li><a href="#access-modifiers">Access modifiers</a></li>
-<li><a href="#using-functions-to-hide-variables">Using functions to hide variables</a></li>
-<li><a href="#access-functions-aka-properties">Access functions aka properties</a></li>
-<li><a href="#creating-objects-vs-componentsmonobehaviours">Creating Objects vs Components/Monobehaviours</a></li>
-<li><a href="#constructors-and-destructors">Constructors and destructors</a></li>
-</ul>
+<li><a href="#Encapsulation-in-practice">Encapsulation in practice</a>
+<ol>
+<li><a href="#Classes-and-Objects-refresher">Classes and Objects refresher</a></li>
+<li><a href="#Scope-in-_C_-and-_C_">Scope in <em>C#</em> and <em>C++</em></a></li>
+<li><a href="#Access-modifiers">Access modifiers</a></li>
+<li><a href="#Using-functions-to-hide-variables">Using functions to hide variables</a></li>
+<li><a href="#Access-functions-aka-properties">Access functions aka properties</a></li>
+<li><a href="#Creating-Objects-vs-ComponentsMonobehaviours">Creating Objects vs Components/Monobehaviours</a></li>
+<li><a href="#Constructors-and-destructors">Constructors and destructors</a></li>
+</ol>
 </li>
-<li><a href="#more-detail-on-cohesion">More detail on Cohesion</a>
-<ul>
-<li><a href="#medium-cohesion">Medium Cohesion</a></li>
-<li><a href="#high-cohesion">High cohesion</a></li>
-</ul>
+<li><a href="#More-detail-on-Cohesion">More detail on Cohesion</a>
+<ol>
+<li><a href="#Medium-Cohesion">Medium Cohesion</a></li>
+<li><a href="#High-cohesion">High cohesion</a></li>
+</ol>
 </li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <hr>
 <h2 class="mume-header" id="about-assignment-1-part-1">About Assignment 1 Part 1</h2>
 
+<p>Assignment 1 Exercise 1 <a href="a1_exercise1_brief.html">rebrief is here</a>.</p>
 <hr>
 <h2 class="mume-header" id="exercises-to-do-before-next-class">Exercises to do before next class</h2>
 
@@ -92,7 +93,6 @@
 <hr>
 <h2 class="mume-header" id="resources">Resources</h2>
 
-<p>Assignment 1 Exercise 1 <a href="a1_exercise1_brief.html">rebrief is here</a>.</p>
 <p>Rifle Unity Project: <a href="assets/week2/WeaponAddOns.7z">WeaponAddOns.7z</a></p>
 <p>Documentation and Tutes:</p>
 <ol>

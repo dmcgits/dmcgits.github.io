@@ -15,34 +15,34 @@ Learning to hide the grease, pistons and wires.
 
 <!-- code_chunk_output -->
 
-- [GPR103 Week 2 (module 1.2)](#gpr103-week-2-module-12)
-  - [About Assignment 1 Part 1](#about-assignment-1-part-1)
-  - [Exercises to do before next class](#exercises-to-do-before-next-class)
-  - [Resources](#resources)
-  - [New design pattern, Composition!](#new-design-pattern-composition)
-  - [Why not just inheritance?](#why-not-just-inheritance)
-    - [Inheritance in Unity](#inheritance-in-unity)
-    - [Limits of Inheritance](#limits-of-inheritance)
-  - [Composition saves the day:](#composition-saves-the-day)
-    - [Put your components on GameObjects](#put-your-components-on-gameobjects)
-  - [Making a rifle with inheritance and composition](#making-a-rifle-with-inheritance-and-composition)
-    - [Inheritance: From Monobehaviour to Rifle and Pistol.](#inheritance-from-monobehaviour-to-rifle-and-pistol)
-    - [Composition: add ons](#composition-add-ons)
-    - [Handy tip: RequireComponent](#handy-tip-requirecomponent)
-  - [Object oriented design principles.](#object-oriented-design-principles)
-    - [What is encapsulation?](#what-is-encapsulation)
-      - [Goldilocks factor](#goldilocks-factor)
-  - [Encapsulation in practice](#encapsulation-in-practice)
-    - [Classes and Objects refresher](#classes-and-objects-refresher)
-    - [Scope in _C#_ and _C++_](#scope-in-_c_-and-_c_)
-    - [Access modifiers](#access-modifiers)
-    - [Using functions to hide variables](#using-functions-to-hide-variables)
-    - [Access functions aka properties](#access-functions-aka-properties)
-    - [Creating Objects vs Components/Monobehaviours](#creating-objects-vs-componentsmonobehaviours)
-    - [Constructors and destructors](#constructors-and-destructors)
-  - [More detail on Cohesion](#more-detail-on-cohesion)
-      - [Medium Cohesion](#medium-cohesion)
-      - [High cohesion](#high-cohesion)
+1. [GPR103 Week 2 (module 1.2)](#GPR103-Week-2-module-12)
+   1. [About Assignment 1 Part 1](#About-Assignment-1-Part-1)
+   2. [Exercises to do before next class](#Exercises-to-do-before-next-class)
+   3. [Resources](#Resources)
+   4. [New design pattern, Composition!](#New-design-pattern-Composition)
+   5. [Why not just inheritance?](#Why-not-just-inheritance)
+      1. [Inheritance in Unity](#Inheritance-in-Unity)
+      2. [Limits of Inheritance](#Limits-of-Inheritance)
+   6. [Composition saves the day:](#Composition-saves-the-day)
+      1. [Put your components on GameObjects](#Put-your-components-on-GameObjects)
+   7. [Making a rifle with inheritance and composition](#Making-a-rifle-with-inheritance-and-composition)
+      1. [Inheritance: From Monobehaviour to Rifle and Pistol.](#Inheritance-From-Monobehaviour-to-Rifle-and-Pistol)
+      2. [Composition: add ons](#Composition-add-ons)
+      3. [Handy tip: RequireComponent](#Handy-tip-RequireComponent)
+   8. [Object oriented design principles.](#Object-oriented-design-principles)
+      1. [What is encapsulation?](#What-is-encapsulation)
+         1. [Goldilocks factor](#Goldilocks-factor)
+   9. [Encapsulation in practice](#Encapsulation-in-practice)
+      1. [Classes and Objects refresher](#Classes-and-Objects-refresher)
+      2. [Scope in _C#_ and _C++_](#Scope-in-_C_-and-_C_)
+      3. [Access modifiers](#Access-modifiers)
+      4. [Using functions to hide variables](#Using-functions-to-hide-variables)
+      5. [Access functions aka properties](#Access-functions-aka-properties)
+      6. [Creating Objects vs Components/Monobehaviours](#Creating-Objects-vs-ComponentsMonobehaviours)
+      7. [Constructors and destructors](#Constructors-and-destructors)
+   10. [More detail on Cohesion](#More-detail-on-Cohesion)
+         1. [Medium Cohesion](#Medium-Cohesion)
+         2. [High cohesion](#High-cohesion)
 
 <!-- /code_chunk_output -->
 
@@ -51,6 +51,7 @@ ___
 
 ## About Assignment 1 Part 1
 
+Assignment 1 Exercise 1 [rebrief is here](a1_exercise1_brief.html).
 ___
 
 ## Exercises to do before next class
@@ -60,7 +61,6 @@ ___
 ___
 
 ## Resources
-Assignment 1 Exercise 1 [rebrief is here](a1_exercise1_brief.html).
 
 Rifle Unity Project: [WeaponAddOns.7z](assets/week2/WeaponAddOns.7z)
 
