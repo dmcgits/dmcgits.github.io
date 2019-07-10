@@ -18,336 +18,127 @@
       pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
 
       </style>
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="week-5-design-patterns">Week 5: Design Patterns</h1>
+      <h1 class="mume-header" id="week-5">Week 5</h1>
 
-<p>Programming leads to lots of code. Lots of code leads to lots of files and objects and madness.</p>
+<p>Assessment 1 summarise, assessment 2. Git, singletons and gamemanager. Observers and events if time.</p>
+<h2 class="mume-header" id="assessment-1">Assessment 1</h2>
+
+<ul>
+<li>Due <strong>end of this Sunday</strong></li>
+<li>Reminder of <strong>part 1 clear brief</strong>: <a href="a1_exercise1_brief.html">Link</a></li>
+<li>Deliver by 7zipping (or other compression) the <strong>folder your unity project lives in</strong>. It contains /Assets, /Library, /Packages etc. Don&#x2019;t worry about making a build.</li>
+<li>Your project must be <strong>made in Unity 2018.2.x</strong>
+<ul>
+<li>This includes 2018.2.2f1 like on the uni machines, and more recent updates to that release like 2018.2.21f1.</li>
+<li>Does not include 2018.3.x releases or 2019.x.</li>
+<li>If your project is made in the wrong Unity release: install the correct one and import the project, fix any issues before submitting.</li>
+</ul>
+</li>
+<li>Questions?</li>
+</ul>
+<h2 class="mume-header" id="assessment-2">Assessment 2</h2>
+
+<ul>
+<li>Brief: <a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7523976-dt-content-rid-11808949_1/xid-11808949_1">link</a></li>
+<li>Due end of Week 8 (end of sunday, Aug 4)</li>
+</ul>
+<h3 class="mume-header" id="examples-from-past-students">Examples from past students</h3>
+
+<h3 class="mume-header" id="my-example">My example</h3>
+
+<h2 class="mume-header" id="git">Git</h2>
+
+<p>What is git?</p>
 <blockquote>
-<p>Design patterns are abstract ways of thinking about big programs and saves us from madness.</p>
+<p>Git is a distributed version-control* system for <strong>tracking changes in source code</strong> during software development. It is designed for <strong>coordinating work among programmers</strong>, but it can be used to track changes in any set of files. Its goals include speed, data integrity, and [teams working on shared files without problems].</p>
 </blockquote>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week-5-design-patterns"> Week 5: Design Patterns<br>
-</a>
 <ul>
-<li><a href="#exercides"> Exercides<br>
-</a></li>
-<li><a href="#resources"> Resources<br>
-</a></li>
-<li><a href="#assessment-1-due-end-of-this-week"> Assessment 1 due end of this week.<br>
-</a>
+<li>Version control is the term for Git and systems like it, including mercurial, svn, (defunct) visual source safe and others.</li>
+</ul>
+<h3 class="mume-header" id="git-has-a-change-history">Git has a change history</h3>
+
+<p>It saves and records versions of your file so you can retreive them.</p>
 <ul>
-<li><a href="#encapsulation-exercise"> Encapsulation exercise<br>
-</a></li>
-<li><a href="#inheritancepolymorphism-exercise"> Inheritance/Polymorphism exercise<br>
-</a></li>
-<li><a href="#engine-implementation"> Engine Implementation<br>
-</a></li>
+<li>If you mess up your code or somehow completely overwrite it, you can retrieve it.</li>
+<li>In the past you would have had to constantly duplicate your main.c file as main.c.bak1, main.c.bak2 etc. Or duplicate your project folder as backups. MyProject_old_old comes to mind.</li>
+</ul>
+<h3 class="mume-header" id="git-merges-changes">Git merges changes!</h3>
+
+<p>Without version control:</p>
+<ul>
+<li>If you worked on something with multiple people, or work on different pcs, you&#x2019;d have to copy the project to a usb/email the project/place it on a server.</li>
+<li>Other person does some work on it and returns the project, telling you what files they edited (as best they recall) and you copy them back over.</li>
+<li>If they edited a file you also edited, oh hell: you need to look at the differences, mix your changes with theirs and check if the project compiles/works.</li>
+</ul>
+<h1 class="mume-header" id="screen-shot-wikipedia-git">Screen shot wikipedia git</h1>
+
+<h3 class="mume-header" id="it-does-loads-of-other-things">It does loads of other things</h3>
+
+<ul>
+<li>Branching a repository (the name for where all the code lives) so you can work on a copy of the whole project, later merging the new bits back to the master copy.</li>
+<li>Tagging certain points in history as releases so you can get back whole old versions</li>
+<li>much git knowledge is shared and challenged on stack overflow</li>
+</ul>
+<h1 class="mume-header" id="screenshots-stack-overflow">Screenshots stack overflow</h1>
+
+<h2 class="mume-header" id="git-and-clients">Git and Clients</h2>
+
+<p>Git is a type of server/service software, and that server software is accessed/controlled from the command line. Fortunately there are lots of GUIS to help visualise and automate interactions with the server.</p>
+<h3 class="mume-header" id="server">Server</h3>
+
+<p>Git is software on a server or on your PC.</p>
+<ul>
+<li>Github might have your offsite master repository
+<ul>
+<li>You clone it to your machine</li>
+<li>commit changes to it all day</li>
+<li>pull down changes by others during the day perhaps, merging them with your local changes</li>
+<li>then push all your changes up to the server to be merged with everone elses.</li>
 </ul>
 </li>
-<li><a href="#design-patterns-and-the-gang-of-four"> Design patterns and the Gang Of Four<br>
-</a></li>
-<li><a href="#patterns-in-game-design"> Patterns in Game Design<br>
-</a>
-<ul>
-<li><a href="#game-loop"> Game Loop<br>
-</a></li>
-<li><a href="#observer-pattern"> Observer Pattern<br>
-</a></li>
-<li><a href="#componentcomposition"> Component/Composition<br>
-</a></li>
+<li>It keeps information in your project folder.</li>
+<li>It is command-line operated, so it&#x2019;s all text commands typed in.</li>
 </ul>
-</li>
-<li><a href="#hacknplan"> HacknPlan<br>
-</a></li>
-<li><a href="#exercises"> Exercises<br>
-</a>
-<ul>
-<li><a href="#free-examples-of-design-patterns-in-unity-c"> Free examples of Design Patterns in unity c#<br>
-</a></li>
-<li><a href="#gameprogrammingpatterns-dot-com"> gameprogrammingpatterns dot com:<br>
-</a></li>
-<li><a href="#do-factory"> Do factory<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#source-control"> Source Control<br>
-</a>
-<ul>
-<li><a href="#git"> Git!<br>
-</a></li>
-<li><a href="#fail-overwriting-changes"> Fail: Overwriting changes<br>
-</a>
-<ul>
-<li><a href="#solution-conflicts-and-merging"> Solution: Conflicts and merging<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#big-picture-waterfalls-and-agility"> Big picture: waterfalls and agility<br>
-</a></li>
-<li><a href="#week-to-week-view"> Week to week view<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#exercises-1"> Exercises<br>
-</a></li>
-<li><a href="#resources-1"> Resources<br>
-</a></li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="exercides">Exercides</h2>
+<h1 class="mume-header" id="screenshot-of-git-cli">Screenshot of git cli</h1>
 
-<ol start="2">
-<li>Sign up for Trello, put in some cards for assignment 2</li>
-<li>Github:
-<ol>
-<li>Install git and git LFS at home too</li>
-<li>Greate a repository on github. When it asks if you want to create a .gitignore, select the Unity template from the dropdown.</li>
-<li>Clone that empty repo to your home computer.</li>
-<li>Add a hello world unity project, or copy last week&#x2019;s sprite demo tower to the folder.</li>
-<li>Add/stage all the files using either the commandline, SourceTree or GitKraken.</li>
-<li>Commit the files and then push to github.</li>
-</ol>
-</li>
-</ol>
-<h2 class="mume-header" id="resources">Resources</h2>
+<h3 class="mume-header" id="clients">Clients</h3>
 
-<ol>
-<li>Trello - google</li>
-<li>HacknPlan - google</li>
-<li>Look at more api calls on the Unity tutorial scripting site.</li>
-</ol>
-<h2 class="mume-header" id="assessment-1-due-end-of-this-week">Assessment 1 due end of this week.</h2>
-
-<p>Yes, it is <strong>due end of Sunday, March 31.</strong><br>
-These are brief reminders, in my own words, of what is in each exercise. READ THE PDF BRIEF CAREFULLY.<br>
-<strong><a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1">Assessment 1 pdf on the server</a></strong></p>
-<p>You are delivering 3 Exercises:</p>
-<h3 class="mume-header" id="encapsulation-exercise">Encapsulation exercise</h3>
-
-<p>Create the <code>Player</code> class which is tested by a test class, eg: <code>TestPlayer</code>. If you&#x2019;re at all confused about this <a href="https://dmcgits.github.io/mds/GPR103/week2_notes.html?nocache#access-functions-aka-properties">do the exercise in week 2&#x2019;s notes.</a>. It creates a test class, puts it on a sprite, and uses it to create and test a class.</p>
-<h3 class="mume-header" id="inheritancepolymorphism-exercise">Inheritance/Polymorphism exercise</h3>
-
-<p>Create a base <code>Class</code> with variables and functions. Create classes that derive from it. <code>Override</code> a <code>virtual</code> function. Put the different child classes in one <code>List</code> and iterate over them, calling a function. Almost exactly what we did in <a href="https://dmcgits.github.io/mds/GPR103/week3_notes.html#polymorphism">week 3 in the section on polymorphism</a>. The classes themselves are up to you. Inventory items, types of spells, types of door lock, whatever.</p>
-<h3 class="mume-header" id="engine-implementation">Engine Implementation</h3>
-
-<p>You need to create a <code>Class</code> that provides a useful, fairly generic function. This function should make use of <strong>at least 2 Unity API calls</strong> and return a result. Having it call multiple Unity API calls instead of just one is what makes it useful&#x2026; otherwise we&#x2019;d just make the api call. Create a <strong>test class</strong> that shows this off running in the engine.<br>
-<strong>We&#x2019;ll write out an example of this today using a Singleton or a static class.</strong></p>
-<hr>
-<h2 class="mume-header" id="design-patterns-and-the-gang-of-four">Design patterns and the Gang Of Four</h2>
+<p>Sourcetree by atlassian (uni machines supported)<br>
+Gitkraken (free cross platform for basic edition?)</p>
+<h3 class="mume-header" id="github-use">Github use</h3>
 
 <ul>
-<li>Patterns of programming design were hotly discussed through the late 70s and 80s</li>
-<li>In 1994 a book called <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> caught on with computer scientists. It was produced by the awesomely named &#x201C;Gang Of Four&#x201D;.</li>
-<li>Growth and discussion of pattern design hasn&#x2019;t slowed.</li>
-<li>Sadly, the Gang of Four were very disappointing in photographs</li>
-</ul>
-<p><img src="assets/week5/special_six.png" alt="special six"><br>
-<em>The Gang of 4 (+2)</em></p>
-<hr>
-<h2 class="mume-header" id="patterns-in-game-design">Patterns in Game Design</h2>
-
-<p>Some patterns common to game design</p>
+<li>creating account</li>
+<li>making a repo
 <ul>
-<li>Game Loop (game logic)</li>
-<li>Composition - Unity components</li>
-<li>Type Object - A little like composition. A way to create variants from a text file rather than a million class definitions.</li>
-<li>Double buffering (graphics)</li>
-</ul>
-<hr>
-<h3 class="mume-header" id="game-loop">Game Loop</h3>
-
-<p><strong>Long view:</strong> All games are loops. The menu system. Finding a game, joining, ending.</p>
-<p><strong>Short view</strong> Every frame is a pass through a loop.<br>
-1: Get user input.<br>
-2: One frame of simulation and consequences<br>
-3: Draw the results to the screen, vibrate controllers, play sounds.</p>
-<p><img src="assets/week5/game-loop-fixed.png" alt="Frame loop"><br>
-<em><a href="http://gameprogrammingpatterns.com/game-loop.html">http://gameprogrammingpatterns.com/game-loop.html</a></em></p>
-<hr>
-<h3 class="mume-header" id="observer-pattern">Observer Pattern</h3>
-
-<p>At the core of a lot of modern programs and games is the <em>Model, View, Controller</em> pattern or <em><strong>MVC</strong></em>. It can create a lot of extra code and inflexibility though, but you can use the simpler underlying <em>observer</em> pattern.</p>
-<blockquote>
-<p>The observer pattern is where parts of your code can choose to keep an eye open for certain things that happen to other objects.</p>
-</blockquote>
-<p>Say our subject below is a player:</p>
-<ol>
-<li>Our player might equip her first magical armour.</li>
-<li>The Achievements system hears &#x201C;magical_armour_equipped&#x201D; and grants you a &#x201C;Untouchable. Almost!&#x201D; achievement and shows a popup.</li>
-<li>The sound audio system hears the same thing and plays a tingly magic sound.</li>
-</ol>
-<p><img src="assets/week5/observer_1.png" alt="Observer 1"></p>
-<p>This can be done by passing function pointers around, or having anythign that listens for events implement a certain interface. Next week, we&#x2019;ll do it with events.</p>
-<p>Make sure to read up properly on it here, because it&#x2019;s absolutely fundamental and will be a big part of assessment 2:<br>
-<a href="http://gameprogrammingpatterns.com/observer.html">http://gameprogrammingpatterns.com/observer.html</a></p>
-<hr>
-<h3 class="mume-header" id="componentcomposition">Component/Composition</h3>
-
-<p>How we&#x2019;ve been doing things in Unity!</p>
-<hr>
-<h2 class="mume-header" id="hacknplan">HacknPlan</h2>
-
-<ul>
-<li>Make sure you create an account this week on <a href="http://www.hacknplan.com/">hacknPlan</a>.</li>
-<li>Then make a project and choose &#x201C;agile&#x201D; from the types allowed.</li>
-<li>Go to <em>Boards</em> (left menu) and sprint 1 (it&#x2019;ll make a first sprint for you.)</li>
-<li>Create a few cards under &#x201C;art&#x201D; and &#x201C;programming&#x201D; tasks, just to get the hang of it. Expect to make mistakes, it&#x2019;s fine!</li>
-</ul>
-<p><img src="assets/week5/hack_n_plan.png" alt="Hack n plan"></p>
-<hr>
-<h2 class="mume-header" id="exercises">Exercises</h2>
-
-<ol>
-<li>Finish assignment 1</li>
-<li>Catch up on Sololearn, you need a certain amount of <em>c#</em> to be automatic. Time you lose looking up basics, or on confusing errors, that&#x2019;s all potential coding time gone.</li>
-<li>Sign up to HacknPlan.</li>
-</ol>
-<h4 class="mume-header" id="free-examples-of-design-patterns-in-unity-c">Free examples of Design Patterns in unity c#</h4>
-
-<p><a href="https://github.com/dmcgits/unity-design-patterns-naphier">https://github.com/dmcgits/unity-design-patterns-naphier</a><br>
-You can grab the code with gitkraken, sourctree, or typing the following in a dos/bash window:</p>
-<pre data-role="codeBlock" data-info="sh" class="language-bash"><span class="token function">git</span> clone https://github.com/dmcgits/unity-design-patterns-naphier
-</pre><h4 class="mume-header" id="gameprogrammingpatterns-dot-com">gameprogrammingpatterns dot com:</h4>
-
-<p>Easy to read, gaming focussed.</p>
-<ol>
-<li><a href="http://gameprogrammingpatterns.com/component.html">http://gameprogrammingpatterns.com/component.html</a></li>
-<li><a href="http://gameprogrammingpatterns.com/double-buffer.html">http://gameprogrammingpatterns.com/double-buffer.html</a></li>
-<li><a href="http://gameprogrammingpatterns.com/subclass-sandbox.html">http://gameprogrammingpatterns.com/subclass-sandbox.html</a></li>
-<li><a href="http://gameprogrammingpatterns.com/type-object.html">http://gameprogrammingpatterns.com/type-object.html</a></li>
-</ol>
-<h4 class="mume-header" id="do-factory">Do factory</h4>
-
-<p>Has loads of patterns explaine in c#, though this time for .net (not unity specific)<br>
-<a href="https://www.dofactory.com/net/design-patterns">https://www.dofactory.com/net/design-patterns</a></p>
-<p>Storing your source files and collaborating. Project management and planning.</p>
-<div class="code-chunk" data-id="code-chunk-id-1" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#games-programming-week-4">Games Programming Week 4</a>
-<ul>
-<li><a href="#source-control">Source Control</a>
-<ul>
-<li><a href="#git">Git!</a></li>
-<li><a href="#fail-overwriting-changes">Fail: Overwriting changes</a>
-<ul>
-<li><a href="#solution-conflicts-and-merging">Solution: Conflicts and merging</a></li>
+<li>initialise with readme, gitignore</li>
 </ul>
 </li>
-<li><a href="#big-picture-waterfalls-and-agility">Big picture: waterfalls and agility</a></li>
-<li><a href="#week-to-week-view">Week to week view</a></li>
+<li>cloning to your machine.</li>
 </ul>
-</li>
-<li><a href="#exercises">Exercises</a></li>
-<li><a href="#resources">Resources</a></li>
+<h1 class="mume-header" id="git-screenshots">Git Screenshots</h1>
+
+<h3 class="mume-header" id="moving-your-unity-project-into-your-github-repo">Moving your unity project into your github repo</h3>
+
+<ul>
+<li>transferring a unity project into the folder you cloned repo into</li>
+<li>adding files</li>
+<li>committing</li>
+<li>pushing</li>
+<li></li>
 </ul>
-</li>
-</ul>
-<h2 class="mume-header" id="source-control">Source Control</h2>
+<h1 class="mume-header" id="sourcetree-screens">sourcetree screens</h1>
 
-<p>How do 10, 100, 1000 people work on a project together? How do they do it without constantly overwriting eachother&#x2019;s code?</p>
-<hr>
-<h3 class="mume-header" id="git">Git!</h3>
-
-<p>Git. Acquire code, merge people&#x2019;s work, keep history, branch out and merge from the main project trunk, much more.</p>
-<p>Shots of github:<br>
-<img src="assets/week5/github1.png" alt="github1"><br>
-<img src="assets/week5/github2.png" alt="github2"><br>
-<em>A typical github project page</em></p>
-<p><img src="assets/week5/git_clone.png" alt="github"><br>
-<em>Grabbing the cloning url</em></p>
-<p><img src="assets/week5/git_clone_bash.png" alt="github"><br>
-<em>Bash for Windows</em></p>
-<p><img src="assets/week5/git_clone_sourcetree.png" alt="github"><br>
-<img src="assets/week5/git_sourcetree.png" alt="github"><br>
-<em>Sourcetree</em></p>
-<p><img src="assets/week5/git_kraken.png" alt="gitkraken"><br>
-<em>Git Kraken</em></p>
-<p>There are loads of tricky things about working on source files with other people:</p>
-<ol>
-<li><strong>Overwriting</strong> other people&#x2019;s changes</li>
-<li>Opening a file someone has changed and <strong>figuring out what they changed</strong>&#x2026; was it just additions?</li>
-<li>5 people have edited a file and a url for a game server was changed to point to a different region at some point. <strong>Who made the change when, and what was the old value?</strong></li>
-</ol>
-<hr>
-<h3 class="mume-header" id="fail-overwriting-changes">Fail: Overwriting changes</h3>
-
-<blockquote>
-<ol>
-<li>James grabs PlayerController.cs from the files server and adds crouch movement.</li>
-<li>Darlene does the  same but adds double jump.</li>
-<li>If Darlene copies hers to the server last, it&#x2019;s bye bye crouch movement. If it&#x2019;s vice versa, no more double jump.</li>
-</ol>
-</blockquote>
-<h4 class="mume-header" id="solution-conflicts-and-merging">Solution: Conflicts and merging</h4>
-
-<p>Git can do a solid job of <strong>merging changes</strong> automatically, especially if they are in different sections of the file.</p>
-<p>When it can&#x2019;t merge changes, it notes a <strong>conflict</strong>. There are numerous interfaces for resolving conflicts, but they all boil down to showing you the two versions and letting you choose which change to keep from either version or hand editing.</p>
-<p><img src="assets/week5/conflicts1.png" alt="Conflicts 1"><br>
-<img src="assets/week5/conflicts2.png" alt="Conflicts 1"></p>
-<hr>
-<h2>Project Management</h2>
-<p>Games are big, people have their own ways of working, and making stuff is complicated.</p>
-<h3 class="mume-header" id="big-picture-waterfalls-and-agility">Big picture: waterfalls and agility</h3>
-
-<p>Usually a team project uses many resources over a fair amount of time to make something more complex than you would make on your own. Even ambitious one-person projects can be similar.</p>
-<p>You&#x2019;re attempting to take a big problem and use organisational skills and tools as a scaffolding to make things you can&#x2019;t just plan and hold all in your head.</p>
-<hr>
-<h4>Waterfall development</h4>
-<p>Is the God&#x2019;s Great Plan take on making things. You spend ages refining a document describing your project or game, get sign off, then just build till it&#x2019;s done. Graphic and concept design, modelling, texturing, shaders, animation. Program the code a module at a time till done. It&#x2019;s river passing over multiple falls (milestones) and it travels inexorably from source to destination.</p>
-<p><img src="assets/week5/waterfall_white.png" alt="Waterfall"></p>
-<blockquote>
-<p>It can certainly make things. Usually, you find a load of things you should have done differently, but often they can&#x2019;t be adjusted. Fine if you&#x2019;re making office software maybe, terrible if you find your game isn&#x2019;t good.</p>
-</blockquote>
-<hr>
-<h4>Iterative/agile dev</h4>
-<p>Iterative development, also referred to as agile, scrum and 200 other changing terms, is a process of sketching out your best idea of the project, and then going through a series of waterfalls on barebones products and features, then increasingly polished features. It has more in common with sketching thumbnails of comic pages, then pencilling, inking and colouring, making changes as you go.</p>
-<p><img src="assets/week5/iterative_grey.png" alt="Iterative"></p>
-<hr>
-<h3 class="mume-header" id="week-to-week-view">Week to week view</h3>
-
-<p>Kanban, Scrum?<br>
-Trello, Jira, KanbanTool?</p>
-<ol>
-<li>backlog (features to go in)</li>
-<li>pre production</li>
-<li>ready</li>
-<li>in production</li>
-<li>Blocked</li>
-<li>QA</li>
-<li>Approved</li>
-</ol>
-<p><img src="assets/week5/trello1.jpg" alt="Trello"><br>
-<img src="assets/week5/hackplan_sprint1.png" alt="hack"><br>
-<img src="assets/week5/hackplan_metrics.png" alt="hack"></p>
-<hr>
-<h2 class="mume-header" id="exercises-1">Exercises</h2>
-
-<ol>
-<li>Part 3 of Asessment 1</li>
-<li>Sign up for Trello, put in some cards for assignment 2</li>
-<li>Github:
-<ol>
-<li>Install git and git LFS at home too</li>
-<li>Greate a repository on github. When it asks if you want to create a .gitignore, select the Unity template from the dropdown.</li>
-<li>Clone that empty repo to your home computer.</li>
-<li>Add a hello world unity project, or copy last week&#x2019;s sprite demo tower to the folder.</li>
-<li>Add/stage all the files using either the commandline, SourceTree or GitKraken.</li>
-<li>Commit the files and then push to github.</li>
-</ol>
-</li>
-</ol>
-<hr>
-<h2 class="mume-header" id="resources-1">Resources</h2>
-
-<ol>
-<li>Trello - google</li>
-<li>HacknPlan - google</li>
-<li>Look at more api calls on the Unity tutorial scripting site.</li>
-</ol>
 
       </div>
       
