@@ -90,11 +90,18 @@ Gitkraken (free cross platform for basic edition?)
   - initialise with readme, gitignore
 * cloning to your machine.
 
+Add your github account to sourcetree:
 ![Git add repo 1](assets/week5/github_newrepo_create.png)
+clone:
 ![Git add repo 1](assets/week5/github_newrepo_details.png)
 ![Git add repo 1](assets/week5/git_clone.png)
 
-  
+### Sourcetree cloning
+
+![Git add repo 1](assets/week5/Sourcetree_add_github_account.png)
+![Git add repo 1](assets/week5/git_clone_github_repository.png)
+![Git add repo 1](assets/week5/git_clone_destination.png)
+
 ### Moving your unity project into your github repo
 * transferring a unity project into the folder you cloned repo into
 
