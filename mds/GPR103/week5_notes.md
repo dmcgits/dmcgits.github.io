@@ -11,7 +11,7 @@ export_on_save:
 
 Assessment 1 summarise, assessment 2. Git, singletons and gamemanager. Observers and events if time.
 
-## Assessment 1
+## Assessment 1 catch up
 
 * Due **end of this Sunday**
 * Reminder of **part 1 clear brief**: [Link](a1_exercise1_brief.html)
@@ -281,7 +281,7 @@ The **generic** bit means:
 
 Notice when I hover over "List" in VS I see `List<T>` and `T is string`
 
-## Assessment 3: Character cusomiser
+## Assessment 2: Character cusomiser
 
 >First, here's the brief:
 >[Assessment 1 brief on blackboard](https://laureate-au.blackboard.com/bbcswebdav/pid-7197507-dt-content-rid-11808949_1/xid-11808949_1)
