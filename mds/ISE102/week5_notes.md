@@ -18,26 +18,15 @@ Code in the notes is duplicated here: [week5_code.html](week5_code.html)
 
 <!-- code_chunk_output -->
 
-- [ ISE102 Week 5: More about functions
-](#ise102-week-5-more-about-functions)
-  - [ Default arguments
-](#default-arguments)
-    - [ Arguments in a game
-](#arguments-in-a-game)
-    - [ Hadoken with arguments
-](#hadoken-with-arguments)
-    - [ Default values for arguments
-](#default-values-for-arguments)
-      - [ Defaults for multiple arguments
-](#defaults-for-multiple-arguments)
-  - [ Function Overloading
-](#function-overloading)
-  - [ Passing values and vectors versus arrays
-](#passing-values-and-vectors-versus-arrays)
-  - [ To Do
-](#to-do)
-  - [ Resources
-](#resources)
+- [ISE102 Week 5: More about functions](#ISE102-Week-5-More-about-functions)
+  - [Default arguments](#Default-arguments)
+    - [Arguments in a game](#Arguments-in-a-game)
+    - [Hadoken with arguments](#Hadoken-with-arguments)
+    - [Default values for arguments](#Default-values-for-arguments)
+  - [Function Overloading](#Function-Overloading)
+  - [Passing values and vectors versus arrays](#Passing-values-and-vectors-versus-arrays)
+  - [To Do](#To-Do)
+  - [Resources](#Resources)
 
 <!-- /code_chunk_output -->
 
