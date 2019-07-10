@@ -173,14 +173,14 @@ In C++ **you can define a default value for an argument**.
 Make a new project, DefaultArgs.
 
 > I've added some color spice to the example. 
-> * Save [termcolor.h](code/week5/termcolor.hpp) to your DefaultArgs project folder, where the cpp files are already located.
+> * Save [termcolor.h](assets/week5/termcolor.h) to your DefaultArgs project folder, where the cpp files are already located.
 > * In solution explorer, under the DefaultsArgs project: right click _Header Files_ and _add -> existing item_
 
 
 ```c++
 #include _________
 #include <Windows.h>
-#include "termcolor.hpp"
+#include "termcolor.h"
 using namespace ___;
 
 enum HadokenType
