@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 #GPR103 week3 - Inheritance and Polymorphism.
 
 Designing objects with reuse and extension in mind.
@@ -6,30 +15,72 @@ Designing objects with reuse and extension in mind.
 
 <!-- code_chunk_output -->
 
-* [GPR103 week3 - Inheritance and Polymorphism.](#gpr103-week3-inheritance-and-polymorphism)
-	* [Last week and homework](#last-week-and-homework)
-	* [Inheritance](#inheritance)
-		* [Examples of inheritance](#examples-of-inheritance)
-		* [Why inheritance in programming?](#why-inheritance-in-programming)
-		* [Towers to build](#towers-to-build)
-			* [Base Tower](#base-tower)
-			* [Tower.cs](#towercs)
-			* [Unique towers](#unique-towers)
-			* [GattlingTower.cs](#gattlingtowercs)
-			* [MissileTower.cs](#missiletowercs)
-	* [Polymorphism](#polymorphism)
-	* [Getting Abstract](#getting-abstract)
-		* [Overriding functions and the `virtual` keyword](#overriding-functions-and-the-virtual-keyword)
-			* [Snippet: Tower.cs](#snippet-towercs)
-			* [Snippet: FloatingTower.cs](#snippet-floatingtowercs)
-		* [Partial code reuse with the `base` keyword](#partial-code-reuse-with-the-base-keyword)
-			* [Snippet: TowerGattling.cs](#snippet-towergattlingcs)
-		* [Abstract](#abstract)
-			* [What's better than hoping? Spitting out errors!](#whats-better-than-hoping-spitting-out-errors)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
+- [GPR103 week3 - Inheritance and Polymorphism.
+](#gpr103-week3-inheritance-and-polymorphism)
+  - [ Last week and homework
+](#last-week-and-homework)
+  - [ Inheritance
+](#inheritance)
+    - [ Examples of inheritance
+](#examples-of-inheritance)
+    - [ Why inheritance in programming?
+](#why-inheritance-in-programming)
+    - [ Towers to build
+](#towers-to-build)
+      - [ Base Tower
+](#base-tower)
+      - [ Tower.cs
+](#towercs)
+      - [ Unique towers
+](#unique-towers)
+      - [ GattlingTower.cs
+](#gattlingtowercs)
+      - [ MissileTower.cs
+](#missiletowercs)
+  - [ Polymorphism
+](#polymorphism)
+  - [ Getting Abstract
+](#getting-abstract)
+    - [ Overriding functions and the `virtual` keyword
+](#overriding-functions-and-the-virtual-keyword)
+      - [ Snippet: Tower.cs
+](#snippet-towercs)
+      - [ Snippet: GattlingTower.cs
+](#snippet-gattlingtowercs)
+      - [ Snippet: MissileTower.cs
+](#snippet-missiletowercs)
+    - [ Partial code reuse with the `base` keyword
+](#partial-code-reuse-with-the-base-keyword)
+      - [ Snippet: TowerGattling.cs
+](#snippet-towergattlingcs)
+    - [ Abstract
+](#abstract)
+      - [ What's better than hoping? Spitting out errors!
+](#whats-better-than-hoping-spitting-out-errors)
+  - [ Exercises
+](#exercises)
+  - [ Resources
+](#resources)
 
 <!-- /code_chunk_output -->
+
+## Exercises
+
+1. Assignment 1, exercise 2. 
+   * [Direct blackboard Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1)
+   * As you come across issues, or even before you start, watch the unity videos in 2.
+2. Unity tutorial videos covering this week
+  	* [the scripting section](https://unity3d.com/learn/tutorials/s/scripting) 
+  	* Tutes: _Inheritance_, _Polymorphism_, _Overriding_ and _Lists & Dictionaries_.
+   * Watch the videos, and type in the code so you really remember it.
+
+## Resources
+
+1. [Download my TowerInheritance Unity project](assets/week3/TowerInheritance.zip)
+2. Microsoft c# docs. This isn't a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
+   * [virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual)
+   * [abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
+   * [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2)
 
 ## Last week and homework
 
@@ -37,9 +88,8 @@ Last week's topic was **Object oriented design**, specifically **Encapsulation t
 
 Part 1 of assignment. 
 * Did we get there? 
-* Did it make more sense once you'd translated the ideas to your own Class vs copying the FireballTower.
-* Did you come up with questions? If you answered them, where did you go for answers? Unity videos, Microsoft docs?
-* Questions about wording?
+* Did it make more sense once you'd translated the ideas to your own class?
+* Did you come up with questions?
 
 ## Inheritance
 
@@ -80,9 +130,8 @@ _Gattling guns are the spinny ones_
 _Missiles in an array (hint?)_
 
 **1:** Gattling fire is effectively hitscan (instant hit), missiles are projectiles
-**2:** Bullets travel in a straight line. Missiles can course correct, home in.
 **3:** Gattling fire is nonstop. Missiles fire in volleys.
-**4:** Gattling towers add guns. Missile towers just shoot faster.
+**4:** Gattling towers add turrets. Missile towers just fire more rounds, maybe more damaging missiles?
 
 ___
 
@@ -243,17 +292,17 @@ towers.add(new MissileTower());
 towers[0].build();
 ```
 
-Here's how it looks in the TowerMaster class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
+Here's how it looks in the TowerTester class I've provided in the Unity demo scene. This uses a public list to hold the Towers, and we fill it using the Inspector.
 
 ```cs
 // Usual Unity includes go here
-public class TowerMaster : MonoBehaviour {
+public class TowerTester : MonoBehaviour {
 
     public List<Tower> towers;
 
 	void Start () {
 
-        Debug.Log("TowerMaster says hi");
+        Debug.Log("TowerTester says hi");
         Debug.Log("towers.Count = " + towers.Count);
         int i=0;
 
@@ -283,7 +332,7 @@ There are a few reasons want to make a base class, and they aren't all covered b
 
 If you want the base class to define the function and then change how it works, you can **override the function**. This is common to many languages but uses differing syntax. In _c#_ we add `virtual` to the function definition in the base class, and the same function definition with `override` in the derived class.. then we change the contents.
 
-Here's an example where a FloatingTower stores its position in a variable called `_currentPosition`, since it's moving, and also in `_landingPosition` so it can return there.
+Let's override the Build function. In a real game the build sequence of towers might need some custom code, and the inherited function might not be enough. For this demo, however, we're going to log a unique string to the console for each tower and GattlingTower will reveal its coordinates.
 
 #### Snippet: Tower.cs
 
@@ -292,28 +341,38 @@ Here's an example where a FloatingTower stores its position in a variable called
 public virtual function Build (Vector2 position)
 {	
 	Debug.Log("Building Tower");
-	_position = position;
 }
 ```
 
-#### Snippet: FloatingTower.cs
+#### Snippet: GattlingTower.cs
 
 ```cs
 // note override in place of virtual here
 public override function Build (Vector2 position)
 {
-	 _landingPosition = _currentPosition = position;
+  Debug.Log("Building GattlingTower at coordinates " + gameObject.transform.position.x + ", " + gameObject.transform.position.y);
 }
 
 ```
 
-> Say you have a list of type `Tower` and you call Build on a `FloatingTower` in that list. If you get the output from `Tower.Build` instead of `FloatingTower.Build` you've probably left out `override`.
+#### Snippet: MissileTower.cs
+
+```cs
+// note override in place of virtual here
+public override function Build (Vector2 position)
+{
+  Debug.Log("Building MissileTower");
+}
+
+```
+
+> Say you have a list of type `Tower` and you call Build on a `MissileTower` in that list. If you get the output from `Tower.Build` instead of `MissileTower.Build` you've probably left out `override`.
 
 ### Partial code reuse with the `base` keyword
 
 Overriding the function has come at a cost: no free code from the parent class! At least for that function. What if we could have it both ways?
 
-How can we alter our `Build(position)` function to set the position but also set up the specifics for a GattlingTower? We can **call functions in the base class with the `base` keyword**.
+How can we alter our `Build(position)` function to call Tower.Build and still do something unique? We can **call functions in the base class with the `base` keyword**.
 
 #### Snippet: TowerGattling.cs
 
@@ -325,9 +384,10 @@ How can we alter our `Build(position)` function to set the position but also set
         // Use base to call Build on Tower()
         base.Build(position);
 
-		// Do Gattling specific things
-        Debug.Log("Gattling.Build() here, just logging.");
-    }
+      // Do Gattling specific things
+          
+      Debug.Log("Building GattlingTower at coordinates " + gameObject.transform.position.x + ", " + gameObject.transform.position.y);
+}
 
 // I removed the : base (position) example here because it only worked on constructors.
 
@@ -372,20 +432,3 @@ public class TowerGattling
 
 ```
 
-## Exercises
-
-1. Assignment 1, exercise 2. 
-   * [Direct blackboard Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1)
-   * As you come across issues, or even before you start, watch the unity videos in 2.
-2. Unity tutorial videos covering this week
-  	* [the scripting section](https://unity3d.com/learn/tutorials/s/scripting) 
-  	* Tutes: _Inheritance_, _Polymorphism_, _Overriding_ and _Lists & Dictionaries_.
-   * Watch the videos, and type in the code so you really remember it.
-
-## Resources
-
-1. [Download my TowerInheritance Unity project](assets/week3/TowerInheritance.zip)
-2. Microsoft c# docs. This isn't a complete list: you should be getting in the habit now of looking these up for specifics and handy extras.
-   * [virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual)
-   * [abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
-   * [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2)

@@ -1,5 +1,42 @@
 # Modular Level/Environment Design
 
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [ Modular Level/Environment Design
+](#modular-levelenvironment-design)
+  - [ Game Levels
+](#game-levels)
+  - [ Things a level has
+](#things-a-level-has)
+  - [ Level Editors
+](#level-editors)
+- [ Modular Construction
+](#modular-construction)
+- [ Making modules
+](#making-modules)
+  - [ More nice modules
+](#more-nice-modules)
+  - [ Blocking out and iterating
+](#blocking-out-and-iterating)
+- [ Technical Considerations  
+](#technical-considerations)
+  - [ Atlasing  
+](#atlasing)
+  - [ Fancy Shaders
+](#fancy-shaders)
+  - [ Batching  
+](#batching)
+  - [ Prefabs
+](#prefabs)
+  - [ Game Logic Controls
+](#game-logic-controls)
+
+<!-- /code_chunk_output -->
+
+
 ## Game Levels
 
 

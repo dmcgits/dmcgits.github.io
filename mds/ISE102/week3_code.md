@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 3 Exercises
 
 Vectors, arrays, loops.
@@ -6,13 +15,20 @@ Vectors, arrays, loops.
 
 <!-- code_chunk_output -->
 
-* [Week 3 Exercises](#week-3-exercises)
-	* [Code](#code)
-		* [TicTacToe.cpp](#tictactoecpp)
-		* [LoopingEnumeratedTypes.cpp](#loopingenumeratedtypescpp)
-		* [BreakContinue.cpp](#breakcontinuecpp)
-		* [Array Iteration](#array-iteration)
-		* [Nested Loops 1](#nested-loops-1)
+- [ Week 3 Exercises
+](#week-3-exercises)
+  - [ Code
+](#code)
+    - [ TicTacToe.cpp
+](#tictactoecpp)
+    - [ LoopingEnumeratedTypes.cpp
+](#loopingenumeratedtypescpp)
+    - [ BreakContinue.cpp
+](#breakcontinuecpp)
+    - [ Array Iteration
+](#array-iteration)
+    - [ Nested Loops 1
+](#nested-loops-1)
 
 <!-- /code_chunk_output -->
 
@@ -23,7 +39,7 @@ Type these in, don't cut and paste!
 
 ### TicTacToe.cpp
 
-```c++
+```c++ { .line-numbers }
 // Tic-Tac-Toe Board
 // Demonstrates multidimensional arrays
 #include <iostream>
@@ -68,7 +84,7 @@ ___
 
 ### LoopingEnumeratedTypes.cpp
 
-```c++
+```c++ { .line-numbers }
 #include <iostream>
 
 using namespace std;
@@ -122,7 +138,7 @@ ___
 
 ### BreakContinue.cpp
 
-```C++
+```c++ { .line-numbers }
 #include <iostream>
 
 using namespace std;
@@ -181,7 +197,7 @@ int main()
 
 ### Array Iteration
 
-```cpp
+```c++ { .line-numbers }
 #include <iostream>
 using namespace std;
 int main()
@@ -213,7 +229,7 @@ int main()
 
 ### Nested Loops 1
 
-```cpp
+```c++ { .line-numbers }
 #include <iostream>
 using namespace std;
 int main()

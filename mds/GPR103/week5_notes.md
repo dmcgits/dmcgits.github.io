@@ -1,213 +1,299 @@
-# Week 5: Design Patterns
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
+# Week 5
 
-Programming leads to lots of code. Lots of code leads to lots of files and objects and madness. 
+Assessment 1 summarise, assessment 2. Git, singletons and gamemanager. Observers and events if time.
 
-> Design patterns are abstract ways of thinking about big programs and saves us from madness.
+## Assessment 1 catch up
 
+* Due **end of this Sunday**
+* Reminder of **part 1 clear brief**: [Link](a1_exercise1_brief.html)
+* Deliver by 7zipping (or other compression) the **folder your unity project lives in**. It contains /Assets, /Library, /Packages etc. Don't worry about making a build.
+* Your project must be **made in Unity 2018.2.x** 
+  - This includes 2018.2.2f1 like on the uni machines, and more recent updates to that release like 2018.2.21f1. 
+  - Does not include 2018.3.x releases or 2019.x. 
+  - If your project is made in the wrong Unity release: install the correct one and import the project, fix any issues before submitting.
+* Questions?
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+![unity version hub](assets/week5/unity_version_hub.png)
 
-<!-- code_chunk_output -->
+## Assessment 2
 
-* [Week 5: Design Patterns](#week-5-design-patterns)
-	* [Assessment 1 due end of this week.](#assessment-1-due-end-of-this-week)
-		* [Encapsulation exercise](#encapsulation-exercise)
-		* [Inheritance/Polymorphism exercise](#inheritancepolymorphism-exercise)
-		* [Engine Implementation](#engine-implementation)
-	* [Design patterns and the Gang Of Four](#design-patterns-and-the-gang-of-four)
-	* [Patterns in Game Design](#patterns-in-game-design)
-		* [Game Loop](#game-loop)
-		* [Observer Pattern](#observer-pattern)
-		* [Utility classes: Static functions and variables](#utility-classes-static-functions-and-variables)
-		* [I lied about classes](#i-lied-about-classes)
-			* [Statics](#statics)
-			* [Using statics to make utility classes](#using-statics-to-make-utility-classes)
-		* [What are Unity API calls](#what-are-unity-api-calls)
-		* [Our utility class, Helpies](#our-utility-class-helpies)
-		* [Singletons](#singletons)
-		* [Component/Composition](#componentcomposition)
-	* [HacknPlan](#hacknplan)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
-			* [Double Buffering](#double-buffering)
-			* [Free examples of Design Patterns in unity c#](#free-examples-of-design-patterns-in-unity-c)
-			* [gameprogrammingpatterns dot com:](#gameprogrammingpatterns-dot-com)
-			* [Do factory](#do-factory)
+* Brief: [link](https://laureate-au.blackboard.com/bbcswebdav/pid-7523976-dt-content-rid-11808949_1/xid-11808949_1)
+* Due end of Week 8 (end of sunday, Aug 4)
 
-<!-- /code_chunk_output -->
+### Examples from past students
 
+### My example
 
-## Assessment 1 due end of this week.
-
-Yes, it is **due end of Sunday, March 31.** 
-These are brief reminders, in my own words, of what is in each exercise. READ THE PDF BRIEF CAREFULLY.
-**[Assessment 1 pdf on the server](https://laureate-au.blackboard.com/bbcswebdav/pid-7197505-dt-content-rid-11808948_1/xid-11808948_1)**
-
-You are delivering 3 Exercises:
-
-### Encapsulation exercise
- Create the `Player` class which is tested by a test class, eg: `TestPlayer`. If you're at all confused about this [do the exercise in week 2's notes.](https://dmcgits.github.io/mds/GPR103/week2_notes.html?nocache#access-functions-aka-properties). It creates a test class, puts it on a sprite, and uses it to create and test a class.
-
-### Inheritance/Polymorphism exercise
- Create a base `Class` with variables and functions. Create classes that derive from it. `Override` a `virtual` function. Put the different child classes in one `List` and iterate over them, calling a function. Almost exactly what we did in [week 3 in the section on polymorphism](https://dmcgits.github.io/mds/GPR103/week3_notes.html#polymorphism). The classes themselves are up to you. Inventory items, types of spells, types of door lock, whatever.
-
-### Engine Implementation
-You need to create a `Class` that provides a useful, fairly generic function. This function should make use of **at least 2 Unity API calls** and return a result. Having it call multiple Unity API calls instead of just one is what makes it useful.. otherwise we'd just make the api call. Create a **test class** that shows this off running in the engine.
-**We'll write out an example of this today using a Singleton or a static class.**
+## Git
   
-___
+What is git?
 
-## Design patterns and the Gang Of Four
+> Git is a distributed version-control* system for **tracking changes in source code** during software development. It is designed for **coordinating work among programmers**, but it can be used to track changes in any set of files. Its goals include speed, data integrity, and [teams working on shared files without problems].
 
-* Patterns of programming design were hotly discussed through the late 70s and 80s
-* In 1994 a book called _Design Patterns: Elements of Reusable Object-Oriented Software_ caught on with computer scientists. It was produced by the awesomely named "Gang Of Four". 
-* Growth and discussion of pattern design hasn't slowed. 
-* Sadly, the Gang of Four were very disappointing in photographs
+* Version control is the term for Git and systems like it, including mercurial, svn, (defunct) visual source safe and others.
 
-![special six](assets/week5/special_six.png)
-_The Gang of 4 (+2)_
+### Git has a change history
+It saves and records versions of your file so you can retreive them.
+  * If you mess up your code or somehow completely overwrite it, you can retrieve it.
+  * In the past you would have had to constantly duplicate your main.c file as main.c.bak1, main.c.bak2 etc. Or duplicate your project folder as backups. MyProject_old_old comes to mind.
 
-___
+### Git merges changes!
+Without version control:
+  * If you worked on something with multiple people, or work on different pcs, you'd have to copy the project to a usb/email the project/place it on a server. 
+  * Other person does some work on it and returns the project, telling you what files they edited (as best they recall) and you copy them back over.
+  * If they edited a file you also edited, oh hell: you need to look at the differences, mix your changes with theirs and check if the project compiles/works.
+# Screen shot wikipedia git
 
-## Patterns in Game Design
+### It does loads of other things
 
-Some patterns common to game design
+* Branching a repository (the name for where all the code lives) so you can work on a copy of the whole project, later merging the new bits back to the master copy.
+* Tagging certain points in history as releases so you can get back whole old versions
+* much git knowledge is shared and challenged on stack overflow
+  
+# Screenshots stack overflow
 
-* Game Loop (game logic)
-* Composition - Unity components
-* Type Object - A little like composition. A way to create variants from a text file rather than a million class definitions.
-* Double buffering (graphics)
-___
+## Git and Clients
 
-### Game Loop
+Git is a type of server/service software, and that server software is accessed/controlled from the command line. Fortunately there are lots of GUIS to help visualise and automate interactions with the server.
 
-**Long view:** All games are loops. The menu system. Finding a game, joining, ending. 
+### Server
 
-**Short view** Every frame is a pass through a loop. 
-1: Get user input. 
-2: One frame of simulation and consequences
-3: Draw the results to the screen, vibrate controllers, play sounds.
+Git is software on a server or on your PC. 
+* Github might have your offsite master repository
+  - You clone it to your machine
+  - commit changes to it all day
+  - pull down changes by others during the day perhaps, merging them with your local changes
+  - then push all your changes up to the server to be merged with everone elses.
+* It keeps information in your project folder. 
+* It is command-line operated, so it's all text commands typed in.
 
-![Frame loop](assets/week5/game-loop-fixed.png)
-_[http://gameprogrammingpatterns.com/game-loop.html](http://gameprogrammingpatterns.com/game-loop.html)_
+# Screenshot of git cli
 
-___
+### Clients
 
-### Observer Pattern
+Sourcetree by atlassian (uni machines supported)
+Gitkraken (free cross platform for basic edition?)
 
-At the core of a lot of modern programs and games is the _Model, View, Controller_ pattern or _**MVC**_. It can create a lot of extra code and inflexibility though, but you can use the simpler underlying _observer_ pattern. 
+### Github use
 
-> The observer pattern is where parts of your code can choose to keep an eye open for certain things that happen to other objects.
+* creating account
+* making a repo
+  - initialise with readme, gitignore
+* cloning to your machine.
 
-Say our subject below is a player:
-1. Our player might equip her first magical armour. 
-2. The Achievements system hears "magical_armour_equipped" and grants you a "Untouchable. Almost!" achievement and shows a popup.
-3. The sound audio system hears the same thing and plays a tingly magic sound.
-   
-![Observer 1](assets/week5/observer_1.png)
+Add your github account to sourcetree:
+![Git add repo 1](assets/week5/github_newrepo_create.png)
+clone:
+![Git add repo 1](assets/week5/github_newrepo_details.png)
+![Git add repo 1](assets/week5/git_clone.png)
 
-This can be done by passing function pointers around, or having anythign that listens for events implement a certain interface. Next week, we'll do it with events.
+### Sourcetree cloning
 
-Make sure to read up properly on it here, because it's absolutely fundamental and will be a big part of assessment 2:
-<http://gameprogrammingpatterns.com/observer.html> 
-___
+![Git add repo 1](assets/week5/Sourcetree_add_github_account.png)
+![Git add repo 1](assets/week5/git_clone_github_repository.png)
+![Git add repo 1](assets/week5/git_clone_destination.png)
 
-### Utility classes: Static functions and variables
+### Moving your unity project into your github repo
+* transferring a unity project into the folder you cloned repo into
 
-If you've ever used a unity api function without creating an object, say `Mathf.Round(number)`, or `Camera.main`, or `Input.mousePosition`, you've used a static function/variable. Classes like `Mathf` and `Input` can be thought of as utility classes. You don't make objects out of them, you use them .
+![Git add repo 1](assets/week5/git_folder_explorer.png)
 
-### I lied about classes
+#### adding files, staging files
 
-Sort of. For most purposes yes, classes are simply designs that are made real in the form of objects. But it turns out it's useful to be able to call functions on classes without wasting cycles and memory creating objects. The way to achieve this is with static functions. 
+![Git add repo 1](assets/week5/git_copy_existing_unity.png)
+![Git add repo 1](assets/week5/git_paste_existing_unity.png)
 
-#### Statics
-Statics are like exceptions to the rule of encapsulation. Instead of every chair object being unique, imagine all chairs had a single component, say the cushion, and if you damaged one cushion you damaged them all. It's like quantum entanglement.
+#### committing and pushing
+![Git add repo 1](assets/week5/git_unity_files_found.png)
+![Git add repo 1](assets/week5/sourcetree_stage_all.png)
+![Git add repo 1](assets/week5/sourcetree_commit_all.png)
 
-#### Using statics to make utility classes
+More info: 
+* <https://www.atlassian.com/git/tutorials/saving-changes>
+* <https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud>
+---
 
-Sounds a lot like something we might do in an assessment. Let's look at how we can enclose a couple of _Unity API_ calls in a single function, and call it from an object.
+## Decoupling: what
 
-___ 
+Decoupling is a way of **keeping things in your game from knowing too much directly about other things** in the game. At the very least, **not having references to eachother and calling functions** on eachother.
 
-### What are Unity API calls
+> Reasonable question: So we have to avoid doing the stuff you just taught us and made assessment 1 about?
 
-> **API** stands for **Application Programming Interface**. What it actually means is **a way to control something with code**. Whether it's facebook's platform and user data, or an arduino, or the unity game engine. They write a bunch of code that does amazing things, and then give us a bunch of functions we can call to control it.
-
-The Unity API is documented here:
-<https://docs.unity3d.com/ScriptReference/>
-
-![Unity API reference for Camera.main](assets/week5/unity_api_camera.png)
-
-It's dead easy: you look up the Camera class, find a function you need, and they explain it. They have source code too. All those autocomplete suggestions in Unity when you type Transform or Camera or Vector3? They're all fully explained and demonstrated.
-
-### Our utility class, Helpies
-
-[week5_code_utility.html](week5_code_utility.html)
-
-![Utility test: pointy](assets/week5/utility_pointy_unity.png)
-
-___
-
-### Singletons
-
-A Singleton is basically a trick to make all the objects you create from a class, say your custom "GameManager" class, essentially be the same object. 
-
-* It has all the state upside of an object
-* It has the access anywhere upside of static functions
-* It kinda breaks the rules of OO and should ideally be avoided. But it's super handy and the alternatives are.. not perfect either. 
-
-[Trent's Singletons pdf](assets/week5/singleton_cs_trent.pdf)
+![sarek_precisely](/assets/week6/sarek_precisely.png)
 
 ___
 
-### Component/Composition
+### Decoupling, why
 
-How we've been doing things in Unity!
+What scenario moves us from talking about _functions_ and _inheritance_ to discussing **decoupling**? Just when we gained control of our objects and their public interface.. why avoid it?
 
-___
+![swarm](/assets/week6/swarm.png)
+_In the long term, this._
 
-## HacknPlan
+In the short term, even our next assignment will quickly become a quagmire if we don't decouple.
 
-* Make sure you create an account this week on [hacknPlan](http://www.hacknplan.com/). 
-* Then make a project and choose "agile" from the types allowed. 
-* Go to _Boards_ (left menu) and sprint 1 (it'll make a first sprint for you.)
-* Create a few cards under "art" and "programming" tasks, just to get the hang of it. Expect to make mistakes, it's fine! 
+### A simpler example 
 
-![Hack n plan](assets/week5/hack_n_plan.png)
+![scenario_1](/assets/week6/scenario_1.png)
 
-___
+Here I've just made a project to move a few things up and down, when they are unlocked. 
+* Even on this teeny thing, look at the heirarchy on the left there.
+* How much do you like repeating the same action on 20 things. 
 
-## Exercises
+> What decoupling does is 
+> 1. **Add a little friction at the start** of our project to **avoid massive friction later ** when changing or adding anything.
+> 2. Lets us dream big and make mental games!
 
-1. Finish assignment 1
-2. Catch up on Sololearn, you need a certain amount of _c#_ to be automatic. Time you lose looking up basics, or on confusing errors, that's all potential coding time gone.
-3. Sign up to HacknPlan. 
+## Events
 
-## Resources
+* Door to door knocking is slow
+* Getting people to your house is hard and complicated
+* Clever people instead broadcast indiscriminately on  _Twitter_
 
-More detail on what we've covered here today. If a pattern  sounds like a good thing to use in assessment 2 or 3, go read more about it.
+![scenario 1](/assets/week6/keys_moving_2.png)
+_Let's watch this in action_
 
-#### Double Buffering
+Up the top are just some rectangles with numbers. I was thinking of them as keyboard keys (visually) at the time. Move Up and Move Down are buttons to control them.
 
-Double buffering is important to know about, but for Unity for now that's handled by the engine. I wrote notes on it though, so here the are!
-[week 5 leftovers - double buffering](week5_leftovers.html)
+How it's put together:
+1. The **move buttons** are saying to the twitterverse **"I Request a move"**
+2. The **keys are listening** out for those events
+3. They then individually **choose what to do.** If they are locked, they simply ignore the request.
 
-#### Free examples of Design Patterns in unity c#
+Imagine having to code all this from the button perspective, each button needing four references to the keys. Then imagine if there were 16 or 128 keys. 
 
-https://github.com/dmcgits/unity-design-patterns-naphier
-You can grab the code with gitkraken, sourctree, or typing the following in a dos/bash window:
-```sh
-git clone https://github.com/dmcgits/unity-design-patterns-naphier
+### Throwing an event
+
+Buttons have my TriggerMoveEventOnClick Component. I should have called it MoveRequesterClickable maybe.
+
+```cs
+// I make a component to put on my buttons. Nothing special, 
+// just a class that coule be called anything. 
+// I want it to trigger a move event on click, so I called it:
+public class TriggerMoveEventOnClick : MonoBehaviour {
+
+	// set up an event called OnMoveRequested. It's static, 
+	// so it can be accessed from other  classes. Don't worry about 
+	// "delegate" for now
+	public static event Action<string> OnMoveRequested = delegate {};
 ```
-#### gameprogrammingpatterns dot com:
 
-Easy to read, gaming focussed.
+```cs
+	// In the same componentI trigger the event on a mouse click,
+	// but it could be triggered anywhere for any reason you like.
+	private void OnMouseUpAsButton() {
+		// Call the event like a normal function. It instead is
+		// sent out to any listening objects, for them to handle.
+		OnMoveRequested("up");
+	}
+```
 
-1. <http://gameprogrammingpatterns.com/component.html>
-2. <http://gameprogrammingpatterns.com/double-buffer.html>
-3. <http://gameprogrammingpatterns.com/subclass-sandbox.html>
-4. <http://gameprogrammingpatterns.com/type-object.html>
-   
-#### Do factory
- Has loads of patterns explaine in c#, though this time for .net (not unity specific)
- <https://www.dofactory.com/net/design-patterns>
+### Listening for an event
+
+Keys, the guys up top, have a KeyMover:
+
+```cs
+// On each key is a component: the KeyMover class.
+// In start is this line, which means:
+// When a move is requested, I want my function
+// (MoveRequestedHandler) to handle it.
+
+TriggerMoveEventOnClick.OnMoveRequested += MoveRequestedHandler;
+
+```
+
+### Reacting to an event
+
+Again, KeyMover
+
+```cs
+// Here's the function, further down in keyMover. Notice it
+// has signature that matches the event's: 
+// Action<string> where Action means function and string is the // //// argument type
+private void MoveRequestedHandler(String wayToMove)
+    {
+        if (wayToMove == "up") transform.position += transform.up;
+    }
+```
+___
+
+## How did that actually happen?
+
+`event` is a built in keyword and part of how it happened is just, that's a thing c# can do. But it depends on some new we just wrote, and we need to understand those.
+___
+
+### Function delegates
+
+Have you ever made a windows folder shortcut? No matter where the shortcut is on your drive, it'll open the folder it was created from.
+
+![windows shortcut](assets/week6/folder_shortcut.png)
+
+Same same with function delegates. When you call them, they call another function with the same signature, and it does the work. They delegate the work to others.
+
+```cs
+// This code makes a delegate Type BossWork. This is a bit like making shortcut folders available
+delegate void BossWork(string task);
+
+// Then you have to make a real delegate function. A bit like making 
+// an actual shortcut, but not yet assigned a target folder.
+// In this case A boss, Sandra, has been given work, and seen fit 
+// to delegate it. 
+
+BossWork bossSandrasWork;
+
+// Other functions are assigned to receive the work delegated.
+// Witness Boss Sandra deciding the best way to "do" her work.
+bossSandrasWork = GeraldsTimeEnergy;
+// Look, she's "working"
+bossSandrasWork("writing her proposals.");
+```
+
+Why do we see this output of bossSandrasWork?
+> "Sandra drives me mental. All my time and energy is spent writing her proposals" grumbles Gerald to noone.
+
+```cs
+
+// Notice the delegate has to have the same function signature as
+// the function that delegated the work. If not you'd have random 
+// errors trying to pass the wrong parameters, expecting the wrong 
+// returns.
+
+void GeraldsTimeEnergy(string task)
+{
+	Debug.Log("\"Sandra drives me mental. All my time and energy is spent " + task + "\" grumbles Gerald to noone.");
+}
+```
+___
+
+### Generics aka what is `<that>`?
+
+Rather than start with a theoretical description, be relieved that you've already used generics and it wasn't that hard.
+
+> * Here in _c#_ you've used `List<Tower>`, maybe `Dictionary<Weapon>`.
+> * In _c++_ some of you used `vector<string>` 
+
+The **generic** bit means:
+* Someone was able to write the `List` class not knowing what type of object you'd store in it. They did that by **putting** `<T>` **for type** wherever you would put your object type.
+
+![list ](/assets/week6/list_generic.png)
+
+Notice when I hover over "List" in VS I see `List<T>` and `T is string`
+
+## Assessment 2: Character cusomiser
+
+>First, here's the brief:
+>[Assessment 1 brief on blackboard](https://laureate-au.blackboard.com/bbcswebdav/pid-7197507-dt-content-rid-11808949_1/xid-11808949_1)
+ 
+![example customiser](assets/week6/character_customiser.png)
+_an example of a customiser
+
+

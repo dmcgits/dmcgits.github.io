@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ISE102 Week 3 - Loops, Collections
 
 
@@ -5,28 +14,50 @@
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 3 - Loops, Collections](#ise102-week-3---loops-collections)
-	1. [Week 2 recap](#week-2-recap)
-	2. [Loops](#loops)
-		1. [While Loops](#while-loops)
-		2. [Basketball in _C++_](#basketball-in-_c_)
-		3. [Menu selection loop](#menu-selection-loop)
-			1. [FarmSim.cpp](#farmsimcpp)
-		4. [For Loops](#for-loops)
-		5. [`do..while` Loops](#dowhile-loops)
-	3. [Do some code Exercises](#do-some-code-exercises)
-	4. [Break](#break)
-	5. [Assignment 1 Discussion](#assignment-1-discussion)
-	6. [Collections](#collections)
-		1. [Arrays](#arrays)
-			1. [Initializing Arrays](#initializing-arrays)
-			2. [Abilities](#abilities)
-			3. [Shortcomings](#shortcomings)
-		2. [Multidimensional Arrays](#multidimensional-arrays)
-			1. [TicTacToe.cpp](#tictactoecpp)
-		3. [Vectors](#vectors)
-	7. [Exercises](#exercises)
-	8. [Resources](#resources)
+- [ ISE102 Week 3 - Loops, Collections
+](#ise102-week-3-loops-collections)
+  - [ Week 2 recap
+](#week-2-recap)
+  - [ Loops
+](#loops)
+    - [ While Loops
+](#while-loops)
+    - [ Basketball in _C++_
+](#basketball-in-_c_)
+    - [ Menu selection loop
+](#menu-selection-loop)
+      - [ FarmSim.cpp 
+](#farmsimcpp)
+    - [ For Loops
+](#for-loops)
+    - [ `do..while` Loops
+](#dowhile-loops)
+  - [ Do some code Exercises
+](#do-some-code-exercises)
+  - [ Break 
+](#break)
+  - [ Assignment 1 Discussion
+](#assignment-1-discussion)
+  - [ Collections
+](#collections)
+    - [ Arrays
+](#arrays)
+      - [ Initializing Arrays
+](#initializing-arrays)
+      - [ Abilities
+](#abilities)
+      - [ Shortcomings
+](#shortcomings)
+    - [ Multidimensional Arrays
+](#multidimensional-arrays)
+      - [ TicTacToe.cpp
+](#tictactoecpp)
+    - [ Vectors
+](#vectors)
+  - [ Exercises
+](#exercises)
+  - [ Resources
+](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -44,7 +75,7 @@ Loops are not just an abstract bit of logic proessing. A loop is going to work e
 
 Of most interest to us: the heart of a video game is a loop. It's a loop that launches many other loops.
 
-```
+``` {.line-numbers}
 // A 3 shot basketball game /////////////////
 
 start_program Basketball
@@ -75,7 +106,7 @@ end_program Basketball
 
 The easiest first loop to learn is the `while` loop. It has this simple structure:
 
-```c++
+```c++ {.line-numbers}
 
    while(test) 
    {
@@ -86,7 +117,7 @@ The easiest first loop to learn is the `while` loop. It has this simple structur
 
 What's the minimum code we need for loop that doesn't go on for ever? Something to make the loop go, and something to make it stop.
 
-```c++
+```c++ {.line-numbers}
 
    while(true) // Always evaluates to true, so this is an infinite loop
    {
@@ -108,7 +139,7 @@ What's the minimum code we need for loop that doesn't go on for ever? Something 
 
 Replacing those requirements with c++:
 
-```c++
+```c++ {.line-numbers}
 
 // initialise
 int count = 0;
@@ -128,7 +159,7 @@ while ( count < 10 )
 
 Easy! Here's the pseudocode basketball game loop written in c++. 
 
-```c++
+```c++ {.line-numbers}
 #include <iostream>
 using namespace std;
 
@@ -209,8 +240,8 @@ This loop relies on **initializing** a variable, we could call it `hasPlayerQuit
 
 See if you can finish the translation from _psuedocode_ to _c++_
 
-#### FarmSim.cpp
-```C++
+#### FarmSim.cpp 
+```C++ {.line-numbers}
 #include <iostream>
 using namespace std;
 
@@ -261,7 +292,7 @@ For loops are way of having the **init**, **condition** and **increment** in a s
 
 And with example code filled in: 
 
-```c++
+```c++ {.line-numbers}
 for (int triesRemaining=TRIES_ALLOWED; triesRemaining > 0; triesRemaining--)
 {
 	// Do things
@@ -291,7 +322,7 @@ ___
 
 Like a while, with the condition checked at the end. Happens at least once no matter what. A normal while loop will execute 0 times if the condition is never met. I don't recall seeing these used.
 
-```c++
+```c++ {.line-numbers}
 do
 {
 	cout << "Long cat is long"" << endl;
@@ -326,14 +357,14 @@ We've declared integers like `int faveNumber;` grab 32bits of memory, and to use
 
 and reserve 5 integers worth of memory, and access each of them with the same name and an _index_ like so: 
 
-```c++
+```c++ {.line-numbers}
 x = faveNumbers[2]; 
 y = faveNumbers[4];` 
 ```
 
 Arrays for inventory items:
 
-```c++
+```c++ {.line-numbers}
 #include <iostream>
 #include <String>;
 
@@ -374,7 +405,7 @@ int main()
 
 #### Initializing Arrays
 
-```c++
+```c++ {.line-numbers}
 // This is our first time seeing a new use of the curly braces.
 // Normally they mean code block.
 // Here they define a set of data values.
@@ -420,7 +451,7 @@ Vectors are provided in the c++ std library, are a class rather than a basic typ
   * `insert()`, `erase()`
   * Read more: <https://www.geeksforgeeks.org/vector-in-cpp-stl/>
 
-```c++
+```c++ {.line-numbers}
 // C++ program to illustrate the 
 // capacity function in vector 
 #include <iostream> 

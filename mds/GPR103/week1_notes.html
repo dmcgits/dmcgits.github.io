@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
       
       
       
@@ -15,57 +15,83 @@
       
 
       <style> 
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
  
       </style>
     </head>
     <body for="html-export">
-      <div class="mume markdown-preview   ">
+      <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="gpr103-week-1">GPR103 Week 1</h1>
 
 <p>Welcome, Object Oriented Design, C#</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#gpr103-week-1">GPR103 Week 1</a>
 <ul>
-<li><a href="#part-1---studying-2d-games-programming">Part 1 - Studying 2D Games Programming</a></li>
+<li><a href="#part-1-studying-2d-games-programming">Part 1 - Studying 2D Games Programming</a></li>
 <li><a href="#who-are-we">Who are we?</a></li>
 <li><a href="#how-will-we-make-2d-games">How will we make 2D games?</a>
 <ul>
 <li><a href="#c">C++?</a></li>
 <li><a href="#unity-c">Unity, C#?</a></li>
 <li><a href="#visual-studio-community">Visual Studio Community</a></li>
+<li><a href="#mixing-worlds">Mixing Worlds</a>
+<ul>
 <li><a href="#dammit-jim-im-a-programmer-not-an-artist">Dammit Jim! I&#x2019;m a programmer, not an artist.</a></li>
 <li><a href="#dammit-jim-im-an-artist-not-a-programmer">Dammit Jim! I&#x2019;m an artist, not a programmer!</a></li>
 </ul>
 </li>
+</ul>
+</li>
 <li><a href="#hour-splits-and-thriving-in-2d-games-programming">Hour splits and thriving in 2D Games Programming</a>
 <ul>
+<li><a href="#ask-questions">Ask questions!</a></li>
 <li><a href="#blackboard-is-your-friend">Blackboard is your friend</a></li>
 <li><a href="#my-notes-are-your-friends">My notes are your friends</a></li>
 </ul>
 </li>
 <li><a href="#assessments">Assessments</a>
 <ul>
-<li><a href="#assessment-1---programming-exercises">Assessment 1 - Programming exercises</a></li>
-<li><a href="#assessment-2---character-customiser">Assessment 2 - Character customiser</a></li>
-<li><a href="#assessment-3---missile-command">Assessment 3 - Missile Command</a></li>
+<li><a href="#assessment-1-programming-exercises">Assessment 1 - Programming exercises</a></li>
+<li><a href="#assessment-2-character-customiser">Assessment 2 - Character customiser</a></li>
+<li><a href="#assessment-3-missile-command">Assessment 3 - Missile Command</a></li>
 </ul>
 </li>
 <li><a href="#part-2-programming-and-unity">Part 2: Programming and Unity</a>
 <ul>
 <li><a href="#installing-unity">Installing Unity</a></li>
 <li><a href="#installing-visual-studio">Installing Visual Studio</a></li>
+<li><a href="#hello-unity">Hello Unity.</a></li>
 </ul>
 </li>
-<li><a href="#hello-world">Hello world.</a>
+<li><a href="#new-design-pattern-composition">New design pattern, Composition!</a></li>
+<li><a href="#why-not-just-inheritance">Why not just inheritance?</a>
 <ul>
-<li><a href="#inheritance-and-composition">Inheritance and Composition</a></li>
-<li><a href="#cohesion-and-coupling">Cohesion and Coupling</a></li>
+<li><a href="#inheritance-in-unity">Inheritance in Unity</a></li>
+<li><a href="#limits-of-inheritance">Limits of Inheritance</a></li>
 </ul>
 </li>
-<li><a href="#part-3-exercises">Part 3: Exercises</a></li>
+<li><a href="#composition-saves-the-day">Composition saves the day:</a>
+<ul>
+<li><a href="#put-your-components-on-gameobjects">Put your components on GameObjects</a></li>
+</ul>
+</li>
+<li><a href="#making-a-rifle-with-inheritance-and-composition">Making a rifle with inheritance and composition</a>
+<ul>
+<li><a href="#inheritance-from-monobehaviour-to-rifle-and-pistol">Inheritance: From Monobehaviour to Rifle and Pistol.</a></li>
+<li><a href="#composition-add-ons">Composition: add ons</a></li>
+<li><a href="#handy-tip-requirecomponent">Handy tip: RequireComponent</a></li>
+</ul>
+</li>
+<li><a href="#part-3-exercises">Part 3: Exercises</a><br>
+* <a href="#1-learn-unity-fundamentals">1. Learn Unity Fundamentals</a><br>
+* <a href="#2-learn-c-fundamentals-with-sololearn">2. Learn C# fundamentals with Sololearn</a></li>
 </ul>
 </li>
 </ul>
@@ -128,21 +154,27 @@ SFML tutes and downloads for all platforms - <em><a href="https://www.sfml-dev.o
 
 <p>Either way, you&#x2019;ll need Microsoft Visual Studio Community. Not to be confused with Visual Studio Code.</p>
 <hr>
-<h3 class="mume-header" id="dammit-jim-im-a-programmer-not-an-artist">Dammit Jim! I&#x2019;m a programmer, not an artist.</h3>
+<h3 class="mume-header" id="mixing-worlds">Mixing Worlds</h3>
+
+<p>The Unity IDE is used by artists, programmers and game designers, and blends a lot of disciplines. This class gets students from art and software engineering streams too, and you might have reservations.</p>
+<p>There&#x2019;s nothing to worry about. I&#x2019;ll let two generations of a fictional space doctor explain.</p>
+<h4 class="mume-header" id="dammit-jim-im-a-programmer-not-an-artist">Dammit Jim! I&#x2019;m a programmer, not an artist.</h4>
 
 <p><img src="assets/week1/mccoy_old.jpg" alt="McCoy Old"></p>
-<p>That&#x2019;s okay, we&#x2019;re here to focus on the building of games. The <a href="https://assetstore.unity.com/categories/2d">asset store</a> is full of sprites for people like us.</p>
+<p>That&#x2019;s okay, we don&#x2019;t have to create art for the games we&#x2019;re making this trimester. The <a href="https://assetstore.unity.com/categories/2d">asset store</a> is full of sprites, both free and paid, and so is <a href="http://opengameart.org">opengameart.org</a></p>
+<p>Also, assessments won&#x2019;t be marked on quality of art.</p>
 <p><img src="assets/week1/asset_store_web.jpg" alt="Asset store"></p>
 <hr>
-<h3 class="mume-header" id="dammit-jim-im-an-artist-not-a-programmer">Dammit Jim! I&#x2019;m an artist, not a programmer!</h3>
+<h4 class="mume-header" id="dammit-jim-im-an-artist-not-a-programmer">Dammit Jim! I&#x2019;m an artist, not a programmer!</h4>
 
 <p><img src="assets/week1/mccoy_new.jpg" alt="McCoy New"></p>
-<p>Unity makes programming life a lot easier than starting out in C++.</p>
+<p>Unity makes programming life a lot easier for artists or casual scripters than starting out in, say, C++.</p>
 <ul>
-<li>No compiler, command line! Very visual.</li>
-<li>Unity&#x2019;s API/engine does most of the dirty work, we just have to order it around.</li>
-<li>Drag and drop used for lots of things you&#x2019;d normally have to manage in code.</li>
-<li>Code can run in the editor each time we save and scripts can be disabled with a check box. Testing becomes much easier.</li>
+<li>We can add scripts to things in our scene by hitting &#x201C;add component&#x201D;, get away with writing just one line of code, and hit &#x201C;Play&#x201D;</li>
+<li>The Unity team already wrote code to do most of the dirty work, we just script on top of it. All the image/model/sound/physics/input stuff is there</li>
+<li>Drag and drop or editing text fields/forms can change your variables without having to go back to the code.</li>
+<li>Compiling happens in the background.</li>
+<li>You can disable scripts and objects by just clicking a checkbox. Testing becomes much easier.</li>
 </ul>
 <p><img src="assets/week1/script_inspector.png" alt="Script in Inspector"></p>
 <hr>
@@ -153,6 +185,15 @@ SFML tutes and downloads for all platforms - <em><a href="https://www.sfml-dev.o
 <strong>70%</strong> studying, programming, gaining experience.</p>
 </blockquote>
 <p>The benefit of these courses comes from putting in work between classes. What we learn in class won&#x2019;t stick if you don&#x2019;t work and experiment at home.</p>
+<h3 class="mume-header" id="ask-questions">Ask questions!</h3>
+
+<p>Come to class, and when you&#x2019;re working at home send me questions.</p>
+<p>My:</p>
+<ul>
+<li>uni email: daniel.mcgillick laureate edu au</li>
+<li>discord server: <a href="https://discord.gg/xEh5J4J">https://discord.gg/xEh5J4J</a></li>
+<li>discord name: DMacMakes#3457 (case sensitive)</li>
+</ul>
 <h3 class="mume-header" id="blackboard-is-your-friend">Blackboard is your friend</h3>
 
 <p>Find assignment briefs, due dates, slides, programming tutes/samples and much more.</p>
@@ -193,91 +234,862 @@ SFML tutes and downloads for all platforms - <em><a href="https://www.sfml-dev.o
 <hr>
 <h2 class="mume-header" id="part-2-programming-and-unity">Part 2: Programming and Unity</h2>
 
-<blockquote>
 <p>Let&#x2019;s learn by doing. We&#x2019;ll create a unity project, add something to our game, and give it behaviour.</p>
-</blockquote>
 <h3 class="mume-header" id="installing-unity">Installing Unity</h3>
 
+<p>Important note: we&#x2019;ll be using <strong>2018.2</strong>, not the latest unity editor.</p>
 <ol>
-<li>Head over to <a href="https://unity3d.com/get-unity/download">https://unity3d.com/get-unity/download</a> and download the Unity Hub, then install it.</li>
-<li>Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to 2018.2.20f1. The download button is missing below because I&#x2019;ve installed already.<br>
-<img src="assets/week1/unity_hub_install_22.png" alt="Unity Hub Install 2018.2.2"></li>
-<li>When it the Add Components window appears make sure documentation is checked, click the &#x201C;Done&#x201D; button and wait for it to install.</li>
+<li>Head over to <a href="https://unity3d.com/get-unity/download">https://unity3d.com/get-unity/download</a> and download the <strong>Unity Hub</strong>, then install it.</li>
+<li>Run Unity Hub, choose Installs from the top menu, then official releases on left, and finally click Download next to <strong>2018.2.21f1</strong>. This will not be the latest version, so pay attention to this step. <strong>If you install the wrong version and then submit an assignment that doesn&#x2019;t compile in 2018.2 it&#x2019;ll cost you marks</strong>.</li>
+</ol>
+<p><img src="assets/week1/unity_hub_install_22.png" alt="unity hub 1"><br>
+<em>You&#x2019;ll see 21f1 rather than 20f1 in hub now</em></p>
+<ol>
+<li>When the &#x201C;Add Components&#x201D; window appears make sure documentation is checked, click the &#x201C;Done&#x201D; button and wait for it to install.</li>
 </ol>
 <h3 class="mume-header" id="installing-visual-studio">Installing Visual Studio</h3>
 
-<p>If you already have Visual Studio: search for and run the Visual Studio Installer, select More &gt; Modify (next to the launch button), then go to step 2.</p>
+<p>We also won&#x2019;t be using the latest Visual studio, <strong>we&#x2019;ll use Visual Studio Community 2017</strong> (not 2019) so be careful.<br>
+If you already have Visual Studio: search for and run the Visual Studio Installer, select More &gt; Modify (next to the launch button), then go to step 2.</p>
 <ol>
-<li>Go to <a href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a> and, under &#x201C;community&#x201D;, click Free Download.<br>
-<img src="assets/week1/visual_studio_install.png" alt="Visual Studio Download"></li>
+<li>Go to <a href="https://visualstudio.microsoft.com/vs/older-downloads/">https://visualstudio.microsoft.com/vs/older-downloads/</a>. Don&#x2019;t click &#x201C;Download Visual Studio&#x201D;, scroll down and expand &#x201C;2017&#x201D; to download.</li>
 <li>Under <em>Workloads</em> scroll down to <em>Mobile and Gaming</em> and check the <strong>Game development with Unity</strong> option.</li>
 <li>Select <em>install while downloading</em> and click <em>modify</em>. Or Install if that&#x2019;s what you have instead of modify.</li>
 </ol>
+<p><img src="assets/week1/visual_studio_unity.jpg" alt="unity workload"></p>
 <hr>
-<h2 class="mume-header" id="hello-world">Hello world.</h2>
+<h3 class="mume-header" id="hello-unity">Hello Unity.</h3>
 
-<p>I&#x2019;ll be running through this in class. It&#x2019;ll move fairly quickly but you can re-watch the video.</p>
-<ul>
+<p>I&#x2019;ll be running through this in class. For online students it&#x2019;ll move fairly quickly but you can re-watch the video.</p>
+<ol>
 <li>Create a new 2D project</li>
-<li>Drop in a talking square, add a script.</li>
+<li>Drop in a square, add a talking script.</li>
 <li>Log hello world, I am square</li>
 <li>Add a collider, log hello world on click.</li>
 <li>Add a shy circle, with a collider, add a script.</li>
 <li>Give circle a public variable talker.</li>
 <li>Have shy circle pass call a function on square.</li>
 <li>Cube says &#x201C;hello world, she is circle.&#x201D;</li>
-<li>Have her pass a string to reduce coupling.</li>
-</ul>
-<h3 class="mume-header" id="inheritance-and-composition">Inheritance and Composition</h3>
-
-<p>Object oriented design, we&#x2019;ve talked about inheritance. What we&#x2019;re seeing in Unity isn&#x2019;t just that though, is it? Monobehaviour, sure. But we&#x2019;re making these components and adding them on to our sprite.</p>
-<h4 class="mume-header" id="inheritance">Inheritance</h4>
-
-<p>The &#x201C;is a&#x201D; relationship. Human -&gt; Mammal -&gt; Animal is our classic.</p>
-<pre class="language-text">1. Animal
-2. Mammal animal
-   - inherits animal
-3. Human mammal animal
-   - inherits mammal animal.
-</pre>
-<p>That all works. However&#x2026;</p>
-<pre class="language-text">1. Gun
-2. Gun With Grenade Launcher 
-   - inherits gun
-3. Gun w Grenade Launcher and Laser sight 
-   - inherits gun w grenade
-4. Gun w Laser sight and bayonet 
-   - um inherit gun w nade w laser sight and use if-then to hide grenade launcher?
-5. Gun with grenade launcher and bayonet. 
-   - We might need gun w everything and lots of if-then or case statements? 
-</pre>
-<p>Inheritance can&#x2019;t really handle this kind of crossover. We&#x2019;re moving away from a tree diagram.</p>
-<h4 class="mume-header" id="composition">Composition:</h4>
-
-<p>More of a &#x201C;has a&#x201D; relationship, or a &#x201C;can&#x201D; relationship. Has a collider, can collide.</p>
-<p>Gun has a grenade launcher and has a sight. But how? Unity components!</p>
-<h3 class="mume-header" id="cohesion-and-coupling">Cohesion and Coupling</h3>
-
-<blockquote>
-<p>Cohesion: putting stuff where it belongs.<br>
-Coupling: making objects dependent on eachother.</p>
-</blockquote>
+</ol>
+<p><img src="assets/week1/hello_unity.png" alt="Hello"></p>
 <hr>
+<h2 class="mume-header" id="new-design-pattern-composition">New design pattern, Composition!</h2>
+
+<p>That was probably easier than you expected. It was <strong>easy but also strange</strong> when you think about it.</p>
+<ol>
+<li>We made a Class/Object and&#x2026;</li>
+<li>put on another class already in the scene? It&#x2019;s not like inheritance!</li>
+</ol>
+<blockquote>
+<p>This design pattern is called <strong>composition</strong> and it&#x2019;s less <strong>Rifle is a Gun (inheritance)</strong> and more <strong>Rifle has a Laser Sight and Bayonet</strong>.</p>
+</blockquote>
+<p><img src="assets/week1/inspector_gameobject.png" alt="inspector components"><br>
+<em>Multiple components on TalkySquare not just our Talk script.</em></p>
+<hr>
+<h2 class="mume-header" id="why-not-just-inheritance">Why not just inheritance?</h2>
+
+<p>We learned inheritance last trimester in c++, and you may have seen it in other languages.</p>
+<ul>
+<li>Its the <strong>&#x201C;is a&#x201D; relationship</strong>.</li>
+<li>Human -&gt; Mammal -&gt; Animal is a classic example</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: graphname Pages: 1 -->
+<svg width="407pt" height="260pt" viewBox="0.00 0.00 406.70 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>graphname</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 402.7019,-256 402.7019,4 -4,4"/>
+<!-- LivingThing -->
+<g id="node1" class="node">
+<title>LivingThing</title>
+<ellipse fill="none" stroke="#000000" cx="194.4637" cy="-234" rx="59.7147" ry="18"/>
+<text text-anchor="middle" x="194.4637" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LivingThing</text>
+</g>
+<!-- Animal -->
+<g id="node2" class="node">
+<title>Animal</title>
+<ellipse fill="none" stroke="#000000" cx="194.4637" cy="-162" rx="40.005" ry="18"/>
+<text text-anchor="middle" x="194.4637" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">Animal</text>
+</g>
+<!-- LivingThing&#45;&gt;Animal -->
+<g id="edge1" class="edge">
+<title>LivingThing-&gt;Animal</title>
+<path fill="none" stroke="#000000" d="M194.4637,-215.8314C194.4637,-208.131 194.4637,-198.9743 194.4637,-190.4166"/>
+<polygon fill="#000000" stroke="#000000" points="197.9638,-190.4132 194.4637,-180.4133 190.9638,-190.4133 197.9638,-190.4132"/>
+</g>
+<!-- Mammal -->
+<g id="node3" class="node">
+<title>Mammal</title>
+<ellipse fill="none" stroke="#000000" cx="137.4637" cy="-90" rx="45.8041" ry="18"/>
+<text text-anchor="middle" x="137.4637" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">Mammal</text>
+</g>
+<!-- Animal&#45;&gt;Mammal -->
+<g id="edge2" class="edge">
+<title>Animal-&gt;Mammal</title>
+<path fill="none" stroke="#000000" d="M180.9555,-144.937C173.9597,-136.1003 165.2792,-125.1354 157.5174,-115.3311"/>
+<polygon fill="#000000" stroke="#000000" points="160.2221,-113.1087 151.2709,-107.4407 154.7338,-117.4536 160.2221,-113.1087"/>
+</g>
+<!-- Reptile -->
+<g id="node6" class="node">
+<title>Reptile</title>
+<ellipse fill="none" stroke="#000000" cx="252.4637" cy="-90" rx="38.8594" ry="18"/>
+<text text-anchor="middle" x="252.4637" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">Reptile</text>
+</g>
+<!-- Animal&#45;&gt;Reptile -->
+<g id="edge5" class="edge">
+<title>Animal-&gt;Reptile</title>
+<path fill="none" stroke="#000000" d="M208.2088,-144.937C215.432,-135.9703 224.4203,-124.8124 232.4059,-114.8993"/>
+<polygon fill="#000000" stroke="#000000" points="235.2694,-116.9237 238.8171,-106.9405 229.8182,-112.5324 235.2694,-116.9237"/>
+</g>
+<!-- Human -->
+<g id="node4" class="node">
+<title>Human</title>
+<ellipse fill="none" stroke="#000000" cx="39.4637" cy="-18" rx="39.4273" ry="18"/>
+<text text-anchor="middle" x="39.4637" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Human</text>
+</g>
+<!-- Mammal&#45;&gt;Human -->
+<g id="edge3" class="edge">
+<title>Mammal-&gt;Human</title>
+<path fill="none" stroke="#000000" d="M115.7143,-74.0209C101.9499,-63.9082 83.979,-50.7051 68.9409,-39.6568"/>
+<polygon fill="#000000" stroke="#000000" points="70.6107,-36.5405 60.4796,-33.4403 66.4662,-42.1817 70.6107,-36.5405"/>
+</g>
+<!-- Racoon -->
+<g id="node5" class="node">
+<title>Racoon</title>
+<ellipse fill="none" stroke="#000000" cx="137.4637" cy="-18" rx="40.5712" ry="18"/>
+<text text-anchor="middle" x="137.4637" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Racoon</text>
+</g>
+<!-- Mammal&#45;&gt;Racoon -->
+<g id="edge4" class="edge">
+<title>Mammal-&gt;Racoon</title>
+<path fill="none" stroke="#000000" d="M137.4637,-71.8314C137.4637,-64.131 137.4637,-54.9743 137.4637,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="140.9638,-46.4132 137.4637,-36.4133 133.9638,-46.4133 140.9638,-46.4132"/>
+</g>
+<!-- NinjaTurtle -->
+<g id="node7" class="node">
+<title>NinjaTurtle</title>
+<ellipse fill="none" stroke="#000000" cx="252.4637" cy="-18" rx="56.1744" ry="18"/>
+<text text-anchor="middle" x="252.4637" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">NinjaTurtle</text>
+</g>
+<!-- Reptile&#45;&gt;NinjaTurtle -->
+<g id="edge6" class="edge">
+<title>Reptile-&gt;NinjaTurtle</title>
+<path fill="none" stroke="#000000" d="M252.4637,-71.8314C252.4637,-64.131 252.4637,-54.9743 252.4637,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="255.9638,-46.4132 252.4637,-36.4133 248.9638,-46.4133 255.9638,-46.4132"/>
+</g>
+<!-- Gecko -->
+<g id="node8" class="node">
+<title>Gecko</title>
+<ellipse fill="none" stroke="#000000" cx="362.4637" cy="-18" rx="36.478" ry="18"/>
+<text text-anchor="middle" x="362.4637" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Gecko</text>
+</g>
+<!-- Reptile&#45;&gt;Gecko -->
+<g id="edge7" class="edge">
+<title>Reptile-&gt;Gecko</title>
+<path fill="none" stroke="#000000" d="M274.9892,-75.256C291.4102,-64.5077 313.8482,-49.821 331.8875,-38.0135"/>
+<polygon fill="#000000" stroke="#000000" points="333.8939,-40.8834 340.3441,-32.4783 330.0602,-35.0264 333.8939,-40.8834"/>
+</g>
+</g>
+</svg>
+</p><h3 class="mume-header" id="inheritance-in-unity">Inheritance in Unity</h3>
+
+<p>Our <code>Rifle</code> can still be a <code>Gun</code>, gaining useful things, <strong>c# and Unity are fine with inheritance.</strong></p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Rifle Pages: 1 -->
+<svg width="273pt" height="188pt" viewBox="0.00 0.00 273.31 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>Rifle</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-184 269.3067,-184 269.3067,4 -4,4"/>
+<!-- Weapon -->
+<g id="node1" class="node">
+<title>Weapon</title>
+<ellipse fill="none" stroke="#000000" cx="132.2668" cy="-162" rx="43.4221" ry="18"/>
+<text text-anchor="middle" x="132.2668" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">Weapon</text>
+</g>
+<!-- RubberHulkFist -->
+<g id="node2" class="node">
+<title>RubberHulkFist</title>
+<ellipse fill="none" stroke="#000000" cx="73.2668" cy="-90" rx="73.0344" ry="18"/>
+<text text-anchor="middle" x="73.2668" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">RubberHulkFist</text>
+</g>
+<!-- Weapon&#45;&gt;RubberHulkFist -->
+<g id="edge1" class="edge">
+<title>Weapon-&gt;RubberHulkFist</title>
+<path fill="none" stroke="#000000" d="M118.2846,-144.937C111.0967,-136.1652 102.1904,-125.2965 94.2016,-115.5476"/>
+<polygon fill="#000000" stroke="#000000" points="96.8102,-113.2088 87.7648,-107.6924 91.3959,-117.6456 96.8102,-113.2088"/>
+</g>
+<!-- Gun -->
+<g id="node3" class="node">
+<title>Gun</title>
+<ellipse fill="none" stroke="#000000" cx="192.2668" cy="-90" rx="27.8306" ry="18"/>
+<text text-anchor="middle" x="192.2668" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">Gun</text>
+</g>
+<!-- Weapon&#45;&gt;Gun -->
+<g id="edge2" class="edge">
+<title>Weapon-&gt;Gun</title>
+<path fill="none" stroke="#000000" d="M146.486,-144.937C154.2517,-135.6181 163.9897,-123.9326 172.4858,-113.7373"/>
+<polygon fill="#000000" stroke="#000000" points="175.2587,-115.8769 178.9718,-105.954 169.8812,-111.3956 175.2587,-115.8769"/>
+</g>
+<!-- Rifle -->
+<g id="node4" class="node">
+<title>Rifle</title>
+<ellipse fill="none" stroke="#000000" cx="151.2668" cy="-18" rx="30.1919" ry="18"/>
+<text text-anchor="middle" x="151.2668" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Rifle</text>
+</g>
+<!-- Gun&#45;&gt;Rifle -->
+<g id="edge3" class="edge">
+<title>Gun-&gt;Rifle</title>
+<path fill="none" stroke="#000000" d="M182.5504,-72.937C177.6693,-64.3654 171.648,-53.7914 166.1957,-44.2165"/>
+<polygon fill="#000000" stroke="#000000" points="169.1882,-42.3986 161.1983,-35.4407 163.1053,-45.8625 169.1882,-42.3986"/>
+</g>
+<!-- Pistol -->
+<g id="node5" class="node">
+<title>Pistol</title>
+<ellipse fill="none" stroke="#000000" cx="232.2668" cy="-18" rx="33.0798" ry="18"/>
+<text text-anchor="middle" x="232.2668" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Pistol</text>
+</g>
+<!-- Gun&#45;&gt;Pistol -->
+<g id="edge4" class="edge">
+<title>Gun-&gt;Pistol</title>
+<path fill="none" stroke="#000000" d="M201.7463,-72.937C206.5083,-64.3654 212.3827,-53.7914 217.7021,-44.2165"/>
+<polygon fill="#000000" stroke="#000000" points="220.7806,-45.882 222.5776,-35.4407 214.6615,-42.4825 220.7806,-45.882"/>
+</g>
+</g>
+</svg>
+</p><pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// The syntax is familiar to c++ users, minus all the header nonsense</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Rifle</span> <span class="token punctuation">:</span> <span class="token class-name">Gun</span> <span class="token punctuation">{</span> <span class="token comment">// Rifle is a gun</span>
+
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>		
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Your inheritance has to start with Monobehaviour if you want to use it in the inspector.</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Gun</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span> <span class="token comment">// Gun is a component</span>
+
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>		
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="limits-of-inheritance">Limits of Inheritance</h3>
+
+<p>Thing is, when you add <em>optional</em> things rather than <em>evolving</em>, inheritance gets&#x2026; silly.</p>
+<ul>
+<li>To equip <strong>multiple options in combination</strong> do you try to inherit from multiple classes?</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Rifle Pages: 1 -->
+<svg width="691pt" height="260pt" viewBox="0.00 0.00 691.38 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>Rifle</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 687.3762,-256 687.3762,4 -4,4"/>
+<!-- Gun -->
+<g id="node1" class="node">
+<title>Gun</title>
+<ellipse fill="none" stroke="#000000" cx="349.715" cy="-234" rx="27.8306" ry="18"/>
+<text text-anchor="middle" x="349.715" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">Gun</text>
+</g>
+<!-- Rifle -->
+<g id="node2" class="node">
+<title>Rifle</title>
+<ellipse fill="none" stroke="#000000" cx="349.715" cy="-162" rx="30.1919" ry="18"/>
+<text text-anchor="middle" x="349.715" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">Rifle</text>
+</g>
+<!-- Gun&#45;&gt;Rifle -->
+<g id="edge1" class="edge">
+<title>Gun-&gt;Rifle</title>
+<path fill="none" stroke="#000000" d="M349.715,-215.8314C349.715,-208.131 349.715,-198.9743 349.715,-190.4166"/>
+<polygon fill="#000000" stroke="#000000" points="353.2151,-190.4132 349.715,-180.4133 346.2151,-190.4133 353.2151,-190.4132"/>
+</g>
+<!-- RifleWLaser -->
+<g id="node3" class="node">
+<title>RifleWLaser</title>
+<ellipse fill="none" stroke="#000000" cx="349.715" cy="-90" rx="60.8082" ry="18"/>
+<text text-anchor="middle" x="349.715" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWLaser</text>
+</g>
+<!-- Rifle&#45;&gt;RifleWLaser -->
+<g id="edge2" class="edge">
+<title>Rifle-&gt;RifleWLaser</title>
+<path fill="none" stroke="#000000" d="M349.715,-143.8314C349.715,-136.131 349.715,-126.9743 349.715,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="353.2151,-118.4132 349.715,-108.4133 346.2151,-118.4133 353.2151,-118.4132"/>
+</g>
+<!-- RifleWBayonet -->
+<g id="node4" class="node">
+<title>RifleWBayonet</title>
+<ellipse fill="none" stroke="#000000" cx="198.715" cy="-90" rx="71.7873" ry="18"/>
+<text text-anchor="middle" x="198.715" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWBayonet</text>
+</g>
+<!-- Rifle&#45;&gt;RifleWBayonet -->
+<g id="edge3" class="edge">
+<title>Rifle-&gt;RifleWBayonet</title>
+<path fill="none" stroke="#000000" d="M325.7886,-150.5914C303.2487,-139.8439 268.9616,-123.495 241.6814,-110.4873"/>
+<polygon fill="#000000" stroke="#000000" points="242.8879,-107.1851 232.355,-106.0403 239.875,-113.5035 242.8879,-107.1851"/>
+</g>
+<!-- RifleWNades -->
+<g id="node6" class="node">
+<title>RifleWNades</title>
+<ellipse fill="none" stroke="#000000" cx="491.715" cy="-90" rx="63.6793" ry="18"/>
+<text text-anchor="middle" x="491.715" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWNades</text>
+</g>
+<!-- Rifle&#45;&gt;RifleWNades -->
+<g id="edge5" class="edge">
+<title>Rifle-&gt;RifleWNades</title>
+<path fill="none" stroke="#000000" d="M372.8458,-150.2717C394.1237,-139.4829 426.1381,-123.2503 451.5838,-110.3482"/>
+<polygon fill="#000000" stroke="#000000" points="453.2931,-113.4058 460.6293,-105.7618 450.1275,-107.1625 453.2931,-113.4058"/>
+</g>
+<!-- RifleWLaserAndBayonet -->
+<g id="node7" class="node">
+<title>RifleWLaserAndBayonet</title>
+<ellipse fill="none" stroke="#000000" cx="109.715" cy="-18" rx="109.9305" ry="18"/>
+<text text-anchor="middle" x="109.715" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWLaserAndBayonet</text>
+</g>
+<!-- RifleWLaser&#45;&gt;RifleWLaserAndBayonet -->
+<g id="edge6" class="edge">
+<title>RifleWLaser-&gt;RifleWLaserAndBayonet</title>
+<path fill="none" stroke="#000000" d="M306.8078,-77.1278C269.4072,-65.9077 214.6803,-49.4896 172.3794,-36.7993"/>
+<polygon fill="#000000" stroke="#000000" points="173.3186,-33.427 162.7346,-33.9059 171.3071,-40.1318 173.3186,-33.427"/>
+</g>
+<!-- RifleWNadesAndLaser -->
+<g id="node8" class="node">
+<title>RifleWNadesAndLaser</title>
+<ellipse fill="none" stroke="#000000" cx="581.715" cy="-18" rx="101.8225" ry="18"/>
+<text text-anchor="middle" x="581.715" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWNadesAndLaser</text>
+</g>
+<!-- RifleWLaser&#45;&gt;RifleWNadesAndLaser -->
+<g id="edge8" class="edge">
+<title>RifleWLaser-&gt;RifleWNadesAndLaser</title>
+<path fill="none" stroke="#000000" d="M391.7285,-76.9613C427.9945,-65.7064 480.8195,-49.3124 521.5672,-36.6666"/>
+<polygon fill="#000000" stroke="#000000" points="522.6064,-40.0088 531.1197,-33.702 520.5316,-33.3234 522.6064,-40.0088"/>
+</g>
+<!-- RifleWNadesAndBayonet -->
+<g id="node5" class="node">
+<title>RifleWNadesAndBayonet</title>
+<ellipse fill="none" stroke="#000000" cx="349.715" cy="-18" rx="112.3013" ry="18"/>
+<text text-anchor="middle" x="349.715" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWNadesAndBayonet</text>
+</g>
+<!-- RifleWBayonet&#45;&gt;RifleWNadesAndBayonet -->
+<g id="edge4" class="edge">
+<title>RifleWBayonet-&gt;RifleWNadesAndBayonet</title>
+<path fill="none" stroke="#000000" d="M232.2268,-74.0209C253.5327,-63.8618 281.3796,-50.5838 304.615,-39.5047"/>
+<polygon fill="#000000" stroke="#000000" points="306.4072,-42.5277 313.9271,-35.0644 303.3943,-36.2092 306.4072,-42.5277"/>
+</g>
+<!-- RifleWBayonet&#45;&gt;RifleWLaserAndBayonet -->
+<g id="edge9" class="edge">
+<title>RifleWBayonet-&gt;RifleWLaserAndBayonet</title>
+<path fill="none" stroke="#000000" d="M177.1706,-72.5708C165.8608,-63.4213 151.8267,-52.0679 139.493,-42.0901"/>
+<polygon fill="#000000" stroke="#000000" points="141.6552,-39.3373 131.6793,-35.7689 137.2525,-44.7795 141.6552,-39.3373"/>
+</g>
+<!-- RifleWNades&#45;&gt;RifleWNadesAndBayonet -->
+<g id="edge10" class="edge">
+<title>RifleWNades-&gt;RifleWNadesAndBayonet</title>
+<path fill="none" stroke="#000000" d="M460.5525,-74.1993C440.6934,-64.1299 414.6864,-50.9432 392.8556,-39.8741"/>
+<polygon fill="#000000" stroke="#000000" points="394.2873,-36.6758 383.7854,-35.2751 391.1216,-42.9191 394.2873,-36.6758"/>
+</g>
+<!-- RifleWNades&#45;&gt;RifleWNadesAndLaser -->
+<g id="edge7" class="edge">
+<title>RifleWNades-&gt;RifleWNadesAndLaser</title>
+<path fill="none" stroke="#000000" d="M513.0438,-72.937C524.5567,-63.7266 538.9595,-52.2044 551.5975,-42.094"/>
+<polygon fill="#000000" stroke="#000000" points="553.9772,-44.6725 559.5995,-35.6924 549.6044,-39.2064 553.9772,-44.6725"/>
+</g>
+</g>
+</svg>
+</p><ul>
+<li>Or do you
+<ol>
+<li>Build a big dumb class with everything</li>
+<li>Pretend all that stuff isn&#x2019;t there, using just bits you want? Sort of de-evolving?</li>
+</ol>
+</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Rifle Pages: 1 -->
+<svg width="589pt" height="404pt" viewBox="0.00 0.00 588.62 404.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 400)">
+<title>Rifle</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-400 584.619,-400 584.619,4 -4,4"/>
+<!-- Gun -->
+<g id="node1" class="node">
+<title>Gun</title>
+<ellipse fill="none" stroke="#000000" cx="338.715" cy="-378" rx="27.8306" ry="18"/>
+<text text-anchor="middle" x="338.715" y="-373.8" font-family="Times,serif" font-size="14.00" fill="#000000">Gun</text>
+</g>
+<!-- Rifle -->
+<g id="node2" class="node">
+<title>Rifle</title>
+<ellipse fill="none" stroke="#000000" cx="338.715" cy="-306" rx="30.1919" ry="18"/>
+<text text-anchor="middle" x="338.715" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#000000">Rifle</text>
+</g>
+<!-- Gun&#45;&gt;Rifle -->
+<g id="edge1" class="edge">
+<title>Gun-&gt;Rifle</title>
+<path fill="none" stroke="#000000" d="M338.715,-359.8314C338.715,-352.131 338.715,-342.9743 338.715,-334.4166"/>
+<polygon fill="#000000" stroke="#000000" points="342.2151,-334.4132 338.715,-324.4133 335.2151,-334.4133 342.2151,-334.4132"/>
+</g>
+<!-- RifleWBayonet -->
+<g id="node3" class="node">
+<title>RifleWBayonet</title>
+<ellipse fill="none" stroke="#000000" cx="338.715" cy="-234" rx="71.7873" ry="18"/>
+<text text-anchor="middle" x="338.715" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWBayonet</text>
+</g>
+<!-- Rifle&#45;&gt;RifleWBayonet -->
+<g id="edge2" class="edge">
+<title>Rifle-&gt;RifleWBayonet</title>
+<path fill="none" stroke="#000000" d="M338.715,-287.8314C338.715,-280.131 338.715,-270.9743 338.715,-262.4166"/>
+<polygon fill="#000000" stroke="#000000" points="342.2151,-262.4132 338.715,-252.4133 335.2151,-262.4133 342.2151,-262.4132"/>
+</g>
+<!-- RifleWNadesAndBayonet -->
+<g id="node4" class="node">
+<title>RifleWNadesAndBayonet</title>
+<ellipse fill="none" stroke="#000000" cx="338.715" cy="-162" rx="112.3013" ry="18"/>
+<text text-anchor="middle" x="338.715" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWNadesAndBayonet</text>
+</g>
+<!-- RifleWBayonet&#45;&gt;RifleWNadesAndBayonet -->
+<g id="edge3" class="edge">
+<title>RifleWBayonet-&gt;RifleWNadesAndBayonet</title>
+<path fill="none" stroke="#000000" d="M338.715,-215.8314C338.715,-208.131 338.715,-198.9743 338.715,-190.4166"/>
+<polygon fill="#000000" stroke="#000000" points="342.2151,-190.4132 338.715,-180.4133 335.2151,-190.4133 342.2151,-190.4132"/>
+</g>
+<!-- RifleWNadesAndBayonetAndLaser -->
+<g id="node5" class="node">
+<title>RifleWNadesAndBayonetAndLaser</title>
+<ellipse fill="none" stroke="#000000" cx="338.715" cy="-90" rx="150.4443" ry="18"/>
+<text text-anchor="middle" x="338.715" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWNadesAndBayonetAndLaser</text>
+</g>
+<!-- RifleWNadesAndBayonet&#45;&gt;RifleWNadesAndBayonetAndLaser -->
+<g id="edge4" class="edge">
+<title>RifleWNadesAndBayonet-&gt;RifleWNadesAndBayonetAndLaser</title>
+<path fill="none" stroke="#000000" d="M338.715,-143.8314C338.715,-136.131 338.715,-126.9743 338.715,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="342.2151,-118.4132 338.715,-108.4133 335.2151,-118.4133 342.2151,-118.4132"/>
+</g>
+<!-- RifleWLaserAndBayonet -->
+<g id="node6" class="node">
+<title>RifleWLaserAndBayonet</title>
+<ellipse fill="none" stroke="#000000" cx="109.715" cy="-18" rx="109.9305" ry="18"/>
+<text text-anchor="middle" x="109.715" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWLaserAndBayonet</text>
+</g>
+<!-- RifleWNadesAndBayonetAndLaser&#45;&gt;RifleWLaserAndBayonet -->
+<g id="edge5" class="edge">
+<title>RifleWNadesAndBayonetAndLaser-&gt;RifleWLaserAndBayonet</title>
+<path fill="none" stroke="#000000" d="M285.0247,-73.1192C250.7069,-62.3293 206.1221,-48.3114 170.5034,-37.1125"/>
+<polygon fill="#000000" stroke="#000000" points="171.3003,-33.6942 160.7109,-34.0336 169.2007,-40.3719 171.3003,-33.6942"/>
+</g>
+<!-- RifleWLaserAndNades -->
+<g id="node7" class="node">
+<title>RifleWLaserAndNades</title>
+<ellipse fill="none" stroke="#000000" cx="338.715" cy="-18" rx="101.8225" ry="18"/>
+<text text-anchor="middle" x="338.715" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWLaserAndNades</text>
+</g>
+<!-- RifleWNadesAndBayonetAndLaser&#45;&gt;RifleWLaserAndNades -->
+<g id="edge6" class="edge">
+<title>RifleWNadesAndBayonetAndLaser-&gt;RifleWLaserAndNades</title>
+<path fill="none" stroke="#000000" d="M338.715,-71.8314C338.715,-64.131 338.715,-54.9743 338.715,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="342.2151,-46.4132 338.715,-36.4133 335.2151,-46.4133 342.2151,-46.4132"/>
+</g>
+<!-- RifleWLaser -->
+<g id="node8" class="node">
+<title>RifleWLaser</title>
+<ellipse fill="none" stroke="#000000" cx="519.715" cy="-18" rx="60.8082" ry="18"/>
+<text text-anchor="middle" x="519.715" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">RifleWLaser</text>
+</g>
+<!-- RifleWNadesAndBayonetAndLaser&#45;&gt;RifleWLaser -->
+<g id="edge7" class="edge">
+<title>RifleWNadesAndBayonetAndLaser-&gt;RifleWLaser</title>
+<path fill="none" stroke="#000000" d="M382.069,-72.7542C409.6675,-61.7758 445.3817,-47.5691 473.5146,-36.3781"/>
+<polygon fill="#000000" stroke="#000000" points="475.1254,-39.5041 483.1236,-32.5557 472.5381,-32.9998 475.1254,-39.5041"/>
+</g>
+</g>
+</svg>
+</p><p>No.</p>
+<hr>
+<h2 class="mume-header" id="composition-saves-the-day">Composition saves the day:</h2>
+
+<p>This sort of thing matters when making games, so Unity loves components.</p>
+<ul>
+<li>inheritance defined an &#x201C;is a&#x201D; relationship</li>
+<li><strong>composition defines the &#x201C;has a&#x201D; relationship</strong>. Has a collider, has a sprite renderer.</li>
+<li>Great, a rifle can just be a rifle and <em>have</em> a grenade launcher and/or a sight.</li>
+</ul>
+<p>But how to do?</p>
+<ul>
+<li>You&#x2019;ve already made one, by extending <em>MonoBehaviour</em></li>
+</ul>
+<p><strong>A MonoBehaviour is, for our purposes, the same thing as a Component.</strong></p>
+<hr>
+<h3 class="mume-header" id="put-your-components-on-gameobjects">Put your components on GameObjects</h3>
+
+<p>In Unity, everything on the stage extends <code>GameObject</code>.</p>
+<ul>
+<li>When you select a thing in your Unity scene, the Inspector is showing the <strong>GameObject.</strong></li>
+<li>Each panel in the inspector is a <strong>component</strong>, added to the GameObject</li>
+<li><strong>If your script extends MonoBehaviour, it&#x2019;s a component you can add!</strong></li>
+</ul>
+<p><img src="assets/week1/inspector_gameobject.png" alt="Gameobject inspector"><br>
+<em>Look again. See them, see the components/MonoBehaviours</em></p>
+<h2 class="mume-header" id="making-a-rifle-with-inheritance-and-composition">Making a rifle with inheritance and composition</h2>
+
+<p>Here&#x2019;s the combo that really gets work done in Unity: use inheritance to make the components you want, and then add them in combination!</p>
+<ol>
+<li>A <code>Rifle</code> is a <code>Gun</code> is a <code>Monobehaviour</code>, thanks to inheritance</li>
+<li>Add <code>Rifle</code> to a sprite plus <code>GrenadeLauncher</code>, <code>LaserSight</code> and <code>Bayonet</code> thanks to composition!</li>
+</ol>
+<p><img src="assets/week1/inspector_gun_components.png" alt="Rifle Inspector"></p>
+<h3 class="mume-header" id="inheritance-from-monobehaviour-to-rifle-and-pistol">Inheritance: From Monobehaviour to Rifle and Pistol.</h3>
+
+<p>Just like we&#x2019;d have done in c++ or another OO language.</p>
+<p engine="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Gun Pages: 1 -->
+<svg width="157pt" height="188pt" viewBox="0.00 0.00 156.66 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>Gun</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-184 152.664,-184 152.664,4 -4,4"/>
+<!-- MonoBehaviour -->
+<g id="node1" class="node">
+<title>MonoBehaviour</title>
+<ellipse fill="none" stroke="#000000" cx="74.332" cy="-162" rx="74.1644" ry="18"/>
+<text text-anchor="middle" x="74.332" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">MonoBehaviour</text>
+</g>
+<!-- Gun -->
+<g id="node2" class="node">
+<title>Gun</title>
+<ellipse fill="none" stroke="#000000" cx="74.332" cy="-90" rx="27.8306" ry="18"/>
+<text text-anchor="middle" x="74.332" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">Gun</text>
+</g>
+<!-- MonoBehaviour&#45;&gt;Gun -->
+<g id="edge1" class="edge">
+<title>MonoBehaviour-&gt;Gun</title>
+<path fill="none" stroke="#000000" d="M74.332,-143.8314C74.332,-136.131 74.332,-126.9743 74.332,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="77.8321,-118.4132 74.332,-108.4133 70.8321,-118.4133 77.8321,-118.4132"/>
+</g>
+<!-- Rifle -->
+<g id="node3" class="node">
+<title>Rifle</title>
+<ellipse fill="none" stroke="#000000" cx="34.332" cy="-18" rx="30.1919" ry="18"/>
+<text text-anchor="middle" x="34.332" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Rifle</text>
+</g>
+<!-- Gun&#45;&gt;Rifle -->
+<g id="edge2" class="edge">
+<title>Gun-&gt;Rifle</title>
+<path fill="none" stroke="#000000" d="M64.8525,-72.937C60.0905,-64.3654 54.2161,-53.7914 48.8967,-44.2165"/>
+<polygon fill="#000000" stroke="#000000" points="51.9373,-42.4825 44.0212,-35.4407 45.8182,-45.882 51.9373,-42.4825"/>
+</g>
+<!-- Pistol -->
+<g id="node4" class="node">
+<title>Pistol</title>
+<ellipse fill="none" stroke="#000000" cx="115.332" cy="-18" rx="33.0798" ry="18"/>
+<text text-anchor="middle" x="115.332" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Pistol</text>
+</g>
+<!-- Gun&#45;&gt;Pistol -->
+<g id="edge3" class="edge">
+<title>Gun-&gt;Pistol</title>
+<path fill="none" stroke="#000000" d="M84.0484,-72.937C88.9295,-64.3654 94.9508,-53.7914 100.4031,-44.2165"/>
+<polygon fill="#000000" stroke="#000000" points="103.4935,-45.8625 105.4005,-35.4407 97.4106,-42.3986 103.4935,-45.8625"/>
+</g>
+</g>
+</svg>
+</p><pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+
+<span class="token comment">// Gun is a component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Gun</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">// Use this for initialization</span>
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;pew&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Rifle is a gun. Dead easy inheritance.</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Rifle</span> <span class="token punctuation">:</span> <span class="token class-name">Gun</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="composition-add-ons">Composition: add ons</h3>
+
+<p>Season our gameobject with components like Nade, Laser, Bayonet in any combination.</p>
+<p engine="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Rifle Pages: 1 -->
+<svg width="396pt" height="260pt" viewBox="0.00 0.00 396.09 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>Rifle</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 392.0916,-256 392.0916,4 -4,4"/>
+<!-- MonoBehaviour -->
+<g id="node1" class="node">
+<title>MonoBehaviour</title>
+<ellipse fill="none" stroke="#000000" cx="202.8723" cy="-234" rx="74.1644" ry="18"/>
+<text text-anchor="middle" x="202.8723" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MonoBehaviour</text>
+</g>
+<!-- Gun -->
+<g id="node2" class="node">
+<title>Gun</title>
+<ellipse fill="none" stroke="#000000" cx="202.8723" cy="-162" rx="27.8306" ry="18"/>
+<text text-anchor="middle" x="202.8723" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">Gun</text>
+</g>
+<!-- MonoBehaviour&#45;&gt;Gun -->
+<g id="edge1" class="edge">
+<title>MonoBehaviour-&gt;Gun</title>
+<path fill="none" stroke="#000000" d="M202.8723,-215.8314C202.8723,-208.131 202.8723,-198.9743 202.8723,-190.4166"/>
+<polygon fill="#000000" stroke="#000000" points="206.3724,-190.4132 202.8723,-180.4133 199.3724,-190.4133 206.3724,-190.4132"/>
+</g>
+<!-- Rifle -->
+<g id="node3" class="node">
+<title>Rifle</title>
+<ellipse fill="none" stroke="#000000" cx="162.8723" cy="-90" rx="30.1919" ry="18"/>
+<text text-anchor="middle" x="162.8723" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">Rifle</text>
+</g>
+<!-- Gun&#45;&gt;Rifle -->
+<g id="edge2" class="edge">
+<title>Gun-&gt;Rifle</title>
+<path fill="none" stroke="#000000" d="M193.3929,-144.937C188.6309,-136.3654 182.7564,-125.7914 177.4371,-116.2165"/>
+<polygon fill="#000000" stroke="#000000" points="180.4776,-114.4825 172.5616,-107.4407 174.3585,-117.882 180.4776,-114.4825"/>
+</g>
+<!-- Pistol -->
+<g id="node4" class="node">
+<title>Pistol</title>
+<ellipse fill="none" stroke="#000000" cx="243.8723" cy="-90" rx="33.0798" ry="18"/>
+<text text-anchor="middle" x="243.8723" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">Pistol</text>
+</g>
+<!-- Gun&#45;&gt;Pistol -->
+<g id="edge3" class="edge">
+<title>Gun-&gt;Pistol</title>
+<path fill="none" stroke="#000000" d="M212.5888,-144.937C217.4698,-136.3654 223.4911,-125.7914 228.9435,-116.2165"/>
+<polygon fill="#000000" stroke="#000000" points="232.0338,-117.8625 233.9408,-107.4407 225.9509,-114.3986 232.0338,-117.8625"/>
+</g>
+<!-- LaserSight -->
+<g id="node5" class="node">
+<title>LaserSight</title>
+<ellipse fill="none" stroke="#000000" cx="52.8723" cy="-18" rx="52.745" ry="18"/>
+<text text-anchor="middle" x="52.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">LaserSight</text>
+</g>
+<!-- Rifle&#45;&gt;LaserSight -->
+<g id="edge5" class="edge">
+<title>Rifle-&gt;LaserSight</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M142.44,-76.6261C124.0491,-64.5885 96.9866,-46.8748 77.4258,-34.0714"/>
+</g>
+<!-- GrenadeLauncher -->
+<g id="node6" class="node">
+<title>GrenadeLauncher</title>
+<ellipse fill="none" stroke="#000000" cx="203.8723" cy="-18" rx="80.3996" ry="18"/>
+<text text-anchor="middle" x="203.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">GrenadeLauncher</text>
+</g>
+<!-- Rifle&#45;&gt;GrenadeLauncher -->
+<g id="edge7" class="edge">
+<title>Rifle-&gt;GrenadeLauncher</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M172.5888,-72.937C178.935,-61.7923 187.2088,-47.2627 193.6535,-35.9453"/>
+</g>
+<!-- Bayonet -->
+<g id="node7" class="node">
+<title>Bayonet</title>
+<ellipse fill="none" stroke="#000000" cx="344.8723" cy="-18" rx="43.4396" ry="18"/>
+<text text-anchor="middle" x="344.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Bayonet</text>
+</g>
+<!-- Rifle&#45;&gt;Bayonet -->
+<g id="edge9" class="edge">
+<title>Rifle-&gt;Bayonet</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M186.6779,-78.686C191.6687,-76.4062 196.9202,-74.0747 201.8723,-72 239.1986,-56.362 282.7994,-40.1927 311.9536,-29.6744"/>
+</g>
+<!-- Pistol&#45;&gt;LaserSight -->
+<g id="edge4" class="edge">
+<title>Pistol-&gt;LaserSight</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M217.7549,-78.5332C212.5174,-76.3111 207.037,-74.0406 201.8723,-72 164.128,-57.0865 120.414,-41.4318 90.1395,-30.841"/>
+</g>
+<!-- Pistol&#45;&gt;GrenadeLauncher -->
+<g id="edge6" class="edge">
+<title>Pistol-&gt;GrenadeLauncher</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M234.1894,-72.5708C228.0392,-61.5003 220.0964,-47.2034 213.8838,-36.0206"/>
+</g>
+<!-- Pistol&#45;&gt;Bayonet -->
+<g id="edge8" class="edge">
+<title>Pistol-&gt;Bayonet</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M264.3112,-75.4297C281.3731,-63.2668 305.633,-45.9726 323.0656,-33.5454"/>
+</g>
+</g>
+</svg>
+</p><p>That looks noodley as a diagram, but as you saw it&#x2019;s clear in Unity:</p>
+<p><img src="assets/week1/inspector_gun_components.png" alt="Gun addons"><br>
+<em>Inheritance isn&#x2019;t directly visible, except that these all must be descended from MonoBehaviour</em></p>
+<ol>
+<li>Obviously <code>LaserSight</code>, <code>GrenadeLauncher</code> and <code>Bayonet</code> all extend <code>MonoBehaviour</code> too.</li>
+</ol>
+<p engine="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: GunAddOn Pages: 1 -->
+<svg width="396pt" height="116pt" viewBox="0.00 0.00 396.09 116.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>GunAddOn</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-112 392.0916,-112 392.0916,4 -4,4"/>
+<!-- MonoBehaviour -->
+<g id="node1" class="node">
+<title>MonoBehaviour</title>
+<ellipse fill="none" stroke="#000000" cx="203.8723" cy="-90" rx="74.1644" ry="18"/>
+<text text-anchor="middle" x="203.8723" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">MonoBehaviour</text>
+</g>
+<!-- LaserSight -->
+<g id="node2" class="node">
+<title>LaserSight</title>
+<ellipse fill="none" stroke="#000000" cx="52.8723" cy="-18" rx="52.745" ry="18"/>
+<text text-anchor="middle" x="52.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">LaserSight</text>
+</g>
+<!-- MonoBehaviour&#45;&gt;LaserSight -->
+<g id="edge1" class="edge">
+<title>MonoBehaviour-&gt;LaserSight</title>
+<path fill="none" stroke="#000000" d="M169.985,-73.8418C147.1864,-62.9709 117.0257,-48.5897 93.0221,-37.1442"/>
+<polygon fill="#000000" stroke="#000000" points="94.353,-33.9014 83.8202,-32.7566 91.3402,-40.2199 94.353,-33.9014"/>
+</g>
+<!-- GrenadeLauncher -->
+<g id="node3" class="node">
+<title>GrenadeLauncher</title>
+<ellipse fill="none" stroke="#000000" cx="203.8723" cy="-18" rx="80.3996" ry="18"/>
+<text text-anchor="middle" x="203.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">GrenadeLauncher</text>
+</g>
+<!-- MonoBehaviour&#45;&gt;GrenadeLauncher -->
+<g id="edge2" class="edge">
+<title>MonoBehaviour-&gt;GrenadeLauncher</title>
+<path fill="none" stroke="#000000" d="M203.8723,-71.8314C203.8723,-64.131 203.8723,-54.9743 203.8723,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="207.3724,-46.4132 203.8723,-36.4133 200.3724,-46.4133 207.3724,-46.4132"/>
+</g>
+<!-- Bayonet -->
+<g id="node4" class="node">
+<title>Bayonet</title>
+<ellipse fill="none" stroke="#000000" cx="344.8723" cy="-18" rx="43.4396" ry="18"/>
+<text text-anchor="middle" x="344.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Bayonet</text>
+</g>
+<!-- MonoBehaviour&#45;&gt;Bayonet -->
+<g id="edge3" class="edge">
+<title>MonoBehaviour-&gt;Bayonet</title>
+<path fill="none" stroke="#000000" d="M235.8674,-73.6621C257.3382,-62.6983 285.6822,-48.2247 308.0855,-36.7848"/>
+<polygon fill="#000000" stroke="#000000" points="309.9715,-39.7517 317.2858,-32.0867 306.788,-33.5174 309.9715,-39.7517"/>
+</g>
+</g>
+</svg>
+</p><p>But would add an evolution between them say <code>GunAddOn</code>, to add things common to all addOns. Still using inheritance where it helps!</p>
+<p engine="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: GunAddOn Pages: 1 -->
+<svg width="396pt" height="188pt" viewBox="0.00 0.00 396.09 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>GunAddOn</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-184 392.0916,-184 392.0916,4 -4,4"/>
+<!-- MonoBehaviour -->
+<g id="node1" class="node">
+<title>MonoBehaviour</title>
+<ellipse fill="none" stroke="#000000" cx="203.8723" cy="-162" rx="74.1644" ry="18"/>
+<text text-anchor="middle" x="203.8723" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">MonoBehaviour</text>
+</g>
+<!-- GunAddOn -->
+<g id="node2" class="node">
+<title>GunAddOn</title>
+<ellipse fill="none" stroke="#000000" cx="203.8723" cy="-90" rx="56.186" ry="18"/>
+<text text-anchor="middle" x="203.8723" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">GunAddOn</text>
+</g>
+<!-- MonoBehaviour&#45;&gt;GunAddOn -->
+<g id="edge1" class="edge">
+<title>MonoBehaviour-&gt;GunAddOn</title>
+<path fill="none" stroke="#000000" d="M203.8723,-143.8314C203.8723,-136.131 203.8723,-126.9743 203.8723,-118.4166"/>
+<polygon fill="#000000" stroke="#000000" points="207.3724,-118.4132 203.8723,-108.4133 200.3724,-118.4133 207.3724,-118.4132"/>
+</g>
+<!-- LaserSight -->
+<g id="node3" class="node">
+<title>LaserSight</title>
+<ellipse fill="none" stroke="#000000" cx="52.8723" cy="-18" rx="52.745" ry="18"/>
+<text text-anchor="middle" x="52.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">LaserSight</text>
+</g>
+<!-- GunAddOn&#45;&gt;LaserSight -->
+<g id="edge2" class="edge">
+<title>GunAddOn-&gt;LaserSight</title>
+<path fill="none" stroke="#000000" d="M172.2178,-74.9064C149.1359,-63.9005 117.6871,-48.9051 92.8671,-37.0704"/>
+<polygon fill="#000000" stroke="#000000" points="94.2432,-33.849 83.7104,-32.7043 91.2304,-40.1675 94.2432,-33.849"/>
+</g>
+<!-- GrenadeLauncher -->
+<g id="node4" class="node">
+<title>GrenadeLauncher</title>
+<ellipse fill="none" stroke="#000000" cx="203.8723" cy="-18" rx="80.3996" ry="18"/>
+<text text-anchor="middle" x="203.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">GrenadeLauncher</text>
+</g>
+<!-- GunAddOn&#45;&gt;GrenadeLauncher -->
+<g id="edge3" class="edge">
+<title>GunAddOn-&gt;GrenadeLauncher</title>
+<path fill="none" stroke="#000000" d="M203.8723,-71.8314C203.8723,-64.131 203.8723,-54.9743 203.8723,-46.4166"/>
+<polygon fill="#000000" stroke="#000000" points="207.3724,-46.4132 203.8723,-36.4133 200.3724,-46.4133 207.3724,-46.4132"/>
+</g>
+<!-- Bayonet -->
+<g id="node5" class="node">
+<title>Bayonet</title>
+<ellipse fill="none" stroke="#000000" cx="344.8723" cy="-18" rx="43.4396" ry="18"/>
+<text text-anchor="middle" x="344.8723" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">Bayonet</text>
+</g>
+<!-- GunAddOn&#45;&gt;Bayonet -->
+<g id="edge4" class="edge">
+<title>GunAddOn-&gt;Bayonet</title>
+<path fill="none" stroke="#000000" d="M233.7748,-74.7307C255.5159,-63.6288 285.0709,-48.5369 308.2319,-36.71"/>
+<polygon fill="#000000" stroke="#000000" points="310.0895,-39.6914 317.4038,-32.0265 306.906,-33.4572 310.0895,-39.6914"/>
+</g>
+</g>
+</svg>
+</p><hr>
+<h3 class="mume-header" id="handy-tip-requirecomponent">Handy tip: RequireComponent</h3>
+
+<p>GunAddOns are all going to need a gun to be useful right? What if someone tries to delete the Rifle component?</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">;</span>
+<span class="token keyword">using</span> System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic<span class="token punctuation">;</span>
+<span class="token keyword">using</span> UnityEngine<span class="token punctuation">;</span>
+
+<span class="token comment">// This line means you can&apos;t have a GunAddOn component unless </span>
+<span class="token comment">// another component is descended from Gun.</span>
+<span class="token punctuation">[</span><span class="token class-name">RequireComponent</span><span class="token punctuation">(</span><span class="token keyword">typeof</span><span class="token punctuation">(</span>Gun<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GunAddon</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span> <span class="token punctuation">{</span>
+  <span class="token comment">//no functions at all  </span>
+<span class="token punctuation">}</span>
+
+</pre><pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GrenadeLauncher</span> <span class="token punctuation">:</span> <span class="token class-name">GunAddon</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">// Use this for initialization</span>
+	<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;I spew pineapples&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
+	<span class="token punctuation">}</span>
+	
+<span class="token punctuation">}</span>
+</pre><hr>
 <h2 class="mume-header" id="part-3-exercises">Part 3: Exercises</h2>
 
-<h4 class="mume-header" id="1-learn-basic-unity">1. Learn basic Unity</h4>
+<h4 class="mume-header" id="1-learn-unity-fundamentals">1. Learn Unity Fundamentals</h4>
 
 <p>Unity is deep, and the interface might seem deceptively minimal. In order to get on with the fun stuff in class, you&#x2019;ll need to get a familiar with the basics at home. These official Unity tutorials will get you across the fundamentals quickly. There are maybe 2 hours of videos here total, and they&#x2019;ll save you loads of time.</p>
 <p>These Unity official tutorials have embedded Youtube videos. Make sure you click the cog and set them to 1080 quality and go full screen to clearly see the interface. You can also click the Youtube logo to launch it there.</p>
 <ul>
-<li>&quot;Using the Unity Interface&quot;<br>
+<li>&#x201C;Using the Unity Interface&#x201D;<br>
 <a href="https://unity3d.com/learn/tutorials/topics/interface-essentials">https://unity3d.com/learn/tutorials/topics/interface-essentials</a></li>
-<li>&quot;Basic Game Objects and Components&quot;<br>
+<li>&#x201C;Basic Game Objects and Components&#x201D;<br>
 <a href="https://unity3d.com/learn/tutorials/topics/interface-essentials/game-objects-and-components?playlist=17090">https://unity3d.com/learn/tutorials/topics/interface-essentials/game-objects-and-components?playlist=17090</a></li>
 <li>&#x201C;Beginner Gameplay Scripting&#x201D;. Watch <strong>1-8, 10, 11, 18, 19, 22</strong>. &#x201C;Intermediate Gameplay Scripting&#x201D; Watch <strong>1, 6</strong>.<br>
 <a href="https://unity3d.com/learn/tutorials/s/scripting">https://unity3d.com/learn/tutorials/s/scripting</a></li>
 </ul>
-<h4 class="mume-header" id="2-learn-basic-c-with-sololearn">2. Learn basic C# with Sololearn</h4>
+<h4 class="mume-header" id="2-learn-c-fundamentals-with-sololearn">2. Learn C# fundamentals with Sololearn</h4>
 
 <p>We&#x2019;ll be focussing in the class on higher level programming concepts of designing programs/games, so there <strong>won&#x2019;t be a lot of in-class explanation of basic c#.</strong> For c++ coders a lot will be familiar in c#, but there are also significant differences (no .h files!). These quizzes will check how you went with the unity tutes above.</p>
 <p>If you&#x2019;ve taken this elective without c++ and <strong>if you haven&#x2019;t coded, learning the fundamentals at home quickly will be critical</strong>.</p>

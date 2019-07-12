@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 4 Exercises
 
 Functions and scope
@@ -9,15 +18,28 @@ Functions and scope
 
 <!-- code_chunk_output -->
 
-* [Week 4 Exercises](#week-4-exercises)
-	* [Contents](#contents)
-	* [Code](#code)
-			* [4.1 SlotsGame](#41-slotsgame)
-		* [4.2 Scope](#42-scope)
-		* [4.3 Function](#43-function)
-		* [4.4 Function with prototype (definition)](#44-function-with-prototype-definition)
-		* [4.5 Limiting Rand Range](#45-limiting-rand-range)
-		* [4.6 Variable Scope With Range](#46-variable-scope-with-range)
+- [ Week 4 Exercises
+](#week-4-exercises)
+  - [ Contents
+](#contents)
+  - [ Code
+](#code)
+    - [ 4.1 Potion drunk
+](#41-potion-drunk)
+    - [ 4.2 Cooking Toast
+](#42-cooking-toast)
+    - [ 4.3 SlotsGame
+](#43-slotsgame)
+    - [ 4.4 Scope
+](#44-scope)
+    - [ 4.5 Function
+](#45-function)
+    - [ 4.6 Function with prototype (definition) 
+](#46-function-with-prototype-definition)
+    - [ 4.7 Limiting Rand Range
+](#47-limiting-rand-range)
+    - [ 4.8 Variable Scope With Range
+](#48-variable-scope-with-range)
 
 <!-- /code_chunk_output -->
 
@@ -26,7 +48,97 @@ Functions and scope
 
 Type these in, don't cut and paste!
 
-#### 4.1 SlotsGame
+### 4.1 Potion drunk
+
+We don't want to store every asset of everything as a variable. You can calculate a lot from what you have, like the amount of potion you've drunk based on what's left and the bottle capacity.
+
+``` { .line-numbers }
+start_program PRINT_POTION_DRUNK
+
+  I know: potion remaining, bottle capacity
+
+  print out result of CALC_POTION_DRUNK 
+  print out "mls of potion has been drunk."
+
+------
+  function CALC_POTION_DRUNK
+    subtract potion remaining from bottle capacity, store result
+    return the resulting number
+  end_function CALC_POTION_DRUNK 
+------
+
+end_program PRINT_POTION_DRUNK
+```
+Now in c++:
+```cpp { .line-numbers }
+#include <iostream>
+using namespace std;
+
+int potionRemaining = 30;
+int bottleCapacity = 100;
+
+int potionDrunk()
+{
+  int amountDrunk = bottleCapacity - potionRemaining;
+
+  return (amountDrunk);
+}
+
+int main()
+{
+  int drunk = potionDrunk();
+
+  cout << drunk << "mls of potion have been drunk.";
+}
+```
+
+### 4.2 Cooking Toast
+
+```cpp { .line-numbers }
+
+#include <ctime>
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+int timeCookingStarted;
+const int PERFECT_COOKING_TIME = 4;
+
+
+bool toastIsReady()  // functions are just like variables, they have a type.
+{
+  int timeCooking = time(0) - timeCookingStarted;
+  cout << "\t[Time cooking so far: " << timeCooking << "]\n";
+  // Long version. Comment this out to run the shorter version below.
+  if ( timeCooking >= PERFECT_COOKING_TIME) {
+    return(true);
+  } else {
+    return(false);
+  }
+  // Since (x >= y) returns true or false, this is the same and less wordy:
+  return ( timeCooking >= PERFECT_COOKING_TIME ); 
+}
+
+int main()
+{
+  // time toast started cooking is now. time is in seconds.
+  timeCookingStarted = time(0);
+  cout << "\n\tStart time: " << timeCookingStarted << endl << endl;
+
+  Sleep(2000);  //buuut sleep takes milliseconds
+  if ( toastIsReady() ) 
+  {
+    cout << "\tToast is cooked already??\n\n";
+  } else {
+    cout << "\tChatting on discord\n\n";
+  }
+
+  Sleep(3000);  //wait a different bit..
+  if (toastIsReady()) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
+}
+```
+
+### 4.3 SlotsGame
 
 The **most important outcome** of this really short and pretty easy exercise is this: **You have a working core for your game that matches the brief!** It gets a menu choice and exits if it's 2. 
 
@@ -43,13 +155,13 @@ Shows a few things:
 4. How to return data from a function. All it needs to do is be of the right type. Return 0 works for a function of type int, return false or true returns for a bool function.
 5. How to use void as the return type for functions that just do work.
 
-```c++
+```cpp { .line-numbers }
 #include <iostream>
 
 using namespace std;
 
 int getValidMenuChoice();
-void displayFinalWords();
+void displayQuitMessage();
 
 int five = 5;
 
@@ -92,7 +204,7 @@ int getValidMenuChoice()
 	return (2);
 }
 
-void displayFinalWords()
+void displayQuitMessage()
 {
 	cout << "Bye loser" << five << endl;
 	return;
@@ -100,9 +212,9 @@ void displayFinalWords()
 ```
 ___
 
-### 4.2 Scope
+### 4.4 Scope
 
-```c++
+```cpp { .line-numbers }
 #include <iostream>
 using namespace std;
 
@@ -140,9 +252,9 @@ int main()
 ```
 ___
 
-### 4.3 Function
+### 4.5 Function
 
-```c++
+```cpp { .line-numbers }
 
 #include <iostream>
 using namespace std;
@@ -185,10 +297,10 @@ int main()
 
 ___
 
-### 4.4 Function with prototype (definition) 
+### 4.6 Function with prototype (definition) 
 
 
-```c++
+```cpp { .line-numbers }
 #include <iostream>
 using namespace std;
 
@@ -231,9 +343,9 @@ float cube(float x)
 ```
 ___
 
-### 4.5 Limiting Rand Range
+### 4.7 Limiting Rand Range
 
-```cpp
+```cpp { .line-numbers }
 #include <iostream>
 #include <cstdlib> // Provides rand()
 #include <ctime> // Provides time()
@@ -265,9 +377,9 @@ int main()
 }
 ```
 
-### 4.6 Variable Scope With Range
+### 4.8 Variable Scope With Range
 
-```cpp
+```cpp { .line-numbers }
 #include <iostream>
 
 using namespace std;

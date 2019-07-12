@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ISE102 Week 1
 
 
@@ -5,43 +14,80 @@
 
 <!-- code_chunk_output -->
 
-* [ISE102 Week 1](#ise102-week-1)
-	* [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
-		* [Who are we?](#who-are-we)
-		* [C++ in a nutshell](#c-in-a-nutshell)
-	* [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
-		* [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
-		* [Blackboard is your friend](#blackboard-is-your-friend)
-		* [Recommended texts](#recommended-texts)
-		* [My notes are your friends](#my-notes-are-your-friends)
-		* [Assessments](#assessments)
-			* [Assessment 1](#assessment-1)
-			* [Assessment 2](#assessment-2)
-			* [Assessment 3](#assessment-3)
-	* [Part 2: Programmings is handling situations](#part-2-programmings-is-handling-situations)
-		* [Why not just write it in c++?](#why-not-just-write-it-in-c)
-		* [Whitespace](#whitespace)
-	* [Problem solving tools](#problem-solving-tools)
-		* [This is the key to coding.](#this-is-the-key-to-coding)
-	* [From pseudocode to source code](#from-pseudocode-to-source-code)
-		* [Hello world](#hello-world)
-			* [Let's code that!](#lets-code-that)
-		* [Let's understand that!](#lets-understand-that)
-			* [Blocks {} and ending a line of code ;](#blocks-and-ending-a-line-of-code)
-			* [What is `using namespace`](#what-is-using-namespace)
-			* [C++ Comments](#c-comments)
-		* [Compiling and running your game](#compiling-and-running-your-game)
-			* [1. Source code](#1-source-code)
-			* [2. Compiler](#2-compiler)
-			* [3. Object code](#3-object-code)
-			* [4. Linker](#4-linker)
-			* [5. Executable File](#5-executable-file)
-			* [6. Loader](#6-loader)
-	* [Part 3: Exercises](#part-3-exercises)
-			* [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
-			* [2. Sololearn quiz](#2-sololearn-quiz)
-			* [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
-	* [Appendix 1: Install Visual Studio Community](#appendix-1-install-visual-studio-community)
+- [ ISE102 Week 1
+](#ise102-week-1)
+  - [ Part 1: Studying Software Engineering
+](#part-1-studying-software-engineering)
+    - [ Who are we?
+](#who-are-we)
+    - [ C++ in a nutshell
+](#c-in-a-nutshell)
+  - [ How can we succeed learning c++ in this class?
+](#how-can-we-succeed-learning-c-in-this-class)
+    - [ Hour splits and thriving in 2D Games Programming
+](#hour-splits-and-thriving-in-2d-games-programming)
+    - [ Blackboard is your friend
+](#blackboard-is-your-friend)
+    - [ Recommended texts
+](#recommended-texts)
+    - [ My notes are your friends
+](#my-notes-are-your-friends)
+    - [ Assessments
+](#assessments)
+      - [ Assessment 1
+](#assessment-1)
+      - [ Assessment 2
+](#assessment-2)
+      - [ Assessment 3
+](#assessment-3)
+  - [ Part 2: Programmings is handling situations
+](#part-2-programmings-is-handling-situations)
+    - [ Why not just write it in c++?
+](#why-not-just-write-it-in-c)
+    - [ Whitespace
+](#whitespace)
+  - [ Problem solving tools
+](#problem-solving-tools)
+    - [ This is the key to coding.
+](#this-is-the-key-to-coding)
+  - [ From pseudocode to source code
+](#from-pseudocode-to-source-code)
+    - [ Hello world
+](#hello-world)
+      - [ Let's code that!
+](#lets-code-that)
+    - [ Let's understand that!
+](#lets-understand-that)
+      - [ Blocks {} and ending a line of code ;
+](#blocks-and-ending-a-line-of-code)
+      - [ What is `using namespace`
+](#what-is-using-namespace)
+      - [ C++ Comments
+](#c-comments)
+    - [ Compiling and running your game
+](#compiling-and-running-your-game)
+      - [ 1. Source code
+](#1-source-code)
+      - [ 2. Compiler
+](#2-compiler)
+      - [ 3. Object code
+](#3-object-code)
+      - [ 4. Linker
+](#4-linker)
+      - [ 5. Executable File
+](#5-executable-file)
+      - [ 6. Loader
+](#6-loader)
+  - [ Part 3: Exercises
+](#part-3-exercises)
+      - [ 1. Basic input/output documentation
+](#1-basic-inputoutput-documentation)
+      - [ 2. Sololearn quiz
+](#2-sololearn-quiz)
+      - [ 3. Optional: review textbook chapter 1
+](#3-optional-review-textbook-chapter-1)
+  - [ Appendix 1: Install Visual Studio Community
+](#appendix-1-install-visual-studio-community)
 
 <!-- /code_chunk_output -->
 
@@ -454,8 +500,7 @@ _Microsoft's longer, more detailed version of the following instructions is here
 
 If you already have Visual Studio: search for and run the Visual Studio Installer, select More > Modify (next to the launch button), then go to step 3. Otherwise,
 
-1. Go to https://visualstudio.microsoft.com/downloads/ and, under "community", click Free Download.
- ![Visual Studio Download](assets/week1/visual_studio_install.png)
+1. Go to https://visualstudio.microsoft.com/vs/older-downloads/. Don't click "Download Visual Studio", instead scroll down and expand "2017" to download.
 2. Run the installer. At a point it will ask you to select a _workload_.
 3. Under _Workloads_ you'll see the _Windows_ section. Select _**Desktop development with C++**.
    ![workloads](assets/week1/visual_studio_workload_cpp.jpg)

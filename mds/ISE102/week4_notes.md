@@ -1,98 +1,236 @@
-
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ISE102 Week 4
 
-Functions! Taking chunks of code and breaking them out into reusable bits.
-
-
+Functions and variable scope.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 4](#ise102-week-4)
-	1. [Reusing code](#reusing-code)
-	2. [First Function](#first-function)
-	3. [Ways to consider functions](#ways-to-consider-functions)
-		1. [Functions: smart variables](#functions-smart-variables)
-		2. [Functions: macros to run a bunch of code](#functions-macros-to-run-a-bunch-of-code)
-		3. [Functions: Getting values that are always changing](#functions-getting-values-that-are-always-changing)
-		4. [Functions: sending data off for calculation](#functions-sending-data-off-for-calculation)
-	4. [Exercises](#exercises)
-	5. [Resources](#resources)
+- [ ISE102 Week 4
+](#ise102-week-4)
+  - [ Exercises
+](#exercises)
+  - [ Resources
+](#resources)
+  - [ Variables and functions: stored info vs helpers
+](#variables-and-functions-stored-info-vs-helpers)
+    - [ Make toast pseudocode
+](#make-toast-pseudocode)
+    - [ Make toast cpp
+](#make-toast-cpp)
+  - [ The Queen of functions: Main
+](#the-queen-of-functions-main)
+    - [ Functions: Some answers are always changing
+](#functions-some-answers-are-always-changing)
+    - [ Functions as macros
+](#functions-as-macros)
+    - [ Arguments: sending data off for calculation
+](#arguments-sending-data-off-for-calculation)
+  - [ Scope
+](#scope)
+    - [ Function signatures: keeping functions in their place
+](#function-signatures-keeping-functions-in-their-place)
+        - [ Elements of a signature:
+](#elements-of-a-signature)
+        - [ Example signature:
+](#example-signature)
+    - [ Making toast with better contracts.
+](#making-toast-with-better-contracts)
 
 <!-- /code_chunk_output -->
 
+---
+## Exercises
 
-## Reusing code
+1. Write out and run the code in:
+   * [week4_code.html](week4_code.html)
+   * [week4_book_bits.html](week4_book_bits.html)
+2. **Work on Assignment.** You really have everything you need now to complete it.
+3. **Complete the 4th module in Sololearn: Functions.** And yep, you need to complete the first 3 to unlock it.
+   
+## Resources
+
+1. Read chapter 5 on functions in our C++ through games textbook. Skim the bits that are easy but you'll learn some things as you go.
+   * Functions: [book_1/cppgameprog_5_funcs_madlib.pdf](book_1/cppgameprog_5_funcs_madlib.pdf)
+
+---
+
+## Variables and functions: stored info vs helpers
+
+**Variables** are very useful storage spots for information. 
+* like post it notes where you keep your answers
+* by default written in pencil, so you can replace contents
+* add `const` and they are ink written, permanent reference info.
+
+What if the info we need changes each time it's checked?
+
+> Is my toast ready? Well, that depends.
+> * How long it has been cooking?
+> * How long you like your toast cooked?
+> * You might check at random points, and errors can happen if you duplicate the same math everywhere you check toast
+
+You need a robot assistant! That assistant is a **function**. 
+
+* It can do the math the same way every time
+* be called from anywhere, including inside expressions
+* it reduces to a result, just like a variable or expression
+
+### Make toast pseudocode
+
+```{ .line-numbers }
+// Pseudocode
+
+  I know: When the toast started cooking, how long I like it cooked
+
+  start_function TOAST_IS_READY (true or false)
+    time toast has been cooking = time now - time started
+    return TRUE if the toast has cooked enough,
+    return FALSE if it hasn't.
+  end_function 
+
+  start_program COOK_AND_CHECK_TOAST
+    time toast started cooking is now
+    wait a bit..
+
+    if TOAST_IS_READY print "toast is cooked";
+    chat on discord.
+    wait another bit..
+
+    if TOAST_IS_READY print "toast is cooked.";
+    print "Adding nutella, eating toast."
+  end_program
+```
+
+### Make toast cpp
+```cpp { .line-numbers }
+#include <ctime>
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+int timeCookingStarted;
+const int PERFECT_COOKING_TIME = 4;
 
 
-We'll end up writing code that is really useful, and wanting to call on it a lot. Loops let us do that last week, but there are plenty of times it won't be that simple. Reacting when a player clicks or taps, for example.
-
-## First Function
-
-You've already written it!
-
-```c++
+bool toastIsReady()  // functions are just like variables, they have a type.
+{
+  int timeCooking = time(0) - timeCookingStarted;
+  cout << "\t[Time cooking so far: " << timeCooking << "]\n";
+  // Long version. Comment this out to run the shorter version below.
+  if ( timeCooking >= PERFECT_COOKING_TIME) {
+    return(true);
+  } else {
+    return(false);
+  }
+  // Since (x >= y) returns true or false, this is the same and less wordy:
+   return ( timeCooking >= PERFECT_COOKING_TIME ); 
+}
 
 int main()
 {
-	return (0);
+  // time toast started cooking is now. time is in seconds.
+  timeCookingStarted = time(0);
+  cout << "\n\tStart time: " << timeCookingStarted << endl << endl;
+
+  Sleep(2000);  //buuut sleep takes milliseconds
+  if ( toastIsReady() ) 
+  {
+    cout << "\tToast is cooked already??\n\n";
+  } else {
+    cout << "\tChatting on discord\n\n";
+  }
+
+  Sleep(3000);  //wait a different bit..
+  if (toastIsReady()) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
 }
 ```
 
-## Ways to consider functions
 
-A function can be thought of as a fancier variable. It's just a variable that does something clever.
+## The Queen of functions: Main
 
-### Functions: smart variables
+Above all functions is the Queen, `main()`. Look at her with fresh eyes now, see the return type. We don't _have_ to return anything even though she's an int.. but, as with queens, she's special. All other functions not typed `void` have to return something.
 
-```c++
-int height = 10;
-cout << height << endl;
-// outputs 10
-```
-When we write a variable name in c++, like height, it's replaced by whatever data (say an integer) is in the bit of memory height points to. The variable is "evaluated". The variable points to some memory, and the evaluation is whatever data is there.
+By default `main` will return the error code `0` to Windows, meaning no errors. If you find an error (if your program didn't receive an argument) you can return an error code (>0);
 
-A function, then, in a sense, is just a variable that points to code and returns the expected data type:
+```cpp { .line-numbers }
 
-```cpp
-//Variable: 
- int height = 10;
-
-// function
-int getHeight()
+int main()
 {
-	int answer = 5+5;
-	return (answer);
+  // no errors:
+  return (0);
 }
-
-long long int timeSinceUniverseStarted;
-
-long long int tsus()
-{
-	return (currentTime - wheneverUniverseStarted);
-}
-
-cout << timeSinceUniverseStarted << endl;
-
 ```
 
-### Functions: macros to run a bunch of code
+### Functions: Some answers are always changing
 
-Encapsulating useful code in a function that may not even need to return anything. It can be of type `void`.
+Once you start toasting, the seconds required by your taste will eventually pass and the toast is ready. 
 
+```cpp { .line-numbers }
+const int TIME_SINCE_UNIVERSE_STARTED = x;
+``` 
+
+That won't work so long as tiem passes. It'll always be out of date info.
+
+```cpp { .line-numbers }
+
+long long int timeSinceUniverseStarted() // We're going to need a big number
+{
+  return( timeNow() + AGE_OF_UNIVERSE_WHEN_COMPUTERS_STARTED_COUNTING_TIME );
+}
+```
+
+### Functions as macros
+
+Macros in games or productivity apps usually just do a series of things fo you. 
+* Macros save you clicks/keypresses
+* `void` functions save you writing the same code multiple times
+* `void` means "nothing"; functions of type `void` return nothing.
+
+```cpp { .line-numbers }
+#include <iostream>
+using namespace std;
+
+void displayQuitMessage()
+{
+  // \n\n inserts 2 empty rows, \t inserts 4 spaces
+  cout << "\n\n"; // Move down 2 rows
+  cout << "\tQuitting again? Aren't you tired of running away?" <<  endl;
+  cout << "\tPress enter to confirm you are running away: ";
+  
+  cin.get(); //Listen for input ending with enter
+
+  // A void function doesn't return anything. 
+  // Return with no argument just returns execution to main thread.
+  return;
+}
+
+int main()
+{
+  // call a function to display quit message.
+  displayQuitMessage();  
+}
+```
 ___
-### Functions: Getting values that are always changing
 
-`int TimeSinceUniverseStarted` above can't just be stored as a constant as it's forever changing. A function just adds `()` to the definition and now we can add code to get the up to date answer.
+### Arguments: sending data off for calculation
 
-___
-
-### Functions: sending data off for calculation
+To take functions to the next level of usefulness, we need **strong control** over the data they use to produce results. Arguments also make functions much more **flexible**.
 
 Get the angle to point my sprite at something:
 
-```c++
+```c++ { .line-numbers }
+#include <iostream>
+using namespace std;
+
 struct Point {
 	float x = 0.0f;
 	float y = 0.0f;
@@ -100,14 +238,13 @@ struct Point {
 
 struct Sprite {
 	float rotation = 0.0f;
-}
+};
 
 float getLookAtAngle(Point lookerPoint, Point targetPoint)
 {
-	// Use pythagoras and aTan2 to get the angle
-	float result = 0f;
-	// result = all that pythagoras and trig stuff;
-	// Always return data matching our function's declared type (float)
+	// result = distance, atan2, radians to degrees, eye of bat and tail of newt.
+	float result = 25.5f;  // yes, fake result. Good for testing program structure.
+	
 	return (result);
 }
 
@@ -117,29 +254,102 @@ int main()
 	Point targetPos = { 1.1f, 6.2f}; 
 	Sprite arrow;
 
-	while(true)
-	{
-		float angle = getLookAtAngle(myPos, targetPos);
-		arrow.rotation = angle;
-	}
+	float angle = getLookAtAngle(myPos, targetPos);
+	arrow.rotation = angle;
+  cout << "Arrow now pointing to target. Angle is " << arrow.rotation;
 
 }
+--- 
 
 ```
+
+
+## Scope
+
+* Variables outside main can be seen/modified by all functions.
+* Variables inside functions can only be seen by them, but can be passed to other functions.
+* When a function finishes executing, the variables it declared are gone with it.
+* Define your variables only where you need them
+
+Scope of variables:
+![scope](assets/week4/scope_coloured.png)
+_**red** = things defined globally | **green** = things defined in main | **brown** = things defined in getPlanetName_
+
+### Function signatures: keeping functions in their place
+
+If we let functions go looking at data and writing to global variables, we're giving up a lot of control and transparency. As in business, a **contract** is a good way to make things more predictable.
+* If we don't pass data to a function, how do we control the output?
+* If it writes to a global variable instead of returning the data, how will we know what's changed and when?
+
+> The signature of a function is a contract. I give you this info, you give me back a reliable result.
+
+##### Elements of a signature:
+
+```cpp { .line-numbers }
+// function has a type, a name, a list of arguments with types and names.
+funcType funcName ( argType argName ) 
+{
+  // then it has a body
+  // and returns a value. It's an expression, and can contain maths, logic, variables etc
+  return ( aValue )
+}
+```
+
+The function **type** tells us what data we'll get back, just like a variable.
+The function **name** is a good description of the work it will do.
+The parentheses **()** tells is it can be executed.
+The **arguments** tells us the data it needs to do its job.
+
+##### Example signature:
+
+```cpp { .line-numbers }
+
+float doubleMyMoney ( float moneyAmount )
+{
+  return ( 2.0f * moneyAmount );
+}
+```
+
+What type does it return? What does it need to do its job?
+
+### Making toast with better contracts.
+
+```cpp { .line-numbers }
+#include <ctime>
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+const int PERFECT_COOKING_TIME = 4;
+
+bool toastIsReady( int whenCookingStarted, int timeToCook )
+{
+  int timeCooking = time(0) - whenCookingStarted;
+  cout << "\t[Time cooking so far: " << timeCooking << "]\n";
+  
+  return ( timeCooking >= timeToCook ); 
+}
+
+int main()
+{
+  int timeCookingStarted;
+  // time toast started cooking is now. time is in seconds.
+  timeCookingStarted = time(0);
+  cout << "\n\tStart time: " << timeCookingStarted << endl << endl;
+
+  Sleep(2000);  //buuut sleep takes milliseconds
+  if ( toastIsReady( timeCookingStarted, PERFECT_COOKING_TIME) ) 
+  {
+    cout << "\tToast is cooked already??\n\n";
+  } else {
+    cout << "\tChatting on discord\n\n";
+  }
+
+  Sleep(3000);  //wait a different bit..
+  if (toastIsReady( timeCookingStarted, PERFECT_COOKING_TIME )) cout << "\tFinally, toast is cooked. Adding nutella, eating.\n";
+} 
+```
+
+
 ___
-
-## Exercises
-
-1. Write out and run the code in:
-   * [week4_code.html](week4_code.html)
-   * [week4_book_bits.html](week4_book_bits.html)
-2. **Work on Assignment.** You have everything you need now to complete it.
-3. **Complete the 4th module in Sololearn: Functions.** And yep, you need to complete the first 3 to unlock it.
-   
-___
-
-## Resources
-
-1. Read the chapter on functions in our C++ through games textbook. Skim the bits that are easy but you'll learn some things as you go.
-   * Functions: [book_1/cppgameprog_5_funcs_madlib.pdf](book_1/cppgameprog_5_funcs_madlib.pdf)
  

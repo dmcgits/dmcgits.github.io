@@ -6,3 +6,6 @@ folderico*.ico
 *.ipch
 *.bin
 mds/ISE102/code/week_11/rounding.exe
+mds/GPR103/.vs/slnx.sqlite
+*.suo
+mds/ISE102/Code/week5/*.exe
