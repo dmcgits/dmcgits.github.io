@@ -7,22 +7,22 @@ Exploring game asset creation from high res meshes with Substance Painter.
 
 <!-- code_chunk_output -->
 
-* [Substance Painter Workshop](#substance-painter-workshop)
-	* [Welcome](#welcome)
-	* [Games](#games)
-	* [Today's goal](#todays-goal)
-	* [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
-		* [Triangles are really flat](#triangles-are-really-flat)
-		* [Few triangles and hand painting](#few-triangles-and-hand-painting)
-		* [More polys much more paint](#more-polys-much-more-paint)
-		* [High poly plus normal maps (and more)](#high-poly-plus-normal-maps-and-more)
-	* [There are in game resolution meshes, and the meshes we really make](#there-are-in-game-resolution-meshes-and-the-meshes-we-really-make)
-		* [What we really need is that detail so light can shine on all our nice detail](#what-we-really-need-is-that-detail-so-light-can-shine-on-all-our-nice-detail)
-		* [Apply a few materials](#apply-a-few-materials)
-	* [Lighting](#lighting)
-	* [Procedural power!](#procedural-power)
-	* [Finally, we're missing something, this doesn't look like a PS4 game](#finally-were-missing-something-this-doesnt-look-like-a-ps4-game)
-	* [take home](#take-home)
+- [Substance Painter Workshop](#substance-painter-workshop)
+  - [Welcome](#welcome)
+  - [Games](#games)
+  - [Today's goal](#todays-goal)
+  - [So! How does 3D game art work?](#so-how-does-3d-game-art-work)
+    - [Triangles are really flat](#triangles-are-really-flat)
+    - [Big triangles plus painting](#big-triangles-plus-painting)
+    - [More polys much more paint](#more-polys-much-more-paint)
+    - [High poly plus normal maps (and more)](#high-poly-plus-normal-maps-and-more)
+    - [Proper high poly](#proper-high-poly)
+    - [Getting back the form](#getting-back-the-form)
+    - [Apply a few materials](#apply-a-few-materials)
+  - [Lighting](#lighting)
+    - [Procedural power!](#procedural-power)
+    - [Extra flash](#extra-flash)
+  - [Take home](#take-home)
 
 <!-- /code_chunk_output -->
 
@@ -30,7 +30,10 @@ ___
 
 ## Welcome
 
-* Who am I
+Who am I?
+
+![who am I artstation](assets/whoami_artstation.png)
+
 * Who's here?     
 ___
 
@@ -81,22 +84,30 @@ Triangles, no matter how you abuse them, are flat.
 
 Now, add another triangle, and things start to get interesting. We have a lot of play. then another, we can make a roiling carpet. If you have enough of them, and they're small enough, and you are free to make the edges as long or short as you need, you can make anything.
 
+![mountains](assets/wireframe_mountains.png)
+
+![village](assets/wireframe_village.jpg)
+
+![pixar 1](assets/pixar_woody_buzz.png)
+
+_Pixar uses smoothed squares, and squares are.. pairs of triangles!_
+
 About half the power of this goes into triangles:
 
 
 ![2080 strix](assets/2080_exposed.jpg)
 
 
-Lets look at our axe as.. triangles a game can push.
+### Big triangles plus painting
 
-### Few triangles and hand painting
-
-This is how things were done up until around when the Doom reboot came out. It's still how things are done on cute mobile games.
+Not bad at all! This is how things were done up until around when the Doom reboot came out. It's still how things are done on cute mobile games.
 
 Very low poly might be 500 or fewer! **Tom talian's low poly, painted TF2 characters**. 
 * One texture, 256x256.
 
 ![tf2 pyro](assets/tf2_low_pyro.jpg)
+
+Low poly and hand painted is nice.. until you try to light it dynamically.
 ___
 
 ### More polys much more paint
@@ -108,7 +119,9 @@ https://www.artstation.com/artwork/DOLmR
 
 Mina Kim hand paint example](https://www.artstation.com/artwork/DOLmR)
 
-Why wasn't this enough? Well those hand painted textures can't react to light! It's like when you shine a light on a real painting: you get a big glossy hilight and the illusion breaks down.
+Why wasn't this enough? These more detailed, hand painted textures start to really suffer under lights. 
+* The shadows and hilights don't match up,everything goes flat. 
+* Try taking a flash photo of a real painting: you get a big glossy hilight and the illusion breaks down. 
 
 ___
 
@@ -126,36 +139,42 @@ Quite high poly, we have **DVa from overwatch**.
 ![dva shaded](assets/dva_wires.png)
 ___
 
-## There are in game resolution meshes, and the meshes we really make
+### Proper high poly
 
-30K vs 12 million
+The term "high poly" in a game running at 60 or 144fps is not the same as high poly when we're actually sculpting the original. 
 
-> Open substance, look at our sad low poly axe. 
+> High poly in a game might mean 30,000 or even 200,000. The original model in ZBrush might use 8, 12 million or more.
+
+Let's open substance, look at our sad "high" poly axe. 
+
 ![axe wires](assets/axe_wires.png)
 
-Now this guy is the original axe. See all those little details? A big triangle doesn't have those. 
-* Hold one up to a button or an eyebrow, that's one big flat nothing.
+Here's the original in ZBrush. See all those little details? A big triangle doesn't have those. 
+* Hold one triangle up to a button or an eyebrow. Big flat nothing.
 
 ![axe wires](assets/axe_high.png)
 
 ___
 
-### What we really need is that detail so light can shine on all our nice detail
+### Getting back the form 
 
-How do we get it back? Well, graphics cards are built to do what you just saw. Put nice textures on as many polygons as possible.
+We lose a lot of form taking away tringles. How do we get them back? 
 
 ![gpu 2](assets/2080_strix.jpg)
 
-It has two pipelines: 
-* one that moves those triangles
-* and the other that draws the textures. 
+Well this thing (a Strix RTX 2080) has two pipelines:
+* one that moves triangles
+* and the other colours them in with textures. 
 
-Turns out the texturing circuitry has power left to burn, and clever people found a way to bring back all that physical form by using textures as data rather than paint info, and they can use that data to draw the surface detail.
+The texturing pipeline has power to burn. 
+* Way more than needed to just fill in painted textures. 
+* Clever people found a way to transcode physical form into bitmaps
+* They use extra textures for surface form information, light emission, roughness and more.
 
 ![lava1](assets/normal_lava_1.jpg)
 ![lava2](assets/normal_lava_2.jpg)
 
-It has limits but it's close enough! And fast.
+It has limits but it's pretty convincing.. and very fast.
 
 > Importing normal map 
 
@@ -163,37 +182,40 @@ ___
 
 ### Apply a few materials
 
-Materials! We're kinda getting somewhere.
+Let's use basic substance materials! Now we're getting somewhere.
 
 > Try materials, masking with colour
 
 ## Lighting
 
-The whole point of normal maps and pbr texturing is that it reacts to light in ways we couldn't with handpainting.
+The whole purpose of normal maps and pbr texturing is to react to light in ways hand painted textures can't.
 
-The key to making that look amazing is **image based lighting**, so lets try some environments.
+Another key to making that look amazing is **image based lighting**, so lets try some environments.
 
 > First play with environments, shader quality
 
 ___
 
-## Procedural power!
+### Procedural power!
 
-Still, these materials just wrap around the shape and make it look shrinkwrapped. There's no wear and tear, no dirt in the crevices, no shine from use or friction.
+Still, these materials just wrap around the shape and make it look shrinkwrapped. There's no wear and tear, no dirt in the crevices, no shine from use or friction. 
 
-* Turned out smart people found other ways to use textures. 
-* What sticks out, what's protected? Where can light reach?
-* What's up, down? 
+These textures encode:
+* Areas curving out (ridges) and in (cavities). 
+* Areas light struggles to reach.
+* Position in the world
+* Metalness, smoothness. 
+  
+> To fix that, we'll apply some of those extra textures we talked about.
 
-> Import the other maps and see some real smart materials in action
+It takes a while to bake these maps, but once they're made, painter can drive **smart materials** with them. 
 
-It takes a long time to bake these maps, but once they're made, painter can make textures out of them.  And we can bake out the maps that any game engine needs to run quick!
-
-> Customise the textures! Try messing with colorus
+> Customise the textures! Try messing with colours
 
 ___
 
-## Finally, we're missing something, this doesn't look like a PS4 game
+### Extra flash
+We're missing something. It doesn't quite look next gen without post-processing filters.
 
 > Turn on some post effects: bloom, contrast, depth of field 
 
@@ -201,9 +223,9 @@ Hooray!
 
 ___
 
-## take home
+## Take home
 
-> Take some screen shots!
+> Take some screen shots! If you brought a thumb drive, copy your working files.
 
 Try out iRay, use the snipping tool.
 
