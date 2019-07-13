@@ -1,21 +1,36 @@
-# ISE102 Week 6: References & Pointers 
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
+# Week 6: References and pointers 
 
-References and pointers are ways to pass _access to_ data around. A bit like google Docs, you're able to both edit the same thing.
+Aliases, passing by value.
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+1. [Week 6: References and pointers](#Week-6-References-and-pointers)
+   1. [Different and the same](#Different-and-the-same)
+   2. [References](#References)
+   3. [Meanings of * and &](#Meanings-of--and-)
+   4. [Things to do](#Things-to-do)
+   5. [Resources](#Resources)
+
+<!-- /code_chunk_output -->
+
+References and pointers: ways to pass _memory addresses_around, rather than data. A bit like google Docs, you're able to both edit the same thing.
 
 On the technical side, we're really we're getting a look behind the curtain at the memory in which our data is stored.
 
 > C++ famed low level status is in part due to it's ability to use pointers, because they are very powerful. With that power comes, as you might have guessed, complexity and danger.
 
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-* [ISE102 Week 6: References & Pointers](#ise102-week-6-references-pointers)
-	* [Different and the same](#different-and-the-same)
-	* [References](#references)
-
-<!-- /code_chunk_output -->
 
 ## Different and the same
 

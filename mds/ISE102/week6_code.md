@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 6 Code: Pointers and References
 
 Nicknames, passing around addresses. Really we're getting a look behind the curtain at the memory in which our data is stored.
