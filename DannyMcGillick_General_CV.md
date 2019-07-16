@@ -92,7 +92,7 @@ _**Halfbrick Studios** - Artist (2014-2016)_
 
 
 _**We Are Social** - Creative Technologist (2013-2014)_  
-Flash, Unity, 3D modeling, digital illustration.  
+Facebook/unity car design/customisation game, online Flash postcard creator, more. Flash, Unity, 3D modeling, digital illustration.  
   - **Clients:** *Roadshow*, *Kia*, *Heineken*, *Expedia*  
 
 
@@ -119,4 +119,4 @@ ___
 
 _**B.Science (Computing)**_ at University of Technology, Sydney. Included Kevin Suffern's fantastic Computer Graphics subjects.
 
-Various online courses and video training via Michael Pavlovic, Shane Olsen, Nathan Fowkes, Schoolism, Concept Design Workshop, SVS. 
+Various online courses and video training via Michael Pavlovic, Shane Olsen, Nathan Fowkes, Schoolism, Concept Design Workshop, SVS.
