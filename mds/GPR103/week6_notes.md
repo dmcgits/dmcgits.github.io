@@ -16,82 +16,125 @@ Sharing, decoupling and triggering in Unity. No, this is not relationship advice
 
 <!-- code_chunk_output -->
 
-1. [GPR106 Week 6 notes](#GPR106-Week-6-notes)
-   1. [Decoupling: what](#Decoupling-what)
-      1. [I thought variables and lists were good](#I-thought-variables-and-lists-were-good)
-      2. [What else is there?](#What-else-is-there)
-      3. [When games need less wiring](#When-games-need-less-wiring)
-      4. [A simpler example](#A-simpler-example)
-   2. [Events](#Events)
-      1. [Throwing an event](#Throwing-an-event)
-      2. [Listening for an event](#Listening-for-an-event)
-      3. [Reacting to an event](#Reacting-to-an-event)
-   3. [How did that actually happen?](#How-did-that-actually-happen)
-      1. [Function delegates](#Function-delegates)
-      2. [Generics aka what is `<that>`?](#Generics-aka-what-is-that)
-      3. [How do we structure it?](#How-do-we-structure-it)
-      4. [The self propelled vehicle is the real system](#The-self-propelled-vehicle-is-the-real-system)
-   4. [System, Controls, Readouts applied](#System-Controls-Readouts-applied)
-      1. [System: The model/simulation](#System-The-modelsimulation)
-      2. [Controls](#Controls)
-      3. [The Readouts](#The-Readouts)
-      4. [Configuring](#Configuring)
-   5. [How to make it](#How-to-make-it)
-      1. [Step 1: Scamp up the interface](#Step-1-Scamp-up-the-interface)
-      2. [Step 2: Plan up your broad structure/strategy](#Step-2-Plan-up-your-broad-structurestrategy)
-      3. [Step 3: Classes/components](#Step-3-Classescomponents)
-      4. [Step 4: Build something and iterate](#Step-4-Build-something-and-iterate)
-   6. [To do / exercises](#To-do--exercises)
-   7. [Resources](#Resources)
+- [GPR106 Week 6 notes](#GPR106-Week-6-notes)
+  - [New Unity!](#New-Unity)
+    - [Visual Studio .net 4.6 targeting](#Visual-Studio-net-46-targeting)
+  - [Today: Avoiding noodly code in a GUI](#Today-Avoiding-noodly-code-in-a-GUI)
+    - [Managing complexity.](#Managing-complexity)
+    - [Decoupling is really about communication](#Decoupling-is-really-about-communication)
+    - [We learned variables and lists, are they bad?](#We-learned-variables-and-lists-are-they-bad)
+    - [Have you ever built a pc, expecting this?](#Have-you-ever-built-a-pc-expecting-this)
+    - [One more time: direct versus broadcast](#One-more-time-direct-versus-broadcast)
+  - [Boss mentality](#Boss-mentality)
+    - [SendMessage](#SendMessage)
+    - [BroadcastMessage](#BroadcastMessage)
+  - [Events](#Events)
+    - [Events driving a GUI](#Events-driving-a-GUI)
+    - [Throwing an event](#Throwing-an-event)
+    - [Listening for an event](#Listening-for-an-event)
+    - [Reacting to an event](#Reacting-to-an-event)
+  - [How did that actually happen?](#How-did-that-actually-happen)
+    - [Function delegates](#Function-delegates)
+    - [Generics aka what is `<that>`?](#Generics-aka-what-is-that)
+    - [How do we structure it?](#How-do-we-structure-it)
+  - [How to make your assignment!](#How-to-make-your-assignment)
+    - [Step 1: Scamp up the interface](#Step-1-Scamp-up-the-interface)
+    - [Step 2: Plan up your broad structure/strategy](#Step-2-Plan-up-your-broad-structurestrategy)
+    - [Step 3: Classes/components](#Step-3-Classescomponents)
+    - [Step 4: Build something and iterate](#Step-4-Build-something-and-iterate)
+  - [To do / exercises](#To-do--exercises)
+  - [Resources](#Resources)
 
 <!-- /code_chunk_output -->
 
 ___
 
+## New Unity!
 
-## Decoupling: what
+We have 2019.1.7 installed and working in lab 2:04 in Ultimo, so we can all update and enjoy the new features. You can submit Assignment 2 using 2019.1 or 2018.2 if you'd rather not upgrade.
 
-**Tightly coupled:** classes that are codependent. If you change one it can easily break the other.
+Unity old versions in the Download Archive
+<https://unity3d.com/get-unity/download/archive>
 
-**Decoupling is really about communication**. How can we make objects useful without hooking them all directly into eachother.
+Direct Unity Hub link to 2019.1.7f1  
+<unityhub://2019.1.7f1/f3c4928e5742>
 
-If things become a ratsnest and adding a new type of hat to your game requires changes in 7 places.. you probably won't do it.
+### Visual Studio .net 4.6 targeting
 
-This means
-* limiting access to other objects via variables.
-* limiting direct function calls
+You might find that opening a unity c# script in VS gives you an error dialogue.
 
-### I thought variables and lists were good
+![vs targeting error](assets/week6/vs_targeting_error.jpg)
 
-They are. But when we get lots of things needing to talk, and needing direct lines of communication, we get a ratsnest.
+Select "Download the targeting pack" and install the downloaded file, restart unity and VS.
 
-![pcb](assets/week6/zeal65_pcb_2.jpg)
-_direct connetions: pretty in moderation_
+## Today: Avoiding noodly code in a GUI
 
-![ratsnest 1](assets/week6/breadboard_ratsnest_1.jpg)
-_breadboarding a circuit board: pain is beginning_
+Clone this project from my Github for today's exercise:
+**https://github.com/dmcgits/locks_broadcasting_unity.git**
+
+![gui](assets/week6/keys_moving_2.png)
+
+### Managing complexity.
+
+Lots of elements in your game using code results in lots of classes. 
+
+**Classes can end up tightly coupled, or connected all over the place** 
+
+> Tightly coupled: classes that use lots of features of another, and can break with a small change to the other.
+
+Things we want to avoid:
+* having to find and store too many other gameObjects in variables
+* needing to know and use loads of functions and variables on other objects
+* very long classes which have lots of functions just to modify or read from other objects.
+* exposing lots of variables/methods and inviting dependency
+
+![busy inspector](assets/week6/inspector_many_variables.jpg)
+_It's also crappy work having to drag in all these dependencies.
+
+### Decoupling is really about communication
+
+A game is a big system, and lots of objects need to talk to eachother. Too much _direct_ communication makes things rigid, and that creates.. friction!
+
+> **Friction:** A resisting force. Anything that makes it harder for us to do something.
+
+When things start to scale up, we don't want our software design to limit our imaginations:
+
+![swarm](/assets/week6/swarm.png)
+_Moar units_
+
+### We learned variables and lists, are they bad?
+
+No! 
+* As with anything, the poison is in the dose. 
+* Create too many direct connections, too much association, it gets inflexible
+
+In circuit board design the view for laying out the direct connections is literally called a **ratsnest.** Because no matter how nicely you lay things out, it's a hairy situation. 
 
 ![rats](assets/week6/routing_ratsnest_1.png)
-_It starts to get really tough_
+_Even a nicely routed pcb has a lot of connections running in multiple layers_
+
+![pcb](assets/week6/zeal65_pcb_2.jpg)
+_Birect connections: pretty in moderation_
+
+![ratsnest 1](assets/week6/breadboard_ratsnest_1.jpg)
+_Prototyping a circuit board: making connections with wires_
 
 ![unrouted](assets/week6/pcb_connections_unrouted.png)
-_Connections before being routed_
+_These are the logical connections. In code we try to avoid the next stage, routing._
 
-Have you ever tried building a pc, expecting this?
+### Have you ever built a pc, expecting this?
 
 ![pc cables nice](assets/week6/pc_cabling_nice.jpg)
 _Cable management_
 
-and ended up with:
+##### and ended up with this?
 
 ![cables2](assets/week6/pc_cabling_hmm.jpg)
 _Madness_
 
 ___
 
-### What else is there?
-
-Instead of having references to objects and calling functions on them all (literally assessment 1 exercise 3), we're going to broadcast our requests and hope someone is listening.
+### One more time: direct versus broadcast
 
 1: Less like email:
 
@@ -111,32 +154,46 @@ more like Wifi:
 
 ___
 
-### When games need less wiring
+## Boss mentality
 
-When things start to scale up, we don't want our software design to limit our imaginations:
+Let's be honest, parts of your game aren't doing their job if they're not reacting to change. The score text and energy bar, the mini map etc. You shouldn't have to tell them directly.
 
-![swarm](/assets/week6/swarm.png)
-_Moar units_
+![old joffers](assets/week6/joffrey.jpg)
+_Cake is amazing! Whoever doesn't clap for cake better have kneck armour!_
 
-In the short term, even our next assignment will quickly become a ratsnest if we don't ditch the direct wires.
+Events, SendMessage, Broadcast Message
 
-### A simpler example 
+> We need some sort of system where we can yell variables into the air and leave it to other desperate objects to listen and know what to do about it. 
+Unity and c# provide some great tools for broadcasting and listening in. We'll have a look at three of them.
+
+___
+
+### SendMessage
+
+Talking to components indiscriminately.
+
+### BroadcastMessage
+
+Talking to components on all children indiscriminately!
+
+![scenario 1](/assets/week6/keys_moving_2.png)
+_Clicking to lock things in place, with the lock state visible_
+
+___
+
+## Events
+
+One of the most common ways to broadcast in code is via `Events` and event listeners (aka event handlers).
+
+> Events are your object's broadcasted information. Event Listeners in other objects hear them and do what they think is best.
+
+### Events driving a GUI
 
 ![scenario_1](/assets/week6/scenario_1.png)
 
 Here I've just made a project to move a few things up and down, when they are unlocked. 
 * Even on this teeny thing, look at the heirarchy on the left there.
 * How much do you like repeating the same action on 20 things. 
-
-> What decoupling does is 
-> 1. **Add a little friction at the start** of our project to **avoid massive friction later ** when changing or adding anything.
-> 2. Lets us dream big and make mental games!
-
-## Events
-
-* Door to door knocking is slow
-* Getting people to your house is hard and complicated
-* Clever people instead broadcast indiscriminately on  _Twitter_
 
 ![scenario 1](/assets/week6/keys_moving_2.png)
 _Let's watch this in action_
@@ -278,58 +335,9 @@ The relationships between character parts and the controls are are more like the
 
 If we tried to make this into a heirarchy it just wouldn't make much sense. You often end up with a big god class trying to control all this stuff with loads of references to things that behave differently. It gets unwieldy and, worst, hard to change or debug.
 
-### The self propelled vehicle is the real system
+## How to make your assignment!
 
-The engine, the wheels, the chemicals, these are the system. 
-
-> 1. We feed it inputs through the controls
-> 2. The system changes
-> 3. The sensors perceive these changes and tell us.
-> **1 and 3 are the interface. We are the user. What's left is the system.**
-
-
-## System, Controls, Readouts applied
-
-Our customiser maps well to this setup
-
-### System: The model/simulation
-
-Picturing our program this way, we need a system. We're not making a physical thing, we're making a simulation or model of it. 
-
-> When scientists make a copy of a system to test, like a bacteria or a molecule or global weather system they make a "model" of the system and run a simulation.
- 
-* _word_ is simulating a **document being edited**.
-* _warcraft 3_ is simulating a **great conflict in a (square area) of a distant land**
-* _windows_ is simulating a **desktop** where you're doing jobs, and beneath that it's simulating **one computer with many processors (whether you have them or not)** from a bunch of separately sourced constructions of silicon, exotic metals, plastic etc.
-
-A simulation is always in some "state": the result of inputs to the model, and its resulting condition.
-
-### Controls
-
-> The **controls (steering wheel, pedal) are our buttons, text fields etc** that want to change the system. They request changes to the name, gender eyes, hair or shirt. 
-
-Instead of levers, wires and shafts we use can just throw out events. The model listens for them.
-
-```cs
-// for example
-class GenderButton
-...
-public static event Action<String> onGenderChanged = delegate {};
-```
-
-### The Readouts
-
->The car readouts (engine light, speedometer, beeping seatbelt warning) are, for us, sprites of our character changes. Pictures of eyes, hair or shirt. Text labels showing name, skill points etc.
-
-Instead of sensors connected by wires, we can listen for for changes in the model. The model announces them as events. 
-
-### Configuring
-
-Next week!
-
-## How to make it
-
-So, applying these ideas in real life to our assignment? 
+Here's a handy guide to pushing forward with your assignment.
 
 ### Step 1: Scamp up the interface
 
@@ -367,13 +375,9 @@ This 3 week assignment is serious go time. If you don't work hard this week you'
 
 ## Resources
 
-Sprites
-
-[Example google search](https://www.google.com/search?rlz=1C1GCEB_enAU837AU837&q=behance+sprite+character&tbm=isch&source=univ&sa=X&ved=2ahUKEwjw1c_e97LhAhWGWisKHW4aBNQQsAR6BAgJEAE&biw=1536&bih=775&dpr=1.25#imgrc=t4ieyaimi7ILVM:)
-
 Helpful things
 
-* Unity official _events_ tutorial video
-  * <https://unity3d.com/learn/tutorials/topics/scripting/events>
+* Making a broader event manager for unity with special Unity events
+  * <https://learn.unity.com/tutorial/create-a-simple-messaging-system-with-events#5cf5960fedbc2a281acd21fa>
 * Unity official _delegates_ tutorial video.
   * https://unity3d.com/learn/tutorials/topics/scripting/delegates?playlist=17117

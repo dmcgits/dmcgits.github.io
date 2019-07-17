@@ -15,16 +15,16 @@ Aliases, passing by value.
 
 <!-- code_chunk_output -->
 
-- [Week 6: References and pointers](#Week-6-References-and-pointers)
-  - [Things to do](#Things-to-do)
-  - [Resources](#Resources)
-  - [References and pointers](#References-and-pointers)
-    - [Different and the same](#Different-and-the-same)
-  - [References](#References)
+- [Week 6: References and pointers](#week-6-references-and-pointers)
+  - [Things to do](#things-to-do)
+  - [Resources](#resources)
+  - [References and pointers](#references-and-pointers)
+    - [Different and the same](#different-and-the-same)
+  - [References](#references)
     - [myscore_references.cpp](#myscore_referencescpp)
-  - [Pointers](#Pointers)
+  - [Pointers](#pointers)
     - [age_pointers.cpp](#age_pointerscpp)
-  - [Sorting out the symbols](#Sorting-out-the-symbols)
+  - [Sorting out the symbols](#sorting-out-the-symbols)
 
 <!-- /code_chunk_output -->
 
@@ -45,7 +45,7 @@ Book chapters:
 
 ___
 
-## References and pointers
+## uReferences and pointers
  They are types of variables used to pass _memory addresses_ around rather than data. 
    
    > Kinda like nicknames all lead back to single person, many references and pointers can get at to the same bit of memory and its contents.
