@@ -32,53 +32,57 @@
 
 <p>Sharing, decoupling and triggering in Unity. No, this is not relationship advice. We&#x2019;re talking <strong>events</strong>, <strong>delegates</strong> and <strong>messages</strong>.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#GPR106-Week-6-notes">GPR106 Week 6 notes</a>
+<li><a href="#gpr106-week-6-notes">GPR106 Week 6 notes</a>
 <ul>
-<li><a href="#New-Unity">New Unity!</a>
+<li><a href="#new-unity">New Unity!</a>
 <ul>
-<li><a href="#Visual-Studio-net-46-targeting">Visual Studio .net 4.6 targeting</a></li>
+<li><a href="#visual-studio-net-46-targeting">Visual Studio .net 4.6 targeting</a></li>
 </ul>
 </li>
-<li><a href="#Today-Avoiding-noodly-code-in-a-GUI">Today: Avoiding noodly code in a GUI</a>
+<li><a href="#today-avoiding-noodly-code-in-a-gui">Today: Avoiding noodly code in a GUI</a>
 <ul>
-<li><a href="#Managing-complexity">Managing complexity.</a></li>
-<li><a href="#Decoupling-is-really-about-communication">Decoupling is really about communication</a></li>
-<li><a href="#We-learned-variables-and-lists-are-they-bad">We learned variables and lists, are they bad?</a></li>
-<li><a href="#Have-you-ever-built-a-pc-expecting-this">Have you ever built a pc, expecting this?</a></li>
-<li><a href="#One-more-time-direct-versus-broadcast">One more time: direct versus broadcast</a></li>
+<li><a href="#managing-complexity">Managing complexity.</a></li>
+<li><a href="#decoupling-is-really-about-communication">Decoupling is really about communication</a></li>
+<li><a href="#we-learned-variables-and-lists-are-they-bad">We learned variables and lists, are they bad?</a></li>
+<li><a href="#have-you-ever-built-a-pc-expecting-this">Have you ever built a pc, expecting this?</a>
+<ul>
+<li><a href="#and-ended-up-with-this">and ended up with this?</a></li>
 </ul>
 </li>
-<li><a href="#Boss-mentality">Boss mentality</a>
-<ul>
-<li><a href="#SendMessage">SendMessage</a></li>
-<li><a href="#BroadcastMessage">BroadcastMessage</a></li>
+<li><a href="#one-more-time-direct-versus-broadcast">One more time: direct versus broadcast</a></li>
 </ul>
 </li>
-<li><a href="#Events">Events</a>
+<li><a href="#boss-mentality">Boss mentality</a>
 <ul>
-<li><a href="#Events-driving-a-GUI">Events driving a GUI</a></li>
-<li><a href="#Throwing-an-event">Throwing an event</a></li>
-<li><a href="#Listening-for-an-event">Listening for an event</a></li>
-<li><a href="#Reacting-to-an-event">Reacting to an event</a></li>
+<li><a href="#sendmessage">SendMessage</a></li>
+<li><a href="#broadcastmessage">BroadcastMessage</a></li>
 </ul>
 </li>
-<li><a href="#How-did-that-actually-happen">How did that actually happen?</a>
+<li><a href="#events">Events</a>
 <ul>
-<li><a href="#Function-delegates">Function delegates</a></li>
-<li><a href="#Generics-aka-what-is-that">Generics aka what is <code>&lt;that&gt;</code>?</a></li>
-<li><a href="#How-do-we-structure-it">How do we structure it?</a></li>
+<li><a href="#events-driving-a-gui">Events driving a GUI</a></li>
+<li><a href="#throwing-an-event">Throwing an event</a></li>
+<li><a href="#listening-for-an-event">Listening for an event</a></li>
+<li><a href="#reacting-to-an-event">Reacting to an event</a></li>
 </ul>
 </li>
-<li><a href="#How-to-make-your-assignment">How to make your assignment!</a>
+<li><a href="#how-did-that-actually-happen">How did that actually happen?</a>
 <ul>
-<li><a href="#Step-1-Scamp-up-the-interface">Step 1: Scamp up the interface</a></li>
-<li><a href="#Step-2-Plan-up-your-broad-structurestrategy">Step 2: Plan up your broad structure/strategy</a></li>
-<li><a href="#Step-3-Classescomponents">Step 3: Classes/components</a></li>
-<li><a href="#Step-4-Build-something-and-iterate">Step 4: Build something and iterate</a></li>
+<li><a href="#function-delegates">Function delegates</a></li>
+<li><a href="#generics-aka-what-is-that">Generics aka what is <code>&lt;that&gt;</code>?</a></li>
+<li><a href="#how-do-we-structure-it">How do we structure it?</a></li>
 </ul>
 </li>
-<li><a href="#To-do--exercises">To do / exercises</a></li>
-<li><a href="#Resources">Resources</a></li>
+<li><a href="#how-to-make-your-assignment">How to make your assignment!</a>
+<ul>
+<li><a href="#step-1-scamp-up-the-interface">Step 1: Scamp up the interface</a></li>
+<li><a href="#step-2-plan-up-your-broad-structurestrategy">Step 2: Plan up your broad structure/strategy</a></li>
+<li><a href="#step-3-classescomponents">Step 3: Classes/components</a></li>
+<li><a href="#step-4-build-something-and-iterate">Step 4: Build something and iterate</a></li>
+</ul>
+</li>
+<li><a href="#to-do-exercises">To do / exercises</a></li>
+<li><a href="#resources">Resources</a></li>
 </ul>
 </li>
 </ul>
