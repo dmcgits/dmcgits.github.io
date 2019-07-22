@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ise102 week 7:  review
 
 Assessment 2 is an online test you'll be delivering by the end of week 8. Let's review.
@@ -7,14 +16,22 @@ Assessment 2 is an online test you'll be delivering by the end of week 8. Let's 
 
 <!-- code_chunk_output -->
 
-* [ise102 week 7:  review](#ise102-week-7-review)
-	* [Assessment content](#assessment-content)
-	* [Resources](#resources)
-		* [book chapters](#book-chapters)
-		* [Week 2](#week-2)
-		* [Week 3](#week-3)
-		* [Week 4](#week-4)
-	* [Todo](#todo)
+- [ ise102 week 7:  review
+](#ise102-week-7-review)
+  - [ Assessment content
+](#assessment-content)
+  - [ Resources
+](#resources)
+    - [ book chapters
+](#book-chapters)
+    - [ Week 2
+](#week-2)
+    - [ Week 3
+](#week-3)
+    - [ Week 4
+](#week-4)
+  - [ Todo
+](#todo)
 
 <!-- /code_chunk_output -->
 
@@ -51,7 +68,7 @@ Don't forget you can code on <http://cpp.sh> if you don't want to start a projec
 
 ### Week 3
 * [week 3 powerpoint 1 arrays](https://laureate-au.blackboard.com/bbcswebdav/xid-8625465_1)
-* [week 3 powerpoint 2 loops](https://laureate-au.blackboard.com/bbcswebdav/xid-8625465_1)
+* [week 3 powerpoint 2 loops](https://laureate-au.blackboard.com/bbcswebdav/xid-8625460_1)
 * [week 3 my notes](week3_notes.html) 
 * [week 3 code](week3_code.html)*
 
