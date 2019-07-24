@@ -16,7 +16,7 @@ Assessment 2 is an online test you'll be delivering by the end of week 8. Let's 
 
 <!-- code_chunk_output -->
 
-- [ise102 week 7: review](#ise102-week-7-review)
+- [ise102 week 7:  review](#ise102-week-7-review)
   - [Assessment content](#assessment-content)
   - [Resources](#resources)
     - [book chapters](#book-chapters)

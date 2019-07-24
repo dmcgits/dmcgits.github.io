@@ -66,6 +66,64 @@
     
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="casstingconversion">cassting/conversion</h2>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Example program</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> number <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> divisor <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    
+    
+    <span class="token comment">//int c = a % b;</span>
+    
+    
+    <span class="token comment">//divisor = 3;</span>
+        
+    <span class="token keyword">float</span> dividend <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>number <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>divisor<span class="token punctuation">;</span> <span class="token comment">// two ints divided gives an int result</span>
+    <span class="token comment">// Do i have to declare numbers as floats if i want to divide them later</span>
+    <span class="token comment">// Can I cast(convert) integers to floats at any random time I need them (eg: when I want floating point results from maths)</span>
+    
+    <span class="token comment">//string numberOfBalls = &quot;1000&quot;;</span>
+    <span class="token comment">//int tenTimesBalls = 10 * to_int(numberOfBalls);</span>
+    
+    <span class="token keyword">int</span> remainder <span class="token operator">=</span> number <span class="token operator">%</span> divisor<span class="token punctuation">;</span>
+    
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;dividend = &quot;</span> <span class="token operator">&lt;&lt;</span> dividend <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;remainder = &quot;</span> <span class="token operator">&lt;&lt;</span> remainder <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  
+    
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="booleans">Booleans</h2>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// Start here.</span>
+
+  <span class="token keyword">bool</span> isAsleep <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+  isAsleep <span class="token operator">=</span> <span class="token operator">!</span>isAsleep<span class="token punctuation">;</span>  <span class="token comment">// toggle a boolean from T to F or vice versa</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> isAsleep <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Is asleep.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Is awake.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  cout <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>boolalpha<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;isAsleep: &quot;</span> <span class="token operator">&lt;&lt;</span> isAsleep <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;true: &quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token boolean">true</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+
+<span class="token punctuation">}</span>
 </pre>
       </div>
       

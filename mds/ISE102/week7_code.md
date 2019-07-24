@@ -47,3 +47,67 @@ int main()
     return 0;
 }
 ```
+
+## cassting/conversion
+
+```cpp
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int number = 20;
+    int divisor = 3;
+    
+    
+    //int c = a % b;
+    
+    
+    //divisor = 3;
+        
+    float dividend = (float)number / (float)divisor; // two ints divided gives an int result
+    // Do i have to declare numbers as floats if i want to divide them later
+    // Can I cast(convert) integers to floats at any random time I need them (eg: when I want floating point results from maths)
+    
+    //string numberOfBalls = "1000";
+    //int tenTimesBalls = 10 * to_int(numberOfBalls);
+    
+    int remainder = number % divisor;
+    
+    cout << "dividend = " << dividend << endl;  
+    cout << "remainder = " << remainder << endl;  
+    
+    return 0;
+}
+```
+
+## Booleans
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  // Start here.
+
+  bool isAsleep = false;
+
+  isAsleep = !isAsleep;  // toggle a boolean from T to F or vice versa
+
+  if ( isAsleep ) {
+    cout << "Is asleep." << endl;
+  }
+  else {
+    cout << "Is awake." << endl;
+  }
+
+  cout << std::boolalpha;
+  cout << "isAsleep: " << isAsleep << endl;
+  cout << "true: " << true << endl;
+
+
+}
+```
