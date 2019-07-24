@@ -1,4 +1,13 @@
-# Week 7: Sprites, managers, models.
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
+# Week 7: Sprites, managers
 
 This week's lesson uses my example of assignment 2 to explore Sprites, UI and Singleton use. 
 
@@ -6,7 +15,7 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
 
 <!-- code_chunk_output -->
 
-- [Week 7: Sprites, managers, models.](#week-7-sprites-managers-models)
+- [Week 7: Sprites, managers](#week-7-sprites-managers)
   - [Assessment 2 progress Q&A](#assessment-2-progress-qa)
   - [Sprites](#sprites)
     - [Quick history](#quick-history)
