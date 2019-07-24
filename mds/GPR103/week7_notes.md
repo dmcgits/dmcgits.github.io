@@ -30,7 +30,6 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
     - [Properties of a game manager](#properties-of-a-game-manager)
   - [Singletons](#singletons)
     - [Doesn't that break the distinction between classes and objects?](#doesnt-that-break-the-distinction-between-classes-and-objects)
-    - [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
     - [Who does big tasks for the boss?](#who-does-big-tasks-for-the-boss)
   - [ToDo](#todo)
   - [Resources](#resources)
