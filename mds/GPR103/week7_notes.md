@@ -102,6 +102,8 @@ They're created like materials and sprites, then you populate them:
 
 ![atlas charabits](assets/week7/atlas_charabits.png)
 
+Download some [character bits](assets/week7/character_bits.zip) 
+
 ___
 
 ## Unity UI
