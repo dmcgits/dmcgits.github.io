@@ -199,12 +199,14 @@
 
 <p><strong>A Singleton is a chimera that has static and instance properties, and murders any other instances of itself</strong></p>
 <p>It&#x2019;s a monstrosity created through a fairly simple trick, a loophole. The fact you can store instances of a class inside the class definition using <em>static</em>.</p>
+<p><img src="assets/week7/chimera_serious.png" alt="chimera cool"></p>
 <ul>
 <li>Create an object from your <code>Manager</code> class, say <code>Manager managerInstance</code></li>
 <li>Store it in <em>a static variable in the <code>Manager</code> class</em>.</li>
 <li>Access it from now on via <code>Manager.managerInstance</code></li>
 <li>Prevent any other managers from being created!</li>
 </ul>
+<p><img src="assets/week7/chimera_dad.png" alt="chimera dad"></p>
 <h3 class="mume-header" id="doesnt-that-break-the-distinction-between-classes-and-objects">Doesn&#x2019;t that break the distinction between classes and objects?</h3>
 
 <p><strong>Yep</strong>.</p>

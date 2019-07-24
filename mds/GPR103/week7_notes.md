@@ -201,10 +201,14 @@ ___
 
 It's a monstrosity created through a fairly simple trick, a loophole. The fact you can store instances of a class inside the class definition using _static_.
 
+![chimera cool](assets/week7/chimera_serious.png)
+
 * Create an object from your `Manager` class, say `Manager managerInstance`
 * Store it in _a static variable in the `Manager` class_.
 * Access it from now on via `Manager.managerInstance`
 * Prevent any other managers from being created!
+
+![chimera dad](assets/week7/chimera_dad.png)
 
 ### Doesn't that break the distinction between classes and objects?
 
