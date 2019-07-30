@@ -7,99 +7,101 @@ In previous years, week 8 has covered FileIO. Since we don't use it in the assig
 
 <!-- code_chunk_output -->
 
-1. [ise102 week 8: Objects and Classes](#ise102-week-8-objects-and-classes)
-   1. [OO](#oo)
-      1. [What is encapsulation?](#what-is-encapsulation)
-         1. [Goldilocks factor](#goldilocks-factor)
-   2. [Encapsulation in practice](#encapsulation-in-practice)
-      1. [Structs](#structs)
-      2. [Classes](#classes)
-   3. [Debugging](#debugging)
-      1. [Debugger mode](#debugger-mode)
-      2. [Stepping](#stepping)
-      3. [Step into, step out:](#step-into-step-out)
-      4. [Step over:](#step-over)
-      5. [Breakpoints](#breakpoints)
-      6. [Info!](#info)
-   4. [Resources](#resources)
+- [ise102 week 8: Objects and Classes](#ise102-week-8-objects-and-classes)
+  - [Snake as a board game](#snake-as-a-board-game)
+    - [Objects](#objects)
+    - [Designs for objects](#designs-for-objects)
+    - [The schematic/plan/design](#the-schematicplandesign)
+    - [What about in code?](#what-about-in-code)
+    - [The schematic in code](#the-schematic-in-code)
+  - [Debugging](#debugging)
+    - [Debugger mode](#debugger-mode)
+    - [Stepping](#stepping)
+    - [Step into, step out:](#step-into-step-out)
+    - [Step over:](#step-over)
+    - [Breakpoints](#breakpoints)
+    - [Info!](#info)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
-## OO
+## Snake as a board game
 
-### What is encapsulation? 
+Board games. They have two basic parts minimum, usually.
 
-It's a long word but it's a simple thing we experience every day. 
+1. Board
+2. Pieces
 
-![kinder](assets/week8/kinder_surprise.jpg)
-_capsule: a thing with things inside_
+We've all played Snake. What happens in the game? 
 
-The objects in our every day life usually **hide the bits we don't need to know about:**
+![snake phone](assets/week1/snake.png)
 
-![shaver real](assets/week8/shaver_real.jpg)
-![shaver patent](assets/week8/shaver_patent.jpg)
-_outside v inside_
+So maybe we have a **simple board**, divided into a **grid of squares**, in a grassy colour.
 
-#### Goldilocks factor
+![grid](assets/week8/board_snake_grass.png) 
 
-> How much to hide? The answer is, as with most design questions: it depends.
+What pieces would ou need? Where do they go?
 
- If you only open and read things on your computer, the simple magic mouse is a nice thing. If you play MOBAs, you might live or die by the macro buttons on your razer naga. 
- 
+![snake plastic](assets/week8/snake_plastic.jpg)
+![fruit bits](assets/week8/fruit_wood_2.png)
 
-![magicmouse](assets/week8/mouse_magic.jpg)
-![naga](assets/week8/mouse_naga.jpg)
+### Objects
 
-## Encapsulation in practice
+What properties do each of these objects have? 
+* There can be many of them, same but different.
+* Position on the grid.
+* Fruit has maybe colour? A name?
+* A snake needs to go places. What things do we need to know for an object to travel in space?
 
-Object Oriented design is all about encapsulation, and classes/objects are made for it.
+### Designs for objects
+Okay, if we wanted to get our snake board game made, we could go to a maker of game boards and say 
+> "Hey, we designed a board game. Make it for us. How much will it cost to make 100 sets?
 
-### Structs
+What will the ask us next?
+
+What if we wanted one hundred laptops? Dinner for 12? A fleet of trucks? 10 orc grunts?
+
+### The schematic/plan/design
+
+You make things from a design. Maybe there's a prototype object too, which the design describes. A version made from that design, and you will make more.
+
+### What about in code?
+
+A guy at Xerox was asked how much would you need to write to explain a whole programming language. He said one page. They laughed and said go on then.
+
+To make it self evident to the person looking at the page it needed to relate to their experience. 
+* He did it
+* It was small talk
+* He was very clever
+* Small talk treated things as objects. The code and data for a thing, like a snake head or a fruit, go together.
+
+Let's make an object. A GamePiece.
+
+### The schematic in code
+
+Our plan or design, in c++, is called a Class. A class defines what a fruit will be. You can make many pieces of fruit from that one design. Same with trucks: you want them made, you design one in a class. Then you can declare as many variables of type Truck as you want.
 
 ```cpp
-// the keyword "struct" lets us define our own types of data collections.
-struct InventoryItem
-{  
-	string title;
-	string category;
-	int quantityMls;
-	string iconPath;
-	string description;
+/// File: truck.h
+
+class Truck {
+  public:
+    int speedInKph = 0;
+    float weightInTonnes = 3.6;
 };
-
-// now we can make InventoryItems
-
-InventoryItem myAxe;
-myAxe.title = "My battleAxe of cleaving"
 ```
-___
-
-### Classes
-
-You can see that the **struct declares a type of data, it's not a variable itself**. Like float or string, you must now declare a thing of type InventoryItem.
-
-**Classes do the same, but for Objects**. They are like structs with methods (and a bit more).
-
-> Classes are to recipes as objects are to meals. One is a design, the other is one of many products of that design and some work. 
 
 ```cpp
-//======================== Declare Monster class =====================
-class Monster {
-public:
-  
-  void fight();   // public member function
-  
-  int hitPoints;  // public member variable
-};
+/// File: world_of_trucks_main.h
+#include "Truck.h"
 
-//===================== Actually Define Monster class functions =====
-
-void Monster::fight()
+int main()
 {
-	cout << endl << "Fighting!! \n\n";
+  Truck boringOldTruck;
+  Truck neighboursFancyTruck;
 }
+
 ```
-That code goes between your `#include`s and your `main()`,like variable declarations do.
 
 ## Debugging
 
