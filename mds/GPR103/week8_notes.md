@@ -26,7 +26,8 @@ Atlasses, loading and swapping sprites, loading and saving to JSON.
     - [Parser/JSON](#parserjson)
     - [Using Json.net in unity](#using-jsonnet-in-unity)
   - [Writing/Reading files.](#writingreading-files)
-  - [More on Singletons and Managers? Next week?](#more-on-singletons-and-managers-next-week)
+  - [Recapping inheritance](#recapping-inheritance)
+  - [Questions?](#questions)
   - [Resources](#resources)
   - [Todo](#todo)
 
@@ -35,9 +36,9 @@ Atlasses, loading and swapping sprites, loading and saving to JSON.
 
 ## Example: Loading sprite from atlas, save and load
 
-I've made a simplified example. Grab this project that uses the sprite swapper from git. You can download it into a folder called _week8_code_ (for example) using this command, or just use GitKraken/SourceTree.
+I've made a simplified example. Grab this project that uses the sprite swapper from git. You can clone it from this url using _SourceTree_ or click it, then click the green download button (if you're logged in).
 
-`git clone https://github.com/dmcgits/gpr_link_switch_save.git gpr_link_switch_save`
+<https://github.com/dmcgits/gpr_link_switch_save.git>
 
 ![save switch](assets/week8/sprite_save_switch.jpg)
 
@@ -199,7 +200,13 @@ if (File.Exists(_savePath)) // Don't try to load a file that isn't there
 
 Not really.
 
-## More on Singletons and Managers? Next week?
+## Recapping inheritance
+
+ISE week 8 objects: trucks and snakes.
+
+## Questions?
+
+More on managers/singletons? 
 
 ## Resources
 
