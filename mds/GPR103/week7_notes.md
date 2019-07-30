@@ -1,4 +1,13 @@
-# Week 7: Sprites, managers, models.
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
+# Week 7: Sprites, managers
 
 This week's lesson uses my example of assignment 2 to explore Sprites, UI and Singleton use. 
 
@@ -6,23 +15,24 @@ This week's lesson uses my example of assignment 2 to explore Sprites, UI and Si
 
 <!-- code_chunk_output -->
 
-* [Week 7: Sprites, managers, models.](#week-7-sprites-managers-models)
-	* [Assessment 2 progress Q&A](#assessment-2-progress-qa)
-	* [Singleton Game Manager](#singleton-game-manager)
-		* [Why Singleton](#why-singleton)
-		* [Making the model the heart of our game](#making-the-model-the-heart-of-our-game)
-		* [Code Together:](#code-together)
-	* [Sprites](#sprites)
-		* [Quick history](#quick-history)
-		* [Now](#now)
-		* [Atlasses, sprite sheets](#atlasses-sprite-sheets)
-		* [Unity atlas creator](#unity-atlas-creator)
-	* [Unity UI](#unity-ui)
-		* [Buttons and states](#buttons-and-states)
-		* [UI canvas is huge](#ui-canvas-is-huge)
-		* [Uh oh. Different events.](#uh-oh-different-events)
-	* [ToDo](#todo)
-	* [Resources](#resources)
+- [Week 7: Sprites, managers](#week-7-sprites-managers)
+  - [Assessment 2 progress Q&A](#assessment-2-progress-qa)
+  - [Sprites](#sprites)
+    - [Quick history](#quick-history)
+    - [Now](#now)
+    - [Atlasses, sprite sheets](#atlasses-sprite-sheets)
+    - [Unity atlas creator](#unity-atlas-creator)
+  - [Unity UI](#unity-ui)
+    - [Buttons and states](#buttons-and-states)
+    - [UI canvas is huge](#ui-canvas-is-huge)
+    - [Uh oh. Different events.](#uh-oh-different-events)
+  - [Managing a game](#managing-a-game)
+    - [Properties of a game manager](#properties-of-a-game-manager)
+  - [Singletons](#singletons)
+    - [Doesn't that break the distinction between classes and objects?](#doesnt-that-break-the-distinction-between-classes-and-objects)
+    - [Who does big tasks for the boss?](#who-does-big-tasks-for-the-boss)
+  - [ToDo](#todo)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -37,102 +47,9 @@ Things to have done by now at minimum
 * Final sprite choices
 
 [My demo assessment](https://dmcgits.github.io/mds/GPR103/code/week7/index.html)
-
 ![Mine](assets/week7/mine_design.png)
-## Singleton Game Manager
 
-We only want one game manager. We can make that so with singletons.. A single instance of an object accessible from anywhere through a class static variable.
 
->The trick with a Singleton: it's a vicious opportunist occupying the only home in its universe (the class it was made from). It's clever and awful.
-
-1. When Unity instantiates the gameObject, it instantiates our component. 
-2. When awake is called, our component does something dirty: it stores itself in a static variable in the CustoBrain class it was made from
-3. Any future objects check if an instance has taken the only available home, the instance static variable.
-4. If the space is taken, they are compelled to destroy themselves.
-
-This is basically all that is needed to make a singleton. 
-```cs
-public class CustoBrain : MonoBehaviour
-{
-
-  public static CustoBrain instance = null;              
-	//Static instance of GameManager which allows it to be accessed by any other script.
-
-  //Awake is always called before any Start functions
-  void Awake()
-  {
-      //Check if instance already exists
-    if (instance == null)
-    {
-        //if not, set instance to this
-        instance = this;
-    }
-    //If instance already exists and it's not this:
-    else if (instance != this)
-
-    //Then destroy this. This enforces our singleton pattern. Zero mercy.
-    Destroy(gameObject);
-
-    //Sets this one to not be destroyed when reloading scene
-    DontDestroyOnLoad(gameObject);
-
-    //Call the InitGame function to initialize the first level 
-    InitGame();
-  }
-}
-```
-
-Now we can make calls to non static functions like so:
-```
-	CustoBrain.instance.DoAThing();
-```
-___
-
-### Why Singleton
-
-* They generally manage all the core stuff for your game.
-* There is only one game, it needs only one brain/manager.
-* Sort of like a main in c++ but also different
-* Accessible anywhere you want to instantiate it
-* Copies become references
-
-We don't reeeeally have a game so we could do without it. 
-* Mine just creates the model and keeps it in a variable.
-* I could have made the model a singleton instead.
-* Better though to work as though our game will be a little larger, and not make our model do extra things.
-
-___
-
-### Making the model the heart of our game
-
-In simple terms, when a button is clicked
-
->1. Buttons yell that something incredible has happened. 
->2. When our model hears this news it is changed forever. It yells to the world about how different it is now.
->3. The sprites, who are gossips, put up big billboards to tell everyone the model's news.
-
-It's a straightforward linear process, glued together with a little event magic:
-
-1. click button
-2. button throws event
-3. model hears button event and updates 
-4. model throws modelUpdated event
-5. Sprites hear model event and change to match the new model state
-
-![character changed](assets/week7/character_changed.png)
-
-___
-
-### Code Together:
-
-Make a game manager
-Make a model
-Make a button
-Make a sprite
-
-click button, change model, sprite changes.
-
-___
 
 ## Sprites
 
@@ -183,6 +100,8 @@ They're created like materials and sprites, then you populate them:
 3. Set _Filter Mode_ to _Point_ if you are using pixelated art and might scale.
 
 ![atlas charabits](assets/week7/atlas_charabits.png)
+
+Download some [character bits](assets/week7/character_bits.zip) 
 
 ___
 
@@ -247,6 +166,127 @@ The tricky bit isn't too tricky either.
         OnPrevNextRequested(item + "_" + previousOrNext);
     }
 ```
+___
+
+## Managing a game
+
+>A game is a complex system, many independent parts dancing to a common beat. We need to choreograph that dance somehow. Someone has to make sure the menu starts before the game, that level 1 is before level 2.
+
+For C++ users think of it a bit like the file containing your _main()_ function.
+   - Requesting creation of objects, loading of data, initialising.
+   - Prompts the main menu to come into existence.
+   - Is always there as levels come and go, menus and submenus are navigated, servers are connected to etc.
+
+Your game needs a boss.
+
+![boss gates](assets/week7/boss_gates.jpg)  
+
+### Properties of a game manager
+
+Things we need/want very much in a game manager:
+
+1. Resides in our game world, **an instantiated object** that can use and listen to other objects.
+2. Easy access to other parts of the game
+3. Highly accessible by all parts
+4. Is still fairly brief and understandable.
+5. To create that brevity, it has managers it delegates complex work to.
+6. Only one copy of it. It has to be a single entry point, or things get very uncertain.
+
+What we want is **the power of both a (MonoBehavior) instance and a static class**. 
+
+___
+
+## Singletons
+
+**A Singleton is a chimera that has static and instance properties, and murders any other instances of itself**
+
+It's a monstrosity created through a fairly simple trick, a loophole. The fact you can store instances of a class inside the class definition using _static_.
+
+![chimera cool](assets/week7/chimera_serious.png)
+
+* Create an object from your `Manager` class, say `Manager managerInstance`
+* Store it in _a static variable in the `Manager` class_.
+* Access it from now on via `Manager.managerInstance`
+* Prevent any other managers from being created!
+
+![chimera dad](assets/week7/chimera_dad.png)
+
+### Doesn't that break the distinction between classes and objects?
+
+**Yep**.
+
+>The trick with a Singleton: it's a vicious opportunist occupying the only home in its universe (the class it was made from). It's clever and awful.
+
+1. When Unity instantiates the gameObject, it instantiates our component. 
+2. When awake is called, our component does something dirty: it stores itself in a static variable in the CustoBrain class it was made from
+3. Any future objects check if an instance has taken the only available home, the instance static variable.
+4. If the space is taken, they are compelled to destroy themselves.
+
+This is basically all that is needed to make a singleton. 
+```cs
+public class GameManager : MonoBehaviour
+{
+
+  public static GameManager instance = null;              
+	//Static instance of GameManager which allows it to be accessed by any other script.
+
+  //Awake is always called before any Start functions
+  void Awake()
+  {
+      //Check if instance already exists
+    if (instance == null)
+    {
+        //if not, set instance to this
+        instance = this;
+    }
+    //If instance already exists and it's not this:
+    else if (instance != this)
+
+    //Then destroy this. This enforces our singleton pattern. Zero mercy.
+    Destroy(gameObject);
+
+    //Sets this one to not be destroyed when reloading scene
+    DontDestroyOnLoad(gameObject);
+
+    //Call the InitGame function to initialize the first level 
+    InitGame();
+  }
+}
+```
+
+Now we can ask the GameManager instance to do things from anywhere.
+Normally we'd have to pass that object all around or keep a reference to it.
+
+```cs
+GameManager.instance.DoAThing();
+```
+
+<!--
+### Making the model the heart of our game
+
+In simple terms, when a button is clicked
+
+>1. Buttons yell that something incredible has happened. 
+>2. When our model hears this news it is changed forever. It yells to the world about how different it is now.
+>3. The sprites, who are gossips, put up big billboards to tell everyone the model's news.
+
+It's a straightforward linear process, glued together with a little event magic:
+
+1. click button
+2. button throws event
+3. model hears button event and updates 
+4. model throws modelUpdated event
+5. Sprites hear model event and change to match the new model state
+
+![character changed](assets/week7/character_changed.png)
+-->
+
+___
+### Who does big tasks for the boss?
+
+You can have other managers in your game. An event manager, a file access manager, a physics world manager.
+
+![manager hr](assets/week7/boss_hr.jpg)
 
 ___
 ## ToDo

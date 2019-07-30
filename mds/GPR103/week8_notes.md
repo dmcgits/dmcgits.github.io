@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week8: Sprites, saving state
 
 Atlasses, loading and swapping sprites, loading and saving to JSON.
@@ -7,84 +16,29 @@ Atlasses, loading and swapping sprites, loading and saving to JSON.
 
 <!-- code_chunk_output -->
 
-* [Week8: Sprites, saving state](#week8-sprites-saving-state)
-	* [Sprites](#sprites)
-		* [Quick history](#quick-history)
-		* [Now](#now)
-		* [Atlasses, sprite sheets](#atlasses-sprite-sheets)
-		* [Unity atlas creator](#unity-atlas-creator)
-	* [New example git repo](#new-example-git-repo)
-	* [Loading from a sprite atlas](#loading-from-a-sprite-atlas)
-		* [The code:](#the-code)
-	* [Load/Save](#loadsave)
-		* [What? (config/state)](#what-configstate)
-		* [Keeping your stuff ready to save](#keeping-your-stuff-ready-to-save)
-		* [Parser/JSON](#parserjson)
-		* [Using Json.net in unity](#using-jsonnet-in-unity)
-	* [Writing/Reading files.](#writingreading-files)
-	* [Resources](#resources)
-	* [Todo](#todo)
+- [Week8: Sprites, saving state](#week8-sprites-saving-state)
+  - [Example: Loading sprite from atlas, save and load](#example-loading-sprite-from-atlas-save-and-load)
+  - [Loading from a sprite atlas](#loading-from-a-sprite-atlas)
+    - [The code:](#the-code)
+  - [Load/Save](#loadsave)
+    - [What? (config/state)](#what-configstate)
+    - [Keeping your stuff ready to save](#keeping-your-stuff-ready-to-save)
+    - [Parser/JSON](#parserjson)
+    - [Using Json.net in unity](#using-jsonnet-in-unity)
+  - [Writing/Reading files.](#writingreading-files)
+  - [Recapping inheritance](#recapping-inheritance)
+  - [Questions?](#questions)
+  - [Resources](#resources)
+  - [Todo](#todo)
 
 <!-- /code_chunk_output -->
 
 
-## Sprites
+## Example: Loading sprite from atlas, save and load
 
-What are they? How to use?
+I've made a simplified example. Grab this project that uses the sprite swapper from git. You can clone it from this url using _SourceTree_ or click it, then click the green download button (if you're logged in).
 
-![bomberman](assets/week7/sheet_bomberman.png)
-_Bomberman Super Nintendo sprites_
-
-
-![sonic](assets/week7/sheet_sonic.png)
-_Sonic by Neweegee!_
-
-___
-
-### Quick history
-Sprites are just 2D drawings. 
-* Screens were low resolution, so sprites were too. 
-* Memory was precious, power was limited, so very few frames and a limited palette 
-* 1, 4, 8, 16 colours, 1 taken for transparency
-* Things often in powers of 2 due to binary and registers/memory. Anything that leaned on what a computer was best at gained performance.
-
-![bubble bobble](assets/week7/bubble_bobble.png)
-
-Sprites grew larger and more complex as 2D hardware improved and memory grew. 
-
-![Sprite complexity 1](assets/week7/bb_sprites_1.png)
-![Sprite complexity 2](assets/week7/fgc_sprite_res_1.png)
-![Sprite complexity 2](assets/week7/fgc_sprite_res_2.jpg)
-
-___
-
-### Now
-
-Sprites aren't really drawn to the screen pixel by pixel, 1:1 as they used to be. The hardware 
-
-___
-
-### Atlasses, sprite sheets
-
-Keeping draw calls, memory usage, file size down. 
-
-### Unity atlas creator
-
-They're created like materials and sprites, then you populate them:
-
-1. In project window right click->create->sprite atlas 
-2. In the atlas under _Objects For Packing_ you can add folders, sprites, 2D textures. **I added my folder and it auto packs my sprites as I add images**
-3. Set _Filter Mode_ to _Point_ if you are using pixelated art and might scale.
-
-![atlas charabits](assets/week7/atlas_charabits.png)
-
-___
-
-## New example git repo
-
-I've made a simplified example. Grab this project that uses the sprite swapper from git. You can download it into a folder called _week8_code_ (for example) using this command, or just use GitKraken/SourceTree.
-
-`git clone https://github.com/dmcgits/gpr_week8.git week8_code`
+<https://github.com/dmcgits/gpr_link_switch_save.git>
 
 ![save switch](assets/week8/sprite_save_switch.jpg)
 
@@ -245,6 +199,14 @@ if (File.Exists(_savePath)) // Don't try to load a file that isn't there
 ```
 
 Not really.
+
+## Recapping inheritance
+
+ISE week 8 objects: trucks and snakes.
+
+## Questions?
+
+More on managers/singletons? 
 
 ## Resources
 
