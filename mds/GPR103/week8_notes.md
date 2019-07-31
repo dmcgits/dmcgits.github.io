@@ -54,6 +54,8 @@ Here's the inspector for our character game object, with its **sprite renderer**
 
 ![sprite inspector](assets/week8/inspector_sprite.png)
 
+I just cut a bunch of links out of the image posted [here on Paul Robertson's Tumblr](W:\mds\gpr103\unity\week8_git\gpr_link_config_save\LinkConfigSave_unity)
+
 ### The code:
 
 >The code, then, just needs to change the sprite in the renderer, and do so with a sprite pulled from the atlas by file name.
@@ -78,6 +80,7 @@ private void Awake()
         _renderer.sprite = _atlas.GetSprite("spr_zelda");
     }
 ```
+
 
 ## Load/Save
 

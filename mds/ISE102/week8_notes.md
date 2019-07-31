@@ -7,7 +7,7 @@ In previous years, week 8 has covered FileIO. Since we don't use it in the assig
 
 <!-- code_chunk_output -->
 
-- [ise102 week 8: Objects and Classes](#ise102-week-8-objects-and-classes)
+- [ise102 week 8:  Objects and Classes](#ise102-week-8-objects-and-classes)
   - [Snake as a board game](#snake-as-a-board-game)
     - [Objects](#objects)
     - [Designs for objects](#designs-for-objects)
