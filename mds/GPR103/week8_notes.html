@@ -46,9 +46,14 @@
 <li><a href="#keeping-your-stuff-ready-to-save">Keeping your stuff ready to save</a></li>
 <li><a href="#parserjson">Parser/JSON</a></li>
 <li><a href="#using-jsonnet-in-unity">Using Json.net in unity</a></li>
+<li><a href="#writingreading-files">Writing/Reading files.</a></li>
 </ul>
 </li>
-<li><a href="#writingreading-files">Writing/Reading files.</a></li>
+<li><a href="#moving-it-all-to-managers">Moving it all to Managers!</a>
+<ul>
+<li><a href="#moving-loadsave">Moving Load/Save</a></li>
+</ul>
+</li>
 <li><a href="#recapping-inheritance">Recapping inheritance</a></li>
 <li><a href="#questions">Questions?</a></li>
 <li><a href="#resources">Resources</a></li>
@@ -177,7 +182,7 @@
 
 	<span class="token keyword">return</span> loadedConfig<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="writingreading-files">Writing/Reading files.</h2>
+</pre><h3 class="mume-header" id="writingreading-files">Writing/Reading files.</h3>
 
 <p>Veeeerry tricky.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">.</span>IO<span class="token punctuation">;</span>
@@ -191,6 +196,19 @@ File<span class="token punctuation">.</span><span class="token function">WriteAl
 	<span class="token keyword">string</span> loadedJson <span class="token operator">=</span> File<span class="token punctuation">.</span><span class="token function">ReadAllText</span><span class="token punctuation">(</span>_savePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><p>Not really.</p>
+<h2 class="mume-header" id="moving-it-all-to-managers">Moving it all to Managers!</h2>
+
+<p><a href="https://github.com/dmcgits/gpr_link_config_save.git">https://github.com/dmcgits/gpr_link_config_save.git</a></p>
+<p>Things to be managed:</p>
+<ul>
+<li>overall character</li>
+<li>sprite atlas</li>
+<li>loading and saving.</li>
+</ul>
+<p>Let&#x2019;s draw.</p>
+<h3 class="mume-header" id="moving-loadsave">Moving Load/Save</h3>
+
+<p>Copying and/or rewriting our JSON into the new LoadSaveManager.</p>
 <h2 class="mume-header" id="recapping-inheritance">Recapping inheritance</h2>
 
 <p>ISE week 8 objects: trucks and snakes.</p>

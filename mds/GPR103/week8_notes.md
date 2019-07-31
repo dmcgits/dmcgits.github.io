@@ -25,7 +25,9 @@ Atlasses, loading and swapping sprites, loading and saving to JSON.
     - [Keeping your stuff ready to save](#keeping-your-stuff-ready-to-save)
     - [Parser/JSON](#parserjson)
     - [Using Json.net in unity](#using-jsonnet-in-unity)
-  - [Writing/Reading files.](#writingreading-files)
+    - [Writing/Reading files.](#writingreading-files)
+  - [Moving it all to Managers!](#moving-it-all-to-managers)
+    - [Moving Load/Save](#moving-loadsave)
   - [Recapping inheritance](#recapping-inheritance)
   - [Questions?](#questions)
   - [Resources](#resources)
@@ -181,7 +183,7 @@ SpriteConfig fromJson()
 }
 ```
 
-## Writing/Reading files.
+### Writing/Reading files.
 
 Veeeerry tricky.
 
@@ -202,6 +204,21 @@ if (File.Exists(_savePath)) // Don't try to load a file that isn't there
 ```
 
 Not really.
+
+## Moving it all to Managers!
+
+<https://github.com/dmcgits/gpr_link_config_save.git>
+
+Things to be managed:
+  * overall character
+  * sprite atlas
+  * loading and saving.
+
+Let's draw.
+
+### Moving Load/Save
+
+Copying and/or rewriting our JSON into the new LoadSaveManager.
 
 ## Recapping inheritance
 
