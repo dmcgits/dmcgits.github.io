@@ -82,8 +82,8 @@ To make it self evident to the person looking at the page it needed to relate to
 * He did it
 * It was small talk
 * He was very clever
-* Small talk treated things as objects. The code and data for a thing, like a snake head or a fruit, go together.
-
+* Small talk used an extended the idea of expressing things as objects. The code and data for a thing, like a snake head or a fruit, go together to make an object. Many  snake objects or fruit objects can be made and changed.
+* 
 Let's make an object. A GamePiece.
 
 ### The schematic in code
