@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 9 - Objects/Classes 2, Making Games.
 
 Recapping last week, taking it further. Making games with the game loop.

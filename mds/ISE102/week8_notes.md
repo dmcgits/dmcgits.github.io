@@ -1,13 +1,22 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ise102 week 8:  Objects and Classes
 
-In previous years, week 8 has covered FileIO. Since we don't use it in the assignments, I'm going to use this week to introduce you to Object Oriented Programming instead, because I think you'll all make better snake games.
+Intro to Object Oriented Programming.
 
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [ise102 week 8:  Objects and Classes](#ise102-week-8-objects-and-classes)
+- [ise102 week 8: Objects and Classes](#ise102-week-8-objects-and-classes)
   - [Snake as a board game](#snake-as-a-board-game)
     - [Objects](#objects)
     - [Designs for objects](#designs-for-objects)

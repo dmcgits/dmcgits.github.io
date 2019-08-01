@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week10 Drawing and Moving
 
 A fly stands in for our snake.
@@ -6,17 +15,15 @@ A fly stands in for our snake.
 
 <!-- code_chunk_output -->
 
-1. [Week10 Drawing and Moving](#week10-drawing-and-moving)
-   1. [A refresher on simulated things](#a-refresher-on-simulated-things)
-   2. [Rendering / Drawing](#rendering--drawing)
-   3. [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-      1. [A Fly is data](#a-fly-is-data)
-         1. [FlyGame.h](#flygameh)
-         2. [FlyGame.cpp](#flygamecpp)
-   4. [Movement](#movement)
-      1. [Refine movement](#refine-movement)
-      2. [Torment: the wormhole](#torment-the-wormhole)
-   5. [Thoughts on things following things](#thoughts-on-things-following-things)
+- [Week10 Drawing and Moving](#week10-drawing-and-moving)
+  - [A refresher on simulated things](#a-refresher-on-simulated-things)
+  - [Rendering / Drawing](#rendering--drawing)
+  - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
+    - [A Fly is data](#a-fly-is-data)
+  - [Movement](#movement)
+    - [Refine movement](#refine-movement)
+    - [Torment: the wormhole](#torment-the-wormhole)
+  - [Thoughts on things following things](#thoughts-on-things-following-things)
 
 <!-- /code_chunk_output -->
 

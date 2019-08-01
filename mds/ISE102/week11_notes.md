@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Wk11: Psuedosnakes and polymorphism
 
 This may be enough content for both weeks..
@@ -6,29 +15,24 @@ This may be enough content for both weeks..
 
 <!-- code_chunk_output -->
 
-* [Wk11: Psuedosnakes and polymorphism](#wk11-psuedosnakes-and-polymorphism)
-	* [Todo](#todo)
-	* [Resources](#resources)
-	* [Putting it all together](#putting-it-all-together)
-	* [The Garden, the Snake](#the-garden-the-snake)
-		* [The game, broadly](#the-game-broadly)
-		* [The snake, specifically](#the-snake-specifically)
-		* [What I learned there](#what-i-learned-there)
-			* [Moving in whole cells](#moving-in-whole-cells)
-			* [Moving in fractions of a cell](#moving-in-fractions-of-a-cell)
-		* [Change of cell](#change-of-cell)
-			* [Write some pseudocode for a program that:](#write-some-pseudocode-for-a-program-that)
-		* [Frame rate independence](#frame-rate-independence)
-		* [Side benefits](#side-benefits)
-			* [Write psuedocode that](#write-psuedocode-that)
-			* [Write an OLC console game that:](#write-an-olc-console-game-that)
-	* [Using objects for small things vs structs](#using-objects-for-small-things-vs-structs)
-		* [smart snake, simple head/parts](#smart-snake-simple-headparts)
-		* [simple snake, smart head/parts](#simple-snake-smart-headparts)
-	* [Enter Inheritance.](#enter-inheritance)
-	* [Enter polymorphism. Maybe.](#enter-polymorphism-maybe)
-		* [So, SnakeBit polymorphism?](#so-snakebit-polymorphism)
-	* [Interfaces?](#interfaces)
+- [Wk11: Psuedosnakes and polymorphism](#wk11-psuedosnakes-and-polymorphism)
+  - [Todo](#todo)
+  - [Resources](#resources)
+  - [Putting it all together](#putting-it-all-together)
+  - [The Garden, the Snake](#the-garden-the-snake)
+    - [The game, broadly](#the-game-broadly)
+    - [The snake, specifically](#the-snake-specifically)
+    - [What I learned there](#what-i-learned-there)
+    - [Change of cell](#change-of-cell)
+    - [Frame rate independence](#frame-rate-independence)
+    - [Side benefits](#side-benefits)
+  - [Using objects for small things vs structs](#using-objects-for-small-things-vs-structs)
+    - [smart snake, simple head/parts](#smart-snake-simple-headparts)
+    - [simple snake, smart head/parts](#simple-snake-smart-headparts)
+  - [Enter Inheritance.](#enter-inheritance)
+  - [Enter polymorphism. Maybe.](#enter-polymorphism-maybe)
+    - [So, SnakeBit polymorphism?](#so-snakebit-polymorphism)
+  - [Interfaces?](#interfaces)
 
 <!-- /code_chunk_output -->
 
