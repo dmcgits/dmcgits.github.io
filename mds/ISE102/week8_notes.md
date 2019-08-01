@@ -24,6 +24,9 @@ Intro to Object Oriented Programming.
     - [What about in code?](#what-about-in-code)
     - [The schematic in code](#the-schematic-in-code)
   - [Inheritance](#inheritance)
+    - [Trucks](#trucks)
+    - [Controllers](#controllers)
+    - [Trucks In Code](#trucks-in-code)
   - [Debugging](#debugging)
     - [Debugger mode](#debugger-mode)
     - [Stepping](#stepping)
@@ -136,8 +139,19 @@ int main()
 ## Inheritance
 
 Extending a thing to make a similar but fancier thing!
+
+### Trucks
+
 Truck -> CraneTruck
 Truck -> CementTruck
+
+### Controllers
+
+Stick and button -> ?
+
+![controllers](assets/week8/controllers_extension.png)
+
+### Trucks In Code
 
 ![trucks](assets/week8/Trucks.png)
 
