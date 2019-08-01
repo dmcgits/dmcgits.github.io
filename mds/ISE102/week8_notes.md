@@ -23,6 +23,7 @@ Intro to Object Oriented Programming.
     - [The schematic/plan/design](#the-schematicplandesign)
     - [What about in code?](#what-about-in-code)
     - [The schematic in code](#the-schematic-in-code)
+  - [Inheritance](#inheritance)
   - [Debugging](#debugging)
     - [Debugger mode](#debugger-mode)
     - [Stepping](#stepping)
@@ -110,6 +111,89 @@ int main()
   Truck neighboursFancyTruck;
 }
 
+```
+
+## Inheritance
+
+Extending a thing to make a similar but fancier thing!
+Truck -> CraneTruck
+Truck -> CementTruck
+
+![trucks](assets/week8/Trucks.png)
+
+```cpp
+//trucks_main.cpp
+#include <iostream>
+#include "Truck.h"
+#include "CraneTruck.h"
+#include "CementTruck.h"
+
+using namespace std;
+
+int main() {
+
+  // Two boring trucks
+  // One crane truck
+  Truck soBoringTruck;
+  Truck dullOscar;
+  CraneTruck superBeastlyCrane;
+  CementTruck darlene;
+
+  soBoringTruck.speedMph = 25;
+  dullOscar.speedMph = 10;
+
+  superBeastlyCrane.speedMph = 10;
+  superBeastlyCrane.liftingCapacityKgs = 5910;
+  
+  darlene.mixerCurrentAngle = 12.0f;
+  // print boring truck speeds
+  cout << "sbt speed " << soBoringTruck.speedMph << endl;
+  cout << "superCrane's lift power: " << superBeastlyCrane.liftingCapacityKgs << endl;
+
+  // print crane trucks lifting capacity.
+
+}
+```
+
+```cpp
+//Truck.h
+#pragma once
+
+class Truck
+{
+public:
+  int speedMph = 0;
+  float steeringAngle = 0.0f; // straight
+  string cabinPuppy = "Leroy";
+};
+
+```
+
+```cpp
+//CementTruck.h
+#pragma once
+#include "Truck.h"
+
+class CementTruck : public Truck
+{
+
+public:
+  float mixerCurrentAngle = 0.0f;
+
+};
+```
+
+```cpp
+//CraneTruck.h
+#pragma once
+#include "Truck.h";
+
+class CraneTruck : public Truck
+{
+public:
+  int liftingCapacityKgs = 1000;
+
+};
 ```
 
 ## Debugging

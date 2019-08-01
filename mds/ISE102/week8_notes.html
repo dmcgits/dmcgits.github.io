@@ -43,6 +43,7 @@
 <li><a href="#the-schematic-in-code">The schematic in code</a></li>
 </ul>
 </li>
+<li><a href="#inheritance">Inheritance</a></li>
 <li><a href="#debugging">Debugging</a>
 <ul>
 <li><a href="#debugger-mode">Debugger mode</a></li>
@@ -122,6 +123,75 @@
   Truck neighboursFancyTruck<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
+</pre><h2 class="mume-header" id="inheritance">Inheritance</h2>
+
+<p>Extending a thing to make a similar but fancier thing!<br>
+Truck -&gt; CraneTruck<br>
+Truck -&gt; CementTruck</p>
+<p><img src="assets/week8/Trucks.png" alt="trucks"></p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//trucks_main.cpp</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;CraneTruck.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;CementTruck.h&quot;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// Two boring trucks</span>
+  <span class="token comment">// One crane truck</span>
+  Truck soBoringTruck<span class="token punctuation">;</span>
+  Truck dullOscar<span class="token punctuation">;</span>
+  CraneTruck superBeastlyCrane<span class="token punctuation">;</span>
+  CementTruck darlene<span class="token punctuation">;</span>
+
+  soBoringTruck<span class="token punctuation">.</span>speedMph <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+  dullOscar<span class="token punctuation">.</span>speedMph <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+  superBeastlyCrane<span class="token punctuation">.</span>speedMph <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  superBeastlyCrane<span class="token punctuation">.</span>liftingCapacityKgs <span class="token operator">=</span> <span class="token number">5910</span><span class="token punctuation">;</span>
+  
+  darlene<span class="token punctuation">.</span>mixerCurrentAngle <span class="token operator">=</span> <span class="token number">12.0f</span><span class="token punctuation">;</span>
+  <span class="token comment">// print boring truck speeds</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;sbt speed &quot;</span> <span class="token operator">&lt;&lt;</span> soBoringTruck<span class="token punctuation">.</span>speedMph <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;superCrane&apos;s lift power: &quot;</span> <span class="token operator">&lt;&lt;</span> superBeastlyCrane<span class="token punctuation">.</span>liftingCapacityKgs <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+  <span class="token comment">// print crane trucks lifting capacity.</span>
+
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//Truck.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Truck</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> speedMph <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> steeringAngle <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span> <span class="token comment">// straight</span>
+  string cabinPuppy <span class="token operator">=</span> <span class="token string">&quot;Leroy&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//CementTruck.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">CementTruck</span> <span class="token operator">:</span> <span class="token keyword">public</span> Truck
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">float</span> mixerCurrentAngle <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//CraneTruck.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span>;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CraneTruck</span> <span class="token operator">:</span> <span class="token keyword">public</span> Truck
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> liftingCapacityKgs <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </pre><h2 class="mume-header" id="debugging">Debugging</h2>
 
 <p>We&#x2019;ve been using visual studio to compile our code and run the executable (.exe) file it produces in a separate console window.<br>
