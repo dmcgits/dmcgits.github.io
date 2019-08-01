@@ -81,6 +81,7 @@
 <li>Fruit has maybe colour? A name?</li>
 <li>A snake needs to go places. What things do we need to know for an object to travel in space?</li>
 </ul>
+<p><img src="assets/week8/board_snake_pieces.png" alt="snake pieces"></p>
 <h3 class="mume-header" id="designs-for-objects">Designs for objects</h3>
 
 <p>Okay, if we wanted to get our snake board game made, we could go to a maker of game boards and say</p>
@@ -107,7 +108,22 @@
 <h3 class="mume-header" id="the-schematic-in-code">The schematic in code</h3>
 
 <p>Our plan or design, in c++, is called a Class. A class defines what a fruit will be. You can make many pieces of fruit from that one design. Same with trucks: you want them made, you design one in a class. Then you can declare as many variables of type Truck as you want.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: truck.h</span>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: GamePiece.h</span>
+<span class="token comment">/// Any piece in our snake board game has these properties.</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GamePiece</span>
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> gridX<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> gridY<span class="token punctuation">;</span>
+  string type <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: truck.h</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Truck</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span><span class="token operator">:</span>

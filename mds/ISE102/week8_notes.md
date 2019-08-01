@@ -63,6 +63,8 @@ What properties do each of these objects have?
 * Fruit has maybe colour? A name?
 * A snake needs to go places. What things do we need to know for an object to travel in space?
 
+![snake pieces](assets/week8/board_snake_pieces.png)
+
 ### Designs for objects
 Okay, if we wanted to get our snake board game made, we could go to a maker of game boards and say 
 > "Hey, we designed a board game. Make it for us. How much will it cost to make 100 sets?
@@ -90,6 +92,24 @@ Let's make an object. A GamePiece.
 ### The schematic in code
 
 Our plan or design, in c++, is called a Class. A class defines what a fruit will be. You can make many pieces of fruit from that one design. Same with trucks: you want them made, you design one in a class. Then you can declare as many variables of type Truck as you want.
+
+```cpp
+/// File: GamePiece.h
+/// Any piece in our snake board game has these properties.
+#pragma once
+#include <string>
+using namespace std;
+
+class GamePiece
+{
+
+public:
+  int gridX;
+  int gridY;
+  string type = "";
+
+};
+```
 
 ```cpp
 /// File: truck.h
