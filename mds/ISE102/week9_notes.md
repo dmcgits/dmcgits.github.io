@@ -16,25 +16,25 @@ Recapping last week, taking it further. Making games with the game loop.
 
 <!-- code_chunk_output -->
 
-- [Week 9 - Objects/Classes 2, Making Games.](#week-9-objectsclasses-2-making-games)
+- [Week 9 - Objects/Classes 2, Making Games.](#week-9---objectsclasses-2-making-games)
   - [Assessment 3: Snake](#assessment-3-snake)
   - [Answering the brief](#answering-the-brief)
     - [Extras after requirements](#extras-after-requirements)
   - [Delivering the assessment](#delivering-the-assessment)
     - [Create your solution with the right name](#create-your-solution-with-the-right-name)
-  - [Resources](#resources)
-  - [Todo by week 10](#todo-by-week-10)
+    - [Find and compress your solution](#find-and-compress-your-solution)
   - [Objects classes recap](#objects-classes-recap)
-    - [Hiding complexity](#hiding-complexity)
-    - [Objects in code](#objects-in-code)
+  - [Adding functions to classes](#adding-functions-to-classes)
+    - [Selectively sharing](#selectively-sharing)
     - [Coding obects (week 8)](#coding-obects-week-8)
   - [A Game Is A Simulation](#a-game-is-a-simulation)
     - [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
     - [Things happen](#things-happen)
     - [Input](#input)
     - [The game loop, then.](#the-game-loop-then)
-  - [Inheritance](#inheritance)
     - [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
+  - [Resources](#resources)
+  - [Todo by week 10](#todo-by-week-10)
 
 <!-- /code_chunk_output -->
 
@@ -88,19 +88,51 @@ _Rename the project. Don't accidentally rename the solution_
 ![the new name](assets/week9/delivering_assessments_project_name_changed.png)
 _New, shorter project name_
 
+___ 
+
+### Find and compress your solution
+
+1. Right click your solution in solution explorer (not your project)
+2. Select Open Folder In File Explorer
+
+![folder open](assets/week9/delivering_assessments_open_solution_folder.png)
+_Opening your solution folder in windows explorer from Visual Studio_
+
+![solution folder](assets/week9/solution_folder.png)
+_You should see a folder with your sln file and subfolders_
+
+You will want **everything in this folder and its subfolders**.
+
+3. **Step up one folder higher**, using the white up arrow next to the address bar or by pressing alt + the up arrow key on your keyboard. You're **going up to the folder containing the current one**, NOT down deeper. In my case, that takes me up to my _week9_ folder.
+4. Right click the _ISE102_Lastname_Firstname_SnakeGame_ folder and compress it with 7zip (or zip/rar). Your "Add to" options will be in a 7Zip submenu, even though mine is on the top level menu.
+
+![7zip](assets/week9/7zip_solution.7z.png)
+_One folder higher in `week9`, I can right click the folder I viewed in step 2_
+
 7zip is my preferred archiving method because the files are smaller. If for some reason you can't use 7zip, rar or zip can be used.
 
-So for me it's `ISE102_Mcgillick_Danny_SnakeGame.7z`
+> I would be delivering `ISE102_Mcgillick_Danny_SnakeGame.7z`
 
 Download 7zip 64bit for windows: <https://www.7-zip.org/download.html>
-
-
+___
 
 ## Objects classes recap
 
-Some missed last week due to maniac at redfern, also objects are so important it's worth a little refresh.
+We went into objects and inheritance last week. It's so important that I've fleshed out the notes so we can have a quick look through it again.
 
-### Hiding complexity
+<https://dmcgits.github.io/mds/ISE102/week8_notes.html>
+
+## Adding functions to classes
+
+We touched on it last week.
+
+### Selectively sharing
+
+You don't need to reach into your engine bay every time you start your car. You just turn the key or push the ignition button.
+
+A well designed class can produce objects just like that: powerful but with a simple interface to the rest of your code. We do that by keeping the working bits private, and sharing the functions we want used.
+
+![public private](assets/week9/public_private.png)
 
 > Objects are a way of wrapping up loads of specialised stuff in an easy to use package, just like a car or an iphone. Then we stick big steering wheel and gear stick, or touch screen and home button in your face. 
 

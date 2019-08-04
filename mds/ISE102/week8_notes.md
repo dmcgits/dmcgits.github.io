@@ -16,19 +16,20 @@ Intro to Object Oriented Programming.
 
 <!-- code_chunk_output -->
 
-- [ise102 week 8: Objects and Classes](#ise102-week-8-objects-and-classes)
+- [ise102 week 8:  Objects and Classes](#ise102-week-8-objects-and-classes)
   - [Snake as a board game](#snake-as-a-board-game)
     - [Game piece](#game-piece)
     - [Pieces, objects](#pieces-objects)
     - [Designs for objects](#designs-for-objects)
     - [The schematic/plan/design](#the-schematicplandesign)
-    - [The schematic in code](#the-schematic-in-code)
+    - [C++ schematics: `class`](#c-schematics-class)
     - [What were those extra bits?](#what-were-those-extra-bits)
   - [Extending our designs](#extending-our-designs)
     - [Duplication is bad](#duplication-is-bad)
     - [Inheriting from a class/design](#inheriting-from-a-classdesign)
     - [Trucks](#trucks)
     - [Trucks In Code](#trucks-in-code)
+    - [Inheriting Truck](#inheriting-truck)
     - [Game controller evolution](#game-controller-evolution)
   - [Debugging](#debugging)
     - [Debugger mode](#debugger-mode)
@@ -91,9 +92,24 @@ You make things from a design. Maybe there's a prototype object too, which the d
 * 100 mini tower PCs: give me the parts list.
 * 100 trucks: give me the schematics and cad files and parts list etc etc.
 
-### The schematic in code
+![schematic tiny xlr](assets/week8/schematic_usb_connector.png)
+_Engineers drawings and specs for usb connectors_
 
-Our plan or design, in c++, is called a `class`. A `class` lets us tell c++ how to make whole new types for us. 
+![adobo](assets/week8/recipe_adobo.png)
+
+### C++ schematics: `class`
+
+Our plan or design, in c++, is called a `class`. A `class` lets us tell c++ how to make variables for us of a whole new type. Just imagine being able create a game piece this easily:
+
+```cpp {.line-numbers}
+
+int main()
+{
+  GamePiece fruit;
+  fruit.xSquare = 2;
+  fruit.ySquare = 4;
+}
+```
 
 > If we want a `GamePiece` with x,y coordinates and a name, well we just make this design or recipe in `class` form. 
 
@@ -101,13 +117,13 @@ Same with trucks: you want them made, you design one in a class. Then you can de
 
 They go in a special kind of file called a "header", ending in a .h extension.
 
-![add header to project](assets/week8/add_header_Truck.png)
+![add header to project](assets/week8/add_header_GamePiece.png)
 _Right click your project, Add -> New Item_
 
-![header file dialogue](assets/week8/add_header_dialogue_Truck.png)
+![header file dialogue](assets/week8/add_header_dialogue_GamePiece.png)
 _Visual C++, Header file (.h), name your class with a capital_
 
-```cpp
+```cpp {.line-numbers}
 /// File: GamePiece.h
 /// Any piece in our snake board game has these properties.
 #pragma once
@@ -118,10 +134,9 @@ class GamePiece
 {
 
 public:
-  int gridX;
-  int gridY;
+  int xSquare;
+  int ySquare;
   string type = "";
-
 };
 ```
 
@@ -129,7 +144,7 @@ public:
 
 A very basic truck is easy to specify. We can start with a few small attributes.
 
-```cpp
+```cpp {.line-numbers}
 /// File: truck.h
 #pragma once
 
@@ -140,7 +155,7 @@ class Truck {
 };
 ```
 Then we can declare them in main just like we would a `string` or an `int`. Just include the .h file, and start declaring `Truck truckname`.
-```cpp
+```cpp {.line-numbers}
 
 
 /// File: world_of_trucks_main.h
@@ -189,7 +204,9 @@ _Some Truck, CraneTruck, CementTruck property ideas discussed in class_
 
 ### Trucks In Code
 
-```cpp
+Look at how `superBeastlyCrane` and `darlene` the cement truck have `speedMph` despite never declaring it. They also have unique properties like  `liftingCapacityKgs` and `mixerCurrentAngle`.
+
+```cpp {.line-numbers}
 //trucks_main.cpp
 // This is a Tester: it makes some objects from classes/designs,
 // Like any scientist it observes, changes, observes again.
@@ -216,6 +233,7 @@ int main() {
   superBeastlyCrane.speedMph = 10;
   superBeastlyCrane.liftingCapacityKgs = 5910;
   
+  darlene.speedMph = 20;
   darlene.mixerCurrentAngle = 12.0f;
   // print boring truck speeds
   cout << "sbt speed " << soBoringTruck.speedMph << endl;
@@ -226,7 +244,9 @@ int main() {
 }
 ```
 
-```cpp
+Here's truck, which declares `speedMph` as a `public:` property.
+
+```cpp {.line-numbers}
 //Truck.h
 #pragma once
 
@@ -239,8 +259,13 @@ public:
 };
 
 ```
+### Inheriting Truck
 
-```cpp
+If the `CementTruck` and `CraneTruck` want to extend Truck, all they need to do is
+1. `#include "Truck.h"` (note the use of " " instead of < >)
+2. add `: public Truck` after the class definition 👌
+ 
+```cpp {.line-numbers}
 //CementTruck.h
 #pragma once
 #include "Truck.h"
@@ -254,7 +279,7 @@ public:
 };
 ```
 
-```cpp
+```cpp {.line-numbers}
 //CraneTruck.h
 #pragma once
 #include "Truck.h";

@@ -32,7 +32,7 @@
 
 <p>Recapping last week, taking it further. Making games with the game loop.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week-9-objectsclasses-2-making-games">Week 9 - Objects/Classes 2, Making Games.</a>
+<li><a href="#week-9---objectsclasses-2-making-games">Week 9 - Objects/Classes 2, Making Games.</a>
 <ul>
 <li><a href="#assessment-3-snake">Assessment 3: Snake</a></li>
 <li><a href="#answering-the-brief">Answering the brief</a>
@@ -43,14 +43,13 @@
 <li><a href="#delivering-the-assessment">Delivering the assessment</a>
 <ul>
 <li><a href="#create-your-solution-with-the-right-name">Create your solution with the right name</a></li>
+<li><a href="#find-and-compress-your-solution">Find and compress your solution</a></li>
 </ul>
 </li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#todo-by-week-10">Todo by week 10</a></li>
-<li><a href="#objects-classes-recap">Objects classes recap</a>
+<li><a href="#objects-classes-recap">Objects classes recap</a></li>
+<li><a href="#adding-functions-to-classes">Adding functions to classes</a>
 <ul>
-<li><a href="#hiding-complexity">Hiding complexity</a></li>
-<li><a href="#objects-in-code">Objects in code</a></li>
+<li><a href="#selectively-sharing">Selectively sharing</a></li>
 <li><a href="#coding-obects-week-8">Coding obects (week 8)</a></li>
 </ul>
 </li>
@@ -60,13 +59,11 @@
 <li><a href="#things-happen">Things happen</a></li>
 <li><a href="#input">Input</a></li>
 <li><a href="#the-game-loop-then">The game loop, then.</a></li>
-</ul>
-</li>
-<li><a href="#inheritance">Inheritance</a>
-<ul>
 <li><a href="#coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</a></li>
 </ul>
 </li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#todo-by-week-10">Todo by week 10</a></li>
 </ul>
 </li>
 </ul>
@@ -111,14 +108,42 @@
 <em>Rename the project. Don&#x2019;t accidentally rename the solution</em></p>
 <p><img src="assets/week9/delivering_assessments_project_name_changed.png" alt="the new name"><br>
 <em>New, shorter project name</em></p>
+<hr>
+<h3 class="mume-header" id="find-and-compress-your-solution">Find and compress your solution</h3>
+
+<ol>
+<li>Right click your solution in solution explorer (not your project)</li>
+<li>Select Open Folder In File Explorer</li>
+</ol>
+<p><img src="assets/week9/delivering_assessments_open_solution_folder.png" alt="folder open"><br>
+<em>Opening your solution folder in windows explorer from Visual Studio</em></p>
+<p><img src="assets/week9/solution_folder.png" alt="solution folder"><br>
+<em>You should see a folder with your sln file and subfolders</em></p>
+<p>You will want <strong>everything in this folder and its subfolders</strong>.</p>
+<ol start="3">
+<li><strong>Step up one folder higher</strong>, using the white up arrow next to the address bar or by pressing alt + the up arrow key on your keyboard. You&#x2019;re <strong>going up to the folder containing the current one</strong>, NOT down deeper. In my case, that takes me up to my <em>week9</em> folder.</li>
+<li>Right click the <em>ISE102_Lastname_Firstname_SnakeGame</em> folder and compress it with 7zip (or zip/rar). Your &#x201C;Add to&#x201D; options will be in a 7Zip submenu, even though mine is on the top level menu.</li>
+</ol>
+<p><img src="assets/week9/7zip_solution.7z.png" alt="7zip"><br>
+<em>One folder higher in <code>week9</code>, I can right click the folder I viewed in step 2</em></p>
 <p>7zip is my preferred archiving method because the files are smaller. If for some reason you can&#x2019;t use 7zip, rar or zip can be used.</p>
-<p>So for me it&#x2019;s <code>ISE102_Mcgillick_Danny_SnakeGame.7z</code></p>
+<blockquote>
+<p>I would be delivering <code>ISE102_Mcgillick_Danny_SnakeGame.7z</code></p>
+</blockquote>
 <p>Download 7zip 64bit for windows: <a href="https://www.7-zip.org/download.html">https://www.7-zip.org/download.html</a></p>
+<hr>
 <h2 class="mume-header" id="objects-classes-recap">Objects classes recap</h2>
 
-<p>Some missed last week due to maniac at redfern, also objects are so important it&#x2019;s worth a little refresh.</p>
-<h3 class="mume-header" id="hiding-complexity">Hiding complexity</h3>
+<p>We went into objects and inheritance last week. It&#x2019;s so important that I&#x2019;ve fleshed out the notes so we can have a quick look through it again.</p>
+<p><a href="https://dmcgits.github.io/mds/ISE102/week8_notes.html">https://dmcgits.github.io/mds/ISE102/week8_notes.html</a></p>
+<h2 class="mume-header" id="adding-functions-to-classes">Adding functions to classes</h2>
 
+<p>We touched on it last week.</p>
+<h3 class="mume-header" id="selectively-sharing">Selectively sharing</h3>
+
+<p>You don&#x2019;t need to reach into your engine bay every time you start your car. You just turn the key or push the ignition button.</p>
+<p>A well designed class can produce objects just like that: powerful but with a simple interface to the rest of your code. We do that by keeping the working bits private, and sharing the functions we want used.</p>
+<p><img src="assets/week9/public_private.png" alt="public private"></p>
 <blockquote>
 <p>Objects are a way of wrapping up loads of specialised stuff in an easy to use package, just like a car or an iphone. Then we stick big steering wheel and gear stick, or touch screen and home button in your face.</p>
 </blockquote>

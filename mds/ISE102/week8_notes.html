@@ -32,7 +32,7 @@
 
 <p>Intro to Object Oriented Programming.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-8-objects-and-classes">ise102 week 8: Objects and Classes</a>
+<li><a href="#ise102-week-8-objects-and-classes">ise102 week 8:  Objects and Classes</a>
 <ul>
 <li><a href="#snake-as-a-board-game">Snake as a board game</a>
 <ul>
@@ -40,7 +40,7 @@
 <li><a href="#pieces-objects">Pieces, objects</a></li>
 <li><a href="#designs-for-objects">Designs for objects</a></li>
 <li><a href="#the-schematicplandesign">The schematic/plan/design</a></li>
-<li><a href="#the-schematic-in-code">The schematic in code</a></li>
+<li><a href="#c-schematics-class">C++ schematics: <code>class</code></a></li>
 <li><a href="#what-were-those-extra-bits">What were those extra bits?</a></li>
 </ul>
 </li>
@@ -50,6 +50,7 @@
 <li><a href="#inheriting-from-a-classdesign">Inheriting from a class/design</a></li>
 <li><a href="#trucks">Trucks</a></li>
 <li><a href="#trucks-in-code">Trucks In Code</a></li>
+<li><a href="#inheriting-truck">Inheriting Truck</a></li>
 <li><a href="#game-controller-evolution">Game controller evolution</a></li>
 </ul>
 </li>
@@ -113,19 +114,28 @@
 <li>100 mini tower PCs: give me the parts list.</li>
 <li>100 trucks: give me the schematics and cad files and parts list etc etc.</li>
 </ul>
-<h3 class="mume-header" id="the-schematic-in-code">The schematic in code</h3>
+<p><img src="assets/week8/schematic_usb_connector.png" alt="schematic tiny xlr"><br>
+<em>Engineers drawings and specs for usb connectors</em></p>
+<p><img src="assets/week8/recipe_adobo.png" alt="adobo"></p>
+<h3 class="mume-header" id="c-schematics-class">C++ schematics: <code>class</code></h3>
 
-<p>Our plan or design, in c++, is called a <code>class</code>. A <code>class</code> lets us tell c++ how to make whole new types for us.</p>
-<blockquote>
+<p>Our plan or design, in c++, is called a <code>class</code>. A <code>class</code> lets us tell c++ how to make variables for us of a whole new type. Just imagine being able create a game piece this easily:</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  GamePiece fruit<span class="token punctuation">;</span>
+  fruit<span class="token punctuation">.</span>xSquare <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  fruit<span class="token punctuation">.</span>ySquare <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><blockquote>
 <p>If we want a <code>GamePiece</code> with x,y coordinates and a name, well we just make this design or recipe in <code>class</code> form.</p>
 </blockquote>
 <p>Same with trucks: you want them made, you design one in a class. Then you can declare as many variables of type Truck as you want.</p>
 <p>They go in a special kind of file called a &#x201C;header&#x201D;, ending in a .h extension.</p>
-<p><img src="assets/week8/add_header_Truck.png" alt="add header to project"><br>
+<p><img src="assets/week8/add_header_GamePiece.png" alt="add header to project"><br>
 <em>Right click your project, Add -&gt; New Item</em></p>
-<p><img src="assets/week8/add_header_dialogue_Truck.png" alt="header file dialogue"><br>
+<p><img src="assets/week8/add_header_dialogue_GamePiece.png" alt="header file dialogue"><br>
 <em>Visual C++, Header file (.h), name your class with a capital</em></p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: GamePiece.h</span>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">/// File: GamePiece.h</span>
 <span class="token comment">/// Any piece in our snake board game has these properties.</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
@@ -135,16 +145,15 @@
 <span class="token punctuation">{</span>
 
 <span class="token keyword">public</span><span class="token operator">:</span>
-  <span class="token keyword">int</span> gridX<span class="token punctuation">;</span>
-  <span class="token keyword">int</span> gridY<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> xSquare<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> ySquare<span class="token punctuation">;</span>
   string type <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
-
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><blockquote>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><blockquote>
 <p>Take out the <code>#pragma once</code>, <code>class GamePiece</code> definition and keyword <code>public</code> and this is just like the top of our main file. Include, using, and then some variables or functions defined.</p>
 </blockquote>
 <p>A very basic truck is easy to specify. We can start with a few small attributes.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: truck.h</span>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">/// File: truck.h</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Truck</span> <span class="token punctuation">{</span>
@@ -152,8 +161,8 @@
     <span class="token keyword">int</span> speedInKph <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">float</span> weightInTonnes <span class="token operator">=</span> <span class="token number">3.6</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><p>Then we can declare them in main just like we would a <code>string</code> or an <code>int</code>. Just include the .h file, and start declaring <code>Truck truckname</code>.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: world_of_trucks_main.h</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>Then we can declare them in main just like we would a <code>string</code> or an <code>int</code>. Just include the .h file, and start declaring <code>Truck truckname</code>.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">/// File: world_of_trucks_main.h</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span></span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -166,7 +175,7 @@
   soBoringTruck<span class="token punctuation">.</span>speedInKph <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><h3 class="mume-header" id="what-were-those-extra-bits">What were those extra bits?</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="what-were-those-extra-bits">What were those extra bits?</h3>
 
 <p><code>pragma once</code> is added automatically by Visual Studio. It means &#x201C;if this file is included in multiple files, only define it once&#x201D;. It just ensures that there is only one <code>Truck</code> design, though many objects can be made.</p>
 <p><code>public:</code> means these variables can be seen/used by outside code, like our main function.<br>
@@ -191,7 +200,8 @@ Truck -&gt; CementTruck</p>
 <em>Some Truck, CraneTruck, CementTruck property ideas discussed in class</em></p>
 <h3 class="mume-header" id="trucks-in-code">Trucks In Code</h3>
 
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//trucks_main.cpp</span>
+<p>Look at how <code>superBeastlyCrane</code> and <code>darlene</code> the cement truck have <code>speedMph</code> despite never declaring it. They also have unique properties like  <code>liftingCapacityKgs</code> and <code>mixerCurrentAngle</code>.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//trucks_main.cpp</span>
 <span class="token comment">// This is a Tester: it makes some objects from classes/designs,</span>
 <span class="token comment">// Like any scientist it observes, changes, observes again.</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
@@ -217,6 +227,7 @@ Truck -&gt; CementTruck</p>
   superBeastlyCrane<span class="token punctuation">.</span>speedMph <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
   superBeastlyCrane<span class="token punctuation">.</span>liftingCapacityKgs <span class="token operator">=</span> <span class="token number">5910</span><span class="token punctuation">;</span>
   
+  darlene<span class="token punctuation">.</span>speedMph <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
   darlene<span class="token punctuation">.</span>mixerCurrentAngle <span class="token operator">=</span> <span class="token number">12.0f</span><span class="token punctuation">;</span>
   <span class="token comment">// print boring truck speeds</span>
   cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;sbt speed &quot;</span> <span class="token operator">&lt;&lt;</span> soBoringTruck<span class="token punctuation">.</span>speedMph <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
@@ -225,7 +236,8 @@ Truck -&gt; CementTruck</p>
   <span class="token comment">// print crane trucks lifting capacity.</span>
 
 <span class="token punctuation">}</span>
-</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//Truck.h</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>Here&#x2019;s truck, which declares <code>speedMph</code> as a <code>public:</code> property.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//Truck.h</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Truck</span>
@@ -236,7 +248,14 @@ Truck -&gt; CementTruck</p>
   string cabinPuppy <span class="token operator">=</span> <span class="token string">&quot;Leroy&quot;</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//CementTruck.h</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="inheriting-truck">Inheriting Truck</h3>
+
+<p>If the <code>CementTruck</code> and <code>CraneTruck</code> want to extend Truck, all they need to do is</p>
+<ol>
+<li><code>#include &quot;Truck.h&quot;</code> (note the use of &quot; &quot; instead of &lt; &gt;)</li>
+<li>add <code>: public Truck</code> after the class definition &#x1F44C;</li>
+</ol>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//CementTruck.h</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span></span>
 
@@ -247,7 +266,7 @@ Truck -&gt; CementTruck</p>
   <span class="token keyword">float</span> mixerCurrentAngle <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//CraneTruck.h</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//CraneTruck.h</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span>;</span>
 
@@ -257,7 +276,7 @@ Truck -&gt; CementTruck</p>
   <span class="token keyword">int</span> liftingCapacityKgs <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><h3 class="mume-header" id="game-controller-evolution">Game controller evolution</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="game-controller-evolution">Game controller evolution</h3>
 
 <p>One more physical world example of extending a design.</p>
 <p>direction + face button + connection -&gt;<br>
