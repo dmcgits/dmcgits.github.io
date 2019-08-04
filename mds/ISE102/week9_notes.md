@@ -16,7 +16,12 @@ Recapping last week, taking it further. Making games with the game loop.
 
 <!-- code_chunk_output -->
 
-- [Week 9 - Objects/Classes 2, Making Games.](#week-9---objectsclasses-2-making-games)
+- [Week 9 - Objects/Classes 2, Making Games.](#week-9-objectsclasses-2-making-games)
+  - [Assessment 3: Snake](#assessment-3-snake)
+  - [Answering the brief](#answering-the-brief)
+    - [Extras after requirements](#extras-after-requirements)
+  - [Delivering the assessment](#delivering-the-assessment)
+    - [Create your solution with the right name](#create-your-solution-with-the-right-name)
   - [Resources](#resources)
   - [Todo by week 10](#todo-by-week-10)
   - [Objects classes recap](#objects-classes-recap)
@@ -33,17 +38,63 @@ Recapping last week, taking it further. Making games with the game loop.
 
 <!-- /code_chunk_output -->
 
+## Assessment 3: Snake
 
-## Resources
+## Answering the brief
 
-* Grab this: [olc and termcolor include files](assets/week9/olcAndTermColor.zip)
+As a coder, you are a maker. You build things for people, and when you make something for someone it followes a design, a plan, a _brief_. Our's is the assessment 3 brief from blackboard:
 
-* Doesn't exist yet: [week 9 code html](week9_code.html)
+The brief: <https://laureate-au.blackboard.com/bbcswebdav/pid-7475676-dt-content-rid-31789150_1/xid-31789150_1>
 
-## Todo by week 10
-* Plan out key parts of your assessment in pseudocode
-* Read/code Chapters 8 and 10 and of textbook. Objects, inheritance.
-  - <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727>
+### Extras after requirements
+
+When someone needs something made, they do enjoy extras. When they are extras. That means they're built on top of the requirements. Do them instead of a requirement and you'll be risking whatever the return was for your work:  marks, payment, promotion.                              
+
+Bullet points:
+
+## Delivering the assessment
+
+Not everyone caught the delivery requirements first time round, let's makesure they're here and easy to refer to.
+
+1. Use **Visual Studio 2017**. Not 2019 or 2015.
+2. Deliver a Visual C++ project linked for the windows console.
+3. 
+
+### Create your solution with the right name
+
+You need to deliver a file named like so:
+
+**_ISE102_Lastname_Firstname_SnakeGame.7z_**
+
+Mine, for example, would be:
+
+**ISE102_Mcgillick_Danny_SnakeGame.7z**
+
+* The best way to achieve that without breaking anything before delivery is to **use this format (without .7z) for your solution name**. 
+* Select **_Visual C++_** and **_Empty Project_**. If you already have a template made for this, you can use that.
+* Enter ISE102_Lastname_Firstname_SnakeGame as the project name (substituting your own last and first names).
+
+![creating solution](assets/week9/delivering_assessments_solution_name_type.png)
+_Use Empty Project unless you have a template (mine is outlined in orange)_
+
+I don't like the long name on the project as well as the solution, so I 
+* right click **the project in solution explorer**, not the solution itself
+* click **_rename_**
+* enter something manageable like SnakeGame_DM
+
+![rename project](assets/week9/delivering_assessments_rename_project.png)
+_Rename the project. Don't accidentally rename the solution_
+
+![the new name](assets/week9/delivering_assessments_project_name_changed.png)
+_New, shorter project name_
+
+7zip is my preferred archiving method because the files are smaller. If for some reason you can't use 7zip, rar or zip can be used.
+
+So for me it's `ISE102_Mcgillick_Danny_SnakeGame.7z`
+
+Download 7zip 64bit for windows: <https://www.7-zip.org/download.html>
+
+
 
 ## Objects classes recap
 
@@ -56,69 +107,6 @@ Some missed last week due to maniac at redfern, also objects are so important it
   - [physical objects, encapsulation in week8 notes](week8_notes.html)
 
 ___
-
-### Objects in code
-
-In our c++ programs **we already use objects**. They're just data types that offer functions: you've seen it on `string` and `vector`.
-
-```cpp
-#include <iostream>
-#include <string>
-#include "termcolor.h"
-
-using namespace std;
-using namespace termcolor;
-
-// constants that will be handy.
-const int LONG_NAME = 15;
-const int REALLY_LONG_NAME = 22;
-
-// Declare functions
-string commentOnNameLength(string aName);
-
-int main()
-{
-	string name = "Aleksandrianakova";
-	
-	cout << yellow << "My name is " << name << endl << endl;
-	cout << white << commentOnNameLength(name) << endl << endl;
-
-	name = "Aleksandrianakovaskayavic";
-	
-	cout << yellow << "My name is " << name << endl << endl;
-	cout << white << commentOnNameLength(name) << endl << endl;
-
-	cout << termcolor::reset;
-
-	return 0;
-}
-
-string commentOnNameLength(string aName)
-{
-	// We're going to call 3 member functions of string objects.
-	// if you can type `myVariable.` and a list of variables and functions appears,
-	// you have an object.
-	string comment = "Oh.";
-	if (aName.size() > LONG_NAME)
-	{
-		if (aName.size() > REALLY_LONG_NAME)
-		{
-			comment = "I am ded.";
-		}
-		else
-		{
-			comment = "That whole thing's your name huh? I'm going to call you ";
-			comment.append(aName.substr(0, 5));  // grab first letters of name
-		}
-	}
-	return (comment);
-}
-
-```
-
-Looking at that code we can see the user isn't a human driver or phone user, it's our code. **A line of our main function or getValidBet function is the user**. 
-
-> The easy to use package (interface) isn't a touch screen or button, it's a `push_back()` function to add new data to our vector,or a `length()` function telling us how many characters our string has. 
 
 ### Coding obects (week 8)
 
@@ -217,26 +205,6 @@ int main()
 }
 ```
 
-## Inheritance
-
-We will introduce basic inheritance today. We'll hit it more next week, but first we need to understand it to use olcConsoleGameEngine. 
-
-Olc is an "is a" relationship. 
-* A dog is a canine, 
-* A person is a human > biped > animal > living thing.
-
-So in a Tower Defense game, for example, a FireballTower is a Tower.
-
-```cpp
-#include "Tower.h"
-#include "FireballTower.h"
-
-class FireballTower : Tower
-{
-  // Fireball tower things.
-}
-```
-
 ### Coding in a class instead of main.cpp
 
 To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don't know your way around a class.
@@ -257,3 +225,13 @@ And here's where they'd go in OO, the class' cpp file:
 
 ![function definitions cpp](assets/week9/oo_bit_class_cpp.png)
 
+## Resources
+
+* Grab this: [olc and termcolor include files](assets/week9/olcAndTermColor.zip)
+
+* [week 9 code html](week9_code.html)
+
+## Todo by week 10
+* Plan out key parts of your assessment in pseudocode
+* Read/code Chapters 8 and 10 and of textbook. Objects, inheritance.
+  - <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727>

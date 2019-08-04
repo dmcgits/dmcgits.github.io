@@ -36,18 +36,21 @@
 <ul>
 <li><a href="#snake-as-a-board-game">Snake as a board game</a>
 <ul>
-<li><a href="#objects">Objects</a></li>
+<li><a href="#game-piece">Game piece</a></li>
+<li><a href="#pieces-objects">Pieces, objects</a></li>
 <li><a href="#designs-for-objects">Designs for objects</a></li>
 <li><a href="#the-schematicplandesign">The schematic/plan/design</a></li>
-<li><a href="#what-about-in-code">What about in code?</a></li>
 <li><a href="#the-schematic-in-code">The schematic in code</a></li>
+<li><a href="#what-were-those-extra-bits">What were those extra bits?</a></li>
 </ul>
 </li>
-<li><a href="#inheritance">Inheritance</a>
+<li><a href="#extending-our-designs">Extending our designs</a>
 <ul>
+<li><a href="#duplication-is-bad">Duplication is bad</a></li>
+<li><a href="#inheriting-from-a-classdesign">Inheriting from a class/design</a></li>
 <li><a href="#trucks">Trucks</a></li>
-<li><a href="#controllers">Controllers</a></li>
 <li><a href="#trucks-in-code">Trucks In Code</a></li>
+<li><a href="#game-controller-evolution">Game controller evolution</a></li>
 </ul>
 </li>
 <li><a href="#debugging">Debugging</a>
@@ -73,17 +76,21 @@
 </ol>
 <p>We&#x2019;ve all played Snake. What happens in the game?</p>
 <p><img src="assets/week1/snake.png" alt="snake phone"></p>
-<p>So maybe we have a <strong>simple board</strong>, divided into a <strong>grid of squares</strong>, in a grassy colour.</p>
+<p>So maybe we have a <strong>simple board</strong>, divided into a <strong>grid of squares</strong>, in a grassy colour. We can use horizontal (x) and vertical (y) coordinates to identify them.</p>
 <p><img src="assets/week8/board_snake_grass.png" alt="grid"></p>
-<p>What pieces would ou need? Where do they go?</p>
+<h3 class="mume-header" id="game-piece">Game piece</h3>
+
+<p>When we play a board game we often have physical chips or figures that we move around the board to signify players, enemies, props. What pieces would you need? Where do they go?</p>
 <p><img src="assets/week8/snake_plastic.jpg" alt="snake plastic"><br>
 <img src="assets/week8/fruit_wood_2.png" alt="fruit bits"></p>
-<h3 class="mume-header" id="objects">Objects</h3>
+<p>Whatever they end up being, we could break a snake game piece down to a few basic properties.</p>
+<blockquote>
+<p>A game piece has a <strong>kind</strong> (fruit, bit of snake) and a <strong>location</strong></p>
+</blockquote>
+<h3 class="mume-header" id="pieces-objects">Pieces, objects</h3>
 
-<p>What properties do each of these objects have?</p>
+<p>Other objects on our board:</p>
 <ul>
-<li>There can be many of them, same but different.</li>
-<li>Position on the grid.</li>
 <li>Fruit has maybe colour? A name?</li>
 <li>A snake needs to go places. What things do we need to know for an object to travel in space?</li>
 </ul>
@@ -94,26 +101,30 @@
 <blockquote>
 <p>&quot;Hey, we designed a board game. Make it for us. How much will it cost to make 100 sets?</p>
 </blockquote>
-<p>What will the ask us next?</p>
-<p>What if we wanted one hundred laptops? Dinner for 12? A fleet of trucks? 10 orc grunts?</p>
+<p>What will the ask us next? What if we wanted one hundred laptops? Dinner for 12? A fleet of trucks? 10 orc grunts?</p>
+<blockquote>
+<p>Okay, give me the schematic/design/recipe/cad files.</p>
+</blockquote>
 <h3 class="mume-header" id="the-schematicplandesign">The schematic/plan/design</h3>
 
 <p>You make things from a design. Maybe there&#x2019;s a prototype object too, which the design describes. A version made from that design, and you will make more.</p>
-<h3 class="mume-header" id="what-about-in-code">What about in code?</h3>
-
-<p>A guy at Xerox was asked how much would you need to write to explain a whole programming language. He said one page. They laughed and said go on then.</p>
-<p>To make it self evident to the person looking at the page it needed to relate to their experience.</p>
 <ul>
-<li>He did it</li>
-<li>It was small talk</li>
-<li>He was very clever</li>
-<li>Small talk used an extended the idea of expressing things as objects. The code and data for a thing, like a snake head or a fruit, go together to make an object. Many  snake objects or fruit objects can be made and changed.</li>
-<li></li>
+<li>100 cakes: recipe and ingredients please</li>
+<li>100 mini tower PCs: give me the parts list.</li>
+<li>100 trucks: give me the schematics and cad files and parts list etc etc.</li>
 </ul>
-<p>Let&#x2019;s make an object. A GamePiece.</p>
 <h3 class="mume-header" id="the-schematic-in-code">The schematic in code</h3>
 
-<p>Our plan or design, in c++, is called a Class. A class defines what a fruit will be. You can make many pieces of fruit from that one design. Same with trucks: you want them made, you design one in a class. Then you can declare as many variables of type Truck as you want.</p>
+<p>Our plan or design, in c++, is called a <code>class</code>. A <code>class</code> lets us tell c++ how to make whole new types for us.</p>
+<blockquote>
+<p>If we want a <code>GamePiece</code> with x,y coordinates and a name, well we just make this design or recipe in <code>class</code> form.</p>
+</blockquote>
+<p>Same with trucks: you want them made, you design one in a class. Then you can declare as many variables of type Truck as you want.</p>
+<p>They go in a special kind of file called a &#x201C;header&#x201D;, ending in a .h extension.</p>
+<p><img src="assets/week8/add_header_Truck.png" alt="add header to project"><br>
+<em>Right click your project, Add -&gt; New Item</em></p>
+<p><img src="assets/week8/add_header_dialogue_Truck.png" alt="header file dialogue"><br>
+<em>Visual C++, Header file (.h), name your class with a capital</em></p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: GamePiece.h</span>
 <span class="token comment">/// Any piece in our snake board game has these properties.</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
@@ -129,37 +140,60 @@
   string type <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: truck.h</span>
+</pre><blockquote>
+<p>Take out the <code>#pragma once</code>, <code>class GamePiece</code> definition and keyword <code>public</code> and this is just like the top of our main file. Include, using, and then some variables or functions defined.</p>
+</blockquote>
+<p>A very basic truck is easy to specify. We can start with a few small attributes.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: truck.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Truck</span> <span class="token punctuation">{</span>
   <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token keyword">int</span> speedInKph <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">float</span> weightInTonnes <span class="token operator">=</span> <span class="token number">3.6</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: world_of_trucks_main.h</span>
+</pre><p>Then we can declare them in main just like we would a <code>string</code> or an <code>int</code>. Just include the .h file, and start declaring <code>Truck truckname</code>.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">/// File: world_of_trucks_main.h</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span></span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  Truck boringOldTruck<span class="token punctuation">;</span>
-  Truck neighboursFancyTruck<span class="token punctuation">;</span>
+  <span class="token comment">// Individual trucks made from the Truck design are called</span>
+  <span class="token comment">// `instances` of the Truck class, also `objects`</span>
+  Truck soBoringTruck
+  Truck dullOscar<span class="token punctuation">;</span>
+
+  soBoringTruck<span class="token punctuation">.</span>speedInKph <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-</pre><h2 class="mume-header" id="inheritance">Inheritance</h2>
+</pre><h3 class="mume-header" id="what-were-those-extra-bits">What were those extra bits?</h3>
+
+<p><code>pragma once</code> is added automatically by Visual Studio. It means &#x201C;if this file is included in multiple files, only define it once&#x201D;. It just ensures that there is only one <code>Truck</code> design, though many objects can be made.</p>
+<p><code>public:</code> means these variables can be seen/used by outside code, like our main function.<br>
+<code>private:</code> would mean any variables that followed can only be used inside the Truck class. Internal, hidden stuff to make the class work.</p>
+<h2 class="mume-header" id="extending-our-designs">Extending our designs</h2>
 
 <p>Extending a thing to make a similar but fancier thing!</p>
+<h3 class="mume-header" id="duplication-is-bad">Duplication is bad</h3>
+
+<p>We don&#x2019;t want 50 kinds of trucks all with <code>int speedKph</code> in the class file if we have to move to mph. A crane truck is just an extension on the truck design, so is a cement truck.</p>
+<h3 class="mume-header" id="inheriting-from-a-classdesign">Inheriting from a class/design</h3>
+
+<blockquote>
+<p>How can I extend a design into something new, while getting all those definitions for free?</p>
+</blockquote>
+<p>In Object Oriented design this is called <strong>inheritance</strong>. You can make a new class that <strong>inherits all the characteristics of the old one</strong>. Then you <strong>add more</strong>!</p>
 <h3 class="mume-header" id="trucks">Trucks</h3>
 
 <p>Truck -&gt; CraneTruck<br>
 Truck -&gt; CementTruck</p>
-<h3 class="mume-header" id="controllers">Controllers</h3>
-
-<p>Stick and button -&gt; ?</p>
-<p><img src="assets/week8/controllers_extension.png" alt="controllers"></p>
+<p><img src="assets/week8/Trucks.png" alt="trucks"><br>
+<em>Some Truck, CraneTruck, CementTruck property ideas discussed in class</em></p>
 <h3 class="mume-header" id="trucks-in-code">Trucks In Code</h3>
 
-<p><img src="assets/week8/Trucks.png" alt="trucks"></p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">//trucks_main.cpp</span>
+<span class="token comment">// This is a Tester: it makes some objects from classes/designs,</span>
+<span class="token comment">// Like any scientist it observes, changes, observes again.</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Truck.h&quot;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;CraneTruck.h&quot;</span></span>
@@ -167,6 +201,7 @@ Truck -&gt; CementTruck</p>
 
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
+<span class="token comment">// Making and testing instances from classes.</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
   <span class="token comment">// Two boring trucks</span>
@@ -222,7 +257,14 @@ Truck -&gt; CementTruck</p>
   <span class="token keyword">int</span> liftingCapacityKgs <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><h2 class="mume-header" id="debugging">Debugging</h2>
+</pre><h3 class="mume-header" id="game-controller-evolution">Game controller evolution</h3>
+
+<p>One more physical world example of extending a design.</p>
+<p>direction + face button + connection -&gt;<br>
+direction + <em>multi face</em> buttons + connection -&gt;<br>
+<em>analogue and digital</em> direction + multi face buttons + <em>wireless</em> connection</p>
+<p><img src="assets/week8/controllers_extension.png" alt="controllers"></p>
+<h2 class="mume-header" id="debugging">Debugging</h2>
 
 <p>We&#x2019;ve been using visual studio to compile our code and run the executable (.exe) file it produces in a separate console window.<br>
 When we&#x2019;ve been hunting for bugs we&#x2019;ve used cout to look at changing variables, or to just make sure certain lines (maybe in a for loop or if statement) are being reached.</p>

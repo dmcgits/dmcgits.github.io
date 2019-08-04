@@ -32,8 +32,19 @@
 
 <p>Recapping last week, taking it further. Making games with the game loop.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week-9---objectsclasses-2-making-games">Week 9 - Objects/Classes 2, Making Games.</a>
+<li><a href="#week-9-objectsclasses-2-making-games">Week 9 - Objects/Classes 2, Making Games.</a>
 <ul>
+<li><a href="#assessment-3-snake">Assessment 3: Snake</a></li>
+<li><a href="#answering-the-brief">Answering the brief</a>
+<ul>
+<li><a href="#extras-after-requirements">Extras after requirements</a></li>
+</ul>
+</li>
+<li><a href="#delivering-the-assessment">Delivering the assessment</a>
+<ul>
+<li><a href="#create-your-solution-with-the-right-name">Create your solution with the right name</a></li>
+</ul>
+</li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#todo-by-week-10">Todo by week 10</a></li>
 <li><a href="#objects-classes-recap">Objects classes recap</a>
@@ -59,26 +70,50 @@
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="resources">Resources</h2>
+<h2 class="mume-header" id="assessment-3-snake">Assessment 3: Snake</h2>
 
-<ul>
-<li>
-<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
-</li>
-<li>
-<p>Doesn&#x2019;t exist yet: <a href="week9_code.html">week 9 code html</a></p>
-</li>
-</ul>
-<h2 class="mume-header" id="todo-by-week-10">Todo by week 10</h2>
+<h2 class="mume-header" id="answering-the-brief">Answering the brief</h2>
 
+<p>As a coder, you are a maker. You build things for people, and when you make something for someone it followes a design, a plan, a <em>brief</em>. Our&#x2019;s is the assessment 3 brief from blackboard:</p>
+<p>The brief: <a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7475676-dt-content-rid-31789150_1/xid-31789150_1">https://laureate-au.blackboard.com/bbcswebdav/pid-7475676-dt-content-rid-31789150_1/xid-31789150_1</a></p>
+<h3 class="mume-header" id="extras-after-requirements">Extras after requirements</h3>
+
+<p>When someone needs something made, they do enjoy extras. When they are extras. That means they&#x2019;re built on top of the requirements. Do them instead of a requirement and you&#x2019;ll be risking whatever the return was for your work:  marks, payment, promotion.</p>
+<p>Bullet points:</p>
+<h2 class="mume-header" id="delivering-the-assessment">Delivering the assessment</h2>
+
+<p>Not everyone caught the delivery requirements first time round, let&#x2019;s makesure they&#x2019;re here and easy to refer to.</p>
+<ol>
+<li>Use <strong>Visual Studio 2017</strong>. Not 2019 or 2015.</li>
+<li>Deliver a Visual C++ project linked for the windows console.</li>
+<li></li>
+</ol>
+<h3 class="mume-header" id="create-your-solution-with-the-right-name">Create your solution with the right name</h3>
+
+<p>You need to deliver a file named like so:</p>
+<p><strong><em>ISE102_Lastname_Firstname_SnakeGame.7z</em></strong></p>
+<p>Mine, for example, would be:</p>
+<p><strong>ISE102_Mcgillick_Danny_SnakeGame.7z</strong></p>
 <ul>
-<li>Plan out key parts of your assessment in pseudocode</li>
-<li>Read/code Chapters 8 and 10 and of textbook. Objects, inheritance.
+<li>The best way to achieve that without breaking anything before delivery is to <strong>use this format (without .7z) for your solution name</strong>.</li>
+<li>Select <strong><em>Visual C++</em></strong> and <strong><em>Empty Project</em></strong>. If you already have a template made for this, you can use that.</li>
+<li>Enter ISE102_Lastname_Firstname_SnakeGame as the project name (substituting your own last and first names).</li>
+</ul>
+<p><img src="assets/week9/delivering_assessments_solution_name_type.png" alt="creating solution"><br>
+<em>Use Empty Project unless you have a template (mine is outlined in orange)</em></p>
+<p>I don&#x2019;t like the long name on the project as well as the solution, so I</p>
 <ul>
-<li><a href="https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727">https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727</a></li>
+<li>right click <strong>the project in solution explorer</strong>, not the solution itself</li>
+<li>click <strong><em>rename</em></strong></li>
+<li>enter something manageable like SnakeGame_DM</li>
 </ul>
-</li>
-</ul>
+<p><img src="assets/week9/delivering_assessments_rename_project.png" alt="rename project"><br>
+<em>Rename the project. Don&#x2019;t accidentally rename the solution</em></p>
+<p><img src="assets/week9/delivering_assessments_project_name_changed.png" alt="the new name"><br>
+<em>New, shorter project name</em></p>
+<p>7zip is my preferred archiving method because the files are smaller. If for some reason you can&#x2019;t use 7zip, rar or zip can be used.</p>
+<p>So for me it&#x2019;s <code>ISE102_Mcgillick_Danny_SnakeGame.7z</code></p>
+<p>Download 7zip 64bit for windows: <a href="https://www.7-zip.org/download.html">https://www.7-zip.org/download.html</a></p>
 <h2 class="mume-header" id="objects-classes-recap">Objects classes recap</h2>
 
 <p>Some missed last week due to maniac at redfern, also objects are so important it&#x2019;s worth a little refresh.</p>
@@ -91,65 +126,6 @@
 <li><a href="week8_notes.html">physical objects, encapsulation in week8 notes</a></li>
 </ul>
 <hr>
-<h3 class="mume-header" id="objects-in-code">Objects in code</h3>
-
-<p>In our c++ programs <strong>we already use objects</strong>. They&#x2019;re just data types that offer functions: you&#x2019;ve seen it on <code>string</code> and <code>vector</code>.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;termcolor.h&quot;</span></span>
-
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> termcolor<span class="token punctuation">;</span>
-
-<span class="token comment">// constants that will be handy.</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> LONG_NAME <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> REALLY_LONG_NAME <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Declare functions</span>
-string <span class="token function">commentOnNameLength</span><span class="token punctuation">(</span>string aName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	string name <span class="token operator">=</span> <span class="token string">&quot;Aleksandrianakova&quot;</span><span class="token punctuation">;</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> yellow <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;My name is &quot;</span> <span class="token operator">&lt;&lt;</span> name <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	cout <span class="token operator">&lt;&lt;</span> white <span class="token operator">&lt;&lt;</span> <span class="token function">commentOnNameLength</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-
-	name <span class="token operator">=</span> <span class="token string">&quot;Aleksandrianakovaskayavic&quot;</span><span class="token punctuation">;</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> yellow <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;My name is &quot;</span> <span class="token operator">&lt;&lt;</span> name <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	cout <span class="token operator">&lt;&lt;</span> white <span class="token operator">&lt;&lt;</span> <span class="token function">commentOnNameLength</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-
-	cout <span class="token operator">&lt;&lt;</span> termcolor<span class="token operator">::</span>reset<span class="token punctuation">;</span>
-
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-string <span class="token function">commentOnNameLength</span><span class="token punctuation">(</span>string aName<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token comment">// We&apos;re going to call 3 member functions of string objects.</span>
-	<span class="token comment">// if you can type `myVariable.` and a list of variables and functions appears,</span>
-	<span class="token comment">// you have an object.</span>
-	string comment <span class="token operator">=</span> <span class="token string">&quot;Oh.&quot;</span><span class="token punctuation">;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>aName<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> LONG_NAME<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>aName<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> REALLY_LONG_NAME<span class="token punctuation">)</span>
-		<span class="token punctuation">{</span>
-			comment <span class="token operator">=</span> <span class="token string">&quot;I am ded.&quot;</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token keyword">else</span>
-		<span class="token punctuation">{</span>
-			comment <span class="token operator">=</span> <span class="token string">&quot;That whole thing&apos;s your name huh? I&apos;m going to call you &quot;</span><span class="token punctuation">;</span>
-			comment<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>aName<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// grab first letters of name</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">return</span> <span class="token punctuation">(</span>comment<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-</pre><p>Looking at that code we can see the user isn&#x2019;t a human driver or phone user, it&#x2019;s our code. <strong>A line of our main function or getValidBet function is the user</strong>.</p>
-<blockquote>
-<p>The easy to use package (interface) isn&#x2019;t a touch screen or button, it&#x2019;s a <code>push_back()</code> function to add new data to our vector,or a <code>length()</code> function telling us how many characters our string has.</p>
-</blockquote>
 <h3 class="mume-header" id="coding-obects-week-8">Coding obects (week 8)</h3>
 
 <ul>
@@ -237,22 +213,6 @@ end program myGame
   <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
-</pre><h2 class="mume-header" id="inheritance">Inheritance</h2>
-
-<p>We will introduce basic inheritance today. We&#x2019;ll hit it more next week, but first we need to understand it to use olcConsoleGameEngine.</p>
-<p>Olc is an &#x201C;is a&#x201D; relationship.</p>
-<ul>
-<li>A dog is a canine,</li>
-<li>A person is a human &gt; biped &gt; animal &gt; living thing.</li>
-</ul>
-<p>So in a Tower Defense game, for example, a FireballTower is a Tower.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Tower.h&quot;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;FireballTower.h&quot;</span></span>
-
-<span class="token keyword">class</span> <span class="token class-name">FireballTower</span> <span class="token operator">:</span> Tower
-<span class="token punctuation">{</span>
-  <span class="token comment">// Fireball tower things.</span>
-<span class="token punctuation">}</span>
 </pre><h3 class="mume-header" id="coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</h3>
 
 <p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&#x2019;t know your way around a class.</p>
@@ -265,6 +225,26 @@ end program myGame
 <p><img src="assets/week9/oo_bit_main_definitions.png" alt="definitions below main"></p>
 <p>And here&#x2019;s where they&#x2019;d go in OO, the class&#x2019; cpp file:</p>
 <p><img src="assets/week9/oo_bit_class_cpp.png" alt="function definitions cpp"></p>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<ul>
+<li>
+<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
+</li>
+<li>
+<p><a href="week9_code.html">week 9 code html</a></p>
+</li>
+</ul>
+<h2 class="mume-header" id="todo-by-week-10">Todo by week 10</h2>
+
+<ul>
+<li>Plan out key parts of your assessment in pseudocode</li>
+<li>Read/code Chapters 8 and 10 and of textbook. Objects, inheritance.
+<ul>
+<li><a href="https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727">https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727</a></li>
+</ul>
+</li>
+</ul>
 
       </div>
       
