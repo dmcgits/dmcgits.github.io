@@ -16,25 +16,27 @@ Recapping last week, taking it further. Making games with the game loop.
 
 <!-- code_chunk_output -->
 
-- [Week 9 - Objects/Classes 2, Making Games.](#week-9---objectsclasses-2-making-games)
-  - [Assessment 3: Snake](#assessment-3-snake)
-  - [Answering the brief](#answering-the-brief)
-    - [Extras after requirements](#extras-after-requirements)
-  - [Delivering the assessment](#delivering-the-assessment)
-    - [Create your solution with the right name](#create-your-solution-with-the-right-name)
-    - [Find and compress your solution](#find-and-compress-your-solution)
-  - [Objects classes recap](#objects-classes-recap)
-  - [Adding functions to classes](#adding-functions-to-classes)
-    - [Selectively sharing](#selectively-sharing)
-    - [Coding obects (week 8)](#coding-obects-week-8)
-  - [A Game Is A Simulation](#a-game-is-a-simulation)
-    - [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
-    - [Things happen](#things-happen)
-    - [Input](#input)
-    - [The game loop, then.](#the-game-loop-then)
-    - [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
-  - [Resources](#resources)
-  - [Todo by week 10](#todo-by-week-10)
+1. [Week 9 - Objects/Classes 2, Making Games.](#week-9---objectsclasses-2-making-games)
+   1. [Assessment 3: Snake](#assessment-3-snake)
+   2. [Answering the brief](#answering-the-brief)
+      1. [Extras after requirements](#extras-after-requirements)
+      2. [Minimum viable product](#minimum-viable-product)
+      3. [Extended features](#extended-features)
+   3. [Delivering the assessment](#delivering-the-assessment)
+      1. [Create your solution with the right name](#create-your-solution-with-the-right-name)
+      2. [Find and compress your solution](#find-and-compress-your-solution)
+   4. [Objects classes recap](#objects-classes-recap)
+   5. [Adding functions to classes](#adding-functions-to-classes)
+      1. [Selectively sharing](#selectively-sharing)
+      2. [Coding obects (week 8)](#coding-obects-week-8)
+   6. [A Game Is A Simulation](#a-game-is-a-simulation)
+      1. [Starting at the end: Graphics are just the output](#starting-at-the-end-graphics-are-just-the-output)
+      2. [Things happen](#things-happen)
+      3. [Input](#input)
+      4. [The game loop, then.](#the-game-loop-then)
+      5. [Coding in a class instead of main.cpp](#coding-in-a-class-instead-of-maincpp)
+   7. [Resources](#resources)
+   8. [Todo by week 10](#todo-by-week-10)
 
 <!-- /code_chunk_output -->
 
@@ -49,8 +51,26 @@ The brief: <https://laureate-au.blackboard.com/bbcswebdav/pid-7475676-dt-content
 ### Extras after requirements
 
 When someone needs something made, they do enjoy extras. When they are extras. That means they're built on top of the requirements. Do them instead of a requirement and you'll be risking whatever the return was for your work:  marks, payment, promotion.                              
-
 Bullet points:
+### Minimum viable product
+* Snake never stops moving
+* Snake teleports across screen after hitting edge
+* Snake has segments aka body parts
+* Fruit randomly appears
+* Snake can eat fruit,
+* Snake gets longer when eating fruit
+* Each fruit gives a point
+* If snake collides with self it dies.
+* Use the good-programming ideas Danny described in class.
+
+### Extended features 
+Add some these to do better than pass/credit
+* specifically 2-5 extra features
+* Diff fruits with diff affects (buff or debuff)
+* Obstacles: deadly blocks
+* High score that stays through multiple games
+* Difficulty settings
+* Restart without rerunning the game.
 
 ## Delivering the assessment
 
