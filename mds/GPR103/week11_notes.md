@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 11 - Time, text, collisions
 
 Hitting as many useful assignment-finishing tools as we can.
@@ -7,27 +16,25 @@ Hitting as many useful assignment-finishing tools as we can.
 
 <!-- code_chunk_output -->
 
-* [Week 11 - Time, text, collisions](#week-11-time-text-collisions)
-	* [Todo](#todo)
-	* [Resources](#resources)
-	* [Scoring/Displaying text](#scoringdisplaying-text)
-		* [Adding UI canvas and text](#adding-ui-canvas-and-text)
-		* [Editing TMP text in script](#editing-tmp-text-in-script)
-	* [Missiles come in waves in each level](#missiles-come-in-waves-in-each-level)
-		* [Psuedocoding the waves](#psuedocoding-the-waves)
-	* [Doing things over time](#doing-things-over-time)
-		* [Things that need timing](#things-that-need-timing)
-		* [Ways to time](#ways-to-time)
-		* [Invoke](#invoke)
-		* [Update and time.deltaTime.](#update-and-timedeltatime)
-		* [Coroutines](#coroutines)
-			* [Waves with a coroutine](#waves-with-a-coroutine)
-			* [Side notes on coroutines and threads for the curious](#side-notes-on-coroutines-and-threads-for-the-curious)
-	* [Missiles](#missiles)
-		* [Aiming things at things](#aiming-things-at-things)
-		* [Moving at a given speed](#moving-at-a-given-speed)
-		* [Missile explosions](#missile-explosions)
-		* [Hitting things](#hitting-things)
+- [Week 11 - Time, text, collisions](#week-11---time-text-collisions)
+  - [Todo](#todo)
+  - [Resources](#resources)
+  - [Scoring/Displaying text](#scoringdisplaying-text)
+    - [Adding UI canvas and text](#adding-ui-canvas-and-text)
+    - [Editing TMP text in script](#editing-tmp-text-in-script)
+  - [Missiles come in waves in each level](#missiles-come-in-waves-in-each-level)
+    - [Psuedocoding the waves](#psuedocoding-the-waves)
+  - [Doing things over time](#doing-things-over-time)
+    - [Things that need timing](#things-that-need-timing)
+    - [Ways to time](#ways-to-time)
+    - [Invoke](#invoke)
+    - [Update and time.deltaTime.](#update-and-timedeltatime)
+    - [Coroutines](#coroutines)
+  - [Missiles](#missiles)
+    - [Aiming things at things](#aiming-things-at-things)
+    - [Moving at a given speed](#moving-at-a-given-speed)
+    - [Missile explosions](#missile-explosions)
+    - [Hitting things](#hitting-things)
 
 <!-- /code_chunk_output -->
 

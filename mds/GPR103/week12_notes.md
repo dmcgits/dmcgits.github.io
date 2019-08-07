@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 12 - Performance, debugging
 
 
@@ -6,30 +15,27 @@
 
 <!-- code_chunk_output -->
 
-* [Week 12 - Performance, debugging](#week-12-performance-debugging)
-	* [Resources](#resources)
-	* [Chat](#chat)
-	* [Multi argument events!](#multi-argument-events)
-		* [Example of Action with 2 arguments](#example-of-action-with-2-arguments)
-			* [PrevNextItemOnClick.cs partial](#prevnextitemonclickcs-partial)
-			* [CustoModel.cs partial](#customodelcs-partial)
-			* [Quicky how did you get the string dropdowns](#quicky-how-did-you-get-the-string-dropdowns)
-		* [Joining and splitting string arguments](#joining-and-splitting-string-arguments)
-		* [Structs and objects?](#structs-and-objects)
-	* [Squashing bugs](#squashing-bugs)
-		* [Enter the debugger](#enter-the-debugger)
-		* [Example walk through](#example-walk-through)
-		* [Where to break, how to step](#where-to-break-how-to-step)
-		* [Now do it with your project](#now-do-it-with-your-project)
-		* [Forensic debugging!](#forensic-debugging)
-	* [Responsiveness](#responsiveness)
-		* [Limited resources](#limited-resources)
-		* [Manual Memory Management](#manual-memory-management)
-	* [Seeing Performance](#seeing-performance)
-	* [Optimising](#optimising)
-		* [Garbage Collection](#garbage-collection)
-		* [Object pooling!](#object-pooling)
-		* [implementation of object pooling?](#implementation-of-object-pooling)
+- [Week 12 - Performance, debugging](#week-12---performance-debugging)
+  - [Resources](#resources)
+  - [Chat](#chat)
+  - [Multi argument events!](#multi-argument-events)
+    - [Example of Action with 2 arguments](#example-of-action-with-2-arguments)
+    - [Joining and splitting string arguments](#joining-and-splitting-string-arguments)
+    - [Structs and objects?](#structs-and-objects)
+  - [Squashing bugs](#squashing-bugs)
+    - [Enter the debugger](#enter-the-debugger)
+    - [Example walk through](#example-walk-through)
+    - [Where to break, how to step](#where-to-break-how-to-step)
+    - [Now do it with your project](#now-do-it-with-your-project)
+    - [Forensic debugging!](#forensic-debugging)
+  - [Responsiveness](#responsiveness)
+    - [Limited resources](#limited-resources)
+    - [Manual Memory Management](#manual-memory-management)
+  - [Seeing Performance](#seeing-performance)
+  - [Optimising](#optimising)
+    - [Garbage Collection](#garbage-collection)
+    - [Object pooling!](#object-pooling)
+    - [implementation of object pooling?](#implementation-of-object-pooling)
 
 <!-- /code_chunk_output -->
 
