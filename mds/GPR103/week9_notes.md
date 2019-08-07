@@ -1,8 +1,17 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 9
 
 Recap A2.
 
-Look at A3. Our goal is to get rid of the blank page and get things OUT of our head and onto paper/documents/hacknplan/github. Give yourself a base.
+Look at A3, get a base.
 
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->

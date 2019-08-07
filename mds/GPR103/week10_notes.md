@@ -1,3 +1,12 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 10 - Finding things, Reusing things, messaging
 
 Very powerful tools this week.
@@ -5,33 +14,30 @@ Very powerful tools this week.
 
 <!-- code_chunk_output -->
 
-* [Week 10 - Finding things, Reusing things, shooting things](#week-10-finding-things-reusing-things-shooting-things)
-	* [Todo before next lecture](#todo-before-next-lecture)
-	* [Resources](#resources)
-	* [Laying out our game](#laying-out-our-game)
-		* [Figuring out the things in our game](#figuring-out-the-things-in-our-game)
-		* [A partial list of them](#a-partial-list-of-them)
-	* [Practise laying out a scene](#practise-laying-out-a-scene)
-		* [Resolution](#resolution)
-	* [Prefabs](#prefabs)
-		* [Changing prefabs](#changing-prefabs)
-		* [Individualising prefabs](#individualising-prefabs)
-		* [Instantiating prefabs in code](#instantiating-prefabs-in-code)
-	* [Finding the scene things](#finding-the-scene-things)
-		* [Inspector variables](#inspector-variables)
-		* [Creating things](#creating-things)
-		* [Events](#events)
-		* [GameObject find methods](#gameobject-find-methods)
-		* [Find By Name](#find-by-name)
-		* [Find By Tag](#find-by-tag)
-		* [Find By Type](#find-by-type)
-		* [Singleton](#singleton)
-	* [Talking to and commanding things](#talking-to-and-commanding-things)
-		* [`SendMessage`](#sendmessage)
-		* [`BroadcastMessage`](#broadcastmessage)
-		* [Events](#events-1)
-		* [GetComponent and call functions](#getcomponent-and-call-functions)
-	* [A longer list of attributes of our classes](#a-longer-list-of-attributes-of-our-classes)
+- [Week 10 - Finding things, Reusing things, messaging](#week-10-finding-things-reusing-things-messaging)
+  - [Todo before next lecture](#todo-before-next-lecture)
+  - [Resources](#resources)
+  - [Practise laying out a scene](#practise-laying-out-a-scene)
+    - [Resolution](#resolution)
+  - [Prefabs](#prefabs)
+    - [Changing prefabs](#changing-prefabs)
+    - [Individualising prefabs](#individualising-prefabs)
+    - [Instantiating prefabs in code](#instantiating-prefabs-in-code)
+  - [Finding the scene things](#finding-the-scene-things)
+    - [Inspector variables](#inspector-variables)
+    - [Creating things](#creating-things)
+    - [Events](#events)
+    - [GameObject find methods](#gameobject-find-methods)
+    - [Find By Name](#find-by-name)
+    - [Find By Tag](#find-by-tag)
+    - [Find By Type](#find-by-type)
+    - [Singleton](#singleton)
+  - [Talking to and commanding things](#talking-to-and-commanding-things)
+    - [`SendMessage`](#sendmessage)
+    - [`BroadcastMessage`](#broadcastmessage)
+    - [Events](#events-1)
+    - [GetComponent and call functions](#getcomponent-and-call-functions)
+  - [A longer list of attributes of our classes](#a-longer-list-of-attributes-of-our-classes)
 
 <!-- /code_chunk_output -->
 

@@ -3,10 +3,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///F:\_PortableApps\VSCode-1.33.0\data\extensions\shd101wyy.markdown-preview-enhanced-0.3.13\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
       
       
-      
+
       
       
       
@@ -14,67 +14,128 @@
       
       
 
-      <style> 
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
- 
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
+
       </style>
     </head>
     <body for="html-export">
-      <div class="mume markdown-preview   ">
+      <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-9">Week 9</h1>
 
 <p>Recap A2.</p>
-<p>Look at A3. Our goal is to get rid of the blank page and get things OUT of our head and onto paper/documents/hacknplan/github. Give yourself a base.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<p>Look at A3, get a base.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-9">Week 9</a>
-<ol>
+<ul>
 <li><a href="#your-todos-for-next-week">Your todos for next week</a></li>
 <li><a href="#assessment-2">Assessment 2</a></li>
 <li><a href="#assessment-3">Assessment 3</a>
-<ol>
+<ul>
+<li><a href="#game-play">Game Play</a></li>
+<li><a href="#breaking-down-the-assessment-in-bullet-points">Breaking down the assessment in bullet points</a></li>
+<li><a href="#cloning-missile-command">Cloning missile command</a></li>
+<li><a href="#delivery-requirements">DELIVERY REQUIREMENTS</a></li>
+<li><a href="#how-to-submit">How to submit</a></li>
 <li><a href="#gameplay">Gameplay</a></li>
-<li><a href="#set-up-hacknplan">Set up Hacknplan</a></li>
 <li><a href="#git-project">Git project</a></li>
-<li><a href="#unity-project">Unity Project</a></li>
-</ol>
+<li><a href="#project-folders">Project folders</a></li>
+</ul>
 </li>
 <li><a href="#art">Art</a></li>
-<li><a href="#systems-and-psuedocode">Systems and Psuedocode</a>
-<ol>
-<li><a href="#notesthoughts-doc">Notes/Thoughts doc?</a></li>
-</ol>
+<li><a href="#can-these-screens-help-us-plan">Can these screens help us plan?</a>
+<ul>
+<li><a href="#figuring-out-the-things-in-our-game">Figuring out the things in our game</a></li>
+<li><a href="#a-partial-list-of-them">A partial list of them</a></li>
+</ul>
 </li>
-</ol>
+<li><a href="#systems-and-psuedocode">Systems and Psuedocode</a></li>
+</ul>
 </li>
-</ol>
+</ul>
 <h2 class="mume-header" id="your-todos-for-next-week">Your todos for next week</h2>
 
-<p>The Unity3D College videos below are more advanced than things I&apos;ve shared before, but you don&apos;t have to understand every part of his videos to benefit.</p>
+<p>The Unity3D College videos below are more advanced than things I&#x2019;ve shared before, but you don&#x2019;t have to understand every part of his videos to benefit.</p>
 <ul>
-<li>Set up your hacknplan, message me a screenshot on blackboard.</li>
-<li>Watch finding objects video
+<li>
+<p>Set up your hacknplan, message me a screenshot on blackboard.</p>
+</li>
+<li>
+<p>Watch finding objects video</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=ymq2AUckws0">5 ways to reference gameobjects by Unity3D College</a></li>
 </ul>
 </li>
-<li>Watch prefabs videos. We&apos;re on unity 2018.2, so we don&apos;t have nested prefabs  yet.
+<li>
+<p>Prefabs! The new method is &#x201C;nested&#x201D; prefabs, meaning you can have them within one another.</p>
 <ul>
-<li><a href="https://unity3d.com/learn/tutorials/topics/interface-essentials/prefabs-concept-usage?playlist=17090">prefab concepts</a><br>
-v=SMH8wY4HQ0I)</li>
-<li>I haven&apos;t watched this yet but I watch his videos on everything, he&apos;s great. <a href="https://www.youtube.com/watch?v=46BxZNP0WXk">prefabs 101 on Unity3D College</a></li>
+<li><a href="https://learn.unity.com/tutorial/essential-unity-concepts#5c7f8528edbc2a002053b6c7">This is an initial intro to prefab concepts</a> by Unity. If you don&#x2019;t already have an idea what a prefab is, look here before you watch the next two videos. <em>The parts on editing after 0:37 are out of date</em>.</li>
+<li>As they&#x2019;re now nested, watch this <a href="https://www.youtube.com/watch?v=SMH8wY4HQ0I">great video on their usage</a> by Unity College 3D.</li>
+<li>A unity sponsored and very informative <a href="https://youtu.be/6_gAiPPKyUg?t=36">intro to nested prefab workflows</a> by Brackeys. Awkward intro (0-0:36) skipped.</li>
+<li>I haven&#x2019;t watched this yet but I watch his videos on everything, he&#x2019;s great. <a href="https://www.youtube.com/watch?v=46BxZNP0WXk">prefabs 101 on Unity3D College</a></li>
 </ul>
 </li>
-<li>If you like Unity3D College guy, watch his top unity mistakes video and some others. Some stuff will go over your head, but you&apos;ll pick things up. Brackeys is solid too if you don&apos;t mind lots of smiling man face and bad jokes.</li>
+<li>
+<p>If you like Unity3D College guy, watch his top unity mistakes video and some others.</p>
+</li>
 </ul>
 <h2 class="mume-header" id="assessment-2">Assessment 2</h2>
 
-<p>My code. Questions, suggestions.</p>
+<p>Questions</p>
+<p>A look at my old implementation</p>
+<p>Good/bad.</p>
 <h2 class="mume-header" id="assessment-3">Assessment 3</h2>
 
-<p>pdf: <a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197509-dt-content-rid-11808950_1/xid-11808950_1">https://laureate-au.blackboard.com/bbcswebdav/pid-7197509-dt-content-rid-11808950_1/xid-11808950_1</a></p>
-<p>Missile command using what we&apos;ve learnt and proper project management.</p>
+<p>Missile command! Using what we&#x2019;ve learnt, and keeping our work safe in Git.</p>
+<p><a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7197509-dt-content-rid-11808950_1/xid-11808950_1">PDF brief on blackboard</a></p>
+<p>Let&#x2019;s do a quick read through, then we&#x2019;ll really dig into it.</p>
+<p><img src="assets/week9/a3_brief_1.png" alt="brief 1"><br>
+<img src="assets/week9/a3_brief_2.png" alt="brief 1"><br>
+<img src="assets/week9/a3_brief_3.png" alt="brief 1"></p>
+<h3 class="mume-header" id="game-play">Game Play</h3>
+
+<p><strong>Visuals:</strong> The atari home version was a little under powered, so here&#x2019;s part of a guy&#x2019;s run on the arcade machine. It&#x2019;s a bit potatocam but the smoothness of the arcade version and the sounds come across. <a href="https://youtu.be/PKUDCPHlCvI?t=43">https://youtu.be/PKUDCPHlCvI?t=43</a></p>
+<p><strong>Play:</strong> The brief contains a <a href="https://en.wikipedia.org/wiki/Missile_Command#Gameplay">link to the wikipedia entry for Missile Command</a> where the stages of gameplay and the rules are outlined.</p>
+<p><img src="assets/week9/missile_command_gameplay_wikipedia.png" alt="gameplay rules on wikipeda"><br>
+<em>Rules of the game <a href="https://en.wikipedia.org/wiki/Missile_Command#Gameplay">on wikipedia</a></em></p>
+<h3 class="mume-header" id="breaking-down-the-assessment-in-bullet-points">Breaking down the assessment in bullet points</h3>
+
+<p>Making sure we don&#x2019;t miss easy stuff!</p>
+<h3 class="mume-header" id="cloning-missile-command">Cloning missile command</h3>
+
+<p>Missile command is a game that was made with gameplay and feel in mind. The game didn&#x2019;t follow what was codeable: the code serves the game.</p>
+<p>For this you can relax and put aside the game design side of the course, and just put on your gameplay coder hat. We&#x2019;re attempting to reproduce the feel and timings, the rules of the original, and to unity to that purpose.</p>
+<blockquote>
+<p>You have a near perfectly designed game. Can you, as a programmer, implement it?</p>
+</blockquote>
+<h3 class="mume-header" id="delivery-requirements">DELIVERY REQUIREMENTS</h3>
+
+<ul>
+<li><strong>Use Unity 2019.1.x</strong>. I believe the labs mostly have 2019.1.10 installed. Try not to go more recent than that, though it shouldn&#x2019;t make a huge difference.
+<ul>
+<li><a href="unityhub://2019.1.10f1/f007ed779b7a">Click here to install 2019.1.10</a> with Unity Hub.</li>
+</ul>
+</li>
+<li>If you use 2018.2 (as we did previously) you&#x2019;ll be very confused because <strong>prefabs, which you will need, work differently</strong> now. TextMeshPro too is handled a bit differently. Save the stress, use 2019.1.x.</li>
+<li><strong>DO NOT use Unity 2019.2.x</strong>. Things will change in unpredicable ways and you have no idea if it will run when I mark your assessment.</li>
+<li>Name your project for delivery from the start. <strong>GPR103_Lastname_Firstname_MissileCommand</strong>. Use it as your git repo name too. We&#x2019;ll do this tonight.</li>
+<li><strong>Use git!!</strong> Then no one will have to send messages about losing files at the end or wishing they&#x2019;d stopped before x or y happened. That&#x2019;ll also mean more marks because you submit your best work.</li>
+</ul>
+<h3 class="mume-header" id="how-to-submit">How to submit</h3>
+
+<ol>
+<li>Right click the assets folder in your project view</li>
+<li>Open in explorer</li>
+<li>Use the up arrow next to the explorer address bar (or press alt+up arrow to go to the folder above, containing your unity project folder.</li>
+<li>Right click the project folder and either <code>7Zip-&gt;Add To GPR103_Smith_John_MissileCommand.7z</code> or <code>Send To -&gt; Compressed (zip) folder</code>. I prefer 7z because it&#x2019;s smaller and you&#x2019;ll have a better chance of uploading a smaller archive.</li>
+</ol>
 <h3 class="mume-header" id="gameplay">Gameplay</h3>
 
 <p><a href="https://en.wikipedia.org/wiki/Missile_Command#Gameplay">https://en.wikipedia.org/wiki/Missile_Command#Gameplay</a></p>
@@ -83,50 +144,58 @@ v=SMH8wY4HQ0I)</li>
 <li>One trackball, 3 buttons</li>
 <li>3 batteries have 10 missiles each, each controlled by one button.</li>
 <li>central battery is fastest</li>
-<li>If you&apos;re out of missiles before the attack stops, you must watch helplessly.</li>
+<li>If you&#x2019;re out of missiles before the attack stops, you must watch helplessly.</li>
 </ul>
-<h3 class="mume-header" id="set-up-hacknplan">Set up Hacknplan</h3>
-
-<p>Think of cards as cohesive chunks of work, and as problems that need cracking. Early ones are pretty easy, setting up</p>
-<ul>
-<li>Set up git</li>
-<li>Set up a working folder for the assessment, make aunity project.</li>
-<li>Example structure:</li>
-</ul>
-<blockquote>
-<ul>
-<li>missileCommand
-<ul>
-<li>unity</li>
-<li>psd</li>
-<li>resources</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>I add a project code to the end of the folders - super useful when they show up in your quick links or recent folders.</p>
 <p><img src="assets/week9/project_folders.png" alt="folders"></p>
 <h3 class="mume-header" id="git-project">Git project</h3>
 
-<p>Set it up, then clone the project into your <code>missileCommand/unity</code></p>
-<p><img src="assets/week9/gitkraken_new_clone.png" alt="gitkraken new clone"></p>
-<h3 class="mume-header" id="unity-project">Unity Project</h3>
+<p>We&#x2019;ll set up a project on Github using the naming specified in <a href="#how-to-submit">How to submit</a></p>
+<p>Next, clone it using SourceTree.</p>
+<h3 class="mume-header" id="project-folders">Project folders</h3>
 
-<p>Create a unity 2d project in another folder, say unityProject or unityTemp</p>
-<p><img src="assets/week9/folders_unity_git.png" alt="unity git folders"></p>
+<p>Start out with an organised folder structure and you have a better chance of making it to the finish line.</p>
+<p><img src="assets/week9/project_folders.png" alt="folders"></p>
+<p>Create a unity 2d project in a temporary folder, and then move the contents into our git repo folder.</p>
 <ul>
-<li>Now you can move the contents of the unityProject folder over to the unity folder you checked out from git and delete the empty folder.</li>
-<li>Changes appear in gitkraken</li>
+<li>Changes appear in sourcetree</li>
 <li>Stage all the files, commit, push.</li>
 </ul>
 <h2 class="mume-header" id="art">Art</h2>
 
-<p>Here&apos;s some pixel art cut from the arcade/atari original. They&apos;re tiny, so you want to scale them up in <em>photoshop</em> or <em>krita</em> using the  <em>nearest neighbour</em> resampling option. Otherwise you can bring them into Unity at this tiny size and set <em>filtering</em> to <em>point</em>.</p>
+<p>Here&#x2019;s some pixel art cut from the arcade/atari original. They&#x2019;re tiny, so you want to scale them up in <em>photoshop</em> or <em>krita</em> using the  <em>nearest neighbour</em> resampling option. Otherwise you can bring them into Unity at this tiny size and set <em>filtering</em> to <em>point</em>.</p>
 <p><a href="assets/week9/arcade_art.zip">arcade art starter zip</a></p>
 <p>More screens to pull from:</p>
 <p><img src="assets/week9/original_screen_1.png" alt="screen 1"><br>
 <img src="assets/week9/original_screen_2.png" alt="screen 2"><br>
 <img src="assets/week9/original_screen_3.png" alt="screen 3"></p>
+<h2 class="mume-header" id="can-these-screens-help-us-plan">Can these screens help us plan?</h2>
+
+<p>Sometimes we can&#x2019;t solely create everything in our game model/manager and adjust the stage to suit. It&#x2019;s handy to lay out things visually.</p>
+<h3 class="mume-header" id="figuring-out-the-things-in-our-game">Figuring out the things in our game</h3>
+
+<p>First here&#x2019;s a drawover of things we might see in this game. This picture isn&#x2019;t just a lecture aid, I&#x2019;ll draw over a design like this to see the game world itself, rather than the final graphics. Remember we&#x2019;re simulating a world, and the job of the graphics is to communicate that world. How will that world be structured?</p>
+<p><img src="assets/week10/drawover_things.png" alt="in game things"></p>
+<blockquote>
+<p>Luckily you don&#x2019;t have to be an coder to figure out the things in your game: just a gamer. Imagine the game playing, and think about the things that happen. Write down the things that do those things.</p>
+</blockquote>
+<hr>
+<h3 class="mume-header" id="a-partial-list-of-them">A partial list of them</h3>
+
+<ul>
+<li>alienBatteries
+<ul>
+<li>Grouped under stomething? Select a subset of arranged points, or generate random ones? Or pull from a level definition?</li>
+</ul>
+</li>
+<li>playerBatteries</li>
+<li>cities</li>
+<li>AlienMissile</li>
+<li>PlayerMissile</li>
+<li>Planes</li>
+<li>ScoreText</li>
+<li>DefendPrompt</li>
+</ul>
+<p>Later we&#x2019;ll look at how to find and these pre-layed-out elements. First we need a scene to work with.</p>
 <h2 class="mume-header" id="systems-and-psuedocode">Systems and Psuedocode</h2>
 
 <p>Before figuring out classes needed, write down all the systems you can think of in this game</p>
@@ -150,8 +219,6 @@ v=SMH8wY4HQ0I)</li>
 </li>
 </ul>
 <p>Try writing basic pseudocode, just to get your brain going, starting with simplest form of game.</p>
-<h3 class="mume-header" id="notesthoughts-doc">Notes/Thoughts doc?</h3>
-
 
       </div>
       
