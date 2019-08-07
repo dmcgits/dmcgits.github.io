@@ -53,33 +53,7 @@ Very powerful tools this week.
   - ![gattling tower](assets/week10/city_1.png)
   
 
-## Laying out our game
 
-Sometimes we can't solely create everything in our game model/manager and adjust the stage to suit. It's handy to lay out things visually.
-
-### Figuring out the things in our game
-
-First here's a drawover of things we might see in this game. This picture isn't just a lecture aid, I'll draw over a design like this to see the game world itself, rather than the final graphics. Remember we're simulating a world, and the job of the graphics is to communicate that world. How will that world be structured? 
-
-![in game things](assets/week10/drawover_things.png)
-
->Luckily you don't have to be an coder to figure out the things in your game: just a gamer. Imagine the game playing, and think about the things that happen. Write down the things that do those things.
-
-___
-
-### A partial list of them
-
-* alienBatteries
-  - Grouped under stomething? Select a subset of arranged points, or generate random ones? Or pull from a level definition?
-* playerBatteries
-* cities
-* AlienMissile
-* PlayerMissile
-* Planes
-* ScoreText
-* DefendPrompt
-
-Later we'll look at how to find and these pre-layed-out elements. First we need a scene to work with.
 ___
 
 ## Practise laying out a scene
