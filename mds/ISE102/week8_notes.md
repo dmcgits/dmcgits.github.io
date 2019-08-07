@@ -16,7 +16,7 @@ Intro to Object Oriented Programming.
 
 <!-- code_chunk_output -->
 
-- [ise102 week 8:  Objects and Classes](#ise102-week-8-objects-and-classes)
+- [ise102 week 8: Objects and Classes](#ise102-week-8-objects-and-classes)
   - [Snake as a board game](#snake-as-a-board-game)
     - [Game piece](#game-piece)
     - [Pieces, objects](#pieces-objects)
@@ -136,7 +136,7 @@ class GamePiece
 public:
   int xSquare;
   int ySquare;
-  string type = "";
+  string kind = "";
 };
 ```
 
