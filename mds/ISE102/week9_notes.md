@@ -55,23 +55,36 @@ When someone needs something made, they do enjoy extras. When they are extras. T
 
 Write down the requirements in your own language. It helps clarify your own questions.
 
+#### Due date
+
+End of sunday (11:55pm) Module 6.2 (end of week 12).
+**1 Sept 2019.**
+
+#### General Requirements
+Worth 40% of total marks.
+- Object oriented program.
+- Console / dos prompt
+- Visual Studio 2017
+
 #### Minimum viable product
 * Snake never stops moving
 * Snake teleports across screen after hitting edge
 * Snake has segments aka body parts
 * Fruit randomly appears
 * Snake can eat fruit,
-* Snake gets longer when eating fruit
+* Snake gets longer when eating fruit by adding to tail
 * Each fruit gives a point
-* If snake collides with self it dies.
+* score must be displayed
+* If snake collides with self it dies, ending the game
 * Use the good-programming ideas Danny described in class.
 
 #### Extended features 
-Add some these to do better than pass/credit
+Add some these to do better than pass/credit.
+Alternately, we are allowed to add original new features.
 * specifically 2-5 extra features
 * Diff fruits with diff affects (buff or debuff)
 * Obstacles: deadly blocks
-* High score that stays through multiple games
+* High score that stays through multiple games. easy = variable. hard = save and load high score.
 * Difficulty settings
 * Restart without rerunning the game.
 
