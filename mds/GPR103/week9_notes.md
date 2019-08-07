@@ -13,7 +13,6 @@ Recap A2.
 
 Look at A3, get a base.
 
-
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
@@ -24,7 +23,7 @@ Look at A3, get a base.
   - [Assessment 3](#assessment-3)
     - [Game Play](#game-play)
     - [Breaking down the assessment in bullet points](#breaking-down-the-assessment-in-bullet-points)
-    - [Cloning missile command](#cloning-missile-command)
+  - [Cloning missile command](#cloning-missile-command)
     - [DELIVERY REQUIREMENTS](#delivery-requirements)
     - [How to submit](#how-to-submit)
     - [Gameplay](#gameplay)
@@ -85,9 +84,37 @@ _Rules of the game [on wikipedia](https://en.wikipedia.org/wiki/Missile_Command#
 
 ### Breaking down the assessment in bullet points
 
-Making sure we don't miss easy stuff!
+This is _my_ listing of the assessment in my language for me. You should do the same, and not treat this bullet list as the brief.
 
-### Cloning missile command
+#### Deliverables, when's it due
+* Create a game: Missile Command
+* work as a pair or individually
+* Due Sunday end of week 12, 11:55pm. 1st Sept.
+* Write a post mortem
+* Use git!
+
+#### Minimum Viable Product
+* Use techniques and workflows Danny teaches in class via examples and lectures.
+* 2D game. Sprites.
+* your mouse is the target, and you fire counter-missiles from 3 missile batteries
+  - Use each mouse button (1,2,3) to control each separate battery. left click shoots left battery and so on.
+* Limited amount per each of the 3 batteries (10 shots)
+* Alien missiles target cities directly for destruction, not rando. They destroy cities in one hit.
+* There is a score and it is displayed.
+* Game has a start (click to start)
+* Game has an end (no cities left)
+* Game can be played again without closing and reopening.
+
+#### Extra features to get beyond a credit.
+* Alien (incoming) missiles can split into multiple missiles
+* Every 10000 points you are given a replacement for destroyed city
+* Special objects (enemy bogeys) fly across the screen and can be destroyed for bonus points 
+* Levels of increasing difficulty 
+
+#### Potential extended features
+Cool feel stuff like camera shake and pixel destruction and sound.
+
+## Cloning missile command
 
 Missile command is a game that was made with gameplay and feel in mind. The game didn't follow what was codeable: the code serves the game.
 
@@ -102,6 +129,7 @@ For this you can relax and put aside the game design side of the course, and jus
 * If you use 2018.2 (as we did previously) you'll be very confused because **prefabs, which you will need, work differently** now. TextMeshPro too is handled a bit differently. Save the stress, use 2019.1.x.
 * **DO NOT use Unity 2019.2.x**. Things will change in unpredicable ways and you have no idea if it will run when I mark your assessment.
 * Name your project for delivery from the start. **GPR103_Lastname_Firstname_MissileCommand**. Use it as your git repo name too. We'll do this tonight.
+* Pairs could go with **GPR103_Lastname_and_Lastname_MissileCommand**
 * **Use git!!** Then no one will have to send messages about losing files at the end or wishing they'd stopped before x or y happened. That'll also mean more marks because you submit your best work.
 
 ### How to submit
