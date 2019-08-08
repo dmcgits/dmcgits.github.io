@@ -195,6 +195,8 @@ Next, clone it using SourceTree into the `unityGit___mc` folder.
 ![Git Clone](assets/week9/git_clone_missile_command.png)
 _Path is the https address from git, folder is unityGit, next field is name_
 
+![Cloned repo](assets/week9/git_cloned_missile_command.png)
+
 ### Create your unity project
 
 1. Add a new 2019.1.x project
