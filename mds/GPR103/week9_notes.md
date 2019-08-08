@@ -188,8 +188,12 @@ We'll set up a project on Github and call it `MissileCommand_DM` where DM is you
 
 * Add a readme, a Unity .gitignore file, make it a private repo.
 
+![Git project](assets/week9/git_create_repo.png)
 
 Next, clone it using SourceTree into the `unityGit___mc` folder. 
+
+![Git Clone](assets/week9/git_clone_missile_command.png)
+_Path is the https address from git, folder is unityGit, next field is name_
 
 ### Create your unity project
 
