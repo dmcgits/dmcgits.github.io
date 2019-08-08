@@ -36,6 +36,7 @@ Look at A3, get a base.
       2. [Git project](#git-project)
       3. [Create your unity project](#create-your-unity-project)
       4. [Push it back to Git](#push-it-back-to-git)
+      5. [Tweak some unity settings and commit](#tweak-some-unity-settings-and-commit)
    6. [Art](#art)
    7. [Can these screens help us plan?](#can-these-screens-help-us-plan)
       1. [Figuring out the things in our game](#figuring-out-the-things-in-our-game)
@@ -212,6 +213,17 @@ _Path is the https address from git, folder is unityGit, next field is name_
 2. Commit with a message like "Adding blank unity project"
 3. Push to github
 4. Visit github in the browser to see your files are there
+
+![Sourcetree changes](assets/week9/sourcetree_unity_project_added.png)
+_Stage all, then enter a message and commit_
+
+![Click push to sent to origin](assets/week9/sourcetree_push_blank_project.png)
+_After you commit, click push (with the blue 1) and accept defaults_
+### Tweak some unity settings and commit
+
+Make sure your project is windowed and has a set resolution. You can change application name and company if you like. I set a camera background colour to get away from the nasty blue ASAP.
+
+![player settings](assets/week9/unity_player_settings.png)
 
 ## Art
 
