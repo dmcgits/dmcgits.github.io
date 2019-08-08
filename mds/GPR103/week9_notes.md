@@ -17,23 +17,30 @@ Look at A3, get a base.
 
 <!-- code_chunk_output -->
 
-- [Week 9](#week-9)
-  - [Your todos for next week](#your-todos-for-next-week)
-  - [Assessment 2](#assessment-2)
-  - [Assessment 3](#assessment-3)
-    - [Game Play](#game-play)
-    - [Breaking down the assessment in bullet points](#breaking-down-the-assessment-in-bullet-points)
-  - [Cloning missile command](#cloning-missile-command)
-    - [DELIVERY REQUIREMENTS](#delivery-requirements)
-    - [How to submit](#how-to-submit)
-    - [Gameplay](#gameplay)
-    - [Git project](#git-project)
-    - [Project folders](#project-folders)
-  - [Art](#art)
-  - [Can these screens help us plan?](#can-these-screens-help-us-plan)
-    - [Figuring out the things in our game](#figuring-out-the-things-in-our-game)
-    - [A partial list of them](#a-partial-list-of-them)
-  - [Systems and Psuedocode](#systems-and-psuedocode)
+1. [Week 9](#week-9)
+   1. [Your todos for next week](#your-todos-for-next-week)
+   2. [Assessment 2](#assessment-2)
+   3. [Assessment 3](#assessment-3)
+      1. [Game Play](#game-play)
+      2. [Breaking down the assessment in bullet points](#breaking-down-the-assessment-in-bullet-points)
+         1. [Deliverables, when's it due](#deliverables-whens-it-due)
+         2. [Minimum Viable Product](#minimum-viable-product)
+         3. [Extra features to get beyond a credit.](#extra-features-to-get-beyond-a-credit)
+         4. [Potential extended features](#potential-extended-features)
+   4. [Cloning missile command](#cloning-missile-command)
+      1. [DELIVERY REQUIREMENTS](#delivery-requirements)
+      2. [How to submit](#how-to-submit)
+      3. [Gameplay](#gameplay)
+   5. [Getting started on bigger projects](#getting-started-on-bigger-projects)
+      1. [Folder structure](#folder-structure)
+      2. [Git project](#git-project)
+      3. [Create your unity project](#create-your-unity-project)
+      4. [Push it back to Git](#push-it-back-to-git)
+   6. [Art](#art)
+   7. [Can these screens help us plan?](#can-these-screens-help-us-plan)
+      1. [Figuring out the things in our game](#figuring-out-the-things-in-our-game)
+      2. [A partial list of them](#a-partial-list-of-them)
+   8. [Systems and Psuedocode](#systems-and-psuedocode)
 
 <!-- /code_chunk_output -->
 
@@ -65,6 +72,9 @@ Good/bad.
 
 Missile command! Using what we've learnt, and keeping our work safe in Git.
 
+
+**The game in action:** The atari home version was a little under powered, so here's part of a guy's run on the arcade machine. It's a bit potatocam but the smoothness of the arcade version and the sounds come across. <https://youtu.be/PKUDCPHlCvI?t=43>
+
 [PDF brief on blackboard](https://laureate-au.blackboard.com/bbcswebdav/pid-7197509-dt-content-rid-11808950_1/xid-11808950_1)
 
 Let's do a quick read through, then we'll really dig into it.
@@ -75,7 +85,7 @@ Let's do a quick read through, then we'll really dig into it.
 
 ### Game Play
 
-**Visuals:** The atari home version was a little under powered, so here's part of a guy's run on the arcade machine. It's a bit potatocam but the smoothness of the arcade version and the sounds come across. https://youtu.be/PKUDCPHlCvI?t=43
+**Visuals:** The arcade version again: <https://youtu.be/PKUDCPHlCvI?t=43>
 
 **Play:** The brief contains a [link to the wikipedia entry for Missile Command](https://en.wikipedia.org/wiki/Missile_Command#Gameplay) where the stages of gameplay and the rules are outlined.  
 
@@ -129,7 +139,7 @@ For this you can relax and put aside the game design side of the course, and jus
 * If you use 2018.2 (as we did previously) you'll be very confused because **prefabs, which you will need, work differently** now. TextMeshPro too is handled a bit differently. Save the stress, use 2019.1.x.
 * **DO NOT use Unity 2019.2.x**. Things will change in unpredicable ways and you have no idea if it will run when I mark your assessment.
 * Name your project for delivery from the start. **GPR103_Lastname_Firstname_MissileCommand**. Use it as your git repo name too. We'll do this tonight.
-* Pairs could go with **GPR103_Lastname_and_Lastname_MissileCommand**
+* Pairs could go with **GPR103_Lastname_and_Lastname_MissileCommand** lawyer style.
 * **Use git!!** Then no one will have to send messages about losing files at the end or wishing they'd stopped before x or y happened. That'll also mean more marks because you submit your best work.
 
 ### How to submit
@@ -149,24 +159,53 @@ A few design points:
 * central battery is fastest
 * If you're out of missiles before the attack stops, you must watch helplessly.
 
+___
+
+## Getting started on bigger projects
+
+Before we get to any coding questions on a big project, we have to be prepared for the different kinds of files we're going to be creating. 
+
+> Like cleaning up any space, it's way quicker when there's a set place to put things.
+
+### Folder structure
+
+I expect to be
+- editing images
+- downloading resources like graphics, fonts and maybe sounds
+- working in a git repo
+- Probably writing a few plain text files for notes, pseudocode etc.
+  
 ![folders](assets/week9/project_folders.png)
 
+* docs___mc
+* photoshop___mc
+* resources___mc or downloads___mc
+* unityGit___mc
+  
 ### Git project
 
-We'll set up a project on Github using the naming specified in [How to submit](#how-to-submit)
+We'll set up a project on Github and call it `MissileCommand_DM` where DM is your initials.
 
-Next, clone it using SourceTree.
+* Add a readme, a Unity .gitignore file, make it a private repo.
 
-### Project folders
 
-Start out with an organised folder structure and you have a better chance of making it to the finish line.
+Next, clone it using SourceTree into the `unityGit___mc` folder. 
 
-![folders](assets/week9/project_folders.png)
+### Create your unity project
 
-Create a unity 2d project in a temporary folder, and then move the contents into our git repo folder.
+1. Add a new 2019.1.x project
+2. Select Unity 2D
+3. Choose the the unityGit___mc folder
+4. Name the project so it's ready to zip for permission
+   - GPR103_Mcgillick_Danny_MissileCommand
+
+### Push it back to Git
 
 * Changes appear in sourcetree
-* Stage all the files, commit, push.
+1. Stage all changes
+2. Commit with a message like "Adding blank unity project"
+3. Push to github
+4. Visit github in the browser to see your files are there
 
 ## Art
 
