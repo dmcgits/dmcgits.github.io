@@ -117,7 +117,7 @@ ___
 > **NES:** 4 cols per sprite, 16 total on screen of 52 options. 16KB vram
 > **Megadrive**: 61 colours displayed of 512 options. 64KB vram.
  
-**Now?** 32 bit RGBA pngs we're importing support 16 million colours. No palette limits. 3-8GB vram is pretty typical.
+**Now?** 32 bit RGBA pngs we're importing support 16= million colours. No palette limits. 3-8GB vram is pretty typical.
 
 ### PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID
 
