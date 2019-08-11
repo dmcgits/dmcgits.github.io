@@ -17,6 +17,7 @@ export_on_save:
   - [Hello](#hello)
   - [Game Design](#game-design)
     - [2D Games with juice](#2d-games-with-juice)
+  - [ADD SCREENIES OR SHORT VIDS](#add-screenies-or-short-vids)
   - [Video: Adding Juice GDC](#video-adding-juice-gdc)
     - [Try it in FD](#try-it-in-fd)
     - [PIC OF FISSILE](#pic-of-fissile)
@@ -52,9 +53,23 @@ Many things come to mind when we talk game design.
 
 ### 2D Games with juice
 
-* Rayman Legends
-* Super meatboy
-* 
+A very small sample of 2D games with juice.
+
+> What 2D games stand out for juiciness?
+
+#### Donkey kong country?
+I remember the ground pound?
+
+## ADD SCREENIES OR SHORT VIDS
+#### Rayman Legends
+
+#### Super meatboy
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/eILvkKnMxWY?start=12" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Fez
+  
+  <iframe width="854" height="480" src="https://www.youtube.com/embed/Houl_emUdrk?start=38" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Video: Adding Juice GDC
 
