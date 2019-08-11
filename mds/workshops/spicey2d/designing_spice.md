@@ -19,8 +19,10 @@ export_on_save:
     - [2D Games with juice](#2d-games-with-juice)
   - [Video: Adding Juice GDC](#video-adding-juice-gdc)
     - [Try it in FD](#try-it-in-fd)
-- [PIC OF FISSILE](#pic-of-fissile)
-- [ADD FISSILE IN UNITY HUB](#add-fissile-in-unity-hub)
+    - [PIC OF FISSILE](#pic-of-fissile)
+    - [ADD FISSILE IN UNITY HUB](#add-fissile-in-unity-hub)
+    - [Resolution and Sprites](#resolution-and-sprites)
+    - [PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID](#pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid)
   - [Video: Your death animation sucks](#video-your-death-animation-sucks)
     - [Try those techniques in FD](#try-those-techniques-in-fd)
   - [Resources](#resources)
@@ -64,13 +66,40 @@ Adding response with tweens and sound.
 
 Our totally original game, Fissile Demand.
 
-# PIC OF FISSILE
+### PIC OF FISSILE
 
-# ADD FISSILE IN UNITY HUB
+### ADD FISSILE IN UNITY HUB
+
+Fissile without juice.
+Add a bit of tweening to flash and bloat and splode things
+Add camera shake
+Add sound
+
+What is tweening?
+
+Why no camera shake and tween in old games.
+
+There was a bit, but it was harder, different, sometimes impossible.
+
+### Resolution and Sprites
+Effects were it was limited by resolution. 
+
+Large pixels in output vs stylised large pixels made up of many pixels in screen buffer
+  - Move by small amounts creating subtle motion
+  - Rotate, scale in fractions creating very smooth feel
+  - We can scale and rotate again by tiny fractions
+  - modern 3d shaders can apply to the sprites, bloating and warping. Loads of power to spare.
+
+### PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID
 
 ## Video: Your death animation sucks
  
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pmSAG51BybY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Add bloom
+Add particles
+Maybe counter shake ground
+
 
 ### Try those techniques in FD
 
