@@ -44,7 +44,7 @@
 <li><a href="#try-it-in-fd">Try it in FD</a></li>
 <li><a href="#pic-of-fissile">PIC OF FISSILE</a></li>
 <li><a href="#add-fissile-in-unity-hub">ADD FISSILE IN UNITY HUB</a></li>
-<li><a href="#resolution-and-sprites">Resolution and Sprites</a></li>
+<li><a href="#no-juice-in-old-games">No juice in old games?</a></li>
 <li><a href="#pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid">PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID</a></li>
 </ul>
 </li>
@@ -101,13 +101,28 @@
 <p>Fissile without juice.<br>
 Add a bit of tweening to flash and bloat and splode things<br>
 Add camera shake<br>
-Add sound</p>
+Add sound<br>
+Add 2d light flare on earth explosion? Tween down.</p>
 <p>What is tweening?</p>
-<p>Why no camera shake and tween in old games.</p>
-<p>There was a bit, but it was harder, different, sometimes impossible.</p>
-<h3 class="mume-header" id="resolution-and-sprites">Resolution and Sprites</h3>
+<h3 class="mume-header" id="no-juice-in-old-games">No juice in old games?</h3>
 
-<p>Effects were it was limited by resolution.</p>
+<p>They added plenty of juice, but had to do it in different ways with greater restrictions.</p>
+<p>Remember, we&#x2019;re producing this:</p>
+<p><img src="assets/fissile_game_screen_1.png" alt="Fissile"></p>
+<p>on hardware built to handle this:</p>
+<p><img src="assets/cod_2019.png" alt="cod 2019"></p>
+<p>So things like camera shake and tween could appear in limited ways in old games. But mostly they did what they could by drawing every frame in a sprite.</p>
+<hr>
+<h4 class="mume-header" id="resolution-and-sprites">Resolution and Sprites</h4>
+
+<p>Effects were it was limited by resolution and colours available, let alone processing speed.</p>
+<blockquote>
+<p><strong>MC Arc</strong>: 256x231, ?fps on 1.25mhz cpu<br>
+<strong>NES:</strong> 256x240 @ (approx)25-30 fps, 1.78mhz cpu.<br>
+<strong>Megadrive:</strong> 320x240 (PAL) at 30fps, 7.6mhz cpu.</p>
+</blockquote>
+<p><strong>Now</strong>: Average display 1920x1080 (or up to 4K) on&#x2026; 4Ghz multi core cpu.</p>
+<p>4 billion cycles per second vs 1.25 million. Ouch. Dedicated GPU along with hardware FPU in x64 cpu.</p>
 <p>Large pixels in output vs stylised large pixels made up of many pixels in screen buffer</p>
 <ul>
 <li>Move by small amounts creating subtle motion</li>
@@ -115,8 +130,24 @@ Add sound</p>
 <li>We can scale and rotate again by tiny fractions</li>
 <li>modern 3d shaders can apply to the sprites, bloating and warping. Loads of power to spare.</li>
 </ul>
+<hr>
+<h4 class="mume-header" id="colours">Colours</h4>
+
+<blockquote>
+<p><strong>MS Arc:</strong> 16 colours<br>
+<strong>NES:</strong> 4 cols per sprite, 16 total on screen of 52 options. 16KB vram<br>
+<strong>Megadrive</strong>: 61 colours displayed of 512 options. 64KB vram.</p>
+</blockquote>
+<p><strong>Now?</strong> 32 bit RGBA pngs we&#x2019;re importing support 16 million colours. No palette limits. 3-8GB vram is pretty typical.</p>
 <h3 class="mume-header" id="pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid">PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID</h3>
 
+<h4 class="mume-header" id="what-does-all-that-mean">What does all that mean?</h4>
+
+<p>We have much more range to express ourselves.</p>
+<blockquote>
+<p>Artists and coders making these games in the 80s and 90s were busting their butts to squeeze all the power and expression they could from their hardware.<br>
+We can <strong>honour their art style</strong> with big pixels, and <strong>their spirit</strong> with modern powered additions!</p>
+</blockquote>
 <h2 class="mume-header" id="video-your-death-animation-sucks">Video: Your death animation sucks</h2>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pmSAG51BybY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
