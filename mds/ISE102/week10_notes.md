@@ -16,16 +16,23 @@ A fly stands in for our snake.
 <!-- code_chunk_output -->
 
 - [Week10 Drawing and Moving](#week10-drawing-and-moving)
+  - [Resources](#resources)
   - [A refresher on simulated things](#a-refresher-on-simulated-things)
   - [Rendering / Drawing](#rendering--drawing)
   - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-    - [A Fly is data](#a-fly-is-data)
+    - [A Snake Head is data](#a-snake-head-is-data)
   - [Movement](#movement)
     - [Refine movement](#refine-movement)
     - [Torment: the wormhole](#torment-the-wormhole)
   - [Thoughts on things following things](#thoughts-on-things-following-things)
 
 <!-- /code_chunk_output -->
+
+## Resources
+
+* Grab this: [olc and termcolor include files](assets/week9/olcAndTermColor.zip)
+
+* [week 10 code html](week10_code.html)
 
 ## A refresher on simulated things
 
@@ -63,38 +70,64 @@ For a refresher and more instructions, watch [One Lone Coder's getting started g
 
 > To draw most anything we can use _olcConsoleGameEngine's_ ```Draw()```, ```Fill()``` and ```DrawString()``` functions. 
 
-### A Fly is data
+Remember to add the .h file under _Header Files_ using "Add Existing.." and cpp file under _Source Files_ the same way.
 
-Our fly, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it's so small we'll just call it a pixel. 
-* It's time for a new type of data collection, a `Fly`.
-* We could definitely make it an object, but for now keep it simple with a struct.
+![header](assets/week10/add_olc_header.png)
 
-#### FlyGame.h
-```cpp
+And don't forget to use the Unicode character set for OLC projects
+
+![Unicode](assets/week10/unicode_visual_studio.png)
+
+### A Snake Head is data
+
+Our Snake Head, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it's so small we'll just call it a pixel. 
+* It's time for a new type of data collection, a `SnakeHead`.
+* It's a class, but since we only have variables and no functions, we only need an h file.
+
+#### SnakeHead.h
+#pragma once
+
+class SnakeHead
+{
+
 public:
-  // A new type of data collection, the fly
-  struct Fly
-  {
-    int x;
-    int y;
-    int colour;
-  };
+  float x = 0.0f;
+  float y = 0.0f;
+  float speed = 0.0f;
+  int colour = 0;
 
-private:
-  // These could be in OnUserCreate but I've put them into
-  // constants, imagining a designer coming in to make changes.
-  // On a bigger game we'd move them to a configuration class
-  // or maybe a JSON/ini text file
+  // We're using floats for x,y,speed because at the rate the screen updates,
+  // maybe 800x a second, moving 1 whole pixel per frame would
+  // put us 770 pixels off screen after 1 second
+};
+
+#### SnakeGame.h key parts
+
+These are snippets, full version in the code file.
+```cpp
+
+class SnakeGame : public olcConsoleGameEngineOOP
+{
+
+protected:
+  int _score = 232995;
+
+  virtual bool OnUserCreate();
+  virtual bool OnUserUpdate(float fElapsedTime);
+
+  bool isUpKeyHeld_ = false;
+  bool isDownKeyHeld_ = false;
+  
   const int START_X = 10;
-  const int FLY_COLOUR = BG_DARK_YELLOW | FG_BLUE;
+  const int HEAD_COLOUR = BG_DARK_YELLOW | FG_BLUE;
   const int GROUND_COLOUR = FG_DARK_YELLOW;
+ 
+  SnakeHead _head;
 
-  // private variables can feel bad at first, like using globals
-  // Remember though, we're encapsulating them. Don't go ham though.
-  // Create an instance of a Fly for our blue fly
-  Fly _blueFly;
-
+  void RenderWorld();
+};
 ```
+private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They're not nearly as bad though because we're encapsulating them. Still, use locals in your functions wherever they make sense.
 
 #### FlyGame.cpp
 ```cpp

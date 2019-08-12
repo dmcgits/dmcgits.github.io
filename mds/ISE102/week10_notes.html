@@ -34,11 +34,12 @@
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week10-drawing-and-moving">Week10 Drawing and Moving</a>
 <ul>
+<li><a href="#resources">Resources</a></li>
 <li><a href="#a-refresher-on-simulated-things">A refresher on simulated things</a></li>
 <li><a href="#rendering--drawing">Rendering / Drawing</a></li>
 <li><a href="#building-on-last-weeks-hello-world-base">Building on last week&#x2019;s hello world base</a>
 <ul>
-<li><a href="#a-fly-is-data">A Fly is data</a></li>
+<li><a href="#a-snake-head-is-data">A Snake Head is data</a></li>
 </ul>
 </li>
 <li><a href="#movement">Movement</a>
@@ -49,6 +50,16 @@
 </li>
 <li><a href="#thoughts-on-things-following-things">Thoughts on things following things</a></li>
 </ul>
+</li>
+</ul>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<ul>
+<li>
+<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
+</li>
+<li>
+<p><a href="week10_code.html">week 10 code html</a></p>
 </li>
 </ul>
 <h2 class="mume-header" id="a-refresher-on-simulated-things">A refresher on simulated things</h2>
@@ -97,39 +108,57 @@
 <blockquote>
 <p>To draw most anything we can use <em>olcConsoleGameEngine&#x2019;s</em> <code>Draw()</code>, <code>Fill()</code> and <code>DrawString()</code> functions.</p>
 </blockquote>
-<h3 class="mume-header" id="a-fly-is-data">A Fly is data</h3>
+<p>Remember to add the .h file under <em>Header Files</em> using &#x201C;Add Existing&#x2026;&#x201D; and cpp file under <em>Source Files</em> the same way.</p>
+<p><img src="assets/week10/add_olc_header.png" alt="header"></p>
+<p>And don&#x2019;t forget to use the Unicode character set for OLC projects</p>
+<p><img src="assets/week10/unicode_visual_studio.png" alt="Unicode"></p>
+<h3 class="mume-header" id="a-snake-head-is-data">A Snake Head is data</h3>
 
-<p>Our fly, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it&#x2019;s so small we&#x2019;ll just call it a pixel.</p>
+<p>Our Snake Head, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it&#x2019;s so small we&#x2019;ll just call it a pixel.</p>
 <ul>
-<li>It&#x2019;s time for a new type of data collection, a <code>Fly</code>.</li>
-<li>We could definitely make it an object, but for now keep it simple with a struct.</li>
+<li>It&#x2019;s time for a new type of data collection, a <code>SnakeHead</code>.</li>
+<li>It&#x2019;s a class, but since we only have variables and no functions, we only need an h file.</li>
 </ul>
-<h4 class="mume-header" id="flygameh">FlyGame.h</h4>
+<h4 class="mume-header" id="snakeheadh">SnakeHead.h</h4>
 
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">public</span><span class="token operator">:</span>
-  <span class="token comment">// A new type of data collection, the fly</span>
-  <span class="token keyword">struct</span> Fly
-  <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> y<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> colour<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<h1 class="mume-header" id="pragma-once">pragma once</h1>
 
-<span class="token keyword">private</span><span class="token operator">:</span>
-  <span class="token comment">// These could be in OnUserCreate but I&apos;ve put them into</span>
-  <span class="token comment">// constants, imagining a designer coming in to make changes.</span>
-  <span class="token comment">// On a bigger game we&apos;d move them to a configuration class</span>
-  <span class="token comment">// or maybe a JSON/ini text file</span>
+<p>class SnakeHead<br>
+{</p>
+<p>public:<br>
+float x = 0.0f;<br>
+float y = 0.0f;<br>
+float speed = 0.0f;<br>
+int colour = 0;</p>
+<p>// We&#x2019;re using floats for x,y,speed because at the rate the screen updates,<br>
+// maybe 800x a second, moving 1 whole pixel per frame would<br>
+// put us 770 pixels off screen after 1 second<br>
+};</p>
+<h4 class="mume-header" id="snakegameh-key-parts">SnakeGame.h key parts</h4>
+
+<p>These are snippets, full version in the code file.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP
+<span class="token punctuation">{</span>
+
+<span class="token keyword">protected</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> _score <span class="token operator">=</span> <span class="token number">232995</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">virtual</span> <span class="token keyword">bool</span> <span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">virtual</span> <span class="token keyword">bool</span> <span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">bool</span> isUpKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> isDownKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  
   <span class="token keyword">const</span> <span class="token keyword">int</span> START_X <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> <span class="token keyword">int</span> FLY_COLOUR <span class="token operator">=</span> BG_DARK_YELLOW <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token keyword">int</span> HEAD_COLOUR <span class="token operator">=</span> BG_DARK_YELLOW <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
   <span class="token keyword">const</span> <span class="token keyword">int</span> GROUND_COLOUR <span class="token operator">=</span> FG_DARK_YELLOW<span class="token punctuation">;</span>
+ 
+  SnakeHead _head<span class="token punctuation">;</span>
 
-  <span class="token comment">// private variables can feel bad at first, like using globals</span>
-  <span class="token comment">// Remember though, we&apos;re encapsulating them. Don&apos;t go ham though.</span>
-  <span class="token comment">// Create an instance of a Fly for our blue fly</span>
-  Fly _blueFly<span class="token punctuation">;</span>
-
-</pre><h4 class="mume-header" id="flygamecpp">FlyGame.cpp</h4>
+  <span class="token keyword">void</span> <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They&#x2019;re not nearly as bad though because we&#x2019;re encapsulating them. Still, use locals in your functions wherever they make sense.</p>
+<h4 class="mume-header" id="flygamecpp">FlyGame.cpp</h4>
 
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">bool</span> FlyGame<span class="token operator">::</span><span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
