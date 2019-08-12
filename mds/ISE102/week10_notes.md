@@ -15,16 +15,14 @@ A fly stands in for our snake.
 
 <!-- code_chunk_output -->
 
-- [Week10 Drawing and Moving](#week10-drawing-and-moving)
-  - [Resources](#resources)
-  - [A refresher on simulated things](#a-refresher-on-simulated-things)
-  - [Rendering / Drawing](#rendering--drawing)
-  - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-    - [A Snake Head is data](#a-snake-head-is-data)
-  - [Movement](#movement)
-    - [Refine movement](#refine-movement)
-    - [Torment: the wormhole](#torment-the-wormhole)
-  - [Thoughts on things following things](#thoughts-on-things-following-things)
+1. [Week10 Drawing and Moving](#week10-drawing-and-moving)
+   1. [Resources](#resources)
+   2. [A refresher on simulated things](#a-refresher-on-simulated-things)
+   3. [Rendering / Drawing](#rendering--drawing)
+   4. [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
+      1. [A Snake Head is data](#a-snake-head-is-data)
+         1. [SnakeHead.h](#snakeheadh)
+   5. [Thoughts on things following things](#thoughts-on-things-following-things)
 
 <!-- /code_chunk_output -->
 
@@ -36,7 +34,9 @@ A fly stands in for our snake.
 
 ## A refresher on simulated things
 
-Remember, programming is about imagining a world, then converting it into data and the code that moves/changes that data. Some things we imagine:
+Remember, programming is about imagining a world, then converting it into data and the code that moves/changes that data. 
+
+Looking at a pic of snake, some things we can imagine:
 
 > * A magic garden that grows enchanted fruit. 
 >  - It has wormhole walls that deliver you to the opposite side, so the only escape is death. 
@@ -57,11 +57,11 @@ Once you have made your simulation, you output it somehow. In a game, we do it i
 
 ## Building on last week's hello world base
 
-Before graduating to snakes, we'll imagine a bluefly, and have it fly around the torture garden. 
+We're going to design a snakes head, then make one and move it around the torture garden. 
 * At first it will escape
 * You will put it in the eternal prison of the magic garden.
 
-To draw them, we'll build on the SnakeGame or HelloOLC class we made last week. It inherited from the olcConsoleGameEngineOOP class, and overrode the OnUserCreate and OnUserUpdate functions.
+To draw them, we'll build on the SnakeGame we made last week. It inherited from the olcConsoleGameEngineOOP class, and overrode the OnUserCreate and OnUserUpdate functions.
 
 ![hello olc](assets/week10/hello_olc.png)
 
@@ -85,6 +85,8 @@ Our Snake Head, drawn or not, is a thing with properties: a location (x, y) and 
 * It's a class, but since we only have variables and no functions, we only need an h file.
 
 #### SnakeHead.h
+
+```cpp {.line-numbers}
 #pragma once
 
 class SnakeHead
@@ -129,31 +131,52 @@ protected:
 ```
 private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They're not nearly as bad though because we're encapsulating them. Still, use locals in your functions wherever they make sense.
 
-#### FlyGame.cpp
-```cpp
-bool FlyGame::OnUserCreate()
-{
-  blueFly.x = blueFly.y = START_X;
-  blueFly.colour = FLY_COLOUR;
-  return true;
-}
+#### Snake Game
 
-bool FlyGame::OnUserUpdate(int fElapsedTime)
+Initialising our game. Weonly need to set up the head for now.
+```cpp {.line-numbers}
+// Runs when you create "SnakeGame" because you extended olcConsoleGameEngineOOP
+// This is where you put everything in their starting state/position
+bool SnakeGame::OnUserCreate()
 {
-  // No input
-  // No simulation, fly ain't moving
+  _head.x = _head.y = (float)START_X;
+  _head.speed = 0.02f;
+  _head.colour = HEAD_COLOUR;
   
-  RenderWorld();
   return true;
 }
+```
 
-void FlyGame::RenderWorld()
+```cpp {.line-numbers}
+// Runs many times a second in "SnakeGame" because you extended olcConsoleGameEngineOOP
+// This is where your game action happens
+bool SnakeGame::OnUserUpdate(float fElapsedTime)
+{
+    // Get input
+    isUpKeyHeld_ = (m_keys[VK_UP].bHeld || m_keys[VK_UP].bPressed) ? true : false;
+		isDownKeyHeld_ = (m_keys[VK_DOWN].bHeld || m_keys[VK_DOWN].bPressed) ? true : false;
+
+    // update everything
+    if (isUpKeyHeld_) _head.y -= _head.speed;
+		if (isDownKeyHeld_) _head.y += _head.speed;;
+
+    // Draw the world
+    RenderWorld();
+    
+    // OnUserUpdate has to return true for the engine to continue
+    return true;
+}
+```
+### Rendering the action
+
+```cpp {.line-numbers}
+void SnakeGame::RenderWorld()
 {
   // Clear the screen by drawing ground colour
-	Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, GROUND_COLOUR); //
-
-  // Draw the fly
-  Draw(_blueFly.x, _blueFly.y, *L"Y", _blueFly.colour);
+  Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, GROUND_COLOUR); //
+  // Check the up and down states of our arrow keys on screen
+  DrawString(2, 2, L"UP: " + to_wstring(isUpKeyHeld_));   DrawString(2, 3, L"DN: " + to_wstring(isDownKeyHeld_));
+  Draw((int)_head.x, (int)_head.y, PIXEL_SOLID, _head.colour);
 }
 ```
 
@@ -191,26 +214,6 @@ bool OnUserUpdate(float fElapsedTime)
     RenderWorld();
     
 }
-
-```
-### Refine movement
-
-How's that look? We barely see it because it's gone from the screen in an instant. If our framerate is 1000fps our fly just moved 1000 pixels in a second. If your machine was slower and ran at 200fps, it would have moved 200 pixels.
-
-We need to either
-1. Move by much tinier amounts
-2. Not let the frame rate dictate our movements.
-
-or
-limit the frame rate and make it predictable.
-
-For now we'll hack the framerate with sleep. At the end of OnUserUpdate:
-
-```cpp
-    ...
-    RenderWorld();
-
-    this_thread::sleep_for(chrono::milliseconds(16));
 
 ```
 
