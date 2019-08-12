@@ -15,14 +15,13 @@ A fly stands in for our snake.
 
 <!-- code_chunk_output -->
 
-1. [Week10 Drawing and Moving](#week10-drawing-and-moving)
-   1. [Resources](#resources)
-   2. [A refresher on simulated things](#a-refresher-on-simulated-things)
-   3. [Rendering / Drawing](#rendering--drawing)
-   4. [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-      1. [A Snake Head is data](#a-snake-head-is-data)
-         1. [SnakeHead.h](#snakeheadh)
-   5. [Thoughts on things following things](#thoughts-on-things-following-things)
+- [Week10 Drawing and Moving](#week10-drawing-and-moving)
+  - [Resources](#resources)
+  - [A refresher on simulated things](#a-refresher-on-simulated-things)
+  - [Rendering / Drawing](#rendering-drawing)
+  - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
+    - [A Snake Head is data](#a-snake-head-is-data)
+      - [SnakeHead.h](#snakeheadh)
 
 <!-- /code_chunk_output -->
 

@@ -1,10 +1,19 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # Week 10 Code 
 
 ## Moving a snake head around
 
 ### main.cpp
 
-First, we window running our game
+First, we need a window running our game
 
 ```cpp {.line-numbers}
 #include <iostream>

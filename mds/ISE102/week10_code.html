@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>week10_notes</title>
+      <title>week10_code</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,96 +23,29 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="week10-drawing-and-moving">Week10 Drawing and Moving</h1>
+      <h1 class="mume-header" id="week-10-code">Week 10 Code</h1>
 
-<p>A fly stands in for our snake.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week10-drawing-and-moving">Week10 Drawing and Moving</a>
-<ul>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#a-refresher-on-simulated-things">A refresher on simulated things</a></li>
-<li><a href="#rendering-drawing">Rendering / Drawing</a></li>
-<li><a href="#building-on-last-weeks-hello-world-base">Building on last week&apos;s hello world base</a>
-<ul>
-<li><a href="#a-snake-head-is-data">A Snake Head is data</a>
-<ul>
-<li><a href="#snakeheadh">SnakeHead.h</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="resources">Resources</h2>
+<h2 class="mume-header" id="moving-a-snake-head-around">Moving a snake head around</h2>
 
-<ul>
-<li>
-<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
-</li>
-<li>
-<p><a href="week10_code.html">week 10 code html</a></p>
-</li>
-</ul>
-<h2 class="mume-header" id="a-refresher-on-simulated-things">A refresher on simulated things</h2>
+<h3 class="mume-header" id="maincpp">main.cpp</h3>
 
-<p>Remember, programming is about imagining a world, then converting it into data and the code that moves/changes that data.</p>
-<p>Looking at a pic of snake, some things we can imagine:</p>
-<blockquote>
-<ul>
-<li>A magic garden that grows enchanted fruit.</li>
-</ul>
-<ul>
-<li>It has wormhole walls that deliver you to the opposite side, so the only escape is death.</li>
-</ul>
-<ul>
-<li>A snake who grows longer by a segment when eating the fruit.</li>
-</ul>
-<ul>
-<li>It can turn only in 90 degree increments, meaning it is limited to travelling up, down, left or right.</li>
-<li>the snake&apos;s body flows through these 90 degree turns after it</li>
-<li>If it encounters its own body it thinks it has met a dangerous enemy and bites itself to death.</li>
-</ul>
-</blockquote>
-<h2 class="mume-header" id="rendering-drawing">Rendering / Drawing</h2>
+<p>First, we need a window running our game</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;SnakeGame.h&quot;</span></span>
 
-<p>Once you have made your simulation, you output it somehow. In a game, we do it in realtime, often as fast as our graphics card can manage. I&apos;ll go with a pixel style, reflecting the tiny screens of old Nokias, but it could easiliy be 3D, 2D sprites, Virtual Reality, whatever.</p>
-<ul>
-<li>Some things we&apos;d draw in a snake game:
-<ul>
-<li>Grass/ground</li>
-<li>A border if you like</li>
-<li>A snake</li>
-<li>Fruit</li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="building-on-last-weeks-hello-world-base">Building on last week&apos;s hello world base</h2>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-<p>We&apos;re going to design a snakes head, then make one and move it around the torture garden.</p>
-<ul>
-<li>At first it will escape</li>
-<li>You will put it in the eternal prison of the magic garden.</li>
-</ul>
-<p>To draw them, we&apos;ll build on the SnakeGame we made last week. It inherited from the olcConsoleGameEngineOOP class, and overrode the OnUserCreate and OnUserUpdate functions.</p>
-<p><img src="assets/week10/hello_olc.png" alt="hello olc"></p>
-<p>For a refresher and more instructions, watch <a href="https://www.youtube.com/watch?v=u5BhrA8ED0o">One Lone Coder&apos;s getting started guide:</a><br>
-<a href="https://www.youtube.com/watch?v=u5BhrA8ED0o"><img src="assets/week10/start_olc.jpg" alt="Start olc"></a></p>
-<blockquote>
-<p>To draw most anything we can use <em>olcConsoleGameEngine&apos;s</em> <code>Draw()</code>, <code>Fill()</code> and <code>DrawString()</code> functions.</p>
-</blockquote>
-<p>Remember to add the .h file under <em>Header Files</em> using &quot;Add Existing..&quot; and cpp file under <em>Source Files</em> the same way.</p>
-<p><img src="assets/week10/add_olc_header.png" alt="header"></p>
-<p>And don&apos;t forget to use the Unicode character set for OLC projects</p>
-<p><img src="assets/week10/unicode_visual_studio.png" alt="Unicode"></p>
-<h3 class="mume-header" id="a-snake-head-is-data">A Snake Head is data</h3>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	SnakeGame game<span class="token punctuation">;</span>
+  <span class="token comment">// 20 rows wide, 24 columns high, </span>
+  <span class="token comment">// and make each &quot;pixel&quot; take up 24x24 of your high resolution screen&apos;s pixels.</span>
+	game<span class="token punctuation">.</span><span class="token function">ConstructConsole</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	game<span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<p>Our Snake Head, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it&apos;s so small we&apos;ll just call it a pixel.</p>
-<ul>
-<li>It&apos;s time for a new type of data collection, a <code>SnakeHead</code>.</li>
-<li>It&apos;s a class, but since we only have variables and no functions, we only need an h file.</li>
-</ul>
-<h4 class="mume-header" id="snakeheadh">SnakeHead.h</h4>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="snakeheadh">SnakeHead.h</h3>
 
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 
@@ -129,14 +62,18 @@
   <span class="token comment">// maybe 800x a second, moving 1 whole pixel per frame would</span>
   <span class="token comment">// put us 770 pixels off screen after 1 second</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="snakegameh">SnakeGame.h</h3>
 
-#### SnakeGame<span class="token punctuation">.</span>h key parts
-
-These are snippets<span class="token punctuation">,</span> full version in the code file<span class="token punctuation">.</span>
-```cpp
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;olcConsoleGameEngineOOP.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;SnakeHead.h&quot;</span></span>
 
 <span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP
 <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token comment">// The constructor and destructor. They always have to be declared, whether you use them or not.</span>
+  <span class="token function">SnakeGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">~</span><span class="token function">SnakeGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">protected</span><span class="token operator">:</span>
   <span class="token keyword">int</span> _score <span class="token operator">=</span> <span class="token number">232995</span><span class="token punctuation">;</span>
@@ -150,15 +87,19 @@ These are snippets<span class="token punctuation">,</span> full version in the c
   <span class="token keyword">const</span> <span class="token keyword">int</span> START_X <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> <span class="token keyword">int</span> HEAD_COLOUR <span class="token operator">=</span> BG_DARK_YELLOW <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
   <span class="token keyword">const</span> <span class="token keyword">int</span> GROUND_COLOUR <span class="token operator">=</span> FG_DARK_YELLOW<span class="token punctuation">;</span>
- 
+
+  <span class="token comment">// private variables can feel bad at first, like using globals</span>
+  <span class="token comment">// Remember though, we&apos;re encapsulating them. Don&apos;t go ham though.</span>
+  <span class="token comment">// Create an instance of a Fly for our blue fly</span>
   SnakeHead _head<span class="token punctuation">;</span>
 
   <span class="token keyword">void</span> <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They&apos;re not nearly as bad though because we&apos;re encapsulating them. Still, use locals in your functions wherever they make sense.</p>
-<h4>Snake Game</h4>
-<p>Initialising our game. Weonly need to set up the head for now.</p>
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// Runs when you create &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="snakegamecpp">SnakeGame.cpp</h3>
+
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;SnakeGame.h&quot;</span></span>
+
+<span class="token comment">// Runs when you create &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
 <span class="token comment">// This is where you put everything in their starting state/position</span>
 <span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -168,7 +109,8 @@ These are snippets<span class="token punctuation">,</span> full version in the c
   
   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// Runs many times a second in &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
+
+<span class="token comment">// Runs many times a second in &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
 <span class="token comment">// This is where your game action happens</span>
 <span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -186,60 +128,28 @@ These are snippets<span class="token punctuation">,</span> full version in the c
     <span class="token comment">// OnUserUpdate has to return true for the engine to continue</span>
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>Rendering the action</h3>
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token keyword">void</span> SnakeGame<span class="token operator">::</span><span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">void</span> SnakeGame<span class="token operator">::</span><span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
+  
   <span class="token comment">// Clear the screen by drawing ground colour</span>
   <span class="token function">Fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">ScreenWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> PIXEL_SOLID<span class="token punctuation">,</span> GROUND_COLOUR<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//</span>
-  <span class="token comment">// Check the up and down states of our arrow keys on screen</span>
-  <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> L<span class="token string">&quot;UP: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> L<span class="token string">&quot;DN: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> L<span class="token string">&quot;UP: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Write score 3 pixels right, two pixels down (like arrays, start at 0)</span>
+  <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> L<span class="token string">&quot;DN: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Write score 3 pixels right, two pixels down (like arrays, start at 0)</span>
+  <span class="token comment">// Draw the fly </span>
   <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>_head<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>_head<span class="token punctuation">.</span>y<span class="token punctuation">,</span> PIXEL_SOLID<span class="token punctuation">,</span> _head<span class="token punctuation">.</span>colour<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2>Movement</h2>
-<p>We can move our fly by stepping a little way each frame.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">struct</span> Fly
-  <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> y<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> speed<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> colour<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-
-<span class="token keyword">bool</span> isUpKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token keyword">bool</span> isDownKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-
-<span class="token keyword">bool</span> <span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
+<span class="token comment">// The constructor and destructor. They always have to be declared, whether you use them or not.</span>
+SnakeGame<span class="token operator">::</span><span class="token function">SnakeGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    <span class="token comment">// Get input</span>
-    isUpKeyHeld_ <span class="token operator">=</span> <span class="token punctuation">(</span>m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-		isDownKeyHeld_ <span class="token operator">=</span> <span class="token punctuation">(</span>m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-
-    <span class="token comment">// update everything</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span> _blueFly<span class="token punctuation">.</span>y <span class="token operator">-=</span> _blueFly<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span> _blueFly<span class="token punctuation">.</span>y <span class="token operator">+=</span> _blueFly<span class="token punctuation">.</span>speed<span class="token punctuation">;</span><span class="token punctuation">;</span>
-
-    <span class="token comment">// Draw the world</span>
-    <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
 <span class="token punctuation">}</span>
 
-</pre><h3>Torment: the wormhole</h3>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>y <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    _blueFly<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>posY <span class="token operator">==</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    _blueFly<span class="token punctuation">.</span>posY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-</pre><h2>Thoughts on things following things</h2>
-<p>To follow something you have to know where it&apos;s been. It has to have left a record, or be willing to answer your question: what&apos;s the last pixel you were in?</p>
-<p>The world remembers (history book/story teller) or the leader you are following remembers.</p>
-
+SnakeGame<span class="token operator">::</span><span class="token operator">~</span><span class="token function">SnakeGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre>
       </div>
       
       
