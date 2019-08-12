@@ -214,13 +214,22 @@ Maybe counter shake ground
 
 If you or your students want to learn more about how to add this kind of feel to games, here are some useful links and videos:
 
-1. Unite Berlin free workshop series, along with downloadable project demonstrating principles in action: [Creating a 2D Platformer playlist](https://www.youtube.com/watch?v=j29NgzV8Dw4&list=PLX2vGYjWbI0REfhDHPpdIBjjrzDHDP-xT)
+#### 1. Unite Berlin free workshop series
+Great education and a downloadable project demonstrating principles in action: [Creating a 2D Platformer playlist](https://www.youtube.com/watch?v=j29NgzV8Dw4&list=PLX2vGYjWbI0REfhDHPpdIBjjrzDHDP-xT)
   * eg: how to add to impression of explosion with chromatic abberation:
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/yXCSunSDxT4?start=608" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-2. Brackey's 2d lighting tutorial using Unity's light weight render pipeline. Provides links to a **follow-along Unity scene**.
+#### 2. Brackey's 2d lighting tutorial
+
+Using Unity's light weight render pipeline. Provides links to a **follow-along Unity scene**.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/nkgGyO9VG54" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-3. DoTween documentation: http://dotween.demigiant.com/documentation.php
+#### 3. DoTween documentation
+http://dotween.demigiant.com/documentation.php
+
+#### 4. 12 Principles Of Animation: Anticipation
+[On Animation Mentor](https://blog.animationmentor.com/anticipation-the-12-basic-principles-of-animation/)
+
+![12 principles](assets/12principles_anticipation.png)
