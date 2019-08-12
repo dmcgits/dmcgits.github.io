@@ -15,22 +15,14 @@ export_on_save:
 
 - [Game Design: spice to your games](#game-design-spice-to-your-games)
   - [Hello](#hello)
-  - [Game Design](#game-design)
+  - [Game Design Principles](#game-design-principles)
+    - [Feel as fast feedback](#feel-as-fast-feedback)
     - [2D Games with juice](#2d-games-with-juice)
-      - [Donkey kong country?](#donkey-kong-country)
   - [ADD SCREENIES OR SHORT VIDS](#add-screenies-or-short-vids)
-      - [Rayman Legends](#rayman-legends)
-      - [Super meatboy](#super-meatboy)
-      - [Fez](#fez)
   - [Video: Adding Juice GDC](#video-adding-juice-gdc)
-    - [Try it in FD](#try-it-in-fd)
-    - [PIC OF FISSILE](#pic-of-fissile)
-    - [ADD FISSILE IN UNITY HUB](#add-fissile-in-unity-hub)
+    - [Tweens, sound, camera shake, wow!](#tweens-sound-camera-shake-wow)
     - [No juice in old games?](#no-juice-in-old-games)
-      - [Resolution and Sprites](#resolution-and-sprites)
-      - [Colours](#colours)
     - [PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID](#pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid)
-      - [What does all that mean?](#what-does-all-that-mean)
   - [Video: Your death animation sucks](#video-your-death-animation-sucks)
     - [Try those techniques in FD](#try-those-techniques-in-fd)
   - [Resources](#resources)
@@ -43,7 +35,7 @@ export_on_save:
 * You
 * Me
 
-## Game Design
+## Game Design Principles
 
 Many things come to mind when we talk game design. 
 * Genres
@@ -52,11 +44,38 @@ Many things come to mind when we talk game design.
 * scripting
 * balancing.
 
- ### Feel
+There are many practices and principles for each, a million niches to squeeze into.
 
-* Making up for missing sense of touch
-* We have to take away physics and anticipation because of 
-* Communicating on multi levels: combining light, sound, shape (juice
+### Feel as fast feedback
+
+Keeping a user in the pocket. Fast feedback, fast response, immersion. A sense of agency.
+
+A key part of this, explored in explosions and collisions, is that missing element of physical force, of ear splitting sound and blinding light.
+
+How to make them feel like they're out there with Oppenheimer,wearing goggles and being blasted.
+
+* We can't go above the nits of the tv or their volume.
+* We have to take away physics, anticipation and follow through in jumps and collsions to keep controls responsive. Instead of 8 frames of wind up, like in a film, you have one or zero frames to leave the ground. Anticipation and follow through create the sense of weight, of physical presence. Critical principle from Disney's 9 old men.
+![anticipation](assets/anticipation_1.jpg)
+_These tv style keyframes show anticipation. You'd have more in between to smooth it_
+![no anticipation](assets/no_anticipation.png)
+_Mega man has to be off the ground almost before you press._
+
+But we can't just shrug our shoulders and accept our characters have no presence.
+
+How do we make up for that? We'll see some things today, but you might remember from playing platformers:
+  - camera lag
+  - booOIIINg or dooIIIght sounds
+  - dust particles on jump?
+  - Splats and camera overshoot on land.
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/dJJnxHcv1z4?start=627" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Sonic can explain camera lag and dooooIIIght_
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/dLMvXi_-j2E?start=821" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Viewtiful Joe demonstrates particles for ground and even air jumps_
+
+* Communicating on multi levels: combining light, sound, shape 
 
 ### 2D Games with juice
 
@@ -78,19 +97,26 @@ I remember the ground pound?
   
   <iframe width="854" height="480" src="https://www.youtube.com/embed/Houl_emUdrk?start=38" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+#### Guacamelee 2
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/XiTqmUiuqpM?start=116" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Video: Adding Juice GDC
 
-Adding response with tweens and sound.
+The problem with looking at characters first is we're pretty biased towards feeling what happens to them.
+
+Here are some experts to show us you can add loads of increased feedback and feel even to classic games quadrangles for characters. 
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/Fy0aCDmgnxg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_A classic GDC talk, Juice It Or Lose It_
 
-### Try it in FD
+### Tweens, sound, camera shake, wow!
 
-Our totally original game, Fissile Demand.
+There is theory there to explore, but first, lets have a look at our demo. A totally original retro arcade classic, Fissile Demand.
 
-### PIC OF FISSILE
+![Fissile](assets/fissile_game_screen_1.png)
 
-### ADD FISSILE IN UNITY HUB
+![Fissile Hub](assets/fissile_hub.png)
 
 Fissile without juice.
 Add a bit of tweening to flash and bloat and splode things
@@ -98,7 +124,13 @@ Add camera shake
 Add sound
 Add 2d light flare on earth explosion? Tween down.
 
-What is tweening?
+The boys in video 1 talked about Tweening. Tweening by code is about types of linear equations, allowing us to change how we make our way from A to B
+
+![Tweening](assets/easings_blackOnWhite.png)
+_Easy to see in big screen_
+
+![Tweening](assets/easing_visualised.gif)
+_Animated visualisation by NoiseCrime_
 
 ### No juice in old games?
 
@@ -158,6 +190,7 @@ Add bloom
 Add particles
 Maybe counter shake ground
 
+
 ### Try those techniques in FD
 
 ## Resources
@@ -179,6 +212,15 @@ Maybe counter shake ground
 
 ## Learning paths
 
-* Brackey's [2d lighting tutorial](
-https://youtu.be/nkgGyO9VG54) using Unity's light weight render pipeline. Provides links to a follow-along Unity scene.
-* DoTween documentation: http://dotween.demigiant.com/documentation.php
+If you or your students want to learn more about how to add this kind of feel to games, here are some useful links and videos:
+
+1. Unite Berlin free workshop series, along with downloadable project demonstrating principles in action: [Creating a 2D Platformer playlist](https://www.youtube.com/watch?v=j29NgzV8Dw4&list=PLX2vGYjWbI0REfhDHPpdIBjjrzDHDP-xT)
+  * eg: how to add to impression of explosion with chromatic abberation:
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/yXCSunSDxT4?start=608" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+2. Brackey's 2d lighting tutorial using Unity's light weight render pipeline. Provides links to a **follow-along Unity scene**.
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/nkgGyO9VG54" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+3. DoTween documentation: http://dotween.demigiant.com/documentation.php
