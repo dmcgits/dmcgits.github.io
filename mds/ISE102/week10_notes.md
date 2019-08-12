@@ -15,13 +15,19 @@ A fly stands in for our snake.
 
 <!-- code_chunk_output -->
 
-- [Week10 Drawing and Moving](#week10-drawing-and-moving)
-  - [Resources](#resources)
-  - [A refresher on simulated things](#a-refresher-on-simulated-things)
-  - [Rendering / Drawing](#rendering-drawing)
-  - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-    - [A Snake Head is data](#a-snake-head-is-data)
-      - [SnakeHead.h](#snakeheadh)
+1. [Week10 Drawing and Moving](#week10-drawing-and-moving)
+   1. [Resources](#resources)
+   2. [A refresher on simulated things](#a-refresher-on-simulated-things)
+   3. [Rendering / Drawing](#rendering--drawing)
+   4. [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
+      1. [A Snake Head is data](#a-snake-head-is-data)
+         1. [SnakeHead.h](#snakeheadh)
+         2. [SnakeGame.h key parts](#snakegameh-key-parts)
+         3. [Snake Game](#snake-game)
+      2. [Rendering the action](#rendering-the-action)
+   5. [Movement](#movement)
+      1. [Torment: the wormhole](#torment-the-wormhole)
+   6. [Thoughts on things following things](#thoughts-on-things-following-things)
 
 <!-- /code_chunk_output -->
 
@@ -101,6 +107,7 @@ public:
   // maybe 800x a second, moving 1 whole pixel per frame would
   // put us 770 pixels off screen after 1 second
 };
+```
 
 #### SnakeGame.h key parts
 

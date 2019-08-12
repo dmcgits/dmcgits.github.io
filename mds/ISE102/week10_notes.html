@@ -26,24 +26,33 @@
       <h1 class="mume-header" id="week10-drawing-and-moving">Week10 Drawing and Moving</h1>
 
 <p>A fly stands in for our snake.</p>
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week10-drawing-and-moving">Week10 Drawing and Moving</a>
-<ul>
+<ol>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#a-refresher-on-simulated-things">A refresher on simulated things</a></li>
-<li><a href="#rendering-drawing">Rendering / Drawing</a></li>
+<li><a href="#rendering--drawing">Rendering / Drawing</a></li>
 <li><a href="#building-on-last-weeks-hello-world-base">Building on last week&apos;s hello world base</a>
-<ul>
+<ol>
 <li><a href="#a-snake-head-is-data">A Snake Head is data</a>
-<ul>
+<ol>
 <li><a href="#snakeheadh">SnakeHead.h</a></li>
-</ul>
+<li><a href="#snakegameh-key-parts">SnakeGame.h key parts</a></li>
+<li><a href="#snake-game">Snake Game</a></li>
+</ol>
 </li>
-</ul>
+<li><a href="#rendering-the-action">Rendering the action</a></li>
+</ol>
 </li>
-</ul>
+<li><a href="#movement">Movement</a>
+<ol>
+<li><a href="#torment-the-wormhole">Torment: the wormhole</a></li>
+</ol>
 </li>
-</ul>
+<li><a href="#thoughts-on-things-following-things">Thoughts on things following things</a></li>
+</ol>
+</li>
+</ol>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ul>
@@ -129,13 +138,10 @@
   <span class="token comment">// maybe 800x a second, moving 1 whole pixel per frame would</span>
   <span class="token comment">// put us 770 pixels off screen after 1 second</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="snakegameh-key-parts">SnakeGame.h key parts</h4>
 
-#### SnakeGame<span class="token punctuation">.</span>h key parts
-
-These are snippets<span class="token punctuation">,</span> full version in the code file<span class="token punctuation">.</span>
-```cpp
-
-<span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP
+<p>These are snippets, full version in the code file.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP
 <span class="token punctuation">{</span>
 
 <span class="token keyword">protected</span><span class="token operator">:</span>
@@ -155,8 +161,9 @@ These are snippets<span class="token punctuation">,</span> full version in the c
 
   <span class="token keyword">void</span> <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They&apos;re not nearly as bad though because we&apos;re encapsulating them. Still, use locals in your functions wherever they make sense.</p>
-<h4>Snake Game</h4>
+</pre><p>private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They&apos;re not nearly as bad though because we&apos;re encapsulating them. Still, use locals in your functions wherever they make sense.</p>
+<h4 class="mume-header" id="snake-game">Snake Game</h4>
+
 <p>Initialising our game. Weonly need to set up the head for now.</p>
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// Runs when you create &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
 <span class="token comment">// This is where you put everything in their starting state/position</span>
@@ -186,7 +193,8 @@ These are snippets<span class="token punctuation">,</span> full version in the c
     <span class="token comment">// OnUserUpdate has to return true for the engine to continue</span>
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3>Rendering the action</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="rendering-the-action">Rendering the action</h3>
+
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token keyword">void</span> SnakeGame<span class="token operator">::</span><span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
   <span class="token comment">// Clear the screen by drawing ground colour</span>
@@ -195,7 +203,8 @@ These are snippets<span class="token punctuation">,</span> full version in the c
   <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> L<span class="token string">&quot;UP: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> L<span class="token string">&quot;DN: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>_head<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>_head<span class="token punctuation">.</span>y<span class="token punctuation">,</span> PIXEL_SOLID<span class="token punctuation">,</span> _head<span class="token punctuation">.</span>colour<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2>Movement</h2>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="movement">Movement</h2>
+
 <p>We can move our fly by stepping a little way each frame.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">struct</span> Fly
   <span class="token punctuation">{</span>
@@ -227,7 +236,8 @@ These are snippets<span class="token punctuation">,</span> full version in the c
     
 <span class="token punctuation">}</span>
 
-</pre><h3>Torment: the wormhole</h3>
+</pre><h3 class="mume-header" id="torment-the-wormhole">Torment: the wormhole</h3>
+
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>y <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
     _blueFly<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -236,7 +246,8 @@ These are snippets<span class="token punctuation">,</span> full version in the c
     _blueFly<span class="token punctuation">.</span>posY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-</pre><h2>Thoughts on things following things</h2>
+</pre><h2 class="mume-header" id="thoughts-on-things-following-things">Thoughts on things following things</h2>
+
 <p>To follow something you have to know where it&apos;s been. It has to have left a record, or be willing to answer your question: what&apos;s the last pixel you were in?</p>
 <p>The world remembers (history book/story teller) or the leader you are following remembers.</p>
 
