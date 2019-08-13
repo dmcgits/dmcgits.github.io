@@ -15,14 +15,18 @@ export_on_save:
 
 - [Game Design: spice to your games](#game-design-spice-to-your-games)
   - [Hello](#hello)
+  - [Today](#today)
   - [Game Design Principles](#game-design-principles)
-    - [Feel as fast feedback](#feel-as-fast-feedback)
-    - [2D Games with juice](#2d-games-with-juice)
-  - [ADD SCREENIES OR SHORT VIDS](#add-screenies-or-short-vids)
+  - [Why does it matter?](#why-does-it-matter)
+    - [What does agency require?](#what-does-agency-require)
+    - [Slow agency](#slow-agency)
+    - [Realtime agency](#realtime-agency)
+  - [A Design Principle for realtime feedback](#a-design-principle-for-realtime-feedback)
+    - [Jumping as a problem](#jumping-as-a-problem)
+    - [Some 2D Games with juice](#some-2d-games-with-juice)
   - [Video: Adding Juice GDC](#video-adding-juice-gdc)
     - [Tweens, sound, camera shake, wow!](#tweens-sound-camera-shake-wow)
     - [No juice in old games?](#no-juice-in-old-games)
-    - [PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID](#pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid)
   - [Video: Your death animation sucks](#video-your-death-animation-sucks)
     - [Try those techniques in FD](#try-those-techniques-in-fd)
   - [Resources](#resources)
@@ -35,27 +39,136 @@ export_on_save:
 * You
 * Me
 
+## Today
+
+* Concepts
+* Examples
+* Game Developer Conference Talks
+* Hands on with Unity
+* Theory
+* Learning paths, customisable notes.
+___
+
 ## Game Design Principles
 
-Many things come to mind when we talk game design. 
-* Genres
-* world building
-* level design
-* scripting
-* balancing.
+There are a lot of **elements to game design**:
+* Story
+* Genre
+* World building
+* Level design
+* Balancing
+* Progress/Boss encounters
 
-There are many practices and principles for each, a million niches to squeeze into.
+Something common to all of them is **communication**. 
 
-### Feel as fast feedback
+**Things communicated:**
+ * Purpose 
+ * Physical hazards
+ * Routes
+ * Solution helpers
+ * friend or foe
+ * Completion
+ * Feasibility
 
-Keeping a user in the pocket. Fast feedback, fast response, immersion. A sense of agency.
+![puzzle 1 journey](assets/comms_puzzle_1.jpg)
+_Did we achieve something? What?_
+ 
+ <iframe width="854" height="480" src="https://www.youtube.com/embed/f3W4fsaw5E8?start=27" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ 
+ * When you see the boss taking damage, say when
+ * Where is he vulnerable
+ * At the end how bad is the boss hurt?
+ * Is he heavy or light?
+ 
+ ### Real time sense feedback
 
-A key part of this, explored in explosions and collisions, is that missing element of physical force, of ear splitting sound and blinding light.
+A game can engage several senses, up to a point.
 
-How to make them feel like they're out there with Oppenheimer,wearing goggles and being blasted.
+* Vision, up to the limit of the brightness of your tv. Nits are capped.
+* Sound, up to volume limit.
+* Some limited touch: physical feedback by vibration, a button completely depressing or an analogue stick reaching its limit.
 
-* We can't go above the nits of the tv or their volume.
-* We have to take away physics, anticipation and follow through in jumps and collsions to keep controls responsive. Instead of 8 frames of wind up, like in a film, you have one or zero frames to leave the ground. Anticipation and follow through create the sense of weight, of physical presence. Critical principle from Disney's 9 old men.
+What we struggle with though, is that lack of physicality, the tameness and directionality of light and sound.
+
+#### A fall from height
+
+* Air roaring in ears
+* Hair and clothes flapping
+* Shock of pain and overwhelming sense of ground's implacability when you land.
+
+#### An explosion
+
+* Ear splitting sound 
+* Blinding light.
+* Heat
+* Shockwave
+* Air hitting like a brick wall
+
+#### G-force
+
+![G force](assets/g-force.png)
+
+___
+
+## Why does it matter?
+
+A game is a simulation, and we're taking part. We're reacting at human speeds. 
+
+What makes the simulation meaningful? We thrive on a feeling of achievement, agency.
+* We got from here to there
+* We saw a threat and avoided it
+* We found a puzzle and solved it
+* We had a fair chance to learn and overcome.
+
+### What does agency require?
+
+![Responsiveness and fairness](assets/responsiveness_and_fairness.png)
+* Knowing what's happening
+* Having enough information, time and resources to do the job, if we practise.
+
+### Slow agency
+
+![agency slow](assets/agency_zelda.png)
+
+Talking to someone, collecting a key, delivering a package, being offered a ride to the castle, discovering and rescuing the princess.
+
+---
+### Realtime agency
+
+**Game events can happen in 2 or 3 frames** of a 60fps game. How do we sense these tiny events, process them quickly and react when our senses are so limited?
+
+* 2 hit kill enemy fire
+* The plant you're standing on is poisoning you
+* Noticing a city in your screen's bottom right was destroyed while you look top left
+* That city was very important.
+
+#### Realtime in the real world.
+
+**Woodworkint tools often don’t have rubber handles.** They have metal or wood. It transfers the physical interaction of the blade/head amd the wood through to the skin of your hands.
+
+People have different responses to sensation, different setups that are comfortable, there's an amount of subjectivity. Some people will point out you can do any job with any chisel if you keep it sharp.
+
+**What's less subjective is time.** If you add rubber to the grips, you're muffling the transfer of information. With less information, you'll need to get it elsewhere.
+* Lift off the tool and look at the workpiece more
+* Lift off the tool and touch the workpiece more
+
+It's true that you'll be fine, you'll still do great work. It's also true your responses will be delayed to those looks/touches, you'll operate at a remove, be a little less in the pocket. 
+
+---
+
+## A Design Principle for realtime feedback
+
+> Use all means at your disposal to replace the missing senses and recover meaning in your game events.
+
+Particles, screen flash, character flash, camera shake, let's do it.
+
+### Jumping as a problem
+
+When we press jump in a game, the response has to be near immediate. If it's more than  a frame or two, it feels like the machine is failing to react. Thing is, your character feels a bit like a paper cutout.
+
+If we were animating for tv or film, we'd have maybe 4 or 8 or more frames of wind up, plus the same or more for landing.
+
+Anticipation and follow through create the sense of weight, of physical presence. The bring gravity and conservation of momentum.
 ![anticipation](assets/anticipation_1.jpg)
 _These tv style keyframes show anticipation. You'd have more in between to smooth it_
 ![no anticipation](assets/no_anticipation.png)
@@ -77,17 +190,11 @@ _Viewtiful Joe demonstrates particles for ground and even air jumps_
 
 * Communicating on multi levels: combining light, sound, shape 
 
-### 2D Games with juice
+### Some 2D Games with juice
 
 A very small sample of 2D games with juice.
 
 > What 2D games stand out for juiciness?
-
-#### Donkey kong country?
-I remember the ground pound?
-
-## ADD SCREENIES OR SHORT VIDS
-#### Rayman Legends
 
 #### Super meatboy
 
@@ -100,6 +207,12 @@ I remember the ground pound?
 #### Guacamelee 2
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/XiTqmUiuqpM?start=116" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### More
+
+* Rayman legends
+* Ultra Street Fighter 4.
+* Donkey Kong Country, if iirc.
 
 ## Video: Adding Juice GDC
 
@@ -173,7 +286,11 @@ ___
  
 **Now?** 32 bit RGBA pngs we're importing support 16= million colours. No palette limits. 3-8GB vram is pretty typical.
 
-### PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID
+**Whiteboard time** 
+Real pixel art on res on low res screen
+Upscaled pixel art (nearest neighbour) on high res on quads
+
+![pixels](assets/pixels_low_vs_high.png)
 
 #### What does all that mean?
 
@@ -186,12 +303,11 @@ We have much more range to express ourselves.
  
 <iframe width="854" height="480" src="https://www.youtube.com/embed/pmSAG51BybY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Add bloom
-Add particles
-Maybe counter shake ground
-
-
 ### Try those techniques in FD
+
+Add bloom and CA?
+Add more particles?
+Maybe counter shake ground? Smoke drift up right?
 
 ## Resources
 
@@ -216,6 +332,7 @@ If you or your students want to learn more about how to add this kind of feel to
 
 #### 1. Unite Berlin free workshop series
 Great education and a downloadable project demonstrating principles in action: [Creating a 2D Platformer playlist](https://www.youtube.com/watch?v=j29NgzV8Dw4&list=PLX2vGYjWbI0REfhDHPpdIBjjrzDHDP-xT)
+  * Unity files [Download](https://oc.unity3d.com/index.php/s/8zuIoX4kdMMlmCy/download)
   * eg: how to add to impression of explosion with chromatic abberation:
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/yXCSunSDxT4?start=608" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

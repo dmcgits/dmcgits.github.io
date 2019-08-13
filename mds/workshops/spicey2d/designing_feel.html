@@ -34,18 +34,25 @@
 <li><a href="#game-design-spice-to-your-games">Game Design: spice to your games</a>
 <ul>
 <li><a href="#hello">Hello</a></li>
-<li><a href="#game-design-principles">Game Design Principles</a>
+<li><a href="#today">Today</a></li>
+<li><a href="#game-design-principles">Game Design Principles</a></li>
+<li><a href="#why-does-it-matter">Why does it matter?</a>
 <ul>
-<li><a href="#feel-as-fast-feedback">Feel as fast feedback</a></li>
-<li><a href="#2d-games-with-juice">2D Games with juice</a></li>
+<li><a href="#what-does-agency-require">What does agency require?</a></li>
+<li><a href="#slow-agency">Slow agency</a></li>
+<li><a href="#realtime-agency">Realtime agency</a></li>
 </ul>
 </li>
-<li><a href="#add-screenies-or-short-vids">ADD SCREENIES OR SHORT VIDS</a></li>
+<li><a href="#a-design-principle-for-realtime-feedback">A Design Principle for realtime feedback</a>
+<ul>
+<li><a href="#jumping-as-a-problem">Jumping as a problem</a></li>
+<li><a href="#some-2d-games-with-juice">Some 2D Games with juice</a></li>
+</ul>
+</li>
 <li><a href="#video-adding-juice-gdc">Video: Adding Juice GDC</a>
 <ul>
 <li><a href="#tweens-sound-camera-shake-wow">Tweens, sound, camera shake, wow!</a></li>
 <li><a href="#no-juice-in-old-games">No juice in old games?</a></li>
-<li><a href="#pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid">PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID</a></li>
 </ul>
 </li>
 <li><a href="#video-your-death-animation-sucks">Video: Your death animation sucks</a>
@@ -64,30 +71,133 @@
 <li>You</li>
 <li>Me</li>
 </ul>
+<h2 class="mume-header" id="today">Today</h2>
+
+<ul>
+<li>Concepts</li>
+<li>Examples</li>
+<li>Game Developer Conference Talks</li>
+<li>Hands on with Unity</li>
+<li>Theory</li>
+<li>Learning paths, customisable notes.</li>
+</ul>
+<hr>
 <h2 class="mume-header" id="game-design-principles">Game Design Principles</h2>
 
-<p>Many things come to mind when we talk game design.</p>
+<p>There are a lot of <strong>elements to game design</strong>:</p>
 <ul>
-<li>Genres</li>
-<li>world building</li>
-<li>level design</li>
-<li>scripting</li>
-<li>balancing.</li>
+<li>Story</li>
+<li>Genre</li>
+<li>World building</li>
+<li>Level design</li>
+<li>Balancing</li>
+<li>Progress/Boss encounters</li>
 </ul>
-<p>There are many practices and principles for each, a million niches to squeeze into.</p>
-<h3 class="mume-header" id="feel-as-fast-feedback">Feel as fast feedback</h3>
-
-<p>Keeping a user in the pocket. Fast feedback, fast response, immersion. A sense of agency.</p>
-<p>A key part of this, explored in explosions and collisions, is that missing element of physical force, of ear splitting sound and blinding light.</p>
-<p>How to make them feel like they&#x2019;re out there with Oppenheimer,wearing goggles and being blasted.</p>
+<p>Something common to all of them is <strong>communication</strong>.</p>
+<p><strong>Things communicated:</strong></p>
 <ul>
-<li>We can&#x2019;t go above the nits of the tv or their volume.</li>
-<li>We have to take away physics, anticipation and follow through in jumps and collsions to keep controls responsive. Instead of 8 frames of wind up, like in a film, you have one or zero frames to leave the ground. Anticipation and follow through create the sense of weight, of physical presence. Critical principle from Disney&#x2019;s 9 old men.<br>
+<li>Purpose</li>
+<li>Physical hazards</li>
+<li>Routes</li>
+<li>Solution helpers</li>
+<li>friend or foe</li>
+<li>Completion</li>
+<li>Feasibility</li>
+</ul>
+<p><img src="assets/comms_puzzle_1.jpg" alt="puzzle 1 journey"><br>
+<em>Did we achieve something? What?</em></p>
+ <iframe width="854" height="480" src="https://www.youtube.com/embed/f3W4fsaw5E8?start=27" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<ul>
+<li>When you see the boss taking damage, say when</li>
+<li>Where is he vulnerable</li>
+<li>At the end how bad is the boss hurt?</li>
+<li>Is he heavy or light?</li>
+</ul>
+<h3>Real time sense feedback</h3>
+<p>A game can engage several senses, up to a point.</p>
+<ul>
+<li>Vision, up to the limit of the brightness of your tv. Nits are capped.</li>
+<li>Sound, up to volume limit.</li>
+<li>Some limited touch: physical feedback by vibration, a button completely depressing or an analogue stick reaching its limit.</li>
+</ul>
+<p>What we struggle with though, is that lack of physicality, the tameness and directionality of light and sound.</p>
+<h4 class="mume-header" id="a-fall-from-height">A fall from height</h4>
+
+<ul>
+<li>Air roaring in ears</li>
+<li>Hair and clothes flapping</li>
+<li>Shock of pain and overwhelming sense of ground&#x2019;s implacability when you land.</li>
+</ul>
+<h4 class="mume-header" id="an-explosion">An explosion</h4>
+
+<ul>
+<li>Ear splitting sound</li>
+<li>Blinding light.</li>
+<li>Heat</li>
+<li>Shockwave</li>
+<li>Air hitting like a brick wall</li>
+</ul>
+<h4 class="mume-header" id="g-force">G-force</h4>
+
+<p><img src="assets/g-force.png" alt="G force"></p>
+<hr>
+<h2 class="mume-header" id="why-does-it-matter">Why does it matter?</h2>
+
+<p>A game is a simulation, and we&#x2019;re taking part. We&#x2019;re reacting at human speeds.</p>
+<p>What makes the simulation meaningful? We thrive on a feeling of achievement, agency.</p>
+<ul>
+<li>We got from here to there</li>
+<li>We saw a threat and avoided it</li>
+<li>We found a puzzle and solved it</li>
+<li>We had a fair chance to learn and overcome.</li>
+</ul>
+<h3 class="mume-header" id="what-does-agency-require">What does agency require?</h3>
+
+<p><img src="assets/responsiveness_and_fairness.png" alt="Responsiveness and fairness"></p>
+<ul>
+<li>Knowing what&#x2019;s happening</li>
+<li>Having enough information, time and resources to do the job, if we practise.</li>
+</ul>
+<h3 class="mume-header" id="slow-agency">Slow agency</h3>
+
+<p><img src="assets/agency_zelda.png" alt="agency slow"></p>
+<p>Talking to someone, collecting a key, delivering a package, being offered a ride to the castle, discovering and rescuing the princess.</p>
+<hr>
+<h3 class="mume-header" id="realtime-agency">Realtime agency</h3>
+
+<p><strong>Game events can happen in 2 or 3 frames</strong> of a 60fps game. How do we sense these tiny events, process them quickly and react when our senses are so limited?</p>
+<ul>
+<li>2 hit kill enemy fire</li>
+<li>The plant you&#x2019;re standing on is poisoning you</li>
+<li>Noticing a city in your screen&#x2019;s bottom right was destroyed while you look top left</li>
+<li>That city was very important.</li>
+</ul>
+<h4 class="mume-header" id="realtime-in-the-real-world">Realtime in the real world.</h4>
+
+<p><strong>Woodworkint tools often don&#x2019;t have rubber handles.</strong> They have metal or wood. It transfers the physical interaction of the blade/head amd the wood through to the skin of your hands.</p>
+<p>People have different responses to sensation, different setups that are comfortable, there&#x2019;s an amount of subjectivity. Some people will point out you can do any job with any chisel if you keep it sharp.</p>
+<p><strong>What&#x2019;s less subjective is time.</strong> If you add rubber to the grips, you&#x2019;re muffling the transfer of information. With less information, you&#x2019;ll need to get it elsewhere.</p>
+<ul>
+<li>Lift off the tool and look at the workpiece more</li>
+<li>Lift off the tool and touch the workpiece more</li>
+</ul>
+<p>It&#x2019;s true that you&#x2019;ll be fine, you&#x2019;ll still do great work. It&#x2019;s also true your responses will be delayed to those looks/touches, you&#x2019;ll operate at a remove, be a little less in the pocket.</p>
+<hr>
+<h2 class="mume-header" id="a-design-principle-for-realtime-feedback">A Design Principle for realtime feedback</h2>
+
+<blockquote>
+<p>Use all means at your disposal to replace the missing senses and recover meaning in your game events.</p>
+</blockquote>
+<p>Particles, screen flash, character flash, camera shake, let&#x2019;s do it.</p>
+<h3 class="mume-header" id="jumping-as-a-problem">Jumping as a problem</h3>
+
+<p>When we press jump in a game, the response has to be near immediate. If it&#x2019;s more than  a frame or two, it feels like the machine is failing to react. Thing is, your character feels a bit like a paper cutout.</p>
+<p>If we were animating for tv or film, we&#x2019;d have maybe 4 or 8 or more frames of wind up, plus the same or more for landing.</p>
+<p>Anticipation and follow through create the sense of weight, of physical presence. The bring gravity and conservation of momentum.<br>
 <img src="assets/anticipation_1.jpg" alt="anticipation"><br>
 <em>These tv style keyframes show anticipation. You&#x2019;d have more in between to smooth it</em><br>
 <img src="assets/no_anticipation.png" alt="no anticipation"><br>
-<em>Mega man has to be off the ground almost before you press.</em></li>
-</ul>
+<em>Mega man has to be off the ground almost before you press.</em></p>
 <p>But we can&#x2019;t just shrug our shoulders and accept our characters have no presence.</p>
 <p>How do we make up for that? We&#x2019;ll see some things today, but you might remember from playing platformers:</p>
 <ul>
@@ -103,19 +213,12 @@ _Viewtiful Joe demonstrates particles for ground and even air jumps_
 <ul>
 <li>Communicating on multi levels: combining light, sound, shape</li>
 </ul>
-<h3 class="mume-header" id="2d-games-with-juice">2D Games with juice</h3>
+<h3 class="mume-header" id="some-2d-games-with-juice">Some 2D Games with juice</h3>
 
 <p>A very small sample of 2D games with juice.</p>
 <blockquote>
 <p>What 2D games stand out for juiciness?</p>
 </blockquote>
-<h4 class="mume-header" id="donkey-kong-country">Donkey kong country?</h4>
-
-<p>I remember the ground pound?</p>
-<h2 class="mume-header" id="add-screenies-or-short-vids">ADD SCREENIES OR SHORT VIDS</h2>
-
-<h4 class="mume-header" id="rayman-legends">Rayman Legends</h4>
-
 <h4 class="mume-header" id="super-meatboy">Super meatboy</h4>
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/eILvkKnMxWY?start=12" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -125,6 +228,13 @@ _Viewtiful Joe demonstrates particles for ground and even air jumps_
 <h4 class="mume-header" id="guacamelee-2">Guacamelee 2</h4>
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/XiTqmUiuqpM?start=116" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h4 class="mume-header" id="more">More</h4>
+
+<ul>
+<li>Rayman legends</li>
+<li>Ultra Street Fighter 4.</li>
+<li>Donkey Kong Country, if iirc.</li>
+</ul>
 <h2 class="mume-header" id="video-adding-juice-gdc">Video: Adding Juice GDC</h2>
 
 <p>The problem with looking at characters first is we&#x2019;re pretty biased towards feeling what happens to them.</p>
@@ -181,8 +291,10 @@ Add 2d light flare on earth explosion? Tween down.</p>
 <strong>Megadrive</strong>: 61 colours displayed of 512 options. 64KB vram.</p>
 </blockquote>
 <p><strong>Now?</strong> 32 bit RGBA pngs we&#x2019;re importing support 16= million colours. No palette limits. 3-8GB vram is pretty typical.</p>
-<h3 class="mume-header" id="pic-of-low-res-art-on-big-grid-vs-high-res-low-res-on-wee-grid">PIC OF LOW RES ART ON BIG GRID VS HIGH RES LOW RES ON WEE GRID</h3>
-
+<p><strong>Whiteboard time</strong><br>
+Real pixel art on res on low res screen<br>
+Upscaled pixel art (nearest neighbour) on high res on quads</p>
+<p><img src="assets/pixels_low_vs_high.png" alt="pixels"></p>
 <h4 class="mume-header" id="what-does-all-that-mean">What does all that mean?</h4>
 
 <p>We have much more range to express ourselves.</p>
@@ -193,11 +305,11 @@ We can <strong>honour their art style</strong> with big pixels, and <strong>thei
 <h2 class="mume-header" id="video-your-death-animation-sucks">Video: Your death animation sucks</h2>
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/pmSAG51BybY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Add bloom<br>
-Add particles<br>
-Maybe counter shake ground</p>
 <h3 class="mume-header" id="try-those-techniques-in-fd">Try those techniques in FD</h3>
 
+<p>Add bloom and CA?<br>
+Add more particles?<br>
+Maybe counter shake ground? Smoke drift up right?</p>
 <h2 class="mume-header" id="resources">Resources</h2>
 
 <ul>
@@ -241,6 +353,7 @@ Maybe counter shake ground</p>
 
 <p>Great education and a downloadable project demonstrating principles in action: <a href="https://www.youtube.com/watch?v=j29NgzV8Dw4&amp;list=PLX2vGYjWbI0REfhDHPpdIBjjrzDHDP-xT">Creating a 2D Platformer playlist</a></p>
 <ul>
+<li>Unity files <a href="https://oc.unity3d.com/index.php/s/8zuIoX4kdMMlmCy/download">Download</a></li>
 <li>eg: how to add to impression of explosion with chromatic abberation:</li>
 </ul>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/yXCSunSDxT4?start=608" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
