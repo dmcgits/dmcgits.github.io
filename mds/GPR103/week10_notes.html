@@ -33,7 +33,12 @@
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-10---finding-things-reusing-things-messaging">Week 10 - Finding things, Reusing things, messaging</a>
 <ul>
-<li><a href="#woah-rewrite">Woah, rewrite!</a></li>
+<li><a href="#woah-rewrite">Woah, rewrite!</a>
+<ul>
+<li><a href="#download-the-project">Download the project</a></li>
+<li><a href="#doing">Doing</a></li>
+</ul>
+</li>
 <li><a href="#prefabs">Prefabs</a>
 <ul>
 <li><a href="#changing-prefabs">Changing prefabs</a></li>
@@ -54,15 +59,35 @@
 <li><a href="#getcomponent-and-call-functions">GetComponent and call functions</a></li>
 </ul>
 </li>
-<li><a href="#a-longer-list-of-attributes-of-our-classes">A longer list of attributes of our classes</a></li>
+<li><a href="#more-possible-class-attributes">More possible class attributes</a></li>
 </ul>
 </li>
 </ul>
 <h2 class="mume-header" id="woah-rewrite">Woah, rewrite!</h2>
 
-<p><a href="https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1">https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1</a><br>
-Already done sendmessage. Precise layout they can already do.</p>
-<p>Better:</p>
+<p>Since we learned a few things earlier this trimester and I&#x2019;ve made a rough base/learning Missile Command project for you to pick through, this lesson has changed a bit!</p>
+<h3 class="mume-header" id="download-the-project">Download the project</h3>
+
+<p><strong>I made some changes after Wednesday&#x2019;s class</strong> to clarify things, reduce filesize and hide complexity. If you&#x2019;re quite confident in c#/Unity you could use the updated one without getting lost, but if not just grab the one blow it.</p>
+<ul>
+<li>
+<p>Updated project<br>
+<a href="https://www.dropbox.com/s/4bo1vuz2psjzvrn/PlayerBatteriesUlt.7z?dl=1">https://www.dropbox.com/s/4bo1vuz2psjzvrn/PlayerBatteriesUlt.7z?dl=1</a></p>
+<ul>
+<li>size reduced, removed asset packages</li>
+<li>managers we don&#x2019;t need to really understand yet are hidden in <code>Later</code> folder</li>
+<li>comments added, less relevant functions collapsed for clarity.</li>
+<li>cleaned up data types for prefab instantiation</li>
+</ul>
+</li>
+<li>
+<p>Unity project as taught to online class on Weds night:<br>
+<a href="https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1">https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1</a></p>
+</li>
+</ul>
+<hr>
+<h3 class="mume-header" id="doing">Doing</h3>
+
 <p>How to make batteries, how to fire.<br>
 Demo of my game with waves and explosions.<br>
 Show how to make one part of it, discuss how to make more.<br>
@@ -77,6 +102,7 @@ Input script<br>
 player Missile (dud)</p>
 <p>Batteries could be sprites.</p>
 <p>Very powerful tools this week.</p>
+<hr>
 <h2 class="mume-header" id="prefabs">Prefabs</h2>
 
 <p>Take things you&#x2019;ve built in the scene from parts and scripts, then reuse them.</p>
@@ -119,6 +145,7 @@ _duplicating or dragging from Assets</p>
 <h3 class="mume-header" id="events">Events</h3>
 
 <p>We can listen for events, and objects can pass us information, whole components, or their whole selves (<code>GameObject gameObject</code>).</p>
+<hr>
 <h3 class="mume-header" id="gameobject-find-methods">GameObject find methods</h3>
 
 <p>The GameObject offers a number of static methods that are very powerful. Those methods help it to act a bit like a higher level game manager that already has lists of everything in our game. <strong>It can find them by name, tag, category and more</strong>.</p>
@@ -138,7 +165,8 @@ _duplicating or dragging from Assets</p>
 <p>Searching by type is super handy: if you&#x2019;re looking for all your lightning towers, or any damageable items, just search for anything with that component.</p>
 <p>I&#x2019;m not sure how it goes with Polymorphism and finding LightningTower while looking for Tower, so we&#x2019;ll google it together.</p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp">GameObjects<span class="token punctuation">[</span><span class="token punctuation">]</span> towers <span class="token operator">=</span> GameObject<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">FindObjectsOfType</span><span class="token punctuation">&lt;</span><span class="token class-name">BaseTower</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre><h3 class="mume-header" id="singleton">Singleton</h3>
+</pre><hr>
+<h3 class="mume-header" id="singleton">Singleton</h3>
 
 <p>You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It&#x2019;s sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.<br>
 That singleton of course will have to find all the objects too, using techniques above and others, but it does all of that and all other objects grab from it.</p>
@@ -154,7 +182,7 @@ That singleton of course will have to find all the objects too, using techniques
     <span class="token comment">// IRL we&apos;d check the result of GetComponent before calling Explode</span>
   <span class="token punctuation">}</span>
 </pre><hr>
-<h2 class="mume-header" id="a-longer-list-of-attributes-of-our-classes">A longer list of attributes of our classes</h2>
+<h2 class="mume-header" id="more-possible-class-attributes">More possible class attributes</h2>
 
 <p><strong>PlayerBattery</strong></p>
 <ul>

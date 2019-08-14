@@ -15,6 +15,8 @@ export_on_save:
 
 - [Week 10 - Finding things, Reusing things, messaging](#week-10---finding-things-reusing-things-messaging)
   - [Woah, rewrite!](#woah-rewrite)
+    - [Download the project](#download-the-project)
+    - [Doing](#doing)
   - [Prefabs](#prefabs)
     - [Changing prefabs](#changing-prefabs)
     - [Individualising prefabs](#individualising-prefabs)
@@ -29,16 +31,31 @@ export_on_save:
     - [Find By Type](#find-by-type)
     - [Singleton](#singleton)
     - [GetComponent and call functions](#getcomponent-and-call-functions)
-  - [A longer list of attributes of our classes](#a-longer-list-of-attributes-of-our-classes)
+  - [More possible class attributes](#more-possible-class-attributes)
 
 <!-- /code_chunk_output -->
 
 ## Woah, rewrite!
 
-<https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1>
-Already done sendmessage. Precise layout they can already do.
+Since we learned a few things earlier this trimester and I've made a rough base/learning Missile Command project for you to pick through, this lesson has changed a bit! 
 
-Better:
+### Download the project
+
+**I made some changes after Wednesday's class** to clarify things, reduce filesize and hide complexity. If you're quite confident in c#/Unity you could use the updated one without getting lost, but if not just grab the one blow it.
+
+* Updated project
+  <https://www.dropbox.com/s/4bo1vuz2psjzvrn/PlayerBatteriesUlt.7z?dl=1>
+  * size reduced, removed asset packages
+  * managers we don't need to really understand yet are hidden in `Later` folder
+  * comments added, less relevant functions collapsed for clarity.  
+  * cleaned up data types for prefab instantiation
+
+* Unity project as taught to online class on Weds night:
+  <https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1>
+
+---
+
+### Doing
 
 How to make batteries, how to fire.
 Demo of my game with waves and explosions.
@@ -61,6 +78,8 @@ player Missile (dud)
 Batteries could be sprites.
 
 Very powerful tools this week.
+
+---
 
 ## Prefabs
 
@@ -115,6 +134,8 @@ If an object creates another, like we did with our Test and Player classes, it k
 
 We can listen for events, and objects can pass us information, whole components, or their whole selves (`GameObject gameObject`).
 
+___
+
 ### GameObject find methods
 
 The GameObject offers a number of static methods that are very powerful. Those methods help it to act a bit like a higher level game manager that already has lists of everything in our game. **It can find them by name, tag, category and more**.
@@ -147,6 +168,8 @@ I'm not sure how it goes with Polymorphism and finding LightningTower while look
 GameObjects[] towers = GameObject.FindObjectsOfType<BaseTower>();
 ```
 
+___
+
 ### Singleton
 
 You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It's sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.
@@ -172,7 +195,7 @@ As we did with `SpriteRenderer.Sprite`. We can call these on current gameObject 
 ```
 ___
 
-## A longer list of attributes of our classes
+## More possible class attributes
 
 **PlayerBattery**
   - position
