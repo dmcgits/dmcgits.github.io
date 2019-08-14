@@ -9,14 +9,16 @@ export_on_save:
 ---
 # Week 10 - Finding things, Reusing things, messaging
 
+Very powerful tools this week.
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [Week 10 - Finding things, Reusing things, messaging](#week-10---finding-things-reusing-things-messaging)
-  - [Woah, rewrite!](#woah-rewrite)
-    - [Download the project](#download-the-project)
-    - [Doing](#doing)
+- [Week 10 - Finding things, Reusing things, messaging](#week-10-finding-things-reusing-things-messaging)
+  - [Todo before next lecture](#todo-before-next-lecture)
+  - [Resources](#resources)
+  - [Practise laying out a scene](#practise-laying-out-a-scene)
+    - [Resolution](#resolution)
   - [Prefabs](#prefabs)
     - [Changing prefabs](#changing-prefabs)
     - [Individualising prefabs](#individualising-prefabs)
@@ -30,56 +32,59 @@ export_on_save:
     - [Find By Tag](#find-by-tag)
     - [Find By Type](#find-by-type)
     - [Singleton](#singleton)
+  - [Talking to and commanding things](#talking-to-and-commanding-things)
+    - [`SendMessage`](#sendmessage)
+    - [`BroadcastMessage`](#broadcastmessage)
+    - [Events](#events-1)
     - [GetComponent and call functions](#getcomponent-and-call-functions)
-  - [More possible class attributes](#more-possible-class-attributes)
+  - [A longer list of attributes of our classes](#a-longer-list-of-attributes-of-our-classes)
 
 <!-- /code_chunk_output -->
 
-## Woah, rewrite!
 
-Since we learned a few things earlier this trimester and I've made a rough base/learning Missile Command project for you to pick through, this lesson has changed a bit! 
+## Todo before next lecture
 
-### Download the project
+* Lay out sprites on your game stage. Set your resolution.
+* Create a bunch of classes
+* Practise SendMessage, BroadcastMessage
+* Make useful prefabs (missile batteries, missiles, cities etc)
+* Update your Hacknplan to reflect all the new knowledge you have and the tasks it suggests.
 
-**I made some changes after Wednesday's class** to clarify things, reduce filesize and hide complexity. If you're quite confident in c#/Unity you could use the updated one without getting lost, but if not just grab the one blow it.
+## Resources
 
-* Updated project
-  <https://www.dropbox.com/s/4bo1vuz2psjzvrn/PlayerBatteriesUlt.7z?dl=1>
-  * size reduced, removed asset packages
-  * managers we don't need to really understand yet are hidden in `Later` folder
-  * comments added, less relevant functions collapsed for clarity.  
-  * cleaned up data types for prefab instantiation
-
-* Unity project as taught to online class on Weds night:
-  <https://www.dropbox.com/s/pqxy35eu1gq44e8/PlayerBatteries.7z?dl=1>
-
----
-
-### Doing
-
-How to make batteries, how to fire.
-Demo of my game with waves and explosions.
-Show how to make one part of it, discuss how to make more.
-Go through some code but leave the rest to be explored. Add comments as I go through?
+* Pics for unity project
+  - ![gattling tower](assets/week10/sprite_gattling_tower.png)
+  - ![gattling tower](assets/week10/sprite_missile_tower.png)
+  - ![gattling tower](assets/week10/field_bg.png)
+  - ![gattling tower](assets/week10/city_1.png)
+  
 
 
-ideas: Prefabs, instantiation. Finding things in world with Find, getChildComponents. Classes for instances, like battery, and classes that manage (input man, battery man)
+___
 
+## Practise laying out a scene
 
-Tools:
-assets in an unfinished project.
-Making prefabs for batteries. 
-battery manager script
-battery script
-Input script 
-player Missile (dud)
+* Create Unity 2D project PrefabBits
+* Make Sprites and Scripts folders in Assets
+* Save images (above in resources) to Sprites folder
+* Drag images from project window to stage
 
+![background field](assets/week10/field_bg.png)
+_I photoshopped out some towers, we'll add them back_
 
-Batteries could be sprites.
+### Resolution
 
-Very powerful tools this week.
+* Set our resolution so we have consistency.
+  - File -> Build settings -> player settings
+  - 1280x720 to match our bg 
+* Set the pixel density of our various sprites
+  - click sprites in the Sprites folder, import properties show in inspector
+  - set 72 pixels per inch (common digital screen res)
+  - apply
+* Scale buildings
+  - 1.5x x, y, z. They'll pretty much match the ground now.
 
----
+___
 
 ## Prefabs
 
@@ -134,8 +139,6 @@ If an object creates another, like we did with our Test and Player classes, it k
 
 We can listen for events, and objects can pass us information, whole components, or their whole selves (`GameObject gameObject`).
 
-___
-
 ### GameObject find methods
 
 The GameObject offers a number of static methods that are very powerful. Those methods help it to act a bit like a higher level game manager that already has lists of everything in our game. **It can find them by name, tag, category and more**.
@@ -168,8 +171,6 @@ I'm not sure how it goes with Polymorphism and finding LightningTower while look
 GameObjects[] towers = GameObject.FindObjectsOfType<BaseTower>();
 ```
 
-___
-
 ### Singleton
 
 You can now probably see the benefit of a singleton. Access objects in the scene from anywhere. It's sort of like GameObject and the find functions, but you are making it from scratch and can structure it to your needs, along with custom functions.
@@ -181,6 +182,106 @@ GameObject battery_1 = GameManager.instance.Batteries[GameManager.BATTERY_1];
 
 ```
 ___
+
+
+
+## Talking to and commanding things
+
+Once you have your list of objects, we know we can get info from them by accessing their components (monobehaviours) and the variables we exposed. We can call functions on them. But how else can we inform and command objects 
+
+### `SendMessage`
+
+If you have a reference to a gameObject you can ask for a function to be called on any monobehaviour it has. This is useful if multiple components on one object with the same function, say `Update()` or `ApplyTeamColour(TeamColours.GREEN))`, or you want to make things Damageable with component, so they can `TakeDamage()`. 
+
+This is handy for building things up in a modular way using components.
+
+> <//https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html>
+
+```cs
+// More info in the unity docs
+using UnityEngine;
+
+public class Tester : MonoBehaviour
+{
+  public GameObject structure;
+
+    void Start()
+    {
+        // Some structures are damageable, if they have a 
+        // Damageable component. Try to do damage:
+        structure.SendMessage("TakeDamage", 20);
+    }
+}
+```
+Here are components you'll find on the structure.
+```cs
+public class Damageable : Monobehaviour
+{
+  private int _health;
+
+    // A public function that can 
+    public void TakeDamage(float damage)
+    {
+      Debug.Log("Ow. Seriously, " + damage + " damage?");
+      _health -= damage;
+      // You can call sendmessage on other gameObjects or the current one.
+      // If there's a component on this unit/structure that can change the visuals on damage, call it.
+      gameObject.SendMessage(ShowDamage()); 
+    }
+
+    public int Health
+    {
+      get { return _health; }
+      private set
+      {
+          // Prevent health going below 0.
+          // If (value >= 0) _health = value, else health = 0 
+         _health = (value >= 0) ? value : 0;
+      } 
+    }
+
+}
+
+public class DamagedArtController : Monobehaviour
+{
+  public void ShowDamage()
+  {
+    // swap the sprite, jump to an animation frame,
+    // start particle smoke etc
+    Debug.Log("showing damage");
+  }
+}
+```
+### `BroadcastMessage`
+
+Similar deal to `SendMessage`, but it applies it to all components on the current object _and any child objects_ - anything in the scene heirarchy that this object is parent to. Note this function is local to the `Component/MonoBehaviour`, we don't need to use the `gameObject`.
+
+> <https://docs.unity3d.com/ScriptReference/Component.BroadcastMessage.html>
+
+```cs
+using UnityEngine;
+
+public class Tower : MonoBehaviour
+{
+    void Start()
+    {
+        // Make sure nothing is firing or tracking till round starts
+        BroadCastMessage("SetStatus", GameUnitStatus.READY_INACTIVE)
+        // Listen for the level/round to start
+        GameController.OnRoundStart += OnRoundStartHandler;
+    }
+
+    void OnRoundStartHandler()
+    {
+      // Any turrets/zappers components on this object or it's children start tracking and firing
+      BroadCastMessage("SetStatus", GameUnitStatus.ACTIVE)
+    }
+}
+```
+
+### Events
+
+As we've already already used, and seen in the example above (BroadcastMessage).
 
 ### GetComponent and call functions
 
@@ -195,7 +296,7 @@ As we did with `SpriteRenderer.Sprite`. We can call these on current gameObject 
 ```
 ___
 
-## More possible class attributes
+## A longer list of attributes of our classes
 
 **PlayerBattery**
   - position
