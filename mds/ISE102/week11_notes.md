@@ -7,7 +7,7 @@ html:
 export_on_save:
   html: true
 ---
-# Wk11: Psuedosnakes and polymorphism
+# Wk11: Psuedosnakes and polymorphs
 
 This may be enough content for both weeks..
 
@@ -15,14 +15,16 @@ This may be enough content for both weeks..
 
 <!-- code_chunk_output -->
 
-- [Wk11: Psuedosnakes and polymorphism](#wk11-psuedosnakes-and-polymorphism)
+- [Wk11: Psuedosnakes and polymorphs](#wk11-psuedosnakes-and-polymorphs)
   - [Todo](#todo)
   - [Resources](#resources)
   - [Putting it all together](#putting-it-all-together)
   - [The Garden, the Snake](#the-garden-the-snake)
-    - [The game, broadly](#the-game-broadly)
+    - [Summarise the game start and loop](#summarise-the-game-start-and-loop)
     - [The snake, specifically](#the-snake-specifically)
-    - [What I learned there](#what-i-learned-there)
+    - [Something I learned there](#something-i-learned-there)
+    - [How do I know where my leader is and was?](#how-do-i-know-where-my-leader-is-and-was)
+    - [Knowing real location and grid location](#knowing-real-location-and-grid-location)
     - [Change of cell](#change-of-cell)
     - [Frame rate independence](#frame-rate-independence)
     - [Side benefits](#side-benefits)
@@ -64,29 +66,42 @@ Today I'm going to take you through ways to reduce the snake game situation to d
 
 Moving an object around and having it eat fruit for points is a pretty easy project. What makes this game a challenge is the articulated, growing snake, but don't get hung up on the code too early!
 
-> Thinking too early or too long about code usually makes things harder. Step back and write about it in plain english/pseudocode. 
+> Thinking too early or too long about code usually makes things harder. 
+> 1. Step back and visualise it, consider game pieces.
+> 2. Write notes, draw things to devise a plan.
+> 3. Write your plan in plain english/pseudocode. 
+
+![Snake game board](assets/week11/board_snake_pieces.png)
 
 Re-describe the problem, write out your current approach, or a whole new one.
 
-### The game, broadly
+### Summarise the game start and loop
 
 Lets psuedocode the game so we know where the snake bit fits. 
 
 > _Remember: Coding is just listing instructions for handling a situation._ 
 
-**A situation is handled by:**
+#### Programs:
 
-**1.** Gathering info
-**2.** Arranging the info for easy use/understanding
-**3.** Making decisions, calculations and new things.
-**4.** Communicating the outcome/new things
+**Start:**
+**1.** Gathering what we know
+**2.** Putting what we know in piles that go together
 
-**Solving our garden situation**
+**Loop:**
+**3.** Get input
+**4.** Checking the state of things, adjusting things, checking their effects
+**5.** Drawing the new state of things
 
-**1.** Info about the Garden and things in it, user input.
-**2.** That data arranged/encapsulated for easiest use
-**3.** Simulate movement and interactions for things in the garden.
-**4.** Communicate score, position of things, life and death.
+#### Our Snake game
+
+**Start:**
+**1.** Gather what we know about Garden and game pieces in it
+**2.** Put that data together in objects with properties that make sense
+
+**Loop:**
+**3.** Get input
+**3.** Spawn fruit and move the snake. Did the snake hit anything? Outcome?
+**4.** Draw the outcome.
 
 **See how this reads:**
 
@@ -113,7 +128,20 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 
 ### The snake, specifically
 
-Let's zoom into DO SNAKE THINGS and see what's happening.
+![Snake move 1](assets/week11/snake_move_1.png)
+![Snake move 1](assets/week11/snake_move_2.png)
+![Snake move 1](assets/week11/snake_move_3.png)
+![Snake move 1](assets/week11/snake_move_4.png)
+
+#### What's happening here?
+
+1. A head moves, leaving a space.
+2. The next piece of the snake, a body part, moves to fill the spot.
+3. The following piece moves into the gap left by it's predecessor, and so on.
+   
+> **Discovery:** If you know where the piece ahead of you was was before it moved, you simply take their spot and the snake shape will remain.
+
+#### Zoom into DO SNAKE THINGS and see what's happening.
 
 ```
   ...
@@ -144,29 +172,37 @@ Let's zoom into DO SNAKE THINGS and see what's happening.
   ...
 ```
 
-### What I learned there
+### Something I learned there
 
 I learned things from writing that down, which you've probably experienced before. It's super valuable. 
 
 > _Writing down things you know sometimes reveals things you didn't know you knew._
 
-I learned that everything starts to happen when the snake head enters a new cell.
+I learned that everything really starts to happen when the snake _head_ enters a new cell. The action cascades from there.
 
-#### Moving in whole cells
+### How do I know where my leader is and was?
 
-> First, do we have to move in whole cells?
+If the snake pieces want to follow their immediate leader, we'll need to know where each one was _before_ they moved.
 
-The code I showed last week had the head entering a new cell every frame. The reason:
-* I was moving in whole integers
-* I slept the program for n millisconds each frame to control the speed.
+**Q:** How do we know where something was last frame?
+**A:** Ask it.
 
-#### Moving in fractions of a cell
+> If bits are going to tell us their past, **each bit needs to remember where they were one square ago**
 
-A way to gain control of the speed and leave the frame rate alone is to move in floating point distances. 
+### Knowing real location and grid location
 
-1. Y could progress like so: `2.2, 2.1, 2.0, 1.9.` 
-2. Our giant text-character cells though are addressed in integers, so we need to round position to an integer.
-3. When that integer changes from the previous frame, say `2.4` becomes `2.5`, causing 2 to become 3, we detect that change (by tracking previous rounded y)
+We gained some control of the game speed last week by moving in fractions of a square each frame. 
+* We **moved in a real number space** (1.8x, 2.45y) 
+* It was finer than the grid world (1x, 2y).
+* Like in real life we move chess pieces or snake pieces through real space smoothly to place them on a square.
+
+We cast to int last week, chopping off any decimal places. eg:
+Over several frames:
+> xPos: **1.0, 1.4, 1.8, 2.2, 2.6**
+> xGrid: **1, 1, 1, 2, 2**
+
+
+It can cause issues. Options to consider: **floor, ceil, round**.
 
 ```cpp
 // ----- Rounding floats in c++ -------
@@ -195,7 +231,19 @@ int main()
 
 ### Change of cell
 
-Now that we have a cellX and cellY:
+Trackign posX and prevPosX are easy:
+
+cpp code
+
+update {
+    store position in a variable before we move
+  prevPosX = posX;      
+    move
+  posX += speedPerFrame;
+}
+
+
+ how do we also track 
 * keep prevCellX and prevCellY (value in previous frame)
 * test if either differs from current frame value
 * If changed, we're in a new cell.

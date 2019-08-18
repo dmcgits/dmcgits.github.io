@@ -28,20 +28,22 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="wk11-psuedosnakes-and-polymorphism">Wk11: Psuedosnakes and polymorphism</h1>
+      <h1 class="mume-header" id="wk11-psuedosnakes-and-polymorphs">Wk11: Psuedosnakes and polymorphs</h1>
 
 <p>This may be enough content for both weeks&#x2026;</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#wk11-psuedosnakes-and-polymorphism">Wk11: Psuedosnakes and polymorphism</a>
+<li><a href="#wk11-psuedosnakes-and-polymorphs">Wk11: Psuedosnakes and polymorphs</a>
 <ul>
 <li><a href="#todo">Todo</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#putting-it-all-together">Putting it all together</a></li>
 <li><a href="#the-garden-the-snake">The Garden, the Snake</a>
 <ul>
-<li><a href="#the-game-broadly">The game, broadly</a></li>
+<li><a href="#summarise-the-game-start-and-loop">Summarise the game start and loop</a></li>
 <li><a href="#the-snake-specifically">The snake, specifically</a></li>
-<li><a href="#what-i-learned-there">What I learned there</a></li>
+<li><a href="#something-i-learned-there">Something I learned there</a></li>
+<li><a href="#how-do-i-know-where-my-leader-is-and-was">How do I know where my leader is and was?</a></li>
+<li><a href="#knowing-real-location-and-grid-location">Knowing real location and grid location</a></li>
 <li><a href="#change-of-cell">Change of cell</a></li>
 <li><a href="#frame-rate-independence">Frame rate independence</a></li>
 <li><a href="#side-benefits">Side benefits</a></li>
@@ -86,25 +88,39 @@
 
 <p>Moving an object around and having it eat fruit for points is a pretty easy project. What makes this game a challenge is the articulated, growing snake, but don&#x2019;t get hung up on the code too early!</p>
 <blockquote>
-<p>Thinking too early or too long about code usually makes things harder. Step back and write about it in plain english/pseudocode.</p>
+<p>Thinking too early or too long about code usually makes things harder.</p>
+<ol>
+<li>Step back and visualise it, consider game pieces.</li>
+<li>Write notes, draw things to devise a plan.</li>
+<li>Write your plan in plain english/pseudocode.</li>
+</ol>
 </blockquote>
+<p><img src="assets/week11/board_snake_pieces.png" alt="Snake game board"></p>
 <p>Re-describe the problem, write out your current approach, or a whole new one.</p>
-<h3 class="mume-header" id="the-game-broadly">The game, broadly</h3>
+<h3 class="mume-header" id="summarise-the-game-start-and-loop">Summarise the game start and loop</h3>
 
 <p>Lets psuedocode the game so we know where the snake bit fits.</p>
 <blockquote>
 <p><em>Remember: Coding is just listing instructions for handling a situation.</em></p>
 </blockquote>
-<p><strong>A situation is handled by:</strong></p>
-<p><strong>1.</strong> Gathering info<br>
-<strong>2.</strong> Arranging the info for easy use/understanding<br>
-<strong>3.</strong> Making decisions, calculations and new things.<br>
-<strong>4.</strong> Communicating the outcome/new things</p>
-<p><strong>Solving our garden situation</strong></p>
-<p><strong>1.</strong> Info about the Garden and things in it, user input.<br>
-<strong>2.</strong> That data arranged/encapsulated for easiest use<br>
-<strong>3.</strong> Simulate movement and interactions for things in the garden.<br>
-<strong>4.</strong> Communicate score, position of things, life and death.</p>
+<h4 class="mume-header" id="programs">Programs:</h4>
+
+<p><strong>Start:</strong><br>
+<strong>1.</strong> Gathering what we know<br>
+<strong>2.</strong> Putting what we know in piles that go together</p>
+<p><strong>Loop:</strong><br>
+<strong>3.</strong> Get input<br>
+<strong>4.</strong> Checking the state of things, adjusting things, checking their effects<br>
+<strong>5.</strong> Drawing the new state of things</p>
+<h4 class="mume-header" id="our-snake-game">Our Snake game</h4>
+
+<p><strong>Start:</strong><br>
+<strong>1.</strong> Gather what we know about Garden and game pieces in it<br>
+<strong>2.</strong> Put that data together in objects with properties that make sense</p>
+<p><strong>Loop:</strong><br>
+<strong>3.</strong> Get input<br>
+<strong>3.</strong> Spawn fruit and move the snake. Did the snake hit anything? Outcome?<br>
+<strong>4.</strong> Draw the outcome.</p>
 <p><strong>See how this reads:</strong></p>
 <p>Does it do the trick aside from snake stuff?</p>
 <pre data-role="codeBlock" data-info="md" class="language-gfm"><code>Start Program GrowingSnakeEatingFruitInDetentionGarden ----------
@@ -125,7 +141,22 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 
 </code></pre><h3 class="mume-header" id="the-snake-specifically">The snake, specifically</h3>
 
-<p>Let&#x2019;s zoom into DO SNAKE THINGS and see what&#x2019;s happening.</p>
+<p><img src="assets/week11/snake_move_1.png" alt="Snake move 1"><br>
+<img src="assets/week11/snake_move_2.png" alt="Snake move 1"><br>
+<img src="assets/week11/snake_move_3.png" alt="Snake move 1"><br>
+<img src="assets/week11/snake_move_4.png" alt="Snake move 1"></p>
+<h4 class="mume-header" id="whats-happening-here">What&#x2019;s happening here?</h4>
+
+<ol>
+<li>A head moves, leaving a space.</li>
+<li>The next piece of the snake, a body part, moves to fill the spot.</li>
+<li>The following piece moves into the gap left by it&#x2019;s predecessor, and so on.</li>
+</ol>
+<blockquote>
+<p><strong>Discovery:</strong> If you know where the piece ahead of you was was before it moved, you simply take their spot and the snake shape will remain.</p>
+</blockquote>
+<h4 class="mume-header" id="zoom-into-do-snake-things-and-see-whats-happening">Zoom into DO SNAKE THINGS and see what&#x2019;s happening.</h4>
+
 <pre data-role="codeBlock" data-info class="language-"><code>  ...
     If player hits up, left, right or down
         change snake head direction
@@ -152,31 +183,36 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 
     end if (snake head new cell)
   ...
-</code></pre><h3 class="mume-header" id="what-i-learned-there">What I learned there</h3>
+</code></pre><h3 class="mume-header" id="something-i-learned-there">Something I learned there</h3>
 
 <p>I learned things from writing that down, which you&#x2019;ve probably experienced before. It&#x2019;s super valuable.</p>
 <blockquote>
 <p><em>Writing down things you know sometimes reveals things you didn&#x2019;t know you knew.</em></p>
 </blockquote>
-<p>I learned that everything starts to happen when the snake head enters a new cell.</p>
-<h4 class="mume-header" id="moving-in-whole-cells">Moving in whole cells</h4>
+<p>I learned that everything really starts to happen when the snake <em>head</em> enters a new cell. The action cascades from there.</p>
+<h3 class="mume-header" id="how-do-i-know-where-my-leader-is-and-was">How do I know where my leader is and was?</h3>
 
+<p>If the snake pieces want to follow their immediate leader, we&#x2019;ll need to know where each one was <em>before</em> they moved.</p>
+<p><strong>Q:</strong> How do we know where something was last frame?<br>
+<strong>A:</strong> Ask it.</p>
 <blockquote>
-<p>First, do we have to move in whole cells?</p>
+<p>If bits are going to tell us their past, <strong>each bit needs to remember where they were one square ago</strong></p>
 </blockquote>
-<p>The code I showed last week had the head entering a new cell every frame. The reason:</p>
-<ul>
-<li>I was moving in whole integers</li>
-<li>I slept the program for n millisconds each frame to control the speed.</li>
-</ul>
-<h4 class="mume-header" id="moving-in-fractions-of-a-cell">Moving in fractions of a cell</h4>
+<h3 class="mume-header" id="knowing-real-location-and-grid-location">Knowing real location and grid location</h3>
 
-<p>A way to gain control of the speed and leave the frame rate alone is to move in floating point distances.</p>
-<ol>
-<li>Y could progress like so: <code>2.2, 2.1, 2.0, 1.9.</code></li>
-<li>Our giant text-character cells though are addressed in integers, so we need to round position to an integer.</li>
-<li>When that integer changes from the previous frame, say <code>2.4</code> becomes <code>2.5</code>, causing 2 to become 3, we detect that change (by tracking previous rounded y)</li>
-</ol>
+<p>We gained some control of the game speed last week by moving in fractions of a square each frame.</p>
+<ul>
+<li>We <strong>moved in a real number space</strong> (1.8x, 2.45y)</li>
+<li>It was finer than the grid world (1x, 2y).</li>
+<li>Like in real life we move chess pieces or snake pieces through real space smoothly to place them on a square.</li>
+</ul>
+<p>We cast to int last week, chopping off any decimal places. eg:<br>
+Over several frames:</p>
+<blockquote>
+<p>xPos: <strong>1.0, 1.4, 1.8, 2.2, 2.6</strong><br>
+xGrid: <strong>1, 1, 1, 2, 2</strong></p>
+</blockquote>
+<p>It can cause issues. Options to consider: <strong>floor, ceil, round</strong>.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// ----- Rounding floats in c++ -------</span>
 <span class="token comment">// If we assign a float to an int, 3.9 becomes 3. Truncation.</span>
 <span class="token comment">// We need to round up or down.</span>
@@ -201,7 +237,15 @@ End Program GrowingSnakeEatingFruitInDetentionGarden ---------
 <span class="token comment">// 2.6 rounded up, 1.4 down.</span>
 </pre><h3 class="mume-header" id="change-of-cell">Change of cell</h3>
 
-<p>Now that we have a cellX and cellY:</p>
+<p>Trackign posX and prevPosX are easy:</p>
+<p>cpp code</p>
+<p>update {<br>
+store position in a variable before we move<br>
+prevPosX = posX;<br>
+move<br>
+posX += speedPerFrame;<br>
+}</p>
+<p>how do we also track</p>
 <ul>
 <li>keep prevCellX and prevCellY (value in previous frame)</li>
 <li>test if either differs from current frame value</li>
