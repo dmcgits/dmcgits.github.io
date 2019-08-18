@@ -13,7 +13,7 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 10 - Finding things, Reusing things, messaging](#week-10---finding-things-reusing-things-messaging)
+- [Week 10 - Finding things, Reusing things, messaging](#week-10-finding-things-reusing-things-messaging)
   - [Woah, rewrite!](#woah-rewrite)
     - [Download the project](#download-the-project)
     - [Doing](#doing)
