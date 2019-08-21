@@ -31,6 +31,7 @@ Hitting as many useful assignment-finishing tools as we can.
     - [Invoke](#invoke)
     - [Update and time.deltaTime.](#update-and-timedeltatime)
     - [Coroutines](#coroutines)
+    - [Sliding Squares](#sliding-squares)
   - [Missile explosions](#missile-explosions)
     - [Hitting things](#hitting-things)
   - [Scoring/Displaying text](#scoringdisplaying-text)
@@ -49,6 +50,8 @@ Hitting as many useful assignment-finishing tools as we can.
 
 Code: 
   - My coroutines demo project: <https://github.com/dmcgits/gpr103_week11>
+  
+  ![Sliding squares](assets/week11/sliding_squares.png)
 
 Collisions:
   - Official docs https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html
@@ -71,6 +74,8 @@ TextMeshPro:
 
   - Fixed the aiming demo I made in the Ultimo class using old fashioned trig
   - Repo: <https://github.com/dmcgits/gpr103_Week10>
+
+![Missiles aimed](assets/week11/missiles_aimed.png)
 
 ### Class diagrams of that demo
 
@@ -249,9 +254,16 @@ void feedDog()
 
 What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it's paused. A coroutine is a function, but it's also a similar to a process that can be stopped and started, returning control to our main execution.
 
-From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
+### Sliding Squares
 
-#### Waves with a coroutine
+Squares arrive in waves of different colours, using differing lane combos.
+
+![Sliding squares](assets/week11/sliding_squares.png)
+_The [sliding squares demo](https://github.com/dmcgits/gpr103_week11) has a lot in common with missile wave launches_
+
+#### More Waves with a coroutine
+
+Also,From [Stack Overflow](https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity)
 
 ```cs
 

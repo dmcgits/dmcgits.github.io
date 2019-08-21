@@ -58,6 +58,7 @@
 <li><a href="#invoke">Invoke</a></li>
 <li><a href="#update-and-timedeltatime">Update and time.deltaTime.</a></li>
 <li><a href="#coroutines">Coroutines</a></li>
+<li><a href="#sliding-squares">Sliding Squares</a></li>
 </ul>
 </li>
 <li><a href="#missile-explosions">Missile explosions</a>
@@ -86,6 +87,7 @@
 <ul>
 <li>My coroutines demo project: <a href="https://github.com/dmcgits/gpr103_week11">https://github.com/dmcgits/gpr103_week11</a></li>
 </ul>
+<p><img src="assets/week11/sliding_squares.png" alt="Sliding squares"></p>
 <p>Collisions:</p>
 <ul>
 <li>Official docs <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html">https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html</a></li>
@@ -112,6 +114,7 @@
 <li>Fixed the aiming demo I made in the Ultimo class using old fashioned trig</li>
 <li>Repo: <a href="https://github.com/dmcgits/gpr103_Week10">https://github.com/dmcgits/gpr103_Week10</a></li>
 </ul>
+<p><img src="assets/week11/missiles_aimed.png" alt="Missiles aimed"></p>
 <h3 class="mume-header" id="class-diagrams-of-that-demo">Class diagrams of that demo</h3>
 
 <p>Visual studio class diagrams are great.</p>
@@ -269,9 +272,14 @@ play again?
 </pre><h3 class="mume-header" id="coroutines">Coroutines</h3>
 
 <p>What if we could pause a function and come back to it after a given interval. That way our timed things could all be encapsulated in one function, and we could do stuff while it&#x2019;s paused. A coroutine is a function, but it&#x2019;s also a similar to a process that can be stopped and started, returning control to our main execution.</p>
-<p>From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
-<h4 class="mume-header" id="waves-with-a-coroutine">Waves with a coroutine</h4>
+<h3 class="mume-header" id="sliding-squares">Sliding Squares</h3>
 
+<p>Squares arrive in waves of different colours, using differing lane combos.</p>
+<p><img src="assets/week11/sliding_squares.png" alt="Sliding squares"><br>
+<em>The <a href="https://github.com/dmcgits/gpr103_week11">sliding squares demo</a> has a lot in common with missile wave launches</em></p>
+<h4 class="mume-header" id="more-waves-with-a-coroutine">More Waves with a coroutine</h4>
+
+<p>Also,From <a href="https://stackoverflow.com/questions/30056471/how-make-the-script-wait-sleep-in-a-simple-way-in-unity">Stack Overflow</a></p>
 <pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token keyword">float</span><span class="token operator">&gt;</span> _times<span class="token punctuation">;</span>
 
 <span class="token keyword">void</span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
