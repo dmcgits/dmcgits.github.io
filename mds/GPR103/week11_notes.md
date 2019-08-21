@@ -19,9 +19,10 @@ Hitting as many useful assignment-finishing tools as we can.
 - [Week 11 - Time, text, collisions](#week-11---time-text-collisions)
   - [Todo](#todo)
   - [Resources](#resources)
-  - [Scoring/Displaying text](#scoringdisplaying-text)
-    - [Adding UI canvas and text](#adding-ui-canvas-and-text)
-    - [Editing TMP text in script](#editing-tmp-text-in-script)
+  - [Fixed demo: aiming.](#fixed-demo-aiming)
+    - [Class diagrams of that demo](#class-diagrams-of-that-demo)
+  - [Missiles and Targets](#missiles-and-targets)
+    - [Moving at a given speed](#moving-at-a-given-speed)
   - [Missiles come in waves in each level](#missiles-come-in-waves-in-each-level)
     - [Psuedocoding the waves](#psuedocoding-the-waves)
   - [Doing things over time](#doing-things-over-time)
@@ -30,22 +31,24 @@ Hitting as many useful assignment-finishing tools as we can.
     - [Invoke](#invoke)
     - [Update and time.deltaTime.](#update-and-timedeltatime)
     - [Coroutines](#coroutines)
-  - [Missiles](#missiles)
-    - [Aiming things at things](#aiming-things-at-things)
-    - [Moving at a given speed](#moving-at-a-given-speed)
-    - [Missile explosions](#missile-explosions)
+  - [Missile explosions](#missile-explosions)
     - [Hitting things](#hitting-things)
+  - [Scoring/Displaying text](#scoringdisplaying-text)
+    - [Adding UI canvas and text](#adding-ui-canvas-and-text)
+    - [Editing TMP text in script](#editing-tmp-text-in-script)
 
 <!-- /code_chunk_output -->
 
 
 ## Todo
 
-* Finalise, as much as you can, hacknplan tasks
-  - You'll notice the burndown doesn't progress if you're still adding new tasks at the rate you're finishing others
+* Finalise, as much as you can, keep working in git
 * Game should be basically done by next class.
 
 ## Resources
+
+Code: 
+  - My coroutines demo project: <https://github.com/dmcgits/gpr103_week11>
 
 Collisions:
   - Official docs https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html
@@ -57,45 +60,56 @@ Timers:
   - Docs: [Waiting for game seconds](https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSeconds.html)
   - Docs: [Waiting for real world seconds](https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSecondsRealtime.html)
 
+DoTween: 
+  - Documentation <http://dotween.demigiant.com/documentation.php>
+
 TextMeshPro:
   - Unity Blog: <https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/>
 
-## Scoring/Displaying text
 
-We're used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?
+## Fixed demo: aiming.
 
-Traditionally:
-1. Use an image editor to **place all the characters and symbols you want in a bitmap**
-2. Arrange them all to fit in a power of 2 square (256x256, etc)
-3. **Define rectangles for each letter** in your game engine
-4. Create a material with the font atlas as a teture
-5. For each letter in a string **generate a quad with UV coordinates** to match the letter's rectangle, add the font material.
+  - Fixed the aiming demo I made in the Ultimo class using old fashioned trig
+  - Repo: <https://github.com/dmcgits/gpr103_Week10>
 
-![Font atlas](assets/week11/textmesh_atlas.jpg)
+### Class diagrams of that demo
 
-That's a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.
+Visual studio class diagrams are great.
 
-> TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.
+## Missiles and Targets
 
-![asset creator](assets/week11/textmesh_font_asset_creator.jpg)
-![components](assets/week11/textmesh_components.png)
+When we spawn an alien or human missile, it needs to rotate toward a target.
 
-### Adding UI canvas and text
+We orient sprites to the right when they're at zero. It feels wierd 90 points straight up. It is familiar though: in trigenometry we figured out the sides or angle of elevation in a triangle at the origin of an x-y plan. As the hypotenuse of the triangle rose from the x axis and rotated toward the y, our triangle's angle crept from 0 up to 90. Also, that tells us rotation is anti-clockwise.
 
-Unity UIs are contained within a component called a **canvas**. It does a lot, including fitting our UI to our window and adapting to resolution changes.
+* You want a sprite to point at things properly when rotation (theta θ) is applied: lie them along the x axis. 
+* Also **use the Sprite Editor to set the pivot point** of your rocket near where the hot gases are exiting.
 
-* Creating a UI Canvas
-* Creating tex mesh pro (TMP) label
+![orientation for trig rotation](assets/week11/orientation_for_trig_rotation.png)
 
+> Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket's position, and some math using **distance, degrees to radians and atan2. Google some of those** with the usual "unity c#" keywords added.
 
-### Editing TMP text in script
+![2d space and missile](assets/week11/unity_2dSpace_missile.png)
 
-```cs
-// Code from unity incoming
-
-```
 ---
 
+### Moving at a given speed
+
+2D objects can't use transform.forward, because that's the Z axis. Use transform.right.
+
+Use deltaTime (time since last frame) adapt your movments to the changing length of time each frame runs for. This will avoid jittery movement.
+
+```cs
+// MissileAlien
+void Update()
+{
+  // Right is the x axis in trig. We travel along that.
+  // Any rotation of the object is applied after position, so
+  // we'll go whatever way the thing is pointing.
+  transform.position += transform.right * Time.deltaTime * _speed;
+}
+```
+---
 ## Missiles come in waves in each level
 
 A level in Missile Command consists of _n_ wave of missiles, where _n=5_ last time I checked. It might vary?
@@ -295,42 +309,9 @@ I didn't discuss threads above, but Unity c# does provide them.
 
 ---
 
-## Missiles
 
-Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.
 
-### Aiming things at things
-
-Remember when we're doing trigenometry in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise. 
-
-* You want a sprite to point at things properly when rotation (theta θ) is applied: lie them along the x axis. 
-* Also **use the Sprite Editor to set the pivot point** of your rocket near where the hot gases are exiting.
-
-![orientation for trig rotation](assets/week11/orientation_for_trig_rotation.png)
-
-> Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket's position, and some math using **distance, degrees to radians and atan2. Google some of those** with the usual "unity c#" keywords added.
-
----
-
-### Moving at a given speed
-
-2D objects can't use transform.forward, because that's the Z axis. Use transform.right.
-
-Use deltaTime (time since last frame) adapt your movments to the changing length of time each frame runs for. This will avoid jittery movement.
-
-```cs
-// MissileAlien
-void Update()
-{
-  // Right is the x axis in trig. We travel along that.
-  // Any rotation of the object is applied after position, so
-  // we'll go whatever way the thing is pointing.
-  transform.position += transform.right * Time.deltaTime * _speed;
-}
-```
----
-
-### Missile explosions
+## Missile explosions
 
 * spawn where our rocket stops (ie where we clicked)
 * grow over time, with a collider, and listen for impacts.
@@ -365,4 +346,40 @@ void OnCollisionEnter2D( Collision2D collision )
   }
 
 ```
+
+## Scoring/Displaying text
+
+We're used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?
+
+Traditionally:
+1. Use an image editor to **place all the characters and symbols you want in a bitmap**
+2. Arrange them all to fit in a power of 2 square (256x256, etc)
+3. **Define rectangles for each letter** in your game engine
+4. Create a material with the font atlas as a teture
+5. For each letter in a string **generate a quad with UV coordinates** to match the letter's rectangle, add the font material.
+
+![Font atlas](assets/week11/textmesh_atlas.jpg)
+
+That's a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.
+
+> TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.
+
+![asset creator](assets/week11/textmesh_font_asset_creator.jpg)
+![components](assets/week11/textmesh_components.png)
+
+### Adding UI canvas and text
+
+Unity UIs are contained within a component called a **canvas**. It does a lot, including fitting our UI to our window and adapting to resolution changes.
+
+* Creating a UI Canvas
+* Creating tex mesh pro (TMP) label
+
+
+### Editing TMP text in script
+
+```cs
+// Code from unity incoming
+
+```
+---
 
