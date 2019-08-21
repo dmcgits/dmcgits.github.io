@@ -20,6 +20,7 @@ Hitting as many useful assignment-finishing tools as we can.
   - [Todo](#todo)
   - [Resources](#resources)
   - [Fixed demo: aiming.](#fixed-demo-aiming)
+    - [Class diagrams of that demo](#class-diagrams-of-that-demo)
   - [Missiles and Targets](#missiles-and-targets)
     - [Moving at a given speed](#moving-at-a-given-speed)
   - [Missiles come in waves in each level](#missiles-come-in-waves-in-each-level)
@@ -71,6 +72,10 @@ TextMeshPro:
   - Fixed the aiming demo I made in the Ultimo class using old fashioned trig
   - Repo: <https://github.com/dmcgits/gpr103_Week10>
 
+### Class diagrams of that demo
+
+Visual studio class diagrams are great.
+
 ## Missiles and Targets
 
 When we spawn an alien or human missile, it needs to rotate toward a target.
@@ -83,6 +88,8 @@ We orient sprites to the right when they're at zero. It feels wierd 90 points st
 ![orientation for trig rotation](assets/week11/orientation_for_trig_rotation.png)
 
 > Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket's position, and some math using **distance, degrees to radians and atan2. Google some of those** with the usual "unity c#" keywords added.
+
+![2d space and missile](assets/week11/unity_2dSpace_missile.png)
 
 ---
 
