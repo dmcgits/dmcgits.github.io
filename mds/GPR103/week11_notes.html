@@ -36,10 +36,10 @@
 <ul>
 <li><a href="#todo">Todo</a></li>
 <li><a href="#resources">Resources</a></li>
-<li><a href="#scoringdisplaying-text">Scoring/Displaying text</a>
+<li><a href="#fixed-demo-aiming">Fixed demo: aiming.</a></li>
+<li><a href="#missiles-and-targets">Missiles and Targets</a>
 <ul>
-<li><a href="#adding-ui-canvas-and-text">Adding UI canvas and text</a></li>
-<li><a href="#editing-tmp-text-in-script">Editing TMP text in script</a></li>
+<li><a href="#moving-at-a-given-speed">Moving at a given speed</a></li>
 </ul>
 </li>
 <li><a href="#missiles-come-in-waves-in-each-level">Missiles come in waves in each level</a>
@@ -56,12 +56,15 @@
 <li><a href="#coroutines">Coroutines</a></li>
 </ul>
 </li>
-<li><a href="#missiles">Missiles</a>
+<li><a href="#missile-explosions">Missile explosions</a>
 <ul>
-<li><a href="#aiming-things-at-things">Aiming things at things</a></li>
-<li><a href="#moving-at-a-given-speed">Moving at a given speed</a></li>
-<li><a href="#missile-explosions">Missile explosions</a></li>
 <li><a href="#hitting-things">Hitting things</a></li>
+</ul>
+</li>
+<li><a href="#scoringdisplaying-text">Scoring/Displaying text</a>
+<ul>
+<li><a href="#adding-ui-canvas-and-text">Adding UI canvas and text</a></li>
+<li><a href="#editing-tmp-text-in-script">Editing TMP text in script</a></li>
 </ul>
 </li>
 </ul>
@@ -70,15 +73,15 @@
 <h2 class="mume-header" id="todo">Todo</h2>
 
 <ul>
-<li>Finalise, as much as you can, hacknplan tasks
-<ul>
-<li>You&#x2019;ll notice the burndown doesn&#x2019;t progress if you&#x2019;re still adding new tasks at the rate you&#x2019;re finishing others</li>
-</ul>
-</li>
+<li>Finalise, as much as you can, keep working in git</li>
 <li>Game should be basically done by next class.</li>
 </ul>
 <h2 class="mume-header" id="resources">Resources</h2>
 
+<p>Code:</p>
+<ul>
+<li>My coroutines demo project: <a href="https://github.com/dmcgits/gpr103_week11">https://github.com/dmcgits/gpr103_week11</a></li>
+</ul>
 <p>Collisions:</p>
 <ul>
 <li>Official docs <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html">https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html</a></li>
@@ -91,39 +94,45 @@
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSeconds.html">Waiting for game seconds</a></li>
 <li>Docs: <a href="https://docs.unity3d.com/2017.4/Documentation/ScriptReference/WaitForSecondsRealtime.html">Waiting for real world seconds</a></li>
 </ul>
+<p>DoTween:</p>
+<ul>
+<li>Documentation <a href="http://dotween.demigiant.com/documentation.php">http://dotween.demigiant.com/documentation.php</a></li>
+</ul>
 <p>TextMeshPro:</p>
 <ul>
 <li>Unity Blog: <a href="https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/">https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/</a></li>
 </ul>
-<h2 class="mume-header" id="scoringdisplaying-text">Scoring/Displaying text</h2>
+<h2 class="mume-header" id="fixed-demo-aiming">Fixed demo: aiming.</h2>
 
-<p>We&#x2019;re used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?</p>
-<p>Traditionally:</p>
-<ol>
-<li>Use an image editor to <strong>place all the characters and symbols you want in a bitmap</strong></li>
-<li>Arrange them all to fit in a power of 2 square (256x256, etc)</li>
-<li><strong>Define rectangles for each letter</strong> in your game engine</li>
-<li>Create a material with the font atlas as a teture</li>
-<li>For each letter in a string <strong>generate a quad with UV coordinates</strong> to match the letter&#x2019;s rectangle, add the font material.</li>
-</ol>
-<p><img src="assets/week11/textmesh_atlas.jpg" alt="Font atlas"></p>
-<p>That&#x2019;s a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.</p>
-<blockquote>
-<p>TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.</p>
-</blockquote>
-<p><img src="assets/week11/textmesh_font_asset_creator.jpg" alt="asset creator"><br>
-<img src="assets/week11/textmesh_components.png" alt="components"></p>
-<h3 class="mume-header" id="adding-ui-canvas-and-text">Adding UI canvas and text</h3>
-
-<p>Unity UIs are contained within a component called a <strong>canvas</strong>. It does a lot, including fitting our UI to our window and adapting to resolution changes.</p>
 <ul>
-<li>Creating a UI Canvas</li>
-<li>Creating tex mesh pro (TMP) label</li>
+<li>Fixed the aiming demo I made in the Ultimo class using old fashioned trig</li>
+<li>Repo: <a href="https://github.com/dmcgits/gpr103_Week10">https://github.com/dmcgits/gpr103_Week10</a></li>
 </ul>
-<h3 class="mume-header" id="editing-tmp-text-in-script">Editing TMP text in script</h3>
+<h2 class="mume-header" id="missiles-and-targets">Missiles and Targets</h2>
 
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Code from unity incoming</span>
+<p>When we spawn an alien or human missile, it needs to rotate toward a target.</p>
+<p>We orient sprites to the right when they&#x2019;re at zero. It feels wierd 90 points straight up. It is familiar though: in trigenometry we figured out the sides or angle of elevation in a triangle at the origin of an x-y plan. As the hypotenuse of the triangle rose from the x axis and rotated toward the y, our triangle&#x2019;s angle crept from 0 up to 90. Also, that tells us rotation is anti-clockwise.</p>
+<ul>
+<li>You want a sprite to point at things properly when rotation (theta &#x3B8;) is applied: lie them along the x axis.</li>
+<li>Also <strong>use the Sprite Editor to set the pivot point</strong> of your rocket near where the hot gases are exiting.</li>
+</ul>
+<p><img src="assets/week11/orientation_for_trig_rotation.png" alt="orientation for trig rotation"></p>
+<blockquote>
+<p>Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket&#x2019;s position, and some math using <strong>distance, degrees to radians and atan2. Google some of those</strong> with the usual &#x201C;unity c#&#x201D; keywords added.</p>
+</blockquote>
+<hr>
+<h3 class="mume-header" id="moving-at-a-given-speed">Moving at a given speed</h3>
 
+<p>2D objects can&#x2019;t use transform.forward, because that&#x2019;s the Z axis. Use transform.right.</p>
+<p>Use deltaTime (time since last frame) adapt your movments to the changing length of time each frame runs for. This will avoid jittery movement.</p>
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// MissileAlien</span>
+<span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// Right is the x axis in trig. We travel along that.</span>
+  <span class="token comment">// Any rotation of the object is applied after position, so</span>
+  <span class="token comment">// we&apos;ll go whatever way the thing is pointing.</span>
+  transform<span class="token punctuation">.</span>position <span class="token operator">+=</span> transform<span class="token punctuation">.</span>right <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime <span class="token operator">*</span> _speed<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </pre><hr>
 <h2 class="mume-header" id="missiles-come-in-waves-in-each-level">Missiles come in waves in each level</h2>
 
@@ -307,35 +316,7 @@ play again?
 <strong>Coroutines:</strong> most simple timed operations inside component<br>
 <strong>Threads:</strong> long intense operations like file save. Also used at higher levels for AI, path finding. If you&#x2019;ve studied threading. They are simple in concept and stupendously complex to syncronise/manage in real life. The bugs they generate are capricious in the extreme.</p>
 <hr>
-<h2 class="mume-header" id="missiles">Missiles</h2>
-
-<p>Firing at targets. Maybe at the start of a wave all 3 volleys of missiles are aimed and prepped? If the city is destroyed before they arrive/fire so be it.</p>
-<h3 class="mume-header" id="aiming-things-at-things">Aiming things at things</h3>
-
-<p>Remember when we&#x2019;re doing trigenometry in a 2D plane, 0 rotation points us along the x axis to the right. Positive rotation goes anti clockwise.</p>
-<ul>
-<li>You want a sprite to point at things properly when rotation (theta &#x3B8;) is applied: lie them along the x axis.</li>
-<li>Also <strong>use the Sprite Editor to set the pivot point</strong> of your rocket near where the hot gases are exiting.</li>
-</ul>
-<p><img src="assets/week11/orientation_for_trig_rotation.png" alt="orientation for trig rotation"></p>
-<blockquote>
-<p>Aiming it requires a target (mouse position in world space during click, see lecture 5 project i think), our rocket&#x2019;s position, and some math using <strong>distance, degrees to radians and atan2. Google some of those</strong> with the usual &#x201C;unity c#&#x201D; keywords added.</p>
-</blockquote>
-<hr>
-<h3 class="mume-header" id="moving-at-a-given-speed">Moving at a given speed</h3>
-
-<p>2D objects can&#x2019;t use transform.forward, because that&#x2019;s the Z axis. Use transform.right.</p>
-<p>Use deltaTime (time since last frame) adapt your movments to the changing length of time each frame runs for. This will avoid jittery movement.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// MissileAlien</span>
-<span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token comment">// Right is the x axis in trig. We travel along that.</span>
-  <span class="token comment">// Any rotation of the object is applied after position, so</span>
-  <span class="token comment">// we&apos;ll go whatever way the thing is pointing.</span>
-  transform<span class="token punctuation">.</span>position <span class="token operator">+=</span> transform<span class="token punctuation">.</span>right <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime <span class="token operator">*</span> _speed<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><hr>
-<h3 class="mume-header" id="missile-explosions">Missile explosions</h3>
+<h2 class="mume-header" id="missile-explosions">Missile explosions</h2>
 
 <ul>
 <li>spawn where our rocket stops (ie where we clicked)</li>
@@ -368,7 +349,37 @@ play again?
     <span class="token comment">// Maybe throw an event about collision, passing the collided object?</span>
   <span class="token punctuation">}</span>
 
-</pre>
+</pre><h2 class="mume-header" id="scoringdisplaying-text">Scoring/Displaying text</h2>
+
+<p>We&#x2019;re used to text being an everyday thing in our apps. Word, web browsers, photoshop and so on. But these are inherently 2D apps. How are fonts drawn in a world of polygons and textures?</p>
+<p>Traditionally:</p>
+<ol>
+<li>Use an image editor to <strong>place all the characters and symbols you want in a bitmap</strong></li>
+<li>Arrange them all to fit in a power of 2 square (256x256, etc)</li>
+<li><strong>Define rectangles for each letter</strong> in your game engine</li>
+<li>Create a material with the font atlas as a teture</li>
+<li>For each letter in a string <strong>generate a quad with UV coordinates</strong> to match the letter&#x2019;s rectangle, add the font material.</li>
+</ol>
+<p><img src="assets/week11/textmesh_atlas.jpg" alt="Font atlas"></p>
+<p>That&#x2019;s a lot of work. So someone made TextMeshPro for Unity, and Unity bought it.</p>
+<blockquote>
+<p>TextMeshPro has an atlas generator for the first 3 steps, and components for the rest.</p>
+</blockquote>
+<p><img src="assets/week11/textmesh_font_asset_creator.jpg" alt="asset creator"><br>
+<img src="assets/week11/textmesh_components.png" alt="components"></p>
+<h3 class="mume-header" id="adding-ui-canvas-and-text">Adding UI canvas and text</h3>
+
+<p>Unity UIs are contained within a component called a <strong>canvas</strong>. It does a lot, including fitting our UI to our window and adapting to resolution changes.</p>
+<ul>
+<li>Creating a UI Canvas</li>
+<li>Creating tex mesh pro (TMP) label</li>
+</ul>
+<h3 class="mume-header" id="editing-tmp-text-in-script">Editing TMP text in script</h3>
+
+<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Code from unity incoming</span>
+
+</pre><hr>
+
       </div>
       
       
