@@ -37,39 +37,16 @@
 <li><a href="#todo">Todo</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#putting-it-all-together">Putting it all together</a></li>
-<li><a href="#the-garden-the-snake">The Garden, the Snake</a>
+<li><a href="#keep-imagining-the-garden-the-snake">Keep imagining: the garden, the snake</a>
 <ul>
-<li><a href="#summarise-the-game-start-and-loop">Summarise the game start and loop</a>
-<ul>
-<li><a href="#programs">Programs:</a></li>
-<li><a href="#our-snake-game">Our Snake game</a></li>
-</ul>
-</li>
-<li><a href="#the-snake-specifically">The snake, specifically</a>
-<ul>
-<li><a href="#whats-happening-here">What&#x2019;s happening here?</a></li>
-<li><a href="#zoom-into-do-snake-things-and-see-whats-happening">Zoom into DO SNAKE THINGS and see what&#x2019;s happening.</a></li>
-</ul>
-</li>
+<li><a href="#summarise-the-game-start-and-loop">Summarise the game start and loop</a></li>
+<li><a href="#the-snake-specifically">The snake, specifically</a></li>
 <li><a href="#something-i-learned-there">Something I learned there</a></li>
 <li><a href="#how-do-i-know-where-my-leader-is-and-was">How do I know where my leader is and was?</a></li>
 <li><a href="#knowing-real-location-and-grid-location">Knowing real location and grid location</a></li>
-<li><a href="#change-of-cell">Change of cell</a>
-<ul>
-<li><a href="#write-some-pseudocode-for-a-program-that">Write some pseudocode for a program that:</a></li>
-</ul>
-</li>
+<li><a href="#change-of-grid-square">Change of grid square</a></li>
 <li><a href="#frame-rate-independence">Frame rate independence</a></li>
-<li><a href="#side-benefits">Side benefits</a>
-<ul>
-<li><a href="#write-psuedocode-that">Write psuedocode that</a></li>
-<li><a href="#write-an-olc-console-game-that">Write an OLC console game that:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#using-objects-for-small-things-vs-structs">Using objects for small things vs structs</a>
-<ul>
+<li><a href="#side-benefits">Side benefits</a></li>
 <li><a href="#smart-snake-simple-headparts">smart snake, simple head/parts</a></li>
 <li><a href="#simple-snake-smart-headparts">simple snake, smart head/parts</a></li>
 </ul>
@@ -93,17 +70,23 @@
 <p>Inheritance, Polymorphism:</p>
 <ul>
 <li>book <a href="book_1/cppgames_chap10.pdf">chap 10 pdf</a></li>
+<li><a href="week11_code.html">Week11 Code</a>
+<ul>
+<li>includes Following Squares code!</li>
+<li>Class diagrams are super helpful</li>
+</ul>
+</li>
 </ul>
 <hr>
 <h2 class="mume-header" id="putting-it-all-together">Putting it all together</h2>
 
 <p>You guys have all the c++ syntax you&#x2019;re going to need now, really. Beyond the details of using classes with matching ancestors in the same collections (polymorphism), the rest is how to apply what you know.</p>
-<p>Today I&#x2019;m going to take you through ways to reduce the snake game situation to data and logical actions. I&#x2019;ll mostly use psuedocode.</p>
+<p>Today I&#x2019;ve suggested some ways to reduce the snake game situation to a manageable bits. I&#x2019;ll mostly use psuedocode.</p>
 <blockquote>
 <p>Maybe my psuedocode matches your plan, or you have your own variation: the job remaining for you guys is to design and write the classes, structs, functions and variables that make this go.</p>
 </blockquote>
 <hr>
-<h2 class="mume-header" id="the-garden-the-snake">The Garden, the Snake</h2>
+<h2 class="mume-header" id="keep-imagining-the-garden-the-snake">Keep imagining: the garden, the snake</h2>
 
 <p>Moving an object around and having it eat fruit for points is a pretty easy project. What makes this game a challenge is the articulated, growing snake, but don&#x2019;t get hung up on the code too early!</p>
 <blockquote>
@@ -240,33 +223,33 @@ xGrid: <strong>1, 1, 1, 2, 2</strong></p>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">float</span> posX <span class="token operator">=</span> <span class="token number">1.4f</span><span class="token punctuation">;</span>
-  <span class="token keyword">float</span> posY <span class="token operator">=</span> <span class="token number">2.6f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> xGrid <span class="token operator">=</span> <span class="token number">1.4f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> yGrid <span class="token operator">=</span> <span class="token number">2.6f</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">int</span> cellX <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span>posX<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// round returns a float, eg 3.0, </span>
-  <span class="token keyword">int</span> cellY <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span>posY<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// so assigning to an int truncates only zeroes</span>
+  <span class="token keyword">int</span> xGrid <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span>xGrid<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// round returns a float, eg 3.0, </span>
+  <span class="token keyword">int</span> yGrid <span class="token operator">=</span> <span class="token function">round</span><span class="token punctuation">(</span>yGrid<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// so assigning to an int truncates only zeroes</span>
 
-  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;posX = &quot;</span> <span class="token operator">&lt;&lt;</span> posX <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;, cellX = &quot;</span> <span class="token operator">&lt;&lt;</span> cellX <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> 
-  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;posY = &quot;</span> <span class="token operator">&lt;&lt;</span> posY <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;, cellY = &quot;</span> <span class="token operator">&lt;&lt;</span> cellY <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;xGrid = &quot;</span> <span class="token operator">&lt;&lt;</span> xGrid <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;, xGrid = &quot;</span> <span class="token operator">&lt;&lt;</span> xGrid <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> 
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;yGrid = &quot;</span> <span class="token operator">&lt;&lt;</span> yGrid <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;, yGrid = &quot;</span> <span class="token operator">&lt;&lt;</span> yGrid <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment">// Outputs:</span>
-<span class="token comment">// posX = 1.4, cellX = 1</span>
-<span class="token comment">// posY = 2.6, cellY = 3</span>
+<span class="token comment">// xGrid = 1.4, xGrid = 1</span>
+<span class="token comment">// yGrid = 2.6, yGrid = 3</span>
 <span class="token comment">// 2.6 rounded up, 1.4 down.</span>
-</pre><h3 class="mume-header" id="change-of-cell">Change of cell</h3>
+</pre><h3 class="mume-header" id="change-of-grid-square">Change of grid square</h3>
 
-<p>Trackign posX and prevPosX are easy:</p>
+<p>Trackign xGrid and xGridOld are easy:</p>
 <p>cpp code</p>
 <p>update {<br>
 store position in a variable before we move<br>
-prevPosX = posX;<br>
+xGridOld = xGrid;<br>
 move<br>
-posX += speedPerFrame;<br>
+xGrid += speedPerFrame;<br>
 }</p>
 <p>how do we also track</p>
 <ul>
-<li>keep prevCellX and prevCellY (value in previous frame)</li>
+<li>keep xGridOld and yGridOld (value in previous frame)</li>
 <li>test if either differs from current frame value</li>
 <li>If changed, we&#x2019;re in a new cell.</li>
 </ul>
@@ -306,22 +289,6 @@ Loop Every Frame
 <p>Adjusting movement every frame results in smoother motion.</p>
 </blockquote>
 <p>Sometimes it&#x2019;s 15 ms since last frame, sometimes 60. If we moved at a set speed-per-frame, <strong>a series of short frames would move us less total distance than a series of long frames.</strong> That&#x2019;s what slow down is in old frame-based games.</p>
-<h4 class="mume-header" id="write-psuedocode-that">Write psuedocode that</h4>
-
-<ul>
-<li>Moves at a square right at 10 cells per second</li>
-<li>Note current cell by rounding to nearest whole integer</li>
-<li>Checks if square has entered a new cell</li>
-<li>If it has, print a message.</li>
-<li>If cell is beyond final cell (29) move it to 0.</li>
-</ul>
-<h4 class="mume-header" id="write-an-olc-console-game-that">Write an OLC console game that:</h4>
-
-<p>Does what your psuedocode did.</p>
-<hr>
-<h2 class="mume-header" id="using-objects-for-small-things-vs-structs">Using objects for small things vs structs</h2>
-
-<p>Should I have objects that are smart and hide their functionality? Or just structs that I update?</p>
 <h3 class="mume-header" id="smart-snake-simple-headparts">smart snake, simple head/parts</h3>
 
 <p>Maybe you don&#x2019;t want many classes, game and Snake are enough. Structs for the rest. Snake will do a lot of checking lists.</p>
@@ -381,11 +348,11 @@ loop frame while alive
 <p>Lets look at attributes of a smart head/body part.</p>
 <p><strong>SnakeHead:</strong></p>
 <ul>
-<li>posX</li>
-<li>posY</li>
+<li>xGrid</li>
+<li>yGrid</li>
 <li>direction, speed</li>
-<li><em>cellX, prevCellX</em></li>
-<li><em>cellY, prevCellY</em></li>
+<li><em>xGrid, xGridOld</em></li>
+<li><em>yGrid, yGridOld</em></li>
 <li><em>colour</em></li>
 <li><em>move()</em></li>
 <li>isEating(fruit)</li>
@@ -394,8 +361,8 @@ loop frame while alive
 <p><strong>SnakeBodyPart</strong></p>
 <ul>
 <li><strong>leader (head or part)</strong></li>
-<li><em>cellX, prevCellX</em></li>
-<li><em>cellY, prevCellY</em></li>
+<li><em>xGrid, xGridOld</em></li>
+<li><em>yGrid, yGridOld</em></li>
 <li><em>colour</em></li>
 <li><em>move()</em></li>
 </ul>
@@ -465,7 +432,7 @@ loop frame while alive
   a Snake object
 
 for each bit Snake gives us via GetAllBits
-    Draw a square in bit&apos;s colour, at bit&apos;s cellX, bit&apos;s cellY.
+    Draw a square in bit&apos;s colour, at bit&apos;s xGrid, bit&apos;s yGrid.
 
 </code></pre><h2 class="mume-header" id="interfaces">Interfaces?</h2>
 

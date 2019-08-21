@@ -19,23 +19,15 @@ This may be enough content for both weeks..
   - [Todo](#todo)
   - [Resources](#resources)
   - [Putting it all together](#putting-it-all-together)
-  - [The Garden, the Snake](#the-garden-the-snake)
+  - [Keep imagining: the garden, the snake](#keep-imagining-the-garden-the-snake)
     - [Summarise the game start and loop](#summarise-the-game-start-and-loop)
-      - [Programs:](#programs)
-      - [Our Snake game](#our-snake-game)
     - [The snake, specifically](#the-snake-specifically)
-      - [What's happening here?](#whats-happening-here)
-      - [Zoom into DO SNAKE THINGS and see what's happening.](#zoom-into-do-snake-things-and-see-whats-happening)
     - [Something I learned there](#something-i-learned-there)
     - [How do I know where my leader is and was?](#how-do-i-know-where-my-leader-is-and-was)
     - [Knowing real location and grid location](#knowing-real-location-and-grid-location)
-    - [Change of cell](#change-of-cell)
-      - [Write some pseudocode for a program that:](#write-some-pseudocode-for-a-program-that)
+    - [Change of grid square](#change-of-grid-square)
     - [Frame rate independence](#frame-rate-independence)
     - [Side benefits](#side-benefits)
-      - [Write psuedocode that](#write-psuedocode-that)
-      - [Write an OLC console game that:](#write-an-olc-console-game-that)
-  - [Using objects for small things vs structs](#using-objects-for-small-things-vs-structs)
     - [smart snake, simple head/parts](#smart-snake-simple-headparts)
     - [simple snake, smart head/parts](#simple-snake-smart-headparts)
   - [Enter Inheritance.](#enter-inheritance)
@@ -56,6 +48,9 @@ Finish A3.
 
 Inheritance, Polymorphism:
   - book [chap 10 pdf](book_1/cppgames_chap10.pdf)
+  - [Week11 Code](week11_code.html)
+    * includes Following Squares code!
+    * Class diagrams are super helpful
 
 ---
 
@@ -63,13 +58,13 @@ Inheritance, Polymorphism:
 
 You guys have all the c++ syntax you're going to need now, really. Beyond the details of using classes with matching ancestors in the same collections (polymorphism), the rest is how to apply what you know.
 
-Today I'm going to take you through ways to reduce the snake game situation to data and logical actions. I'll mostly use psuedocode.
+Today I've suggested some ways to reduce the snake game situation to a manageable bits. I'll mostly use psuedocode.
 
 > Maybe my psuedocode matches your plan, or you have your own variation: the job remaining for you guys is to design and write the classes, structs, functions and variables that make this go.
 
 ---
 
-## The Garden, the Snake
+## Keep imagining: the garden, the snake
 
 Moving an object around and having it eat fruit for points is a pretty easy project. What makes this game a challenge is the articulated, growing snake, but don't get hung up on the code too early!
 
@@ -220,38 +215,38 @@ It can cause issues. Options to consider: **floor, ceil, round**.
 
 int main()
 {
-  float posX = 1.4f;
-  float posY = 2.6f;
+  float xGrid = 1.4f;
+  float yGrid = 2.6f;
 
-  int cellX = round(posX);    // round returns a float, eg 3.0, 
-  int cellY = round(posY);    // so assigning to an int truncates only zeroes
+  int xGrid = round(xGrid);    // round returns a float, eg 3.0, 
+  int yGrid = round(yGrid);    // so assigning to an int truncates only zeroes
 
-  cout << "posX = " << posX << ", cellX = " << cellX << endl << endl; 
-  cout << "posY = " << posY << ", cellY = " << cellY << endl << endl;
+  cout << "xGrid = " << xGrid << ", xGrid = " << xGrid << endl << endl; 
+  cout << "yGrid = " << yGrid << ", yGrid = " << yGrid << endl << endl;
 }
 
 // Outputs:
-// posX = 1.4, cellX = 1
-// posY = 2.6, cellY = 3
+// xGrid = 1.4, xGrid = 1
+// yGrid = 2.6, yGrid = 3
 // 2.6 rounded up, 1.4 down.
 ```
 
-### Change of cell
+### Change of grid square
 
-Trackign posX and prevPosX are easy:
+Trackign xGrid and xGridOld are easy:
 
 cpp code
 
 update {
     store position in a variable before we move
-  prevPosX = posX;      
+  xGridOld = xGrid;      
     move
-  posX += speedPerFrame;
+  xGrid += speedPerFrame;
 }
 
 
  how do we also track 
-* keep prevCellX and prevCellY (value in previous frame)
+* keep xGridOld and yGridOld (value in previous frame)
 * test if either differs from current frame value
 * If changed, we're in a new cell.
 
@@ -296,23 +291,6 @@ There's another great benefit tho:
 
 Sometimes it's 15 ms since last frame, sometimes 60. If we moved at a set speed-per-frame, **a series of short frames would move us less total distance than a series of long frames.** That's what slow down is in old frame-based games.
 
-#### Write psuedocode that
-
-* Moves at a square right at 10 cells per second
-* Note current cell by rounding to nearest whole integer
-* Checks if square has entered a new cell
-* If it has, print a message.
-* If cell is beyond final cell (29) move it to 0.
-
-#### Write an OLC console game that:
-
-Does what your psuedocode did.
-
-___
-
-## Using objects for small things vs structs
-
-Should I have objects that are smart and hide their functionality? Or just structs that I update?
 
 ### smart snake, simple head/parts
 
@@ -381,11 +359,11 @@ ___
 Lets look at attributes of a smart head/body part.
 
 **SnakeHead:**
-  - posX
-  - posY
+  - xGrid
+  - yGrid
   - direction, speed
-  - _cellX, prevCellX_
-  - _cellY, prevCellY_
+  - _xGrid, xGridOld_
+  - _yGrid, yGridOld_
   - _colour_
   - _move()_
   - isEating(fruit)
@@ -393,8 +371,8 @@ Lets look at attributes of a smart head/body part.
 
 **SnakeBodyPart**
   - **leader (head or part)**
-  - _cellX, prevCellX_
-  - _cellY, prevCellY_
+  - _xGrid, xGridOld_
+  - _yGrid, yGridOld_
   - _colour_
   - _move()_
 
@@ -474,7 +452,7 @@ We have:
   a Snake object
 
 for each bit Snake gives us via GetAllBits
-    Draw a square in bit's colour, at bit's cellX, bit's cellY.
+    Draw a square in bit's colour, at bit's xGrid, bit's yGrid.
 
 ```
 
