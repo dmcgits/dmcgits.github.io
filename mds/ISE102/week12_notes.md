@@ -16,16 +16,17 @@ export_on_save:
 
 1. [Week 12 - Working on Snake](#week-12---working-on-snake)
 	1. [Snake!](#snake)
+	2. [Checking your coding conventions](#checking-your-coding-conventions)
 		1. [We're stuck, how do we add the body/tail?](#were-stuck-how-do-we-add-the-bodytail)
 			1. [Train engines and carriages](#train-engines-and-carriages)
 			2. [The trick question](#the-trick-question)
-	2. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
+	3. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
 		1. [Storing fruit in a vector](#storing-fruit-in-a-vector)
 		2. [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
 		3. [How do you add more to your snake?](#how-do-you-add-more-to-your-snake)
-	3. [How do you know if you ate yourself?](#how-do-you-know-if-you-ate-yourself)
-	4. [How do I quit?](#how-do-i-quit)
-	5. [Class Diagrams](#class-diagrams)
+	4. [How do you know if you ate yourself?](#how-do-you-know-if-you-ate-yourself)
+	5. [How do I quit?](#how-do-i-quit)
+	6. [Class Diagrams](#class-diagrams)
 
 <!-- /code_chunk_output -->
 
@@ -35,6 +36,59 @@ export_on_save:
 We're working on the assignment.
 
 I'll come around and check with everyone, but feel free to ask questions.
+
+## Checking your coding conventions
+
+In every team or project we use coding conventions so we humans can read the code a little better. It helps you to debug, and me to 
+
+**Using naming conventions correctly is worth marks**, and they're easy marks so go through and check!
+
+```cpp {.line-numbers}
+// ISE102 class coding conventions
+// Based on common conventions for C++
+
+// Classes, the recipes for objects
+// Lead with upper case, use again for subsequent words
+Class AttackShip : public SpaceShip // AttackShip extends the 
+{
+	public:
+}
+
+// constants, numbers that won't change.
+// Use ALL_UPPER_CASE with underscores replacing spaces
+const int LIVES_REMAINING_AT_START = 3;
+const int MAX_HEALTH = 100;
+const float HEADSHOT_DAMAGE_MULTIPLIER = 2.5f;
+const string DEFAULT_INVITE_TEXT = "You have been invited to rumble.";
+
+// public variables. Variables that code outside a class can see.
+// Start lower case, upper case for subsequent words
+public:
+	int score = 0;
+	string myTag = "";
+	string myRealName = "";
+	Hat topHat; 		// "H" tells us H is a class, or type.
+						// "t" tells us topHat is an instance/object.
+
+// protected or private variables. Only seen inside class.
+// Use an _ and start lower case, upper case subsequent words
+protected: 
+	float _baseDamage = 3.2f;
+	string _secretPassword = "AndSheWas";
+	BroadSword _mightyBroadSword;
+
+// functions: whether public or private, name them as you would a public variable. 
+// leading lower case, then upper case words.
+
+public:
+
+	float damagePerSecond() 
+	{
+		// Notice how you can immediately tell I'm using my private variables
+		// to calculate a return value. The leading _ tells us.
+		return (_damagePerAttack * _attacksPerSecond);
+	}
+```
 
 <!--
 ### We're stuck, how do we add the body/tail?
@@ -179,7 +233,8 @@ To use these `Fruit` as they come and go, we need to track them in a collection.
 	// Create a new fruit at x=5, y=5. Make it a Red Apple
 	Fruit apple1 = Fruit(5, 5, Fruit::RED_APPLE);
 	
-	// Push it on to the back of the vector.
+	// "Push" it on to the "back" of the vector: adds it to the
+	// end of the vector.
 	fruits.push_back(apple1);
 
 	// Some example vectors of other types:
@@ -196,23 +251,34 @@ To use these `Fruit` as they come and go, we need to track them in a collection.
 
 Fruit has a position. You have a position. But there are many fruits. You'll need to **step through your vector with a loop**.
 
+I would have this function in a `Snake` class, so the snake itself can check each frame if it has eaten a `Fruit`. It will return `true` 
 
 ```C++ {.line-numbers}
-// A function that checks if we're eating fruit, and returns true
-// if we are. Takes a vector of objects of the Fruit class.
-bool isEatingFruit( vector< Fruit > fruits )
+	// in SnakeGame.cpp
 
-	for (int i = 0; i<fruits.size(); i++)
+	if (_snake.isEatingFruit(_fruits)
 	{
-		// Get the fruit at i (first time 0, second time 1 and so on)
-		Fruit fruit = fruits[i];
-		
-		// Use an if here to check if snake head x,y
-		// match fruit x-y
-		
+		// add fruit score value to player score
 	}
-	return(false);
-}
+```
+
+```C++ {.line-numbers}
+	// in Snake.cpp
+
+	bool Snake::isEatingFruit( vector< Fruit > fruits )
+		bool eating = false;
+
+		for (int i = 0; i<fruits.size(); i++)
+		{
+			// Get the fruit at i (first time 0, second time 1 and so on)
+			Fruit fruit = fruits[i];
+			
+			// Use an if here to check if snake head x,y
+			// matches fruit x-y. If so, eating = true;
+			
+		}
+		return(eating);
+	}
 ```
 
 <!--
