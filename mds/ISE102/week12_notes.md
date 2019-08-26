@@ -9,6 +9,27 @@ export_on_save:
 ---
 # Week 12 - Working on Snake
 
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+1. [Week 12 - Working on Snake](#week-12---working-on-snake)
+	1. [Snake!](#snake)
+		1. [We're stuck, how do we add the body/tail?](#were-stuck-how-do-we-add-the-bodytail)
+			1. [Train engines and carriages](#train-engines-and-carriages)
+			2. [The trick question](#the-trick-question)
+	2. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
+		1. [Storing fruit in a vector](#storing-fruit-in-a-vector)
+		2. [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
+		3. [How do you add more to your snake?](#how-do-you-add-more-to-your-snake)
+	3. [How do you know if you ate yourself?](#how-do-you-know-if-you-ate-yourself)
+	4. [How do I quit?](#how-do-i-quit)
+	5. [Class Diagrams](#class-diagrams)
+
+<!-- /code_chunk_output -->
+
+
 ## Snake!
 
 We're working on the assignment.
