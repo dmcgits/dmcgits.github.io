@@ -30,6 +30,12 @@
 <ol>
 <li><a href="#snake">Snake!</a></li>
 <li><a href="#checking-your-coding-conventions">Checking your coding conventions</a></li>
+<li><a href="#olc-color-problems">Olc Color problems</a>
+<ol>
+<li><a href="#olcenumsh">OlcEnums.h</a></li>
+<li><a href="#snakegamecpp-and-anywhere-else">SnakeGame.cpp and anywhere else</a></li>
+</ol>
+</li>
 <li><a href="#one-way-to-make-a-fruit-class">One way to make a Fruit class</a>
 <ol>
 <li><a href="#storing-fruit-in-a-vector">Storing fruit in a vector</a></li>
@@ -53,8 +59,9 @@
 
 <p>In every team or project we use coding conventions so we humans can read the code a little better. It helps you to debug, and me to</p>
 <p><strong>Using naming conventions correctly is worth marks</strong>, and they&apos;re easy marks so go through and check!</p>
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// ISE102 class coding conventions</span>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// ISE102 class coding conventions</span>
 <span class="token comment">// Based on common conventions for C++</span>
+<span class="token comment">// This is a series of examples. All in one file it wouldn&apos;t compile.</span>
 
 <span class="token comment">// Classes, the recipes for objects</span>
 <span class="token comment">// Lead with upper case, use again for subsequent words</span>
@@ -102,7 +109,112 @@ Class <span class="token class-name">AttackShip</span> <span class="token operat
 	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
 	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
+</pre><h2 class="mume-header" id="olc-color-problems">Olc Color problems</h2>
+
+<p>Are you trying to <strong>make classes with default colour values</strong>? Then including <code>olcConsoleGameEngineOOP.h</code> for the colors? Or for the character/pixel constants?</p>
+<p>You might have ended up with weird errors due to <strong>circular includes</strong>: a pair of files keep including eachother, in turn, forever.</p>
+<blockquote>
+<p>You can solve the enum problem by <strong>removing</strong> them from <code>olcConsoleGameEngineOOP.h</code> and putting them <strong>in a new file</strong> with hardcore include guards. The enums will never be declared twice.</p>
+</blockquote>
+<h3 class="mume-header" id="olcenumsh">OlcEnums.h</h3>
+
+<p>Make an <code>OlcEnums.h</code> file in headers, then paste this in.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//////////////////// FILE: OlcEnums.h</span>
+<span class="token comment">// Extracts the enums from olcConsoleGameEngine for easy inclusion</span>
+<span class="token comment">////////////////////</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> __OLC_ENUMS__   </span><span class="token comment">// This compiler directive ensures the enums</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> __OLC_ENUMS__   </span><span class="token comment">// are only defined once, regardless of include count.</span>
+
+<span class="token keyword">enum</span> COLOUR
+<span class="token punctuation">{</span>
+    FG_BLACK <span class="token operator">=</span> <span class="token number">0x0000</span><span class="token punctuation">,</span>
+    FG_DARK_BLUE <span class="token operator">=</span> <span class="token number">0x0001</span><span class="token punctuation">,</span>
+    FG_DARK_GREEN <span class="token operator">=</span> <span class="token number">0x0002</span><span class="token punctuation">,</span>
+    FG_DARK_CYAN <span class="token operator">=</span> <span class="token number">0x0003</span><span class="token punctuation">,</span>
+    FG_DARK_RED <span class="token operator">=</span> <span class="token number">0x0004</span><span class="token punctuation">,</span>
+    FG_DARK_MAGENTA <span class="token operator">=</span> <span class="token number">0x0005</span><span class="token punctuation">,</span>
+    FG_DARK_YELLOW <span class="token operator">=</span> <span class="token number">0x0006</span><span class="token punctuation">,</span>
+    FG_GREY <span class="token operator">=</span> <span class="token number">0x0007</span><span class="token punctuation">,</span> <span class="token comment">// Thanks MS :-/</span>
+    FG_DARK_GREY <span class="token operator">=</span> <span class="token number">0x0008</span><span class="token punctuation">,</span>
+    FG_BLUE <span class="token operator">=</span> <span class="token number">0x0009</span><span class="token punctuation">,</span>
+    FG_GREEN <span class="token operator">=</span> <span class="token number">0x000A</span><span class="token punctuation">,</span>
+    FG_CYAN <span class="token operator">=</span> <span class="token number">0x000B</span><span class="token punctuation">,</span>
+    FG_RED <span class="token operator">=</span> <span class="token number">0x000C</span><span class="token punctuation">,</span>
+    FG_MAGENTA <span class="token operator">=</span> <span class="token number">0x000D</span><span class="token punctuation">,</span>
+    FG_YELLOW <span class="token operator">=</span> <span class="token number">0x000E</span><span class="token punctuation">,</span>
+    FG_WHITE <span class="token operator">=</span> <span class="token number">0x000F</span><span class="token punctuation">,</span>
+    BG_BLACK <span class="token operator">=</span> <span class="token number">0x0000</span><span class="token punctuation">,</span>
+    BG_DARK_BLUE <span class="token operator">=</span> <span class="token number">0x0010</span><span class="token punctuation">,</span>
+    BG_DARK_GREEN <span class="token operator">=</span> <span class="token number">0x0020</span><span class="token punctuation">,</span>
+    BG_DARK_CYAN <span class="token operator">=</span> <span class="token number">0x0030</span><span class="token punctuation">,</span>
+    BG_DARK_RED <span class="token operator">=</span> <span class="token number">0x0040</span><span class="token punctuation">,</span>
+    BG_DARK_MAGENTA <span class="token operator">=</span> <span class="token number">0x0050</span><span class="token punctuation">,</span>
+    BG_DARK_YELLOW <span class="token operator">=</span> <span class="token number">0x0060</span><span class="token punctuation">,</span>
+    BG_GREY <span class="token operator">=</span> <span class="token number">0x0070</span><span class="token punctuation">,</span>
+    BG_DARK_GREY <span class="token operator">=</span> <span class="token number">0x0080</span><span class="token punctuation">,</span>
+    BG_BLUE <span class="token operator">=</span> <span class="token number">0x0090</span><span class="token punctuation">,</span>
+    BG_GREEN <span class="token operator">=</span> <span class="token number">0x00A0</span><span class="token punctuation">,</span>
+    BG_CYAN <span class="token operator">=</span> <span class="token number">0x00B0</span><span class="token punctuation">,</span>
+    BG_RED <span class="token operator">=</span> <span class="token number">0x00C0</span><span class="token punctuation">,</span>
+    BG_MAGENTA <span class="token operator">=</span> <span class="token number">0x00D0</span><span class="token punctuation">,</span>
+    BG_YELLOW <span class="token operator">=</span> <span class="token number">0x00E0</span><span class="token punctuation">,</span>
+    BG_WHITE <span class="token operator">=</span> <span class="token number">0x00F0</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> PIXEL_TYPE
+<span class="token punctuation">{</span>
+    PIXEL_SOLID <span class="token operator">=</span> <span class="token number">0x2588</span><span class="token punctuation">,</span>
+    PIXEL_THREEQUARTERS <span class="token operator">=</span> <span class="token number">0x2593</span><span class="token punctuation">,</span>
+    PIXEL_HALF <span class="token operator">=</span> <span class="token number">0x2592</span><span class="token punctuation">,</span>
+    PIXEL_QUARTER <span class="token operator">=</span> <span class="token number">0x2591</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span>		</span><span class="token comment">// This ends the compiler directive.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>I chopped them out of the <code>olcConsoleGameEngineOOP.h</code> file, between the windows include and olcSprite class. Make sure they&apos;re removed!</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;windows.h&gt;</span></span>
+
+<span class="token comment">// xxxxx</span>
+<span class="token comment">// ENUMS CHOPPED!!!!</span>
+<span class="token comment">// xxxxx</span>
+
+<span class="token keyword">class</span> <span class="token class-name">olcSprite</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token function">olcSprite</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><h3 class="mume-header" id="snakegamecpp-and-anywhere-else">SnakeGame.cpp and anywhere else</h3>
+
+<p>Make sure you include it before <code>olcConsoleGameEngineOOP.h</code> in your <code>SnakeGame</code> class.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//////////////////// FILE: SnakeGame.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;olcConsoleGameEngineOOP.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;SnakeHead.h&quot;</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP 
+<span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>Add it to <code>SnakeGame.h</code> <em>before</em> <code>olcConsoleGameEngineOOP</code> because olc requires those enums. Alternately you could add the include to <code>olcConsoleGameEngineOOP</code> above the <code>windows.h</code> include.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span>;</span>
+<span class="token comment">// Snake head has x pos, y pos, speed, colour.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnakeHead</span>
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> speed <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> colour <span class="token operator">=</span> BG_BLUE <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
+
+  <span class="token comment">// We&apos;re using floats for x,y,speed because at the rate the screen updates,</span>
+  <span class="token comment">// maybe 800x a second, moving 1 whole pixel per frame would</span>
+  <span class="token comment">// put us 770 pixels off screen after 1 second</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
 <h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
 
 <p>This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.</p>

@@ -17,13 +17,16 @@ export_on_save:
 1. [Week 12 - Working on Snake](#week-12---working-on-snake)
 	1. [Snake!](#snake)
 	2. [Checking your coding conventions](#checking-your-coding-conventions)
-	3. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
+	3. [Olc Color problems](#olc-color-problems)
+		1. [OlcEnums.h](#olcenumsh)
+		2. [SnakeGame.cpp and anywhere else](#snakegamecpp-and-anywhere-else)
+	4. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
 		1. [Storing fruit in a vector](#storing-fruit-in-a-vector)
 		2. [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
 		3. [How do you add more to your snake?](#how-do-you-add-more-to-your-snake)
-	4. [How do you know if you ate yourself?](#how-do-you-know-if-you-ate-yourself)
-	5. [How do I quit?](#how-do-i-quit)
-	6. [Class Diagrams](#class-diagrams)
+	5. [How do you know if you ate yourself?](#how-do-you-know-if-you-ate-yourself)
+	6. [How do I quit?](#how-do-i-quit)
+	7. [Class Diagrams](#class-diagrams)
 
 <!-- /code_chunk_output -->
 
@@ -43,9 +46,10 @@ In every team or project we use coding conventions so we humans can read the cod
 
 **Using naming conventions correctly is worth marks**, and they're easy marks so go through and check!
 
-```cpp {.line-numbers}
+```cpp
 // ISE102 class coding conventions
 // Based on common conventions for C++
+// This is a series of examples. All in one file it wouldn't compile.
 
 // Classes, the recipes for objects
 // Lead with upper case, use again for subsequent words
@@ -93,6 +97,128 @@ float Hero::damagePerSecond()
 	// to calculate a return value. The leading _ tells us.
 	return (_damagePerAttack * _attacksPerSecond);
 }
+```
+
+## Olc Color problems
+
+Are you trying to **make classes with default colour values**? Then including `olcConsoleGameEngineOOP.h` for the colors? Or for the character/pixel constants? 
+
+You might have ended up with weird errors due to **circular includes**: a pair of files keep including eachother, in turn, forever.
+
+> You can solve the enum problem by **removing** them from `olcConsoleGameEngineOOP.h` and putting them **in a new file** with hardcore include guards. The enums will never be declared twice.
+
+### OlcEnums.h
+
+Make an `OlcEnums.h` file in headers, then paste this in.
+
+```cpp {.line-numbers}
+//////////////////// FILE: OlcEnums.h
+// Extracts the enums from olcConsoleGameEngine for easy inclusion
+////////////////////
+#pragma once
+
+#ifndef __OLC_ENUMS__   // This compiler directive ensures the enums
+#define __OLC_ENUMS__   // are only defined once, regardless of include count.
+
+enum COLOUR
+{
+    FG_BLACK = 0x0000,
+    FG_DARK_BLUE = 0x0001,
+    FG_DARK_GREEN = 0x0002,
+    FG_DARK_CYAN = 0x0003,
+    FG_DARK_RED = 0x0004,
+    FG_DARK_MAGENTA = 0x0005,
+    FG_DARK_YELLOW = 0x0006,
+    FG_GREY = 0x0007, // Thanks MS :-/
+    FG_DARK_GREY = 0x0008,
+    FG_BLUE = 0x0009,
+    FG_GREEN = 0x000A,
+    FG_CYAN = 0x000B,
+    FG_RED = 0x000C,
+    FG_MAGENTA = 0x000D,
+    FG_YELLOW = 0x000E,
+    FG_WHITE = 0x000F,
+    BG_BLACK = 0x0000,
+    BG_DARK_BLUE = 0x0010,
+    BG_DARK_GREEN = 0x0020,
+    BG_DARK_CYAN = 0x0030,
+    BG_DARK_RED = 0x0040,
+    BG_DARK_MAGENTA = 0x0050,
+    BG_DARK_YELLOW = 0x0060,
+    BG_GREY = 0x0070,
+    BG_DARK_GREY = 0x0080,
+    BG_BLUE = 0x0090,
+    BG_GREEN = 0x00A0,
+    BG_CYAN = 0x00B0,
+    BG_RED = 0x00C0,
+    BG_MAGENTA = 0x00D0,
+    BG_YELLOW = 0x00E0,
+    BG_WHITE = 0x00F0,
+};
+
+enum PIXEL_TYPE
+{
+    PIXEL_SOLID = 0x2588,
+    PIXEL_THREEQUARTERS = 0x2593,
+    PIXEL_HALF = 0x2592,
+    PIXEL_QUARTER = 0x2591,
+};
+
+#endif		// This ends the compiler directive.
+```
+
+I chopped them out of the `olcConsoleGameEngineOOP.h` file, between the windows include and olcSprite class. Make sure they're removed!
+
+```cpp
+using namespace std;
+
+#include <windows.h>
+
+// xxxxx
+// ENUMS CHOPPED!!!!
+// xxxxx
+
+class olcSprite
+{
+public:
+	olcSprite()
+```
+
+### SnakeGame.cpp and anywhere else
+
+Make sure you include it before `olcConsoleGameEngineOOP.h` in your `SnakeGame` class.
+
+```cpp {.line-numbers}
+//////////////////// FILE: SnakeGame.h
+#pragma once
+#include "OlcEnums.h"
+#include "olcConsoleGameEngineOOP.h"
+#include "SnakeHead.h"
+
+class SnakeGame : public olcConsoleGameEngineOOP 
+{ ...
+```
+
+Add it to `SnakeGame.h` _before_ `olcConsoleGameEngineOOP` because olc requires those enums. Alternately you could add the include to `olcConsoleGameEngineOOP` above the `windows.h` include.
+
+```cpp {.line-numbers}
+#pragma once
+#include "OlcEnums.h";
+// Snake head has x pos, y pos, speed, colour.
+
+class SnakeHead
+{
+
+public:
+  float x = 5.0f;
+  float y = 5.0f;
+  float speed = 0.0f;
+  int colour = BG_BLUE | FG_BLUE;
+
+  // We're using floats for x,y,speed because at the rate the screen updates,
+  // maybe 800x a second, moving 1 whole pixel per frame would
+  // put us 770 pixels off screen after 1 second
+};
 ```
 
 ---
