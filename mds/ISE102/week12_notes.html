@@ -29,16 +29,7 @@
 <li><a href="#week-12---working-on-snake">Week 12 - Working on Snake</a>
 <ol>
 <li><a href="#snake">Snake!</a></li>
-<li><a href="#checking-your-coding-conventions">Checking your coding conventions</a>
-<ol>
-<li><a href="#were-stuck-how-do-we-add-the-bodytail">We&apos;re stuck, how do we add the body/tail?</a>
-<ol>
-<li><a href="#train-engines-and-carriages">Train engines and carriages</a></li>
-<li><a href="#the-trick-question">The trick question</a></li>
-</ol>
-</li>
-</ol>
-</li>
+<li><a href="#checking-your-coding-conventions">Checking your coding conventions</a></li>
 <li><a href="#one-way-to-make-a-fruit-class">One way to make a Fruit class</a>
 <ol>
 <li><a href="#storing-fruit-in-a-vector">Storing fruit in a vector</a></li>
@@ -52,10 +43,12 @@
 </ol>
 </li>
 </ol>
+<hr>
 <h2 class="mume-header" id="snake">Snake!</h2>
 
 <p>We&apos;re working on the assignment.</p>
 <p>I&apos;ll come around and check with everyone, but feel free to ask questions.</p>
+<hr>
 <h2 class="mume-header" id="checking-your-coding-conventions">Checking your coding conventions</h2>
 
 <p>In every team or project we use coding conventions so we humans can read the code a little better. It helps you to debug, and me to</p>
@@ -109,7 +102,8 @@ Class <span class="token class-name">AttackShip</span> <span class="token operat
 	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
 	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
+<h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
 
 <p>This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.</p>
 <p>Due to a weirdness with C++ they are handy for a case statement:</p>
@@ -190,9 +184,9 @@ Fruit<span class="token operator">::</span><span class="token function">getKind<
 <span class="token punctuation">{</span>
 	<span class="token keyword">return</span> _kind<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</pre><hr>
-<p><img src="assets/week12/fruit_cd.jpg" alt="fruit cd"><br>
+</pre><p><img src="assets/week12/fruit_cd.jpg" alt="fruit cd"><br>
 <em>Fruit class diagram</em></p>
+<hr>
 <h3 class="mume-header" id="storing-fruit-in-a-vector">Storing fruit in a vector</h3>
 
 <p>To use these <code>Fruit</code> as they come and go, we need to track them in a collection.  We&apos;ve used arrays like <code>Fruit myFruitArray[5]</code> but they&apos;re inflexible. The <code>vector</code> class is a very handy replacement.</p>

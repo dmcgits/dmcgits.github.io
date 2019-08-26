@@ -17,9 +17,6 @@ export_on_save:
 1. [Week 12 - Working on Snake](#week-12---working-on-snake)
 	1. [Snake!](#snake)
 	2. [Checking your coding conventions](#checking-your-coding-conventions)
-		1. [We're stuck, how do we add the body/tail?](#were-stuck-how-do-we-add-the-bodytail)
-			1. [Train engines and carriages](#train-engines-and-carriages)
-			2. [The trick question](#the-trick-question)
 	3. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
 		1. [Storing fruit in a vector](#storing-fruit-in-a-vector)
 		2. [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
@@ -30,12 +27,15 @@ export_on_save:
 
 <!-- /code_chunk_output -->
 
+---
 
 ## Snake!
 
 We're working on the assignment.
 
 I'll come around and check with everyone, but feel free to ask questions.
+
+---
 
 ## Checking your coding conventions
 
@@ -95,38 +95,7 @@ float Hero::damagePerSecond()
 }
 ```
 
-<!--
-### We're stuck, how do we add the body/tail?
-
-To solve the programming puzzle, solve the real world problem:
-
-> How do articulated things move?
-
 ---
-
-#### Train engines and carriages
-
-Think of a train and carriages: 
-* Where is the force applied to the rails?
-* How is it transferred to the carriages?
-
-If the engine is pulling, the carriages are passive and rely on their links. 
-
-A question arises: 
-> Carriage a is in front of b: is carriage a dragging b along? Or is b clinging to a for a ride? 
-
-Both are true, like acrobats performing monkey grip. But in code `a` is either commanding `b` to its next position, or `b` is interrogating `a`.
-
----
-
-#### The trick question
-
-Trains can be pushed by the rear engine. 
-* The snake doesn't have to be a head pulling segments. 
-* The tail could be pushing all segments ahead of it, and the head only chooses the direction.
-
----
--->
 
 ## One way to make a Fruit class
 
@@ -216,10 +185,12 @@ Fruit::getKind()
 	return _kind;
 }
 ```
- ---
+
 
 ![fruit cd](assets/week12/fruit_cd.jpg)
 _Fruit class diagram_
+
+---
 
 ### Storing fruit in a vector
 
