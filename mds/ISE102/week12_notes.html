@@ -95,16 +95,21 @@ Class <span class="token class-name">AttackShip</span> <span class="token operat
 
 <span class="token comment">// functions: whether public or private, name them as you would a public variable. </span>
 <span class="token comment">// leading lower case, then upper case words.</span>
+<span class="token keyword">float</span> <span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
+	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">public</span><span class="token operator">:</span>
-
-	<span class="token keyword">float</span> <span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-	<span class="token punctuation">{</span>
-		<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
-		<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
-		<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
+<span class="token comment">// How it would look inside a Hero class cpp file with scoping.</span>
+<span class="token keyword">float</span> Hero<span class="token operator">::</span><span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
+	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
 
 <p>This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.</p>
 <p>Due to a weirdness with C++ they are handy for a case statement:</p>

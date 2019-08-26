@@ -79,15 +79,20 @@ protected:
 
 // functions: whether public or private, name them as you would a public variable. 
 // leading lower case, then upper case words.
+float damagePerSecond() 
+{
+	// Notice how you can immediately tell I'm using my private variables
+	// to calculate a return value. The leading _ tells us.
+	return (_damagePerAttack * _attacksPerSecond);
+}
 
-public:
-
-	float damagePerSecond() 
-	{
-		// Notice how you can immediately tell I'm using my private variables
-		// to calculate a return value. The leading _ tells us.
-		return (_damagePerAttack * _attacksPerSecond);
-	}
+// How it would look inside a Hero class cpp file with scoping.
+float Hero::damagePerSecond() 
+{
+	// Notice how you can immediately tell I'm using my private variables
+	// to calculate a return value. The leading _ tells us.
+	return (_damagePerAttack * _attacksPerSecond);
+}
 ```
 
 <!--
