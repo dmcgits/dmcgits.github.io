@@ -7,20 +7,15 @@ html:
 export_on_save:
   html: true
 ---
-# Week 12 - Polymorphism/Snake
-
----
-
-## Polymorphism
-
-We covered it last week in enough detail to understand, though not to use. We can come back to it later in lesson if people want that extra level with an example.
-
----
+# Week 12 - Working on Snake
 
 ## Snake!
 
-Why people came to class.
+We're working on the assignment.
 
+I'll come around and check with everyone, but feel free to ask questions.
+
+<!--
 ### We're stuck, how do we add the body/tail?
 
 To solve the programming puzzle, solve the real world problem:
@@ -51,17 +46,20 @@ Trains can be pushed by the rear engine.
 * The tail could be pushing all segments ahead of it, and the head only chooses the direction.
 
 ---
+-->
 
-### Fruit and Snake Bits
+## One way to make a Fruit class
 
-How do you know if you ate fruit? We're adding fruit to our scene, and it's safe to say an array (vector) is going to store them.
+This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.
 
-> **Quick Question**: Why can't I use a `const` in the `case` bit of my `switch` statements? Why does it tell me "not a constant expression"
-> **Answer:** A long, unsatisfying reason. You can do it though by making your `const` a `static const`.
+Due to a weirdness with C++ they are handy for a case statement:
 
-**Fruit.h** has some static constants. You can access them via the class name whether an object has been created or not:
+> **Quick Question**: Why can't I use a regular  `const` in the `case` bit of my `switch` statements? Why does it tell me "not a constant expression"
+> **Answer:** You can do it though by making your `const` a `static const`. The full explanation is long and.. not satisfying.
+
 
 ```C++
+// Fruit.h
 #pragma once
 
 class Fruit
@@ -89,10 +87,11 @@ public:
 	
 protected:
 	
-	int kind_	= 0;
+	int _kind	= 0;
 	
 };
 ```
+Here you can see the fruit type constants being used in a case statement.
 
 ```C++
 #include "Fruit.h"
@@ -117,9 +116,9 @@ Fruit::~Fruit()
 bool 
 Fruit::setKind(int kind)
 {
-	kind_ = kind;
+	_kind = kind;
 	
-	switch (kind_) 
+	switch (_kind) 
 	{
 	case (RED_APPLE):
 		colour = FG_RED | BG_RED;
@@ -134,7 +133,7 @@ Fruit::setKind(int kind)
 int
 Fruit::getKind()
 {
-	return kind_;
+	return _kind;
 }
 ```
  ---
@@ -142,16 +141,19 @@ Fruit::getKind()
 ![fruit cd](assets/week12/fruit_cd.jpg)
 _Fruit class diagram_
 
-### Hold your fruit
-To use these `Fruit` as they come and go, we need to track them in a collection.  We've used arrays like `Fruit myFruitArray[5]` but they're inflexible. The `vector` class has some new syntax to its definition, but once you know that it's very friendly to use:
+### Storing fruit in a vector
+
+To use these `Fruit` as they come and go, we need to track them in a collection.  We've used arrays like `Fruit myFruitArray[5]` but they're inflexible. The `vector` class is a very handy replacement.
+
+> Note: We use of `<TypeOfContents>` to define the type of data our vector holds. Or you could think of it as `<ClassOfContents>`. We haven't seen angle brackets used this way before.
 
 ```C++
 	// include the vector class from the standard library
 	#include <vector>
 	
-	// Create an empty vector to contain objects of class Fruit.
-	// vector< classOfObjects > nameOfVector;
-	vector< Fruit > fruits;
+	// How to declare an empty vector to hold Fruit objects
+	// vector<TypeOfContents> nameOfVector;
+	vector<Fruit> fruits;
 
 	// Create a new fruit at x=5, y=5. Make it a Red Apple
 	Fruit apple1 = Fruit(5, 5, Fruit::RED_APPLE);
@@ -173,7 +175,8 @@ To use these `Fruit` as they come and go, we need to track them in a collection.
 
 Fruit has a position. You have a position. But there are many fruits. You'll need to **step through your vector with a loop**.
 
-```C++
+
+```C++ {.line-numbers}
 // A function that checks if we're eating fruit, and returns true
 // if we are. Takes a vector of objects of the Fruit class.
 bool isEatingFruit( vector< Fruit > fruits )
@@ -183,24 +186,29 @@ bool isEatingFruit( vector< Fruit > fruits )
 		// Get the fruit at i (first time 0, second time 1 and so on)
 		Fruit fruit = fruits[i];
 		
-		// Is it at the same point on the screen?
-		if (xPos_ == fruit.posX && yPos_ == fruit.posY) {
-			// Then we ate the fruit!
-			// Grow.
-			addSegment();
-			
-			return(true);
-		}
+		// Use an if here to check if snake head x,y
+		// match fruit x-y
+		
 	}
 	return(false);
 }
 ```
 
+<!--
+// Is it at the same point on the screen?
+if (xPos_ == fruit.posX && yPos_ == fruit.posY) {
+	// Then we ate the fruit!
+	// Grow.
+	addSegment();
+	
+	return(true);
+}-->
+<!--
 ### How do you add more to your snake?
 
 Who should add the segments? The snake or the engine?
 
-___
+___ 
 
 ## How do you know if you ate yourself?
 
@@ -228,3 +236,4 @@ _Top level class diagram_
 ![](assets/week12/class_exp.jpg)
 
 _expanded class diagram_
+-->
