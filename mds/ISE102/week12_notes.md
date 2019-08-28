@@ -14,7 +14,7 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 12 - Working on Snake](#week-12---working-on-snake)
+- [Week 12 - Working on Snake](#week-12-working-on-snake)
   - [Snake!](#snake)
   - [Checking your coding conventions](#checking-your-coding-conventions)
   - [Olc Color problems](#olc-color-problems)
