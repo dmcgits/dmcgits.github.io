@@ -17,8 +17,8 @@ export_on_save:
 - [Week 12 - work on assessments!](#week-12---work-on-assessments)
   - [Reminders of marking points](#reminders-of-marking-points)
     - [Conventions](#conventions)
-    - [QA Mis Com](#qa-mis-com)
   - [Git](#git)
+  - [QA Mis Com](#qa-mis-com)
   - [Scoring](#scoring)
     - [Scoring Manager](#scoring-manager)
   - [Profiling](#profiling)
@@ -114,14 +114,13 @@ float DamagePerSecond(int shotType)
 
 ```
 
-### QA Mis Com
-
-Anything you need help with?
-
-
 ##  Git
 
-Let’s al commit our changes and push. Do it daily!
+Let’s all commit our changes and push. Do it daily!
+
+## QA Mis Com
+
+Anything you need help with?
 
 ## Scoring
 
