@@ -21,7 +21,7 @@ export_on_save:
   - [Git](#git)
   - [Scoring](#scoring)
     - [Scoring Manager](#scoring-manager)
-    - [Profiling](#profiling)
+  - [Profiling](#profiling)
 
 <!-- /code_chunk_output -->
 
@@ -140,7 +140,7 @@ There’s enough work in scoring to justify a manager.
 	* Cities counted at level end
 	* shells/rounds/ammo left
 
-###  Profiling
+## Profiling
 
 Is your game crawling despite the beefy machine? Don’t guess what’s causing it, run the Unity Profiler.
 
