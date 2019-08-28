@@ -15,19 +15,19 @@ A fly stands in for our snake.
 
 <!-- code_chunk_output -->
 
-1. [Week10 Drawing and Moving](#week10-drawing-and-moving)
-   1. [Resources](#resources)
-   2. [A refresher on simulated things](#a-refresher-on-simulated-things)
-   3. [Rendering / Drawing](#rendering--drawing)
-   4. [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-      1. [A Snake Head is data](#a-snake-head-is-data)
-         1. [SnakeHead.h](#snakeheadh)
-         2. [SnakeGame.h key parts](#snakegameh-key-parts)
-         3. [Snake Game](#snake-game)
-      2. [Rendering the action](#rendering-the-action)
-   5. [Movement](#movement)
-      1. [Torment: the wormhole](#torment-the-wormhole)
-   6. [Thoughts on things following things](#thoughts-on-things-following-things)
+- [Week10 Drawing and Moving](#week10-drawing-and-moving)
+  - [Resources](#resources)
+  - [A refresher on simulated things](#a-refresher-on-simulated-things)
+  - [Rendering / Drawing](#rendering-drawing)
+  - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
+    - [A Snake Head is data](#a-snake-head-is-data)
+      - [SnakeHead.h](#snakeheadh)
+      - [SnakeGame.h key parts](#snakegameh-key-parts)
+      - [Snake Game](#snake-game)
+    - [Rendering the action](#rendering-the-action)
+  - [Movement](#movement)
+    - [Torment: the wormhole](#torment-the-wormhole)
+  - [Thoughts on things following things](#thoughts-on-things-following-things)
 
 <!-- /code_chunk_output -->
 
@@ -159,9 +159,9 @@ bool SnakeGame::OnUserCreate()
 bool SnakeGame::OnUserUpdate(float fElapsedTime)
 {
     // Get input
-    isUpKeyHeld_ = (m_keys[VK_UP].bHeld || m_keys[VK_UP].bPressed) ? true : false;
-		isDownKeyHeld_ = (m_keys[VK_DOWN].bHeld || m_keys[VK_DOWN].bPressed) ? true : false;
-
+    _isUpKeyHeld = m_keys[VK_UP].bPressed || m_keys[VK_UP].bHeld;
+    _isDownKeyHeld = m_keys[VK_DOWN].bPressed || m_keys[VK_DOWN].bHeld;
+		
     // update everything
     if (isUpKeyHeld_) _head.y -= _head.speed;
 		if (isDownKeyHeld_) _head.y += _head.speed;;

@@ -41,6 +41,7 @@
 <li><a href="#snakegamecpp-and-anywhere-else">SnakeGame.cpp and anywhere else</a></li>
 </ul>
 </li>
+<li><a href="#moving-with-direction-and-speed">Moving with direction and speed</a></li>
 <li><a href="#one-way-to-make-a-fruit-class">One way to make a Fruit class</a>
 <ul>
 <li><a href="#storing-fruit-in-a-vector">Storing fruit in a vector</a></li>
@@ -67,7 +68,7 @@
 
 <span class="token comment">// Classes, the recipes for objects</span>
 <span class="token comment">// Lead with upper case, use again for subsequent words</span>
-Class <span class="token class-name">AttackShip</span> <span class="token operator">:</span> <span class="token keyword">public</span> SpaceShip <span class="token comment">// AttackShip extends the </span>
+<span class="token keyword">class</span> <span class="token class-name">AttackShip</span> <span class="token operator">:</span> <span class="token keyword">public</span> SpaceShip <span class="token comment">// AttackShip extends the </span>
 <span class="token punctuation">{</span>
 	<span class="token keyword">public</span><span class="token operator">:</span>
 <span class="token punctuation">}</span>
@@ -231,7 +232,122 @@ Class <span class="token class-name">AttackShip</span> <span class="token operat
   <span class="token comment">// put us 770 pixels off screen after 1 second</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
-<h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
+<h2 class="mume-header" id="moving-with-direction-and-speed">Moving with direction and speed</h2>
+
+<p>My older snakehead example showed how to move <code>while</code> the key is pressed. In reality our snake moves all the time, from the first frame of the game.</p>
+<p>The solution, as in our first drawings of the game board: a snake head always has <em>direction</em> and <em>speed</em>. Also:</p>
+<ul>
+<li>Don&#x2019;t honour all keypresses at once. Gate things with if &#x2026; else.</li>
+<li>If you&#x2019;re going to move in y, zero the x direction, and vice versa.</li>
+<li>Multiply our speed per second by <code>fElapsedTime</code> (the time since our last frame rendered in fractions of a second).</li>
+</ul>
+<p>Here are snippets of SnakeGame and SnakeHead showing a partial solution, along with some thinking in comments.</p>
+<blockquote>
+<p><code>...</code> represents code in the original file I did not include.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">///////////// File SnakeHead.cpp /////////////////////////////////////</span>
+<span class="token comment">//</span>
+<span class="token comment">// Whole file.</span>
+<span class="token comment">//</span>
+<span class="token comment">/////////////////////////////////////////////////////////////////////</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
+<span class="token comment">// Snake head has x/y position, speed, x/y direction, colour.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnakeHead</span>
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> speed <span class="token operator">=</span> <span class="token number">2.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> xDir <span class="token operator">=</span> <span class="token number">1.0f</span><span class="token punctuation">;</span>  <span class="token comment">// negative: -1, no direction: 0, positive: 1;</span>
+  <span class="token keyword">float</span> yDir <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>  <span class="token comment">// using floats to avoid any math turning results to integers.</span>
+  <span class="token keyword">int</span> colour <span class="token operator">=</span> BG_BLUE <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><blockquote>
+<p><code>...</code> represents code in the original file I did not include.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">///////////// File SnakeGame.h /////////////////////////////////////</span>
+<span class="token comment">//</span>
+<span class="token comment">// A snippet,showing some added private variables and a function</span>
+<span class="token comment">//</span>
+<span class="token comment">/////////////////////////////////////////////////////////////////////</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+  <span class="token keyword">bool</span> _isDownKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    <span class="token comment">// This would be better handled with an</span>
+  <span class="token keyword">bool</span> _isUpKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>      <span class="token comment">// enum for currentKeyHeld.</span>
+  <span class="token keyword">bool</span> _isLeftKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> _isRightKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// game loop</span>
+  <span class="token comment">//void renderWorld();</span>
+  <span class="token keyword">void</span> <span class="token function">checkInputAndMove</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Break this into 2 functions later.</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</pre><blockquote>
+<p><code>...</code> represents code in the original file I did not include.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">///////////// File SnakeGame.cpp /////////////////////////////////////</span>
+<span class="token comment">//</span>
+<span class="token comment">// Various snippets</span>
+<span class="token comment">//</span>
+<span class="token comment">/////////////////////////////////////////////////////////////////////</span>
+<span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// All our initial setup happens here</span>
+  _head<span class="token punctuation">.</span>x <span class="token operator">=</span> _head<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">10.0f</span><span class="token punctuation">;</span>         <span class="token comment">// starting position.</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// update positions, speeds, directions etc, spawn things</span>
+  <span class="token function">checkInputAndMove</span><span class="token punctuation">(</span>fElapsedTime<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// pass fElapsedTime, we&apos;ll need it.</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// more code</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">void</span> SnakeGame<span class="token operator">::</span><span class="token function">checkInputAndMove</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// Listen for keys</span>
+  _isUpKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+  _isDownKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+  _isLeftKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_LEFT<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_LEFT<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+  _isRightKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_RIGHT<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_RIGHT<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+
+  <span class="token comment">// set head direction based on input, prioritised using if.. else.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>_isUpKeyHeld<span class="token punctuation">)</span> <span class="token comment">// move up in y only</span>
+  <span class="token punctuation">{</span> 
+    _head<span class="token punctuation">.</span>xDir <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// kill any existing x direction</span>
+    _head<span class="token punctuation">.</span>yDir <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>_isLeftKeyHeld<span class="token punctuation">)</span> <span class="token comment">// move left in x only</span>
+  <span class="token punctuation">{</span>
+    _head<span class="token punctuation">.</span>yDir <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// kill any existing y direction</span>
+    _head<span class="token punctuation">.</span>xDir <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// move head based on directionand speed</span>
+  <span class="token comment">// add to x: speed * direction. if direction is 0, x won&apos;t change!</span>
+
+  <span class="token comment">// convert my speed per second into speed per frame?</span>
+  <span class="token comment">// speedPerFrame = speedPerSecond / framesPerSecond</span>
+  <span class="token comment">// speedPerFrame = 12 * (1 / 60);</span>
+  <span class="token comment">// speedPerFrame = 12 * 0.016;  // 0.016 seconds is our calculated time.</span>
+  <span class="token comment">// If we don&apos;t always have frames this long in reality, our game speed and movement is messed up.</span>
+  <span class="token comment">// If we actually know how much time elapsed between this frame and the last one, we can move in custom fractions of our speed per second.</span>
+  <span class="token comment">// How can we know these numbers (for example): 0.014, 0.022, 0.033, 0.033?</span>
+  <span class="token comment">// the console game engine provides it in OnUserUpdate! </span>
+  _head<span class="token punctuation">.</span>x <span class="token operator">+=</span> _head<span class="token punctuation">.</span>xDir <span class="token operator">*</span> _head<span class="token punctuation">.</span>speed <span class="token operator">*</span> fElapsedTime<span class="token punctuation">;</span> <span class="token comment">// fElapsed thousands of a second expressed as a decimal: 0.016 or 0.014;</span>
+  _head<span class="token punctuation">.</span>y <span class="token operator">+=</span> _head<span class="token punctuation">.</span>yDir <span class="token operator">*</span> _head<span class="token punctuation">.</span>speed <span class="token operator">*</span> fElapsedTime<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
 
 <p>This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.</p>
 <p>Due to a weirdness with C++ they are handy for a case statement:</p>
@@ -246,75 +362,42 @@ Class <span class="token class-name">AttackShip</span> <span class="token operat
 <span class="token punctuation">{</span>
 
 <span class="token keyword">public</span><span class="token operator">:</span>
-		<span class="token comment">// Constants</span>
-	<span class="token keyword">static</span> <span class="token keyword">const</span> <span class="token keyword">int</span> RED_APPLE	<span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-	<span class="token keyword">static</span> <span class="token keyword">const</span> <span class="token keyword">int</span> GRAPE		<span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-
-		<span class="token comment">// Variables</span>
+	<span class="token comment">// Variables</span>
 	<span class="token keyword">int</span>		posX		<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 	<span class="token keyword">int</span>		posY		<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 	<span class="token keyword">int</span>		colour		<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-		<span class="token comment">// Construct</span>
+	<span class="token comment">// Construct</span>
 	<span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token keyword">int</span> posX<span class="token punctuation">,</span> <span class="token keyword">int</span> posY<span class="token punctuation">,</span> <span class="token keyword">int</span> kindOfFruit<span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token comment">// Destroy</span>
+	<span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token keyword">int</span> posX<span class="token punctuation">,</span> <span class="token keyword">int</span> posY<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// initialise x,y position on construct</span>
+	
+  <span class="token comment">// Destroy</span>
 	<span class="token operator">~</span><span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// Member Functions</span>
-	<span class="token keyword">int</span>		<span class="token function">getKind</span>	<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">bool</span>	<span class="token function">setKind</span>	<span class="token punctuation">(</span><span class="token keyword">int</span> kind<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	
-<span class="token keyword">protected</span><span class="token operator">:</span>
-	
-	<span class="token keyword">int</span> _kind	<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 	
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </pre><p>Here you can see the fruit type constants being used in a case statement.</p>
 <pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Fruit.h&quot;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;rgbi_colours.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
 
 Fruit<span class="token operator">::</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
+  colour <span class="token operator">=</span> FG_RED <span class="token operator">|</span> BG_RED<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Fruit<span class="token operator">::</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> kindOfFruit <span class="token operator">=</span> Fruit<span class="token operator">::</span>RED_APPLE<span class="token punctuation">)</span>
+Fruit<span class="token operator">::</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
 	posX <span class="token operator">=</span> x<span class="token punctuation">;</span>
 	posY <span class="token operator">=</span> y<span class="token punctuation">;</span>
-	<span class="token function">setKind</span><span class="token punctuation">(</span>kindOfFruit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  colour <span class="token operator">=</span> FG_RED <span class="token operator">|</span> BG_RED<span class="token punctuation">;</span>
+
 <span class="token punctuation">}</span>
 
 Fruit<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">bool</span> 
-Fruit<span class="token operator">::</span><span class="token function">setKind</span><span class="token punctuation">(</span><span class="token keyword">int</span> kind<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	_kind <span class="token operator">=</span> kind<span class="token punctuation">;</span>
-	
-	<span class="token keyword">switch</span> <span class="token punctuation">(</span>_kind<span class="token punctuation">)</span> 
-	<span class="token punctuation">{</span>
-	<span class="token keyword">case</span> <span class="token punctuation">(</span>RED_APPLE<span class="token punctuation">)</span><span class="token operator">:</span>
-		colour <span class="token operator">=</span> FG_RED <span class="token operator">|</span> BG_RED<span class="token punctuation">;</span>
-		<span class="token keyword">break</span><span class="token punctuation">;</span>
-	<span class="token keyword">case</span> <span class="token punctuation">(</span>GRAPE<span class="token punctuation">)</span><span class="token operator">:</span>
-		colour <span class="token operator">=</span> FG_MAGENTA <span class="token operator">|</span> BG_MAGENTA<span class="token punctuation">;</span>
-		<span class="token keyword">break</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">int</span>
-Fruit<span class="token operator">::</span><span class="token function">getKind</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token keyword">return</span> _kind<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><p><img src="assets/week12/fruit_cd.jpg" alt="fruit cd"><br>
-<em>Fruit class diagram</em></p>
-<hr>
+</pre><hr>
 <h3 class="mume-header" id="storing-fruit-in-a-vector">Storing fruit in a vector</h3>
 
 <p>To use these <code>Fruit</code> as they come and go, we need to track them in a collection.  We&#x2019;ve used arrays like <code>Fruit myFruitArray[5]</code> but they&#x2019;re inflexible. The <code>vector</code> class is a very handy replacement.</p>
@@ -329,7 +412,7 @@ Fruit<span class="token operator">::</span><span class="token function">getKind<
 	vector<span class="token operator">&lt;</span>Fruit<span class="token operator">&gt;</span> fruits<span class="token punctuation">;</span>
 
 	<span class="token comment">// Create a new fruit at x=5, y=5. Make it a Red Apple</span>
-	Fruit apple1 <span class="token operator">=</span> <span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> Fruit<span class="token operator">::</span>RED_APPLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Fruit apple1 <span class="token operator">=</span> <span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	
 	<span class="token comment">// &quot;Push&quot; it on to the &quot;back&quot; of the vector: adds it to the</span>
 	<span class="token comment">// end of the vector.</span>

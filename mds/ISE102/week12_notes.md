@@ -20,6 +20,7 @@ export_on_save:
   - [Olc Color problems](#olc-color-problems)
     - [OlcEnums.h](#olcenumsh)
     - [SnakeGame.cpp and anywhere else](#snakegamecpp-and-anywhere-else)
+  - [Moving with direction and speed](#moving-with-direction-and-speed)
   - [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
     - [Storing fruit in a vector](#storing-fruit-in-a-vector)
     - [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
@@ -50,7 +51,7 @@ In every team or project we use coding conventions so we humans can read the cod
 
 // Classes, the recipes for objects
 // Lead with upper case, use again for subsequent words
-Class AttackShip : public SpaceShip // AttackShip extends the 
+class AttackShip : public SpaceShip // AttackShip extends the 
 {
 	public:
 }
@@ -231,8 +232,127 @@ public:
   // put us 770 pixels off screen after 1 second
 };
 ```
-
 ---
+
+## Moving with direction and speed
+
+My older snakehead example showed how to move `while` the key is pressed. In reality our snake moves all the time, from the first frame of the game.
+
+The solution, as in our first drawings of the game board: a snake head always has _direction_ and _speed_. Also:
+* Don't honour all keypresses at once. Gate things with if ... else.
+* If you're going to move in y, zero the x direction, and vice versa.
+* Multiply our speed per second by `fElapsedTime` (the time since our last frame rendered in fractions of a second).
+
+Here are snippets of SnakeGame and SnakeHead showing a partial solution, along with some thinking in comments.
+
+> `...` represents code in the original file I did not include.
+
+```cpp {.line-numbers}
+///////////// File SnakeHead.cpp /////////////////////////////////////
+//
+// Whole file.
+//
+/////////////////////////////////////////////////////////////////////
+#pragma once
+#include "OlcEnums.h"
+// Snake head has x/y position, speed, x/y direction, colour.
+
+class SnakeHead
+{
+
+public:
+  float x = 5.0f;
+  float y = 5.0f;
+  float speed = 2.0f;
+  float xDir = 1.0f;  // negative: -1, no direction: 0, positive: 1;
+  float yDir = 0.0f;  // using floats to avoid any math turning results to integers.
+  int colour = BG_BLUE | FG_BLUE;
+};
+
+```
+> `...` represents code in the original file I did not include.
+
+```cpp
+///////////// File SnakeGame.h /////////////////////////////////////
+//
+// A snippet,showing some added private variables and a function
+//
+/////////////////////////////////////////////////////////////////////
+...
+
+  bool _isDownKeyHeld = false;    // This would be better handled with an
+  bool _isUpKeyHeld = false;      // enum for currentKeyHeld.
+  bool _isLeftKeyHeld = false;
+  bool _isRightKeyHeld = false;
+
+    // game loop
+  //void renderWorld();
+  void checkInputAndMove(float fElapsedTime);  // Break this into 2 functions later.
+
+...
+```
+
+> `...` represents code in the original file I did not include.
+```cpp
+///////////// File SnakeGame.cpp /////////////////////////////////////
+//
+// Various snippets
+//
+/////////////////////////////////////////////////////////////////////
+bool SnakeGame::OnUserCreate()
+{
+  // All our initial setup happens here
+  _head.x = _head.y = 10.0f;         // starting position.
+  return true;
+}
+
+...
+
+bool SnakeGame::OnUserUpdate(float fElapsedTime)
+{
+  // update positions, speeds, directions etc, spawn things
+  checkInputAndMove(fElapsedTime);    // pass fElapsedTime, we'll need it.
+  ... // more code
+}
+
+...
+
+void SnakeGame::checkInputAndMove(float fElapsedTime)
+{
+  // Listen for keys
+  _isUpKeyHeld = m_keys[VK_UP].bPressed || m_keys[VK_UP].bHeld;
+  _isDownKeyHeld = m_keys[VK_DOWN].bPressed || m_keys[VK_DOWN].bHeld;
+  _isLeftKeyHeld = m_keys[VK_LEFT].bPressed || m_keys[VK_LEFT].bHeld;
+  _isRightKeyHeld = m_keys[VK_RIGHT].bPressed || m_keys[VK_RIGHT].bHeld;
+
+  // set head direction based on input, prioritised using if.. else.
+  if (_isUpKeyHeld) // move up in y only
+  { 
+    _head.xDir = 0; // kill any existing x direction
+    _head.yDir = -1;
+  }
+  else if (_isLeftKeyHeld) // move left in x only
+  {
+    _head.yDir = 0;   // kill any existing y direction
+    _head.xDir = -1;
+  }
+  
+  // move head based on directionand speed
+  // add to x: speed * direction. if direction is 0, x won't change!
+
+  // convert my speed per second into speed per frame?
+  // speedPerFrame = speedPerSecond / framesPerSecond
+  // speedPerFrame = 12 * (1 / 60);
+  // speedPerFrame = 12 * 0.016;  // 0.016 seconds is our calculated time.
+  // If we don't always have frames this long in reality, our game speed and movement is messed up.
+  // If we actually know how much time elapsed between this frame and the last one, we can move in custom fractions of our speed per second.
+  // How can we know these numbers (for example): 0.014, 0.022, 0.033, 0.033?
+  // the console game engine provides it in OnUserUpdate! 
+  _head.x += _head.xDir * _head.speed * fElapsedTime; // fElapsed thousands of a second expressed as a decimal: 0.016 or 0.014;
+  _head.y += _head.yDir * _head.speed * fElapsedTime;
+}
+
+```
 
 ## One way to make a Fruit class
 
@@ -252,28 +372,17 @@ class Fruit
 {
 
 public:
-		// Constants
-	static const int RED_APPLE	= 1;
-	static const int GRAPE		= 2;
-
-		// Variables
+	// Variables
 	int		posX		= 0;
 	int		posY		= 0;
 	int		colour		= 0;
 
-		// Construct
+	// Construct
 	Fruit	();
-	Fruit	(int posX, int posY, int kindOfFruit);
-		// Destroy
+	Fruit	(int posX, int posY);  // initialise x,y position on construct
+	
+  // Destroy
 	~Fruit	();
-
-	// Member Functions
-	int		getKind	();
-	bool	setKind	(int kind);
-	
-protected:
-	
-	int _kind	= 0;
 	
 };
 ```
@@ -281,51 +390,27 @@ Here you can see the fruit type constants being used in a case statement.
 
 ```C++
 #include "Fruit.h"
-#include "rgbi_colours.h"
+#include "OlcEnums.h"
 #include <vector>
 
 Fruit::Fruit()
 {
+  colour = FG_RED | BG_RED;
 }
 
-Fruit::Fruit(int x, int y, int kindOfFruit = Fruit::RED_APPLE)
+Fruit::Fruit(int x, int y)
 {
 	posX = x;
 	posY = y;
-	setKind(kindOfFruit);
+  colour = FG_RED | BG_RED;
+
 }
 
 Fruit::~Fruit()
 {
 }
 
-bool 
-Fruit::setKind(int kind)
-{
-	_kind = kind;
-	
-	switch (_kind) 
-	{
-	case (RED_APPLE):
-		colour = FG_RED | BG_RED;
-		break;
-	case (GRAPE):
-		colour = FG_MAGENTA | BG_MAGENTA;
-		break;
-	}
-	return (true);
-}
-
-int
-Fruit::getKind()
-{
-	return _kind;
-}
 ```
-
-
-![fruit cd](assets/week12/fruit_cd.jpg)
-_Fruit class diagram_
 
 ---
 
@@ -344,7 +429,7 @@ To use these `Fruit` as they come and go, we need to track them in a collection.
 	vector<Fruit> fruits;
 
 	// Create a new fruit at x=5, y=5. Make it a Red Apple
-	Fruit apple1 = Fruit(5, 5, Fruit::RED_APPLE);
+	Fruit apple1 = Fruit(5, 5);
 	
 	// "Push" it on to the "back" of the vector: adds it to the
 	// end of the vector.
