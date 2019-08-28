@@ -356,14 +356,6 @@ void SnakeGame::checkInputAndMove(float fElapsedTime)
 
 ## One way to make a Fruit class
 
-This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.
-
-Due to a weirdness with C++ they are handy for a case statement:
-
-> **Quick Question**: Why can't I use a regular  `const` in the `case` bit of my `switch` statements? Why does it tell me "not a constant expression"
-> **Answer:** You can do it though by making your `const` a `static const`. The full explanation is long and.. not satisfying.
-
-
 ```C++
 // Fruit.h
 #pragma once

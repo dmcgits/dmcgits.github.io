@@ -349,12 +349,6 @@
 
 </pre><h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
 
-<p>This Fruit class has some static constants. They are constants you can access from the Class without ever making an object.</p>
-<p>Due to a weirdness with C++ they are handy for a case statement:</p>
-<blockquote>
-<p><strong>Quick Question</strong>: Why can&#x2019;t I use a regular  <code>const</code> in the <code>case</code> bit of my <code>switch</code> statements? Why does it tell me &#x201C;not a constant expression&#x201D;<br>
-<strong>Answer:</strong> You can do it though by making your <code>const</code> a <code>static const</code>. The full explanation is long and&#x2026; not satisfying.</p>
-</blockquote>
 <pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// Fruit.h</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
 
