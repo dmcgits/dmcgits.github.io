@@ -10,6 +10,22 @@ export_on_save:
 # Week 12 - work on assessments!
 
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [Week 12 - work on assessments!](#week-12---work-on-assessments)
+  - [Reminders of marking points](#reminders-of-marking-points)
+    - [Conventions](#conventions)
+    - [QA Mis Com](#qa-mis-com)
+  - [Git](#git)
+  - [Scoring](#scoring)
+    - [Scoring Manager](#scoring-manager)
+    - [Profiling](#profiling)
+
+<!-- /code_chunk_output -->
+
+
 ##  Reminders of marking points
 
 Things from brief 
