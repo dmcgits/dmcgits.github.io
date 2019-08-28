@@ -25,30 +25,27 @@
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-12-working-on-snake">Week 12 - Working on Snake</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
-<li><a href="#week-12---working-on-snake">Week 12 - Working on Snake</a>
-<ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-12-working-on-snake">Week 12 - Working on Snake</a>
+<ul>
 <li><a href="#snake">Snake!</a></li>
 <li><a href="#checking-your-coding-conventions">Checking your coding conventions</a></li>
 <li><a href="#olc-color-problems">Olc Color problems</a>
-<ol>
+<ul>
 <li><a href="#olcenumsh">OlcEnums.h</a></li>
 <li><a href="#snakegamecpp-and-anywhere-else">SnakeGame.cpp and anywhere else</a></li>
-</ol>
+</ul>
 </li>
 <li><a href="#one-way-to-make-a-fruit-class">One way to make a Fruit class</a>
-<ol>
+<ul>
 <li><a href="#storing-fruit-in-a-vector">Storing fruit in a vector</a></li>
 <li><a href="#how-do-you-know-you-ate-fruit">How do you know you ate fruit?</a></li>
-<li><a href="#how-do-you-add-more-to-your-snake">How do you add more to your snake?</a></li>
-</ol>
+</ul>
 </li>
-<li><a href="#how-do-you-know-if-you-ate-yourself">How do you know if you ate yourself?</a></li>
 <li><a href="#how-do-i-quit">How do I quit?</a></li>
-<li><a href="#class-diagrams">Class Diagrams</a></li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 <hr>
 <h2 class="mume-header" id="snake">Snake!</h2>
 
@@ -198,7 +195,7 @@ Class <span class="token class-name">AttackShip</span> <span class="token operat
 <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>Add it to <code>SnakeGame.h</code> <em>before</em> <code>olcConsoleGameEngineOOP</code> because olc requires those enums. Alternately you could add the include to <code>olcConsoleGameEngineOOP</code> above the <code>windows.h</code> include.</p>
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span>;</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
 <span class="token comment">// Snake head has x pos, y pos, speed, colour.</span>
 
 <span class="token keyword">class</span> <span class="token class-name">SnakeHead</span>
@@ -352,7 +349,10 @@ Fruit<span class="token operator">::</span><span class="token function">getKind<
 		<span class="token punctuation">}</span>
 		<span class="token keyword">return</span><span class="token punctuation">(</span>eating<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="how-do-i-quit">How do I quit?</h2>
+
+<p>Returning <code>false</code> in <code>OnUserUpdate()</code> sorta kind of works, but I&apos;ll look into the real command now.</p>
+
       </div>
       
       

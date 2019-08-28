@@ -14,19 +14,16 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-1. [Week 12 - Working on Snake](#week-12---working-on-snake)
-	1. [Snake!](#snake)
-	2. [Checking your coding conventions](#checking-your-coding-conventions)
-	3. [Olc Color problems](#olc-color-problems)
-		1. [OlcEnums.h](#olcenumsh)
-		2. [SnakeGame.cpp and anywhere else](#snakegamecpp-and-anywhere-else)
-	4. [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
-		1. [Storing fruit in a vector](#storing-fruit-in-a-vector)
-		2. [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
-		3. [How do you add more to your snake?](#how-do-you-add-more-to-your-snake)
-	5. [How do you know if you ate yourself?](#how-do-you-know-if-you-ate-yourself)
-	6. [How do I quit?](#how-do-i-quit)
-	7. [Class Diagrams](#class-diagrams)
+- [Week 12 - Working on Snake](#week-12-working-on-snake)
+  - [Snake!](#snake)
+  - [Checking your coding conventions](#checking-your-coding-conventions)
+  - [Olc Color problems](#olc-color-problems)
+    - [OlcEnums.h](#olcenumsh)
+    - [SnakeGame.cpp and anywhere else](#snakegamecpp-and-anywhere-else)
+  - [One way to make a Fruit class](#one-way-to-make-a-fruit-class)
+    - [Storing fruit in a vector](#storing-fruit-in-a-vector)
+    - [How do you know you ate fruit?](#how-do-you-know-you-ate-fruit)
+  - [How do I quit?](#how-do-i-quit)
 
 <!-- /code_chunk_output -->
 
@@ -203,7 +200,7 @@ Add it to `SnakeGame.h` _before_ `olcConsoleGameEngineOOP` because olc requires 
 
 ```cpp {.line-numbers}
 #pragma once
-#include "OlcEnums.h";
+#include "OlcEnums.h"
 // Snake head has x pos, y pos, speed, colour.
 
 class SnakeHead
@@ -383,46 +380,7 @@ I would have this function in a `Snake` class, so the snake itself can check eac
 	}
 ```
 
-<!--
-// Is it at the same point on the screen?
-if (xPos_ == fruit.posX && yPos_ == fruit.posY) {
-	// Then we ate the fruit!
-	// Grow.
-	addSegment();
-	
-	return(true);
-}-->
-<!--
-### How do you add more to your snake?
-
-Who should add the segments? The snake or the engine?
-
-___ 
-
-## How do you know if you ate yourself?
-
-Ask these easy questions:
-1. Where is my head?
-2. Where is each segment of my body?
-3. Is my head.. on any of my body segments?
-   
-Feels like the fruit question doesn't it?
-
----
-
 ## How do I quit?
 
-Return type of `OnUserUpdate()` will do for now.
+Returning `false` in `OnUserUpdate()` sorta kind of works, but I'll look into the real command now.
 
----
-
-## Class Diagrams
-
-![](assets/week12/class_top.jpg)
-
-_Top level class diagram_
-
-![](assets/week12/class_exp.jpg)
-
-_expanded class diagram_
--->
