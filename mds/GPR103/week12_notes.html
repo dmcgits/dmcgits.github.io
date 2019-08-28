@@ -28,272 +28,129 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="week-12-performance-debugging">Week 12 - Performance, debugging</h1>
+      <h1 class="mume-header" id="week-12-work-on-assessments">Week 12 - work on assessments!</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week-12---performance-debugging">Week 12 - Performance, debugging</a>
-<ul>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#chat">Chat</a></li>
-<li><a href="#multi-argument-events">Multi argument events!</a>
-<ul>
-<li><a href="#example-of-action-with-2-arguments">Example of Action with 2 arguments</a></li>
-<li><a href="#joining-and-splitting-string-arguments">Joining and splitting string arguments</a></li>
-<li><a href="#structs-and-objects">Structs and objects?</a></li>
-</ul>
-</li>
-<li><a href="#squashing-bugs">Squashing bugs</a>
-<ul>
-<li><a href="#enter-the-debugger">Enter the debugger</a></li>
-<li><a href="#example-walk-through">Example walk through</a></li>
-<li><a href="#where-to-break-how-to-step">Where to break, how to step</a></li>
-<li><a href="#now-do-it-with-your-project">Now do it with your project</a></li>
-<li><a href="#forensic-debugging">Forensic debugging!</a></li>
-</ul>
-</li>
-<li><a href="#responsiveness">Responsiveness</a>
-<ul>
-<li><a href="#limited-resources">Limited resources</a></li>
-<li><a href="#manual-memory-management">Manual Memory Management</a></li>
-</ul>
-</li>
-<li><a href="#seeing-performance">Seeing Performance</a></li>
-<li><a href="#optimising">Optimising</a>
-<ul>
-<li><a href="#garbage-collection">Garbage Collection</a></li>
-<li><a href="#object-pooling">Object pooling!</a></li>
-<li><a href="#implementation-of-object-pooling">implementation of object pooling?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 class="mume-header" id="resources">Resources</h2>
+<h2 class="mume-header" id="reminders-of-marking-points">Reminders of marking points</h2>
 
-<ul>
-<li>
-<p>Events with multiple arguments</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-2?view=netframework-4.8">Microsoft docs for System.Action variants</a></li>
-</ul>
-</li>
-<li>
-<p>Unity 3D college on debugging:</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=y3kqIlLzIig">https://www.youtube.com/watch?v=y3kqIlLzIig</a></li>
-</ul>
-</li>
-<li>
-<p>Unity Debugging video tute:</p>
-<ul>
-<li><a href="https://unity3d.com/learn/tutorials/topics/scripting/debugging-unity-games-visual-studio">https://unity3d.com/learn/tutorials/topics/scripting/debugging-unity-games-visual-studio</a></li>
-</ul>
-</li>
-<li>
-<p>Unity official: optimization garbage collection</p>
-<ul>
-<li><a href="https://unity3d.com/learn/tutorials/topics/performance-optimization/optimizing-garbage-collection-unity-games">https://unity3d.com/learn/tutorials/topics/performance-optimization/optimizing-garbage-collection-unity-games</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 class="mume-header" id="chat">Chat</h2>
+<p>Things from brief</p>
+<h3 class="mume-header" id="conventions">Conventions</h3>
 
-<p>Assessments marked, assessments incoming. Topics for today etc.</p>
-<h2 class="mume-header" id="multi-argument-events">Multi argument events!</h2>
+<p>Stick to them and win marks! Also be a better coder!</p>
+<pre data-role="codeBlock" data-info="cs {.line-numbers}" class="language-csharp line-numbers"><span class="token comment">// GPR103 class coding conventions</span>
+<span class="token comment">// Based on common conventions for C#</span>
+<span class="token comment">// This is a series of examples. All in one file it wouldn&apos;t compile.</span>
 
-<p>Good news! During assessment marking I realised I was wrong about multiple arguments to our static events using <code>Action&lt;&gt;</code> and <code>delegate</code>! Luckily Gian looked into it harder, and I&#x2019;ll be updating the old course resources and my notes to show there are multiple overrides of Action.</p>
-<p>You can specify argument counts with Action<t>, Action&lt;T1,T2&gt; and so on up to 16!</t></p>
-<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.action-2?view=netframework-4.8">Microsoft docs for System.Action variants</a></p>
-<h3 class="mume-header" id="example-of-action-with-2-arguments">Example of Action with 2 arguments</h3>
-
-<p>Here&#x2019;s my inspector showing 2 arguments.</p>
-<p><img src="assets/week12/prevNext_dropdowns_inspector.png" alt="PrevNext Item Inspector"></p>
-<p>Here&#x2019;s the code to pass them in an event</p>
-<h4 class="mume-header" id="prevnextitemonclickcs-partial">PrevNextItemOnClick.cs partial</h4>
-
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PrevNextItemOnClick</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token comment">// Classes, the recipes for objects</span>
+<span class="token comment">// Lead with upper case, use again for subsequent words</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AttackShip</span> <span class="token punctuation">:</span> <span class="token class-name">SpaceShip</span> <span class="token comment">// AttackShip extends the </span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">event</span> Action<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token punctuation">,</span> <span class="token keyword">string</span><span class="token operator">&gt;</span> OnPrevNextRequested <span class="token operator">=</span> <span class="token keyword">delegate</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-   
-  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-
-  <span class="token keyword">void</span> <span class="token function">OnMouseClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    <span class="token comment">// Now we can call with two strings</span>
-    <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>_customItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _prevNext<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</pre><p>And to receive them</p>
-<h4 class="mume-header" id="customodelcs-partial">CustoModel.cs partial</h4>
-
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// Giving our handler to PrevNextItemOnClick doesn&apos;t change,</span>
-<span class="token comment">// Just the signature of the handler</span>
-
-<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">OnPrevNextHandler</span><span class="token punctuation">(</span><span class="token keyword">string</span> item<span class="token punctuation">,</span> <span class="token keyword">string</span> prevOrNext<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">&quot;Model heard arrow say &quot;</span> <span class="token operator">+</span> item <span class="token operator">+</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">+</span> prevOrNext<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>prevOrNext <span class="token operator">==</span> <span class="token string">&quot;previous&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> <span class="token function">decrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">incrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-    <span class="token comment">// Then throw a modelUpdate event that lets peeps look at the state</span>
-    <span class="token function">OnCharacterChanged</span><span class="token punctuation">(</span>charState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</pre><h4 class="mume-header" id="quicky-how-did-you-get-the-string-dropdowns">Quicky how did you get the string dropdowns</h4>
-
-<p>I declared some enums, which we already know about. What you might not have discovered is the ToString() function you can call on them to get their defined name.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token comment">// ... includes</span>
-
-<span class="token keyword">public</span> <span class="token keyword">enum</span> PrevNext
-<span class="token punctuation">{</span>
-  previous<span class="token punctuation">,</span>
-  next
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">enum</span> Customisable
-<span class="token punctuation">{</span>
-  hat<span class="token punctuation">,</span>
-  face<span class="token punctuation">,</span>
-  body
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PrevNextItemOnClick</span> <span class="token punctuation">:</span> <span class="token class-name">MonoBehaviour</span>
+<span class="token comment">// constants, numbers that won&apos;t change.</span>
+<span class="token comment">// Use ALL_UPPER_CASE with underscores replacing spaces</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> LIVES_REMAINING_AT_START <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">float</span> HEADSHOT_DAMAGE_MULTIPLIER <span class="token operator">=</span> <span class="token number">2.5f</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">string</span> DEFAULT_INVITE_TEXT <span class="token operator">=</span> <span class="token string">&quot;You have been invited to rumble.&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Enums are weird. My approach is to name enums like classes,</span>
+<span class="token comment">// then name the constantslike regular constants :</span>
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> HealthWarnings
 <span class="token punctuation">{</span>
-  <span class="token comment">// Declare a variable of enum&apos;s type, expose to editor with SerializeField</span>
-  <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
-  <span class="token keyword">protected</span> <span class="token class-name">Customisable</span> _customItem<span class="token punctuation">;</span>
+  CRITICAL <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  LOW <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span>
+  NEED_TOP_UP <span class="token operator">=</span> <span class="token number">50</span>
+<span class="token punctuation">}</span>
 
-  <span class="token punctuation">[</span><span class="token class-name">SerializeField</span><span class="token punctuation">]</span>
-  <span class="token keyword">protected</span> <span class="token class-name">PrevNext</span> _prevNext<span class="token punctuation">;</span>
-  
-  <span class="token comment">//... later in class:</span>
-  
-  <span class="token keyword">void</span> <span class="token function">OnMouseClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// However the proscribed way in c# (via the .net guidlines) is to use the same `Pascal` </span>
+<span class="token comment">// case for the constants as for the name. I&apos;ll accept either.</span>
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> HealthWarnings
+<span class="token punctuation">{</span>
+  Critical <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  Low <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span>
+  NeedTopUp <span class="token operator">=</span> <span class="token number">50</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// public variables. Variables that code outside a class can see.</span>
+<span class="token comment">// Start lower case, upper case for subsequent words</span>
+<span class="token keyword">public</span><span class="token punctuation">:</span>
+	<span class="token keyword">int</span> score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">string</span> myTag <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+	<span class="token keyword">string</span> myRealName <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+	<span class="token class-name">Hat</span> topHat<span class="token punctuation">;</span> 		<span class="token comment">// &quot;H&quot; tells us H is a class, or type.</span>
+						<span class="token comment">// &quot;t&quot; tells us topHat is an instance/object.</span>
+
+<span class="token comment">// protected or private variables. Only seen inside class.</span>
+<span class="token comment">// Use an _ and start lower case, upper case subsequent words</span>
+<span class="token keyword">protected</span><span class="token punctuation">:</span> 
+	<span class="token keyword">float</span> _baseDamage <span class="token operator">=</span> <span class="token number">3.2f</span><span class="token punctuation">;</span>
+	<span class="token keyword">string</span> _secretPassword <span class="token operator">=</span> <span class="token string">&quot;AndSheWas&quot;</span><span class="token punctuation">;</span>
+	<span class="token class-name">BroadSword</span> _mightyBroadSword<span class="token punctuation">;</span>
+
+<span class="token comment">// functions: whether public or private, name them as you would a class. </span>
+<span class="token comment">// leading upper case, then upper case word beginnings. Note this differs from</span>
+<span class="token comment">// c/c++</span>
+<span class="token keyword">float</span> <span class="token function">DamagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
+	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// function arguments: the same naming convention as public variables</span>
+<span class="token comment">// local function variables: also the same convention as public variables.</span>
+<span class="token keyword">float</span> <span class="token function">DamagePerSecond</span><span class="token punctuation">(</span><span class="token keyword">int</span> shotType<span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> damage <span class="token operator">=</span> _damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>shotType <span class="token operator">==</span> HEAD_SHOT<span class="token punctuation">)</span> 
   <span class="token punctuation">{</span>
-      <span class="token function">OnPrevNextRequested</span><span class="token punctuation">(</span>_customItem<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> _prevNext<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    damage <span class="token operator">*=</span> HEADSHOT_DAMAGE_MULTIPLIER<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-</pre><h3 class="mume-header" id="joining-and-splitting-string-arguments">Joining and splitting string arguments</h3>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>damage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="qa-mis-com">QA Mis Com</h3>
 
-<p>I went with the first idea that came to mind for character customiser arrow clicks: typing <code>next</code> and <code>previous</code> into the inspector fields, then joining them in a string with a separator: <code>next_hat</code>. That was sent to the model, which split them apart.</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">OnPrevNextHandler</span><span class="token punctuation">(</span><span class="token keyword">string</span> itemPrevOrNext<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    <span class="token keyword">string</span> item <span class="token operator">=</span> itemPrevOrNext<span class="token punctuation">.</span><span class="token function">Substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> itemPrevOrNext<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">&quot;_&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">string</span> prevOrNext <span class="token operator">=</span> itemPrevOrNext<span class="token punctuation">.</span><span class="token function">Substring</span><span class="token punctuation">(</span>itemPrevOrNext<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">&quot;_&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Anything you need help with?</p>
+<h2 class="mume-header" id="git">Git</h2>
 
-    charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>prevOrNext <span class="token operator">==</span> <span class="token string">&quot;previous&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> 
-    
-    <span class="token comment">// Go down or up, looping at extens</span>
-    <span class="token function">decrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">incrementPosIntLooping</span><span class="token punctuation">(</span>charState<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">,</span> counts<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// Then throw a modelUpdate event that lets peeps look at the state</span>
-    <span class="token function">OnCharacterChanged</span><span class="token punctuation">(</span>charState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</pre><p>It was an easy workaround for me because I&#x2019;ve chopped up strings in the past, but it has a few downsides:</p>
+<p>Let&#x2019;s al commit our changes and push. Do it daily!</p>
+<h2 class="mume-header" id="scoring">Scoring</h2>
+
+<p>How and were do you track scoring?</p>
 <ul>
-<li>My version with text fields required looking up the right strings in the code.</li>
-<li>Joining and splitting strings is pretty low cpu but it&#x2019;s still pointlessly wasteful.</li>
+<li>The score text and level end screen have points
+<ul>
+<li>they&#x2019;re just displays</li>
 </ul>
-<p>Inspector screen shot</p>
-<pre data-role="codeBlock" data-info="cs" class="language-csharp"></pre><h3 class="mume-header" id="structs-and-objects">Structs and objects?</h3>
-
-<p>Yep, you could just pass your own custom struct or object.</p>
-<h2 class="mume-header" id="squashing-bugs">Squashing bugs</h2>
-
-<p>The types of bugs in our code seem to be at least as numerous as the tools available to us. So far we&#x2019;ve had a pretty limited set of techniques for finding them: logging to console, running the build often, working in small scale/isolation when trying something out.</p>
-<p>Eventually though, you get</p>
-<ul>
-<li>big games that are slow to build</li>
-<li>things that can be only run amid complexity</li>
-<li>restricted by the limits of the console</li>
+</li>
+<li>Missiles, cities other things contribute to scoring but it&#x2019;s none of their business</li>
 </ul>
-<h3 class="mume-header" id="enter-the-debugger">Enter the debugger</h3>
+<h3 class="mume-header" id="scoring-manager">Scoring Manager</h3>
 
-<p>A debugger is a shockingly powerful program that can look into the <strong>memory used by</strong> and <strong>execution of your program</strong> in real time. It can</p>
+<p>There&#x2019;s enough work in scoring to justify a manager.</p>
 <ul>
-<li>step over line by line,</li>
-<li>*stop at breakpoints.</li>
-<li>give you access to variable values as they&#x2019;re changed, including lists and objects, without console</li>
-<li>often include a few performance stats</li>
-</ul>
-<p>Some of you will have used a debugger in say visual studio for c++/c sharp, or elsewhere for python. You might think</p>
-<h3 class="mume-header" id="example-walk-through">Example walk through</h3>
-
+<li>
+<p>Manages the great book of scoring rules.</p>
+</li>
+<li>
+<p>Listens for happenings that cause scoring, including:</p>
 <ul>
-<li>Hearing a click in Character Customiser
-<ul>
-<li>See that it&#x2019;s called without needing debug.log</li>
-<li>Look through passed arguments, look through object!</li>
+<li>Alien missiles destroyed</li>
+<li>Cities counted at level end</li>
+<li>shells/rounds/ammo left</li>
 </ul>
 </li>
 </ul>
-<p>Coming pictures<br>
-<strong>Attach Editor prefs unity</strong><br>
-<strong>breakpoint picture</strong><br>
-<strong>stopped at breakpoint</strong><br>
-<strong>Inspecting variables</strong></p>
-<h3 class="mume-header" id="where-to-break-how-to-step">Where to break, how to step</h3>
+<h3 class="mume-header" id="profiling">Profiling</h3>
 
-<p>Breaking, stepping over, stepping through.</p>
-<h3 class="mume-header" id="now-do-it-with-your-project">Now do it with your project</h3>
-
-<p>Try putting a break point at any of the following and exploring:</p>
-<ul>
-<li>When you catch a click and generate a missile</li>
-<li>When a missile collider hits an explosion collider</li>
-<li>Is a missile hitting your city but you can&#x2019;t see what&#x2019;s hitting it? Look at the colliders of each.</li>
-<li>Updating score field: Why&#x2019;s it empty? Why are you getting a crash trying to change it? See if your variable referring to the component is null. See if the string you&#x2019;re creating from your score number is empty. Work out why later.</li>
-</ul>
-<h3 class="mume-header" id="forensic-debugging">Forensic debugging!</h3>
-
-<p>So far we&#x2019;ve usually tried to debug by coming up with a theory and then putting in Console.Log. That only helps us if our theories are on point.</p>
-<p>Using the debugger lets us look much more quickly at loads of things, gather loads of evidence, and a surprise result in that evidence can lead you to a bug source you&#x2019;d never considered.</p>
-<hr>
-<h2 class="mume-header" id="responsiveness">Responsiveness</h2>
-
-<p>Missile Command: As wave after wave of death dealing alien hardware is flung at the homes and businesses of everyday earthlings, <strong>masses of resources are going into the creation of weapons and cleaning up in their aftermath.</strong></p>
-<p>This describes life in the game, but also life for our game engine.</p>
-<blockquote>
-<p>We&#x2019;re instantiating human and alien missiles, trails and explosions for potentially hunderes of waves. Each one uses memory and processor time, and it takes time and effort for unity to recover resources when each is finished with.</p>
-</blockquote>
-<p>We often see failures of optimisations as constant low frame rates, or sudden frame drops.</p>
-<h3 class="mume-header" id="limited-resources">Limited resources</h3>
-
-<p>You might think about this much on quade core Windows machines with 16GB of RAM, but if you&#x2019;re outputting to other platforms this becomes critical</p>
-<ul>
-<li>Mobile phones/handhelds: Not much ram, not much processing power. Do not spend it all on disposable assets.</li>
-<li>Console: At the start of a generation these specs seem pretty nice, but can become very constraining as people come to expect more.</li>
-<li>VR users can be very sensitive to frame rate changes. If your game makes them sick, it doesn&#x2019;t matter how fun it is.</li>
-</ul>
-<h3 class="mume-header" id="manual-memory-management">Manual Memory Management</h3>
-
-<p>What we had. Malloc, dealloc.</p>
-<h2 class="mume-header" id="seeing-performance">Seeing Performance</h2>
-
-<p>Profiler!<br>
-Last week I gave you guys a function to move a missile over time, and it used time.elapsedTime to make sure things moved well regardless of how long frames took to render.<br>
-Today we talked about how garbage collection can impact your game.</p>
-<p><img src="assets/week12/profiler_cpu_frametime.png" alt="profiler cpu frames"></p>
-<p>How can we visualise it?</p>
-<h2 class="mume-header" id="optimising">Optimising</h2>
-
-<p>How can we manage problems like big garbage collection hits and constant resource creation</p>
-<h3 class="mume-header" id="garbage-collection">Garbage Collection</h3>
-
-<p>Let the garbage man decide what&#x2019;s unwanted and take it away.</p>
-<p>Obvious upside:<br>
-Almost no manual memory management!</p>
-<p>Dangers for the inexperienced: Garbage collection tends to take what would have been done manually, spread out over time, and lump it into passes.</p>
-<ul>
-<li>Fine if they&#x2019;re not cleaning up too much.</li>
-<li>Give them a lot to clean up and like anyone else, they need time and resources. And that causes stutters in your game&#x2019;s frame rate and response.</li>
-</ul>
-<p><img src="assets/week12/garbage_collection_peaks.png" alt="GC Peaks"></p>
-<h3 class="mume-header" id="object-pooling">Object pooling!</h3>
-
-<p>Concept of object pooling.</p>
-<h3 class="mume-header" id="implementation-of-object-pooling">implementation of object pooling?</h3>
-
-<p>Go with simple example. Link to old mate.</p>
+<p>Is your game crawling despite the beefy machine? Don&#x2019;t guess what&#x2019;s causing it, run the Unity Profiler.</p>
+<p><a href="https://docs.unity3d.com/Manual/ProfilerWindow.html">https://docs.unity3d.com/Manual/ProfilerWindow.html</a><br>
+<img src="https://docs.unity3d.com/uploads/Main/ProfilerWindow2.jpg" alt="profiler"></p>
+<p>Track down what&#x2019;s killing your performance. Is your missile masking 100 missiles below because of a bug? Is there a loop in a loop generating thousands of debug messages?</p>
 
       </div>
       
