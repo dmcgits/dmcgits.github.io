@@ -108,9 +108,10 @@ float DamagePerSecond(int shotType)
   {
     damage *= HEADSHOT_DAMAGE_MULTIPLIER;
   }
-
-	return (damage);
+  
+  return (damage);
 }
+
 ```
 
 ### QA Mis Com
