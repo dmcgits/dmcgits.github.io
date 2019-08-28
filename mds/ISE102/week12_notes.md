@@ -14,7 +14,7 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 12 - Working on Snake](#week-12-working-on-snake)
+- [Week 12 - Working on Snake](#week-12---working-on-snake)
   - [Snake!](#snake)
   - [Checking your coding conventions](#checking-your-coding-conventions)
   - [Olc Color problems](#olc-color-problems)
@@ -85,6 +85,20 @@ float damagePerSecond()
 	// Notice how you can immediately tell I'm using my private variables
 	// to calculate a return value. The leading _ tells us.
 	return (_damagePerAttack * _attacksPerSecond);
+}
+
+// function arguments: the same naming convention as public variables
+// local function variables: also the same convention as public variables.
+float damagePerSecond(int shotType) 
+{
+  int damage = _damagePerAttack * _attacksPerSecond;
+
+  if (shotType == HEAD_SHOT) 
+  {
+    damage *= HEADSHOT_DAMAGE_MULTIPLIER;
+  }
+
+	return (damage);
 }
 
 // How it would look inside a Hero class cpp file with scoping.
