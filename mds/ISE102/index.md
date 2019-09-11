@@ -47,11 +47,15 @@ export_on_save:
 
 ## Software
 
+(zip these up into a ready archive)
+
 ### Flowgorithm
 * Portable version (no install needed) [download](http://flowgorithm.altervista.org/#elf_l1_Lw)
 * Documentation:
   - [All](http://www.flowgorithm.org/documentation/)
   - [Operators](http://www.flowgorithm.org/documentation/operators.htm) (multiply, times, equals, assign, etc): 
+
+![guess number](assets/week1/guess_number.png))
 
 ### Micro text editor
 
