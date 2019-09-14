@@ -14,14 +14,14 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102: Intro To Software Engineering](#ise102-intro-to-software-engineering)
-  - [Learning:](#learning)
-  - [Weekly Lectures](#weekly-lectures)
-  - [Software](#software)
-    - [Flowgorithm](#flowgorithm)
-    - [Micro text editor](#micro-text-editor)
-    - [Far file manager](#far-file-manager)
-  - [Book Chapters](#book-chapters)
+1. [ISE102: Intro To Software Engineering](#ise102-intro-to-software-engineering)
+   1. [Learning:](#learning)
+   2. [Weekly Lectures](#weekly-lectures)
+   3. [Software](#software)
+      1. [Flowgorithm](#flowgorithm)
+      2. [Micro text editor](#micro-text-editor)
+      3. [Far file manager](#far-file-manager)
+   4. [Book Chapters](#book-chapters)
 
 <!-- /code_chunk_output -->
 
@@ -46,8 +46,7 @@ export_on_save:
 * [Week 12](week12_notes.html)
 
 ## Software
-
-(zip these up into a ready archive)
+[Download this zip](assets/week1/flogorithm_micro.zip) containing Flowgorithm and Micro ready to run.
 
 ### Flowgorithm
 * Portable version (no install needed) [download](http://flowgorithm.altervista.org/#elf_l1_Lw)
