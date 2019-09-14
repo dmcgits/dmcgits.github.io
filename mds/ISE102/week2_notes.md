@@ -4,19 +4,26 @@
 
 <!-- code_chunk_output -->
 
-* [ISE102 Week 2](#ise102-week-2)
-	* [Computer, do maths.](#computer-do-maths)
-		* [Equations in mathematics / physics](#equations-in-mathematics-physics)
-		* [In C++](#in-c)
-		* [Variables (and literals)](#variables-and-literals)
-	* [Statement building blocks](#statement-building-blocks)
-		* [Games!](#games)
-		* [Adding conditionals](#adding-conditionals)
-	* [Powerpoint!](#powerpoint)
-	* [Exercises](#exercises)
-	* [Resources](#resources)
+- [ISE102 Week 2](#ise102-week-2)
+  - [TO ADD](#to-add)
+  - [Computer, do maths.](#computer-do-maths)
+    - [Equations in mathematics / physics](#equations-in-mathematics-physics)
+    - [Equations in a slot machine](#equations-in-a-slot-machine)
+    - [In C++](#in-c)
+- [include <iostream>](#include-iostream)
+- [include <iostream>](#include-iostream-1)
+- [include <iostream>](#include-iostream-2)
 
 <!-- /code_chunk_output -->
+
+## TO ADD
+Explain a1 slot machine.
+ * go hard into not googling tutes on slot machines, not scoring 0 for your assignment. 
+ * Instead, google "generating random numbers in c++", "comparing numbers in c++", "validating input c++"
+
+ The slot machine and variables/conditionals
+ * The slot machine starts with capturing user input and checking if it's valid.
+
 
 ## Computer, do maths.
 
@@ -32,13 +39,19 @@ No wonder then, that statements in code looks mathemathical equations/functions.
 
 ### Equations in mathematics / physics
 
-Here’s a line function and Einstein’s baby:
+Einstein’s baby:
 
-\[ y=mx + b\] \[ E=mc^2 \]
+\[ E=mc^2 \]
 
-A solution for a line:
+A solution for a parabola:
 
-\[ y=mx+b \]\[ y=(2*1)+1 \]\[ y=3 \]\[ 3 \]
+\[ y=x^2 \]
+
+### Equations in a slot machine
+
+When you gamble, you hand over your bet. That is gone, you are down to your starting cash - bet. Anything you win is added to that. If a win (2 of a kind, 3 of a kind) returns your bet multiplied by a whole number (say 3x, 5x) then:
+
+\[ myCashAfter = (myCashBefore - bet) + (bet * winMultiplier)\]
 
 ### In C++
 
@@ -48,10 +61,29 @@ These formulas/functions in C++ statement form
   * an expression on the right side. This reduces to a solution like our line equation above.
 
 ```cpp
-y = m * x + b;
 
-E = m * pow(c, 2);
+int main()
+{
+  int playerCash = 2000;      // Create variables that can hold information. We can
+  int bet = 0;                // assign values to them if they are on the left of an "="    int winMultiplier = 3;      // We read their value by using their name anywhere else.
+        
+
+  cout << "Please enter a bet ($10-$500):" << endl;   // Print text asking the user clearly for a bet within a range
+
+  // One more way to change a variable is to accept console input with 'cin'. This command lets
+  // the player input a number at the console and hit enter to finish.
+  cin >> bet;        // 'cin >>' means "send the console intput to the variable 'bet'"                                
+
+  playerCash = (playerCash - bet) + (bet * winMultiplier);
+  
+  cout << "You won 3x your bet! Now you have $" << playerCash; // Display the result
+}
 ```
+
+
+```
+E = m * pow(c, 2);
+
 
 ### Variables (and literals)
 
