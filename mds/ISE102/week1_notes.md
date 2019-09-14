@@ -14,83 +14,72 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ ISE102 Week 1
-](#ise102-week-1)
-  - [ Part 1: Studying Software Engineering
-](#part-1-studying-software-engineering)
-    - [ Who are we?
-](#who-are-we)
-    - [ C++ in a nutshell
-](#c-in-a-nutshell)
-  - [ How can we succeed learning c++ in this class?
-](#how-can-we-succeed-learning-c-in-this-class)
-    - [ Hour splits and thriving in 2D Games Programming
-](#hour-splits-and-thriving-in-2d-games-programming)
-    - [ Blackboard is your friend
-](#blackboard-is-your-friend)
-    - [ Recommended texts
-](#recommended-texts)
-    - [ My notes are your friends
-](#my-notes-are-your-friends)
-    - [ Assessments
-](#assessments)
-      - [ Assessment 1
-](#assessment-1)
-      - [ Assessment 2
-](#assessment-2)
-      - [ Assessment 3
-](#assessment-3)
-  - [ Part 2: Programmings is handling situations
-](#part-2-programmings-is-handling-situations)
-    - [ Why not just write it in c++?
-](#why-not-just-write-it-in-c)
-    - [ Whitespace
-](#whitespace)
-  - [ Problem solving tools
-](#problem-solving-tools)
-    - [ This is the key to coding.
-](#this-is-the-key-to-coding)
-  - [ From pseudocode to source code
-](#from-pseudocode-to-source-code)
-    - [ Hello world
-](#hello-world)
-      - [ Let's code that!
-](#lets-code-that)
-    - [ Let's understand that!
-](#lets-understand-that)
-      - [ Blocks {} and ending a line of code ;
-](#blocks-and-ending-a-line-of-code)
-      - [ What is `using namespace`
-](#what-is-using-namespace)
-      - [ C++ Comments
-](#c-comments)
-    - [ Compiling and running your game
-](#compiling-and-running-your-game)
-      - [ 1. Source code
-](#1-source-code)
-      - [ 2. Compiler
-](#2-compiler)
-      - [ 3. Object code
-](#3-object-code)
-      - [ 4. Linker
-](#4-linker)
-      - [ 5. Executable File
-](#5-executable-file)
-      - [ 6. Loader
-](#6-loader)
-  - [ Part 3: Exercises
-](#part-3-exercises)
-      - [ 1. Basic input/output documentation
-](#1-basic-inputoutput-documentation)
-      - [ 2. Sololearn quiz
-](#2-sololearn-quiz)
-      - [ 3. Optional: review textbook chapter 1
-](#3-optional-review-textbook-chapter-1)
-  - [ Appendix 1: Install Visual Studio Community
-](#appendix-1-install-visual-studio-community)
+- [ISE102 Week 1](#ise102-week-1)
+  - [TO ADD](#to-add)
+  - [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
+    - [Who are we?](#who-are-we)
+    - [C++ in a nutshell](#c-in-a-nutshell)
+    - [Flow and Pseudocode](#flow-and-pseudocode)
+  - [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
+    - [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+    - [Blackboard is your friend](#blackboard-is-your-friend)
+    - [Recommended texts](#recommended-texts)
+    - [My notes are your friends](#my-notes-are-your-friends)
+    - [Assessments](#assessments)
+      - [Assessment 1](#assessment-1)
+      - [Assessment 2](#assessment-2)
+      - [Assessment 3](#assessment-3)
+  - [Part 2: Programmings is handling situations](#part-2-programmings-is-handling-situations)
+    - [Why not just write it in c++?](#why-not-just-write-it-in-c)
+    - [Whitespace](#whitespace)
+  - [Problem solving tools](#problem-solving-tools)
+    - [This is the key to coding.](#this-is-the-key-to-coding)
+  - [From pseudocode to source code](#from-pseudocode-to-source-code)
+    - [Hello world](#hello-world)
+      - [Let's code that!](#lets-code-that)
+    - [Let's understand that!](#lets-understand-that)
+      - [Blocks {} and ending a line of code ;](#blocks-and-ending-a-line-of-code)
+      - [What is `using namespace`](#what-is-using-namespace)
+      - [C++ Comments](#c-comments)
+    - [Compiling and running your game](#compiling-and-running-your-game)
+      - [1. Source code](#1-source-code)
+      - [2. Compiler](#2-compiler)
+      - [3. Object code](#3-object-code)
+      - [4. Linker](#4-linker)
+      - [5. Executable File](#5-executable-file)
+      - [6. Loader](#6-loader)
+  - [Part 3: Exercises](#part-3-exercises)
+      - [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
+      - [2. Sololearn quiz](#2-sololearn-quiz)
+      - [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
+  - [Appendix 1: Install Visual Studio Community](#appendix-1-install-visual-studio-community)
 
 <!-- /code_chunk_output -->
 
+
+
+## TO ADD
+
+Get into programming quickly. start right away with input, test, output. That has to be every program.
+Less time on hellos
+Don't discuss assessments till week 2. Just explain a1 in week 2 and go hard into not googling tutes on slot machines, not scoring 0 for your assignment. Instead, google "generating random numbers in c++", "comparing numbers in c++".
+
+Flowcharts to match psuedocode? Help everyone understand that decisions are key. If, then.
+Get past hello world: do a simple app that says hello, asks how old you are.
+
+If you're older than x, say "you're old". If younger, "you're young".
+
+Also "What is a console??" Console leads to 'cin', 'cout'.
+
+The flow of the arrows tell us where the info goes, especially if we add more
+
+`>>>>>>>>>`  - looks like its going right
+`<<<<<<<<`   - left
+
+Look at pseudocoding and flowcharting here:
+<https://www.codeavengers.com/notes/planning/flowcharts>
+
+Flowgorithm could be perfect, it even outputs c++.
 
 ## Part 1: Studying Software Engineering
 
@@ -115,26 +104,66 @@ http://www.artstation.com/dmacdraws/ - game art
 
 ### C++ in a nutshell
 
-* Made on top of _C_ in the 80s. 
-* C written for computer scientists to compile cross platform.
-* Big-time game engines, operating systems, your windows apps are written in _C++_, _C_. Planes and satellites and freight ships. Maybe power stations and bridges too.
+![Bjarne](assets/week1/bjarne.jpg)
+_Bjarne Stroustrup_
+
+* Made by Bjarne Stroustrup in the 80s. Extended C. Still going.
+* C was written for computer scientists to compile the same code on most any hardware.
+* Big-time game engines, operating systems, your windows apps are written in _C++_, _C_. 
+* Planes and fridges and satellites and watches and particle colliders and power stations. (picture)
 * Fast, low level aka "close to the metal"
 * No game making tools by default.
 * There is free code out there in "libraries" that can help us when it comes to drawing graphics.
 * It's what's called an Object Oriented language. C was procedural.
 
 ```c++
+#include <iostream>
+#include <string>
 // c++ main function
 int main()
 {
-    cout << "Battle Royale Game." << endl;
+    string genre = "";
+
+    cout << "Please input your favourite game genre." << endl;
+    cout << "eg: Farming, Cooking, Dancing, FPS, Strategy, Sports, Fighting, Battle Royale." << endl;
+    cout << "Your choice:";
+    
+    cin >> genre;   // User can type response, we store it under "genre"
+    
+    cout << genre << " games are the WORST." << endl; // print our response.
+
+    return(0);  // End program and tell windows there were no errors. 
 }
 ```
 
-![Bjarne](assets/week1/bjarne.jpg)
-_Bjarne Stroustrup: legend_
+![error code 1](assets/week1/error_code_2_bluescreen.jpg)
+_The whole operating falls over_
+![error code 1](assets/week1/error_code_1.png)
+_Just your application falls over_
 
 ---
+
+Draw over that code what each bit was: 
+allocate storage, 
+print things to console, 
+get input and put it in storage, 
+produce output using what we stored
+
+> graph computers: get input, store things, process things, store more., output.
+
+### Flow and Pseudocode
+
+**replace with genre flowchart**
+
+![Flowgorithm 1](assets/week1/flowgorithm_age_flow_pseudo.png)
+
+Build it together in flowgorith.
+Have everyone build another program in flowgorithm.
+Then we export psuedocode to use as comments.
+Write the c++ together.
+Check answer
+
+link to flowgorithm. 
 
 ## How can we succeed learning c++ in this class?
 
