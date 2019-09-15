@@ -15,20 +15,28 @@ export_on_save:
 <!-- code_chunk_output -->
 
 - [ISE102 Week 1](#ise102-week-1)
-  - [TO ADD](#to-add)
   - [Who are we?](#who-are-we)
     - [C++ the language](#c-the-language)
+      - [Cpp looks like this](#cpp-looks-like-this)
+      - [Bjarne looks like this:](#bjarne-looks-like-this)
   - [Programming: it's just bossing around](#programming-its-just-bossing-around)
     - [So let's make Knights Journey](#so-lets-make-knights-journey)
     - [Programming by charts](#programming-by-charts)
     - [Programming in Flowgorithm](#programming-in-flowgorithm)
+      - [Get and open flowgorithm](#get-and-open-flowgorithm)
+      - [Instructions](#instructions)
     - [Exporting to pseudocode](#exporting-to-pseudocode)
     - [What is a computer, for programming purposes?](#what-is-a-computer-for-programming-purposes)
+      - [Real examples](#real-examples)
+      - [In Knights Journey](#in-knights-journey)
   - [Writing a program in C++](#writing-a-program-in-c)
     - [Open visual studio and a default project](#open-visual-studio-and-a-default-project)
     - [Write knights journey](#write-knights-journey)
+      - [Running it](#running-it)
   - [Breaking down some of the code](#breaking-down-some-of-the-code)
     - [Input and Output](#input-and-output)
+      - [cin](#cin)
+      - [cout](#cout)
     - [Storage aka variables](#storage-aka-variables)
     - [Whitespace](#whitespace)
     - [Blocks of code and ending a line](#blocks-of-code-and-ending-a-line)
@@ -45,16 +53,6 @@ export_on_save:
     - [cin and cout documentation](#cin-and-cout-documentation)
 
 <!-- /code_chunk_output -->
-
-
-
-## TO ADD
-
-
-Also "What is a console??" Console leads to 'cin', 'cout'.
-
-
-
 
 ## Who are we?
 
@@ -78,6 +76,8 @@ C++ is a programming language. You write text files using the c++ language, and 
 * Planes, fridges, satellites, watches, particle colliders. (picture)
 * Fast, low level aka "close to the metal"
 * No game making tools by default.
+* Quite familiar to _Java_, _C#_, _ActionScript_ programmers.
+* Somewhat familiar to _Python_ coders, and in some ways strange.
 
 ____
 
