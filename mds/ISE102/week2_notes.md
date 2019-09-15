@@ -1,38 +1,63 @@
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # ISE102 Week 2
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 2](#ise102-week-2)
-   1. [TO ADD](#to-add)
-   2. [Computer, do maths.](#computer-do-maths)
-      1. [Equations in mathematics / physics](#equations-in-mathematics--physics)
-      2. [Equations in a slot machine](#equations-in-a-slot-machine)
-      3. [In C++](#in-c)
-      4. [Variables (and literals)](#variables-and-literals)
-   3. [Statement building blocks](#statement-building-blocks)
-      1. [Games!](#games)
-      2. [Adding conditionals](#adding-conditionals)
-   4. [Powerpoint!](#powerpoint)
-   5. [Compiling](#compiling)
-      1. [Compiling and running your game](#compiling-and-running-your-game)
-         1. [1. Source code](#1-source-code)
-         2. [2. Compiler](#2-compiler)
-         3. [3. Object code](#3-object-code)
-         4. [4. Linker](#4-linker)
-         5. [5. Executable File](#5-executable-file)
-         6. [6. Loader](#6-loader)
-   6. [Exercises](#exercises)
-   7. [Resources](#resources)
+- [ISE102 Week 2](#ise102-week-2)
+  - [TO ADD](#to-add)
+  - [Assessments](#assessments)
+    - [Assessment 1](#assessment-1)
+    - [Assessment 2](#assessment-2)
+    - [Assessment 3](#assessment-3)
+  - [Making decisions.](#making-decisions)
+    - [Decisions in Flowgorithm](#decisions-in-flowgorithm)
+    - [Deciding by comparing](#deciding-by-comparing)
+    - [Deciding by comparing many things](#deciding-by-comparing-many-things)
+  - [Computer can do maths for us.](#computer-can-do-maths-for-us)
+    - [Slot machine decisions](#slot-machine-decisions)
+    - [More calculations for a slot machine](#more-calculations-for-a-slot-machine)
+- [next bit is bad. replace w "comparing things"](#next-bit-is-bad-replace-w-comparing-things)
+  - [Statement building blocks](#statement-building-blocks)
+  - [Working without quickstart](#working-without-quickstart)
+  - [What is `using namespace`](#what-is-using-namespace)
+    - [Why return zero?](#why-return-zero)
+  - [Why flowchart or pseudocode first?](#why-flowchart-or-pseudocode-first)
+    - [C++ vs spoken languages](#c-vs-spoken-languages)
+    - [How many keywords?](#how-many-keywords)
+    - [Games!](#games)
+    - [Adding conditionals](#adding-conditionals)
+  - [Powerpoint!](#powerpoint)
+  - [Compiling](#compiling)
+    - [Compiling and running your game](#compiling-and-running-your-game)
+      - [1. Source code](#1-source-code)
+      - [2. Compiler](#2-compiler)
+      - [3. Object code](#3-object-code)
+      - [4. Linker](#4-linker)
+      - [5. Executable File](#5-executable-file)
+      - [6. Loader](#6-loader)
+    - [Assessments](#assessments-1)
+  - [Blackboard](#blackboard)
+  - [Exercises](#exercises)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
 ## TO ADD
 
 Assignment 1 slot machine
- * go hard into not googling tutes on slot machines, not scoring 0 for your assignment. 
- * Instead, google "generating random numbers in c++", "comparing numbers in c++", "validating input c++"
+ * Tutes: 
+   - not googling tutes on slot machines, not scoring 0 for your assignment. 
+   - Instead, google "generating random numbers in c++", "comparing numbers in c++", "validating input c++"
 
  The slot machine and variables/conditionals
  * The slot machine starts with capturing user input and checking if it's valid.
@@ -46,92 +71,88 @@ More on console:
  * run micro README.md or other file
    - Hit shortcut to show help file, see how it's like a gui? Graphical User Interface. This is built of text. Tui.
 Show far running as example of how different characters and colours contribute to interface just using text.
-  
 
-## Computer, do maths.
+Other ways to program:
+cpp.sh
 
-Computers (analogue and digital ) were designed by mathematicians and logicians like Alan Turing and John Von Neumann, based on centuries of theory by their predecessors. They were built by engineers.
+## Assessments
 
-Universal computers like we have now (as opposed to machine's like Turing's enigma breaker)replaced and outperformed even very large rooms of women with analog calculators. They took over the calculations of firing tables for artillery and solving the physics of explosives arranged to compress the uranium core of an atomic bomb into criticality. When they weren't busy on this work, they might also run simulations of cellular automata (Arthur Burks).
+### Assessment 1
 
-No wonder then, that statements in code looks mathemathical equations/functions.
+Text based slot machine. **Due end week 6**
 
->Within a code block `{ .. }` C++ is, mostly, a series of statements. A statement brings to mind a mathematical/logical expression, or physics equation.
->
-> On the left is a symbol for the result. On the right, an expression which is solved, collapsed into a result. 
+### Assessment 2
 
-### Equations in mathematics / physics
+Exam covering material from mostly first 2 modules (first 4 weeks). **Due end of week 7**
 
-Einstein’s baby:
+### Assessment 3
 
-\[ E=mc^2 \]
+Snake game with ascii graphics. **Due end of week 12**
 
-A solution for a parabola:
-
-\[ y=x^2 \]
-
-### Equations in a slot machine
-
-When you gamble, you hand over your bet. That is gone, you are down to your starting cash - bet. Anything you win is added to that. If a win (2 of a kind, 3 of a kind) returns your bet multiplied by a whole number (say 3x, 5x) then:
-
-\[ myCashAfter = (myCashBefore - bet) + (bet * winMultiplier)\]
-
-### In C++
-
-These formulas/functions in C++ statement form
-  * a variable on the left. A symbol to store your answer in.
-  * an equals sign denotes assignment: assigning the right side to the left
-  * an expression on the right side. This reduces to a solution like our line equation above.
-
-```cpp
-
-int main()
-{
-  int playerCash = 2000;      // Create variables that can hold information. We can
-  int bet = 0;                // assign values to them if they are on the left of an "="    int winMultiplier = 3;      // We read their value by using their name anywhere else.
-        
-
-  cout << "Please enter a bet ($10-$500):" << endl;   // Print text asking the user clearly for a bet within a range
-
-  // One more way to change a variable is to accept console input with 'cin'. This command lets
-  // the player input a number at the console and hit enter to finish.
-  cin >> bet;        // 'cin >>' means "send the console intput to the variable 'bet'"                                
-
-  playerCash = (playerCash - bet) + (bet * winMultiplier);
-  
-  cout << "You won 3x your bet! Now you have $" << playerCash; // Display the result
-}
-```
-
-E = m * pow(c, 2);
+![Snake](assets/week1/snake.png)
+_Yes that snake game_
 
 
-### Variables (and literals)
+## Making decisions.
 
-How do we define these symbols, these places information is stored. First, variables for our line equation:
+We're ordering things around. While they do work for us, they have to make decisions. Since we're in charge, we want them to **decide what we would decide**.
 
-```cpp
-float y = 0.0f; // initialising y to 0. The decimal point and f make it floating point aka decimal.
-float m, x, b;
+### Decisions in Flowgorithm
 
-// imagine code here where things are assigned to m, x and b.
+Make a decision based on comparing things
 
-y = m * x + b;
 
-cout << "y is: " << y << endl;
-```
+### Deciding by comparing
 
-Variables are _declared_ as _type_, _name_ and _initial value_.
+Is greater than, is less than, is equal to, is not.
+`>`, `<`, `==`, `!`. 
 
-```cpp
-float pi = 3.14f;
-int polygonSides = 5;
+### Deciding by comparing many things
 
-string warriorName = "HillPuncher";
-```
+Do you have a **full house**?
+  - If you have **3 of a kind _AND_ remaining cards are a pair**.
+
+![full house](assets/week2/full_house.png)
+
+Can you **go on the ride**?
+  - If **playerAge is over 8yo _OR_ playerHeight is over 1.2m**.
 
 ___
 
+Deciding by maths:
+
+## Computer can do maths for us.
+
+Computers (analogue and digital ) were designed by mathematicians and logicians like Alan Turing and John Von Neumann.
+
+* They wanted them to make logical decisions and do loads of arithmetic to test theories, also the government gave them money if the maths could aim bombs.
+* As a result, they can do our maths.
+* All they need is the expression written out.
+
+### Slot machine decisions
+
+We need to decide if our 3 random numbers are the same. Or two of them are etc.
+
+Rules here.
+
+Lets do a flowgorithm for one of those.
+
+You do another one.
+
+### More calculations for a slot machine
+
+When you gamble, you hand over your bet. That is gone, you are down to your starting cash - bet. Anything you win is added to that. If a win (2 of a kind, 3 of a kind) returns your bet multiplied by a whole number (say 3x, 5x).
+
+Let's make a flowgorithm for one of those.
+
+Now you do one.
+
+
+
+\[ myCashAfter = (myCashBefore - bet) + (bet * winMultiplier)\]
+
+
+# next bit is bad. replace w "comparing things"
 ## Statement building blocks
 
 Storage, maths, logic and decision making, all in c++.
@@ -144,6 +165,111 @@ Storage, maths, logic and decision making, all in c++.
 > **Enums** Defining a few constants at once
 
 We'll start with simple variables and types, get into decision making and comparison, and then dive further into types and assignment.
+
+
+## Working without quickstart
+
+![new project](assets/week1/new_project.png)
+
+![new empty project](assets/week1/new_empty_cpp_project.png)
+
+![new item](assets/week1/new_item.png)
+
+![new cpp](assets/week1/new_cpp_hello.png)
+
+![console stay open](assets/week1/console_stay_open.png)
+_This setting will keep the console from closing when your program ends_
+
+Test it by writing hello world.
+
+> I recommend pausing your antivirus. For example, I turn off avast shields for 1 hour. Otherwise it'll intercept your new code.
+
+
+```cpp { .line-numbers }
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  string message = "Hello!";
+
+  cout << message << endl;
+
+  return(0);
+}
+
+// prints Hello! to screen
+
+```
+
+## What is `using namespace`
+
+(replace with hilighted code?)
+
+```c++
+using namespace std;
+```
+
+This lets us use code written by other people without having to put a path before it. `cout`, `endl` are in the _c++_ standard library, so..
+
+```c++
+    // without "using namespace std" we'd get a compile erour /// .. unless we do this:
+
+    std::cout << "Hello world!" << std::endl;   // gross
+
+    // The prefix std is the name of the library, and the
+    // double colon :: is the syntax for accessing a library
+    // function or variable.
+```
+
+### Why return zero?
+
+(hilighted image)
+
+```cpp
+return(0);
+```
+
+![error code 1](assets/week1/error_code_2_bluescreen.jpg)
+_The whole operating falls over_
+![error code 1](assets/week1/error_code_1.png)
+_Just your application falls over_
+
+---
+
+## Why flowchart or pseudocode first?
+
+**Written code is a way of telling a computer what to do**. A computer likes symbols and keywords we're not used to.
+
+* It takes **brain resources** to **convert from our language to computer** language.
+* It takes brain resources turning a task into a **formal list of instructions**
+* **Don't do those two things at the same time!**
+
+Solve the program problems away from C++ first. 
+* Do it paper or computer, but write **plain english, pseudocode, draw diagrams** or **flow charts** first.
+
+### C++ vs spoken languages
+
+Like all languages, a programming language has
+> **Vocabulary:** Words you need to know
+> **Grammar:** How to arrange arrange and punctuate words so they make sense.
+
+**Keywords** are the vocabulary of _C++_:
+  - `int`, `return`, `using`, `namespace` and more.  
+
+**Syntax** is the grammar of C++:
+  - `=`, `{}`, `;`, `<<`, `()` and more
+  
+### How many keywords?
+
+Luckily, there are **a lot fewer words to a programming language**.
+
+* There are only 73 special or reserved words in C++
+* There are on average 20,000 words a native English speaker uses.
+
+---
+
 
 ### Games!
 
@@ -329,6 +455,27 @@ This is your finished product. It's ready to be double clicked, run from the com
 #### 6. Loader
 The operating system executable that will load your executable into memory and begin execution. This is how it goes from instructions on an SSD/HDD to a running, interactive program.
 
+
+### Assessments
+
+3 Assessments. It'll require a solid effort at all 3 to pass. More details next week.
+
+## Blackboard
+
+Find assignment briefs, due dates, slides, programming tutes/samples and much more. The screenshots are from GPR103 but the structure is cross-subject.
+
+> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below coding at home.
+
+![Subject overview](assets/week1/subject_overview.png)
+_Grab the subject outline and subject planner_
+
+![Module intro](assets/week1/module_overview.jpg)
+_Every subject has modules in the left menu. Click one for important info_
+
+![Module learning resources](assets/week1/module_resources.jpg)
+_The blue button, top of screen, takes you to more info and resources. Don't skip the learning resources_
+
+---
 
 ## Exercises
 
