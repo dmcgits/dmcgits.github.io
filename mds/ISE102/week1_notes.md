@@ -14,45 +14,51 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 1](#ise102-week-1)
-  - [TO ADD](#to-add)
-  - [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
-    - [Who are we?](#who-are-we)
-    - [C++ in a nutshell](#c-in-a-nutshell)
-    - [Flow and Pseudocode](#flow-and-pseudocode)
-  - [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
-    - [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
-    - [Blackboard is your friend](#blackboard-is-your-friend)
-    - [Recommended texts](#recommended-texts)
-    - [My notes are your friends](#my-notes-are-your-friends)
-    - [Assessments](#assessments)
-      - [Assessment 1](#assessment-1)
-      - [Assessment 2](#assessment-2)
-      - [Assessment 3](#assessment-3)
-  - [Part 2: Programmings is handling situations](#part-2-programmings-is-handling-situations)
-    - [Why not just write it in c++?](#why-not-just-write-it-in-c)
-    - [Whitespace](#whitespace)
-  - [Problem solving tools](#problem-solving-tools)
-    - [This is the key to coding.](#this-is-the-key-to-coding)
-  - [From pseudocode to source code](#from-pseudocode-to-source-code)
-    - [Hello world](#hello-world)
-      - [Let's code that!](#lets-code-that)
-    - [Let's understand that!](#lets-understand-that)
-      - [Blocks {} and ending a line of code ;](#blocks-and-ending-a-line-of-code)
-      - [What is `using namespace`](#what-is-using-namespace)
-      - [C++ Comments](#c-comments)
-    - [Compiling and running your game](#compiling-and-running-your-game)
-      - [1. Source code](#1-source-code)
-      - [2. Compiler](#2-compiler)
-      - [3. Object code](#3-object-code)
-      - [4. Linker](#4-linker)
-      - [5. Executable File](#5-executable-file)
-      - [6. Loader](#6-loader)
-  - [Part 3: Exercises](#part-3-exercises)
-      - [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
-      - [2. Sololearn quiz](#2-sololearn-quiz)
-      - [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
-  - [Appendix 1: Install Visual Studio Community](#appendix-1-install-visual-studio-community)
+1. [ISE102 Week 1](#ise102-week-1)
+   1. [TO ADD](#to-add)
+   2. [Part 1: Studying Software Engineering](#part-1-studying-software-engineering)
+      1. [Who are we?](#who-are-we)
+      2. [C++ in a nutshell](#c-in-a-nutshell)
+   3. [Starting blind](#starting-blind)
+   4. [Programming is bossing around](#programming-is-bossing-around)
+   5. [Pogramming Knights Journey](#pogramming-knights-journey)
+      1. [Flow](#flow)
+      2. [Pseudocode by hand](#pseudocode-by-hand)
+      3. [What is a computer, for programming purposes?](#what-is-a-computer-for-programming-purposes)
+   6. [DIAGRAM IN/OUT/STORE/PROCESS](#diagram-inoutstoreprocess)
+      1. [Those things in Knights Journey](#those-things-in-knights-journey)
+      2. [Why not just write it directly in c++?](#why-not-just-write-it-directly-in-c)
+   7. [Writing a program in C++](#writing-a-program-in-c)
+      1. [Open visual studio and a default project](#open-visual-studio-and-a-default-project)
+      2. [Write knights journey in c++](#write-knights-journey-in-c)
+      3. [Run your program](#run-your-program)
+      4. [Running Knights Journey](#running-knights-journey)
+   8. [Breaking down the code](#breaking-down-the-code)
+      1. [Whitespace](#whitespace)
+   9. [Problem solving tools](#problem-solving-tools)
+      1. [This is the key to coding.](#this-is-the-key-to-coding)
+   10. [From pseudocode to source code](#from-pseudocode-to-source-code)
+      1. [Hello world](#hello-world)
+         1. [Let's code that!](#lets-code-that)
+      2. [Let's understand that!](#lets-understand-that)
+         1. [Blocks {} and ending a line of code ;](#blocks--and-ending-a-line-of-code-)
+         2. [What is `using namespace`](#what-is-using-namespace)
+         3. [C++ Comments](#c-comments)
+      3. [Flow and Pseudocode](#flow-and-pseudocode)
+   11. [How can we succeed learning c++ in this class?](#how-can-we-succeed-learning-c-in-this-class)
+      1. [Hour splits and thriving in 2D Games Programming](#hour-splits-and-thriving-in-2d-games-programming)
+      2. [Recommended texts](#recommended-texts)
+      3. [My notes are your friends](#my-notes-are-your-friends)
+      4. [Assessments](#assessments)
+         1. [Assessment 1](#assessment-1)
+         2. [Assessment 2](#assessment-2)
+         3. [Assessment 3](#assessment-3)
+   12. [Blackboard](#blackboard)
+   13. [Part 3: Exercises](#part-3-exercises)
+         1. [1. Basic input/output documentation](#1-basic-inputoutput-documentation)
+         2. [2. Sololearn quiz](#2-sololearn-quiz)
+         3. [3. Optional: review textbook chapter 1](#3-optional-review-textbook-chapter-1)
+   14. [Appendix 1: Install Visual Studio Community](#appendix-1-install-visual-studio-community)
 
 <!-- /code_chunk_output -->
 
@@ -100,7 +106,7 @@ http://www.artstation.com/dmacdraws/ - game art
 
 **You:** The next makers with long futures.
 
----
+--
 
 ### C++ in a nutshell
 
@@ -116,167 +122,140 @@ _Bjarne Stroustrup_
 * There is free code out there in "libraries" that can help us when it comes to drawing graphics.
 * It's what's called an Object Oriented language. C was procedural.
 
-```c++
+## Starting blind
+
+Start with making a flowgorithm:
+Ask a question
+Get Input
+Respons with text that includes their response.
+
+Show that as pseudocode
+
+
+## Programming is bossing around
+
+When your parents withold your next blizzard game unless  you wash the dishes, they don't just tell you to do it. Not if they want clean plates. They leave you instructions.
+
+Programming is just ordering a computer around. If you want it to do the right thing, you have to tell it exactly what you want. 
+
+## Pogramming Knights Journey
+
+Making a game, then, is a lot like a kid making up a game where they're the hero, then forcing a friend to play the monsters they terrorise and the people who thank them for being so heroic.
+
+Knights journey is a game where you are Knighted for being amazing:
+
+> 1. Program Knight's Journey in flowgorithm.
+> 2. Play Knight's Journey.
+> 3. Look at Knight's Journey pseudocode.
+
+### Flow
+
+![Knights Journey](assets/week1/flow_knights_journey.png)
+
+### Pseudocode by hand
+
+```
+start program KnightAPerson
+
+  string personName;
+  string personSuburb;
+
+  output "Enter thy name, brave person."
+  personName = get player input
+  output "Arise, Ser " 
+  output playerName 
+  output " of " 
+  output suburb
+  output ", Knight of the realm".
+
+end program KnightAPerson
+```
+
+We can all understand a program written like this. We tell a a player something, get and store their answer. We then output a message using their answer. It's an essential tool for thinking out our problem without our brain being bogged down with the syntax (words and symbols) of computer code.
+
+### What is a computer, for programming purposes?
+
+That's pretty broad, so let's keep it simple and gamey. It's a lot like a person. It's a thing that has
+1. (User) Input
+2. Storage
+3. Processing
+4. Output.
+
+## DIAGRAM IN/OUT/STORE/PROCESS
+
+What are those?
+1. Keyboard, mouse, camera, network user. 
+2. Memory, cache, hdd, ssd, usb stick, network storage. All storage, just different speeds and retention.
+3. Processing: Taking information from input, combining it with stored info, checking things, testing values and changing things. 
+4. Output to world: screen, printer, network user/scoring table etc.
+
+### Those things in Knights Journey
+
+1. Input
+   - User typing name in the chat box
+2. Storage
+   - Storing user name in a "variable"
+3. Processing
+   - Nothing here really, just goes straight to output
+4. Output
+   - Printing "Enter thy name..", "Arise" etc to the 
+
+### Why not just write it directly in c++?
+
+C++ is a way of telling a computer what to do. As a result, when you write it you have to use a lot of symbols and weird words for the computer's sake. This isn't especially hard on it's own, it's like any language: you just have to learn the grammar and the syntax (symbols, order of things). Still, it takes up brainspace.
+
+> Solve the program problems away from c++ first. On paper or computer write plain english, pseudocode, draw diagrams and flow charts.
+
+Lots of different languages are out there with lots of different syntax. Learn to think about and solve the problems, the rest is details you can pick up.
+
+Well, here are programming languages that _github_ can hilight for you:
+ [https://github.com/github/linguist/blob/master/vendor/README.md](https://github.com/github/linguist/blob/master/vendor/README.md)
+
+All of them amount to a) telling a computer what do with it's input, processing, storage and output, b) in a language they acn read. So do A and B separately, because you'll never be as comfortable thinking in code as thinking in human language and knowledge.
+
+## Writing a program in C++
+
+### Open visual studio and a default project
+
+### Write knights journey in c++
+
+Open main.cpp and write our program there.
+
+
+### Run your program
+
+```cpp { .line-numbers }
 #include <iostream>
 #include <string>
-// c++ main function
+
 int main()
 {
-    string genre = "";
+  string playerName;
 
-    cout << "Please input your favourite game genre." << endl;
-    cout << "eg: Farming, Cooking, Dancing, FPS, Strategy, Sports, Fighting, Battle Royale." << endl;
-    cout << "Your choice:";
-    
-    cin >> genre;   // User can type response, we store it under "genre"
-    
-    cout << genre << " games are the WORST." << endl; // print our response.
-
-    return(0);  // End program and tell windows there were no errors. 
+  cout << "Enter thy name: ";
+  cin >> playerName;
+  cout << "Arise, Ser ";
+  cout << playerName;
+  cout << " of Ultimo, a Knight of the realm";
 }
 ```
 
-![error code 1](assets/week1/error_code_2_bluescreen.jpg)
-_The whole operating falls over_
-![error code 1](assets/week1/error_code_1.png)
-_Just your application falls over_
+### Running Knights Journey
 
----
+A lot goes on before it runs, but we'll do it via a feature called **start without debugging**
+  * Go to top menus:  **Debug -> Start without Debugging**
+  * Hit the keyboard shortcut: **Ctrl-F5**
 
-Draw over that code what each bit was: 
-allocate storage, 
-print things to console, 
-get input and put it in storage, 
-produce output using what we stored
+It should **build** your program and open the **console**, also known as the windows command prompt. Your program will run in text mode in this console.
 
-> graph computers: get input, store things, process things, store more., output.
+When prompted, type in your name and hit enter.
 
-### Flow and Pseudocode
+## Breaking down the code
 
-**replace with genre flowchart**
-
-![Flowgorithm 1](assets/week1/flowgorithm_age_flow_pseudo.png)
-
-Build it together in flowgorith.
-Have everyone build another program in flowgorithm.
-Then we export psuedocode to use as comments.
-Write the c++ together.
-Check answer
-
-link to flowgorithm. 
-
-## How can we succeed learning c++ in this class?
-
-How are MDS subjects designed, and what do I need to do to get the most from them?
-
-### Hour splits and thriving in 2D Games Programming
-
-> **30%** class hours.
-> **70%** studying, programming, gaining experience. 
-
-The benefit of these courses comes from putting in work between classes. What we learn in class won't stick if you don't work and experiment at home.
-
-### Blackboard is your friend
-
-Find assignment briefs, due dates, slides, programming tutes/samples and much more. The screenshots are from GPR103 but the structure is cross-subject.
-
-> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below coding at home.
-
-![Subject overview](assets/week1/subject_overview.png)
-_Grab the subject outline and subject planner_
-
-![Module intro](assets/week1/module_overview.jpg)
-_Every subject has modules in the left menu. Click one for important info_
-
-![Module learning resources](assets/week1/module_resources.jpg)
-_The blue button, top of screen, takes you to more info and resources. Don't skip the learning resources_
-
-### Recommended texts
-
-_Beginning C++ Through Game Programming_ is available free when you're logged in to black board. Go to <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727> and download chapters as free pdfs.
-
-### My notes are your friends
-
-The original course notes are in powerpoint, and available from the module pages in Blackboard. I write up new ones (like the one you're reading) for most lessons and post them on Git. The url pattern is:
-
-https://dmcgits.github.io/mds/ISE102/week1_notes.html
-
-> If I post an announcement before class I will often post an html notes link.
-
-### Assessments
-
-3 Assessments. It'll require a solid effort at all 3 to pass. 
-
-#### Assessment 1
-
-Text based slot machine. **Due end week 6**
-
-#### Assessment 2
-
-Exam covering material from mostly first 2 modules (first 4 weeks). **Due end of week 7**
-
-#### Assessment 3
-
-Snake game with ascii graphics. **Due end of week 12**
-
-![Snake](assets/week1/snake.png)
-_Yes that snake game_
-
-___
-
-## Part 2: Programmings is handling situations
-
-![Handle business](assets/week1/handle_business.jpg)
-
-Programming is usually defined around computers and compiling and so on. But really, that's the implementation. We'll get to that, but we'll have a much easier time if we've thought first about what programming really is: 
-
-> Programming is just a) defining situations and b) responding to them with actions.
-
-Here's a simple program:
-
-```
-start program I_SPILLED_COFFEE
-
-    If I got some on my shirt:
-        
-        If I'm in public:
-            Wipe it a bit with a serviette.
-
-            If it's a new shirt:
-                Find restroom
-                
-                While I can still see coffee:
-                    Rinse it with a bit of water
-                    Pat with a paper towel
-                
-                Dry it a bit with hand dryer
-            
-        
-        Otherwise, if I'm not in public:
-            Take off shirt
-            Spray with stain remover
-            Put in washing machine
-            Put on another shirt
-    
-end program I_SPILLED_COFFEE
-```
-
-We can all understand a program written like this. It's a situation, based on some information we received from our eyes and maybe wet our hand. Then we check a few things, and based on those we acted. In one case we did something over and over till it worked.
-
-Writing a program like this is writing in **psuedocode**. Psuedo as in "kinda". It's kinda code, but not specific. 
-
-### Why not just write it in c++?
-
-Well, here are programming languages that can _github_ can hilight for you:
- [https://github.com/github/linguist/blob/master/vendor/README.md](https://github.com/github/linguist/blob/master/vendor/README.md)
-
-.. and a lot of them are very different. Which one is the way to teach problem solving? Trick question.
-
-> Code is us telling the computer how we want it to handle situations. It's designed for computers to understand, and our brain works hard when we read and write it. Abstract problem solving is really hard too - why do both at the same time?
-
-We don't need to start coding right away. We can solve some of the problem first, and then tell the computer when we're done.
+There's quite a bit to take in there, so lets start with something humans are very good at. Shapes!
 
 ### Whitespace
+Whitespace is the empty space on your page. It's created by pressing **space**, **tab**, **enter** and more.
 
 Why did I tab out a lot? **Whitespace** really helps us understand things, more than just adding more characters.
 
@@ -472,29 +451,97 @@ Especially if the coder made mistakes. That's why we use comments. Think of them
 ```
 ___
 
-### Compiling and running your game
-
-![Compiler flow](assets/week1/compiling_flow.jpg)
-
-#### 1. Source code
-Instructions for a computer to handle given situations and perform certain tasks. The source code will be written in the syntax and grammar of a particular programming language; in our case, the language is c++. 
-  
-#### 2. Compiler
-A compiler reads your source code and usually converts it into machine code. This will be the specific instructions for a target computer and operating system, say windows x86 intel.
-  
-#### 3. Object code
-The machine code output by the compiler, often with a .o extension. Your c++ compiler will also have on hand object code for the libraries it includes
-
-#### 4. Linker
-The linker takes your object code and looks for references to other code. This can be your own from multiple c files, or references to standard/downloaded libraries. It then inserts the referred-to machine code into your own and creates a single .exe file. There are other types that can be created, like dynamic libraries, but we'll discuss those later.
-
-#### 5. Executable File
-This is your finished product. It's ready to be double clicked, run from the command line, launched from Steam/Battle.net or any other way you begin loading it.
-
-#### 6. Loader
-The operating system executable that will load your executable into memory and begin execution. This is how it goes from instructions on an SSD/HDD to a running, interactive program.
-
 >We'll be using _Microsoft Visual Studio 2017_, an Integrated Development Environment, to write, compile and debug all our code. 
+
+![error code 1](assets/week1/error_code_2_bluescreen.jpg)
+_The whole operating falls over_
+![error code 1](assets/week1/error_code_1.png)
+_Just your application falls over_
+
+---
+
+Draw over that code what each bit was: 
+allocate storage, 
+print things to console, 
+get input and put it in storage, 
+produce output using what we stored
+
+> graph computers: get input, store things, process things, store more., output.
+
+### Flow and Pseudocode
+
+**replace with genre flowchart**
+
+![Flowgorithm 1](assets/week1/flowgorithm_age_flow_pseudo.png)
+
+Build it together in flowgorith.
+Have everyone build another program in flowgorithm.
+Then we export psuedocode to use as comments.
+Write the c++ together.
+Check answer
+
+link to flowgorithm. 
+
+## How can we succeed learning c++ in this class?
+
+How are MDS subjects designed, and what do I need to do to get the most from them?
+
+### Hour splits and thriving in 2D Games Programming
+
+> **30%** class hours.
+> **70%** studying, programming, gaining experience. 
+
+The benefit of these courses comes from putting in work between classes. What we learn in class won't stick if you don't work and experiment at home.
+
+### Recommended texts
+
+_Beginning C++ Through Game Programming_ is available free when you're logged in to black board. Go to <https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727> and download chapters as free pdfs.
+
+### My notes are your friends
+
+The original course notes are in powerpoint, and available from the module pages in Blackboard. I write up new ones (like the one you're reading) for most lessons and post them on Git. The url pattern is:
+
+https://dmcgits.github.io/mds/ISE102/week1_notes.html
+
+> If I post an announcement before class I will often post an html notes link.
+
+### Assessments
+
+3 Assessments. It'll require a solid effort at all 3 to pass. 
+
+#### Assessment 1
+
+Text based slot machine. **Due end week 6**
+
+#### Assessment 2
+
+Exam covering material from mostly first 2 modules (first 4 weeks). **Due end of week 7**
+
+#### Assessment 3
+
+Snake game with ascii graphics. **Due end of week 12**
+
+![Snake](assets/week1/snake.png)
+_Yes that snake game_
+
+___
+
+
+
+## Blackboard
+
+Find assignment briefs, due dates, slides, programming tutes/samples and much more. The screenshots are from GPR103 but the structure is cross-subject.
+
+> Digging through Blackboard material is the second key to coming out ahead in these subjects, just below coding at home.
+
+![Subject overview](assets/week1/subject_overview.png)
+_Grab the subject outline and subject planner_
+
+![Module intro](assets/week1/module_overview.jpg)
+_Every subject has modules in the left menu. Click one for important info_
+
+![Module learning resources](assets/week1/module_resources.jpg)
+_The blue button, top of screen, takes you to more info and resources. Don't skip the learning resources_
 
 ---
 

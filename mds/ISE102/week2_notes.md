@@ -4,26 +4,49 @@
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 2](#ise102-week-2)
-  - [TO ADD](#to-add)
-  - [Computer, do maths.](#computer-do-maths)
-    - [Equations in mathematics / physics](#equations-in-mathematics-physics)
-    - [Equations in a slot machine](#equations-in-a-slot-machine)
-    - [In C++](#in-c)
-- [include <iostream>](#include-iostream)
-- [include <iostream>](#include-iostream-1)
-- [include <iostream>](#include-iostream-2)
+1. [ISE102 Week 2](#ise102-week-2)
+   1. [TO ADD](#to-add)
+   2. [Computer, do maths.](#computer-do-maths)
+      1. [Equations in mathematics / physics](#equations-in-mathematics--physics)
+      2. [Equations in a slot machine](#equations-in-a-slot-machine)
+      3. [In C++](#in-c)
+      4. [Variables (and literals)](#variables-and-literals)
+   3. [Statement building blocks](#statement-building-blocks)
+      1. [Games!](#games)
+      2. [Adding conditionals](#adding-conditionals)
+   4. [Powerpoint!](#powerpoint)
+   5. [Compiling](#compiling)
+      1. [Compiling and running your game](#compiling-and-running-your-game)
+         1. [1. Source code](#1-source-code)
+         2. [2. Compiler](#2-compiler)
+         3. [3. Object code](#3-object-code)
+         4. [4. Linker](#4-linker)
+         5. [5. Executable File](#5-executable-file)
+         6. [6. Loader](#6-loader)
+   6. [Exercises](#exercises)
+   7. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
 ## TO ADD
-Explain a1 slot machine.
+
+Assignment 1 slot machine
  * go hard into not googling tutes on slot machines, not scoring 0 for your assignment. 
  * Instead, google "generating random numbers in c++", "comparing numbers in c++", "validating input c++"
 
  The slot machine and variables/conditionals
  * The slot machine starts with capturing user input and checking if it's valid.
 
+More on console: 
+ * Have people download programs to a folder on desktop
+ * Our program runs somewhere.. That's the console.
+ * Open windows command prompt, cd into the desktop folder, then the folder we created
+ * cd into micro
+ * dir
+ * run micro README.md or other file
+   - Hit shortcut to show help file, see how it's like a gui? Graphical User Interface. This is built of text. Tui.
+Show far running as example of how different characters and colours contribute to interface just using text.
+  
 
 ## Computer, do maths.
 
@@ -80,8 +103,6 @@ int main()
 }
 ```
 
-
-```
 E = m * pow(c, 2);
 
 
@@ -283,6 +304,31 @@ int main()
 Switch, while, for, enum.
 Logical and mathematical operators.
 ints, floats, longs, shorts, char.
+
+## Compiling
+
+### Compiling and running your game
+
+![Compiler flow](assets/week1/compiling_flow.jpg)
+
+#### 1. Source code
+Instructions for a computer to handle given situations and perform certain tasks. The source code will be written in the syntax and grammar of a particular programming language; in our case, the language is c++. 
+  
+#### 2. Compiler
+A compiler reads your source code and usually converts it into machine code. This will be the specific instructions for a target computer and operating system, say windows x86 intel.
+  
+#### 3. Object code
+The machine code output by the compiler, often with a .o extension. Your c++ compiler will also have on hand object code for the libraries it includes
+
+#### 4. Linker
+The linker takes your object code and looks for references to other code. This can be your own from multiple c files, or references to standard/downloaded libraries. It then inserts the referred-to machine code into your own and creates a single .exe file. There are other types that can be created, like dynamic libraries, but we'll discuss those later.
+
+#### 5. Executable File
+This is your finished product. It's ready to be double clicked, run from the command line, launched from Steam/Battle.net or any other way you begin loading it.
+
+#### 6. Loader
+The operating system executable that will load your executable into memory and begin execution. This is how it goes from instructions on an SSD/HDD to a running, interactive program.
+
 
 ## Exercises
 
