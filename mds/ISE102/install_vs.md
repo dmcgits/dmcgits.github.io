@@ -1,4 +1,12 @@
-
+---
+html:
+  embed_local_images: false
+  embed_svg: true
+  offline: false
+  toc: undefined
+export_on_save:
+  html: true
+---
 # How to Install Visual Studio Community
 
 We are using **Visual Studio _2017_**
