@@ -18,17 +18,26 @@ export_on_save:
   - [TO ADD](#to-add)
   - [Who are we?](#who-are-we)
     - [C++ the language](#c-the-language)
+      - [Cpp looks like this](#cpp-looks-like-this)
+      - [Bjarne looks like this:](#bjarne-looks-like-this)
   - [Programming: it's just bossing around](#programming-its-just-bossing-around)
     - [So let's make Knights Journey](#so-lets-make-knights-journey)
     - [Programming by charts](#programming-by-charts)
     - [Programming in Flowgorithm](#programming-in-flowgorithm)
+      - [Get and open flowgorithm](#get-and-open-flowgorithm)
+      - [Instructions](#instructions)
     - [Exporting to pseudocode](#exporting-to-pseudocode)
     - [What is a computer, for programming purposes?](#what-is-a-computer-for-programming-purposes)
+      - [Real examples](#real-examples)
+      - [In Knights Journey](#in-knights-journey)
   - [Writing a program in C++](#writing-a-program-in-c)
     - [Open visual studio and a default project](#open-visual-studio-and-a-default-project)
     - [Write knights journey](#write-knights-journey)
+      - [Running it](#running-it)
   - [Breaking down some of the code](#breaking-down-some-of-the-code)
     - [Input and Output](#input-and-output)
+      - [cin](#cin)
+      - [cout](#cout)
     - [Storage aka variables](#storage-aka-variables)
     - [Whitespace](#whitespace)
     - [Blocks of code and ending a line](#blocks-of-code-and-ending-a-line)
@@ -251,7 +260,7 @@ Writing a program involves:
 ### Open visual studio and a default project
 
 We'll get into the nitty gritty later.
-1. Download (VS_quickStart.zip)[assets/index/VS_QuickStart.zip] and unzip it
+1. Download [VS_quickStart.zip](assets/index/VS_QuickStart.zip) and unzip it
 2. Rename the _QuickStart_ folder to _KnightsJourney_
 2. Jump in to the folder and double click the `quickStart.sln` file.
 
