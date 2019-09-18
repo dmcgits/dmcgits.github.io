@@ -22,15 +22,12 @@ export_on_save:
   - [Our first model](#our-first-model)
     - [Make a table top](#make-a-table-top)
     - [Transforming objects in Maya](#transforming-objects-in-maya)
-      - [Duplicate an object](#duplicate-an-object)
-      - [Mirror objects](#mirror-objects)
   - [Make a Barrell](#make-a-barrell)
     - [Create cylinder.](#create-cylinder)
     - [Editing edges with scale to create barrel belly.](#editing-edges-with-scale-to-create-barrel-belly)
     - [Creating rings with insert edge loop](#creating-rings-with-insert-edge-loop)
     - [Extruding rings](#extruding-rings)
     - [Adding top and base indent](#adding-top-and-base-indent)
-      - [Go deeper: barrel modelling](#go-deeper-barrel-modelling)
 
 <!-- /code_chunk_output -->
 
@@ -127,16 +124,16 @@ _**Tap the spacebar while hovering over the 3d view. Multiple views help when mo
 #### Mirror objects
 Create remaining legs in the right position.
 
-Mirror settings 1.
+_**Mirror settings 1.**_
 * copy
 * x axis (left right)
 * don't combine
 
 ![Duplication](assets/week1/table_mirror_options.png)
 
-Mirror settings 2.
+_**Mirror settings 2.**_
 * copy
-* z axis (front back)e
+* z axis (front back)
 * don't combine
 
 
@@ -146,7 +143,9 @@ Mirror settings 2.
 > * Add thin top stretchers 
 > * Add thick bottom stretchers
 > * Make a table using edge loops and extrude (after barrell)
-  
+
+![table go deep](assets/week1/table_go_deeper.png)
+
 ---
 
 ## Make a Barrell
