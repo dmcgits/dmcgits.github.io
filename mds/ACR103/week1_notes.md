@@ -22,6 +22,8 @@ export_on_save:
   - [Our first model](#our-first-model)
     - [Make a table top](#make-a-table-top)
     - [Transforming objects in Maya](#transforming-objects-in-maya)
+      - [Duplicate an object](#duplicate-an-object)
+      - [Mirror objects](#mirror-objects)
   - [Make a Barrell](#make-a-barrell)
     - [Create cylinder.](#create-cylinder)
     - [Editing edges with scale to create barrel belly.](#editing-edges-with-scale-to-create-barrel-belly)
