@@ -22,15 +22,12 @@ export_on_save:
   - [Our first model](#our-first-model)
     - [Make a table top](#make-a-table-top)
     - [Transforming objects in Maya](#transforming-objects-in-maya)
-      - [Duplicate an object](#duplicate-an-object)
-      - [Mirror objects](#mirror-objects)
   - [Make a Barrell](#make-a-barrell)
     - [Create cylinder.](#create-cylinder)
     - [Editing edges with scale to create barrel belly.](#editing-edges-with-scale-to-create-barrel-belly)
     - [Creating rings with insert edge loop](#creating-rings-with-insert-edge-loop)
     - [Extruding rings](#extruding-rings)
     - [Adding top and base indent](#adding-top-and-base-indent)
-      - [Go deeper: barrel modelling](#go-deeper-barrel-modelling)
 
 <!-- /code_chunk_output -->
 
@@ -111,6 +108,19 @@ Duplicate top, turn it into a leg
 #### Mirror objects
 Create remaining legs in the right position.
 
+Mirror settings 1.
+* copy
+* x axis (left right)
+* don't combine
+
+Mirror settings 2.
+* copy
+* z axis (front back)e
+* don't combine
+
+
+![Table done](assets/week1/table_maya_simple_done.png)
+
 > **Go deeper**
 > * Add thin top stretchers 
 > * Add thick bottom stretchers
@@ -128,15 +138,24 @@ Need loops/edges around body.
 
 ### Editing edges with scale to create barrel belly.
   - edge mode. Try scaling.
+  ![edge mode](assets/week1/barrel_maya_edge_select.png)
+
   - undo
   - enable z symmetry
   - scale.
+  ![planar scale](assets/week1/barrel_maya_scale_belly.png)
 
 ### Creating rings with insert edge loop
-  - with symmetry on, create a few edge loops
-    (screenshot, link to help)
 
+  - turn on y (up down) symmetry
+  - click Toolkit - Tools - Multi-Cut
+  - hover over a vertical edge in upper barrel, hold ctrl.
+  - click to cut. Enter to complete tool.
+  ![cut](assets/week1/barrel_maya_multi-cut.png)
+  
 ### Extruding rings
+
+![face loop](assets/week1/barrel_maya_loop_faces.png)
 
 1. Enter face mode
 2. Select face loop. Click first face, shift-double-click adjacent. 
@@ -147,7 +166,8 @@ Need loops/edges around body.
 1. Select top of barrel. 
 2. Inset with extrude tool.
 3. Now extrude inwards.
-
+![top](assets/week1/barrel_maya_top.png)
+![basic](assets/week1/barrel_maya_done.png)
 
 #### Go deeper: barrel modelling
 
@@ -155,5 +175,8 @@ Try adding more!
 - Tilted lid
 - Round or Square plug
 - Ring made from another cylinder primitive.
+- Toonify by making edges less regular/symmetrical
+
+![toon](assets/week1/barrel_maya_toon.png)
 
 ![barrels](assets/week1/barrels_simple.jpg)
