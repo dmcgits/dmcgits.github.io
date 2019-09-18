@@ -28,6 +28,7 @@ export_on_save:
     - [Creating rings with insert edge loop](#creating-rings-with-insert-edge-loop)
     - [Extruding rings](#extruding-rings)
     - [Adding top and base indent](#adding-top-and-base-indent)
+  - [Homework](#homework)
 
 <!-- /code_chunk_output -->
 
@@ -53,12 +54,10 @@ _We'll model a similar barrel to this, designed by Alvaro Vera_
 
 Easy to find up here
 
-* Interface basics YT: https://youtu.be/dbjAnutq1vQ
-* Modelling basics YT: 
+* Interface basics YT: [Interface Intro YT](https://youtu.be/dbjAnutq1vQ)
+* Modelling basics YT: [Moving objects lesson YT](https://www.youtube.com/watch?v=1n89UOtMI_Y&list=PLD8E5717592CF5C26&index=7)
+* Multi Cut
 * Extrude (2019 help?)
-* Slice
-* Connect
-* Other simple objects to model, with pictures
 * Pureref portable zip
 * Link to interface cheat sheet
 
@@ -156,10 +155,10 @@ _**Mirror settings 2.**_
 
 Need loops/edges around body.
 
+![edge mode](assets/week1/barrel_maya_edge_select.png)
+
 ### Editing edges with scale to create barrel belly.
   - edge mode. Try scaling.
-  ![edge mode](assets/week1/barrel_maya_edge_select.png)
-
   - undo
   - enable z symmetry
   - scale.
@@ -189,14 +188,21 @@ Need loops/edges around body.
 ![top](assets/week1/barrel_maya_top.png)
 ![basic](assets/week1/barrel_maya_done.png)
 
-#### Go deeper: barrel modelling
-
-Try adding more!
-- Tilted lid
-- Round or Square plug
-- Ring made from another cylinder primitive.
-- Toonify by making edges less regular/symmetrical
+> **Go deeper**
+>- Tilted lid
+>- Round or Square plug
+>- Ring made from another cylinder primitive.
+>- Toonify by making edges less regular/symmetrical
 
 ![toon](assets/week1/barrel_maya_toon.png)
 
 ![barrels](assets/week1/barrels_simple.jpg)
+
+## Homework
+
+Model more things this week! If you want to be a 3D modeller and you just made two whole objects in class, you'll be keen now to go home and create **at least 2 more**.
+
+![Home 1](assets/week1/home_concepts_1.jpg)
+![Home 1](assets/week1/home_concepts_2.png)
+![Home 1](assets/week1/home_concepts_3.png)
+![Home 1](assets/week1/home_concepts_4.jpg)
