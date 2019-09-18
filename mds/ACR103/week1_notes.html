@@ -43,12 +43,7 @@
 <li><a href="#our-first-model">Our first model</a>
 <ul>
 <li><a href="#make-a-table-top">Make a table top</a></li>
-<li><a href="#transforming-objects-in-maya">Transforming objects in Maya</a>
-<ul>
-<li><a href="#duplicate-an-object">Duplicate an object</a></li>
-<li><a href="#mirror-objects">Mirror objects</a></li>
-</ul>
-</li>
+<li><a href="#transforming-objects-in-maya">Transforming objects in Maya</a></li>
 </ul>
 </li>
 <li><a href="#make-a-barrell">Make a Barrell</a>
@@ -57,11 +52,7 @@
 <li><a href="#editing-edges-with-scale-to-create-barrel-belly">Editing edges with scale to create barrel belly.</a></li>
 <li><a href="#creating-rings-with-insert-edge-loop">Creating rings with insert edge loop</a></li>
 <li><a href="#extruding-rings">Extruding rings</a></li>
-<li><a href="#adding-top-and-base-indent">Adding top and base indent</a>
-<ul>
-<li><a href="#go-deeper-barrel-modelling">Go deeper: barrel modelling</a></li>
-</ul>
-</li>
+<li><a href="#adding-top-and-base-indent">Adding top and base indent</a></li>
 </ul>
 </li>
 </ul>
@@ -153,6 +144,19 @@
 <h4 class="mume-header" id="mirror-objects">Mirror objects</h4>
 
 <p>Create remaining legs in the right position.</p>
+<p>Mirror settings 1.</p>
+<ul>
+<li>copy</li>
+<li>x axis (left right)</li>
+<li>don&#x2019;t combine</li>
+</ul>
+<p>Mirror settings 2.</p>
+<ul>
+<li>copy</li>
+<li>z axis (front back)e</li>
+<li>don&#x2019;t combine</li>
+</ul>
+<p><img src="assets/week1/table_maya_simple_done.png" alt="Table done"></p>
 <blockquote>
 <p><strong>Go deeper</strong></p>
 <ul>
@@ -171,19 +175,33 @@
 <h3 class="mume-header" id="editing-edges-with-scale-to-create-barrel-belly">Editing edges with scale to create barrel belly.</h3>
 
 <ul>
-<li>edge mode. Try scaling.</li>
-<li>undo</li>
-<li>enable z symmetry</li>
-<li>scale.</li>
+<li>
+<p>edge mode. Try scaling.<br>
+<img src="assets/week1/barrel_maya_edge_select.png" alt="edge mode"></p>
+</li>
+<li>
+<p>undo</p>
+</li>
+<li>
+<p>enable z symmetry</p>
+</li>
+<li>
+<p>scale.<br>
+<img src="assets/week1/barrel_maya_scale_belly.png" alt="planar scale"></p>
+</li>
 </ul>
 <h3 class="mume-header" id="creating-rings-with-insert-edge-loop">Creating rings with insert edge loop</h3>
 
 <ul>
-<li>with symmetry on, create a few edge loops<br>
-(screenshot, link to help)</li>
+<li>turn on y (up down) symmetry</li>
+<li>click Toolkit - Tools - Multi-Cut</li>
+<li>hover over a vertical edge in upper barrel, hold ctrl.</li>
+<li>click to cut. Enter to complete tool.<br>
+<img src="assets/week1/barrel_maya_multi-cut.png" alt="cut"></li>
 </ul>
 <h3 class="mume-header" id="extruding-rings">Extruding rings</h3>
 
+<p><img src="assets/week1/barrel_maya_loop_faces.png" alt="face loop"></p>
 <ol>
 <li>Enter face mode</li>
 <li>Select face loop. Click first face, shift-double-click adjacent.</li>
@@ -194,7 +212,9 @@
 <ol>
 <li>Select top of barrel.</li>
 <li>Inset with extrude tool.</li>
-<li>Now extrude inwards.</li>
+<li>Now extrude inwards.<br>
+<img src="assets/week1/barrel_maya_top.png" alt="top"><br>
+<img src="assets/week1/barrel_maya_done.png" alt="basic"></li>
 </ol>
 <h4 class="mume-header" id="go-deeper-barrel-modelling">Go deeper: barrel modelling</h4>
 
@@ -203,7 +223,9 @@
 <li>Tilted lid</li>
 <li>Round or Square plug</li>
 <li>Ring made from another cylinder primitive.</li>
+<li>Toonify by making edges less regular/symmetrical</li>
 </ul>
+<p><img src="assets/week1/barrel_maya_toon.png" alt="toon"></p>
 <p><img src="assets/week1/barrels_simple.jpg" alt="barrels"></p>
 
       </div>
