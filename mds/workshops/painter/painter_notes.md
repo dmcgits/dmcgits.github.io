@@ -25,6 +25,7 @@ Exploring game asset creation from high res meshes with Substance Painter.
       - [We need textures to encode](#we-need-textures-to-encode)
     - [Extra flash](#extra-flash)
   - [Take home](#take-home)
+  - [Extra: 3D Style Reference](#extra-3d-style-reference)
 
 <!-- /code_chunk_output -->
 
@@ -171,7 +172,6 @@ Here's the original in ZBrush. See all those little details? A big triangle does
 * Hold one triangle up to a button or an eyebrow. Big flat nothing.
 
 ![axe wires](assets/axe_high.png)
-
 ___
 
 ### Getting back the form 
@@ -262,6 +262,14 @@ ___
 Try out iRay, use the snipping tool.
 
 ![snipping tool](assets/snipping.png)
+
+## Extra: 3D Style Reference
+
+When you go from 2D concept art to 3D model, there are countless style decisions to make. If you are aiming for a given style, don't expect it to happen by magic (ie your memory).
+
+Style reference is as important as photo reference.
+
+![](assets/style_reference.png)
 
 
 
