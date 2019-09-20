@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.4.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.4.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
 
@@ -32,63 +32,82 @@
 
 <p>Exploring game asset creation from high res meshes with Substance Painter.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#Substance-Painter-Workshop">Substance Painter Workshop</a>
+<li><a href="#substance-painter-workshop">Substance Painter Workshop</a>
 <ul>
-<li><a href="#Welcome">Welcome</a></li>
-<li><a href="#Games">Games</a></li>
-<li><a href="#Todays-goal">Today&#x2019;s goal</a></li>
-<li><a href="#So-How-does-3D-game-art-work">So! How does 3D game art work?</a>
+<li><a href="#welcome">Welcome</a></li>
+<li><a href="#what-are-we-talking-about">What are we talking about?</a></li>
+<li><a href="#games">Games</a></li>
+<li><a href="#todays-goal">Today&#x2019;s goal</a></li>
+<li><a href="#so-how-does-3d-game-art-work">So! How does 3D game art work?</a>
 <ul>
-<li><a href="#Triangles-are-really-flat">Triangles are really flat</a></li>
-<li><a href="#Big-triangles-plus-painting">Big triangles plus painting</a></li>
-<li><a href="#More-polys-much-more-paint">More polys much more paint</a></li>
-<li><a href="#High-poly-plus-normal-maps-and-more">High poly plus normal maps (and more)</a></li>
-<li><a href="#Proper-high-poly">Proper high poly</a></li>
-<li><a href="#Getting-back-the-form">Getting back the form</a></li>
-<li><a href="#Apply-a-few-materials">Apply a few materials</a></li>
+<li><a href="#triangles-are-really-flat">Triangles are really flat</a></li>
+<li><a href="#big-triangles-plus-painting">Big triangles plus painting</a></li>
+<li><a href="#more-polys-much-more-paint">More polys much more paint</a></li>
+<li><a href="#high-poly-plus-normal-maps-and-more">High poly plus normal maps (and more)</a></li>
+<li><a href="#proper-high-poly">Proper high poly</a></li>
+<li><a href="#getting-back-the-form">Getting back the form</a></li>
+<li><a href="#apply-a-few-materials">Apply a few materials</a></li>
 </ul>
 </li>
-<li><a href="#Lighting">Lighting</a>
+<li><a href="#lighting">Lighting</a>
 <ul>
-<li><a href="#Procedural-power">Procedural power!</a></li>
-<li><a href="#Extra-flash">Extra flash</a></li>
+<li><a href="#procedural-power">Procedural power!</a></li>
+<li><a href="#extra-flash">Extra flash</a></li>
 </ul>
 </li>
-<li><a href="#Take-home">Take home</a></li>
+<li><a href="#take-home">Take home</a></li>
 </ul>
 </li>
 </ul>
 <hr>
 <h2 class="mume-header" id="welcome">Welcome</h2>
 
-<p>Who am I?</p>
+<p>Who&#x2019;s here today?</p>
 <p><img src="assets/whoami_artstation.png" alt="who am I artstation"></p>
-<ul>
-<li>Who&#x2019;s here?</li>
-</ul>
 <hr>
+<h2 class="mume-header" id="what-are-we-talking-about">What are we talking about?</h2>
+
+<p>How this axe was made, how we can texture it in Substance Painter.</p>
+<p><img src="assets/axe_with_concept.jpg" alt="Axey"></p>
 <h2 class="mume-header" id="games">Games</h2>
 
-<p>Whatever else we have in common, we&#x2019;re all here because we like games.</p>
+<blockquote>
+<p>We&#x2019;re all here because we like games.</p>
+</blockquote>
 <p>Who plays:</p>
 <ul>
-<li>rts games?</li>
-<li>moba?</li>
-<li>fps?</li>
+<li>Real time strategy (Civilisation, Total War, Starcraft 2, age of empires<br>
+<img src="assets/rts_1_total_war.jpg" alt="rts 1"><br>
+<img src="assets/rts_2_total_war.jpg" alt="rts 2"></li>
+<li>MOBA (LoL, Dota 2)<br>
+<img src="assets/moba_1_lol_caitlyn.jpg" alt><br>
+<img src="assets/moba_2_galio.jpg" alt></li>
+<li>Sports (Fifa, NBA 2K)<br>
+<img src="assets/sports_1_nba.jpg" alt="nba 1"><br>
+<img src="assets/sports_2_nba.jpg" alt="nba"><br>
+<img src="assets/sports_3_fifa.jpg" alt="fifa"></li>
+<li>FPS (Overwatch)<br>
+<img src="assets/fps_3_torb_hallo.jpg" alt="torb h"><br>
+<img src="assets/fps_1_torbhammers.jpg" alt="hammers"><br>
+<img src="assets/fps_2_torbguns.jpg" alt="guns"></li>
+<li>Survival
+<ul>
+<li><img src="assets/survival_1_scum.jpg" alt="scum"></li>
+</ul>
+</li>
+<li>Battle Royale (Fortnight)<br>
+<img src="assets/battle_royale_1_fortnight.jpg" alt="fortnight"><br>
+<img src="assets/battle_royale_2_fortnight.jpg" alt="fortnight"></li>
 <li>racers?</li>
 <li>lawyering sims?</li>
 <li>brawlers?</li>
 </ul>
 <p>There are a lot of games in a lot of genres, they all need art, and increasingly 3D.</p>
-<blockquote>
-<p>I&#x2019;ll be showing a stylized axe today that belongs most in maybe a 3rd person fantasy brawler.</p>
-</blockquote>
-<p><img src="assets/axe_with_concept.jpg" alt="Axey"></p>
 <hr>
 <h2 class="mume-header" id="todays-goal">Today&#x2019;s goal</h2>
 
-<p>Some of you will have done some art or 3D, some of you won&#x2019;t. But whatever your level, whatever part of this resonates, I hope you all feel a bit of the buzz I do when you see paintings turning into 3D game art.</p>
-<p>Substance Painter doesn&#x2019;t have a magic button by any stretch, but it still <i>feels</i> a bit like magic. Also, you can screenshot some renders and take them with you.</p>
+<p>I hope you all walk away feeling some of the buzz I do when I see an idea turning into a game model.</p>
+<p>Substance Painter doesn&#x2019;t have a magic button by any stretch, even if this demo makes it look like it does. It does feel a bit like magic though.</p>
 <hr>
 <h2 class="mume-header" id="so-how-does-3d-game-art-work">So! How does 3D game art work?</h2>
 
@@ -96,9 +115,9 @@
 <p><img src="assets/these_are_triangles.gif" alt="triangles"><br>
 <em>the kings of 3D graphics, as shown at <a href="http://www.geom.uiuc.edu/~wanous/definitionofatriangle.html">uiuc.edu</a></em></p>
 <ul>
-<li>Lot of tools to make these, arrange them and colour them in</li>
-<li>Half a gpu&#x2019;s job is moving these, the other is painting them.</li>
-<li>It&#x2019;s what reviewers are talking about with polygons per frame or per second when a new Playstation is about to drop. We&#x2019;ll come back to those and fill rate.</li>
+<li><strong>Modelling tools</strong> make them</li>
+<li><strong>Texturing tools</strong> paint them</li>
+<li>Consoles and gpus have to move them and paint them real quick.</li>
 </ul>
 <hr>
 <h3 class="mume-header" id="triangles-are-really-flat">Triangles are really flat</h3>
@@ -107,13 +126,15 @@
 <blockquote>
 <p>A triangle is the simplest shape we can make.</p>
 </blockquote>
-<p>Now, add another triangle, and things start to get interesting. We have a lot of play. then another, we can make a roiling carpet. If you have enough of them, and they&#x2019;re small enough, and you are free to make the edges as long or short as you need, you can make anything.</p>
-<p><img src="assets/wireframe_mountains.png" alt="mountains"></p>
-<p><img src="assets/wireframe_village.jpg" alt="village"></p>
-<p><img src="assets/pixar_woody_buzz.png" alt="pixar 1"></p>
-<p><em>Pixar uses smoothed squares, and squares are&#x2026; pairs of triangles!</em></p>
-<p>About half the power of this goes into triangles:</p>
-<p><img src="assets/2080_exposed.jpg" alt="2080 strix"></p>
+<p>If you have a lot of them though, and they&#x2019;re small enough&#x2026; you can make anything look good.</p>
+<p><img src="assets/wireframe_mountains.png" alt="mountains"><br>
+<em>Flat pointy triangles or smooth rolling hills? Both.</em></p>
+<p><img src="assets/wireframe_village.jpg" alt="village"><br>
+<em>A village of a few thousand triangles</em></p>
+<p><img src="assets/pixar_woody_buzz.png" alt="pixar 1"><br>
+<em>Pixar uses smoothed squares, and squares are&#x2026; pairs of triangles!</em></p>
+<p><img src="assets/gpu_in_case.jpg" alt="2080 strix"><br>
+<em>About half the power of your gpu goes into moving triangles, the rest into colouring them in</em></p>
 <h3 class="mume-header" id="big-triangles-plus-painting">Big triangles plus painting</h3>
 
 <p>Not bad at all! This is how things were done up until around when the Doom reboot came out. It&#x2019;s still how things are done on cute mobile games.</p>
@@ -166,24 +187,18 @@
 <hr>
 <h3 class="mume-header" id="getting-back-the-form">Getting back the form</h3>
 
-<p>We lose a lot of form taking away tringles. How do we get them back?</p>
-<p><img src="assets/2080_strix.jpg" alt="gpu 2"></p>
-<p>Well this thing (a Strix RTX 2080) has two pipelines:</p>
+<p>Our GPU eventually <strong>chokes on too many triangles</strong>.</p>
 <ul>
-<li>one that moves triangles</li>
-<li>and the other colours them in with textures.</li>
-</ul>
-<p>The texturing pipeline has power to burn.</p>
-<ul>
-<li>Way more than needed to just fill in painted textures.</li>
-<li>Clever people found a way to transcode physical form into bitmaps</li>
+<li>That happens before we run out of <strong>painting/texturing power</strong>.</li>
+<li>Clever people found a way to turn surface details into bitmaps</li>
 <li>They use extra textures for surface form information, light emission, roughness and more.</li>
 </ul>
-<p><img src="assets/normal_lava_1.jpg" alt="lava1"><br>
-<img src="assets/normal_lava_2.jpg" alt="lava2"></p>
+<p><img src="assets/normal_maps_3_wall_maps.jpg" alt="normals 1"><br>
+<img src="assets/normal_maps_1_light_move.gif" alt="normals 1"><br>
+<img src="assets/normal_maps_2_little_normals.png" alt="normals"></p>
 <p>It has limits but it&#x2019;s pretty convincing&#x2026; and very fast.</p>
 <blockquote>
-<p>Importing normal map</p>
+<p>Painter: Importing our normal maps. Hitting M and C to see them.</p>
 </blockquote>
 <hr>
 <h3 class="mume-header" id="apply-a-few-materials">Apply a few materials</h3>
@@ -192,6 +207,7 @@
 <blockquote>
 <p>Try materials, masking with colour</p>
 </blockquote>
+<p><img src="assets/materials_4_wood_base.png" alt></p>
 <h2 class="mume-header" id="lighting">Lighting</h2>
 
 <p>The whole purpose of normal maps and pbr texturing is to react to light in ways hand painted textures can&#x2019;t.</p>
@@ -203,17 +219,29 @@
 <h3 class="mume-header" id="procedural-power">Procedural power!</h3>
 
 <p>Still, these materials just wrap around the shape and make it look shrinkwrapped. There&#x2019;s no wear and tear, no dirt in the crevices, no shine from use or friction.</p>
-<p>These textures encode:</p>
+<p>Materials can look way better in Substance if they have more info about the surface:</p>
+<p><img src="assets/materials_1_painted_metal.png" alt><br>
+<img src="assets/materials_3_metal_sunken.png" alt><br>
+<img src="assets/materials_2_dirt.png" alt></p>
+<h4 class="mume-header" id="we-need-textures-to-encode">We need textures to encode</h4>
+
 <ul>
 <li>Areas curving out (ridges) and in (cavities).</li>
 <li>Areas light struggles to reach.</li>
 <li>Position in the world</li>
-<li>Metalness, smoothness.</li>
 </ul>
 <blockquote>
 <p>To fix that, we&#x2019;ll apply some of those extra textures we talked about.</p>
 </blockquote>
+<p><img src="assets/maps_texture_set_settings.png" alt><br>
+<em>Applying our surface info images in the texture set settings</em></p>
+<p><img src="assets/maps_on_axe.png" alt="maps"><br>
+<em>Here&#x2019;s how they&#x2019;d look if painted on the surface</em></p>
 <p>It takes a while to bake these maps, but once they&#x2019;re made, painter can drive <strong>smart materials</strong> with them.</p>
+<p><img src="assets/materials_5_weapon_metal.png" alt><br>
+<img src="assets/materials_6_scratched_painted_steel.png" alt><br>
+<em>How our boring materials look once they have surface information</em></p>
+<p><img src="assets/axe_iray.png" alt></p>
 <blockquote>
 <p>Customise the textures! Try messing with colours</p>
 </blockquote>
