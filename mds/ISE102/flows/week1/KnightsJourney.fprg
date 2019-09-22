@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dmac"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-14 12:52:09 PM"/>
+        <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0xNDsxMjoxNDowNyBQTTsyNjYz"/>
+        <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0xNDsxMjo1MjowOSBQTTsyOzI3NzY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="playerName" type="String" array="False" size=""/>
+            <output expression="&quot;Enter thy name: &quot;" newline="True"/>
+            <input variable="playerName"/>
+            <output expression="&quot;Arise, Ser &quot;" newline="False"/>
+            <output expression="playerName" newline="False"/>
+            <output expression="&quot; of Ultimo, a Knight of the Realm!&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

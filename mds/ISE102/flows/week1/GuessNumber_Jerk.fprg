@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Danny"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-16 09:05:14 PM"/>
+        <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0xNjswODo1NDoxMCBQTTsyNjEw"/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0xNjswOTowNToxNCBQTTsxOzI3MTk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;I'm thinking of a number between 5 and 10. Guess it.&quot;" newline="True"/>
+            <declare name="playerGuess" type="Integer" array="False" size=""/>
+            <input variable="playerGuess"/>
+            <output expression="playerGuess" newline="False"/>
+            <output expression="&quot; is a stupid guess.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

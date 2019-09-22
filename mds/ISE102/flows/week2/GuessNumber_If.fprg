@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dmac"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-22 06:48:48 PM"/>
+        <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
+        <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjozNjowMyBBTTsyOzI3NTY="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yMjswNjo0ODo0OCBQTTsyOzI3Mjg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="secretNumber" type="Integer" array="False" size=""/>
+            <assign variable="secretNumber" expression="2"/>
+            <declare name="playerGuess" type="Integer" array="False" size=""/>
+            <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
+            <input variable="playerGuess"/>
+            <if expression="playerGuess == secretNumber">
+                <then>
+                    <output expression="&quot;You win a thousand moneys!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Ha, no.&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

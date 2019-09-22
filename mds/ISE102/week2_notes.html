@@ -15,504 +15,117 @@
       
 
       <style>
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:rgb(49, 197, 223);text-decoration:none}html body a:hover{color:#89def3;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
 
       </style>
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="ise102-week-2">ISE102 Week 2</h1>
+      <h1 class="mume-header" id="ise102-week-1">ISE102 Week 1</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
-<li><a href="#ise102-week-2">ISE102 Week 2</a>
-<ol>
-<li><a href="#to-add">TO ADD</a>
-<ol>
-<li><a href="#if">if</a></li>
-<li><a href="#expressions">Expressions</a></li>
-<li><a href="#handy-functions-in-flowgorithm">Handy functions in flowgorithm.</a></li>
-</ol>
-</li>
-<li><a href="#assessments">Assessments</a>
-<ol>
-<li><a href="#assessment-1">Assessment 1</a></li>
-<li><a href="#assessment-2">Assessment 2</a></li>
-<li><a href="#assessment-3">Assessment 3</a></li>
-</ol>
-</li>
-<li><a href="#making-decisions">Making decisions.</a>
-<ol>
-<li><a href="#decisions-in-flowgorithm">Decisions in Flowgorithm</a></li>
-<li><a href="#deciding-by-comparing">Deciding by comparing</a></li>
-<li><a href="#deciding-by-comparing-many-things">Deciding by comparing many things</a></li>
-</ol>
-</li>
-<li><a href="#computer-can-do-maths-for-us">Computer can do maths for us.</a>
-<ol>
-<li><a href="#slot-machine-decisions">Slot machine decisions</a></li>
-<li><a href="#more-calculations-for-a-slot-machine">More calculations for a slot machine</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><a href="#next-bit-is-bad-replace-w-comparing-things">next bit is bad. replace w &#x201C;comparing things&#x201D;</a>
-<ol>
-<li><a href="#statement-building-blocks">Statement building blocks</a></li>
-<li><a href="#working-without-quickstart">Working without quickstart</a></li>
-<li><a href="#what-is-using-namespace">What is <code>using namespace</code></a>
-<ol>
-<li><a href="#why-return-zero">Why return zero?</a></li>
-</ol>
-</li>
-<li><a href="#why-flowchart-or-pseudocode-first">Why flowchart or pseudocode first?</a>
-<ol>
-<li><a href="#c-vs-spoken-languages">C++ vs spoken languages</a></li>
-<li><a href="#how-many-keywords">How many keywords?</a></li>
-<li><a href="#games">Games!</a></li>
-<li><a href="#adding-conditionals">Adding conditionals</a></li>
-</ol>
-</li>
-<li><a href="#powerpoint">Powerpoint!</a></li>
-<li><a href="#compiling">Compiling</a>
-<ol>
-<li><a href="#compiling-and-running-your-game">Compiling and running your game</a>
-<ol>
-<li><a href="#1-source-code">1. Source code</a></li>
-<li><a href="#2-compiler">2. Compiler</a></li>
-<li><a href="#3-object-code">3. Object code</a></li>
-<li><a href="#4-linker">4. Linker</a></li>
-<li><a href="#5-executable-file">5. Executable File</a></li>
-<li><a href="#6-loader">6. Loader</a></li>
-</ol>
-</li>
-<li><a href="#assessments-1">Assessments</a></li>
-</ol>
-</li>
-<li><a href="#blackboard">Blackboard</a></li>
-<li><a href="#exercises">Exercises</a></li>
-<li><a href="#resources">Resources</a></li>
-</ol>
-</li>
-</ol>
-<h2 class="mume-header" id="to-add">TO ADD</h2>
-
-<p>Assignment 1 slot machine</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#ise102-week-1">ISE102 Week 1</a>
 <ul>
-<li>Tutes:
+<li><a href="#fixing-the-guessing-game">Fixing the guessing game</a>
 <ul>
-<li>not googling tutes on slot machines, not scoring 0 for your assignment.</li>
-<li>Instead, google &#x201C;generating random numbers in c++&#x201D;, &#x201C;comparing numbers in c++&#x201D;, &#x201C;validating input c++&#x201D;</li>
+<li><a href="#checking-with-if">Checking With If</a></li>
+<li><a href="#adding-randomness">Adding Randomness</a></li>
 </ul>
 </li>
 </ul>
-<p>The slot machine and variables/conditionals</p>
-<ul>
-<li>The slot machine starts with capturing user input and checking if it&#x2019;s valid.</li>
-</ul>
-<p>More on console:</p>
-<ul>
-<li>Have people download programs to a folder on desktop</li>
-<li>Our program runs somewhere&#x2026; That&#x2019;s the console.</li>
-<li>Open windows command prompt, cd into the desktop folder, then the folder we created</li>
-<li>cd into micro</li>
-<li>dir</li>
-<li>run micro <a href="http://README.md">README.md</a> or other file
-<ul>
-<li>Hit shortcut to show help file, see how it&#x2019;s like a gui? Graphical User Interface. This is built of text. Tui.<br>
-Show far running as example of how different characters and colours contribute to interface just using text.</li>
-</ul>
 </li>
 </ul>
-<p>Other ways to program:<br>
-<a href="http://cpp.sh">cpp.sh</a></p>
-<p>LongNamesAreCool<br>
-if (Len(playerName&gt;10))<br>
-{<br>
-cout &lt;&lt; &#x201C;That&#x2019;s a cool name&#x201D;;<br>
-} else<br>
-{<br>
-cout &lt;&lt; &#x201C;Who?&#x201D;;<br>
-}</p>
-<h3 class="mume-header" id="if">if</h3>
+<h2 class="mume-header" id="fixing-the-guessing-game">Fixing the guessing game</h2>
 
-<p>If: playerGuess == secretNumber<br>
-true: You win a million moneys<br>
-false: Wrong. My fault, can we play again sometime? Please?</p>
-<p>Diagram.</p>
-<h3 class="mume-header" id="expressions">Expressions</h3>
+<p>Last week we made a <strong>guessing game</strong>. It insulted players to hide its <strong>missing functionality</strong>.</p>
+<p><img src="assets/week2/flow_guess_insult.png" alt="flow guess insult"></p>
+<p>Here are your computer&#x2019;s new instructions: how it can host a super fun guessing game:</p>
+<ol>
+<li>Pick a number between 5 and 10, remember it.</li>
+<li>tell me to guess it.</li>
+<li>let me input a number, and you remember it.</li>
+<li>If i&#x2019;m wrong tell me i&#x2019;m wrong, but u take the blame computer</li>
+<li>If i&#x2019;m right give me a thousand moneys</li>
+</ol>
+<h3 class="mume-header" id="checking-with-if">Checking With If</h3>
 
-<p>Flowgorithm asks us to enter expressions when we assign, when we output.</p>
+<p>The real game would <em>check if the player guessed the secret number</em>*, then react:</p>
 <ul>
-<li>
-<p>We&#x2019;ve used &#x201C;strings like this&#x201D; or variableName.</p>
-</li>
-<li>
-<p>But what is an expression?</p>
-<p>output: variableName + 3;<br>
-assign: health = health - arrowDamage;<br>
-if: playerGuess == secretNumber</p>
-</li>
+<li>Is the <code>playerGuess</code> the same as <code>secretNumber</code>?</li>
+<li>Say something if it&#x2019;s true, otherwise say something else.</li>
 </ul>
-<h3 class="mume-header" id="handy-functions-in-flowgorithm">Handy functions in flowgorithm.</h3>
-
-<p><a href="http://flowgorithm.org/documentation/intrinsic-functions.htm">http://flowgorithm.org/documentation/intrinsic-functions.htm</a></p>
-<p>Includes Random(n): Generate a random number between 0 and (n - 1)</p>
-<p>Assign: secretNumber = Random(5);<br>
-secretNumber is now a box with a number from 0-4 in it (n-1, 5-1 = 4).</p>
-<h2 class="mume-header" id="assessments">Assessments</h2>
-
-<h3 class="mume-header" id="assessment-1">Assessment 1</h3>
-
-<p>Text based slot machine. <strong>Due end week 6</strong></p>
-<h3 class="mume-header" id="assessment-2">Assessment 2</h3>
-
-<p>Exam covering material from mostly first 2 modules (first 4 weeks). <strong>Due end of week 7</strong></p>
-<h3 class="mume-header" id="assessment-3">Assessment 3</h3>
-
-<p>Snake game with ascii graphics. <strong>Due end of week 12</strong></p>
-<p><img src="assets/week1/snake.png" alt="Snake"><br>
-<em>Yes that snake game</em></p>
-<h2 class="mume-header" id="making-decisions">Making decisions.</h2>
-
-<p>We&#x2019;re ordering things around. While they do work for us, they have to make decisions. Since we&#x2019;re in charge, we want them to <strong>decide what we would decide</strong>.</p>
-<h3 class="mume-header" id="decisions-in-flowgorithm">Decisions in Flowgorithm</h3>
-
-<p>Make a decision based on comparing things</p>
-<h3 class="mume-header" id="deciding-by-comparing">Deciding by comparing</h3>
-
-<p>Is greater than, is less than, is equal to, is not.<br>
-<code>&gt;</code>, <code>&lt;</code>, <code>==</code>, <code>!</code>.</p>
-<h3 class="mume-header" id="deciding-by-comparing-many-things">Deciding by comparing many things</h3>
-
-<p>Do you have a <strong>full house</strong>?</p>
-<ul>
-<li>If you have <strong>3 of a kind <em>AND</em> remaining cards are a pair</strong>.</li>
-</ul>
-<p><img src="assets/week2/full_house.png" alt="full house"></p>
-<p>Can you <strong>go on the ride</strong>?</p>
-<ul>
-<li>If <strong>playerAge is over 8yo <em>OR</em> playerHeight is over 1.2m</strong>.</li>
-</ul>
+<p>To check if something is true, click on an arrow in your flowchart and select the red if diamond.</p>
+<img src="assets/week2/flow_adding_if.png" width="650">
+<p>We need an <code>operator</code>, a piece of punctuation that means is equal to.</p>
+<img src="assets/week2/flow_guess_num_if.png" width="650">
 <hr>
-<p>Deciding by maths:</p>
-<h2 class="mume-header" id="computer-can-do-maths-for-us">Computer can do maths for us.</h2>
+<h3 class="mume-header" id="adding-randomness">Adding Randomness</h3>
 
-<p>Computers (analogue and digital ) were designed by mathematicians and logicians like Alan Turing and John Von Neumann.</p>
+<p>Avoid having the same game each time. Let&#x2019;s <strong>generate a random number in the range 0-5 inclusive</strong> (including 0 and 5).</p>
+<hr>
+<h4 class="mume-header" id="_random-numbers-in-flowgorithm_"><em>Random numbers in Flowgorithm</em></h4>
+
+<p>Flowgorithm has <strong>built-in functions</strong> we can write into an expression.</p>
+<blockquote>
 <ul>
-<li>They wanted them to make logical decisions and do loads of arithmetic to test theories, also the government gave them money if the maths could aim bombs.</li>
-<li>As a result, they can do our maths.</li>
-<li>All they need is the expression written out.</li>
+<li>Functions are sorta like smart variables: when you call them they can return a value</li>
+<li>That value can change basd on circumstances</li>
+<li>They do it by running some code of their own instead of just reading memory.</li>
 </ul>
-<h3 class="mume-header" id="slot-machine-decisions">Slot machine decisions</h3>
-
-<p>We need to decide if our 3 random numbers are the same. Or two of them are etc.</p>
-<p>Rules here.</p>
-<p>Lets do a flowgorithm for one of those.</p>
-<p>You do another one.</p>
-<h3 class="mume-header" id="more-calculations-for-a-slot-machine">More calculations for a slot machine</h3>
-
-<p>When you gamble, you hand over your bet. That is gone, you are down to your starting cash - bet. Anything you win is added to that. If a win (2 of a kind, 3 of a kind) returns your bet multiplied by a whole number (say 3x, 5x).</p>
-<p>Let&#x2019;s make a flowgorithm for one of those.</p>
-<p>Now you do one.</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>y</mi><mi>C</mi><mi>a</mi><mi>s</mi><mi>h</mi><mi>A</mi><mi>f</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>=</mo><mo stretchy="false">(</mo><mi>m</mi><mi>y</mi><mi>C</mi><mi>a</mi><mi>s</mi><mi>h</mi><mi>B</mi><mi>e</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>e</mi><mo>&#x2212;</mo><mi>b</mi><mi>e</mi><mi>t</mi><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mi>b</mi><mi>e</mi><mi>t</mi><mo>&#x2217;</mo><mi>w</mi><mi>i</mi><mi>n</mi><mi>M</mi><mi>u</mi><mi>l</mi><mi>t</mi><mi>i</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>e</mi><mi>r</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">myCashAfter = (myCashBefore - bet) + (bet * winMultiplier)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2217;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span></span></span></p>
-<h1 class="mume-header" id="next-bit-is-bad-replace-w-comparing-things">next bit is bad. replace w &#x201C;comparing things&#x201D;</h1>
-
-<h2 class="mume-header" id="statement-building-blocks">Statement building blocks</h2>
-
-<p>Storage, maths, logic and decision making, all in c++.</p>
-<blockquote>
-<p><strong>Variables:</strong> defining values like <code>5</code>, <code>&quot;Kendrick&quot;</code>, <code>true</code>, <code>35.5</code><br>
-<strong>Logic Operators:</strong> How to compare/test values.<br>
-<strong>Math Operators:</strong> +, -, = and all the rest.<br>
-<strong>Conditionals:</strong> Choose what to do next, based on a value or test.<br>
-<strong>Statements:</strong> A line of code that does something<br>
-<strong>Enums</strong> Defining a few constants at once</p>
 </blockquote>
-<p>We&#x2019;ll start with simple variables and types, get into decision making and comparison, and then dive further into types and assignment.</p>
-<h2 class="mume-header" id="working-without-quickstart">Working without quickstart</h2>
-
-<p><img src="assets/week1/new_project.png" alt="new project"></p>
-<p><img src="assets/week1/new_empty_cpp_project.png" alt="new empty project"></p>
-<p><img src="assets/week1/new_item.png" alt="new item"></p>
-<p><img src="assets/week1/new_cpp_hello.png" alt="new cpp"></p>
-<p><img src="assets/week1/console_stay_open.png" alt="console stay open"><br>
-<em>This setting will keep the console from closing when your program ends</em></p>
-<p>Test it by writing hello world.</p>
+<p>If you enter <code>Random(6)</code> as an expression, it will be replaced with a <strong>number between <code>0</code> and <code>5</code></strong>. That&#x2019;s <code>0</code> to <code>whatever - 1</code>.</p>
+<img src="assets/week2/flow_random.png" width="300">
 <blockquote>
-<p>I recommend pausing your antivirus. For example, I turn off avast shields for 1 hour. Otherwise it&#x2019;ll intercept your new code.</p>
+<p>More info: More Flowgorithm Built-In Functions<br>
+<a href="http://flowgorithm.org/documentation/intrinsic-functions.htm">http://flowgorithm.org/documentation/intrinsic-functions.htm</a><br>
+<img src="assets/week2/flowgorithm_built_in_functions.png" width="450"></p>
 </blockquote>
-<pre data-role="codeBlock" data-info="cpp { .line-numbers }" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<hr>
+<h4 class="mume-header" id="_random-numbers-in-c_"><em>Random numbers in C++</em></h4>
+
+<pre data-role="codeBlock" data-info="cpp {.line-number}" class="language-cpp line-number"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;time.h&gt;</span>     </span><span class="token comment">// Including the C++ time library gives us the time(x) function</span>
+
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  string message <span class="token operator">=</span> <span class="token string">&quot;Hello!&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> secretNumber <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment">// Declaring an integer variable to hold the secret number</span>
 
-  cout <span class="token operator">&lt;&lt;</span> message <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token function">srand</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// Seed the C++ random number generator with current time.</span>
+  secretNumber <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">6</span><span class="token punctuation">;</span>  <span class="token comment">// Any number divided by 6 has a remainder from 0-5. </span>
 
-  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;The secret Number between 0 and 5 is: &quot;</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> secretNumber<span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>           <span class="token comment">// Asking console to go to the next line.</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment">// prints Hello! to screen</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="what-is-using-namespace">What is <code>using namespace</code></h2>
-
-<p>(replace with hilighted code?)</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-</pre><p>This lets us use code written by other people without having to put a path before it. <code>cout</code>, <code>endl</code> are in the <em>c++</em> standard library, so&#x2026;</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp">    <span class="token comment">// without &quot;using namespace std&quot; we&apos;d get a compile erour /// .. unless we do this:</span>
-
-    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hello world!&quot;</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>   <span class="token comment">// gross</span>
-
-    <span class="token comment">// The prefix std is the name of the library, and the</span>
-    <span class="token comment">// double colon :: is the syntax for accessing a library</span>
-    <span class="token comment">// function or variable.</span>
-</pre><h3 class="mume-header" id="why-return-zero">Why return zero?</h3>
-
-<p>(hilighted image)</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre><p><img src="assets/week1/error_code_2_bluescreen.jpg" alt="error code 1"><br>
-<em>The whole operating falls over</em><br>
-<img src="assets/week1/error_code_1.png" alt="error code 1"><br>
-<em>Just your application falls over</em></p>
-<hr>
-<h2 class="mume-header" id="why-flowchart-or-pseudocode-first">Why flowchart or pseudocode first?</h2>
-
-<p><strong>Written code is a way of telling a computer what to do</strong>. A computer likes symbols and keywords we&#x2019;re not used to.</p>
-<ul>
-<li>It takes <strong>brain resources</strong> to <strong>convert from our language to computer</strong> language.</li>
-<li>It takes brain resources turning a task into a <strong>formal list of instructions</strong></li>
-<li><strong>Don&#x2019;t do those two things at the same time!</strong></li>
-</ul>
-<p>Solve the program problems away from C++ first.</p>
-<ul>
-<li>Do it paper or computer, but write <strong>plain english, pseudocode, draw diagrams</strong> or <strong>flow charts</strong> first.</li>
-</ul>
-<h3 class="mume-header" id="c-vs-spoken-languages">C++ vs spoken languages</h3>
-
-<p>Like all languages, a programming language has</p>
+</pre><p><strong>Why <code>srand()</code>?</strong></p>
 <blockquote>
-<p><strong>Vocabulary:</strong> Words you need to know<br>
-<strong>Grammar:</strong> How to arrange arrange and punctuate words so they make sense.</p>
+<p><strong>Computers aren&#x2019;t random.</strong> They&#x2019;re super organised. They need a random starting point for making random-seeming numbers. <code>time(0)</code> gives us the <strong>time elapsed, in seconds, since 1970</strong>. That&#x2019;s pretty random.</p>
 </blockquote>
-<p><strong>Keywords</strong> are the vocabulary of <em>C++</em>:</p>
-<ul>
-<li><code>int</code>, <code>return</code>, <code>using</code>, <code>namespace</code> and more.</li>
-</ul>
-<p><strong>Syntax</strong> is the grammar of C++:</p>
-<ul>
-<li><code>=</code>, <code>{}</code>, <code>;</code>, <code>&lt;&lt;</code>, <code>()</code> and more</li>
-</ul>
-<h3 class="mume-header" id="how-many-keywords">How many keywords?</h3>
-
-<p>Luckily, there are <strong>a lot fewer words to a programming language</strong>.</p>
-<ul>
-<li>There are only 73 special or reserved words in C++</li>
-<li>There are on average 20,000 words a native English speaker uses.</li>
-</ul>
-<hr>
-<h3 class="mume-header" id="games">Games!</h3>
-
-<p>Let&#x2019;s look at this psuedocode.</p>
-<pre data-role="codeBlock" data-info class="language-"><code>start program LOW_HEALTH_ENCOUNTER
-
-	I have: red mana, blue mana
-  I know: Spells require an amount of mana of a certain colour
-
-	If I have enough red mana: 
-		cast healing spell
-	Otherwise:
-		If I have enough blue mana
-			cast invisibility spell
-		Otherwise:
-			Well we&apos;re out of options. Good luck.
-
-	let&apos;s run away no matter what
-
-end program LOW_HEALTH_ENCOUNTER
-</code></pre><blockquote>
-<p>I added something new to the pseudocode this time: explicit information. Things I have, things I know.</p>
-<p>In my <code>spilled_coffee</code> week 1 example it was implied: the shirt&#x2019;s dirtiness, the quality of the shirt, my location. This time we have <code>red mana</code> and <code>blue mana</code>, which are needed for spell casting. They&#x2019;re like variables in c++ but not nailed down yet.</p>
-</blockquote>
-<p>Our psuedocode said we have <code>red mana, blue mana</code>. Let&#x2019;s write that in <em>C++</em>:</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-
-<span class="token comment">// We define a variable like this:</span>
-<span class="token comment">// (type) (name) = (value);</span>
-
-<span class="token keyword">int</span> redMana <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> blueMana <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	
-<span class="token punctuation">}</span>
-</pre><h3 class="mume-header" id="adding-conditionals">Adding conditionals</h3>
-
-<p>We discussed decision making last week. We asked if something is true or false; then we take an action.</p>
-<pre data-role="codeBlock" data-info class="language-"><code>	If I have enough red mana: 
-		cast healing spell
-</code></pre><p>Let&#x2019;s change that to <em>C++</em>. We&#x2019;ve found more implied information too&#x2026; how much red mana is needed for a healing spell?</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// LowHealth.cpp</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token comment">// We define a variable like this:</span>
-<span class="token comment">// (type) (name) = (value);</span>
-
-<span class="token keyword">int</span> redMana <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> blueMana <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-
-<span class="token comment">// A variable that never changes is a constant, or const.</span>
-<span class="token comment">// Write it in capitals so people know.</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> HEALING_RED_MANA <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> INVISIBILITY_BLUE_MANA <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;I&apos;m low on health..&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>	
-	
-	<span class="token comment">// If I have enough red mana:</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span> redMana <span class="token operator">&gt;</span> HEALING_RED_MANA <span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token comment">// cast healing spell</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic bandaid!!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	
-<span class="token punctuation">}</span>
-</pre><p>That&#x2019;s if our &#x201C;if&#x201D; taken care of. What about our otherwise?</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp">	<span class="token keyword">if</span> <span class="token punctuation">(</span> redMana <span class="token operator">&gt;</span> HEALING_RED_MANA <span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token comment">// cast healing spell</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic bandaid!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">else</span>
-	<span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>blueMana <span class="token operator">&gt;</span> INVISIBILITY_BLUE_MANA<span class="token punctuation">)</span>
-		<span class="token punctuation">{</span>
-			<span class="token comment">//cast invisibility spell</span>
-			cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic blindfold!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-</pre><p>Take away the white space, the specifics, and you get:</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// Basic fork in the road. Based on a test, we choose one of two outcomes.</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>test<span class="token punctuation">)</span> <span class="token punctuation">{</span> code A <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> code B<span class="token punctuation">}</span>
-</pre><p>The code up there gets a bit ugly with the extra parentheses. It&#x2019;s common to put conditions on the <code>else</code>, so <em>c++</em> lets us shorten it to &#x201C;else if&#x201D;. We&#x2019;ll add the <code>run away no matter what</code> too.</p>
-<pre data-role="codeBlock" data-info="c++" class="language-cpp"><span class="token comment">// LowHealth.cpp</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token comment">// We define a variable like this:</span>
-<span class="token comment">// (type) (name) = (value);</span>
-
-<span class="token keyword">int</span> redMana <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> blueMana <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-
-<span class="token comment">// A variable that never changes is a constant, or const.</span>
-<span class="token comment">// Write it in capitals so people know.</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> HEALING_RED_MANA <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> INVISIBILITY_BLUE_MANA <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;I&apos;m low on health..&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-
-	<span class="token comment">// If I have enough red mana:</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>redMana <span class="token operator">&gt;</span> HEALING_RED_MANA<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		<span class="token comment">// cast healing spell</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic bandaid!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token comment">//Otherwise:</span>
-		<span class="token comment">//If I have enough blue mana</span>
-			<span class="token comment">// cast invisibility spell</span>
-	<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>blueMana <span class="token operator">&gt;</span> INVISIBILITY_BLUE_MANA<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-			<span class="token comment">// cast invisibility spell</span>
-			cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Magic blindfold!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token comment">// run away no matter what.</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Run away!&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-</pre><h2 class="mume-header" id="powerpoint">Powerpoint!</h2>
-
-<p>Switch, while, for, enum.<br>
-Logical and mathematical operators.<br>
-ints, floats, longs, shorts, char.</p>
-<h2 class="mume-header" id="compiling">Compiling</h2>
-
-<h3 class="mume-header" id="compiling-and-running-your-game">Compiling and running your game</h3>
-
-<p><img src="assets/week1/compiling_flow.jpg" alt="Compiler flow"></p>
-<h4 class="mume-header" id="1-source-code">1. Source code</h4>
-
-<p>Instructions for a computer to handle given situations and perform certain tasks. The source code will be written in the syntax and grammar of a particular programming language; in our case, the language is c++.</p>
-<h4 class="mume-header" id="2-compiler">2. Compiler</h4>
-
-<p>A compiler reads your source code and usually converts it into machine code. This will be the specific instructions for a target computer and operating system, say windows x86 intel.</p>
-<h4 class="mume-header" id="3-object-code">3. Object code</h4>
-
-<p>The machine code output by the compiler, often with a .o extension. Your c++ compiler will also have on hand object code for the libraries it includes</p>
-<h4 class="mume-header" id="4-linker">4. Linker</h4>
-
-<p>The linker takes your object code and looks for references to other code. This can be your own from multiple c files, or references to standard/downloaded libraries. It then inserts the referred-to machine code into your own and creates a single .exe file. There are other types that can be created, like dynamic libraries, but we&#x2019;ll discuss those later.</p>
-<h4 class="mume-header" id="5-executable-file">5. Executable File</h4>
-
-<p>This is your finished product. It&#x2019;s ready to be double clicked, run from the command line, launched from Steam/Battle.net or any other way you begin loading it.</p>
-<h4 class="mume-header" id="6-loader">6. Loader</h4>
-
-<p>The operating system executable that will load your executable into memory and begin execution. This is how it goes from instructions on an SSD/HDD to a running, interactive program.</p>
-<h3 class="mume-header" id="assessments-1">Assessments</h3>
-
-<p>3 Assessments. It&#x2019;ll require a solid effort at all 3 to pass. More details next week.</p>
-<h2 class="mume-header" id="blackboard">Blackboard</h2>
-
-<p>Find assignment briefs, due dates, slides, programming tutes/samples and much more. The screenshots are from GPR103 but the structure is cross-subject.</p>
+<p><strong>Why <code>rand() % 6</code>?</strong></p>
 <blockquote>
-<p>Digging through Blackboard material is the second key to coming out ahead in these subjects, just below coding at home.</p>
+<p><code>rand()</code> is a built in <strong>C++ function</strong>. When the line of code runs, it&#x2019;s replaced with a psuedorandom (kinda random) number <strong>between 0 and 32,767</strong></p>
 </blockquote>
-<p><img src="assets/week1/subject_overview.png" alt="Subject overview"><br>
-<em>Grab the subject outline and subject planner</em></p>
-<p><img src="assets/week1/module_overview.jpg" alt="Module intro"><br>
-<em>Every subject has modules in the left menu. Click one for important info</em></p>
-<p><img src="assets/week1/module_resources.jpg" alt="Module learning resources"><br>
-<em>The blue button, top of screen, takes you to more info and resources. Don&#x2019;t skip the learning resources</em></p>
+<ul>
+<li><code>a % b</code> is <code>a modulus b</code>. It means &#x201C;divide <code>a</code> by <code>b</code> and give <strong>just the remainder</strong>&#x201D;</li>
+<li><code>11 / 6</code> is <code>1</code>, leaving a remainder <code>5</code>. So <code>11 % 6</code> is <code>5</code>&quot;</li>
+<li>`12 / 6</li>
+</ul>
+<blockquote>
+<p>More info: rand<br>
+<a href="https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/">https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/</a></p>
+</blockquote>
 <hr>
-<h2 class="mume-header" id="exercises">Exercises</h2>
-
-<ol>
-<li>Code from the text book:
-<ul>
-<li><a href="week2_book_bits.html">week2_book_bits.html</a></li>
-</ul>
-</li>
-<li>Type out and run some of the <a href="week2_code.html">week 2 exercises</a>. I recommend at minimum <code>2.1</code>, <code>2.5</code>, <code>2.6</code>, <code>2.7</code>.
-<ul>
-<li>The handy bit in <code>2.6</code> is understanding the fall through option in switch statements. Super useful, people always miss it at first. There are few other ways to handle options with so little code.</li>
-<li>It&#x2019;s good if you get bored defining variables and typing cout. Also good to get bored of trying logical comparisons. If you can get to where this stuff is easy and obvious you&#x2019;re on your way.</li>
-</ul>
-</li>
-<li>Work through sololearn c++ part 2: Conditionals and Loops.</li>
-</ol>
-<h2 class="mume-header" id="resources">Resources</h2>
-
-<ol>
-<li>The book:
-<ul>
-<li><a href="book_1/cppgameprog_1_variables_io.pdf">chap 1</a></li>
-<li><a href="book_1/cppgameprog_2_conditionals_game_loop.pdf">chap 2</a></li>
-<li><a href="book_1/cppgameprog_3_loops_strings_arrays.pdf">chap 3</a></li>
-</ul>
-</li>
-</ol>
 
       </div>
       

@@ -10,47 +10,18 @@ export_on_save:
 # ISE102 Week 1
 
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-1. [ISE102 Week 1](#ise102-week-1)
-   1. [Who are we?](#who-are-we)
-      1. [C++ the language](#c-the-language)
-         1. [Cpp looks like this](#cpp-looks-like-this)
-         2. [Bjarne looks like this:](#bjarne-looks-like-this)
-   2. [Programming: it's just bossing around](#programming-its-just-bossing-around)
-      1. [So let's make Knights Journey](#so-lets-make-knights-journey)
-      2. [Programming by charts](#programming-by-charts)
-      3. [Programming in Flowgorithm](#programming-in-flowgorithm)
-         1. [Get and open flowgorithm](#get-and-open-flowgorithm)
-         2. [Instructions](#instructions)
-      4. [Exporting to pseudocode](#exporting-to-pseudocode)
-      5. [What is a computer, for programming purposes?](#what-is-a-computer-for-programming-purposes)
-         1. [Real examples](#real-examples)
-         2. [In Knights Journey](#in-knights-journey)
-   3. [Writing a program in C++](#writing-a-program-in-c)
-      1. [Open visual studio and a default project](#open-visual-studio-and-a-default-project)
-      2. [Write knights journey](#write-knights-journey)
-         1. [Running it](#running-it)
-   4. [Breaking down some of the code](#breaking-down-some-of-the-code)
-      1. [Input and Output](#input-and-output)
-         1. [cin](#cin)
-         2. [cout](#cout)
-      2. [Storage aka variables](#storage-aka-variables)
-      3. [Whitespace](#whitespace)
-      4. [Blocks of code and ending a line](#blocks-of-code-and-ending-a-line)
-      5. [Export c++ from flowgorithm](#export-c-from-flowgorithm)
-   5. [Thriving in ISE102](#thriving-in-ise102)
-      1. [Write loads of code.](#write-loads-of-code)
-      2. [Reading and working through the textbook](#reading-and-working-through-the-textbook)
-      3. [Refer to the notes!](#refer-to-the-notes)
-   6. [Exercises](#exercises)
-      1. [1. Sololearn quiz](#1-sololearn-quiz)
-      2. [2. Read textbook chapter 1](#2-read-textbook-chapter-1)
-   7. [Resources](#resources)
-      1. [Installing Visual Studio Community](#installing-visual-studio-community)
-      2. [cin and cout documentation](#cin-and-cout-documentation)
+- [ISE102 Week 1](#ise102-week-1)
+  - [Who are we?](#who-are-we)
+  - [Programming: it's just bossing around](#programming-its-just-bossing-around)
+  - [Writing a program in C++](#writing-a-program-in-c)
+  - [Breaking down some of the code](#breaking-down-some-of-the-code)
+  - [Thriving in ISE102](#thriving-in-ise102)
+  - [Exercises](#exercises)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
