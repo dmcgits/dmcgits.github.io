@@ -20,7 +20,7 @@ export_on_save:
   - [Checking and deciding: `if`](#checking-and-deciding-if)
     - [What are conditional expressions?](#what-are-conditional-expressions)
   - [Flow: working guess game with `if`](#flow-working-guess-game-with-if)
-    - [C++: how does the guess game export?](#c-how-does-the-guess-game-export)
+  - [C++: the game exported](#c-the-game-exported)
   - [Welcome to Relational Operators](#welcome-to-relational-operators)
   - [The `bool` type](#the-bool-type)
     - [Not equal operator: `!=`](#not-equal-operator-)
@@ -138,7 +138,7 @@ Finish it up in Flowgorithm.
 
 ---
 
-### C++: how does the guess game export?
+## C++: the game exported
 
 Here's the flowgorithm export.
 
