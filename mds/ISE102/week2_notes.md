@@ -13,42 +13,45 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 2](#ise102-week-2)
-  - [TO ADD](#to-add)
-  - [Assessments](#assessments)
-    - [Assessment 1](#assessment-1)
-    - [Assessment 2](#assessment-2)
-    - [Assessment 3](#assessment-3)
-  - [Making decisions.](#making-decisions)
-    - [Decisions in Flowgorithm](#decisions-in-flowgorithm)
-    - [Deciding by comparing](#deciding-by-comparing)
-    - [Deciding by comparing many things](#deciding-by-comparing-many-things)
-  - [Computer can do maths for us.](#computer-can-do-maths-for-us)
-    - [Slot machine decisions](#slot-machine-decisions)
-    - [More calculations for a slot machine](#more-calculations-for-a-slot-machine)
-- [next bit is bad. replace w "comparing things"](#next-bit-is-bad-replace-w-comparing-things)
-  - [Statement building blocks](#statement-building-blocks)
-  - [Working without quickstart](#working-without-quickstart)
-  - [What is `using namespace`](#what-is-using-namespace)
-    - [Why return zero?](#why-return-zero)
-  - [Why flowchart or pseudocode first?](#why-flowchart-or-pseudocode-first)
-    - [C++ vs spoken languages](#c-vs-spoken-languages)
-    - [How many keywords?](#how-many-keywords)
-    - [Games!](#games)
-    - [Adding conditionals](#adding-conditionals)
-  - [Powerpoint!](#powerpoint)
-  - [Compiling](#compiling)
-    - [Compiling and running your game](#compiling-and-running-your-game)
-      - [1. Source code](#1-source-code)
-      - [2. Compiler](#2-compiler)
-      - [3. Object code](#3-object-code)
-      - [4. Linker](#4-linker)
-      - [5. Executable File](#5-executable-file)
-      - [6. Loader](#6-loader)
-    - [Assessments](#assessments-1)
-  - [Blackboard](#blackboard)
-  - [Exercises](#exercises)
-  - [Resources](#resources)
+1. [ISE102 Week 2](#ise102-week-2)
+   1. [TO ADD](#to-add)
+      1. [if](#if)
+      2. [Expressions](#expressions)
+      3. [Handy functions in flowgorithm.](#handy-functions-in-flowgorithm)
+   2. [Assessments](#assessments)
+      1. [Assessment 1](#assessment-1)
+      2. [Assessment 2](#assessment-2)
+      3. [Assessment 3](#assessment-3)
+   3. [Making decisions.](#making-decisions)
+      1. [Decisions in Flowgorithm](#decisions-in-flowgorithm)
+      2. [Deciding by comparing](#deciding-by-comparing)
+      3. [Deciding by comparing many things](#deciding-by-comparing-many-things)
+   4. [Computer can do maths for us.](#computer-can-do-maths-for-us)
+      1. [Slot machine decisions](#slot-machine-decisions)
+      2. [More calculations for a slot machine](#more-calculations-for-a-slot-machine)
+2. [next bit is bad. replace w "comparing things"](#next-bit-is-bad-replace-w-comparing-things)
+   1. [Statement building blocks](#statement-building-blocks)
+   2. [Working without quickstart](#working-without-quickstart)
+   3. [What is `using namespace`](#what-is-using-namespace)
+      1. [Why return zero?](#why-return-zero)
+   4. [Why flowchart or pseudocode first?](#why-flowchart-or-pseudocode-first)
+      1. [C++ vs spoken languages](#c-vs-spoken-languages)
+      2. [How many keywords?](#how-many-keywords)
+      3. [Games!](#games)
+      4. [Adding conditionals](#adding-conditionals)
+   5. [Powerpoint!](#powerpoint)
+   6. [Compiling](#compiling)
+      1. [Compiling and running your game](#compiling-and-running-your-game)
+         1. [1. Source code](#1-source-code)
+         2. [2. Compiler](#2-compiler)
+         3. [3. Object code](#3-object-code)
+         4. [4. Linker](#4-linker)
+         5. [5. Executable File](#5-executable-file)
+         6. [6. Loader](#6-loader)
+      2. [Assessments](#assessments-1)
+   7. [Blackboard](#blackboard)
+   8. [Exercises](#exercises)
+   9. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -73,7 +76,41 @@ More on console:
 Show far running as example of how different characters and colours contribute to interface just using text.
 
 Other ways to program:
-cpp.sh
+cpp.sh 
+
+LongNamesAreCool
+if (Len(playerName>10))
+{
+  cout << "That's a cool name";
+} else
+{
+  cout << "Who?";
+}
+
+### if
+
+If: playerGuess == secretNumber
+  true: You win a million moneys
+  false: Wrong. My fault, can we play again sometime? Please?
+
+Diagram.
+
+### Expressions
+Flowgorithm asks us to enter expressions when we assign, when we output.
+- We've used "strings like this" or variableName. 
+- But what is an expression?
+  
+  output: variableName + 3;
+  assign: health = health - arrowDamage;
+  if: playerGuess == secretNumber
+
+### Handy functions in flowgorithm.
+http://flowgorithm.org/documentation/intrinsic-functions.htm
+
+Includes Random(n): Generate a random number between 0 and (n - 1)
+
+Assign: secretNumber = Random(5);
+secretNumber is now a box with a number from 0-4 in it (n-1, 5-1 = 4).
 
 ## Assessments
 
