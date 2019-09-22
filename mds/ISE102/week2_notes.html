@@ -67,14 +67,14 @@
 <li><a href="#more-flowgorithm-built-in-functions">More Flowgorithm Built-In Functions</a></li>
 </ul>
 </li>
-<li><a href="#_random-numbers-in-c_"><em>Random numbers in C++</em></a>
+<li><a href="#random-numbers-in-c">Random numbers in C++</a>
 <ul>
 <li><a href="#why-srand">Why <code>srand()</code>?</a></li>
 <li><a href="#why-rand--6">Why <code>rand() % 6</code>?</a></li>
 <li><a href="#results-of-division-and-modulus">Results of division and modulus</a></li>
 </ul>
 </li>
-<li><a href="#only-test-when-you-have-to">Only test when you have to</a>
+<li><a href="#only-if-test-when-you-have-to">Only <code>if</code> test when you have to</a>
 <ul>
 <li><a href="#nested-if">Nested if</a></li>
 <li><a href="#else-if-instead-of-nesting"><code>else if</code> instead of nesting</a></li>
@@ -234,7 +234,7 @@ isSad <span class="token operator">=</span> <span class="token boolean">false</s
 <li>It&#x2019;s a big deal at university.</li>
 <li>It&#x2019;ll wipe your assessment mark.</li>
 </ul>
-<h4 class="mume-header" id="dont-look-at-slot-machine-tutorials">DON&#x2019;T: look at slot machine tutorials</h4>
+<h4 class="mume-header" id="_dont-look-at-slot-machine-tutorials_"><em>DON&#x2019;T: look at slot machine tutorials</em></h4>
 
 <p>Never look at tutes that build the same thing you&#x2019;re building.</p>
 <ul>
@@ -242,7 +242,7 @@ isSad <span class="token operator">=</span> <span class="token boolean">false</s
 <li>You&#x2019;ll likely end up using their structure at a minimum.</li>
 <li>I&#x2019;ve seen the tutes, I recognize the copied structure/algorithms.</li>
 </ul>
-<h4 class="mume-header" id="do-look-at-tutorials-on-c">DO: look at tutorials on C++</h4>
+<h4 class="mume-header" id="_do-look-at-tutorials-on-c_"><em>DO: look at tutorials on C++</em></h4>
 
 <p>Look at tutorials that help with the individual problems:</p>
 <ul>
@@ -277,7 +277,7 @@ isSad <span class="token operator">=</span> <span class="token boolean">false</s
 <p><img src="assets/week2/flowgorithm_built_in_functions.png" alt="built in functions"><br>
 <em>More built ins: <a href="http://flowgorithm.org/documentation/intrinsic-functions.htm">http://flowgorithm.org/documentation/intrinsic-functions.htm</a></em></p>
 <hr>
-<h2 class="mume-header" id="_random-numbers-in-c_"><em>Random numbers in C++</em></h2>
+<h2 class="mume-header" id="random-numbers-in-c">Random numbers in C++</h2>
 
 <p>C++ provides built in random functions too.</p>
 <p><strong>Exercise</strong><br>
@@ -303,11 +303,12 @@ So <code>11 % 6</code> is <code>5</code></p>
 <p><code>12 / 6</code> is <code>2</code>, leaving a remainder <code>0</code>.<br>
 So <code>12 % 6</code> is <code>0</code></p>
 <blockquote>
-<p>More info: rand<br>
-<a href="https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/">https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/</a></p>
+<p><strong>More info: rand</strong><br>
+Good info on geeksforgeeks: <a href="https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/">https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/</a><br>
+C++ reference docs: <a href="http://www.cplusplus.com/reference/cstdlib/rand/">http://www.cplusplus.com/reference/cstdlib/rand/</a></p>
 </blockquote>
 <hr>
-<h2 class="mume-header" id="only-test-when-you-have-to">Only test when you have to</h2>
+<h2 class="mume-header" id="only-if-test-when-you-have-to">Only <code>if</code> test when you have to</h2>
 
 <p>Many times, you only have to test further values when all previous tests failed.</p>
 <p>If we just use one <code>if</code> after another they all run.</p>
@@ -358,7 +359,8 @@ You can <strong>nest <code>if</code> statements</strong> within the <code>true</
 <span class="token comment">// It works. Output:</span>
 This is a child<span class="token punctuation">.</span>
 
-</pre><h3 class="mume-header" id="else-if-instead-of-nesting"><code>else if</code> instead of nesting</h3>
+</pre><hr>
+<h3 class="mume-header" id="else-if-instead-of-nesting"><code>else if</code> instead of nesting</h3>
 
 <p>It does the same thing but:</p>
 <ul>

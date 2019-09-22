@@ -30,11 +30,11 @@ export_on_save:
     - [_Random numbers in Flowgorithm_](#_random-numbers-in-flowgorithm_)
     - [Exercise](#exercise)
     - [More Flowgorithm Built-In Functions](#more-flowgorithm-built-in-functions)
-  - [_Random numbers in C++_](#_random-numbers-in-c_)
+  - [Random numbers in C++](#random-numbers-in-c)
     - [Why `srand()`?](#why-srand)
     - [Why `rand() % 6`?](#why-rand--6)
     - [Results of division and modulus](#results-of-division-and-modulus)
-  - [Only test when you have to](#only-test-when-you-have-to)
+  - [Only `if` test when you have to](#only-if-test-when-you-have-to)
     - [Nested if](#nested-if)
     - [`else if` instead of nesting](#else-if-instead-of-nesting)
 
@@ -213,14 +213,14 @@ Submitting **work that isn't yours** and **not crediting** the original creator 
 * It's a big deal at university. 
 * It'll wipe your assessment mark.
 
-#### DON'T: look at slot machine tutorials
+#### _DON'T: look at slot machine tutorials_
 
 Never look at tutes that build the same thing you're building.
 * You can't unsee them, and they make it much harder to come up with your own solution.
 * You'll likely end up using their structure at a minimum.
 * I've seen the tutes, I recognize the copied structure/algorithms.
 
-#### DO: look at tutorials on C++
+#### _DO: look at tutorials on C++_
 
 Look at tutorials that help with the individual problems:
 * logical operators, math operators, relational operators in c++
@@ -260,7 +260,7 @@ _More built ins: <http://flowgorithm.org/documentation/intrinsic-functions.htm>_
 
 ___
 
-## _Random numbers in C++_
+## Random numbers in C++
 
 C++ provides built in random functions too.
 
@@ -288,12 +288,13 @@ So `11 % 6` is `5`
 `12 / 6` is `2`, leaving a remainder `0`. 
 So `12 % 6` is `0`
 
-> More info: rand
-> <https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/>
+> **More info: rand**
+> Good info on geeksforgeeks: <https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/>
+> C++ reference docs: <http://www.cplusplus.com/reference/cstdlib/rand/>
 
 ___
 
-## Only test when you have to
+## Only `if` test when you have to
 
 Many times, you only have to test further values when all previous tests failed.
 
@@ -315,7 +316,6 @@ if (age < 20)
 This is a child.
 This is a teenager.
 ```
-
 ### Nested if
 
 We only need to run tests until one is true.
@@ -351,6 +351,7 @@ else   // only check (age < 20) if (age < 12) was false
 This is a child.
 
 ```
+___ 
 
 ### `else if` instead of nesting
 
