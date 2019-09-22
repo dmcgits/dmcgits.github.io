@@ -4,10 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="dmac"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-09-22 06:52:25 PM"/>
+        <attribute name="saved" value="2019-09-23 12:32:06 AM"/>
         <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
         <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjozNjowMyBBTTsyOzI3NTY="/>
-        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yMjswNjo1MjoyNSBQTTszOzI3MTk="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yMzsxMjozMjowNiBBTTs0OzI3MDA="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -17,6 +17,10 @@
             <declare name="playerGuess" type="Integer" array="False" size=""/>
             <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
             <input variable="playerGuess"/>
+            <if expression="">
+                <then/>
+                <else/>
+            </if>
         </body>
     </function>
 </flowgorithm>

@@ -33,44 +33,230 @@
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#ise102-week-1">ISE102 Week 1</a>
 <ul>
-<li><a href="#fixing-the-guessing-game">Fixing the guessing game</a>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#fixing-the-guessing-game-with-processing">Fixing the guessing game with processing</a>
 <ul>
-<li><a href="#checking-with-if">Checking With If</a></li>
-<li><a href="#adding-randomness">Adding Randomness</a></li>
+<li><a href="#our-instructions-with-processing-added">Our instructions, with processing added</a></li>
+</ul>
+</li>
+<li><a href="#checking-and-deciding-if">Checking and deciding: <code>if</code></a>
+<ul>
+<li><a href="#what-are-conditional-expressions">What are conditional expressions?</a></li>
+</ul>
+</li>
+<li><a href="#flow-working-guess-game-with-if">Flow: working guess game with <code>if</code></a>
+<ul>
+<li><a href="#c-how-does-the-guess-game-export">C++: how does the guess game export?</a></li>
+</ul>
+</li>
+<li><a href="#welcome-to-relational-operators">Welcome to Relational Operators</a></li>
+<li><a href="#the-bool-type">The <code>bool</code> type</a>
+<ul>
+<li><a href="#not-equal-operator-">Not equal operator: <code>!=</code></a></li>
+</ul>
+</li>
+<li><a href="#assessment-1-slot-machine">Assessment 1: Slot machine</a>
+<ul>
+<li><a href="#original-work-and-crediting-sources">Original work and crediting sources</a></li>
+</ul>
+</li>
+<li><a href="#adding-randomness-to-the-guessing-game">Adding randomness to the Guessing Game</a>
+<ul>
+<li><a href="#_random-numbers-in-flowgorithm_"><em>Random numbers in Flowgorithm</em></a></li>
+<li><a href="#exercise">Exercise</a></li>
+<li><a href="#more-flowgorithm-built-in-functions">More Flowgorithm Built-In Functions</a></li>
+</ul>
+</li>
+<li><a href="#_random-numbers-in-c_"><em>Random numbers in C++</em></a>
+<ul>
+<li><a href="#why-srand">Why <code>srand()</code>?</a></li>
+<li><a href="#why-rand--6">Why <code>rand() % 6</code>?</a></li>
+<li><a href="#results-of-division-and-modulus">Results of division and modulus</a></li>
+</ul>
+</li>
+<li><a href="#only-test-when-you-have-to">Only test when you have to</a>
+<ul>
+<li><a href="#nested-if">Nested if</a></li>
+<li><a href="#else-if-instead-of-nesting"><code>else if</code> instead of nesting</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="fixing-the-guessing-game">Fixing the guessing game</h2>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<p>Here&#x2019;s a new Visual Studio solution to start from.</p>
+<blockquote>
+<p>When you unzip it, rename the folder called&#x2026; &#x201C;renameMe&#x201D;.</p>
+</blockquote>
+<p><a href="assets/index/VS_ConsoleSolution.zip">VS_ConsoleSolution.zip</a></p>
+<h2 class="mume-header" id="fixing-the-guessing-game-with-processing">Fixing the guessing game with processing</h2>
 
 <p>Last week we made a <strong>guessing game</strong>. It insulted players to hide its <strong>missing functionality</strong>.</p>
 <p><img src="assets/week2/flow_guess_insult.png" alt="flow guess insult"></p>
-<p>Here are your computer&#x2019;s new instructions: how it can host a super fun guessing game:</p>
+<p>Remember the <strong>4 basic things a pc program does</strong>?</p>
+<p><img src="assets/week2/pc_programming_4_basics.png" alt></p>
+<p>We were missing <strong>processing.</strong></p>
+<p><img src="assets/week2/no_processing_checklist.png" alt></p>
+<blockquote>
+<p>When it&#x2019;s time for a person or machine to <strong>decide</strong> things, they do it by <strong>checking</strong> and <strong>comparing</strong> things.</p>
+</blockquote>
+<hr>
+<h3 class="mume-header" id="our-instructions-with-processing-added">Our instructions, with processing added</h3>
+
+<p>Here are the computer&#x2019;s new instructions: how to host a super fun guessing game:</p>
+<blockquote>
 <ol>
-<li>Pick a number between 5 and 10, remember it.</li>
-<li>tell me to guess it.</li>
-<li>let me input a number, and you remember it.</li>
+<li><strong>Pick a number</strong> between 5 and 10, <strong>remember it</strong>.</li>
+<li>tell me to <strong>guess</strong> it.</li>
+<li>let me <strong>input</strong> a number, and you <strong>remember it</strong>.</li>
 <li>If i&#x2019;m wrong tell me i&#x2019;m wrong, but u take the blame computer</li>
 <li>If i&#x2019;m right give me a thousand moneys</li>
 </ol>
-<h3 class="mume-header" id="checking-with-if">Checking With If</h3>
+</blockquote>
+<hr>
+<h2 class="mume-header" id="checking-and-deciding-if">Checking and deciding: <code>if</code></h2>
 
-<p>The real game would <em>check if the player guessed the secret number</em>*, then react:</p>
+<p>The real game would <strong>check if the player guessed the secret number</strong>:</p>
 <ul>
 <li>Is the <code>playerGuess</code> the same as <code>secretNumber</code>?</li>
 <li>Say something if it&#x2019;s true, otherwise say something else.</li>
 </ul>
+<blockquote>
 <p>To check if something is true, click on an arrow in your flowchart and select the red if diamond.</p>
-<img src="assets/week2/flow_adding_if.png" width="650">
-<p>We need an <code>operator</code>, a piece of punctuation that means is equal to.</p>
+</blockquote>
+<p><img src="assets/week2/flow_adding_if.png" alt="adding if"></p>
+<p>Double click the if and it <strong>asks for a conditional expression</strong></p>
+<p><img src="assets/week2/flow_if_add_expression.png" alt></p>
+<h3 class="mume-header" id="what-are-conditional-expressions">What are conditional expressions?</h3>
+
+<p>Something that <strong>produces a true or false answer</strong>.</p>
+<ul>
+<li>Has the player run out of health?</li>
+<li>Is the distance to Los Angeles further than my Griffin can fly?</li>
+<li>Is my phone in my bag, and does it have reception here in Zombietown?</li>
+<li>Is 5 greater than 2?</li>
+</ul>
+<blockquote>
+<p>We need an expression for <strong>playerGuess is equal to secretNumber</strong>, meaning they have the same values stored.</p>
+</blockquote>
+<hr>
+<h4 class="mume-header" id="_the-is-equal-to-operator_"><em>The &#x201C;is equal to&#x201D; operator</em></h4>
+
+<p>Any punctuation that compares, does math on or relates two values is called an operator.</p>
+<blockquote>
+<p>The <strong>equals</strong> or <strong>is equal to</strong> operator is <strong><code>==</code></strong>, two equals signs.</p>
+</blockquote>
+<p><img src="assets/week2/flow_if_comparison.png" alt><br>
+<em>The expression we need.</em></p>
+<h4 class="mume-header" id="_why-not-one-sign_"><em>Why not one <code>=</code> sign?</em></h4>
+
+<p>Because <strong><code>=</code></strong> is already the <strong>assignment</strong>, or <strong>store</strong> operator.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// C++ has the same syntax for assignment/storage</span>
+
+  <span class="token keyword">int</span> boxA<span class="token punctuation">;</span>       <span class="token comment">// remember, a variable is like a little storage box in your RAM.</span>
+  <span class="token keyword">int</span> boxB <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>   <span class="token comment">// boxB is another storage box.</span>
+
+  boxA <span class="token operator">=</span> boxB<span class="token punctuation">;</span>    <span class="token comment">// Look at the number in boxB (5), and put a copy of the same number in boxA</span>
+  boxB <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>      <span class="token comment">// Put a new number in boxB, discarding the old one.</span>
+  
+  <span class="token comment">// Now boxA holds 5, boxB holds 22. </span>
+</pre><h2 class="mume-header" id="flow-working-guess-game-with-if">Flow: working guess game with <code>if</code></h2>
+
+<p>Finish it up in Flowgorithm.</p>
 <img src="assets/week2/flow_guess_num_if.png" width="650">
 <hr>
-<h3 class="mume-header" id="adding-randomness">Adding Randomness</h3>
+<h3 class="mume-header" id="c-how-does-the-guess-game-export">C++: how does the guess game export?</h3>
+
+<p>Here&#x2019;s the flowgorithm export.</p>
+<p><strong>Exercise:</strong></p>
+<ol>
+<li>Grab an updated quick start solution: <a href="assets/index/VS_ConsoleSolution.zip">VS_ConsoleSolution.zip</a></li>
+<li><strong>Now type it out yourself</strong> in <code>main.cpp</code> and run it. Absorb the syntax.</li>
+</ol>
+<p><img src="assets/week2/flow_guess_if_cpp.png" alt="flow guess cpp"></p>
+<hr>
+<h2 class="mume-header" id="welcome-to-relational-operators">Welcome to Relational Operators</h2>
+
+<p><strong><code>==</code></strong> is your first <strong>relational operator</strong>. Its operation: compares two variables, returns <code>true</code> if they store the same value.</p>
+<blockquote>
+<p>Relational operators assess the <strong>relationship of two values</strong>:</p>
+<ul>
+<li>Is one bigger, smaller than the other? Are they equal or not?</li>
+</ul>
+</blockquote>
+<p><img src="assets/week2/relational_operators.png" alt="relational"><br>
+<em>The relational operators of c++: page 38, <a href="book_1/chap2_cpp_games.pdf">Chapter 2 of the textbook</a></em></p>
+<hr>
+<h2 class="mume-header" id="the-bool-type">The <code>bool</code> type</h2>
+
+<p>If we&#x2019;re talking about expressions that evaluate to <code>true</code> or <code>false</code>, we need a nice way to store the results as variables.</p>
+<ul>
+<li>An <code>int</code> is an integer. -10, 0, 45, 324544245.</li>
+<li>A <code>string</code> is, say, what you get in a tweet. &#x201C;@lizzosmith I went to 34 concerts in 2019. #rockpig&#x201D;</li>
+</ul>
+<blockquote>
+<p>A <strong><code>bool</code></strong> is another type: it only has two potential values, <strong><code>true</code></strong> or <strong><code>false</code></strong></p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Here&apos;s a bool variable in C++.</span>
+
+<span class="token comment">// Declare isSad and initialise it to true</span>
+<span class="token keyword">bool</span> isSad <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment">// ;~;</span>
+
+<span class="token comment">// Change its value to false</span>
+isSad <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">// :D</span>
+</pre><p>And in Flowgorithm, we use Boolean:<br>
+<img src="assets/week2/flow_boolean.png" alt></p>
+<blockquote>
+<p>Booleans are named after George Boole, who introduced a branch of algebra dealing with true/false values, or 1s and 0s.</p>
+</blockquote>
+<p>Behind the scenes, <code>true == 1</code> and <code>false == 0</code>. We&#x2019;ll come back to it.</p>
+<h3 class="mume-header" id="not-equal-operator">Not equal operator: <code>!=</code></h3>
+
+<p>Pay special attention to the not symbol, <code>!</code>, an exclamation mark. When it replaces the first equals in equal to, you get <strong>not equal to, <code>!=</code></strong>. It will have other uses.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">bool</span> rainingNow <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>rainingNow <span class="token operator">!=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>   <span class="token comment">// Sooo, it&apos;s not false.. dang, it&apos;s true.</span>
+<span class="token punctuation">{</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You&apos;ll need your umbrella&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><hr>
+<h2 class="mume-header" id="assessment-1-slot-machine">Assessment 1: Slot machine</h2>
+
+<ol>
+<li>Brief.</li>
+</ol>
+<h3 class="mume-header" id="original-work-and-crediting-sources">Original work and crediting sources</h3>
+
+<p>Submitting <strong>work that isn&#x2019;t yours</strong> and <strong>not crediting</strong> the original creator is known as <strong>plagiarism</strong>.</p>
+<ul>
+<li>It&#x2019;s a big deal at university.</li>
+<li>It&#x2019;ll wipe your assessment mark.</li>
+</ul>
+<h4 class="mume-header" id="dont-look-at-slot-machine-tutorials">DON&#x2019;T: look at slot machine tutorials</h4>
+
+<p>Never look at tutes that build the same thing you&#x2019;re building.</p>
+<ul>
+<li>You can&#x2019;t unsee them, and they make it much harder to come up with your own solution.</li>
+<li>You&#x2019;ll likely end up using their structure at a minimum.</li>
+<li>I&#x2019;ve seen the tutes, I recognize the copied structure/algorithms.</li>
+</ul>
+<h4 class="mume-header" id="do-look-at-tutorials-on-c">DO: look at tutorials on C++</h4>
+
+<p>Look at tutorials that help with the individual problems:</p>
+<ul>
+<li>logical operators, math operators, relational operators in c++</li>
+<li>clearing the console screen</li>
+<li>laying out your text on screen (\t,\n)</li>
+<li>Game loops c++</li>
+<li>Programming menus in c++ console</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="adding-randomness-to-the-guessing-game">Adding randomness to the Guessing Game</h2>
 
 <p>Avoid having the same game each time. Let&#x2019;s <strong>generate a random number in the range 0-5 inclusive</strong> (including 0 and 5).</p>
-<hr>
-<h4 class="mume-header" id="_random-numbers-in-flowgorithm_"><em>Random numbers in Flowgorithm</em></h4>
+<h3 class="mume-header" id="_random-numbers-in-flowgorithm_"><em>Random numbers in Flowgorithm</em></h3>
 
 <p>Flowgorithm has <strong>built-in functions</strong> we can write into an expression.</p>
 <blockquote>
@@ -82,50 +268,106 @@
 </blockquote>
 <p>If you enter <code>Random(6)</code> as an expression, it will be replaced with a <strong>number between <code>0</code> and <code>5</code></strong>. That&#x2019;s <code>0</code> to <code>whatever - 1</code>.</p>
 <img src="assets/week2/flow_random.png" width="300">
-<blockquote>
-<p>More info: More Flowgorithm Built-In Functions<br>
-<a href="http://flowgorithm.org/documentation/intrinsic-functions.htm">http://flowgorithm.org/documentation/intrinsic-functions.htm</a><br>
-<img src="assets/week2/flowgorithm_built_in_functions.png" width="450"></p>
-</blockquote>
+<h3 class="mume-header" id="exercise">Exercise</h3>
+
+<p>Change your guessing game flow to make secretNumber random, like in the image above.</p>
+<h3 class="mume-header" id="more-flowgorithm-built-in-functions">More Flowgorithm Built-In Functions</h3>
+
+<p>You can get the length of a string, do trigonometry, convert between data types and more.</p>
+<p><img src="assets/week2/flowgorithm_built_in_functions.png" alt="built in functions"><br>
+<em>More built ins: <a href="http://flowgorithm.org/documentation/intrinsic-functions.htm">http://flowgorithm.org/documentation/intrinsic-functions.htm</a></em></p>
 <hr>
-<h4 class="mume-header" id="_random-numbers-in-c_"><em>Random numbers in C++</em></h4>
+<h2 class="mume-header" id="_random-numbers-in-c_"><em>Random numbers in C++</em></h2>
 
-<pre data-role="codeBlock" data-info="cpp {.line-number}" class="language-cpp line-number"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;time.h&gt;</span>     </span><span class="token comment">// Including the C++ time library gives us the time(x) function</span>
+<p>C++ provides built in random functions too.</p>
+<p><strong>Exercise</strong><br>
+Make another copy of the ConsoleSolution and type + run this random number code in <code>main.cpp</code>:</p>
+<p><img src="assets/week2/rand_cpp.png" alt></p>
+<h3 class="mume-header" id="why-srand">Why <code>srand()</code>?</h3>
 
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">int</span> secretNumber <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment">// Declaring an integer variable to hold the secret number</span>
-
-  <span class="token function">srand</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// Seed the C++ random number generator with current time.</span>
-  secretNumber <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">6</span><span class="token punctuation">;</span>  <span class="token comment">// Any number divided by 6 has a remainder from 0-5. </span>
-
-  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;The secret Number between 0 and 5 is: &quot;</span><span class="token punctuation">;</span>
-  cout <span class="token operator">&lt;&lt;</span> secretNumber<span class="token punctuation">;</span>
-  cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>           <span class="token comment">// Asking console to go to the next line.</span>
-
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><p><strong>Why <code>srand()</code>?</strong></p>
 <blockquote>
 <p><strong>Computers aren&#x2019;t random.</strong> They&#x2019;re super organised. They need a random starting point for making random-seeming numbers. <code>time(0)</code> gives us the <strong>time elapsed, in seconds, since 1970</strong>. That&#x2019;s pretty random.</p>
 </blockquote>
-<p><strong>Why <code>rand() % 6</code>?</strong></p>
+<h3 class="mume-header" id="why-rand-6">Why <code>rand() % 6</code>?</h3>
+
 <blockquote>
 <p><code>rand()</code> is a built in <strong>C++ function</strong>. When the line of code runs, it&#x2019;s replaced with a psuedorandom (kinda random) number <strong>between 0 and 32,767</strong></p>
 </blockquote>
 <ul>
 <li><code>a % b</code> is <code>a modulus b</code>. It means &#x201C;divide <code>a</code> by <code>b</code> and give <strong>just the remainder</strong>&#x201D;</li>
-<li><code>11 / 6</code> is <code>1</code>, leaving a remainder <code>5</code>. So <code>11 % 6</code> is <code>5</code>&quot;</li>
-<li>`12 / 6</li>
 </ul>
+<h3 class="mume-header" id="results-of-division-and-modulus">Results of division and modulus</h3>
+
+<p><code>11 / 6</code> is <code>1</code>, leaving a remainder <code>5</code>.<br>
+So <code>11 % 6</code> is <code>5</code></p>
+<p><code>12 / 6</code> is <code>2</code>, leaving a remainder <code>0</code>.<br>
+So <code>12 % 6</code> is <code>0</code></p>
 <blockquote>
 <p>More info: rand<br>
 <a href="https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/">https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/</a></p>
 </blockquote>
 <hr>
+<h2 class="mume-header" id="only-test-when-you-have-to">Only test when you have to</h2>
+
+<p>Many times, you only have to test further values when all previous tests failed.</p>
+<p>If we just use one <code>if</code> after another they all run.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> age<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span> age <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span> 
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is a child.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is a teenager.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Look at the problem in the output:</span>
+This is a child<span class="token punctuation">.</span>
+This is a teenager<span class="token punctuation">.</span>
+</pre><h3 class="mume-header" id="nested-if">Nested if</h3>
+
+<p>We only need to run tests until one is true.<br>
+You can <strong>nest <code>if</code> statements</strong> within the <code>true</code> block, or within the <code>else</code>/<code>false</code> block.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> age<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span> age <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span> 
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is a child.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword">else</span>   <span class="token comment">// only check (age &lt; 20) if (age &lt; 12) was false</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> age <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+      cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is a teenager.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> age <span class="token operator">&lt;</span> <span class="token number">65</span><span class="token punctuation">)</span> <span class="token comment">// only check (age &lt; 65) if (age &lt; 20) and (age &lt; 12) were false</span>
+    <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;This is an adult.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// Things are getting inceptiony. Even worse with wide tab spacing.</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// It works. Output:</span>
+This is a child<span class="token punctuation">.</span>
+
+</pre><h3 class="mume-header" id="else-if-instead-of-nesting"><code>else if</code> instead of nesting</h3>
+
+<p>It does the same thing but:</p>
+<ul>
+<li>without nesting</li>
+<li>with less typing and tabbing.</li>
+</ul>
+<p><strong>Exercise:</strong><br>
+Type in score rater and run it. Get the hang of <code>else if</code>, and you&#x2019;ll reap the rewards in the assessments.</p>
+<p><img src="assets/week2/code_score_rater.png" alt></p>
 
       </div>
       
