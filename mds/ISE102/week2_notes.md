@@ -13,18 +13,34 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 1](#ise102-week-1)
-  - [Resources](#resources)
-  - [Fixing the guessing game with processing](#fixing-the-guessing-game-with-processing)
-  - [Checking and deciding: `if`](#checking-and-deciding-if)
-  - [Flow: working guess game with `if`](#flow-working-guess-game-with-if)
-  - [C++: the game exported](#c-the-game-exported)
-  - [Welcome to Relational Operators](#welcome-to-relational-operators)
-  - [The `bool` type](#the-bool-type)
-  - [Assessment 1: Slot machine](#assessment-1-slot-machine)
-  - [Adding randomness to the Guessing Game](#adding-randomness-to-the-guessing-game)
-  - [Random numbers in C++](#random-numbers-in-c)
-  - [Only `if` test when you have to](#only-if-test-when-you-have-to)
+1. [ISE102 Week 1](#ise102-week-1)
+   1. [Resources](#resources)
+   2. [Fixing the guessing game with processing](#fixing-the-guessing-game-with-processing)
+      1. [Our instructions, with processing added](#our-instructions-with-processing-added)
+   3. [Checking and deciding: `if`](#checking-and-deciding-if)
+      1. [What are conditional expressions?](#what-are-conditional-expressions)
+         1. [_The "is equal to" operator_](#_the-is-equal-to-operator_)
+         2. [_Why not one `=` sign?_](#_why-not-one--sign_)
+   4. [Flow: working guess game with `if`](#flow-working-guess-game-with-if)
+   5. [C++: the game exported](#c-the-game-exported)
+   6. [Welcome to Relational Operators](#welcome-to-relational-operators)
+   7. [The `bool` type](#the-bool-type)
+      1. [Not equal operator: `!=`](#not-equal-operator-)
+   8. [Assessment 1: Slot machine](#assessment-1-slot-machine)
+      1. [Original work and crediting sources](#original-work-and-crediting-sources)
+         1. [_DON'T: look at slot machine tutorials_](#_dont-look-at-slot-machine-tutorials_)
+         2. [_DO: look at tutorials on C++_](#_do-look-at-tutorials-on-c_)
+   9. [Adding randomness to the Guessing Game](#adding-randomness-to-the-guessing-game)
+      1. [_Random numbers in Flowgorithm_](#_random-numbers-in-flowgorithm_)
+      2. [Exercise](#exercise)
+      3. [More Flowgorithm Built-In Functions](#more-flowgorithm-built-in-functions)
+   10. [Random numbers in C++](#random-numbers-in-c)
+      1. [Why `srand()`?](#why-srand)
+      2. [Why `rand() % 6`?](#why-rand--6)
+      3. [Results of division and modulus](#results-of-division-and-modulus)
+   11. [Only `if` test when you have to](#only-if-test-when-you-have-to)
+      1. [Nested if](#nested-if)
+      2. [`else if` instead of nesting](#else-if-instead-of-nesting)
 
 <!-- /code_chunk_output -->
 
@@ -36,6 +52,11 @@ Here's a new Visual Studio solution to start from.
 
 [VS_ConsoleSolution.zip](assets/index/VS_ConsoleSolution.zip)
 
+If it has a build error:
+   1. Go to the Solution Explorer and right click ConsoleSolution
+   2. Click "Retarget Solution"
+   3. Accept the new windows SDK version.
+   
 ## Fixing the guessing game with processing
 
 Last week we made a **guessing game**. It insulted players to hide its **missing functionality**.
@@ -131,7 +152,10 @@ Finish it up in Flowgorithm.
 Here's the flowgorithm export.
 
 **Exercise:**
-1. Grab an updated quick start solution: [VS_ConsoleSolution.zip](assets/index/VS_ConsoleSolution.zip)
+1. Grab an updated quick start solution: [VS_ConsoleSolution.zip](assets/index/VS_ConsoleSolution.zip). If it has a build error:
+   1. Go to the Solution Explorer and right click ConsoleSolution
+   2. Click "Retarget Solution"
+   3. Accept the new windows SDK version.
 2. **Now type it out yourself** in `main.cpp` and run it. Absorb the syntax. 
 
 ![flow guess cpp](assets/week2/flow_guess_if_cpp.png)
@@ -193,7 +217,7 @@ if (rainingNow != false)   // Sooo, it's not false.. dang, it's true.
 ___
 ## Assessment 1: Slot machine
 
-1. Brief.
+Visit the [assessments section of blackboard](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_7976098_1&course_id=_76681_1) to see the brief: 
 
 ### Original work and crediting sources
 
