@@ -13,18 +13,33 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 1](#ise102-week-1)
-  - [Resources](#resources)
-  - [Fixing the guessing game with processing](#fixing-the-guessing-game-with-processing)
-  - [Checking and deciding: `if`](#checking-and-deciding-if)
-  - [Flow: working guess game with `if`](#flow-working-guess-game-with-if)
-  - [C++: the game exported](#c-the-game-exported)
-  - [Welcome to Relational Operators](#welcome-to-relational-operators)
-  - [The `bool` type](#the-bool-type)
-  - [Assessment 1: Slot machine](#assessment-1-slot-machine)
-  - [Adding randomness to the Guessing Game](#adding-randomness-to-the-guessing-game)
-  - [Random numbers in C++](#random-numbers-in-c)
-  - [Only `if` test when you have to](#only-if-test-when-you-have-to)
+1. [ISE102 Week 1](#ise102-week-1)
+   1. [Resources](#resources)
+   2. [Fixing the guessing game with processing](#fixing-the-guessing-game-with-processing)
+      1. [Our instructions, with processing added](#our-instructions-with-processing-added)
+   3. [Checking and deciding: `if`](#checking-and-deciding-if)
+      1. [What are conditional expressions?](#what-are-conditional-expressions)
+         1. [_The "is equal to" operator_](#_the-is-equal-to-operator_)
+         2. [_Why not one `=` sign?_](#_why-not-one--sign_)
+   4. [Flow: working guess game with `if`](#flow-working-guess-game-with-if)
+   5. [C++: the game exported](#c-the-game-exported)
+   6. [Welcome to Relational Operators](#welcome-to-relational-operators)
+   7. [The `bool` type](#the-bool-type)
+      1. [Not equal operator: `!=`](#not-equal-operator-)
+   8. [Assessment 1: Slot machine](#assessment-1-slot-machine)
+      1. [Original work and crediting sources](#original-work-and-crediting-sources)
+         1. [_DON'T: look at slot machine tutorials_](#_dont-look-at-slot-machine-tutorials_)
+         2. [_DO: look at tutorials on C++_](#_do-look-at-tutorials-on-c_)
+   9. [Adding randomness to the Guessing Game](#adding-randomness-to-the-guessing-game)
+      1. [_Random numbers in Flowgorithm_](#_random-numbers-in-flowgorithm_)
+      2. [Exercise](#exercise)
+      3. [More Flowgorithm Built-In Functions](#more-flowgorithm-built-in-functions)
+   10. [Random numbers in C++](#random-numbers-in-c)
+      1. [Why srand()?](#why-srand)
+      2. [Why rand() % 6?](#why-rand--6)
+   11. [Only `if` test when you have to](#only-if-test-when-you-have-to)
+      1. [Nested if](#nested-if)
+      2. [else if instead of nesting](#else-if-instead-of-nesting)
 
 <!-- /code_chunk_output -->
 
@@ -181,7 +196,7 @@ isSad = false;  // :D
 And in Flowgorithm, we use Boolean:
 ![](assets/week2/flow_boolean.png)
 
-> Booleans are named after George Boole, who introduced a branch of algebra dealing with true/false values, or 1s and 0s.
+> **Why bool?** Booleans are named after George Boole, who introduced a branch of algebra dealing with true/false values, or 1s and 0s.
 
 Behind the scenes, `true == 1` and `false == 0`. We'll come back to it.
 
@@ -266,27 +281,31 @@ Make another copy of the ConsoleSolution and type + run this random number code 
 ![](assets/week2/rand_cpp.png)
 
 
-### Why `srand()`?
+### Why srand()?
 
-> **Computers aren't random.** They're super organised. They need a random starting point for making random-seeming numbers. `time(0)` gives us the **time elapsed, in seconds, since 1970**. That's pretty random.
+`srand(someInteger)` is a function that "seeds" the random number generator. Without it, calls to `rand()` will always produce the same set of numbers. `someInteger` is the _seed_. A different _seed_ produces a different series of random numbers. 
 
-### Why `rand() % 6`?
+`time(0)` changes every second, so every run of our program provides a unique random series.
 
-> `rand()` is a built in **C++ function**. When the line of code runs, it's replaced with a psuedorandom (kinda random) number **between 0 and 32,767**
+### Why rand() % 6?
 
-* `a % b` is `a modulus b`. It means "divide `a` by `b` and give **just the remainder**"
+> `rand()` and `srand()` are built in **C++ functions**. 
 
-### Results of division and modulus
+When a line of code containing `rand()` runs, `rand()` is replaced with a psuedorandom (kinda random) int **between 0 and 32,767**
 
-`11 / 6` is `1`, leaving a remainder `5`.
-So `11 % 6` is `5`
+How do we reduce that huge range to a number in the range 0-5? We could **divide by 6**, and use **the remainder**.
 
-`12 / 6` is `2`, leaving a remainder `0`. 
-So `12 % 6` is `0`
+> `%` is the modulus symbol. It divides one integer into another, and only gives the remainder.
 
-> **More info: rand**
-> Good info on geeksforgeeks: <https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/>
-> C++ reference docs: <http://www.cplusplus.com/reference/cstdlib/rand/>
+$$
+{62}\div{6}=10\ (remainder\ 2)\\\\
+so:\ 62\ mod\ 6=2
+$$
+
+**More info: rand and division**
+Remainders on wikipedia: <https://en.wikipedia.org/wiki/Remainder>
+On geeksforgeeks: <https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/>
+C++ reference docs: <http://www.cplusplus.com/reference/cstdlib/rand/>
 
 ___
 
@@ -349,7 +368,7 @@ This is a child.
 ```
 ___ 
 
-### `else if` instead of nesting
+### else if instead of nesting
 
 It does the same thing but:
 * without nesting
