@@ -37,12 +37,12 @@ export_on_save:
 ## Assignment 1
 Model and render a _**prop**_. Things found in a game that isn't part of, say, the tiling environment. Treasure chests, tools, candle stands, computers, siege weapons, furniture, guns.
 > **Prop** _(noun)_: An item in a scene distinct from the characters and static environment
-  
-NOTE: We won't be designing anything from scratch. 
+
+NOTE: We won't be designing anything from scratch.
 
 Lets **check out the brief** on [subject's assessment page](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_8008757_1&course_id=_75841_1&mode=reset) on Blackboard.
 
-  
+
 ### Choose your concept
 
 Let's pick something achievable and fun to model. You have **30 mins** to:
@@ -58,7 +58,7 @@ Let's pick something achievable and fun to model. You have **30 mins** to:
 
 
 ### Presentation
-  
+
 30 mins **Present** Come up front and describe what you'll model. Classmates can offer ideas, constructive thoughts.
   1. What did you choose and why?
   2. Are you making any changes?
@@ -74,7 +74,7 @@ _Break time._
 ## Block out time
 Now you need to try things, find the barriers, the challenges you'll need to overcome
 
-So start **blocking out** your models. We're just going for **big shapes**. 
+So start **blocking out** your models. We're just going for **big shapes**.
   - Aiming for proportions and feel
   - Primitives with some scaling
   - Cut off parts where needed
@@ -82,15 +82,32 @@ So start **blocking out** your models. We're just going for **big shapes**.
 
 ### PureRef
 
-Optional (great) way to keep your reference visible.
+Optional (great) way to keep your reference visible. 
+* Grab it from [pureref.com](http://www.pureref.com) to install on a personal machine.
+* For uni machines [download the portable version here.](https://www.dropbox.com/s/vx9ggk74018p2bl/PureRefPortable_192.zip?dl=1)
 
-* Right click to drag whole app
-* Ctrl-V to paste a copied image in, or drag drop
-* Left click/drag to move image
-* Middle drag to move canvas inside program
-* ctrl-alt-drag on an image to resize
+Here are a few tips and shortcuts:
 
-[Download from dropbox](https://www.dropbox.com/s/vx9ggk74018p2bl/PureRefPortable_192.zip?dl=1)
+![](assets/week2/pureref_blank.png)
+**_Pureref opens as a plain, dark grey rectangle._**
+
+![](assets/week2/pureref_on_top.png)  
+**_Set Pureref to be always on top with the right click menu._**
+
+![](assets/week2/pureref_drop_image.png)  
+**_Drag and drop your image from the notes._**
+
+![](assets/week2/pureref_crop.png)
+_**c-drag a square selection to crop, ctr-alt-drag the image to resize**_
+
+* **Right click** to move pureref
+* ** Middle drag** to move canvas inside program
+* **Left click/drag** to move image
+* **Ctrl-V** to paste a copied image in, or **drag drop**
+* **ctrl-alt-drag** on an image to resize
+* **c-drag** to crop, **ctrl-shift-c** to remove cropping.
+
+
 
 
 
@@ -113,7 +130,7 @@ Week4:
 ### Transform options
 
 Can be changed via the modelling toolkit or double clicking the transform controls on left side toolbar.
-* Control what you **xform relative to**: world/object/tangent/normal and other 
+* Control what you **xform relative to**: world/object/tangent/normal and other
 * Control what happens when snapping with multiple elements selected (maintain distance)
 * Also available in w-right-click, e-right-click and r-right-click context menus
 
@@ -143,7 +160,7 @@ How would you do thin things without a nightmare of selecting.?
 
 _**- bendy strap box with things close together -**_
 
-We can make that as a flat surface, then thicken later. 
+We can make that as a flat surface, then thicken later.
 * Start from a plane with only x axis divisions
 * Start from a box, delete back and side faces.
 * Use Quad Draw feature (will need home learning with videos and practise, but big rewards)
