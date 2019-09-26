@@ -17,6 +17,7 @@ export_on_save:
     - [Presentation](#presentation)
   - [Block out time](#block-out-time)
     - [PureRef](#pureref)
+    - [Upcoming assignment learning](#upcoming-assignment-learning)
   - [Modeling demo](#modeling-demo)
     - [The pivot point](#the-pivot-point)
     - [Transform options](#transform-options)
@@ -108,17 +109,17 @@ _**c-drag a square selection to crop, ctr-alt-drag the image to resize**_
 * **c-drag** to crop, **ctrl-shift-c** to remove cropping.
 
 
+### Upcoming assignment learning
 
-
-
-Week 3:
+**Week 3:**
   1. How to add details, add flat material colour
 
-Week4:
+**Week4:**
   1. Rendering, shading.
 
-
 ## Modeling demo
+
+I'll block out and partly detail a simple concept
 
 ### The pivot point
 
