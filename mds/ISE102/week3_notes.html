@@ -15,7 +15,181 @@
       
 
       <style>
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#555;background-color:#f0f0f0 !important;border:#d6d6d6;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#999988;font-style:italic}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#920B2D}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.property,pre[class*="language-"] .token.property{font-weight:bold;color:#333}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#D14}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#D14}code[class*="language-"] .token.symbol,pre[class*="language-"] .token.symbol{color:#990073}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#008080}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#458;font-weight:bold}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#D14}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#606aa1}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#888}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#222;font-weight:bold}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#900}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{text-decoration:underline;color:#606aa1}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#008080}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      @import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
+/*
+ * Hopscotch
+ * by Jan T. Sott
+ * https://github.com/idleberg/Hopscotch
+ *
+ * This work is licensed under the Creative Commons CC0 1.0 Universal License
+ */ 
+ 
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #ffffff;
+  font-family: "Fira Mono", Menlo, Monaco, "Lucida Console","Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  word-spacing: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; 
+  white-space: pre; 
+  white-space: pre-wrap; 
+  word-break: break-all;
+  word-wrap: break-word; 
+  background: #322931; 
+  color: #b9b5b8;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; 
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #797379;
+}
+
+.token.punctuation {
+  color: #b9b5b8;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.null,
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #fd8b19;
+} 
+.token.property { 
+  color: #fdcc59;
+}
+.token.tag { 
+  color: #1290bf;
+} 
+.token.string {
+  color: #149b93;
+} 
+.token.selector { 
+  color: #c85e7c;
+}
+.token.attr-name { 
+  color: #fd8b19;
+} 
+.token.entity,
+.token.url, 
+.language-css .token.string,
+.style .token.string {
+  color: #149b93;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #8fc13e;
+} 
+
+.token.statement,
+.token.regex, 
+.token.atrule { 
+  color: #149b93;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #1290bf;
+} 
+
+.token.important {
+  color: #dd464c;
+  font-weight: bold;
+} 
+
+.token.entity {
+  cursor: help;
+} 
+
+pre > code.highlight {
+  outline: .4em solid red;
+  outline-offset: .4em;
+} 
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 /*.markdown-preview.markdown-preview {
@@ -129,9 +303,12 @@
 <li><a href="#ise102-week-3---loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
 <ul>
 <li><a href="#repeating">Repeating!</a></li>
-<li><a href="#while-in-c">While In <em>C++</em></a></li>
 <li><a href="#limiting-guesses-with-logic">Limiting guesses with logic</a></li>
 <li><a href="#exercise-menu-fighter">Exercise: Menu Fighter</a></li>
+<li><a href="#adding-constants-for-clarity">Adding constants for clarity</a></li>
+<li><a href="#clearing-the-screenconsole-in-c">Clearing the screen/console in C++</a></li>
+<li><a href="#enumerators-enum">Enumerators: <strong><code>enum</code></strong></a></li>
+<li><a href="#other-loop-structures">Other loop structures</a></li>
 </ul>
 </li>
 </ul>
@@ -144,7 +321,7 @@ We select something in the <strong>main menu</strong>, and eventually <strong>re
 On the <strong>&#x201C;arcade&#x201D; screen in <em>Overwatch</em> we choose a game mode</strong> and enter a queue. We&#x2019;ll either <strong>cancel back</strong> to this screen or <strong>play a game</strong> and return to the screen.</p>
 <p><img src="assets/week3/rounds_loop_sf4.jpg" alt><br>
 In Street Fighter we <strong>play the best of 3 rounds</strong>, in each of which we recover all our health and fight again.</p>
-<h3 class="mume-header" id="guess-again-while-loops">Guess Again: while loops</h3>
+<h3 class="mume-header" id="guess-again-while-loops">Guess Again: <code>while</code> loops</h3>
 
 <p>Our guessing game wasn&#x2019;t much fun when you had a 5 in 6 chance of losing.</p>
 <p>Let&#x2019;s add extra chances with higher/lower prompts until you get it. We need a way to <strong>do things repeatedly</strong>.</p>
@@ -168,7 +345,7 @@ Repeating/looping in flowgorithm is handled by <strong>the while loop</strong>, 
 <li>If the playerGuess is less than the secret number, print out &#x201C;Higher.&#x201D; after their guess.</li>
 <li>Add &#x201C;Lower.&#x201D; if they guess high.</li>
 </ul>
-<h2 class="mume-header" id="while-in-_c_">While In <em>C++</em></h2>
+<h3 class="mume-header" id="while-in-_c_"><code>while</code> In <em>C++</em></h3>
 
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
@@ -228,7 +405,8 @@ Repeating/looping in flowgorithm is handled by <strong>the while loop</strong>, 
 <p>More operators are also available here: <a href="http://flowgorithm.org/documentation/operators.htm">http://flowgorithm.org/documentation/operators.htm</a></p>
 <h3 class="mume-header" id="if-a-is-true-_and_-b-is-true">If A is true <em>and</em> B is true</h3>
 
-<p>We don&#x2019;t need <code>||</code> though. We need to <strong>continue if the player hasn&#x2019;t guessed the number AND they have guessed less than 3 times</strong>. This requires <strong>logical and:</strong></p>
+<p>We don&#x2019;t need <code>||</code> though. We need to <strong>continue if the player hasn&#x2019;t guessed the number AND they have guessed less than 3 times</strong>.</p>
+<p>This requires <strong>logical <em>and</em>.</strong> Let&#x2019;s see Jessie use it.</p>
 <blockquote>
 <p>&#x201C;Okay, I&#x2019;ll go to the party,&#x201D; Jessie flounced, &#x201C;if you make the DJ play Cardi B.&#x201D;<br>
 &#x201C;<strong>And</strong> someone else drives.&#x201D; she added.</p>
@@ -239,35 +417,152 @@ Repeating/looping in flowgorithm is handled by <strong>the while loop</strong>, 
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">bool</span> brunoIsGoing <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  <span class="token keyword">bool</span> clausIsGoing <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> djPlaysCardiB <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> someoneElseDrives <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>brunoIsGoing <span class="token operator">||</span> clausIsGoing<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>djPlaysCardiB <span class="token operator">&amp;&amp;</span> someoneElseDrives<span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t&quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Looks like Sharmeen is going.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// \t adds a tab at the start.</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t&quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Ok Jessie is going.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// \t adds a tab at the start.</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="exercise-menu-fighter">Exercise: Menu Fighter</h2>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><strong>Spoiler:</strong> she doesn&#x2019;t go. Jessie respects her P plates too much to lose them drink driving.</p>
+<h3 class="mume-header" id="exercise-the-guess-limit">Exercise: The Guess Limit</h3>
 
+<p>Add <strong>two required conditions</strong> to your while loop using <code>&amp;&amp;</code>. <strong>Learn from Jessie.</strong></p>
 <ol>
-<li>If noone&#x2019;s quitting, display a menu.  <em>(begins the loop)</em></li>
-<li>Let me choose an entry.</li>
-<li>Take me to that option.
-<ul>
-<li>If play, print &#x201C;You win! Hit a key to go back.&#x201D;</li>
-<li>If options print &#x201C;Your only option is to fight. Hit a key to go back.&#x201D;</li>
-</ul>
-</li>
-<li>If it was &#x201C;quit&#x201D;, let me do it. (break or set quitting true)</li>
-<li>Try to return to displaying menu. <em>(returns to top of the loop)</em></li>
+<li>Player guess <strong>is not equal to</strong> secret number.</li>
+<li>Guess count is less than 3.</li>
 </ol>
-<p>Enter options: Your only option is to fight. Return to menu.</p>
-<p>Quit: Okay, quitting is another option.</p>
-<h3 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h3>
+<p>Print &#x201C;No more guesses, you&#x2019;re done&#x201D; before quitting if they run out of guesses.</p>
+<h2 class="mume-header" id="exercise-menu-fighter">Exercise: Menu Fighter</h2>
+
+<p><strong>Make this amazing game by yourself.</strong></p>
+<p>You can:</p>
+<ul>
+<li>Write it <strong>directly in <em>C++</em></strong><br>
+or</li>
+<li>Make it <strong>in <em>Flowgorithm</em></strong> and then <strong>export it to <em>C++</em></strong>. Paste it into a Visual Studio project&#x2019;s main.cpp and <strong>get it running in the console.</strong></li>
+</ul>
+<blockquote>
+<p>########################<br>
+Welcome to Menu Fighter.<br>
+########################</p>
+<ol>
+<li>Play Game</li>
+<li>Options</li>
+<li>Quit</li>
+</ol>
+<p>Enter your choice: _</p>
+</blockquote>
+<p>Here are the <strong>computer&#x2019;s instructions</strong>:</p>
+<ol>
+<li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
+<li>Let me <strong>choose an entry</strong> by inputting a number.</li>
+<li><strong>Display a screen</strong> for the option I chose.<br>
+<strong>a.</strong> If it&#x2019;s <strong>play, print &quot;You win!</strong> Hit a key to go back.&quot;<br>
+<strong>b.</strong> If it&#x2019;s <strong>options, print</strong> &#x201C;Your only option is to fight. Hit a key to go back.&#x201D;<br>
+<strong>c.</strong> If it was <strong>quit</strong>, print a &#x201C;Correction: quitting is another option.&#x201D; and remember <strong>playerQuit is true</strong>.</li>
+<li><strong>Loop back</strong> displaying menu. <em>(returns to 1), top of loop, <strong>checks condition again</strong>)</em></li>
+</ol>
+<p><em>6: if playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function. This is a good, readable way end your program, hitting <strong><code>return(0)</code></strong> at the end of main</em></p>
+<h2 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h2>
 
 <p>Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these <strong>magic numbers</strong> because, without context, they could <strong>mean anything</strong>. They <strong>appear and work as if by magic</strong>.</p>
+<p>Constants <strong>are variables</strong> in C++&#x2026; <strong>that don&#x2019;t vary</strong>. They mean something like <strong><code>PI</code></strong>, or <strong><code>SECONDS_IN_MINUTE</code></strong>. When we use them in an if, it&#x2019;s clear what&#x2019;s happening.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> PLAY <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> QUIT <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> PLAY<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// play</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> QUIT<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//quit</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="the-const-keyword">The <code>const</code> keyword</h4>
+
+<p>When the compiler sees <strong><code>const</code></strong> before <strong><code>int</code></strong> it means that variable can&#x2019;t be changed. If you <strong>try to assign to</strong>/overwrite a constant, your program <strong>won&#x2019;t compile</strong>.</p>
+<h4 class="mume-header" id="conventions-and-constant_name">Conventions and <code>CONSTANT_NAME</code></h4>
+
+<p>There&#x2019;s <strong>no compiler rule saying</strong> <code>const</code> names have to be <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong>. It&#x2019;s purely for human eyeballs. We&#x2019;ll know it&#x2019;s an unchanging number <strong>on sight</strong>.</p>
+<blockquote>
+<p><strong>Conventions are practises</strong> programmers follow to <strong>make reading code easier</strong> on themselves and others. If we follow conventions that are widely used, and do it consistently:</p>
+<ol>
+<li><strong>Debugging our code</strong> will be easier</li>
+<li><strong>Sharing and receiving</strong> code will be easier</li>
+<li><strong>We can write bigger programs</strong> and more complex games, because we&#x2019;ll <strong>minimise wasted mental energy</strong>.</li>
+</ol>
+<p>Like a marathon runner with a disciplined stride, we&#x2019;ll go further with the same resources.</p>
+</blockquote>
+<h2 class="mume-header" id="clearing-the-screenconsole-in-c">Clearing the screen/console in C++</h2>
+
+<p>Nobody wants to play <strong>scroll down the screen fighter</strong>.</p>
+<p>Add <strong><code>System(cls)</code> before showing sub screens</strong>, and <strong>before returning</strong> to the main menu.</p>
+<h2 class="mume-header" id="enumerators-enum">Enumerators: <strong><code>enum</code></strong></h2>
+
+<p>Enumerators provide a shorthand for creating (and grouping) constants with integer values.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> MenuChoices <span class="token punctuation">{</span> STORY_MODE<span class="token punctuation">,</span> ONLINE_MULTIPLAYER<span class="token punctuation">,</span> OPTIONS<span class="token punctuation">,</span> QUIT <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> MenuChoices<span class="token punctuation">.</span>PLAY<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// play</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> MenuChoices<span class="token punctuation">.</span>QUIT<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//quit</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>I&#x2019;ve shown you an <strong>enum defined on a single line</strong> because hopefully it&#x2019;ll <strong>help you remember</strong> you need <strong>a semi colon at the end</strong> of an enum definition.</p>
+<ul>
+<li>Conventionally, an enum definition is <strong>spread over multiple lines</strong> for readability.</li>
+<li>These curly braces <strong>don&#x2019;t define a code block</strong>. They&#x2019;re actually starting and ending a <em>set</em>, a collection. More on this later in data collections.</li>
+</ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">enum</span> MenuChoices    <span class="token comment">// enums can get long, so they&apos;re defined over multiple lines</span>
+<span class="token punctuation">{</span> 
+  STORY_MODE<span class="token punctuation">,</span> 
+  ONLINE_MULTIPLAYER<span class="token punctuation">,</span> 
+  OPTIONS<span class="token punctuation">,</span>
+  STORE<span class="token punctuation">,</span>
+  LOOTBOXES<span class="token punctuation">,</span>
+  CREDITS<span class="token punctuation">,</span>
+  STATISTICS<span class="token punctuation">,</span>
+  QUIT 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>              <span class="token comment">// DON&apos;T FORGET this semi colon. Spoiler: you will.</span>
+</pre><p>There&#x2019;s <strong>a lot more to enums</strong>, read on: <a href="https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/">https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/</a></p>
+<h2 class="mume-header" id="other-loop-structures">Other loop structures</h2>
+
+<p><strong><code>for</code></strong> loops. <strong><code>do..while</code></strong> loops. Look into them in <em>Flowgorithm</em> and <em>C++</em></p>
+<p>You&#x2019;ll mostly see <strong><code>for</code></strong> loops used to go through collections of data. We&#x2019;ll get to that next week.</p>
+<p><img src="assets/week3/flow_for_baby.png" alt></p>
+<p><strong>Note</strong> I joined the <code>lyric</code> variable and the string <code>&quot;, &quot;</code> using a single <code>&amp;</code>. That&#x2019;s a flowgorithm thing.</p>
+<h3 class="mume-header" id="for-exported-to-_c_"><code>for</code> exported to <em>C++</em></h3>
+
+<p><strong>Note</strong> how in <em>C++</em> <code>lyric</code> and <code>&quot;, &quot;</code> are joined using <code>&lt;&lt;</code>. This works when the line starts with <code>cout</code>.</p>
+<p><img src="assets/week3/cpp_baby_for.png" alt></p>
 
       </div>
       

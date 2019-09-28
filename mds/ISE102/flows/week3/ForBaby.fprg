@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Danny"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-28 11:51:28 PM"/>
+        <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yODsxMTozNzowMiBQTTsyNjA5"/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yODsxMTo1MToyOCBQTTsxOzI3MjE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="lyric" type="String" array="False" size=""/>
+            <assign variable="lyric" expression="&quot;baby&quot;"/>
+            <output expression="&quot;I was like &quot;" newline="False"/>
+            <declare name="index" type="Integer" array="False" size=""/>
+            <for variable="index" start="0" end="2" direction="inc" step="1">
+                <output expression="lyric &amp; &quot;, &quot;" newline="False"/>
+            </for>
+            <output expression="&quot;oh!&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
