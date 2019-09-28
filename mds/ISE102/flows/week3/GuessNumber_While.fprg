@@ -4,10 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="dmac"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-09-28 09:11:51 PM"/>
+        <attribute name="saved" value="2019-09-29 12:12:28 AM"/>
         <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
         <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjo0Mzo0MCBBTTszOzI3NTY="/>
-        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yODswOToxMTo1MSBQTTsyOzI3MjE="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yOTsxMjoxMjoyOCBBTTszOzI3MDc="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -16,9 +16,12 @@
             <declare name="playerGuess" type="Integer" array="False" size=""/>
             <assign variable="playerGuess" expression="-1"/>
             <assign variable="secretNumber" expression="Random(6)"/>
-            <while expression="playerGuess != secretNumber">
+            <declare name="guessCount" type="Integer" array="False" size=""/>
+            <assign variable="guessCount" expression="0"/>
+            <while expression="playerGuess != secretNumber &amp;&amp; guessCount &lt; 3">
                 <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
                 <input variable="playerGuess"/>
+                <assign variable="guessCount" expression="guessCount + 1"/>
             </while>
             <output expression="&quot;You win a million moneys.&quot;" newline="True"/>
         </body>
