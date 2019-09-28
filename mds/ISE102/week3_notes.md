@@ -111,8 +111,8 @@ We could:
 
 When we have multiple conditions in life, they.. depend.
 
-> "Okay, I'll go to the party." Sharmeen said, and then "IF Bruno Johnson is going."
-> ".. or Claus Hansomme." she further specified, after a pause.
+> "Okay, I'll go to the party," Sharmeen sighed, "IF Bruno Johnson is going."
+> ".. or Claus Hansomme." she added, looking into the distance.
 
 With the help of the **logical operator `||`**, that's two pipe symbols (above `enter`), we can check for **A _or_ B**. 
 
