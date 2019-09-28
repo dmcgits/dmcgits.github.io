@@ -300,7 +300,7 @@ pre[data-line] .line-highlight[data-end]:after {
       <h1 class="mume-header" id="ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</h1>
 
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
+<li><a href="#ise102-week-3---loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
 <ul>
 <li><a href="#repeating">Repeating!</a></li>
 <li><a href="#limiting-guesses-with-logic">Limiting guesses with logic</a></li>
@@ -461,12 +461,12 @@ Welcome to Menu Fighter.<br>
 <li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
 <li>Let me <strong>choose an entry</strong> by inputting a number.</li>
 <li><strong>Display a screen</strong> for the option I chose.<br>
-<strong>a.</strong> If it&#x2019;s <strong>play, print &quot;You win!</strong> Hit a key to go back.&quot;<br>
-<strong>b.</strong> If it&#x2019;s <strong>options, print</strong> &#x201C;Your only option is to fight. Hit a key to go back.&#x201D;<br>
-<strong>c.</strong> If it was <strong>quit</strong>, print a &#x201C;Correction: quitting is another option.&#x201D; and remember <strong>playerQuit is true</strong>.</li>
-<li><strong>Loop back</strong> displaying menu. <em>(returns to 1), top of loop, <strong>checks condition again</strong>)</em></li>
+<strong>a.</strong> If it&#x2019;s <strong>play</strong>: print <code>&quot;You win! Hit a key to go back.&quot;</code><br>
+<strong>b.</strong> If it&#x2019;s <strong>options</strong>: print <code>&quot;Your only option is to fight. Hit a key to go back.&quot;</code><br>
+<strong>c.</strong> If it was <strong>quit</strong>: print <code>&quot;Correction: quitting is an option.&quot;</code> and remember <strong>playerQuit is true</strong>.</li>
+<li><strong>Loop back</strong> to displaying menu. <em>(returns to 1), top of loop, <strong>checks condition again</strong>)</em></li>
 </ol>
-<p><em>6: if playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function. This is a good, readable way end your program, hitting <strong><code>return(0)</code></strong> at the end of main</em></p>
+<p><em>6: If playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function. It&#x2019;s a good way end your program, hitting <strong><code>return(0)</code></strong> at the end of main</em></p>
 <h2 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h2>
 
 <p>Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these <strong>magic numbers</strong> because, without context, they could <strong>mean anything</strong>. They <strong>appear and work as if by magic</strong>.</p>

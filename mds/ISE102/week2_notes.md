@@ -47,11 +47,7 @@ Last week we made a **guessing game**. It insulted players to hide its **missing
 
 ![flow guess insult](assets/week2/flow_guess_insult.png)
 
-Remember the **4 basic things a pc program does**?
-
-![](assets/week2/pc_programming_4_basics.png)
-
-We were missing **processing.**
+Remember the **4 basic things** a pc program does? We were missing **processing.**
 
 ![](assets/week2/no_processing_checklist.png)
 

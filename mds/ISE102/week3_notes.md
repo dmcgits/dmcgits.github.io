@@ -13,7 +13,7 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3-loops-basic-functions)
+- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3---loops-basic-functions)
   - [Repeating!](#repeating)
   - [Limiting guesses with logic](#limiting-guesses-with-logic)
   - [Exercise: Menu Fighter](#exercise-menu-fighter)
@@ -204,12 +204,12 @@ Here are the **computer's instructions**:
 1. If player hasn't quit, **display a numbered menu**.  _(begins the loop)_
 2. Let me **choose an entry** by inputting a number.
 3. **Display a screen** for the option I chose.
-   **a.** If it's **play, print "You win!** Hit a key to go back."
-   **b.** If it's **options, print** "Your only option is to fight. Hit a key to go back." 
-   **c.** If it was **quit**, print a "Correction: quitting is another option." and remember **playerQuit is true**. 
-5. **Loop back** displaying menu. _(returns to 1), top of loop, **checks condition again**)_
+   **a.** If it's **play**: print `"You win! Hit a key to go back."`
+   **b.** If it's **options**: print `"Your only option is to fight. Hit a key to go back."` 
+   **c.** If it was **quit**: print `"Correction: quitting is an option."` and remember **playerQuit is true**. 
+5. **Loop back** to displaying menu. _(returns to 1), top of loop, **checks condition again**)_
 
-_6: if playerQuit is true, the loop won't run, we'll go to the end of the main function. This is a good, readable way end your program, hitting **`return(0)`** at the end of main_
+_6: If playerQuit is true, the loop won't run, we'll go to the end of the main function. It's a good way end your program, hitting **`return(0)`** at the end of main_
 
 ## Adding constants for clarity
 
