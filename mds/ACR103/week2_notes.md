@@ -13,22 +13,8 @@ export_on_save:
 
 - [ACR103 Week 2](#acr103-week-2)
   - [Assignment 1](#assignment-1)
-    - [Choose your concept](#choose-your-concept)
-    - [Presentation](#presentation)
   - [Block out time](#block-out-time)
-    - [PureRef](#pureref)
-    - [Upcoming assignment learning](#upcoming-assignment-learning)
   - [Modeling demo](#modeling-demo)
-    - [The pivot point](#the-pivot-point)
-    - [Transform options](#transform-options)
-    - [Channel Box](#channel-box)
-    - [Freeze transformations](#freeze-transformations)
-    - [Bevels](#bevels)
-    - [Amputation with Multi Cut](#amputation-with-multi-cut)
-    - [Joining with Bridge](#joining-with-bridge)
-    - [Booleans](#booleans)
-    - [Thin things ( not a big detail)](#thin-things--not-a-big-detail)
-    - [N-gons](#n-gons)
 
 <!-- /code_chunk_output -->
 

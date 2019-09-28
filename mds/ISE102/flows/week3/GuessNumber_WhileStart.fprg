@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dmac"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-28 08:44:08 PM"/>
+        <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
+        <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjo0Mzo0MCBBTTszOzI3NTY="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yODswODo0NDowOCBQTTsyOzI3Mjg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="secretNumber" type="Integer" array="False" size=""/>
+            <declare name="playerGuess" type="Integer" array="False" size=""/>
+            <assign variable="playerGuess" expression="-1"/>
+            <assign variable="secretNumber" expression="Random(6)"/>
+            <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
+            <while expression="playerGuess != secretNumber"/>
+            <output expression="&quot;You win a million moneys.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
