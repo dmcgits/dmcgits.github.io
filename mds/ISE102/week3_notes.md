@@ -43,7 +43,7 @@ In Street Fighter we **play the best of 3 rounds**, in each of which we recover 
 
 Our guessing game wasn't much fun when you had a 5 in 6 chance of losing. 
 
-Let's add extra chances with higher/lower prompts until you get it. We need a way to **do things repeatedly**. 
+Let's **add extra chances** with higher/lower prompts until you get it. We'll need a way to **do things repeatedly**. 
 
 ![](assets/week3/flow_while_node.png)
 Repeating/looping in flowgorithm is handled by **the while loop**, along with other loops. To make loops useful, **they can be stopped** eventually. 
