@@ -31,8 +31,8 @@ export_on_save:
 
 ## 2. Book Chapters
 
-[Chap 1](book_1/chap1_cpp_games.pdf) / [Chap 2](book_2/chap2_cpp_games.pdf) / [Chap 3](book_3/chap3_cpp_games.pdf) /  [Chap 4](book_4/chap4_cpp_games.pdf) / [Chap 5](book_5/chap5_cpp_games.pdf)
-[Chap 6](book_6/chap6_cpp_games.pdf) / [Chap 7](book_7/chap7_cpp_games.pdf) / [Chap 8](book_8/chap8_cpp_games.pdf) / [Chap 9](book_9/chap9_cpp_games.pdf) / [Chap 10](book_10/chap10_cpp_games.pdf)
+[Chap 1](book_1/chap1_cpp_games.pdf) / [Chap 2](book_1/chap2_cpp_games.pdf) / [Chap 3](book_1/chap3_cpp_games.pdf) /  [Chap 4](book_1/chap4_cpp_games.pdf) / [Chap 5](book_1/chap1_cpp_games.pdf)
+[Chap 6](book_1/chap6_cpp_games.pdf) / [Chap 7](book_1/chap7_cpp_games.pdf) / [Chap 8](book_1/chap8_cpp_games.pdf) / [Chap 9](book_1/chap9_cpp_games.pdf) / [Chap 10](book_1/chap10_cpp_games.pdf)
 
 ## 3. Flows
 

@@ -13,14 +13,15 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3-loops-basic-functions)
+- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3---loops-basic-functions)
   - [Repeating!](#repeating)
   - [Limiting guesses with logic](#limiting-guesses-with-logic)
-  - [Exercise: Menu Fighter](#exercise-menu-fighter)
   - [Adding constants for clarity](#adding-constants-for-clarity)
   - [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
   - [Enumerators: **`enum`**](#enumerators-enum)
   - [Other loop structures](#other-loop-structures)
+  - [Home Todos:](#home-todos)
+  - [Home Exercise: Menu Fighter](#home-exercise-menu-fighter)
 
 <!-- /code_chunk_output -->
 
@@ -180,37 +181,6 @@ Add **two required conditions** to your while loop using `&&`. **Learn from Jess
 
 Print "No more guesses, you're done" before quitting if they run out of guesses.
 
-## Exercise: Menu Fighter
-
-**Make this amazing game by yourself.** 
-
-You can:
-- Write it **directly in _C++_** 
-or
-- Make it **in _Flowgorithm_** and then **export it to _C++_**. Paste it into a Visual Studio project's main.cpp and **get it running in the console.**
-
-> ########################
-> Welcome to Menu Fighter.
-> ########################
->
->   1. Play Game
->   2. Options
->   3. Quit
->
->   Enter your choice: _
->
-
-Here are the **computer's instructions**:
-1. If player hasn't quit, **display a numbered menu**.  _(begins the loop)_
-2. Let me **choose an entry** by inputting a number.
-3. **Display a screen** for the option I chose.
-   **a.** If it's **play**: print `"You win! Hit a key to go back."`
-   **b.** If it's **options**: print `"Your only option is to fight. Hit a key to go back."` 
-   **c.** If it was **quit**: print `"Correction: quitting is an option."` and remember **playerQuit is true**. 
-5. **Loop back** to displaying menu. _(returns to 1), top of loop, **checks condition again**)_
-
-_6: If playerQuit is true, the loop won't run, we'll go to the end of the main function. It's a good way end your program, hitting **`return(0)`** at the end of main_
-
 ## Adding constants for clarity
 
 Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these **magic numbers** because, without context, they could **mean anything**. They **appear and work as if by magic**.
@@ -328,4 +298,43 @@ You'll mostly see **`for`** loops used to go through collections of data. We'll 
 
 ![](assets/week3/cpp_baby_for.png)
 
+## Home Todos:
 
+1. Do the _**Menu Fighter**_ exercise below.
+2. Read through to the end of [chapter 2 of the textbook](book_1/chap2_cpp_games.pdf). **This book will help you** enormously, all you have to do is put in some time. Save the chapter 2 pdf to your phone, easy.
+   a. If there's anything you don't fully understand, type out the code sample for that part! 
+   b. If you want to do well in the subject, type out lots of code samples and play with them.
+[![](assets/week3/book_chap_2.png)](book_1/chap2_cpp_games.pdf)
+3. **[SoloLearn](https://www.sololearn.com/Course/CPlusPlus/): work through** the _C++_ tutorial to the **end of the second section**, _Conditionals and Loops_
+   a. The sololearn [site](https://www.sololearn.com/Course/CPlusPlus/) has the same tute and syncs with your phone progress when you log in.
+![](assets/week3/sololearn_loops.png)
+
+
+## Home Exercise: Menu Fighter
+
+**Make this amazing game by yourself.** 
+
+You can:
+- Write it **directly in _C++_** 
+or
+- Make it **in _Flowgorithm_** and then **export it to _C++_**. Paste it into a Visual Studio project's main.cpp and **get it running in the console.**
+
+![](assets/week3/menu_fighter_chat.png)
+
+
+> ---- WELCOME TO MENU FIGHTER -----
+>
+> 1: Play Game | 2: Options | 3: Quit
+>
+> Enter a number to choose:
+
+Here are the computer's instructions:
+1. If player hasn't quit, **display a numbered menu**.  _(begins the loop)_
+2. Let me choose an entry by **inputting a number**.
+3. Check their choice and:
+   **Play Game**: print `"Round 1, Fight. Bish bish bash URGH. You win!"`
+   **Options**: print `"Your only option is to fight."` 
+   **Quit**: print `"You quit."` and remember **playerQuit is true**. 
+5. Repeat. 
+
+_6: If playerQuit is true, the loop won't run, we'll go to the end of the main function._

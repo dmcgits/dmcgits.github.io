@@ -213,6 +213,7 @@ pre[data-line] .line-highlight[data-end]:after {
 }
 .markdown-preview.markdown-preview {
   font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
   font-size: 1.25em;
   color: #222;
 }
@@ -236,7 +237,7 @@ pre[data-line] .line-highlight[data-end]:after {
   padding-left: 0.1em;
   padding-bottom: 0.3em;
   padding-top: 0.25em;
-  background-color: #F1F1FA;
+  background-color: #E1E1EA;
 }
 .markdown-preview.markdown-preview h3 {
   color: #445;
@@ -246,7 +247,7 @@ pre[data-line] .line-highlight[data-end]:after {
   padding-left: 0.2em;
   padding-bottom: 0.25em;
   padding-top: 0.2em;
-  background-color: #F5F5FC;
+  background-color: #E5E5EC;
 }
 .markdown-preview.markdown-preview h4 {
   font-size: 1.25em;
@@ -300,15 +301,16 @@ pre[data-line] .line-highlight[data-end]:after {
       <h1 class="mume-header" id="ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</h1>
 
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
+<li><a href="#ise102-week-3---loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
 <ul>
 <li><a href="#repeating">Repeating!</a></li>
 <li><a href="#limiting-guesses-with-logic">Limiting guesses with logic</a></li>
-<li><a href="#exercise-menu-fighter">Exercise: Menu Fighter</a></li>
 <li><a href="#adding-constants-for-clarity">Adding constants for clarity</a></li>
 <li><a href="#clearing-the-screenconsole-in-c">Clearing the screen/console in C++</a></li>
 <li><a href="#enumerators-enum">Enumerators: <strong><code>enum</code></strong></a></li>
 <li><a href="#other-loop-structures">Other loop structures</a></li>
+<li><a href="#home-todos">Home Todos:</a></li>
+<li><a href="#home-exercise-menu-fighter">Home Exercise: Menu Fighter</a></li>
 </ul>
 </li>
 </ul>
@@ -436,37 +438,6 @@ Repeating/looping in flowgorithm is handled by <strong>the while loop</strong>, 
 <li>Guess count is less than 3.</li>
 </ol>
 <p>Print &#x201C;No more guesses, you&#x2019;re done&#x201D; before quitting if they run out of guesses.</p>
-<h2 class="mume-header" id="exercise-menu-fighter">Exercise: Menu Fighter</h2>
-
-<p><strong>Make this amazing game by yourself.</strong></p>
-<p>You can:</p>
-<ul>
-<li>Write it <strong>directly in <em>C++</em></strong><br>
-or</li>
-<li>Make it <strong>in <em>Flowgorithm</em></strong> and then <strong>export it to <em>C++</em></strong>. Paste it into a Visual Studio project&#x2019;s main.cpp and <strong>get it running in the console.</strong></li>
-</ul>
-<blockquote>
-<p>########################<br>
-Welcome to Menu Fighter.<br>
-########################</p>
-<ol>
-<li>Play Game</li>
-<li>Options</li>
-<li>Quit</li>
-</ol>
-<p>Enter your choice: _</p>
-</blockquote>
-<p>Here are the <strong>computer&#x2019;s instructions</strong>:</p>
-<ol>
-<li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
-<li>Let me <strong>choose an entry</strong> by inputting a number.</li>
-<li><strong>Display a screen</strong> for the option I chose.<br>
-<strong>a.</strong> If it&#x2019;s <strong>play</strong>: print <code>&quot;You win! Hit a key to go back.&quot;</code><br>
-<strong>b.</strong> If it&#x2019;s <strong>options</strong>: print <code>&quot;Your only option is to fight. Hit a key to go back.&quot;</code><br>
-<strong>c.</strong> If it was <strong>quit</strong>: print <code>&quot;Correction: quitting is an option.&quot;</code> and remember <strong>playerQuit is true</strong>.</li>
-<li><strong>Loop back</strong> to displaying menu. <em>(returns to 1), top of loop, <strong>checks condition again</strong>)</em></li>
-</ol>
-<p><em>6: If playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function. It&#x2019;s a good way end your program, hitting <strong><code>return(0)</code></strong> at the end of main</em></p>
 <h2 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h2>
 
 <p>Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these <strong>magic numbers</strong> because, without context, they could <strong>mean anything</strong>. They <strong>appear and work as if by magic</strong>.</p>
@@ -563,6 +534,44 @@ Welcome to Menu Fighter.<br>
 
 <p><strong>Note</strong> how in <em>C++</em> <code>lyric</code> and <code>&quot;, &quot;</code> are joined using <code>&lt;&lt;</code>. This works when the line starts with <code>cout</code>.</p>
 <p><img src="assets/week3/cpp_baby_for.png" alt></p>
+<h2 class="mume-header" id="home-todos">Home Todos:</h2>
+
+<ol>
+<li>Do the <em><strong>Menu Fighter</strong></em> exercise below.</li>
+<li>Read through to the end of <a href="book_1/chap2_cpp_games.pdf">chapter 2 of the textbook</a>. <strong>This book will help you</strong> enormously, all you have to do is put in some time. Save the chapter 2 pdf to your phone, easy.<br>
+a. If there&#x2019;s anything you don&#x2019;t fully understand, type out the code sample for that part!<br>
+b. If you want to do well in the subject, type out lots of code samples and play with them.<br>
+<a href="book_1/chap2_cpp_games.pdf"><img src="assets/week3/book_chap_2.png" alt></a></li>
+<li><strong><a href="https://www.sololearn.com/Course/CPlusPlus/">SoloLearn</a>: work through</strong> the <em>C++</em> tutorial to the <strong>end of the second section</strong>, <em>Conditionals and Loops</em><br>
+a. The sololearn <a href="https://www.sololearn.com/Course/CPlusPlus/">site</a> has the same tute and syncs with your phone progress when you log in.<br>
+<img src="assets/week3/sololearn_loops.png" alt></li>
+</ol>
+<h2 class="mume-header" id="home-exercise-menu-fighter">Home Exercise: Menu Fighter</h2>
+
+<p><strong>Make this amazing game by yourself.</strong></p>
+<p>You can:</p>
+<ul>
+<li>Write it <strong>directly in <em>C++</em></strong><br>
+or</li>
+<li>Make it <strong>in <em>Flowgorithm</em></strong> and then <strong>export it to <em>C++</em></strong>. Paste it into a Visual Studio project&#x2019;s main.cpp and <strong>get it running in the console.</strong></li>
+</ul>
+<p><img src="assets/week3/menu_fighter_chat.png" alt></p>
+<blockquote>
+<p>---- WELCOME TO MENU FIGHTER -----</p>
+<p>1: Play Game | 2: Options | 3: Quit</p>
+<p>Enter a number to choose:</p>
+</blockquote>
+<p>Here are the computer&#x2019;s instructions:</p>
+<ol>
+<li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
+<li>Let me choose an entry by <strong>inputting a number</strong>.</li>
+<li>Check their choice and:<br>
+<strong>Play Game</strong>: print <code>&quot;Round 1, Fight. Bish bish bash URGH. You win!&quot;</code><br>
+<strong>Options</strong>: print <code>&quot;Your only option is to fight.&quot;</code><br>
+<strong>Quit</strong>: print <code>&quot;You quit.&quot;</code> and remember <strong>playerQuit is true</strong>.</li>
+<li>Repeat.</li>
+</ol>
+<p><em>6: If playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function.</em></p>
 
       </div>
       
