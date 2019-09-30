@@ -4,10 +4,10 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="dmac"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-09-30 08:35:21 PM"/>
+        <attribute name="saved" value="2019-09-30 08:41:18 PM"/>
         <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
         <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjo0Mzo0MCBBTTszOzI3NTY="/>
-        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0zMDswODozNToyMSBQTTs2OzI3MjA="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0zMDswODo0MToxOCBQTTs3OzI3MjQ="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -38,7 +38,12 @@
                 </if>
                 <assign variable="guessesCount" expression="guessesCount + 1"/>
             </while>
-            <output expression="&quot;You're out of guesses.&quot;" newline="True"/>
+            <if expression="playerGuess != secretNumber">
+                <then>
+                    <output expression="&quot;You're out of guesses.&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
         </body>
     </function>
 </flowgorithm>

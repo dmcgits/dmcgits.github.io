@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dmac"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-30 09:05:28 PM"/>
+        <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
+        <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjo0Mzo0MCBBTTszOzI3NTY="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0zMDswOTowNToyOCBQTTs4OzI3Mjc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="playerGuess" type="Integer" array="False" size=""/>
+            <assign variable="playerGuess" expression="-1"/>
+            <declare name="guessesCount" type="Integer" array="False" size=""/>
+            <assign variable="guessesCount" expression="0"/>
+            <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
+            <while expression="guessesCount &lt; 3">
+                <input variable="playerGuess"/>
+                <assign variable="guessesCount" expression="guessesCount + 1"/>
+                <output expression="&quot;Try again.&quot;" newline="True"/>
+            </while>
+            <output expression="&quot;You used up your &quot;" newline="False"/>
+            <output expression="3" newline="False"/>
+            <output expression="&quot; guesses. Bye.&quot;" newline="False"/>
+        </body>
+    </function>
+</flowgorithm>
