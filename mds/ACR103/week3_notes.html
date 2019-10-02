@@ -1,0 +1,530 @@
+<!DOCTYPE html><html><head>
+      <title>week3_notes</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      @import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
+/*
+ * Hopscotch
+ * by Jan T. Sott
+ * https://github.com/idleberg/Hopscotch
+ *
+ * This work is licensed under the Creative Commons CC0 1.0 Universal License
+ */ 
+ 
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #ffffff;
+  font-family: "Fira Mono", Menlo, Monaco, "Lucida Console","Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  word-spacing: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; 
+  white-space: pre; 
+  white-space: pre-wrap; 
+  word-break: break-all;
+  word-wrap: break-word; 
+  background: #322931; 
+  color: #b9b5b8;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; 
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #797379;
+}
+
+.token.punctuation {
+  color: #b9b5b8;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.null,
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #fd8b19;
+} 
+.token.property { 
+  color: #fdcc59;
+}
+.token.tag { 
+  color: #1290bf;
+} 
+.token.string {
+  color: #149b93;
+} 
+.token.selector { 
+  color: #c85e7c;
+}
+.token.attr-name { 
+  color: #fd8b19;
+} 
+.token.entity,
+.token.url, 
+.language-css .token.string,
+.style .token.string {
+  color: #149b93;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #8fc13e;
+} 
+
+.token.statement,
+.token.regex, 
+.token.atrule { 
+  color: #149b93;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #1290bf;
+} 
+
+.token.important {
+  color: #dd464c;
+  font-weight: bold;
+} 
+
+.token.entity {
+  cursor: help;
+} 
+
+pre > code.highlight {
+  outline: .4em solid red;
+  outline-offset: .4em;
+} 
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
+}
+.markdown-preview.markdown-preview {
+  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
+  font-size: 1.25em;
+  color: #222;
+}
+.markdown-preview.markdown-preview blockquote {
+  color: #282828;
+  background-color: #F5F5F0;
+  margin-left: 0.7em;
+}
+.markdown-preview.markdown-preview h1 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview h2 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  font-weight: 600;
+  padding-left: 0.1em;
+  padding-bottom: 0.3em;
+  padding-top: 0.25em;
+  background-color: #E1E1EA;
+}
+.markdown-preview.markdown-preview h3 {
+  color: #445;
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  font-weight: 600;
+  padding-left: 0.2em;
+  padding-bottom: 0.25em;
+  padding-top: 0.2em;
+  background-color: #E5E5EC;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.25em;
+  font-weight: 600;
+  font-style: italic;
+}
+.markdown-preview.markdown-preview img {
+  margin-bottom: 0px;
+  margin-top: 18px;
+}
+.markdown-preview.markdown-preview a:not([href]) {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a {
+  font-weight: 600;
+  color: #0078A2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
+  color: #009BD2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+  counter-reset: item;
+}
+.markdown-preview.markdown-preview ol > li {
+  margin: 0;
+  padding: 0 0 0 2.5em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+.markdown-preview.markdown-preview ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+  content: counter(item) ".";
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="acr103-week-3">ACR103 Week 3</h1>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#acr103-week-3">ACR103 Week 3</a>
+<ul>
+<li><a href="#assessment-1-continued">Assessment 1 continued</a></li>
+<li><a href="#renaming-lots-of-objects-at-once">Renaming lots of objects at once</a></li>
+<li><a href="#damage">Damage!</a></li>
+<li><a href="#working-faster-with-marking-menus">Working faster with Marking Menus</a></li>
+<li><a href="#thin-stuff-cloth-straps">Thin stuff: cloth, straps</a></li>
+<li><a href="#fixing-garbage-groups-and-history">Fixing garbage groups and history</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="assessment-1-continued">Assessment 1 continued</h2>
+
+<ul>
+<li>Assessing and tweaking our blockouts.</li>
+<li>Adding detail!</li>
+<li>First render scene</li>
+</ul>
+<h2 class="mume-header" id="renaming-lots-of-objects-at-once">Renaming lots of objects at once</h2>
+
+<p>Amazing time saver.</p>
+<p><img src="assets/week3/rename_toolbar.png" alt></p>
+<p>Select similar objects (in outliner or scene) then rename them from the right end of the modeling toolbar <a href="http://raconteuranimation.com/10-second-maya-tips-rename-multiple-objects/">like in this video:</a></p>
+<h2 class="mume-header" id="damage">Damage!</h2>
+
+<p><strong>Pair these with images in 2D and 3D.</strong></p>
+<ul>
+<li>Shields, walls, and tables in raucous taverns can take blows from axes and swords.</li>
+<li>Wood can split naturally after years of soaking with rain/beer and drying out.</li>
+<li>Rocks can split just from overnight dew and frost. Random collisions can knock corners off stone blocks.</li>
+</ul>
+<p><img src="assets/week3/Knife_gouged_beccaH.png" alt><br>
+<em>Becca Halstedt on Arstation</em><br>
+<img src="assets/week3/stone_wood_gouges_firrka.png" alt><br>
+<em>Firrka on Arstation</em><br>
+<img src="assets/week3/stones_damaged_tim.png" alt><br>
+<em>Timo Ehrenfellner on Arstation</em><br>
+<img src="assets/week3/damaged_wood_orb.jpg" alt><br>
+<em>Orb/Vicente on Artstation</em></p>
+<h3 class="mume-header" id="splits-and-gouges-multi-cut-bridge">Splits and gouges: multi cut, bridge.</h3>
+
+<p>Multi cut can add edges between vertices, add new loops, or get serious and cut through any geometry in any direction.</p>
+<p><strong>image</strong><br>
+<strong>demo</strong></p>
+<p>We can:</p>
+<ol>
+<li>Creat the outline of our missing chunk</li>
+<li>Select and delete the unwanted faces.</li>
+<li>Select and bridge edges to create new faces.</li>
+</ol>
+<p><strong>image</strong><br>
+<strong>demo</strong></p>
+<p>Learn more about multi cut to add all the extra edges you need.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=4reh8fRLPT0">Youtube tute by Jofftech</a>, demoing features/tendencies, providing shortcuts.</li>
+<li><a href="https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/MayaLT-Modeling/files/GUID-12DF0D57-6E5E-48E3-8FBF-F787BA4E5410-htm.html">Autodesk knowledge base</a></li>
+<li></li>
+</ul>
+<h3 class="mume-header" id="booleans">Booleans</h3>
+
+<p>We saw these pictures of boolean operations last week. Let&#x2019;s see them work in Maya.</p>
+<p><img src="assets/week2/booleans_2.png" alt><br>
+<img src="assets/week2/booleans_3.png" alt></p>
+<p>Select your objects in this order:</p>
+<ol>
+<li>Object A: This will be retained</li>
+<li>Object B: This will be subtracted from A.</li>
+</ol>
+<p><img src="assets/week3/boolean_table.png" alt><br>
+In the top menu, click <em>Mesh -&gt; Booleans -&gt; Difference</em>.</p>
+<p><img src="assets/week3/boolean_table2.png" alt></p>
+<h3 class="mume-header" id="adding-in-edges-after-booleans">Adding in edges after Booleans</h3>
+
+<p>We talked about many edged polygons in Maya, last week, or <em>n</em>-gons. Booleans create them, and <strong>we clean them up with multi cut or clean up geometry</strong>.</p>
+<p><strong>If this can be done with cleanup, image and demo that.</strong></p>
+<h3 class="mume-header" id="bevel-an-edge">Bevel an edge</h3>
+
+<p>Wear takes off edges. So do carpenters with routers.</p>
+<p><img src="assets/week3/bevel_table.png" alt></p>
+<p>Beveling a single edge.</p>
+<p><img src="assets/week3/bevel_table2.png" alt></p>
+<p>Beveling after a boolean.</p>
+<p><img src="assets/week3/bevel_width.png" alt><br>
+<img src="assets/week3/bevel_segments.png" alt><br>
+<img src="assets/week3/bevel_depth.png" alt></p>
+<p>Bevels on <a href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-A1C5EC72-AD48-4A7D-8577-1823B3832E14-htm.html">Autodesk knowledgebase</a></p>
+<h3 class="mume-header" id="bevel-a-vertex">Bevel a vertex</h3>
+
+<p>It&#x2019;s a strange idea, but it works.</p>
+<p><strong>image</strong><br>
+<strong>demo</strong></p>
+<h3 class="mume-header" id="go-planar-edit-extrude">Go planar, edit, extrude</h3>
+
+<p>Sometimes, rather than fussing with so many surfaces (bottom, side, top) it&#x2019;s easier to just:</p>
+<ol>
+<li>Delete the walls and top</li>
+<li>Cut away at our base</li>
+<li>Extrude it back up to the old height</li>
+</ol>
+<p><em>remember to regularly edit &gt; delete by type &gt; history</em></p>
+<p><strong>pics</strong><br>
+<strong>Demo</strong></p>
+<h2 class="mume-header" id="working-faster-with-marking-menus">Working faster with Marking Menus</h2>
+
+<p><strong>In maya we have &#x2018;marking&#x2019; menus</strong>. They&#x2019;re <strong>like &#x2018;right click&#x2019;</strong> menus in other programs, but feature packed enough to deserve their own name.</p>
+<p><img src="assets/week3/marking_menu_basic.png" alt><br>
+Here&#x2019;s the basic marking menu that shows when you <strong>right click a polygonal object</strong>.</p>
+<h3 class="mume-header" id="gestures">Gestures</h3>
+
+<p>You can drag right past one of those options and it&#x2019;ll select when you release the mouse button. Do it really fast, that&#x2019;s a <strong>gesture</strong>.</p>
+<p><strong>Try:</strong></p>
+<ol>
+<li>In one smooth motion, with your mouse over an object, right-click-and-drag straight up. You&#x2019;re in edge mode.</li>
+<li>Do the same, but down: you&#x2019;re in face mode.</li>
+<li>Try it again, but to the 1:30 position on a clock, or North East on a compass. That&#x2019;s object mode.</li>
+</ol>
+<blockquote>
+<p><strong>Polygonal:</strong> made of polygons (shapes with 3 or more edges).<br>
+It&#x2019;s usually pronounced <strong>&#x2018;poh-lig-onal&#x2019;</strong>. Like &#x2018;original&#x2019; with a hard &#x2018;guh&#x2019; g.</p>
+<ul>
+<li>&#x2018;poh&#x2019; like start of <strong>&#x2018;pop&#x2019;</strong> or <strong>&apos;police&#x2019;</strong></li>
+<li>&#x2018;ligg&#x2019; like <strong>&apos;dig&#x2019;</strong></li>
+<li>&#x2018;onal&#x2019; like end of &#x2018;original&#x2019;</li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="there-are-many-menus">There are many menus</h3>
+
+<p>There are many ways to access many marking menus. Right click, shift right click, hold space, hold w and left click, ctrl-right click, and more.</p>
+<p><strong>The most useful for now:</strong></p>
+<ul>
+<li>Right click - <strong>component and selection menu</strong></li>
+<li>Shift right click  - <strong>polygon object or component menus</strong> depending what selection mode you are in.</li>
+<li>Space - <strong>full maya menu</strong></li>
+</ul>
+<p><img src="assets/week3/marking_polygon_object.png" alt><br>
+This menu appears when you <strong>shift-right-click</strong> a polygonal object in <strong>object selection mode</strong>;</p>
+<p><img src="assets/week3/marking_edges.png" alt><br>
+The edge context menu appears when you <strong>shift-right-click</strong> a polygonal object <strong>with edges selected</strong>. There&#x2019;s one for vertices, faces and more.</p>
+<p>Explore the marking menus <a href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Basics/files/GUID-8BA1A3AA-4C44-4779-8B22-0AAE3627E8EB-htm.html">in the Maya 2019 documentation</a>.</p>
+<blockquote>
+<h2>Recap: Verts, Edges, Faces</h2>
+<p>To describe/reproduce a triangle, all you really need is 3 points (x,y) in space.<br>
+To complete it though and make a surface, you need to add the edges and the face.<br>
+<strong>Make verts to edgey face images with quad draw or just hand draw in ps</strong></p>
+</blockquote>
+<p>I&#x2019;ve created a basic render scene for you guys to work in. It&#x2019;ll help when we start looking at shading/rendering next week.</p>
+<ol>
+<li>It&#x2019;ll be supplied to you soon.</li>
+<li>It uses the packaged-with-Maya Arnold renderer.</li>
+<li>The lighting is a free hdr image from the web (Maxine Roz).</li>
+<li>You&#x2019;ll be able to import your scene into it, and scale your object up to around the size of mine (for consistent lighting).</li>
+<li>Hit render to see a pretty picture.</li>
+</ol>
+<p><img src="assets/week3/render_scene_table.png" alt></p>
+<blockquote>
+<p><strong>Note</strong>: the scene above uses <strong>NVidia</strong> machine learning technology to remove noise from the image. If <strong>you don&#x2019;t have an Nvidia card</strong>, there&#x2019;s another version. You&#x2019;ll be able to remove the noise with your cpu by turning up the &#x2018;samples&#x2019;, it&#x2019;ll just take longer.</p>
+</blockquote>
+<h2 class="mume-header" id="thin-stuff-cloth-straps">Thin stuff: cloth, straps</h2>
+
+<p>Lets make cloth, and straps/bands.</p>
+<h3 class="mume-header" id="plane-extrude">Plane, extrude</h3>
+
+<p>Make a plane, move it to a surface, start extruding.</p>
+<p><img src="assets/week3/table_chunked_2.png" alt></p>
+<h3 class="mume-header" id="quad-draw">Quad draw</h3>
+
+<ol>
+<li>Make a surface live</li>
+<li>Enter Quad draw</li>
+<li>Draw and delete verts</li>
+<li>Create faces with shift</li>
+<li>Delete things with alt</li>
+<li>Exit quad draw, turn off live surface.</li>
+<li>Separate new geometry</li>
+<li>Extrude bits</li>
+<li>Finally, extrude the cloth (test this along the way with bigger/complex cloth, do and undo)</li>
+</ol>
+<p><em>remember to regularly edit &gt; delete by type &gt; history</em></p>
+<h2 class="mume-header" id="fixing-garbage-groups-and-history">Fixing garbage groups and history</h2>
+
+<p>The object history feature in Maya is powerful, but causes problems and a lot of housework. How to fix?</p>
+<h3 class="mume-header" id="turn-it-off">Turn it off</h3>
+
+<p>The slash and burn approach is to just turn it off completely. I&#x2019;m trying out working this way at the moment.</p>
+<p><img src="assets/week3/history_button.png" alt><br>
+That blue button in the menu next to the render icons? <strong>Click it to disable history</strong>.  If you can&#x2019;t see the button, click a vertical divider in that area, see if it expands.</p>
+<h3 class="mume-header" id="clean-up-the-garbage-groups">Clean up the garbage groups</h3>
+
+<p>If you&#x2019;ve used mirror, separate (shells) or extract faces, you&#x2019;ve seen garbage groups in your <em>Outliner</em>. They are a butt pain.</p>
+<p><img src="assets/week3/fix_groups_example_garbage.png" alt><br>
+The example above is a single metal bracket after I finished a few <em>mirror</em> operations. It has two parents, both pointless extra transform thingies.</p>
+<p><img src="assets/week3/fix_groups_drag_select.png" alt><br>
+<strong>To fix:</strong></p>
+<ol>
+<li><strong>SAVE YOUR SCENE</strong> just in case, before any big operation. To save incrementally and keep your old version, use <em>File -&gt; Increment And Save</em>.</li>
+<li>Drag in the <em>viewport</em> to <strong>select all the objects</strong> in your prop.</li>
+<li>See that <strong>they&#x2019;re hilighted</strong> in the <em>outliner</em> (shown above)</li>
+<li><strong><em>Unparent</em> them all</strong> by either <strong>a)</strong> clicking <em><strong>edit-&gt;unparent</strong></em> in the menus or <strong>b)</strong> hitting the <strong>shift-p</strong> keyboard shortcut.</li>
+<li><em>File -&gt; <strong>Optimize Scene Size</strong> -&gt; Ok</em>.</li>
+</ol>
+<p><img src="assets/week3/fix_groups_optimise.png" alt></p>
+<h3 class="mume-header" id="holes-in-cloth">Holes in cloth</h3>
+
+<p>Very easy, because we did it with cutting chunks.</p>
+<ol>
+<li>Draw out cloth</li>
+<li>Add edges for holes</li>
+<li>Select and delete faces where the hole goes</li>
+<li>Extrude cloth.</li>
+</ol>
+<p><em>remember to regularly edit &gt; delete by type &gt; history</em></p>
+<p><em>r t r e &gt; dbt &gt; h</em></p>
+<p><a href="https://docs.arnoldrenderer.com/pages/viewpage.action?pageId=40111029">Arnold sky</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
