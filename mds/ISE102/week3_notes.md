@@ -13,7 +13,7 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3---loops-basic-functions)
+- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3-loops-basic-functions)
   - [Repeating!](#repeating)
   - [Limiting guesses with logic](#limiting-guesses-with-logic)
   - [Adding constants for clarity](#adding-constants-for-clarity)
