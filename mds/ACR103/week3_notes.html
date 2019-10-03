@@ -307,6 +307,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#renaming-lots-of-objects-at-once">Renaming lots of objects at once</a></li>
 <li><a href="#damage">Damage!</a></li>
 <li><a href="#working-faster-with-marking-menus">Working faster with Marking Menus</a></li>
+<li><a href="#render-scene">Render Scene</a></li>
 <li><a href="#thin-stuff-cloth-straps">Thin stuff: cloth, straps</a></li>
 <li><a href="#fixing-garbage-groups-and-history">Fixing garbage groups and history</a></li>
 </ul>
@@ -314,11 +315,12 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 <h2 class="mume-header" id="assessment-1-continued">Assessment 1 continued</h2>
 
-<ul>
-<li>Assessing and tweaking our blockouts.</li>
-<li>Adding detail!</li>
-<li>First render scene</li>
-</ul>
+<p>Over the week you&#x2019;ve worked on your blockouts. Let&#x2019;s detail them.</p>
+<ol>
+<li>Assess and tweak our blockouts.</li>
+<li>Add detail</li>
+<li>Import into first render scene</li>
+</ol>
 <h2 class="mume-header" id="renaming-lots-of-objects-at-once">Renaming lots of objects at once</h2>
 
 <p>Amazing time saver.</p>
@@ -326,38 +328,30 @@ pre[data-line] .line-highlight[data-end]:after {
 <p>Select similar objects (in outliner or scene) then rename them from the right end of the modeling toolbar <a href="http://raconteuranimation.com/10-second-maya-tips-rename-multiple-objects/">like in this video:</a></p>
 <h2 class="mume-header" id="damage">Damage!</h2>
 
-<p><strong>Pair these with images in 2D and 3D.</strong></p>
+<p><img src="assets/week3/stones_damaged_tim.png" alt><br>
+<em>Timo Ehrenfellner on Arstation</em></p>
 <ul>
 <li>Shields, walls, and tables in raucous taverns can take blows from axes and swords.</li>
-<li>Wood can split naturally after years of soaking with rain/beer and drying out.</li>
-<li>Rocks can split just from overnight dew and frost. Random collisions can knock corners off stone blocks.</li>
+<li>Rocks can split just from overnight dew and frost. Collisions can knock corners off stone blocks.</li>
 </ul>
-<p><img src="assets/week3/Knife_gouged_beccaH.png" alt><br>
-<em>Becca Halstedt on Arstation</em><br>
-<img src="assets/week3/stone_wood_gouges_firrka.png" alt><br>
+<p><img src="assets/week3/stone_wood_gouges_firrka.png" alt><br>
 <em>Firrka on Arstation</em><br>
-<img src="assets/week3/stones_damaged_tim.png" alt><br>
-<em>Timo Ehrenfellner on Arstation</em><br>
 <img src="assets/week3/damaged_wood_orb.jpg" alt><br>
 <em>Orb/Vicente on Artstation</em></p>
 <h3 class="mume-header" id="splits-and-gouges-multi-cut-bridge">Splits and gouges: multi cut, bridge.</h3>
 
-<p>Multi cut can add edges between vertices, add new loops, or get serious and cut through any geometry in any direction.</p>
-<p><strong>image</strong><br>
-<strong>demo</strong></p>
+<p>Multi cut can add edges between vertices, add new loops, or get serious and cut through any geometry in any direction. It&#x2019;s manual and slow, but gives control.</p>
+<p><img src="assets/week3/multicut_edges.png" alt></p>
 <p>We can:</p>
 <ol>
 <li>Creat the outline of our missing chunk</li>
 <li>Select and delete the unwanted faces.</li>
 <li>Select and bridge edges to create new faces.</li>
 </ol>
-<p><strong>image</strong><br>
-<strong>demo</strong></p>
 <p>Learn more about multi cut to add all the extra edges you need.</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=4reh8fRLPT0">Youtube tute by Jofftech</a>, demoing features/tendencies, providing shortcuts.</li>
 <li><a href="https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/MayaLT-Modeling/files/GUID-12DF0D57-6E5E-48E3-8FBF-F787BA4E5410-htm.html">Autodesk knowledge base</a></li>
-<li></li>
 </ul>
 <h3 class="mume-header" id="booleans">Booleans</h3>
 
@@ -372,10 +366,6 @@ pre[data-line] .line-highlight[data-end]:after {
 <p><img src="assets/week3/boolean_table.png" alt><br>
 In the top menu, click <em>Mesh -&gt; Booleans -&gt; Difference</em>.</p>
 <p><img src="assets/week3/boolean_table2.png" alt></p>
-<h3 class="mume-header" id="adding-in-edges-after-booleans">Adding in edges after Booleans</h3>
-
-<p>We talked about many edged polygons in Maya, last week, or <em>n</em>-gons. Booleans create them, and <strong>we clean them up with multi cut or clean up geometry</strong>.</p>
-<p><strong>If this can be done with cleanup, image and demo that.</strong></p>
 <h3 class="mume-header" id="bevel-an-edge">Bevel an edge</h3>
 
 <p>Wear takes off edges. So do carpenters with routers.</p>
@@ -387,11 +377,32 @@ In the top menu, click <em>Mesh -&gt; Booleans -&gt; Difference</em>.</p>
 <img src="assets/week3/bevel_segments.png" alt><br>
 <img src="assets/week3/bevel_depth.png" alt></p>
 <p>Bevels on <a href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-A1C5EC72-AD48-4A7D-8577-1823B3832E14-htm.html">Autodesk knowledgebase</a></p>
+<h3 class="mume-header" id="adding-in-edges-after-booleans">Adding in edges after Booleans</h3>
+
+<p>Booleans create polygons with a lot of faces (n-gons). We can <strong>clean them up</strong> with:</p>
+<ul>
+<li>multi cut, adding edges manually or</li>
+<li>Use <em>Mesh -&gt; Cleanup&#x2026;</em> geometry.</li>
+</ul>
+<p><img src="assets/week3/ngons_cleanup.png" alt><br>
+Set it to <em>Cleanup matching polygons</em> and, under <em>Fix by Tesselation</em>, target <em>Faces with more than 4 sides</em>.</p>
+<blockquote>
+<p>&#x2018;Tesselate&#x2019; means to add in edges until we have no more ngons or quads, just triangles.</p>
+</blockquote>
 <h3 class="mume-header" id="bevel-a-vertex">Bevel a vertex</h3>
 
-<p>It&#x2019;s a strange idea, but it works.</p>
-<p><strong>image</strong><br>
-<strong>demo</strong></p>
+<p>Beveling a vertex is just lopping off a corner:</p>
+<p><img src="assets/week3/bevel_vertex.png" alt></p>
+<p>You end up with weird <strong>rendering errors</strong> because the new edges have been set to <strong>soft</strong>. It&#x2019;s a shading trick used on cylinders, spheres etc to make them look less faceted.</p>
+<blockquote>
+<p>Soft edges only render well on big obtuse angles, like 170 degrees.You can&#x2019;t fake a round edge on a 90 degree turn!</p>
+</blockquote>
+<p><img src="assets/week3/edge_harden_normals.png" alt><br>
+<strong>We can fix it easily:</strong></p>
+<ol>
+<li>Select the edges</li>
+<li><em>Mesh Display -&gt; Harden Edge</em></li>
+</ol>
 <h3 class="mume-header" id="go-planar-edit-extrude">Go planar, edit, extrude</h3>
 
 <p>Sometimes, rather than fussing with so many surfaces (bottom, side, top) it&#x2019;s easier to just:</p>
@@ -399,33 +410,15 @@ In the top menu, click <em>Mesh -&gt; Booleans -&gt; Difference</em>.</p>
 <li>Delete the walls and top</li>
 <li>Cut away at our base</li>
 <li>Extrude it back up to the old height</li>
+<li>Reverse normals if it&#x2019;s black.<br>
+<em>remember to regularly edit &gt; delete by type &gt; history</em></li>
 </ol>
-<p><em>remember to regularly edit &gt; delete by type &gt; history</em></p>
-<p><strong>pics</strong><br>
-<strong>Demo</strong></p>
+<p><img src="assets/week3/edit_plane_extrude.png" alt></p>
 <h2 class="mume-header" id="working-faster-with-marking-menus">Working faster with Marking Menus</h2>
 
 <p><strong>In maya we have &#x2018;marking&#x2019; menus</strong>. They&#x2019;re <strong>like &#x2018;right click&#x2019;</strong> menus in other programs, but feature packed enough to deserve their own name.</p>
 <p><img src="assets/week3/marking_menu_basic.png" alt><br>
 Here&#x2019;s the basic marking menu that shows when you <strong>right click a polygonal object</strong>.</p>
-<h3 class="mume-header" id="gestures">Gestures</h3>
-
-<p>You can drag right past one of those options and it&#x2019;ll select when you release the mouse button. Do it really fast, that&#x2019;s a <strong>gesture</strong>.</p>
-<p><strong>Try:</strong></p>
-<ol>
-<li>In one smooth motion, with your mouse over an object, right-click-and-drag straight up. You&#x2019;re in edge mode.</li>
-<li>Do the same, but down: you&#x2019;re in face mode.</li>
-<li>Try it again, but to the 1:30 position on a clock, or North East on a compass. That&#x2019;s object mode.</li>
-</ol>
-<blockquote>
-<p><strong>Polygonal:</strong> made of polygons (shapes with 3 or more edges).<br>
-It&#x2019;s usually pronounced <strong>&#x2018;poh-lig-onal&#x2019;</strong>. Like &#x2018;original&#x2019; with a hard &#x2018;guh&#x2019; g.</p>
-<ul>
-<li>&#x2018;poh&#x2019; like start of <strong>&#x2018;pop&#x2019;</strong> or <strong>&apos;police&#x2019;</strong></li>
-<li>&#x2018;ligg&#x2019; like <strong>&apos;dig&#x2019;</strong></li>
-<li>&#x2018;onal&#x2019; like end of &#x2018;original&#x2019;</li>
-</ul>
-</blockquote>
 <h3 class="mume-header" id="there-are-many-menus">There are many menus</h3>
 
 <p>There are many ways to access many marking menus. Right click, shift right click, hold space, hold w and left click, ctrl-right click, and more.</p>
@@ -440,12 +433,20 @@ This menu appears when you <strong>shift-right-click</strong> a polygonal object
 <p><img src="assets/week3/marking_edges.png" alt><br>
 The edge context menu appears when you <strong>shift-right-click</strong> a polygonal object <strong>with edges selected</strong>. There&#x2019;s one for vertices, faces and more.</p>
 <p>Explore the marking menus <a href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Basics/files/GUID-8BA1A3AA-4C44-4779-8B22-0AAE3627E8EB-htm.html">in the Maya 2019 documentation</a>.</p>
+<h3 class="mume-header" id="gestures">Gestures</h3>
+
+<p>You can drag right past one of those options and it&#x2019;ll select when you release the mouse button. Do it really fast, that&#x2019;s a <strong>gesture</strong>.</p>
+<p><strong>Try:</strong></p>
+<ol>
+<li>In one smooth motion, with your mouse over an object, right-click-and-drag straight up. You&#x2019;re in edge mode.</li>
+<li>Do the same, but down: you&#x2019;re in face mode.</li>
+<li>Try it again, but to the 1:30 position on a clock, or North East on a compass. That&#x2019;s object mode.</li>
+</ol>
 <blockquote>
-<h2>Recap: Verts, Edges, Faces</h2>
-<p>To describe/reproduce a triangle, all you really need is 3 points (x,y) in space.<br>
-To complete it though and make a surface, you need to add the edges and the face.<br>
-<strong>Make verts to edgey face images with quad draw or just hand draw in ps</strong></p>
+<p><strong>Polygonal:</strong> made of polygons. Pronounced <strong>&#x2018;poh-ligg-onal&#x2019;</strong>, like &#x2018;original&#x2019; with a hard &#x2018;guh&#x2019; g.</p>
 </blockquote>
+<h2 class="mume-header" id="render-scene">Render Scene</h2>
+
 <p>I&#x2019;ve created a basic render scene for you guys to work in. It&#x2019;ll help when we start looking at shading/rendering next week.</p>
 <ol>
 <li>It&#x2019;ll be supplied to you soon.</li>

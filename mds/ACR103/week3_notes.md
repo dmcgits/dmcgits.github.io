@@ -16,6 +16,7 @@ export_on_save:
   - [Renaming lots of objects at once](#renaming-lots-of-objects-at-once)
   - [Damage!](#damage)
   - [Working faster with Marking Menus](#working-faster-with-marking-menus)
+  - [Render Scene](#render-scene)
   - [Thin stuff: cloth, straps](#thin-stuff-cloth-straps)
   - [Fixing garbage groups and history](#fixing-garbage-groups-and-history)
 
@@ -24,9 +25,10 @@ export_on_save:
 
 ## Assessment 1 continued
 
-* Assessing and tweaking our blockouts.
-* Adding detail!
-* First render scene
+Over the week you've worked on your blockouts. Let's detail them.
+1. Assess and tweak our blockouts.
+2. Add detail
+3. Import into first render scene
 
 ## Renaming lots of objects at once
 
@@ -38,40 +40,31 @@ Select similar objects (in outliner or scene) then rename them from the right en
 
 ## Damage!
 
-**Pair these with images in 2D and 3D.**
-* Shields, walls, and tables in raucous taverns can take blows from axes and swords. 
-* Wood can split naturally after years of soaking with rain/beer and drying out. 
-* Rocks can split just from overnight dew and frost. Random collisions can knock corners off stone blocks.
-
-![](assets/week3/Knife_gouged_beccaH.png)
-_Becca Halstedt on Arstation_
-![](assets/week3/stone_wood_gouges_firrka.png)
-_Firrka on Arstation_
 ![](assets/week3/stones_damaged_tim.png)
 _Timo Ehrenfellner on Arstation_
+
+* Shields, walls, and tables in raucous taverns can take blows from axes and swords. 
+* Rocks can split just from overnight dew and frost. Collisions can knock corners off stone blocks.
+
+![](assets/week3/stone_wood_gouges_firrka.png)
+_Firrka on Arstation_
 ![](assets/week3/damaged_wood_orb.jpg)
 _Orb/Vicente on Artstation_
 
 ### Splits and gouges: multi cut, bridge.
 
-Multi cut can add edges between vertices, add new loops, or get serious and cut through any geometry in any direction.
+Multi cut can add edges between vertices, add new loops, or get serious and cut through any geometry in any direction. It's manual and slow, but gives control.
 
-
-**image**
-**demo**
+![](assets/week3/multicut_edges.png)
 
 We can:
 1. Creat the outline of our missing chunk
 2. Select and delete the unwanted faces.
 3. Select and bridge edges to create new faces.
   
-**image**
-**demo**
-
 Learn more about multi cut to add all the extra edges you need.
   * [Youtube tute by Jofftech](https://www.youtube.com/watch?v=4reh8fRLPT0), demoing features/tendencies, providing shortcuts.
-  * [Autodesk knowledge base](https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/MayaLT-Modeling/files/GUID-12DF0D57-6E5E-48E3-8FBF-F787BA4E5410-htm.html)
-  * 
+  * [Autodesk knowledge base](https://knowledge.autodesk.com/support/maya-lt/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/MayaLT-Modeling/files/GUID-12DF0D57-6E5E-48E3-8FBF-F787BA4E5410-htm.html) 
 
 ### Booleans
 
@@ -88,12 +81,6 @@ Select your objects in this order:
 In the top menu, click _Mesh -> Booleans -> Difference_.
 
 ![](assets/week3/boolean_table2.png)
-
-### Adding in edges after Booleans
-
-We talked about many edged polygons in Maya, last week, or _n_-gons. Booleans create them, and **we clean them up with multi cut or clean up geometry**.
-
-**If this can be done with cleanup, image and demo that.**
 
 ### Bevel an edge
 
@@ -114,12 +101,32 @@ Beveling after a boolean.
 
 Bevels on [Autodesk knowledgebase](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-A1C5EC72-AD48-4A7D-8577-1823B3832E14-htm.html)
 
+### Adding in edges after Booleans
+
+Booleans create polygons with a lot of faces (n-gons). We can **clean them up** with:
+* multi cut, adding edges manually or 
+* Use _Mesh -> Cleanup.._ geometry.
+
+![](assets/week3/ngons_cleanup.png)
+Set it to _Cleanup matching polygons_ and, under _Fix by Tesselation_, target _Faces with more than 4 sides_.
+
+> 'Tesselate' means to add in edges until we have no more ngons or quads, just triangles.
+
 ### Bevel a vertex
 
-It's a strange idea, but it works.
+Beveling a vertex is just lopping off a corner:
 
-**image**
-**demo**
+![](assets/week3/bevel_vertex.png)
+
+You end up with weird **rendering errors** because the new edges have been set to **soft**. It's a shading trick used on cylinders, spheres etc to make them look less faceted.
+
+> Soft edges only render well on big obtuse angles, like 170 degrees.You can't fake a round edge on a 90 degree turn!
+
+![](assets/week3/edge_harden_normals.png)
+**We can fix it easily:**
+1. Select the edges
+2. _Mesh Display -> Harden Edge_
+
 
 ### Go planar, edit, extrude
 
@@ -127,11 +134,11 @@ Sometimes, rather than fussing with so many surfaces (bottom, side, top) it's ea
 1. Delete the walls and top
 2. Cut away at our base
 3. Extrude it back up to the old height
-
+4. Reverse normals if it's black.
 _remember to regularly edit > delete by type > history_
 
-**pics**
-**Demo**
+![](assets/week3/edit_plane_extrude.png)
+
 
 ## Working faster with Marking Menus
 
@@ -139,20 +146,6 @@ _remember to regularly edit > delete by type > history_
 
 ![](assets/week3/marking_menu_basic.png)
 Here's the basic marking menu that shows when you **right click a polygonal object**.
-
-### Gestures
-You can drag right past one of those options and it'll select when you release the mouse button. Do it really fast, that's a **gesture**.
-
-**Try:**
-1. In one smooth motion, with your mouse over an object, right-click-and-drag straight up. You're in edge mode.
-2. Do the same, but down: you're in face mode.
-3. Try it again, but to the 1:30 position on a clock, or North East on a compass. That's object mode.
-
-> **Polygonal:** made of polygons (shapes with 3 or more edges).
->  It's usually pronounced **'poh-lig-onal'**. Like 'original' with a hard 'guh' g.
-> - 'poh' like start of **'pop'** or **'police'**
-> - 'ligg' like **'dig'**
-> - 'onal' like end of 'original'
 
 ### There are many menus
 
@@ -171,12 +164,18 @@ The edge context menu appears when you **shift-right-click** a polygonal object 
 
 Explore the marking menus [in the Maya 2019 documentation](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Basics/files/GUID-8BA1A3AA-4C44-4779-8B22-0AAE3627E8EB-htm.html).
 
-> ## Recap: Verts, Edges, Faces
-> To describe/reproduce a triangle, all you really need is 3 points (x,y) in space.
-> To complete it though and make a surface, you need to add the edges and the face.
-> **Make verts to edgey face images with quad draw or just hand draw in ps**
+### Gestures
+You can drag right past one of those options and it'll select when you release the mouse button. Do it really fast, that's a **gesture**.
+
+**Try:**
+1. In one smooth motion, with your mouse over an object, right-click-and-drag straight up. You're in edge mode.
+2. Do the same, but down: you're in face mode.
+3. Try it again, but to the 1:30 position on a clock, or North East on a compass. That's object mode.
+
+> **Polygonal:** made of polygons. Pronounced **'poh-ligg-onal'**, like 'original' with a hard 'guh' g.
 
 
+## Render Scene
 
 I've created a basic render scene for you guys to work in. It'll help when we start looking at shading/rendering next week.
 1. It'll be supplied to you soon.
