@@ -7,509 +7,334 @@ html:
 export_on_save:
   html: true
 ---
-# ISE102 Week 3 - Loops, Collections
+# ISE102 Week 3 - Loops, basic functions
 
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [ ISE102 Week 3 - Loops, Collections
-](#ise102-week-3-loops-collections)
-  - [ Week 2 recap
-](#week-2-recap)
-  - [ Loops
-](#loops)
-    - [ While Loops
-](#while-loops)
-    - [ Basketball in _C++_
-](#basketball-in-_c_)
-    - [ Menu selection loop
-](#menu-selection-loop)
-      - [ FarmSim.cpp 
-](#farmsimcpp)
-    - [ For Loops
-](#for-loops)
-    - [ `do..while` Loops
-](#dowhile-loops)
-  - [ Do some code Exercises
-](#do-some-code-exercises)
-  - [ Break 
-](#break)
-  - [ Assignment 1 Discussion
-](#assignment-1-discussion)
-  - [ Collections
-](#collections)
-    - [ Arrays
-](#arrays)
-      - [ Initializing Arrays
-](#initializing-arrays)
-      - [ Abilities
-](#abilities)
-      - [ Shortcomings
-](#shortcomings)
-    - [ Multidimensional Arrays
-](#multidimensional-arrays)
-      - [ TicTacToe.cpp
-](#tictactoecpp)
-    - [ Vectors
-](#vectors)
-  - [ Exercises
-](#exercises)
-  - [ Resources
-](#resources)
+- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3-loops-basic-functions)
+  - [Repeating!](#repeating)
+  - [Limiting guesses with logic](#limiting-guesses-with-logic)
+  - [Adding constants for clarity](#adding-constants-for-clarity)
+  - [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
+  - [Enumerators: **`enum`**](#enumerators-enum)
+  - [Other loop structures](#other-loop-structures)
+  - [Home Todos:](#home-todos)
+  - [Home Exercise: Menu Fighter](#home-exercise-menu-fighter)
 
 <!-- /code_chunk_output -->
 
-## Week 2 recap
+## Repeating!
 
-Data types and conditionals. `if`, `switch`, data types, declaring variables. Comparisons with operators like `>=`, `==`, `!`, `\\`.
-1. Sololearn, how far did we get? 
-   * If you completed module 2 of Sololearn you will have covered loops. Did it stick?
-2. Week 2 code exercises. 
+Games are built on loops within loops.
+
+![](assets/week3/menu_main_guac.png)
+We select something in the **main menu**, and eventually **return**: 
 
 
-## Loops
+![](assets/week3/menu_game_mode_ow.png)
+On the **"arcade" screen in _Overwatch_ we choose a game mode** and enter a queue. We'll either **cancel back** to this screen or **play a game** and return to the screen.
 
-Loops are not just an abstract bit of logic proessing. A loop is going to work each day except weekends and holidays. It's watching a series on Netflix, then finding a new series, watching that, and so on.
 
-Of most interest to us: the heart of a video game is a loop. It's a loop that launches many other loops.
+![](assets/week3/rounds_loop_sf4.jpg)
+In Street Fighter we **play the best of 3 rounds**, in each of which we recover all our health and fight again.
 
-``` {.line-numbers}
-// A 3 shot basketball game /////////////////
+### Guess Again: `while` loops
 
-start_program Basketball
+Our guessing game wasn't much fun when you had a 5 in 6 chance of losing. 
 
-	Info on hand: Tries allowed, tries remaining 
-	Info we'll track: score
+Let's **add extra chances** with higher/lower prompts until you get it. We'll need a way to **do things repeatedly**. 
 
-	While tries remaining > 0:
-		
-		Ask player to hit enter to shoot the ball
-		Decide if player made the shot
-		
-		If they did hit the shot:
-			Give them 3 points
-		Otherwise
-			Give them 0 points
-		
-		Reduce tries remaining by 1
-	loop
+![](assets/week3/flow_while_node.png)
+Repeating/looping in flowgorithm is handled by **the while loop**, along with other loops. To make loops useful, **they can be stopped** eventually. 
+* **Loops take a condition** in flowgorithm (and _C++_)
+* just like an `if` statement it **only executes when the condition is true**. 
+* **Enter** the conditional expression: check that playerGuess **is not equal to** secretNumber. 
 
-	Tell them their score
-	Thank them for playing.
+![](assets/week3/flow_while_playerGuess.png)
 
-end_program Basketball
-```
+### We need repeated user input
 
-### While Loops
+Our prompt and input is missing. Add that, and play your game.
 
-The easiest first loop to learn is the `while` loop. It has this simple structure:
+![](assets/week3/flow_while_input.png)
 
-```c++ {.line-numbers}
+What you'd see if **secret number is 4**.
 
-   while(test) 
-   {
-      // This code will execute repeatedly until
-      // (test) is false.
-   }
-```
+![](assets/week3/flow_play_guess_unlimited.png)
 
-What's the minimum code we need for loop that doesn't go on for ever? Something to make the loop go, and something to make it stop.
+### Exercise: Add higher/lower
 
-```c++ {.line-numbers}
+* If the playerGuess is less than the secret number, print out "Higher." after their guess.
+* Add "Lower." if they guess high.
 
-   while(true) // Always evaluates to true, so this is an infinite loop
-   {
-      break;   // Break ends a loop
-   }
-   
-   // What will that code do?
+### `while` In _C++_
 
-```
-**To make a useful loop**, then, we need **a variable** that we can use in the test, it has to have **an initial value**, and **it has to change** while the loop runs. For it to run a set number of times, we'll create a counter (or index).
-
->_**initialise**_
->while (_**condition**_)
->{
->    _**increment**_;
->}
-
-### Basketball in _C++_
-
-Replacing those requirements with c++:
-
-```c++ {.line-numbers}
-
-// initialise
-int count = 0;
-
-// condition
-while ( count < 10 )
-{   
-   cout << count << " "; // This is so humans can watch
-      
-   // increment
-   count++;
-} 
-
-// output:
-// 0,1,2,3,4,5,6,7,8,9
-```
-
-Easy! Here's the pseudocode basketball game loop written in c++. 
-
-```c++ {.line-numbers}
+```cpp {.line-numbers}
 #include <iostream>
+#include <string>
 using namespace std;
-
-//Info on hand: Tries allowed, tries remaining 
-const int TRIES_ALLOWED = 3;
-
-int triesRemaining;
-//Info to track: score
-int score = 0;
 
 int main()
 {
-	// INITIALIZE
-	triesRemaining = ________;
-	bool shotMade;
+  int playerGuess = -1;
+  int secretNumber = 2;
 
-	//While tries remaining > 0:
-	while (triesRemaining > 0)
-	{
-		shotMade = false;
-		// Ask player to hit enter to shoot the ball
-		cout __ "Hit enter to shoot" __ endl;
-		cin.get();
-
-		//Decide if player made the shot
-		shotMade = true;
-
-		//If they did hit the shot:
-		if (_____)
-		{
-			___ << "Noice! +3 Points.\n";
-			// Give them 3 points
-			score __ 3;
-		} 
-		// otherwise
-			//Give them 0 points
-		
-		//Reduce tries remaining by 1
-		triesRemaining___;
-	} // loop
-
-	//Tell them their score
-	//Thank them for playing.
-	_________
-	_________
-
-} //end_program Basketball
+  while ( playerGuess != secretNumber)  // Only runs if guess is not equal to secret
+  {
+    // Display prompt, get input.
+  }
+  return(0);
+}
 ```
 
-### Menu selection loop
+## Limiting guesses with logic
 
-That's iteration sorted, but not all loops are counted. The condition evaluates to `true`/`false`, so any comparison will work. Including a choice from a menu.
+Our **end game** condition is `playerGuess == secretNumber`. Let's also **limit the player to 3 guesses**.
 
-```
-// A menu game loop //////////////
+**We need a variable to count guesses:**
 
-start_program FarmingSim
+![](assets/week3/flow_declare_guessesCount.png)
 
-   While the player hasn't quit:
-      
-      Show them this menu
-      1. Play FarmSim
-      2. Options
-      3. Quit
+Then, increase the count each time someone guesses, using the **assignment operator** to overwrite guessCount.
 
-      Get their selection
-      
-      If it's anything exept Quit:
-         enter that section
-      otherwise:
-         note player has quit.
-   loop
+![](assets/week3/guess_count_increment.png)
 
-end_program FarmingSim
-```
 
-This loop relies on **initializing** a variable, we could call it `hasPlayerQuit`. The **condition** is that they haven't quit. The **change to the variable** comes from player input.
+### Checking two things
 
-See if you can finish the translation from _psuedocode_ to _c++_
+We could:
+1. **Add an if statement**  to the loop, checking condition 2. if `guesses >= 3` it breaks out of the loop. 
+2. More graceful: check both conditions in the loop.
 
-#### FarmSim.cpp 
-```C++ {.line-numbers}
+### If A is true _or_ B is true
+
+When we have multiple conditions in life, they.. depend.
+
+> "Okay, I'll go to the party," Sharmeen sighed, "IF Bruno Johnson is going."
+> ".. or Claus Hansomme." she added, looking into the distance.
+
+With the help of the **logical operator `||`**, that's two pipe symbols (above `enter`), we can check for **A _or_ B**. 
+
+**C++ uses the same syntax:**
+
+```cpp {.line-numbers}
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main()
 {
-	// INITIALISE variable
-	____ userHasntQuit = true;
+  bool brunoIsGoing = false;
+  bool clausIsGoing = true;
 
-	// loop with CONDITION
-	____ ( userHasntQuit ) // True to begin with
-	{
-		____ << "1. Play FarmSim" << ____;
-		____ << "2. Options" << ____;
-		____ << ________ << ____;
+  if (brunoIsGoing || clausIsGoing)
+  {
+    cout << "\t" << "Looks like Sharmeen is going." << endl; // \t adds a tab at the start.
+  }
 
-		int menuChoice = __;
-		____ << "Enter a number to choose: "; 
-		cin >> ______;
-
-		switch (____)
-		{
-			____ 1:
-				____ << "You just played FarmSim" << ____;
-				break;
-			____ 2:
-				____ << "You have no options" << ____;
-				break;
-			____ 3:
-				// CHANGE variable
-				_____ = _____;
-				break;
-			default:
-				____ << "Try again genius. 1, 2 or 3." << ____;
-		}
-	}
-}
-```
-___
-
-### For Loops
-
-For loops are way of having the **init**, **condition** and **increment** in a single line. It's almost always used for loops with a counter.
-
-> for ( **initialize**; **condition**, **increment**)
-> {
-> 	// do things
-> }
-
-And with example code filled in: 
-
-```c++ {.line-numbers}
-for (int triesRemaining=TRIES_ALLOWED; triesRemaining > 0; triesRemaining--)
-{
-	// Do things
-}
-
-// The counter is commonly known as an "index", and the convention for
-// a counting loop is to use int i. If you have a loop/loops inside the outer one,
-// we go up the alphabet to keep them isolated. i, j, k, etc
-
-// Do something 10 times
-for ( int i = 0; i < 10; i++ )
-{
-	//Do something 3 times
-	for ( int i = 0; j < 3; j++ )
-	{
-		cout << "I'll be printed 30 times.\n";
-	}
+  return(0);
 }
 ```
 
-**Pro**: Shorter definition of loop all in one place. Less chance of forgetting to initialise or increment your counter variable.
-**Con**: Harder syntax to read/remember for new programmers.
+![](assets/week3/logical_or_table.png)
 
-___
+More operators are also available here: <http://flowgorithm.org/documentation/operators.htm>
 
-### `do..while` Loops
 
-Like a while, with the condition checked at the end. Happens at least once no matter what. A normal while loop will execute 0 times if the condition is never met. I don't recall seeing these used.
+### If A is true _and_ B is true
 
-```c++ {.line-numbers}
-do
-{
-	cout << "Long cat is long"" << endl;
-	// now check if cat is still Long
-} while ( catIsLong );
-```
-## Do some code Exercises
+We don't need `||` though. We need to **continue if the player hasn't guessed the number AND they have guessed less than 3 times**. 
 
-Link to first code exercises
+This requires **logical _and_.** Let's see Jessie use it.
 
-___
+> "Okay, I'll go to the party," Jessie flounced, "if you make the DJ play Cardi B."
+> "**And** someone else drives." she added.
 
-## Break 
-___
-
-## Assignment 1 Discussion
-
-Assessment pdf [Link](https://laureate-au.blackboard.com/bbcswebdav/pid-7150381-dt-content-rid-8562028_1/xid-8562028_1)
-___
-
-## Collections
-
-Lots of data goes together. Potions, cows, seed types, gems collected.
-
-### Arrays
-
-Arrays are for storing collections of things. They aren't directly based on a real world storage metaphor like a pantry or toolbox. An array is just a series of chunks of memory, one after another, set aside to hold the same data type.
-
-We've declared integers like `int faveNumber;` grab 32bits of memory, and to use it by name. With an Array you can declare:
-
-`int faveNumbers[5]` 
-
-and reserve 5 integers worth of memory, and access each of them with the same name and an _index_ like so: 
-
-```c++ {.line-numbers}
-x = faveNumbers[2]; 
-y = faveNumbers[4];` 
-```
-
-Arrays for inventory items:
-
-```c++ {.line-numbers}
+```cpp {.line-numbers}
 #include <iostream>
-#include <String>;
-
-// Hero's inventory from the textbook
-// demonstrates arrays.
+#include <string>
 using namespace std;
 
 int main()
 {
-	const int MAX_ITEMS = 10;
-	string inventory[MAX_ITEMS];
-	int numItems = 0;
-	
-	// the ++ incrementor first evaluates as its beginning number,
-	// THEN it has 1 added. So for the first array access numItems returns 0, but by the
-	// next line numItems is 1.
-	// if it was ++numItems we'd be accessing 1, 2, 3
-	inventory[numItems++] = "sword";
-	inventory[numItems++] = "armor";
-	inventory[numItems++] = "shield";
-	
-	cout << "Your items:\n";
-	for (int i = 0; i < numItems; ++i)
-	{
-		cout << inventory[i] << endl;
-	}
-	
-	cout << "\nYou trade your sword for a battle axe.";
-	inventory[0] = "battle axe";
-	
-	cout << "\nYour items:\n";
-	for (int i = 0; i < numItems; ++i)
-	{
-		cout << inventory[i] << endl;
-	}
+  bool djPlaysCardiB = true;
+  bool someoneElseDrives = false;
+
+  if (djPlaysCardiB && someoneElseDrives)
+  {
+    cout << "\t" << "Ok Jessie is going." << endl; // \t adds a tab at the start.
+  }
+
+  return(0);
 }
 ```
+**Spoiler:** she doesn't go. Jessie respects her P plates too much to lose them drink driving.
 
-#### Initializing Arrays
+### Exercise: The Guess Limit
 
-```c++ {.line-numbers}
-// This is our first time seeing a new use of the curly braces.
-// Normally they mean code block.
-// Here they define a set of data values.
-int luckyNumbers[5] = { 7, 42, 64, 3, 386 };
+Add **two required conditions** to your while loop using `&&`. **Learn from Jessie.**
 
-// Actually it's not that strict. If you have 5 elements in the array, it can
-// figure out the size
-int luckyNumbers[] = { 7, 42, 64, 3, 386 };
+1. Player guess **is not equal to** secret number.
+2. Guess count is less than 3.
 
-// if you have more than 5 but you only initialise 5, the rest will be 0
-int luckyNumbers[20] = { 7, 42, 64, 3, 386 };
+Print "No more guesses, you're done" before quitting if they run out of guesses.
 
-// As a result you can set the first to 0, and the rest 
-// will be set to 0, to initialise all items. 
-int sooooManyZeroes[2500] = {0};
+## Adding constants for clarity
 
-```
+Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these **magic numbers** because, without context, they could **mean anything**. They **appear and work as if by magic**.
 
-#### Abilities
+Constants **are variables** in C++.. **that don't vary**. They mean something like **`PI`**, or **`SECONDS_IN_MINUTE`**. When we use them in an if, it's clear what's happening.
 
-Can store things, it works.
-
-#### Shortcomings
-
-Once you set the size you're stuck with it. It can also be painful to check. You can only overwrite what's in there.
-
-### Multidimensional Arrays
-
-What if each cell in an array was.. an Array?
-
-#### TicTacToe.cpp
-
-___
-
-### Vectors
-
-A friendly, more flexible version of Arrays. Really, what we want from Arrays a lot of the time.
-
-Vectors are provided in the c++ std library, are a class rather than a basic type, and provide useful functions and properties:
-  * `capacity()`, `size()`: max size, actual size
-  * `push_back()` to add a new element to the end 
-  * `begin()` and `end()` pointers
-  * `insert()`, `erase()`
-  * Read more: <https://www.geeksforgeeks.org/vector-in-cpp-stl/>
-
-```c++ {.line-numbers}
-// C++ program to illustrate the 
-// capacity function in vector 
-#include <iostream> 
-#include <vector> 
-
+```cpp {.line-numbers}
+#include <iostream>
+#include <string>
 using namespace std;
+
+const int PLAY = 1;
+const int QUIT = 2;
 
 int main()
 {
-	vector<int> g1;
-
-	for (int i = 1; i <= 5; i++)
-		g1.push_back(i);
-
-	cout << "Size : " << g1.size();
-	cout << "\nCapacity : " << g1.capacity();
-	cout << "\nMax_Size : " << g1.max_size();
-
-	// resizes the vector size to 4 
-	g1.resize(4);
-
-	// prints the vector size after resize() 
-	cout << "\nSize : " << g1.size();
-
-	// checks if the vector is empty or not 
-	if (g1.empty() == false)
-		cout << "\nVector is not empty";
-	else
-		cout << "\nVector is empty";
-
-	// Shrinks the vector 
-	g1.shrink_to_fit();
-	cout << "\nVector elements are: ";
-	//for (auto it = g1.begin(); it != g1.end(); it++)
-	//	cout << *it << " ";
-	for (int j = 0; j < g1.size(); j++)
-	{
-		cout << g1[j] << ", ";
-	}
-
-	return 0;
+  int choice = -1;
+  cout << " 1: Play \n 2: Option \n 3: Quit \n Choose: ";
+  cin >> choice;
+  if ( choice == PLAY)
+  {
+    // play
+  }
+  else if (choice == QUIT)
+  {
+    //quit
+  }
+  return(0);
 }
 ```
 
-___
+#### The `const` keyword
+When the compiler sees **`const`** before **`int`** it means that variable can't be changed. If you **try to assign to**/overwrite a constant, your program **won't compile**.
 
-## Exercises
-1. If you didn't type out the Array/Vector code above, do that.
-2. Add a random outcome to the basketball game. Our shooter, over time, should hit 60% of their shots.
-3. Work on assessment 1
-4. Week 3 [code exercises](week3_code.html) 
-___
+#### Conventions and `CONSTANT_NAME`
+There's **no compiler rule saying** `const` names have to be **`UPPER_CASE_WITH_UNDERSCORES`**. It's purely for human eyeballs. We'll know it's an unchanging number **on sight**.
 
-## Resources
+> **Conventions are practises** programmers follow to **make reading code easier** on themselves and others. If we follow conventions that are widely used, and do it consistently:
+> 1. **Debugging our code** will be easier
+> 2. **Sharing and receiving** code will be easier
+> 3. **We can write bigger programs** and more complex games, because we'll **minimise wasted mental energy**. 
+> 
+> Like a marathon runner with a disciplined stride, we'll go further with the same resources.
 
-1. The book!
-   * [Chapter 1 pdf](book_1/cppgameprog_1_variables_io.pdf)
-   * [Chapter 2 pdf](book_1/cppgameprog_2_conditionals_game_loop.pdf)
-   * [Chapter 3 pdf](book_1/cppgameprog_3_loops_strings_arrays.pdf)
-   
- 
+## Clearing the screen/console in C++
+
+Nobody wants to play **scroll down the screen fighter**.
+
+Add **`System(cls)` before showing sub screens**, and **before returning** to the main menu.
+
+## Enumerators: **`enum`**
+
+Enumerators provide a shorthand for creating (and grouping) constants with integer values.
+
+```cpp {.line-numbers}
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum MenuChoices { STORY_MODE, ONLINE_MULTIPLAYER, OPTIONS, QUIT };
+
+int main()
+{
+  int choice = -1;
+  cout << " 1: Play \n 2: Option \n 3: Quit \n Choose: ";
+  cin >> choice;
+  if ( choice == MenuChoices.PLAY)
+  {
+    // play
+  }
+  else if (choice == MenuChoices.QUIT)
+  {
+    //quit
+  }
+  return(0);
+}
+```
+
+I've shown you an **enum defined on a single line** because hopefully it'll **help you remember** you need **a semi colon at the end** of an enum definition.
+
+* Conventionally, an enum definition is **spread over multiple lines** for readability. 
+* These curly braces **don't define a code block**. They're actually starting and ending a _set_, a collection. More on this later in data collections.
+
+```cpp
+
+enum MenuChoices    // enums can get long, so they're defined over multiple lines
+{ 
+  STORY_MODE, 
+  ONLINE_MULTIPLAYER, 
+  OPTIONS,
+  STORE,
+  LOOTBOXES,
+  CREDITS,
+  STATISTICS,
+  QUIT 
+};              // DON'T FORGET this semi colon. Spoiler: you will.
+```
+
+
+There's **a lot more to enums**, read on: <https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/>
+
+## Other loop structures
+
+**`for`** loops. **`do..while`** loops. Look into them in _Flowgorithm_ and _C++_
+
+You'll mostly see **`for`** loops used to go through collections of data. We'll get to that next week.
+
+![](assets/week3/flow_for_baby.png)
+
+**Note** I joined the `lyric` variable and the string `", "` using a single `&`. That's a flowgorithm thing.
+
+### `for` exported to _C++_
+
+**Note** how in _C++_ `lyric` and `", "` are joined using `<<`. This works when the line starts with `cout`.
+
+![](assets/week3/cpp_baby_for.png)
+
+## Home Todos:
+
+1. Do the _**Menu Fighter**_ exercise below.
+2. Read through to the end of [chapter 2 of the textbook](book_1/chap2_cpp_games.pdf). **This book will help you** enormously, all you have to do is put in some time. Save the chapter 2 pdf to your phone, easy.
+   a. If there's anything you don't fully understand, type out the code sample for that part! 
+   b. If you want to do well in the subject, type out lots of code samples and play with them.
+[![](assets/week3/book_chap_2.png)](book_1/chap2_cpp_games.pdf)
+3. **[SoloLearn](https://www.sololearn.com/Course/CPlusPlus/): work through** the _C++_ tutorial to the **end of the second section**, _Conditionals and Loops_
+   a. The sololearn [site](https://www.sololearn.com/Course/CPlusPlus/) has the same tute and syncs with your phone progress when you log in.
+![](assets/week3/sololearn_loops.png)
+
+
+## Home Exercise: Menu Fighter
+
+**Make this amazing game by yourself.** 
+
+You can:
+- Write it **directly in _C++_** 
+or
+- Make it **in _Flowgorithm_** and then **export it to _C++_**. Paste it into a Visual Studio project's main.cpp and **get it running in the console.**
+
+![](assets/week3/menu_fighter_chat.png)
+
+
+> ---- WELCOME TO MENU FIGHTER -----
+>
+> 1: Play Game | 2: Options | 3: Quit
+>
+> Enter a number to choose:
+
+Here are the computer's instructions:
+1. If player hasn't quit, **display a numbered menu**.  _(begins the loop)_
+2. Let me choose an entry by **inputting a number**.
+3. Check their choice and:
+   **Play Game**: print `"Round 1, Fight. Bish bish bash URGH. You win!"`
+   **Options**: print `"Your only option is to fight."` 
+   **Quit**: print `"You quit."` and remember **playerQuit is true**. 
+5. Repeat. 
+
+_6: If playerQuit is true, the loop won't run, we'll go to the end of the main function._

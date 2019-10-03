@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Danny"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-30 11:11:49 PM"/>
+        <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0zMDswOTozODo0MiBQTTsyNjE0"/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0zMDsxMToxMTo0OSBQTTsxOzI3MTM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;---- WELCOME TO MENU FIGHTER -----&quot;" newline="True"/>
+            <output expression="&quot; 1: Play | 2: Options | 3: Quit &quot;" newline="True"/>
+            <output expression="&quot;Enter a number to choose.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

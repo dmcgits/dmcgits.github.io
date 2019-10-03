@@ -15,7 +15,181 @@
       
 
       <style>
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      @import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
+/*
+ * Hopscotch
+ * by Jan T. Sott
+ * https://github.com/idleberg/Hopscotch
+ *
+ * This work is licensed under the Creative Commons CC0 1.0 Universal License
+ */ 
+ 
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #ffffff;
+  font-family: "Fira Mono", Menlo, Monaco, "Lucida Console","Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  word-spacing: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; 
+  white-space: pre; 
+  white-space: pre-wrap; 
+  word-break: break-all;
+  word-wrap: break-word; 
+  background: #322931; 
+  color: #b9b5b8;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; 
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #797379;
+}
+
+.token.punctuation {
+  color: #b9b5b8;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.null,
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #fd8b19;
+} 
+.token.property { 
+  color: #fdcc59;
+}
+.token.tag { 
+  color: #1290bf;
+} 
+.token.string {
+  color: #149b93;
+} 
+.token.selector { 
+  color: #c85e7c;
+}
+.token.attr-name { 
+  color: #fd8b19;
+} 
+.token.entity,
+.token.url, 
+.language-css .token.string,
+.style .token.string {
+  color: #149b93;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #8fc13e;
+} 
+
+.token.statement,
+.token.regex, 
+.token.atrule { 
+  color: #149b93;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #1290bf;
+} 
+
+.token.important {
+  color: #dd464c;
+  font-weight: bold;
+} 
+
+.token.entity {
+  cursor: help;
+} 
+
+pre > code.highlight {
+  outline: .4em solid red;
+  outline-offset: .4em;
+} 
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 /*.markdown-preview.markdown-preview {
@@ -23,471 +197,381 @@
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
+}
+.markdown-preview.markdown-preview {
+  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
+  font-size: 1.25em;
+  color: #222;
+}
+.markdown-preview.markdown-preview blockquote {
+  color: #282828;
+  background-color: #F5F5F0;
+  margin-left: 0.7em;
+}
+.markdown-preview.markdown-preview h1 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview h2 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  font-weight: 600;
+  padding-left: 0.1em;
+  padding-bottom: 0.3em;
+  padding-top: 0.25em;
+  background-color: #E1E1EA;
+}
+.markdown-preview.markdown-preview h3 {
+  color: #445;
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  font-weight: 600;
+  padding-left: 0.2em;
+  padding-bottom: 0.25em;
+  padding-top: 0.2em;
+  background-color: #E5E5EC;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.25em;
+  font-weight: 600;
+  font-style: italic;
+}
+.markdown-preview.markdown-preview img {
+  margin-bottom: 0px;
+  margin-top: 18px;
+}
+.markdown-preview.markdown-preview a:not([href]) {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a {
+  font-weight: 600;
+  color: #0078A2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
+  color: #009BD2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+  counter-reset: item;
+}
+.markdown-preview.markdown-preview ol > li {
+  margin: 0;
+  padding: 0 0 0 2.5em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+.markdown-preview.markdown-preview ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+  content: counter(item) ".";
+}
 
       </style>
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="ise102-week-3-loops-collections">ISE102 Week 3 - Loops, Collections</h1>
+      <h1 class="mume-header" id="ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</h1>
 
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-3-loops-collections"> ISE102 Week 3 - Loops, Collections<br>
-</a>
+<li><a href="#ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
 <ul>
-<li><a href="#week-2-recap"> Week 2 recap<br>
-</a></li>
-<li><a href="#loops"> Loops<br>
-</a>
-<ul>
-<li><a href="#while-loops"> While Loops<br>
-</a></li>
-<li><a href="#basketball-in-_c_"> Basketball in <em>C++</em><br>
-</a></li>
-<li><a href="#menu-selection-loop"> Menu selection loop<br>
-</a>
-<ul>
-<li><a href="#farmsimcpp"> FarmSim.cpp<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#for-loops"> For Loops<br>
-</a></li>
-<li><a href="#dowhile-loops"> <code>do..while</code> Loops<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#do-some-code-exercises"> Do some code Exercises<br>
-</a></li>
-<li><a href="#break"> Break<br>
-</a></li>
-<li><a href="#assignment-1-discussion"> Assignment 1 Discussion<br>
-</a></li>
-<li><a href="#collections"> Collections<br>
-</a>
-<ul>
-<li><a href="#arrays"> Arrays<br>
-</a>
-<ul>
-<li><a href="#initializing-arrays"> Initializing Arrays<br>
-</a></li>
-<li><a href="#abilities"> Abilities<br>
-</a></li>
-<li><a href="#shortcomings"> Shortcomings<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#multidimensional-arrays"> Multidimensional Arrays<br>
-</a>
-<ul>
-<li><a href="#tictactoecpp"> TicTacToe.cpp<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#vectors"> Vectors<br>
-</a></li>
-</ul>
-</li>
-<li><a href="#exercises"> Exercises<br>
-</a></li>
-<li><a href="#resources"> Resources<br>
-</a></li>
+<li><a href="#repeating">Repeating!</a></li>
+<li><a href="#limiting-guesses-with-logic">Limiting guesses with logic</a></li>
+<li><a href="#adding-constants-for-clarity">Adding constants for clarity</a></li>
+<li><a href="#clearing-the-screenconsole-in-c">Clearing the screen/console in C++</a></li>
+<li><a href="#enumerators-enum">Enumerators: <strong><code>enum</code></strong></a></li>
+<li><a href="#other-loop-structures">Other loop structures</a></li>
+<li><a href="#home-todos">Home Todos:</a></li>
+<li><a href="#home-exercise-menu-fighter">Home Exercise: Menu Fighter</a></li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="week-2-recap">Week 2 recap</h2>
+<h2 class="mume-header" id="repeating">Repeating!</h2>
 
-<p>Data types and conditionals. <code>if</code>, <code>switch</code>, data types, declaring variables. Comparisons with operators like <code>&gt;=</code>, <code>==</code>, <code>!</code>, <code>\\</code>.</p>
+<p>Games are built on loops within loops.</p>
+<p><img src="assets/week3/menu_main_guac.png" alt><br>
+We select something in the <strong>main menu</strong>, and eventually <strong>return</strong>:</p>
+<p><img src="assets/week3/menu_game_mode_ow.png" alt><br>
+On the <strong>&#x201C;arcade&#x201D; screen in <em>Overwatch</em> we choose a game mode</strong> and enter a queue. We&#x2019;ll either <strong>cancel back</strong> to this screen or <strong>play a game</strong> and return to the screen.</p>
+<p><img src="assets/week3/rounds_loop_sf4.jpg" alt><br>
+In Street Fighter we <strong>play the best of 3 rounds</strong>, in each of which we recover all our health and fight again.</p>
+<h3 class="mume-header" id="guess-again-while-loops">Guess Again: <code>while</code> loops</h3>
+
+<p>Our guessing game wasn&#x2019;t much fun when you had a 5 in 6 chance of losing.</p>
+<p>Let&#x2019;s <strong>add extra chances</strong> with higher/lower prompts until you get it. We&#x2019;ll need a way to <strong>do things repeatedly</strong>.</p>
+<p><img src="assets/week3/flow_while_node.png" alt><br>
+Repeating/looping in flowgorithm is handled by <strong>the while loop</strong>, along with other loops. To make loops useful, <strong>they can be stopped</strong> eventually.</p>
+<ul>
+<li><strong>Loops take a condition</strong> in flowgorithm (and <em>C++</em>)</li>
+<li>just like an <code>if</code> statement it <strong>only executes when the condition is true</strong>.</li>
+<li><strong>Enter</strong> the conditional expression: check that playerGuess <strong>is not equal to</strong> secretNumber.</li>
+</ul>
+<p><img src="assets/week3/flow_while_playerGuess.png" alt></p>
+<h3 class="mume-header" id="we-need-repeated-user-input">We need repeated user input</h3>
+
+<p>Our prompt and input is missing. Add that, and play your game.</p>
+<p><img src="assets/week3/flow_while_input.png" alt></p>
+<p>What you&#x2019;d see if <strong>secret number is 4</strong>.</p>
+<p><img src="assets/week3/flow_play_guess_unlimited.png" alt></p>
+<h3 class="mume-header" id="exercise-add-higherlower">Exercise: Add higher/lower</h3>
+
+<ul>
+<li>If the playerGuess is less than the secret number, print out &#x201C;Higher.&#x201D; after their guess.</li>
+<li>Add &#x201C;Lower.&#x201D; if they guess high.</li>
+</ul>
+<h3 class="mume-header" id="while-in-_c_"><code>while</code> In <em>C++</em></h3>
+
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> playerGuess <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> secretNumber <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span> playerGuess <span class="token operator">!=</span> secretNumber<span class="token punctuation">)</span>  <span class="token comment">// Only runs if guess is not equal to secret</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// Display prompt, get input.</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="limiting-guesses-with-logic">Limiting guesses with logic</h2>
+
+<p>Our <strong>end game</strong> condition is <code>playerGuess == secretNumber</code>. Let&#x2019;s also <strong>limit the player to 3 guesses</strong>.</p>
+<p><strong>We need a variable to count guesses:</strong></p>
+<p><img src="assets/week3/flow_declare_guessesCount.png" alt></p>
+<p>Then, increase the count each time someone guesses, using the <strong>assignment operator</strong> to overwrite guessCount.</p>
+<p><img src="assets/week3/guess_count_increment.png" alt></p>
+<h3 class="mume-header" id="checking-two-things">Checking two things</h3>
+
+<p>We could:</p>
 <ol>
-<li>Sololearn, how far did we get?
-<ul>
-<li>If you completed module 2 of Sololearn you will have covered loops. Did it stick?</li>
-</ul>
-</li>
-<li>Week 2 code exercises.</li>
+<li><strong>Add an if statement</strong>  to the loop, checking condition 2. if <code>guesses &gt;= 3</code> it breaks out of the loop.</li>
+<li>More graceful: check both conditions in the loop.</li>
 </ol>
-<h2 class="mume-header" id="loops">Loops</h2>
+<h3 class="mume-header" id="if-a-is-true-_or_-b-is-true">If A is true <em>or</em> B is true</h3>
 
-<p>Loops are not just an abstract bit of logic proessing. A loop is going to work each day except weekends and holidays. It&#x2019;s watching a series on Netflix, then finding a new series, watching that, and so on.</p>
-<p>Of most interest to us: the heart of a video game is a loop. It&#x2019;s a loop that launches many other loops.</p>
-<pre data-role="codeBlock" data-info="{.line-numbers}" class="language- line-numbers"><code>// A 3 shot basketball game /////////////////
-
-start_program Basketball
-
-	Info on hand: Tries allowed, tries remaining 
-	Info we&apos;ll track: score
-
-	While tries remaining &gt; 0:
-		
-		Ask player to hit enter to shoot the ball
-		Decide if player made the shot
-		
-		If they did hit the shot:
-			Give them 3 points
-		Otherwise
-			Give them 0 points
-		
-		Reduce tries remaining by 1
-	loop
-
-	Tell them their score
-	Thank them for playing.
-
-end_program Basketball
-</code><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="while-loops">While Loops</h3>
-
-<p>The easiest first loop to learn is the <code>while</code> loop. It has this simple structure:</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers">   <span class="token keyword">while</span><span class="token punctuation">(</span>test<span class="token punctuation">)</span> 
-   <span class="token punctuation">{</span>
-      <span class="token comment">// This code will execute repeatedly until</span>
-      <span class="token comment">// (test) is false.</span>
-   <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></pre><p>What&#x2019;s the minimum code we need for loop that doesn&#x2019;t go on for ever? Something to make the loop go, and something to make it stop.</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers">   <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment">// Always evaluates to true, so this is an infinite loop</span>
-   <span class="token punctuation">{</span>
-      <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// Break ends a loop</span>
-   <span class="token punctuation">}</span>
-   
-   <span class="token comment">// What will that code do?</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><strong>To make a useful loop</strong>, then, we need <strong>a variable</strong> that we can use in the test, it has to have <strong>an initial value</strong>, and <strong>it has to change</strong> while the loop runs. For it to run a set number of times, we&#x2019;ll create a counter (or index).</p>
+<p>When we have multiple conditions in life, they&#x2026; depend.</p>
 <blockquote>
-<p><em><strong>initialise</strong></em><br>
-while (<em><strong>condition</strong></em>)<br>
-{<br>
-<em><strong>increment</strong></em>;<br>
-}</p>
+<p>&#x201C;Okay, I&#x2019;ll go to the party,&#x201D; Sharmeen sighed, &#x201C;IF Bruno Johnson is going.&#x201D;<br>
+&#x201C;&#x2026; or Claus Hansomme.&#x201D; she added, looking into the distance.</p>
 </blockquote>
-<h3 class="mume-header" id="basketball-in-_c_">Basketball in <em>C++</em></h3>
-
-<p>Replacing those requirements with c++:</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// initialise</span>
-<span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-<span class="token comment">// condition</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span> count <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">)</span>
-<span class="token punctuation">{</span>   
-   cout <span class="token operator">&lt;&lt;</span> count <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">;</span> <span class="token comment">// This is so humans can watch</span>
-      
-   <span class="token comment">// increment</span>
-   count<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> 
-
-<span class="token comment">// output:</span>
-<span class="token comment">// 0,1,2,3,4,5,6,7,8,9</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>Easy! Here&#x2019;s the pseudocode basketball game loop written in c++.</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token comment">//Info on hand: Tries allowed, tries remaining </span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> TRIES_ALLOWED <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> triesRemaining<span class="token punctuation">;</span>
-<span class="token comment">//Info to track: score</span>
-<span class="token keyword">int</span> score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token comment">// INITIALIZE</span>
-	triesRemaining <span class="token operator">=</span> ________<span class="token punctuation">;</span>
-	<span class="token keyword">bool</span> shotMade<span class="token punctuation">;</span>
-
-	<span class="token comment">//While tries remaining &gt; 0:</span>
-	<span class="token keyword">while</span> <span class="token punctuation">(</span>triesRemaining <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		shotMade <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-		<span class="token comment">// Ask player to hit enter to shoot the ball</span>
-		cout __ <span class="token string">&quot;Hit enter to shoot&quot;</span> __ endl<span class="token punctuation">;</span>
-		cin<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-		<span class="token comment">//Decide if player made the shot</span>
-		shotMade <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-		<span class="token comment">//If they did hit the shot:</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>_____<span class="token punctuation">)</span>
-		<span class="token punctuation">{</span>
-			___ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Noice! +3 Points.\n&quot;</span><span class="token punctuation">;</span>
-			<span class="token comment">// Give them 3 points</span>
-			score __ <span class="token number">3</span><span class="token punctuation">;</span>
-		<span class="token punctuation">}</span> 
-		<span class="token comment">// otherwise</span>
-			<span class="token comment">//Give them 0 points</span>
-		
-		<span class="token comment">//Reduce tries remaining by 1</span>
-		triesRemaining___<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span> <span class="token comment">// loop</span>
-
-	<span class="token comment">//Tell them their score</span>
-	<span class="token comment">//Thank them for playing.</span>
-	_________
-	_________
-
-<span class="token punctuation">}</span> <span class="token comment">//end_program Basketball</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="menu-selection-loop">Menu selection loop</h3>
-
-<p>That&#x2019;s iteration sorted, but not all loops are counted. The condition evaluates to <code>true</code>/<code>false</code>, so any comparison will work. Including a choice from a menu.</p>
-<pre data-role="codeBlock" data-info class="language-"><code>// A menu game loop //////////////
-
-start_program FarmingSim
-
-   While the player hasn&apos;t quit:
-      
-      Show them this menu
-      1. Play FarmSim
-      2. Options
-      3. Quit
-
-      Get their selection
-      
-      If it&apos;s anything exept Quit:
-         enter that section
-      otherwise:
-         note player has quit.
-   loop
-
-end_program FarmingSim
-</code></pre><p>This loop relies on <strong>initializing</strong> a variable, we could call it <code>hasPlayerQuit</code>. The <strong>condition</strong> is that they haven&#x2019;t quit. The <strong>change to the variable</strong> comes from player input.</p>
-<p>See if you can finish the translation from <em>psuedocode</em> to <em>c++</em></p>
-<h4 class="mume-header" id="farmsimcpp">FarmSim.cpp</h4>
-
-<pre data-role="codeBlock" data-info="C++ {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<p>With the help of the <strong>logical operator <code>||</code></strong>, that&#x2019;s two pipe symbols (above <code>enter</code>), we can check for <strong>A <em>or</em> B</strong>.</p>
+<p><strong>C++ uses the same syntax:</strong></p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-	<span class="token comment">// INITIALISE variable</span>
-	____ userHasntQuit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> brunoIsGoing <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> clausIsGoing <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
-	<span class="token comment">// loop with CONDITION</span>
-	<span class="token function">____</span> <span class="token punctuation">(</span> userHasntQuit <span class="token punctuation">)</span> <span class="token comment">// True to begin with</span>
-	<span class="token punctuation">{</span>
-		____ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;1. Play FarmSim&quot;</span> <span class="token operator">&lt;&lt;</span> ____<span class="token punctuation">;</span>
-		____ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;2. Options&quot;</span> <span class="token operator">&lt;&lt;</span> ____<span class="token punctuation">;</span>
-		____ <span class="token operator">&lt;&lt;</span> ________ <span class="token operator">&lt;&lt;</span> ____<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>brunoIsGoing <span class="token operator">||</span> clausIsGoing<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t&quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Looks like Sharmeen is going.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// \t adds a tab at the start.</span>
+  <span class="token punctuation">}</span>
 
-		<span class="token keyword">int</span> menuChoice <span class="token operator">=</span> __<span class="token punctuation">;</span>
-		____ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Enter a number to choose: &quot;</span><span class="token punctuation">;</span> 
-		cin <span class="token operator">&gt;&gt;</span> ______<span class="token punctuation">;</span>
-
-		<span class="token keyword">switch</span> <span class="token punctuation">(</span>____<span class="token punctuation">)</span>
-		<span class="token punctuation">{</span>
-			____ <span class="token number">1</span><span class="token operator">:</span>
-				____ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You just played FarmSim&quot;</span> <span class="token operator">&lt;&lt;</span> ____<span class="token punctuation">;</span>
-				<span class="token keyword">break</span><span class="token punctuation">;</span>
-			____ <span class="token number">2</span><span class="token operator">:</span>
-				____ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;You have no options&quot;</span> <span class="token operator">&lt;&lt;</span> ____<span class="token punctuation">;</span>
-				<span class="token keyword">break</span><span class="token punctuation">;</span>
-			____ <span class="token number">3</span><span class="token operator">:</span>
-				<span class="token comment">// CHANGE variable</span>
-				_____ <span class="token operator">=</span> _____<span class="token punctuation">;</span>
-				<span class="token keyword">break</span><span class="token punctuation">;</span>
-			<span class="token keyword">default</span><span class="token operator">:</span>
-				____ <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Try again genius. 1, 2 or 3.&quot;</span> <span class="token operator">&lt;&lt;</span> ____<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
-<h3 class="mume-header" id="for-loops">For Loops</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><img src="assets/week3/logical_or_table.png" alt></p>
+<p>More operators are also available here: <a href="http://flowgorithm.org/documentation/operators.htm">http://flowgorithm.org/documentation/operators.htm</a></p>
+<h3 class="mume-header" id="if-a-is-true-_and_-b-is-true">If A is true <em>and</em> B is true</h3>
 
-<p>For loops are way of having the <strong>init</strong>, <strong>condition</strong> and <strong>increment</strong> in a single line. It&#x2019;s almost always used for loops with a counter.</p>
+<p>We don&#x2019;t need <code>||</code> though. We need to <strong>continue if the player hasn&#x2019;t guessed the number AND they have guessed less than 3 times</strong>.</p>
+<p>This requires <strong>logical <em>and</em>.</strong> Let&#x2019;s see Jessie use it.</p>
 <blockquote>
-<p>for ( <strong>initialize</strong>; <strong>condition</strong>, <strong>increment</strong>)<br>
-{<br>
-// do things<br>
-}</p>
+<p>&#x201C;Okay, I&#x2019;ll go to the party,&#x201D; Jessie flounced, &#x201C;if you make the DJ play Cardi B.&#x201D;<br>
+&#x201C;<strong>And</strong> someone else drives.&#x201D; she added.</p>
 </blockquote>
-<p>And with example code filled in:</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> triesRemaining<span class="token operator">=</span>TRIES_ALLOWED<span class="token punctuation">;</span> triesRemaining <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> triesRemaining<span class="token operator">--</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token comment">// Do things</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment">// The counter is commonly known as an &quot;index&quot;, and the convention for</span>
-<span class="token comment">// a counting loop is to use int i. If you have a loop/loops inside the outer one,</span>
-<span class="token comment">// we go up the alphabet to keep them isolated. i, j, k, etc</span>
-
-<span class="token comment">// Do something 10 times</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	<span class="token comment">//Do something 3 times</span>
-	<span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;I&apos;ll be printed 30 times.\n&quot;</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><strong>Pro</strong>: Shorter definition of loop all in one place. Less chance of forgetting to initialise or increment your counter variable.<br>
-<strong>Con</strong>: Harder syntax to read/remember for new programmers.</p>
-<hr>
-<h3 class="mume-header" id="dowhile-loops"><code>do..while</code> Loops</h3>
-
-<p>Like a while, with the condition checked at the end. Happens at least once no matter what. A normal while loop will execute 0 times if the condition is never met. I don&#x2019;t recall seeing these used.</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token keyword">do</span>
-<span class="token punctuation">{</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Long cat is long&quot;</span>&quot; <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token comment">// now check if cat is still Long</span>
-<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span> catIsLong <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="do-some-code-exercises">Do some code Exercises</h2>
-
-<p>Link to first code exercises</p>
-<hr>
-<h2 class="mume-header" id="break">Break</h2>
-
-<hr>
-<h2 class="mume-header" id="assignment-1-discussion">Assignment 1 Discussion</h2>
-
-<p>Assessment pdf <a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7150381-dt-content-rid-8562028_1/xid-8562028_1">Link</a></p>
-<hr>
-<h2 class="mume-header" id="collections">Collections</h2>
-
-<p>Lots of data goes together. Potions, cows, seed types, gems collected.</p>
-<h3 class="mume-header" id="arrays">Arrays</h3>
-
-<p>Arrays are for storing collections of things. They aren&#x2019;t directly based on a real world storage metaphor like a pantry or toolbox. An array is just a series of chunks of memory, one after another, set aside to hold the same data type.</p>
-<p>We&#x2019;ve declared integers like <code>int faveNumber;</code> grab 32bits of memory, and to use it by name. With an Array you can declare:</p>
-<p><code>int faveNumbers[5]</code></p>
-<p>and reserve 5 integers worth of memory, and access each of them with the same name and an <em>index</em> like so:</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers">x <span class="token operator">=</span> faveNumbers<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
-y <span class="token operator">=</span> faveNumbers<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>` 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></pre><p>Arrays for inventory items:</p>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;String&gt;</span>;</span>
-
-<span class="token comment">// Hero&apos;s inventory from the textbook</span>
-<span class="token comment">// demonstrates arrays.</span>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-	<span class="token keyword">const</span> <span class="token keyword">int</span> MAX_ITEMS <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-	string inventory<span class="token punctuation">[</span>MAX_ITEMS<span class="token punctuation">]</span><span class="token punctuation">;</span>
-	<span class="token keyword">int</span> numItems <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-	
-	<span class="token comment">// the ++ incrementor first evaluates as its beginning number,</span>
-	<span class="token comment">// THEN it has 1 added. So for the first array access numItems returns 0, but by the</span>
-	<span class="token comment">// next line numItems is 1.</span>
-	<span class="token comment">// if it was ++numItems we&apos;d be accessing 1, 2, 3</span>
-	inventory<span class="token punctuation">[</span>numItems<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;sword&quot;</span><span class="token punctuation">;</span>
-	inventory<span class="token punctuation">[</span>numItems<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;armor&quot;</span><span class="token punctuation">;</span>
-	inventory<span class="token punctuation">[</span>numItems<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;shield&quot;</span><span class="token punctuation">;</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Your items:\n&quot;</span><span class="token punctuation">;</span>
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numItems<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		cout <span class="token operator">&lt;&lt;</span> inventory<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nYou trade your sword for a battle axe.&quot;</span><span class="token punctuation">;</span>
-	inventory<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;battle axe&quot;</span><span class="token punctuation">;</span>
-	
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nYour items:\n&quot;</span><span class="token punctuation">;</span>
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numItems<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		cout <span class="token operator">&lt;&lt;</span> inventory<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
+  <span class="token keyword">bool</span> djPlaysCardiB <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> someoneElseDrives <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>djPlaysCardiB <span class="token operator">&amp;&amp;</span> someoneElseDrives<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t&quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Ok Jessie is going.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// \t adds a tab at the start.</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="initializing-arrays">Initializing Arrays</h4>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><strong>Spoiler:</strong> she doesn&#x2019;t go. Jessie respects her P plates too much to lose them drink driving.</p>
+<h3 class="mume-header" id="exercise-the-guess-limit">Exercise: The Guess Limit</h3>
 
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// This is our first time seeing a new use of the curly braces.</span>
-<span class="token comment">// Normally they mean code block.</span>
-<span class="token comment">// Here they define a set of data values.</span>
-<span class="token keyword">int</span> luckyNumbers<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">386</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<p>Add <strong>two required conditions</strong> to your while loop using <code>&amp;&amp;</code>. <strong>Learn from Jessie.</strong></p>
+<ol>
+<li>Player guess <strong>is not equal to</strong> secret number.</li>
+<li>Guess count is less than 3.</li>
+</ol>
+<p>Print &#x201C;No more guesses, you&#x2019;re done&#x201D; before quitting if they run out of guesses.</p>
+<h2 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h2>
 
-<span class="token comment">// Actually it&apos;s not that strict. If you have 5 elements in the array, it can</span>
-<span class="token comment">// figure out the size</span>
-<span class="token keyword">int</span> luckyNumbers<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">386</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token comment">// if you have more than 5 but you only initialise 5, the rest will be 0</span>
-<span class="token keyword">int</span> luckyNumbers<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">386</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token comment">// As a result you can set the first to 0, and the rest </span>
-<span class="token comment">// will be set to 0, to initialise all items. </span>
-<span class="token keyword">int</span> sooooManyZeroes<span class="token punctuation">[</span><span class="token number">2500</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="abilities">Abilities</h4>
-
-<p>Can store things, it works.</p>
-<h4 class="mume-header" id="shortcomings">Shortcomings</h4>
-
-<p>Once you set the size you&#x2019;re stuck with it. It can also be painful to check. You can only overwrite what&#x2019;s in there.</p>
-<h3 class="mume-header" id="multidimensional-arrays">Multidimensional Arrays</h3>
-
-<p>What if each cell in an array was&#x2026; an Array?</p>
-<h4 class="mume-header" id="tictactoecpp">TicTacToe.cpp</h4>
-
-<hr>
-<h3 class="mume-header" id="vectors">Vectors</h3>
-
-<p>A friendly, more flexible version of Arrays. Really, what we want from Arrays a lot of the time.</p>
-<p>Vectors are provided in the c++ std library, are a class rather than a basic type, and provide useful functions and properties:</p>
-<ul>
-<li><code>capacity()</code>, <code>size()</code>: max size, actual size</li>
-<li><code>push_back()</code> to add a new element to the end</li>
-<li><code>begin()</code> and <code>end()</code> pointers</li>
-<li><code>insert()</code>, <code>erase()</code></li>
-<li>Read more: <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/">https://www.geeksforgeeks.org/vector-in-cpp-stl/</a></li>
-</ul>
-<pre data-role="codeBlock" data-info="c++ {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// C++ program to illustrate the </span>
-<span class="token comment">// capacity function in vector </span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span> </span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span> </span>
-
+<p>Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these <strong>magic numbers</strong> because, without context, they could <strong>mean anything</strong>. They <strong>appear and work as if by magic</strong>.</p>
+<p>Constants <strong>are variables</strong> in C++&#x2026; <strong>that don&#x2019;t vary</strong>. They mean something like <strong><code>PI</code></strong>, or <strong><code>SECONDS_IN_MINUTE</code></strong>. When we use them in an if, it&#x2019;s clear what&#x2019;s happening.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> PLAY <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> QUIT <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-	vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> g1<span class="token punctuation">;</span>
-
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
-		g1<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Size : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nCapacity : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">capacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nMax_Size : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">max_size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// resizes the vector size to 4 </span>
-	g1<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// prints the vector size after resize() </span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nSize : &quot;</span> <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// checks if the vector is empty or not </span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>g1<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nVector is not empty&quot;</span><span class="token punctuation">;</span>
-	<span class="token keyword">else</span>
-		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nVector is empty&quot;</span><span class="token punctuation">;</span>
-
-	<span class="token comment">// Shrinks the vector </span>
-	g1<span class="token punctuation">.</span><span class="token function">shrink_to_fit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\nVector elements are: &quot;</span><span class="token punctuation">;</span>
-	<span class="token comment">//for (auto it = g1.begin(); it != g1.end(); it++)</span>
-	<span class="token comment">//	cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span>
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> g1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
-	<span class="token punctuation">{</span>
-		cout <span class="token operator">&lt;&lt;</span> g1<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;, &quot;</span><span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> PLAY<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// play</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> QUIT<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//quit</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
-<h2 class="mume-header" id="exercises">Exercises</h2>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="the-const-keyword">The <code>const</code> keyword</h4>
 
+<p>When the compiler sees <strong><code>const</code></strong> before <strong><code>int</code></strong> it means that variable can&#x2019;t be changed. If you <strong>try to assign to</strong>/overwrite a constant, your program <strong>won&#x2019;t compile</strong>.</p>
+<h4 class="mume-header" id="conventions-and-constant_name">Conventions and <code>CONSTANT_NAME</code></h4>
+
+<p>There&#x2019;s <strong>no compiler rule saying</strong> <code>const</code> names have to be <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong>. It&#x2019;s purely for human eyeballs. We&#x2019;ll know it&#x2019;s an unchanging number <strong>on sight</strong>.</p>
+<blockquote>
+<p><strong>Conventions are practises</strong> programmers follow to <strong>make reading code easier</strong> on themselves and others. If we follow conventions that are widely used, and do it consistently:</p>
 <ol>
-<li>If you didn&#x2019;t type out the Array/Vector code above, do that.</li>
-<li>Add a random outcome to the basketball game. Our shooter, over time, should hit 60% of their shots.</li>
-<li>Work on assessment 1</li>
-<li>Week 3 <a href="week3_code.html">code exercises</a></li>
+<li><strong>Debugging our code</strong> will be easier</li>
+<li><strong>Sharing and receiving</strong> code will be easier</li>
+<li><strong>We can write bigger programs</strong> and more complex games, because we&#x2019;ll <strong>minimise wasted mental energy</strong>.</li>
 </ol>
-<hr>
-<h2 class="mume-header" id="resources">Resources</h2>
+<p>Like a marathon runner with a disciplined stride, we&#x2019;ll go further with the same resources.</p>
+</blockquote>
+<h2 class="mume-header" id="clearing-the-screenconsole-in-c">Clearing the screen/console in C++</h2>
 
-<ol>
-<li>The book!
+<p>Nobody wants to play <strong>scroll down the screen fighter</strong>.</p>
+<p>Add <strong><code>System(cls)</code> before showing sub screens</strong>, and <strong>before returning</strong> to the main menu.</p>
+<h2 class="mume-header" id="enumerators-enum">Enumerators: <strong><code>enum</code></strong></h2>
+
+<p>Enumerators provide a shorthand for creating (and grouping) constants with integer values.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> MenuChoices <span class="token punctuation">{</span> STORY_MODE<span class="token punctuation">,</span> ONLINE_MULTIPLAYER<span class="token punctuation">,</span> OPTIONS<span class="token punctuation">,</span> QUIT <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> MenuChoices<span class="token punctuation">.</span>PLAY<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// play</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> MenuChoices<span class="token punctuation">.</span>QUIT<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//quit</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>I&#x2019;ve shown you an <strong>enum defined on a single line</strong> because hopefully it&#x2019;ll <strong>help you remember</strong> you need <strong>a semi colon at the end</strong> of an enum definition.</p>
 <ul>
-<li><a href="book_1/cppgameprog_1_variables_io.pdf">Chapter 1 pdf</a></li>
-<li><a href="book_1/cppgameprog_2_conditionals_game_loop.pdf">Chapter 2 pdf</a></li>
-<li><a href="book_1/cppgameprog_3_loops_strings_arrays.pdf">Chapter 3 pdf</a></li>
+<li>Conventionally, an enum definition is <strong>spread over multiple lines</strong> for readability.</li>
+<li>These curly braces <strong>don&#x2019;t define a code block</strong>. They&#x2019;re actually starting and ending a <em>set</em>, a collection. More on this later in data collections.</li>
 </ul>
-</li>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">enum</span> MenuChoices    <span class="token comment">// enums can get long, so they&apos;re defined over multiple lines</span>
+<span class="token punctuation">{</span> 
+  STORY_MODE<span class="token punctuation">,</span> 
+  ONLINE_MULTIPLAYER<span class="token punctuation">,</span> 
+  OPTIONS<span class="token punctuation">,</span>
+  STORE<span class="token punctuation">,</span>
+  LOOTBOXES<span class="token punctuation">,</span>
+  CREDITS<span class="token punctuation">,</span>
+  STATISTICS<span class="token punctuation">,</span>
+  QUIT 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>              <span class="token comment">// DON&apos;T FORGET this semi colon. Spoiler: you will.</span>
+</pre><p>There&#x2019;s <strong>a lot more to enums</strong>, read on: <a href="https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/">https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/</a></p>
+<h2 class="mume-header" id="other-loop-structures">Other loop structures</h2>
+
+<p><strong><code>for</code></strong> loops. <strong><code>do..while</code></strong> loops. Look into them in <em>Flowgorithm</em> and <em>C++</em></p>
+<p>You&#x2019;ll mostly see <strong><code>for</code></strong> loops used to go through collections of data. We&#x2019;ll get to that next week.</p>
+<p><img src="assets/week3/flow_for_baby.png" alt></p>
+<p><strong>Note</strong> I joined the <code>lyric</code> variable and the string <code>&quot;, &quot;</code> using a single <code>&amp;</code>. That&#x2019;s a flowgorithm thing.</p>
+<h3 class="mume-header" id="for-exported-to-_c_"><code>for</code> exported to <em>C++</em></h3>
+
+<p><strong>Note</strong> how in <em>C++</em> <code>lyric</code> and <code>&quot;, &quot;</code> are joined using <code>&lt;&lt;</code>. This works when the line starts with <code>cout</code>.</p>
+<p><img src="assets/week3/cpp_baby_for.png" alt></p>
+<h2 class="mume-header" id="home-todos">Home Todos:</h2>
+
+<ol>
+<li>Do the <em><strong>Menu Fighter</strong></em> exercise below.</li>
+<li>Read through to the end of <a href="book_1/chap2_cpp_games.pdf">chapter 2 of the textbook</a>. <strong>This book will help you</strong> enormously, all you have to do is put in some time. Save the chapter 2 pdf to your phone, easy.<br>
+a. If there&#x2019;s anything you don&#x2019;t fully understand, type out the code sample for that part!<br>
+b. If you want to do well in the subject, type out lots of code samples and play with them.<br>
+<a href="book_1/chap2_cpp_games.pdf"><img src="assets/week3/book_chap_2.png" alt></a></li>
+<li><strong><a href="https://www.sololearn.com/Course/CPlusPlus/">SoloLearn</a>: work through</strong> the <em>C++</em> tutorial to the <strong>end of the second section</strong>, <em>Conditionals and Loops</em><br>
+a. The sololearn <a href="https://www.sololearn.com/Course/CPlusPlus/">site</a> has the same tute and syncs with your phone progress when you log in.<br>
+<img src="assets/week3/sololearn_loops.png" alt></li>
 </ol>
+<h2 class="mume-header" id="home-exercise-menu-fighter">Home Exercise: Menu Fighter</h2>
+
+<p><strong>Make this amazing game by yourself.</strong></p>
+<p>You can:</p>
+<ul>
+<li>Write it <strong>directly in <em>C++</em></strong><br>
+or</li>
+<li>Make it <strong>in <em>Flowgorithm</em></strong> and then <strong>export it to <em>C++</em></strong>. Paste it into a Visual Studio project&#x2019;s main.cpp and <strong>get it running in the console.</strong></li>
+</ul>
+<p><img src="assets/week3/menu_fighter_chat.png" alt></p>
+<blockquote>
+<p>---- WELCOME TO MENU FIGHTER -----</p>
+<p>1: Play Game | 2: Options | 3: Quit</p>
+<p>Enter a number to choose:</p>
+</blockquote>
+<p>Here are the computer&#x2019;s instructions:</p>
+<ol>
+<li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
+<li>Let me choose an entry by <strong>inputting a number</strong>.</li>
+<li>Check their choice and:<br>
+<strong>Play Game</strong>: print <code>&quot;Round 1, Fight. Bish bish bash URGH. You win!&quot;</code><br>
+<strong>Options</strong>: print <code>&quot;Your only option is to fight.&quot;</code><br>
+<strong>Quit</strong>: print <code>&quot;You quit.&quot;</code> and remember <strong>playerQuit is true</strong>.</li>
+<li>Repeat.</li>
+</ol>
+<p><em>6: If playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function.</em></p>
 
       </div>
       

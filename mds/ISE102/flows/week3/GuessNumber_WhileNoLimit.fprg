@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dmac"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-30 08:35:21 PM"/>
+        <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
+        <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjo0Mzo0MCBBTTszOzI3NTY="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0zMDswODozNToyMSBQTTs2OzI3MjA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="secretNumber" type="Integer" array="False" size=""/>
+            <declare name="playerGuess" type="Integer" array="False" size=""/>
+            <assign variable="playerGuess" expression="-1"/>
+            <assign variable="secretNumber" expression="Random(6)"/>
+            <declare name="guessesCount" type="Integer" array="False" size=""/>
+            <assign variable="guessesCount" expression="0"/>
+            <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
+            <while expression="(guessesCount &lt; 3) &amp;&amp; (playerGuess != secretNumber)">
+                <input variable="playerGuess"/>
+                <if expression="playerGuess == secretNumber">
+                    <then>
+                        <output expression="&quot;You win a billion cryptoblocks!&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="playerGuess &gt; secretNumber">
+                            <then>
+                                <output expression="&quot;Lower.&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Higher.&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <assign variable="guessesCount" expression="guessesCount + 1"/>
+            </while>
+            <output expression="&quot;You're out of guesses.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
