@@ -4,11 +4,11 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="dmac"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-09-30 01:59:28 PM"/>
+        <attribute name="saved" value="2019-09-30 02:49:49 PM"/>
         <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjoyNTowNyBBTTsyNjQ5"/>
         <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0yMjsxMjozNjowMyBBTTsyOzI3NTY="/>
         <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0wOS0yMjswNjo0ODoyMSBQTTs0OzI3MjE="/>
-        <attribute name="edited" value="VUxUU3R1ZGVudDtVTDIwMkRXMTEwMzM1OzIwMTktMDktMzA7MDE6NTk6MjggUE07NDszMTU3"/>
+        <attribute name="edited" value="VUxUU3R1ZGVudDtVTDIwMkRXMTEwMzM1OzIwMTktMDktMzA7MDI6NDk6NDkgUE07MTI7MzIwNw=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -19,13 +19,14 @@
             <assign variable="playerGuess" expression="-1"/>
             <declare name="guessCount" type="Integer" array="False" size=""/>
             <assign variable="guessCount" expression="0"/>
+            <declare name="MAXGUESSES" type="Integer" array="False" size=""/>
+            <assign variable="MAXGUESSES" expression="2"/>
             <output expression="&quot;Guess my secret number. It's between 0 and 5, inclusive.&quot;" newline="True"/>
-            <while expression="secretNumber != playerGuess">
+            <output expression="&quot;You have &quot; &amp; MAXGUESSES &amp; &quot;  tries.&quot;" newline="True"/>
+            <while expression="(secretNumber != playerGuess) &amp;&amp; (guessCount &lt; MAXGUESSES)">
                 <input variable="playerGuess"/>
                 <if expression="playerGuess == secretNumber">
-                    <then>
-                        <output expression="&quot;You win a thousand moneys!&quot;" newline="True"/>
-                    </then>
+                    <then/>
                     <else>
                         <if expression="playerGuess &gt; secretNumber">
                             <then>
@@ -39,6 +40,14 @@
                 </if>
                 <assign variable="guessCount" expression="guessCount + 1"/>
             </while>
+            <if expression="playerGuess == secretNumber">
+                <then>
+                    <output expression="&quot;You won a billion hashtags&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;You've used your &quot; &amp; MAXGUESSES &amp; &quot; guesses. Better luck next time.&quot;" newline="True"/>
+                </else>
+            </if>
         </body>
     </function>
 </flowgorithm>
