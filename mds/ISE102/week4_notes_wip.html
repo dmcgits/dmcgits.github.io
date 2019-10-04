@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>week3_notes</title>
+      <title>week4_notes_wip</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -298,153 +298,141 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="ise102-week-3-loops-basic-functions">ISE102 Week 3 - Loops, basic functions</h1>
+      <h2 class="mume-header" id="last-weeks-home-exercise-menu-fighter">Last  week&#x2019;s home exercise: Menu Fighter</h2>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-3---loops-basic-functions">ISE102 Week 3 - Loops, basic functions</a>
+<h3 class="mume-header" id="the-brief">The brief</h3>
+
+<p><strong>Make this amazing game by yourself.</strong></p>
+<p>You can:</p>
 <ul>
-<li><a href="#repeating">Repeating!</a></li>
-<li><a href="#limiting-guesses-with-logic">Limiting guesses with logic</a></li>
-<li><a href="#home-todos">Home Todos:</a></li>
+<li>Write it <strong>directly in <em>C++</em></strong><br>
+or</li>
+<li>Make it <strong>in <em>Flowgorithm</em></strong> and then <strong>export it to <em>C++</em></strong>. Paste it into a Visual Studio project&#x2019;s main.cpp and <strong>get it running in the console.</strong></li>
 </ul>
-</li>
-</ul>
-<h2 class="mume-header" id="repeating">Repeating!</h2>
-
-<p>Games are built on loops within loops.</p>
-<p><img src="assets/week3/menu_main_guac.png" alt><br>
-We select something in the <strong>main menu</strong>, and eventually <strong>return</strong>:</p>
-<p><img src="assets/week3/menu_game_mode_ow.png" alt><br>
-On the <strong>&#x201C;arcade&#x201D; screen in <em>Overwatch</em> we choose a game mode</strong> and enter a queue. We&#x2019;ll either <strong>cancel back</strong> to this screen or <strong>play a game</strong> and return to the screen.</p>
-<p><img src="assets/week3/rounds_loop_sf4.jpg" alt><br>
-In Street Fighter we <strong>play the best of 3 rounds</strong>, in each of which we recover all our health and fight again.</p>
-<h3 class="mume-header" id="guess-again-while-loops">Guess Again: <code>while</code> loops</h3>
-
-<p>Our guessing game wasn&#x2019;t much fun when you had a 5 in 6 chance of losing.</p>
-<p>Let&#x2019;s <strong>add extra chances</strong> with higher/lower prompts until you get it. We&#x2019;ll need a way to <strong>do things repeatedly</strong>.</p>
-<p><img src="assets/week3/flow_while_node.png" alt><br>
-Repeating/looping in flowgorithm is handled by <strong>the while loop</strong>, along with other loops. To make loops useful, <strong>they can be stopped</strong> eventually.</p>
-<ul>
-<li><strong>Loops take a condition</strong> in flowgorithm (and <em>C++</em>)</li>
-<li>just like an <code>if</code> statement it <strong>only executes when the condition is true</strong>.</li>
-<li><strong>Enter</strong> the conditional expression: check that playerGuess <strong>is not equal to</strong> secretNumber.</li>
-</ul>
-<p><img src="assets/week3/flow_while_playerGuess.png" alt></p>
-<h3 class="mume-header" id="we-need-repeated-user-input">We need repeated user input</h3>
-
-<p>Our prompt and input is missing. Add that, and play your game.</p>
-<p><img src="assets/week3/flow_while_input.png" alt></p>
-<p>What you&#x2019;d see if <strong>secret number is 4</strong>.</p>
-<p><img src="assets/week3/flow_play_guess_unlimited.png" alt></p>
-<h3 class="mume-header" id="exercise-add-higherlower">Exercise: Add higher/lower</h3>
-
-<ul>
-<li>If the playerGuess is less than the secret number, print out &#x201C;Higher.&#x201D; after their guess.</li>
-<li>Add &#x201C;Lower.&#x201D; if they guess high.</li>
-</ul>
-<h3 class="mume-header" id="while-in-_c_"><code>while</code> In <em>C++</em></h3>
-
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">int</span> playerGuess <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-  <span class="token keyword">int</span> secretNumber <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">while</span> <span class="token punctuation">(</span> playerGuess <span class="token operator">!=</span> secretNumber<span class="token punctuation">)</span>  <span class="token comment">// Only runs if guess is not equal to secret</span>
-  <span class="token punctuation">{</span>
-    <span class="token comment">// Display prompt, get input.</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="limiting-guesses-with-logic">Limiting guesses with logic</h2>
-
-<p>Our <strong>end game</strong> condition is <code>playerGuess == secretNumber</code>. Let&#x2019;s also <strong>limit the player to 3 guesses</strong>.</p>
-<p><strong>We need a variable to count guesses:</strong></p>
-<p><img src="assets/week3/flow_declare_guessesCount.png" alt></p>
-<p>Then, increase the count each time someone guesses, using the <strong>assignment operator</strong> to overwrite guessCount.</p>
-<p><img src="assets/week3/guess_count_increment.png" alt></p>
-<h3 class="mume-header" id="checking-two-things">Checking two things</h3>
-
-<p>We could:</p>
-<ol>
-<li><strong>Add an if statement</strong>  to the loop, checking condition 2. if <code>guesses &gt;= 3</code> it breaks out of the loop.</li>
-<li>More graceful: check both conditions in the loop.</li>
-</ol>
-<h3 class="mume-header" id="if-a-is-true-_or_-b-is-true">If A is true <em>or</em> B is true</h3>
-
-<p>When we have multiple conditions in life, they&#x2026; depend.</p>
+<p><img src="assets/week3/menu_fighter_chat.png" alt></p>
 <blockquote>
-<p>&#x201C;Okay, I&#x2019;ll go to the party,&#x201D; Sharmeen sighed, &#x201C;IF Bruno Johnson is going.&#x201D;<br>
-&#x201C;&#x2026; or Claus Hansomme.&#x201D; she added, looking into the distance.</p>
+<p>---- WELCOME TO MENU FIGHTER -----</p>
+<p>1: Play Game | 2: Options | 3: Quit</p>
+<p>Enter a number to choose:</p>
 </blockquote>
-<p>With the help of the <strong>logical operator <code>||</code></strong>, that&#x2019;s two pipe symbols (above <code>enter</code>), we can check for <strong>A <em>or</em> B</strong>.</p>
-<p><strong>C++ uses the same syntax:</strong></p>
+<p>Here are the computer&#x2019;s instructions:</p>
+<ol>
+<li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
+<li>Let me choose an entry by <strong>inputting a number</strong>.</li>
+<li>Check their choice and:<br>
+<strong>Play Game</strong>: print <code>&quot;Round 1, Fight. Bish bish bash URGH. You win!&quot;</code><br>
+<strong>Options</strong>: print <code>&quot;Your only option is to fight.&quot;</code><br>
+<strong>Quit</strong>: print <code>&quot;You quit.&quot;</code> and remember <strong>playerQuit is true</strong>.</li>
+<li>Repeat.</li>
+</ol>
+<p><em>6: If playerQuit is true, the loop won&#x2019;t run, we&#x2019;ll go to the end of the main function.</em></p>
+<h3 class="mume-header" id="how-did-you-do">How did you do?</h3>
+
+<ol>
+<li>Who thought it was an ok task to get through?</li>
+<li>Who got a flowgorithm version working?</li>
+<li>Who exported c++ and got it working?</li>
+<li>What got people stuck (even if you overcame it)?</li>
+<li>Questions?</li>
+</ol>
+<h3 class="mume-header" id="how-it-might-look">How it might look</h3>
+
+<h2 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h2>
+
+<p>Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these <strong>magic numbers</strong> because, without context, they could <strong>mean anything</strong>. They <strong>appear and work as if by magic</strong>.</p>
+<p>Constants <strong>are variables</strong> in C++&#x2026; <strong>that don&#x2019;t vary</strong>. They mean something like <strong><code>PI</code></strong>, or <strong><code>SECONDS_IN_MINUTE</code></strong>. When we use them in an if, it&#x2019;s clear what&#x2019;s happening.</p>
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
+<span class="token keyword">const</span> <span class="token keyword">int</span> PLAY <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> QUIT <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">bool</span> brunoIsGoing <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  <span class="token keyword">bool</span> clausIsGoing <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>brunoIsGoing <span class="token operator">||</span> clausIsGoing<span class="token punctuation">)</span>
+  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> PLAY<span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t&quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Looks like Sharmeen is going.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// \t adds a tab at the start.</span>
+    <span class="token comment">// play</span>
   <span class="token punctuation">}</span>
-
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> QUIT<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//quit</span>
+  <span class="token punctuation">}</span>
   <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><img src="assets/week3/logical_or_table.png" alt></p>
-<p>More operators are also available here: <a href="http://flowgorithm.org/documentation/operators.htm">http://flowgorithm.org/documentation/operators.htm</a></p>
-<h3 class="mume-header" id="if-a-is-true-_and_-b-is-true">If A is true <em>and</em> B is true</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="the-const-keyword">The <code>const</code> keyword</h4>
 
-<p>We don&#x2019;t need <code>||</code> though. We need to <strong>continue if the player hasn&#x2019;t guessed the number AND they have guessed less than 3 times</strong>.</p>
-<p>This requires <strong>logical <em>and</em>.</strong> Let&#x2019;s see Jessie use it.</p>
+<p>When the compiler sees <strong><code>const</code></strong> before <strong><code>int</code></strong> it means that variable can&#x2019;t be changed. If you <strong>try to assign to</strong>/overwrite a constant, your program <strong>won&#x2019;t compile</strong>.</p>
+<h4 class="mume-header" id="conventions-and-constant_name">Conventions and <code>CONSTANT_NAME</code></h4>
+
+<p>There&#x2019;s <strong>no compiler rule saying</strong> <code>const</code> names have to be <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong>. It&#x2019;s purely for human eyeballs. We&#x2019;ll know it&#x2019;s an unchanging number <strong>on sight</strong>.</p>
 <blockquote>
-<p>&#x201C;Okay, I&#x2019;ll go to the party,&#x201D; Jessie flounced, &#x201C;if you make the DJ play Cardi B.&#x201D;<br>
-&#x201C;<strong>And</strong> someone else drives.&#x201D; she added.</p>
+<p><strong>Conventions are practises</strong> programmers follow to <strong>make reading code easier</strong> on themselves and others. If we follow conventions that are widely used, and do it consistently:</p>
+<ol>
+<li><strong>Debugging our code</strong> will be easier</li>
+<li><strong>Sharing and receiving</strong> code will be easier</li>
+<li><strong>We can write bigger programs</strong> and more complex games, because we&#x2019;ll <strong>minimise wasted mental energy</strong>.</li>
+</ol>
+<p>Like a marathon runner with a disciplined stride, we&#x2019;ll go further with the same resources.</p>
 </blockquote>
+<h2 class="mume-header" id="clearing-the-screenconsole-in-c">Clearing the screen/console in C++</h2>
+
+<p>Nobody wants to play <strong>scroll down the screen fighter</strong>.</p>
+<p>Add <strong><code>System(cls)</code> before showing sub screens</strong>, and <strong>before returning</strong> to the main menu.</p>
+<h2 class="mume-header" id="enumerators-enum">Enumerators: <strong><code>enum</code></strong></h2>
+
+<p>Enumerators provide a shorthand for creating (and grouping) constants with integer values.</p>
 <pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
+<span class="token keyword">enum</span> MenuChoices <span class="token punctuation">{</span> STORY_MODE<span class="token punctuation">,</span> ONLINE_MULTIPLAYER<span class="token punctuation">,</span> OPTIONS<span class="token punctuation">,</span> QUIT <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  <span class="token keyword">bool</span> djPlaysCardiB <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-  <span class="token keyword">bool</span> someoneElseDrives <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>djPlaysCardiB <span class="token operator">&amp;&amp;</span> someoneElseDrives<span class="token punctuation">)</span>
+  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
+  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> MenuChoices<span class="token punctuation">.</span>PLAY<span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;\t&quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Ok Jessie is going.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// \t adds a tab at the start.</span>
+    <span class="token comment">// play</span>
   <span class="token punctuation">}</span>
-
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> MenuChoices<span class="token punctuation">.</span>QUIT<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">//quit</span>
+  <span class="token punctuation">}</span>
   <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p><strong>Spoiler:</strong> she doesn&#x2019;t go. Jessie respects her P plates too much to lose them drink driving.</p>
-<h3 class="mume-header" id="exercise-the-guess-limit">Exercise: The Guess Limit</h3>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>I&#x2019;ve shown you an <strong>enum defined on a single line</strong> because hopefully it&#x2019;ll <strong>help you remember</strong> you need <strong>a semi colon at the end</strong> of an enum definition.</p>
+<ul>
+<li>Conventionally, an enum definition is <strong>spread over multiple lines</strong> for readability.</li>
+<li>These curly braces <strong>don&#x2019;t define a code block</strong>. They&#x2019;re actually starting and ending a <em>set</em>, a collection. More on this later in data collections.</li>
+</ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">enum</span> MenuChoices    <span class="token comment">// enums can get long, so they&apos;re defined over multiple lines</span>
+<span class="token punctuation">{</span> 
+  STORY_MODE<span class="token punctuation">,</span> 
+  ONLINE_MULTIPLAYER<span class="token punctuation">,</span> 
+  OPTIONS<span class="token punctuation">,</span>
+  STORE<span class="token punctuation">,</span>
+  LOOTBOXES<span class="token punctuation">,</span>
+  CREDITS<span class="token punctuation">,</span>
+  STATISTICS<span class="token punctuation">,</span>
+  QUIT 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>              <span class="token comment">// DON&apos;T FORGET this semi colon. Spoiler: you will.</span>
+</pre><p>There&#x2019;s <strong>a lot more to enums</strong>, read on: <a href="https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/">https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/</a></p>
+<h2 class="mume-header" id="other-loop-structures">Other loop structures</h2>
 
-<p>Add <strong>two required conditions</strong> to your while loop using <code>&amp;&amp;</code>. <strong>Learn from Jessie.</strong></p>
-<ol>
-<li>Player guess <strong>is not equal to</strong> secret number.</li>
-<li>Guess count is less than 3.</li>
-</ol>
-<p>Print &#x201C;No more guesses, you&#x2019;re done&#x201D; before quitting if they run out of guesses.</p>
-<h2 class="mume-header" id="home-todos">Home Todos:</h2>
+<p><strong><code>for</code></strong> loops. <strong><code>do..while</code></strong> loops. Look into them in <em>Flowgorithm</em> and <em>C++</em></p>
+<p>You&#x2019;ll mostly see <strong><code>for</code></strong> loops used to go through collections of data. We&#x2019;ll get to that next week.</p>
+<p><img src="assets/week3/flow_for_baby.png" alt></p>
+<p><strong>Note</strong> I joined the <code>lyric</code> variable and the string <code>&quot;, &quot;</code> using a single <code>&amp;</code>. That&#x2019;s a flowgorithm thing.</p>
+<h3 class="mume-header" id="for-exported-to-_c_"><code>for</code> exported to <em>C++</em></h3>
 
-<ol>
-<li>Do the <em><strong>Menu Fighter</strong></em> exercise below.</li>
-<li>Read through to the end of <a href="book_1/chap2_cpp_games.pdf">chapter 2 of the textbook</a>. <strong>This book will help you</strong> enormously, all you have to do is put in some time. Save the chapter 2 pdf to your phone, easy.<br>
-a. If there&#x2019;s anything you don&#x2019;t fully understand, type out the code sample for that part!<br>
-b. If you want to do well in the subject, type out lots of code samples and play with them.<br>
-<a href="book_1/chap2_cpp_games.pdf"><img src="assets/week3/book_chap_2.png" alt></a></li>
-<li><strong><a href="https://www.sololearn.com/Course/CPlusPlus/">SoloLearn</a>: work through</strong> the <em>C++</em> tutorial to the <strong>end of the second section</strong>, <em>Conditionals and Loops</em><br>
-a. The sololearn <a href="https://www.sololearn.com/Course/CPlusPlus/">site</a> has the same tute and syncs with your phone progress when you log in.<br>
-<img src="assets/week3/sololearn_loops.png" alt></li>
-</ol>
+<p><strong>Note</strong> how in <em>C++</em> <code>lyric</code> and <code>&quot;, &quot;</code> are joined using <code>&lt;&lt;</code>. This works when the line starts with <code>cout</code>.</p>
+<p><img src="assets/week3/cpp_baby_for.png" alt></p>
 
       </div>
       
