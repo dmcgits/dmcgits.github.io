@@ -13,9 +13,17 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3---loops-basic-functions)
+- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3-loops-basic-functions)
   - [Repeating!](#repeating)
+    - [Guess Again: `while` loops](#guess-again-while-loops)
+    - [We need repeated user input](#we-need-repeated-user-input)
+    - [Exercise: Add higher/lower](#exercise-add-higherlower)
+    - [`while` In _C++_](#while-in-_c_)
   - [Limiting guesses with logic](#limiting-guesses-with-logic)
+    - [Checking two things](#checking-two-things)
+    - [If A is true _or_ B is true](#if-a-is-true-_or_-b-is-true)
+    - [If A is true _and_ B is true](#if-a-is-true-_and_-b-is-true)
+    - [Exercise: The Guess Limit](#exercise-the-guess-limit)
   - [Home Todos:](#home-todos)
 
 <!-- /code_chunk_output -->
