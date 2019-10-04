@@ -13,18 +13,11 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3-loops-basic-functions)
+- [ISE102 Week 3 - Loops, basic functions](#ise102-week-3---loops-basic-functions)
   - [Repeating!](#repeating)
-    - [Guess Again: `while` loops](#guess-again-while-loops)
-    - [We need repeated user input](#we-need-repeated-user-input)
-    - [Exercise: Add higher/lower](#exercise-add-higherlower)
-    - [`while` In _C++_](#while-in-_c_)
   - [Limiting guesses with logic](#limiting-guesses-with-logic)
-    - [Checking two things](#checking-two-things)
-    - [If A is true _or_ B is true](#if-a-is-true-_or_-b-is-true)
-    - [If A is true _and_ B is true](#if-a-is-true-_and_-b-is-true)
-    - [Exercise: The Guess Limit](#exercise-the-guess-limit)
   - [Home Todos:](#home-todos)
+  - [Menu Fighter:](#menu-fighter)
 
 <!-- /code_chunk_output -->
 
@@ -194,4 +187,33 @@ Print "No more guesses, you're done" before quitting if they run out of guesses.
 3. **[SoloLearn](https://www.sololearn.com/Course/CPlusPlus/): work through** the _C++_ tutorial to the **end of the second section**, _Conditionals and Loops_
    a. The sololearn [site](https://www.sololearn.com/Course/CPlusPlus/) has the same tute and syncs with your phone progress when you log in.
 ![](assets/week3/sololearn_loops.png)
+
+
+## Menu Fighter:
+**Make this amazing game by yourself.** 
+
+You can:
+- Write it **directly in _C++_** 
+or
+- Make it **in _Flowgorithm_** and then **export it to _C++_**. Paste it into a Visual Studio project's main.cpp and **get it running in the console.**
+
+![](assets/week3/menu_fighter_chat.png)
+
+
+> ---- WELCOME TO MENU FIGHTER -----
+>
+> 1: Play Game | 2: Options | 3: Quit
+>
+> Enter a number to choose:
+
+Here are the computer's instructions:
+1. If player hasn't quit, **display a numbered menu**.  _(begins the loop)_
+2. Let me choose an entry by **inputting a number**.
+3. Check their choice and:
+   **Play Game**: print `"Round 1, Fight! Bish bish bash URGH!! You win."`
+   **Options**: print `"Your only option is to fight."` 
+   **Quit**: print `"You quit."` and remember **playerQuit is true**. 
+5. Repeat. 
+
+_6: If playerQuit is true, the loop won't run, we'll go to the end of the main function._
 
