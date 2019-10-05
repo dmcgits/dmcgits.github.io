@@ -15,19 +15,14 @@ export_on_save:
 <!-- code_chunk_output -->
 
 - [Week 4 ISE102](#week-4-ise102)
-  - [Last  week's home exercise: Menu Fighter](#last-weeks-home-exercise-menu-fighter)
-    - [The brief](#the-brief)
-    - [How did you do?](#how-did-you-do)
+  - [Last week's home exercise: Menu Fighter](#last-weeks-home-exercise-menu-fighter)
   - [Helpful coding practises](#helpful-coding-practises)
-    - [Taking one challenge at a time](#taking-one-challenge-at-a-time)
   - [Using variables for clarity](#using-variables-for-clarity)
-    - [Use constants for important, unchanging numbers](#use-constants-for-important-unchanging-numbers)
   - [Exercise](#exercise)
   - [More on floating point numbers](#more-on-floating-point-numbers)
   - [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
   - [Enumerators: **`enum`**](#enumerators-enum)
   - [Other loop structures](#other-loop-structures)
-    - [`for` exported to _C++_](#for-exported-to-_c_)
 
 <!-- /code_chunk_output -->
 
