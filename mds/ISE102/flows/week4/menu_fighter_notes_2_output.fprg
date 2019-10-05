@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Danny"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-10-04 07:41:52 PM"/>
+        <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzoxODoxMCBQTTsyNTk4"/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzo0MTo1MiBQTTs0OzI3MTE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="playerChoice" type="Integer" array="False" size=""/>
+            <assign variable="menuChoice" expression="0"/>
+            <while expression="menuChoice != 3">
+                <output expression="&quot;---- WELCOME TO MENU FIGHTER -----&quot;" newline="True"/>
+                <output expression="&quot;1: Play Game | 2: Options | 3: Quit&quot;" newline="True"/>
+                <output expression="&quot;Enter a number to choose:&quot;" newline="True"/>
+                <input variable="menuChoice"/>
+                <if expression="menuChoice == 1">
+                    <then>
+                        <output expression="&quot;Chose 1&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="menuChoice == 2">
+                    <then>
+                        <output expression="&quot;Chose 2&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="menuChoice == 3">
+                    <then>
+                        <output expression="&quot;Chose 3&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

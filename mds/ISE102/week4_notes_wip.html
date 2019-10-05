@@ -225,14 +225,14 @@ pre[data-line] .line-highlight[data-end]:after {
 .markdown-preview.markdown-preview h1 {
   color: #333;
   font-family: 'Merriweather', serif;
-  font-size: 36px;
+  font-size: 1.9em;
   font-weight: 700;
   padding-bottom: 0.3em;
 }
 .markdown-preview.markdown-preview h2 {
   color: #333;
   font-family: 'Merriweather', serif;
-  font-size: 28px;
+  font-size: 1.2em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
@@ -242,15 +242,15 @@ pre[data-line] .line-highlight[data-end]:after {
 .markdown-preview.markdown-preview h3 {
   color: #445;
   font-family: 'Merriweather', serif;
-  font-size: 24px;
+  font-size: 1.15em;
   font-weight: 600;
   padding-left: 0.2em;
   padding-bottom: 0.25em;
   padding-top: 0.2em;
-  background-color: #E5E5EC;
+  background-color: #F2F2F4;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.25em;
+  font-size: 1.05em;
   font-weight: 600;
   font-style: italic;
 }
@@ -298,7 +298,40 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h2 class="mume-header" id="last-weeks-home-exercise-menu-fighter">Last  week&#x2019;s home exercise: Menu Fighter</h2>
+      <h1 class="mume-header" id="week-4-ise102">Week 4 ISE102</h1>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-4-ise102">Week 4 ISE102</a>
+<ul>
+<li><a href="#last-weeks-home-exercise-menu-fighter">Last  week&#x2019;s home exercise: Menu Fighter</a>
+<ul>
+<li><a href="#the-brief">The brief</a></li>
+<li><a href="#how-did-you-do">How did you do?</a></li>
+</ul>
+</li>
+<li><a href="#helpful-coding-practises">Helpful coding practises</a>
+<ul>
+<li><a href="#taking-one-challenge-at-a-time">Taking one challenge at a time</a></li>
+</ul>
+</li>
+<li><a href="#using-variables-for-clarity">Using variables for clarity</a>
+<ul>
+<li><a href="#use-constants-for-important-unchanging-numbers">Use constants for important, unchanging numbers</a></li>
+</ul>
+</li>
+<li><a href="#exercise">Exercise</a></li>
+<li><a href="#more-on-floating-point-numbers">More on floating point numbers</a></li>
+<li><a href="#clearing-the-screenconsole-in-c">Clearing the screen/console in C++</a></li>
+<li><a href="#enumerators-enum">Enumerators: <strong><code>enum</code></strong></a></li>
+<li><a href="#other-loop-structures">Other loop structures</a>
+<ul>
+<li><a href="#for-exported-to-_c_"><code>for</code> exported to <em>C++</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="last-weeks-home-exercise-menu-fighter">Last  week&#x2019;s home exercise: Menu Fighter</h2>
 
 <h3 class="mume-header" id="the-brief">The brief</h3>
 
@@ -320,7 +353,7 @@ or</li>
 <li>If player hasn&#x2019;t quit, <strong>display a numbered menu</strong>.  <em>(begins the loop)</em></li>
 <li>Let me choose an entry by <strong>inputting a number</strong>.</li>
 <li>Check their choice and:<br>
-<strong>Play Game</strong>: print <code>&quot;Round 1, Fight. Bish bish bash URGH. You win!&quot;</code><br>
+<strong>Play Game</strong>: print <code>&quot;Round 1, Fight! Bish bish bash URGH!! You win.&quot;</code><br>
 <strong>Options</strong>: print <code>&quot;Your only option is to fight.&quot;</code><br>
 <strong>Quit</strong>: print <code>&quot;You quit.&quot;</code> and remember <strong>playerQuit is true</strong>.</li>
 <li>Repeat.</li>
@@ -335,35 +368,43 @@ or</li>
 <li>What got people stuck (even if you overcame it)?</li>
 <li>Questions?</li>
 </ol>
-<h3 class="mume-header" id="how-it-might-look">How it might look</h3>
+<p>&#xA0;</p>
+<h2 class="mume-header" id="helpful-coding-practises">Helpful coding practises</h2>
 
-<h2 class="mume-header" id="adding-constants-for-clarity">Adding constants for clarity</h2>
+<p>As our games gain features, even flowcharts begin to get a bit involved. Don&#x2019;t expect to juggle the whole thing at once - there are plentier strategies to make coding easier, and for most of us, satisfying!</p>
+<h3 class="mume-header" id="taking-one-challenge-at-a-time">Taking one challenge at a time</h3>
 
-<p>Checking if a number is 1, 2 or 3 is fairly meaningless to a human. We call these <strong>magic numbers</strong> because, without context, they could <strong>mean anything</strong>. They <strong>appear and work as if by magic</strong>.</p>
-<p>Constants <strong>are variables</strong> in C++&#x2026; <strong>that don&#x2019;t vary</strong>. They mean something like <strong><code>PI</code></strong>, or <strong><code>SECONDS_IN_MINUTE</code></strong>. When we use them in an if, it&#x2019;s clear what&#x2019;s happening.</p>
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<p>We don&#x2019;t have to write a finished program on the first try. I put the <code>if</code>s in first to <strong>support 3 choices</strong>.</p>
+<p><img src="assets/week4/menu_flow_start_ifs.png" alt></p>
+<h4 class="mume-header" id="i-can-read-my-loop-easily">I can read my loop easily</h4>
 
-<span class="token keyword">const</span> <span class="token keyword">int</span> PLAY <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> QUIT <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<p>Green <strong>outputs</strong>, a blue <strong>input</strong>, and some red <strong>processing</strong>/decisions for the 3 choices. Forget if-else for now, I want <strong>clarity first</strong>.</p>
+<p><img src="assets/week4/menu_flow_start_ifs_small.png" alt></p>
+<h4 class="mume-header" id="step-back-from-the-code-to-see-the-big-picture">Step back from the code to see the big picture.</h4>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">int</span> choice <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; 1: Play \n 2: Option \n 3: Quit \n Choose: &quot;</span><span class="token punctuation">;</span>
-  cin <span class="token operator">&gt;&gt;</span> choice<span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span> choice <span class="token operator">==</span> PLAY<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    <span class="token comment">// play</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> QUIT<span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    <span class="token comment">//quit</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="the-const-keyword">The <code>const</code> keyword</h4>
+<p>Use the zoom out button on the toolbar. Get away from the syntax. It&#x2019;s no different to when you&#x2019;re drawing something, or trying to hang a frame on the wall at home.</p>
+<h4 class="mume-header" id="finishing-touches">Finishing touches.</h4>
+
+<p>All it needs now is the right output, maybe an error if it&#x2019;s not 1,2 or 3.</p>
+<p>&#xA0;</p>
+<h2 class="mume-header" id="using-variables-for-clarity">Using variables for clarity</h2>
+
+<p>We used 1,2,3 for the choices. We could end up with 1-11, or 1-13. Thes <strong>magic numbers</strong>, peppered through our code instead of variables, quickly lose all meaning.</p>
+<p><strong>Put your numbers in variables with meaningful names.</strong></p>
+<p>Use the words you use in your menu, keep it simple.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> play <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">int</span> options <span class="token operator">=</span> <span class="token number">2</span>
+</pre><h3 class="mume-header" id="use-constants-for-important-unchanging-numbers">Use constants for important, unchanging numbers</h3>
+
+<p><strong>Constants are variables in C++&#x2026; that don&#x2019;t vary.</strong></p>
+<ul>
+<li>They&#x2019;re useful reference numbers that don&#x2019;t change while the program&#x2019;s running (if ever).</li>
+<li>Write them in <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong> so they stand out to programmers.</li>
+<li><strong><code>PI</code></strong>, <strong><code>LUIGI_JUMP_HEIGHT</code></strong>, <strong><code>GRAVITY_MS</code></strong> are examples</li>
+<li>When we use them in an <em>if</em> or a <em>while</em> it adds clarity.</li>
+</ul>
+<p><img src="assets/week4/constants_menu_1.png" alt></p>
+<h4 class="mume-header" id="the-const-keyword">The <code>const</code> keyword</h4>
 
 <p>When the compiler sees <strong><code>const</code></strong> before <strong><code>int</code></strong> it means that variable can&#x2019;t be changed. If you <strong>try to assign to</strong>/overwrite a constant, your program <strong>won&#x2019;t compile</strong>.</p>
 <h4 class="mume-header" id="conventions-and-constant_name">Conventions and <code>CONSTANT_NAME</code></h4>
@@ -378,6 +419,26 @@ or</li>
 </ol>
 <p>Like a marathon runner with a disciplined stride, we&#x2019;ll go further with the same resources.</p>
 </blockquote>
+<p>&#xA0;</p>
+<h2 class="mume-header" id="exercise">Exercise</h2>
+
+<p>Define constants for each of the following:</p>
+<p><strong>1. 4 <code>int</code> constants</strong> for significant numbers in your <strong>favourite sport</strong>, like <code>const int RESERVES_ALLOWED = 3</code>. If you don&#x2019;t like sport, significant numbers in your <strong>favourite game</strong> like the length of a round or hitpoints restored by health pickups.<br>
+<strong>2. 4 <code>float</code> constants</strong> for <strong>australian average</strong> height in metres by gender, average male/female weight in kg by gender.<br>
+<strong>3. 4 <code>string</code> constants</strong> that represent type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.</p>
+<blockquote>
+<p><strong>The <code>float</code> data type</strong> stores numbers with a decimal point including scientific notation.</p>
+<ul>
+<li>11.5</li>
+<li>1.2*10<sup>-20</sup></li>
+<li>0.00000002.</li>
+</ul>
+</blockquote>
+<p>&#xA0;</p>
+<h2 class="mume-header" id="more-on-floating-point-numbers">More on floating point numbers</h2>
+
+<p><strong>More info:</strong> <a href="https://www.learncpp.com/cpp-tutorial/floating-point-numbers/">https://www.learncpp.com/cpp-tutorial/floating-point-numbers/</a></p>
+<p><img src="assets/week4/floats_doubles_constants.png" alt></p>
 <h2 class="mume-header" id="clearing-the-screenconsole-in-c">Clearing the screen/console in C++</h2>
 
 <p>Nobody wants to play <strong>scroll down the screen fighter</strong>.</p>
