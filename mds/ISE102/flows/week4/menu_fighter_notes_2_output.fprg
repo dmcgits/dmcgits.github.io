@@ -4,14 +4,14 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Danny"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-10-04 07:41:52 PM"/>
+        <attribute name="saved" value="2019-10-05 11:23:37 AM"/>
         <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzoxODoxMCBQTTsyNTk4"/>
-        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzo0MTo1MiBQTTs0OzI3MTE="/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNTsxMToyMzozNyBBTTs1OzI2OTY="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="playerChoice" type="Integer" array="False" size=""/>
+            <declare name="menuChoice" type="Integer" array="False" size=""/>
             <assign variable="menuChoice" expression="0"/>
             <while expression="menuChoice != 3">
                 <output expression="&quot;---- WELCOME TO MENU FIGHTER -----&quot;" newline="True"/>
@@ -20,13 +20,13 @@
                 <input variable="menuChoice"/>
                 <if expression="menuChoice == 1">
                     <then>
-                        <output expression="&quot;Chose 1&quot;" newline="True"/>
+                        <output expression="&quot;Round 1, Fight! Bish bish bash URGH!! You win.&quot;" newline="True"/>
                     </then>
                     <else/>
                 </if>
                 <if expression="menuChoice == 2">
                     <then>
-                        <output expression="&quot;Chose 2&quot;" newline="True"/>
+                        <output expression="&quot;Your only option is to fight.&quot;" newline="True"/>
                     </then>
                     <else/>
                 </if>
@@ -37,6 +37,7 @@
                     <else/>
                 </if>
             </while>
+            <output expression="&quot;You quit.&quot;" newline="True"/>
         </body>
     </function>
 </flowgorithm>
