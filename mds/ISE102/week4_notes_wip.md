@@ -16,12 +16,12 @@ export_on_save:
 1. [Week 4 ISE102](#week-4-ise102)
    1. [Last week's home exercise: Menu Fighter](#last-weeks-home-exercise-menu-fighter)
    2. [Making programming easier](#making-programming-easier)
-   3. [Using variables for clarity](#using-variables-for-clarity)
+   3. [Back to C++](#back-to-c)
    4. [Exercise](#exercise)
-   5. [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
-   6. [Enumerators: **`enum`**](#enumerators-enum)
+   5. [More on floating point numbers](#more-on-floating-point-numbers)
+   6. [More on Conventions and `CONSTANT_NAME`](#more-on-conventions-and-constant_name)
    7. [Other loop structures](#other-loop-structures)
-   8. [More on floating point numbers](#more-on-floating-point-numbers)
+   8. [Related constants with **`enum`**](#related-constants-with-enum)
 
 <!-- /code_chunk_output -->
 
@@ -87,14 +87,16 @@ Here's a way to **make the menu** more easiliy. My goal is to get the overall ex
 
 
 ![base](assets/week4/menu_flow_base.png)
-The menu accepts 1 and 2. It quits on 3.
+> It's important to **get your game flow working early**. It reduces surprises and stress. We have an outline, and are just filling in details.
 
-#### Exporting our menu to C++
+This little diagram already has established the flow of menu fighter: Going to a menu, choosing options, returning to the menu, quiting. The challenge of structuring the program is done!
 
-Look at the export on the left to see storage, processing and input/output hilighted. 
+### Exercise: Exporting the bare bones menu to C++
+
+Our export on the left has storage, processing and input/output hilighted. 
 
 ![flow exported](assets/week4/menu_export_base.png)
-On the right is the very slightly altered c++ in Visual Studio.
+On the right is the very slightly altered code working in Visual Studio.
 
 #### Decisions
 When we get to the processing, the decisions, it can be hard to keep things straight in our head if we try to code in a straight line. We don't need to write a whole if with correct output messages before moving on to the second one:
@@ -116,18 +118,50 @@ All it needs now is the right output, maybe an error if it's not 1,2 or 3.
 
 &nbsp;
 
-## Using variables for clarity
+## Back to C++
+
+Let's see how we do things a bit differently in C++ to work with our console (vs chat style).
+
+Let's also make things easier on ourselves.
+
+### Adding basic outputs
+
+Notice it's a bit crap just rolling down the screen in c++.
+
+### Using whitespace for fast reads
+
+We want people to take in what's happening easily, so they can focus on their decisions instead of deciphering your interface design.
+
+* Add newlines for top/bottom margins, grouping.
+* Add tabs to add a left margin
+* Add "graphics" via punctuation symbols.
+
+### Clearing the screen/console in C++
+
+Nobody wants to play **scroll down the screen fighter**.
+
+>**CODE SCREENSHOT!!!!!!!!!!!**
+
+Add **`System(cls)` before showing sub screens**, and **before returning** to the main menu.
+
+### Get it working for one entry first
+
+Just focus on the first section, _1. Play_. 
+
+>**CODE SCREENSHOT!!!!!!!!!!!**
+
+### Using variables for clarity
 
 We used 1,2,3 for the choices. We could end up with 1-11, or 1-13. Thes **magic numbers**, peppered through our code instead of variables, quickly lose all meaning. 
 
 **Put your numbers in variables with meaningful names.**
-
-Use the words you use in your menu, keep it simple.
-
 ```cpp
 int play = 1
 int options = 2
 ```
+
+Use the words you use in your menu, keep it simple.
+
 
 ### Use constants for important, unchanging numbers
 
@@ -136,22 +170,13 @@ int options = 2
 * They're useful reference numbers that don't change while the program's running (if ever). 
 * Write them in **`UPPER_CASE_WITH_UNDERSCORES`** so they stand out to programmers. 
 * **`PI`**, **`LUIGI_JUMP_HEIGHT`**, **`GRAVITY_MS`** are examples
+* Also our menu options, **`PLAY`** and **`QUIT`**
 * When we use them in an _if_ or a _while_ it adds clarity.
 
 ![](assets/week4/constants_menu_1.png)
 
 #### The `const` keyword
 When the compiler sees **`const`** before **`int`** it means that variable can't be changed. If you **try to assign to**/overwrite a constant, your program **won't compile**.
-
-#### Conventions and `CONSTANT_NAME`
-There's **no compiler rule saying** `const` names have to be **`UPPER_CASE_WITH_UNDERSCORES`**. It's purely for human eyeballs. We'll know it's an unchanging number **on sight**.
-
-> **Conventions are practises** programmers follow to **make reading code easier** on themselves and others. If we follow conventions that are widely used, and do it consistently:
-> 1. **Debugging our code** will be easier
-> 2. **Sharing and receiving** code will be easier
-> 3. **We can write bigger programs** and more complex games, because we'll **minimise wasted mental energy**. 
-> 
-> Like a marathon runner with a disciplined stride, we'll go further with the same resources.
 
 &nbsp;
 
@@ -185,13 +210,38 @@ Define constants for each of the following:
 
 &nbsp;
 
-## Clearing the screen/console in C++
+## More on floating point numbers
+**More info:** https://www.learncpp.com/cpp-tutorial/floating-point-numbers/
 
-Nobody wants to play **scroll down the screen fighter**.
+![](assets/week4/floats_doubles_constants.png)
 
-Add **`System(cls)` before showing sub screens**, and **before returning** to the main menu.
+## More on Conventions and `CONSTANT_NAME`
+There's **no compiler rule saying** `const` names have to be **`UPPER_CASE_WITH_UNDERSCORES`**. It's purely for human eyeballs. We'll know it's an unchanging number **on sight**.
 
-## Enumerators: **`enum`**
+> **Conventions are practises** programmers follow to **make reading code easier** on themselves and others. If we follow conventions that are widely used, and do it consistently:
+> 1. **Debugging our code** will be easier
+> 2. **Sharing and receiving** code will be easier
+> 3. **We can write bigger programs** and more complex games, because we'll **minimise wasted mental energy**. 
+> 
+> Like a marathon runner with a disciplined stride, we'll go further with the same resources.
+
+## Other loop structures
+
+**`for`** loops. **`do..while`** loops. Look into them in _Flowgorithm_ and _C++_
+
+You'll mostly see **`for`** loops used to go through collections of data. We'll get to that next week.
+
+![](assets/week3/flow_for_baby.png)
+
+**Note** I joined the `lyric` variable and the string `", "` using a single `&`. That's a flowgorithm thing.
+
+### `for` exported to _C++_
+
+**Note** how in _C++_ `lyric` and `", "` are joined using `<<`. This works when the line starts with `cout`.
+
+![](assets/week3/cpp_baby_for.png)
+
+## Related constants with **`enum`**
 
 Enumerators provide a shorthand for creating (and grouping) constants with integer values.
 
@@ -239,27 +289,4 @@ enum MenuChoices    // enums can get long, so they're defined over multiple line
 };              // DON'T FORGET this semi colon. Spoiler: you will.
 ```
 
-
 There's **a lot more to enums**, read on: <https://www.geeksforgeeks.org/enumerated-types-or-enums-in-c/>
-
-## Other loop structures
-
-**`for`** loops. **`do..while`** loops. Look into them in _Flowgorithm_ and _C++_
-
-You'll mostly see **`for`** loops used to go through collections of data. We'll get to that next week.
-
-![](assets/week3/flow_for_baby.png)
-
-**Note** I joined the `lyric` variable and the string `", "` using a single `&`. That's a flowgorithm thing.
-
-### `for` exported to _C++_
-
-**Note** how in _C++_ `lyric` and `", "` are joined using `<<`. This works when the line starts with `cout`.
-
-![](assets/week3/cpp_baby_for.png)
-
-## More on floating point numbers
-**More info:** https://www.learncpp.com/cpp-tutorial/floating-point-numbers/
-
-![](assets/week4/floats_doubles_constants.png)
-
