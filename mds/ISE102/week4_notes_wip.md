@@ -9,31 +9,18 @@ export_on_save:
 ---
 # Week 4 ISE102
 
-
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 1. [Week 4 ISE102](#week-4-ise102)
    1. [Last week's home exercise: Menu Fighter](#last-weeks-home-exercise-menu-fighter)
-      1. [Recap](#recap)
-      2. [How did you do?](#how-did-you-do)
    2. [Making programming easier](#making-programming-easier)
-      1. [Take it one challenge at a time](#take-it-one-challenge-at-a-time)
-         1. [Exporting our menu to C++](#exporting-our-menu-to-c)
-         2. [Decisions](#decisions)
-         3. [I can read my loop easily](#i-can-read-my-loop-easily)
-         4. [Step back from the code to see the big picture.](#step-back-from-the-code-to-see-the-big-picture)
-         5. [Finishing touches.](#finishing-touches)
    3. [Using variables for clarity](#using-variables-for-clarity)
-      1. [Use constants for important, unchanging numbers](#use-constants-for-important-unchanging-numbers)
-         1. [The `const` keyword](#the-const-keyword)
-         2. [Conventions and `CONSTANT_NAME`](#conventions-and-constant_name)
    4. [Exercise](#exercise)
    5. [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
    6. [Enumerators: **`enum`**](#enumerators-enum)
    7. [Other loop structures](#other-loop-structures)
-      1. [`for` exported to _C++_](#for-exported-to-_c_)
    8. [More on floating point numbers](#more-on-floating-point-numbers)
 
 <!-- /code_chunk_output -->
@@ -51,7 +38,6 @@ or
 - Make it **in _Flowgorithm_** and then **export it to _C++_**. Paste it into a Visual Studio project's main.cpp and **get it running in the console.**
 
 ![](assets/week3/menu_fighter_chat.png)
-
 
 > ---- WELCOME TO MENU FIGHTER -----
 >
@@ -74,7 +60,7 @@ _6: If playerQuit is true, the loop won't run, we'll go to the end of the main f
 
 1. Who thought it was an ok task to get through? 
 1. Who got a flowgorithm version working?
-1. Who exported c++ and got it working?
+1. Who exported C++ and got it working?
 1. What got people stuck (even if you overcame it)?
 1. Questions?
 
@@ -84,7 +70,7 @@ _6: If playerQuit is true, the loop won't run, we'll go to the end of the main f
 
 As our games gain features, even flowcharts get detailed. 
 
-> **No one expects you to understand a program/flow like this at a glance.** Or to write one from start to finish in a straight line..
+> **No one expects you to understand a program/flow like this at a glance,** or to write one from start to finish in a straight line.
 
 ![involved](assets/week4/flow_involved.png)
 
