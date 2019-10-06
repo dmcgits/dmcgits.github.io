@@ -168,17 +168,14 @@ Use the words you use in your menu, keep it simple.
 **Constants are variables in C++.. that don't vary.**
 
 * They're useful reference numbers that don't change while the program's running (if ever). 
-* Write them in **`UPPER_CASE_WITH_UNDERSCORES`** so they stand out to programmers. 
-* **`PI`**, **`LUIGI_JUMP_HEIGHT`**, **`GRAVITY_MS`** are examples
-* Also our menu options, **`PLAY`** and **`QUIT`**
-* When we use them in an _if_ or a _while_ it adds clarity.
+* Write them in **`UPPER_CASE_WITH_UNDERSCORES`** so they stand out to programmers. **`PI`**, **`LUIGI_JUMP_HEIGHT`**, **`GRAVITY_MS`** are examples
 
 ![](assets/week4/constants_menu_1.png)
 
-#### The `const` keyword
-When the compiler sees **`const`** before **`int`** it means that variable can't be changed. If you **try to assign to**/overwrite a constant, your program **won't compile**.
+**When we use them in an `if` or a `while` it adds clarity.**
 
-&nbsp;
+#### The `const` keyword
+>When the compiler sees **`const`** before **`int`** it means that variable can't be changed. If you try to assign to/overwrite a constant, your program **won't compile**.
 
 ## Exercise
 
@@ -203,17 +200,18 @@ Define constants for each of the following:
 3. 4 `string` constants:
    hat represent type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.
 
-> **The `float` data type** stores numbers with a decimal point including scientific notation. 
-> * 11.5 
-> * 1.2*10<sup>-20</sup>
-> * 0.00000002.
-
-&nbsp;
 
 ## More on floating point numbers
-**More info:** https://www.learncpp.com/cpp-tutorial/floating-point-numbers/
+
+**The `float` data type** stores numbers with a decimal point including scientific notation:
+* 11.5 
+* 1.2*10<sup>-20</sup>
+* 0.00000002.
+
 
 ![](assets/week4/floats_doubles_constants.png)
+
+**More info:** https://www.learncpp.com/cpp-tutorial/floating-point-numbers/
 
 ## More on Conventions and `CONSTANT_NAME`
 There's **no compiler rule saying** `const` names have to be **`UPPER_CASE_WITH_UNDERSCORES`**. It's purely for human eyeballs. We'll know it's an unchanging number **on sight**.
