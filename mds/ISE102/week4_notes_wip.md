@@ -10,26 +10,38 @@ export_on_save:
 # Week 4 ISE102
 
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [Week 4 ISE102](#week-4-ise102)
-  - [Last week's home exercise: Menu Fighter](#last-weeks-home-exercise-menu-fighter)
-  - [Helpful coding practises](#helpful-coding-practises)
-  - [Using variables for clarity](#using-variables-for-clarity)
-  - [Exercise](#exercise)
-  - [More on floating point numbers](#more-on-floating-point-numbers)
-  - [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
-  - [Enumerators: **`enum`**](#enumerators-enum)
-  - [Other loop structures](#other-loop-structures)
+1. [Week 4 ISE102](#week-4-ise102)
+   1. [Last week's home exercise: Menu Fighter](#last-weeks-home-exercise-menu-fighter)
+      1. [Recap](#recap)
+      2. [How did you do?](#how-did-you-do)
+   2. [Making programming easier](#making-programming-easier)
+      1. [Take it one challenge at a time](#take-it-one-challenge-at-a-time)
+         1. [Exporting our menu to C++](#exporting-our-menu-to-c)
+         2. [Decisions](#decisions)
+         3. [I can read my loop easily](#i-can-read-my-loop-easily)
+         4. [Step back from the code to see the big picture.](#step-back-from-the-code-to-see-the-big-picture)
+         5. [Finishing touches.](#finishing-touches)
+   3. [Using variables for clarity](#using-variables-for-clarity)
+      1. [Use constants for important, unchanging numbers](#use-constants-for-important-unchanging-numbers)
+         1. [The `const` keyword](#the-const-keyword)
+         2. [Conventions and `CONSTANT_NAME`](#conventions-and-constant_name)
+   4. [Exercise](#exercise)
+   5. [Clearing the screen/console in C++](#clearing-the-screenconsole-in-c)
+   6. [Enumerators: **`enum`**](#enumerators-enum)
+   7. [Other loop structures](#other-loop-structures)
+      1. [`for` exported to _C++_](#for-exported-to-_c_)
+   8. [More on floating point numbers](#more-on-floating-point-numbers)
 
 <!-- /code_chunk_output -->
 
 
 ## Last  week's home exercise: Menu Fighter
 
-### The brief
+### Recap
 
 **Make this amazing game by yourself.** 
 
@@ -68,24 +80,52 @@ _6: If playerQuit is true, the loop won't run, we'll go to the end of the main f
 
 &nbsp;
 
-## Helpful coding practises
+## Making programming easier
 
-As our games gain features, even flowcharts begin to get a bit involved. Don't expect to juggle the whole thing at once - there are plentier strategies to make coding easier, and for most of us, satisfying!
+As our games gain features, even flowcharts get detailed. 
 
-### Taking one challenge at a time
-We don't have to write a finished program on the first try. I put the `if`s in first to **support 3 choices**.
+> **No one expects you to understand a program/flow like this at a glance.** Or to write one from start to finish in a straight line..
+
+![involved](assets/week4/flow_involved.png)
+
+Like building something in the real world, it looks impossible if you take in the whole finished item. Instead, professionals **break projects into manageable chunks**. 
+
+### Take it one challenge at a time
+
+Here's a way to **make the menu** more easiliy. My goal is to get the overall experience working first. 
+
+1. Put in some **variables** for storage: menuChoice. _(yellow)_
+2. Add some basic **input** and **output**. _(green and blue)_
+![](assets/week4/menu_flow_in_out.png)
+1. Add a simple loop, the **processing**, like we did list week. _(orange)_
+
+
+![base](assets/week4/menu_flow_base.png)
+The menu accepts 1 and 2. It quits on 3.
+
+#### Exporting our menu to C++
+
+Look at the export on the left to see storage, processing and input/output hilighted. 
+
+![flow exported](assets/week4/menu_export_base.png)
+On the right is the very slightly altered c++ in Visual Studio.
+
+#### Decisions
+When we get to the processing, the decisions, it can be hard to keep things straight in our head if we try to code in a straight line. We don't need to write a whole if with correct output messages before moving on to the second one:
+1. Since we need three choices, I go ahead and throw in the 3 `if` statements. No worrying about else, or proper output yet.
+2. Add in simple output to make sure hitting `2` or `1` gives me the right result.
 
 ![](assets/week4/menu_flow_start_ifs.png)
+
 #### I can read my loop easily
 Green **outputs**, a blue **input**, and some red **processing**/decisions for the 3 choices. Forget if-else for now, I want **clarity first**.
 
 ![](assets/week4/menu_flow_start_ifs_small.png)
+
 #### Step back from the code to see the big picture.
 Use the zoom out button on the toolbar. Get away from the syntax. It's no different to when you're drawing something, or trying to hang a frame on the wall at home.
 
-
 #### Finishing touches.
-
 All it needs now is the right output, maybe an error if it's not 1,2 or 3.
 
 &nbsp;
@@ -133,9 +173,24 @@ There's **no compiler rule saying** `const` names have to be **`UPPER_CASE_WITH_
 
 Define constants for each of the following:
 
-**1. 4 `int` constants** for significant numbers in your **favourite sport**, like `const int RESERVES_ALLOWED = 3`. If you don't like sport, significant numbers in your **favourite game** like the length of a round or hitpoints restored by health pickups.
-**2. 4 `float` constants** for **australian average** height in metres by gender, average male/female weight in kg by gender.
-**3. 4 `string` constants** that represent type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.
+1. **4 `int` constants**: significant numbers in your **favourite sport/game**
+  
+  ```cpp
+  // Examples (do not use these yourself)
+  const int RESERVES_ALLOWED = 3;
+  const int SMALL_HEALTH_PACK_HP = 20;
+  ```
+2. **4 `float` constants:** **Australian average stats**: height in metres for both genders, also average weight in kg. Ask Google.
+
+> Floating point numbers are used when you need decimal places.  
+  ```cpp
+  // Example
+  const float CM_IN_AN_INCH = 2.54f;
+  // Note that you need a trailing f when assigning a value to a float.
+  ```
+
+3. 4 `string` constants:
+   hat represent type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.
 
 > **The `float` data type** stores numbers with a decimal point including scientific notation. 
 > * 11.5 
@@ -143,11 +198,6 @@ Define constants for each of the following:
 > * 0.00000002.
 
 &nbsp;
-
-## More on floating point numbers
-**More info:** https://www.learncpp.com/cpp-tutorial/floating-point-numbers/
-
-![](assets/week4/floats_doubles_constants.png)
 
 ## Clearing the screen/console in C++
 
@@ -159,7 +209,7 @@ Add **`System(cls)` before showing sub screens**, and **before returning** to th
 
 Enumerators provide a shorthand for creating (and grouping) constants with integer values.
 
-```cpp {.line-numbers}
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -222,4 +272,8 @@ You'll mostly see **`for`** loops used to go through collections of data. We'll 
 
 ![](assets/week3/cpp_baby_for.png)
 
+## More on floating point numbers
+**More info:** https://www.learncpp.com/cpp-tutorial/floating-point-numbers/
+
+![](assets/week4/floats_doubles_constants.png)
 

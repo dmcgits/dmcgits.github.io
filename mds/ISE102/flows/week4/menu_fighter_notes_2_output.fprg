@@ -4,17 +4,18 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Danny"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2019-10-05 11:23:37 AM"/>
+        <attribute name="saved" value="2019-10-06 03:36:22 PM"/>
         <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzoxODoxMCBQTTsyNTk4"/>
         <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNTsxMToyMzozNyBBTTs1OzI2OTY="/>
+        <attribute name="edited" value="ZG1hYztTT0ZULVRPUDsyMDE5LTEwLTA2OzAzOjM2OjIyIFBNOzM7MjM5OA=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
             <declare name="menuChoice" type="Integer" array="False" size=""/>
             <assign variable="menuChoice" expression="0"/>
+            <output expression="&quot;---- WELCOME TO MENU FIGHTER -----&quot;" newline="True"/>
             <while expression="menuChoice != 3">
-                <output expression="&quot;---- WELCOME TO MENU FIGHTER -----&quot;" newline="True"/>
                 <output expression="&quot;1: Play Game | 2: Options | 3: Quit&quot;" newline="True"/>
                 <output expression="&quot;Enter a number to choose:&quot;" newline="True"/>
                 <input variable="menuChoice"/>
@@ -26,18 +27,17 @@
                 </if>
                 <if expression="menuChoice == 2">
                     <then>
-                        <output expression="&quot;Your only option is to fight.&quot;" newline="True"/>
+                        <output expression="&quot;|    Your only option is to fight.     |&quot;" newline="True"/>
                     </then>
                     <else/>
                 </if>
                 <if expression="menuChoice == 3">
                     <then>
-                        <output expression="&quot;Chose 3&quot;" newline="True"/>
+                        <output expression="&quot;Bye bye&quot;" newline="True"/>
                     </then>
                     <else/>
                 </if>
             </while>
-            <output expression="&quot;You quit.&quot;" newline="True"/>
         </body>
     </function>
 </flowgorithm>
