@@ -18,10 +18,11 @@ export_on_save:
    2. [Making programming easier](#making-programming-easier)
    3. [Back to C++](#back-to-c)
    4. [Exercise](#exercise)
-   5. [More on floating point numbers](#more-on-floating-point-numbers)
-   6. [More on Conventions and `CONSTANT_NAME`](#more-on-conventions-and-constant_name)
-   7. [Other loop structures](#other-loop-structures)
-   8. [Related constants with **`enum`**](#related-constants-with-enum)
+   5. [Calculating things](#calculating-things)
+   6. [More on floating point numbers](#more-on-floating-point-numbers)
+   7. [More on Conventions and `CONSTANT_NAME`](#more-on-conventions-and-constant_name)
+   8. [Other loop structures](#other-loop-structures)
+   9. [Related constants with **`enum`**](#related-constants-with-enum)
 
 <!-- /code_chunk_output -->
 
@@ -200,6 +201,9 @@ Define constants for each of the following:
 3. 4 `string` constants:
    hat represent type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.
 
+## Calculating things
+
+Calculate winnings? Or is week 5 soon enough?
 
 ## More on floating point numbers
 
@@ -207,7 +211,6 @@ Define constants for each of the following:
 * 11.5 
 * 1.2*10<sup>-20</sup>
 * 0.00000002.
-
 
 ![](assets/week4/floats_doubles_constants.png)
 
