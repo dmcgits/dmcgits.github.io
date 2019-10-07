@@ -15,195 +15,130 @@
       
 
       <style>
-      /**
- * prism.js Github theme based on GitHub's theme.
- * @author Sam Clarke
- */
+      @import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
+/*
+ * Hopscotch
+ * by Jan T. Sott
+ * https://github.com/idleberg/Hopscotch
+ *
+ * This work is licensed under the Creative Commons CC0 1.0 Universal License
+ */ 
+ 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #333;
-  background: none;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  color: #ffffff;
+  font-family: "Fira Mono", Menlo, Monaco, "Lucida Console","Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.375;
+  direction: ltr;
   text-align: left;
-  white-space: pre;
   word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.4;
 
-  -moz-tab-size: 8;
-  -o-tab-size: 8;
-  tab-size: 8;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
 
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
-  hyphens: none;
+  hyphens: none; 
+  white-space: pre; 
+  white-space: pre-wrap; 
+  word-break: break-all;
+  word-wrap: break-word; 
+  background: #322931; 
+  color: #b9b5b8;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: .8em;
-  overflow: auto;
-  /* border: 1px solid #ddd; */
-  border-radius: 3px;
-  /* background: #fff; */
-  background: #f5f5f5;
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; 
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
-  white-space: normal;
-  background: #f5f5f5;
 }
 
 .token.comment,
-.token.blockquote {
-  color: #969896;
-}
-
-.token.cdata {
-  color: #183691;
-}
-
+.token.prolog,
 .token.doctype,
-.token.punctuation,
-.token.variable,
-.token.macro.property {
-  color: #333;
+.token.cdata {
+  color: #797379;
 }
 
+.token.punctuation {
+  color: #b9b5b8;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.null,
 .token.operator,
-.token.important,
-.token.keyword,
-.token.rule,
-.token.builtin {
-  color: #a71d5d;
-}
-
-.token.string,
-.token.url,
-.token.regex,
-.token.attr-value {
-  color: #183691;
-}
-
-.token.property,
-.token.number,
 .token.boolean,
+.token.number {
+  color: #fd8b19;
+} 
+.token.property { 
+  color: #fdcc59;
+}
+.token.tag { 
+  color: #1290bf;
+} 
+.token.string {
+  color: #149b93;
+} 
+.token.selector { 
+  color: #c85e7c;
+}
+.token.attr-name { 
+  color: #fd8b19;
+} 
 .token.entity,
-.token.atrule,
-.token.constant,
-.token.symbol,
-.token.command,
-.token.code {
-  color: #0086b3;
+.token.url, 
+.language-css .token.string,
+.style .token.string {
+  color: #149b93;
 }
 
-.token.tag,
-.token.selector,
-.token.prolog {
-  color: #63a35c;
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #8fc13e;
+} 
+
+.token.statement,
+.token.regex, 
+.token.atrule { 
+  color: #149b93;
 }
 
-.token.function,
-.token.namespace,
-.token.pseudo-element,
-.token.class,
-.token.class-name,
-.token.pseudo-class,
-.token.id,
-.token.url-reference .token.variable,
-.token.attr-name {
-  color: #795da3;
-}
+.token.placeholder,
+.token.variable {
+  color: #1290bf;
+} 
+
+.token.important {
+  color: #dd464c;
+  font-weight: bold;
+} 
 
 .token.entity {
   cursor: help;
-}
+} 
 
-.token.title,
-.token.title .token.punctuation {
-  font-weight: bold;
-  color: #1d3e81;
-}
-
-.token.list {
-  color: #ed6a43;
-}
-
-.token.inserted {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.token.deleted {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-
-/* JSON */
-.language-json .token.property {
-  color: #183691;
-}
-
-.language-markup .token.tag .token.punctuation {
-  color: #333;
-}
-
-/* CSS */
-code.language-css,
-.language-css .token.function {
-  color: #0086b3;
-}
-
-/* YAML */
-.language-yaml .token.atrule {
-  color: #63a35c;
-}
-
-code.language-yaml {
-  color: #183691;
-}
-
-/* Ruby */
-.language-ruby .token.function {
-  color: #333;
-}
-
-/* Markdown */
-.language-markdown .token.url {
-  color: #795da3;
-}
-
-/* Makefile */
-.language-makefile .token.symbol {
-  color: #795da3;
-}
-
-.language-makefile .token.variable {
-  color: #183691;
-}
-
-.language-makefile .token.builtin {
-  color: #0086b3;
-}
-
-/* Bash */
-.language-bash .token.keyword {
-  color: #0086b3;
-}
+pre > code.highlight {
+  outline: .4em solid red;
+  outline-offset: .4em;
+} 
 
 /* highlight */
 pre[data-line] {
@@ -254,9 +189,110 @@ pre[data-line] .line-highlight[data-end]:after {
   content: attr(data-end);
   top: auto;
   bottom: .4em;
-}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
+}
+.markdown-preview.markdown-preview {
+  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
+  font-size: 1.25em;
+  color: #222;
+}
+.markdown-preview.markdown-preview blockquote {
+  color: #282828;
+  background-color: #F5F5F0;
+  margin-left: 0.7em;
+}
+.markdown-preview.markdown-preview h1 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.9em;
+  font-weight: 700;
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview h2 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-left: 0.1em;
+  padding-bottom: 0.3em;
+  padding-top: 0.25em;
+  background-color: #E1E1EA;
+}
+.markdown-preview.markdown-preview h3 {
+  color: #445;
+  font-family: 'Merriweather', serif;
+  font-size: 1.05em;
+  font-weight: 600;
+  padding-left: 0.2em;
+  padding-bottom: 0.2em;
+  padding-top: 0.2em;
+  background-color: #F2F2F4;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.05em;
+  font-weight: 600;
+  font-style: italic;
+}
+.markdown-preview.markdown-preview img {
+  margin-bottom: 0px;
+  margin-top: 18px;
+}
+.markdown-preview.markdown-preview a:not([href]) {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a {
+  font-weight: 600;
+  color: #0078A2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
+  color: #009BD2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+  counter-reset: item;
+}
+.markdown-preview.markdown-preview ol > li {
+  margin: 0;
+  padding: 0 0 0 2.5em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+.markdown-preview.markdown-preview ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+  content: counter(item) ".";
+}
 
       </style>
     </head>
@@ -264,21 +300,21 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-4-ise102">Week 4 ISE102</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-4-ise102">Week 4 ISE102</a>
-<ol>
+<ul>
 <li><a href="#last-weeks-home-exercise-menu-fighter">Last week&#x2019;s home exercise: Menu Fighter</a></li>
-<li><a href="#making-programming-easier">Making programming easier</a></li>
-<li><a href="#back-to-c">Back to C++</a></li>
-<li><a href="#exercise">Exercise</a></li>
-<li><a href="#calculating-things">Calculating things</a></li>
-<li><a href="#more-on-floating-point-numbers">More on floating point numbers</a></li>
-<li><a href="#more-on-conventions-and-constant_name">More on Conventions and <code>CONSTANT_NAME</code></a></li>
-<li><a href="#other-loop-structures">Other loop structures</a></li>
-<li><a href="#related-constants-with-enum">Related constants with <strong><code>enum</code></strong></a></li>
-</ol>
+<li><a href="#a-pretty-easy-approach-to-making-a-menu">A pretty easy approach to making a menu</a></li>
+<li><a href="#exercise-exporting-the-bare-bones-menu-to-c">Exercise: Exporting the bare bones menu to C++</a></li>
+<li><a href="#easy-programming-continued">Easy programming continued</a></li>
+<li><a href="#follow-along-back-to-c">Follow along: back to C++</a></li>
+<li><a href="#use-variables-for-clarity">Use variables for clarity</a></li>
+<li><a href="#exercise-defining-constants">Exercise: Defining constants</a></li>
+<li><a href="#testing-inputs">Testing inputs</a></li>
+<li><a href="#extra-reading">EXTRA READING</a></li>
+</ul>
 </li>
-</ol>
+</ul>
 <h2 class="mume-header" id="last-weeks-home-exercise-menu-fighter">Last  week&#x2019;s home exercise: Menu Fighter</h2>
 
 <h3 class="mume-header" id="recap">Recap</h3>
@@ -316,10 +352,27 @@ or</li>
 <li>What got people stuck (even if you overcame it)?</li>
 <li>Questions?</li>
 </ol>
-<p>&#xA0;</p>
-<h2 class="mume-header" id="making-programming-easier">Making programming easier</h2>
+<h2 class="mume-header" id="a-pretty-easy-approach-to-making-a-menu">A pretty easy approach to making a menu</h2>
 
-<p>As our games gain features, even flowcharts get detailed.</p>
+<p>As our games gain features so our code becomes more involved. Even flowcharts get detailed. This is when people start to worry that they can only make bits of code, not a whole program.</p>
+<h3 class="mume-header" id="programs-are-easier-to-make-in-stages">Programs are easier to make in stages</h3>
+
+<p>Programmers aren&#x2019;t geniuses who just sit down and write Photoshop by starting at from <code>main()</code> and ending at <code>return 0</code> a few weeks later.</p>
+<p>Making Photoshop like a programmer:</p>
+<ul>
+<li>Create a window</li>
+<li>Change the title bar text to &#x201C;Photoshop&#x201D;.</li>
+<li>Make the status bar say &#x201C;Hit B to select brush&#x201D;</li>
+<li>Hook up the close window button so it exits.</li>
+</ul>
+<p>Maybe they&#x2019;re using some include that makes it super simple, like:</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  MSWindow window <span class="token operator">=</span> <span class="token function">MSWindow</span><span class="token punctuation">(</span><span class="token string">&quot;Photoshop (alpha)&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Hit B to select brush&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  window<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p><img src="assets/week4/photoshop_alpha_window.png" alt></p>
+<p><em><strong>And that&#x2019;s Photoshop 0.001.</strong></em> I&#x2019;m not even kidding, that&#x2019;s how you start the real coding, after some planning.</p>
+<h3 class="mume-header" id="dont-sweat-the-end-product">Don&#x2019;t sweat the end product</h3>
+
+<p>Not all the time. You make a program with a start and finish, then fill in the bits.</p>
 <blockquote>
 <p><strong>No one expects you to understand a program/flow like this at a glance,</strong> or to write one from start to finish in a straight line.</p>
 </blockquote>
@@ -339,17 +392,21 @@ or</li>
 <p>It&#x2019;s important to <strong>get your game flow working early</strong>. It reduces surprises and stress. We have an outline, and are just filling in details.</p>
 </blockquote>
 <p>This little diagram already has established the flow of menu fighter: Going to a menu, choosing options, returning to the menu, quiting. The challenge of structuring the program is done!</p>
-<h3 class="mume-header" id="exercise-exporting-the-bare-bones-menu-to-c">Exercise: Exporting the bare bones menu to C++</h3>
+<h2 class="mume-header" id="exercise-exporting-the-bare-bones-menu-to-c">Exercise: Exporting the bare bones menu to C++</h2>
 
 <p>Our export on the left has storage, processing and input/output hilighted.</p>
 <p><img src="assets/week4/menu_export_base.png" alt="flow exported"><br>
 On the right is the very slightly altered code working in Visual Studio.</p>
-<h4 class="mume-header" id="decisions">Decisions</h4>
+<h2 class="mume-header" id="easy-programming-continued">Easy programming continued</h2>
 
-<p>When we get to the processing, the decisions, it can be hard to keep things straight in our head if we try to code in a straight line. We don&#x2019;t need to write a whole if with correct output messages before moving on to the second one:</p>
+<h3 class="mume-header" id="decisions">Decisions</h3>
+
+<blockquote>
+<p>When we get to the processing, the decisions, it can be hard to keep things straight in our head if we try to code everything that goes in every if statement. <strong>Throw in the ifs and elses you think you&#x2019;ll need</strong>.</p>
+</blockquote>
 <ol>
 <li>Since we need three choices, I go ahead and throw in the 3 <code>if</code> statements. No worrying about else, or proper output yet.</li>
-<li>Add in simple output to make sure hitting <code>2</code> or <code>1</code> gives me the right result.</li>
+<li>Simple output is next: enough to make sure hitting <code>1</code> or <code>2</code> actually runs the right code.</li>
 </ol>
 <p><img src="assets/week4/menu_flow_start_ifs.png" alt></p>
 <h4 class="mume-header" id="i-can-read-my-loop-easily">I can read my loop easily</h4>
@@ -363,81 +420,101 @@ On the right is the very slightly altered code working in Visual Studio.</p>
 
 <p>All it needs now is the right output, maybe an error if it&#x2019;s not 1,2 or 3.</p>
 <p>&#xA0;</p>
-<h2 class="mume-header" id="back-to-c">Back to C++</h2>
+<h2 class="mume-header" id="follow-along-back-to-c">Follow along: back to C++</h2>
 
 <p>Let&#x2019;s see how we do things a bit differently in C++ to work with our console (vs chat style).</p>
 <p>Let&#x2019;s also make things easier on ourselves.</p>
-<h3 class="mume-header" id="adding-basic-outputs">Adding basic outputs</h3>
+<h3 class="mume-header" id="adding-ifs-and-basic-outputs">Adding ifs and basic outputs</h3>
 
-<p>Notice it&#x2019;s a bit crap just rolling down the screen in c++.</p>
-<h3 class="mume-header" id="using-whitespace-for-fast-reads">Using whitespace for fast reads</h3>
-
-<p>We want people to take in what&#x2019;s happening easily, so they can focus on their decisions instead of deciphering your interface design.</p>
-<ul>
-<li>Add newlines for top/bottom margins, grouping.</li>
-<li>Add tabs to add a left margin</li>
-<li>Add &#x201C;graphics&#x201D; via punctuation symbols.</li>
-</ul>
+<p>I added some ifs, very easy to read and check it makes sense. Then, the output as before.</p>
+<p><strong>Type it in!</strong></p>
+<p><img src="assets/week4/menu_export_ifs_and_output.png" alt></p>
+<p><img src="assets/week4/console_ifs_outputs.png" alt></p>
+<p>We get the right output for our inputs&#x2026;</p>
 <h3 class="mume-header" id="clearing-the-screenconsole-in-c">Clearing the screen/console in C++</h3>
 
-<p>Nobody wants to play <strong>scroll down the screen fighter</strong>.</p>
-<blockquote>
-<p><strong>CODE SCREENSHOT!!!</strong></p>
-</blockquote>
-<p>Add <strong><code>System(cls)</code> before showing sub screens</strong>, and <strong>before returning</strong> to the main menu.</p>
-<h3 class="mume-header" id="get-it-working-for-one-entry-first">Get it working for one entry first</h3>
+<p>&#x2026;but nobody wants to play <strong>scroll down the screen fighter</strong>.</p>
+<p>We need two new things to clear the screen: the <strong><code>&lt;stdlib.h&gt;</code></strong> library, and the <strong><code>system(&quot;cls&quot;)</code></strong> function. No need to type this in, it&#x2019;s just handy to see in its simplest form.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-<p>Just focus on the first section, <em>1. Play</em>.</p>
-<blockquote>
-<p><strong>CODE SCREENSHOT!!!</strong></p>
-</blockquote>
-<h3 class="mume-header" id="using-variables-for-clarity">Using variables for clarity</h3>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Pointless text.&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   <span class="token comment">// Will never be seen because..</span>
+  <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">&quot;cls&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment">// console is cleared by CLear Screen</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="get-it-working-for-one-entry-first">Get it working for one entry first</h3>
 
-<p>We used 1,2,3 for the choices. We could end up with 1-11, or 1-13. Thes <strong>magic numbers</strong>, peppered through our code instead of variables, quickly lose all meaning.</p>
-<p><strong>Put your numbers in variables with meaningful names.</strong></p>
+<p>I&#x2019;m going to just focus on the first section, <em>1. Play</em>, until it works how I want. Don&#x2019;t overcomplicate things</p>
+<p><img src="assets/week4/menu_add_cls.png" alt></p>
+<p><strong>Add the new code and visual changes above</strong>, including breaking up the <em>Play</em> screen output to three rows. Make sure you include the <strong><code>&lt;conio.h&gt;</code></strong> library.</p>
+<p><strong>Things I did:</strong></p>
+<ol>
+<li>Added the <strong><code>cls</code></strong> bits to make it feel like the game has screens, and returns to the menu.</li>
+<li>Added more <strong><code>endl</code></strong> and <strong><code>\t</code></strong>. The empty or &#x2018;white&#x2019; space made it easier to read quickly.</li>
+<li>That first clear before the menu breaks <em>options</em>. That&#x2019;s okay, get <em>Play</em> sorted.</li>
+<li><strong><code>_getch()</code></strong> was added to wait for a key press (requires <code>conio.h</code>)</li>
+</ol>
+<p><img src="assets/week4/menu_one_item_working.png" alt></p>
+<h2 class="mume-header" id="use-variables-for-clarity">Use variables for clarity</h2>
+
+<p>We used 1-3 for the choices. What if we use 1-8 later? These <strong>magic numbers</strong> quickly lose meaning.</p>
+<p>Put your <strong>numbers in variables</strong> with meaningful names.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> play <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token keyword">int</span> options <span class="token operator">=</span> <span class="token number">2</span>
-</pre><p>Use the words you use in your menu, keep it simple.</p>
-<h3 class="mume-header" id="use-constants-for-important-unchanging-numbers">Use constants for important, unchanging numbers</h3>
+</pre><h4 class="mume-header" id="use-constants-for-unchanging-numbers">Use constants for unchanging numbers</h4>
 
-<p><strong>Constants are variables in C++&#x2026; that don&#x2019;t vary.</strong></p>
+<p>Constants are variables in C++&#x2026; that don&#x2019;t vary.</p>
 <ul>
-<li>They&#x2019;re useful reference numbers that don&#x2019;t change while the program&#x2019;s running (if ever).</li>
-<li>Write them in <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong> so they stand out to programmers. <strong><code>PI</code></strong>, <strong><code>LUIGI_JUMP_HEIGHT</code></strong>, <strong><code>GRAVITY_MS</code></strong> are examples</li>
+<li>They&#x2019;re useful reference numbers that don&#x2019;t change while the program&#x2019;s running (if ever). <strong><code>PI</code></strong>, <strong><code>LUIGI_JUMP_HEIGHT</code></strong>, <strong><code>GRAVITY_MS</code></strong> are examples</li>
+<li>Write them in <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong> so they stand out to programmers.</li>
+<li>Add <strong><code>const</code></strong> before the type declaration (eg <code>int</code>)</li>
 </ul>
-<p><img src="assets/week4/constants_menu_1.png" alt></p>
-<p><strong>When we use them in an <code>if</code> or a <code>while</code> it adds clarity.</strong></p>
-<h4 class="mume-header" id="the-const-keyword">The <code>const</code> keyword</h4>
-
-<blockquote>
-<p>When the compiler sees <strong><code>const</code></strong> before <strong><code>int</code></strong> it means that variable can&#x2019;t be changed. If you try to assign to/overwrite a constant, your program <strong>won&#x2019;t compile</strong>.</p>
-</blockquote>
-<h2 class="mume-header" id="exercise">Exercise</h2>
+<p><strong>Add them in like below, including quit.</strong></p>
+<p><img src="assets/week4/menu_export_constants.png" alt></p>
+<h2 class="mume-header" id="exercise-defining-constants">Exercise: Defining constants</h2>
 
 <p>Define constants for each of the following:</p>
-<ol>
-<li><strong>4 <code>int</code> constants</strong>: significant numbers in your <strong>favourite sport/game</strong></li>
-</ol>
+<h3 class="mume-header" id="4-int-constants">4 <code>int</code> constants</h3>
+
+<p>Significant numbers in your <strong>favourite sport/game</strong></p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Examples (do not use these yourself)</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> RESERVES_ALLOWED <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> SMALL_HEALTH_PACK_HP <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-</pre><ol start="2">
-<li><strong>4 <code>float</code> constants:</strong> <strong>Australian average stats</strong>: height in metres for both genders, also average weight in kg. Ask Google.</li>
-</ol>
-<blockquote>
-<p>Floating point numbers are used when you need decimal places.</p>
-</blockquote>
+</pre><p>&#xA0;</p>
+<h3 class="mume-header" id="4-float-constants">4 <code>float</code> constants:</h3>
+
+<p><strong>Australian average stats</strong>: height in metres for both genders, also average weight in kg. Ask Google.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Example</span>
 <span class="token keyword">const</span> <span class="token keyword">float</span> CM_IN_AN_INCH <span class="token operator">=</span> <span class="token number">2.54f</span><span class="token punctuation">;</span>
 <span class="token comment">// Note that you need a trailing f when assigning a value to a float.</span>
-</pre><ol start="3">
-<li>4 <code>string</code> constants:<br>
-hat represent type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.</li>
-</ol>
-<h2 class="mume-header" id="calculating-things">Calculating things</h2>
+</pre><p>Floating point numbers are used when you need decimal places.</p>
+<p>&#xA0;</p>
+<h3 class="mume-header" id="4-string-constants">4 <code>string</code> constants</h3>
 
-<p>Calculate winnings? Or is week 5 soon enough?</p>
-<h2 class="mume-header" id="more-on-floating-point-numbers">More on floating point numbers</h2>
+<p>Common type-casting in film, and the actors best known for being in those roles. Some ideas: funny when angry lady, always shadey guy, cowboy, queen, goodlooking idiot guy, scary old lady.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+
+string SCATTERED_EARNEST_ATTRACTIVE_LADY <span class="token operator">=</span> <span class="token string">&quot;Sandra Bullock&quot;</span><span class="token punctuation">;</span>
+string SKINNY_DORK_NICE_GUY <span class="token operator">=</span> <span class="token string">&quot;Michael_Cera&quot;</span><span class="token punctuation">;</span>
+
+</pre><p><img src="assets/week4/cera_bullock.png" alt></p>
+<h2 class="mume-header" id="testing-inputs">Testing inputs</h2>
+
+<p><img src="assets/week4/console_check_input.png" alt></p>
+<p>Let&#x2019;s make sure they enter a menu choice that exists.</p>
+<ol>
+<li>Set up a variable that remembers if errors were made</li>
+<li>Set it if their number choice is out of range ( less than 1, more than 3)</li>
+<li>Tell them about it when they fail, so they can try again.</li>
+</ol>
+<p>It&#x2019;s a little weird because we need to print errors at the top of the loop where the menu is. Then get input and remember.</p>
+<p><img src="assets/week4/menu_expor_check_input.png" alt></p>
+<p>It&#x2019;s not really that weird.</p>
+<h2 class="mume-header" id="extra-reading">EXTRA READING</h2>
+
+<h3 class="mume-header" id="more-on-floating-point-numbers">More on floating point numbers</h3>
 
 <p><strong>The <code>float</code> data type</strong> stores numbers with a decimal point including scientific notation:</p>
 <ul>
@@ -447,7 +524,7 @@ hat represent type-casting in film, and the actors best known for being in those
 </ul>
 <p><img src="assets/week4/floats_doubles_constants.png" alt></p>
 <p><strong>More info:</strong> <a href="https://www.learncpp.com/cpp-tutorial/floating-point-numbers/">https://www.learncpp.com/cpp-tutorial/floating-point-numbers/</a></p>
-<h2 class="mume-header" id="more-on-conventions-and-constant_name">More on Conventions and <code>CONSTANT_NAME</code></h2>
+<h3 class="mume-header" id="more-on-conventions-and-constant_name">More on Conventions and <code>CONSTANT_NAME</code></h3>
 
 <p>There&#x2019;s <strong>no compiler rule saying</strong> <code>const</code> names have to be <strong><code>UPPER_CASE_WITH_UNDERSCORES</code></strong>. It&#x2019;s purely for human eyeballs. We&#x2019;ll know it&#x2019;s an unchanging number <strong>on sight</strong>.</p>
 <blockquote>
@@ -459,17 +536,7 @@ hat represent type-casting in film, and the actors best known for being in those
 </ol>
 <p>Like a marathon runner with a disciplined stride, we&#x2019;ll go further with the same resources.</p>
 </blockquote>
-<h2 class="mume-header" id="other-loop-structures">Other loop structures</h2>
-
-<p><strong><code>for</code></strong> loops. <strong><code>do..while</code></strong> loops. Look into them in <em>Flowgorithm</em> and <em>C++</em></p>
-<p>You&#x2019;ll mostly see <strong><code>for</code></strong> loops used to go through collections of data. We&#x2019;ll get to that next week.</p>
-<p><img src="assets/week3/flow_for_baby.png" alt></p>
-<p><strong>Note</strong> I joined the <code>lyric</code> variable and the string <code>&quot;, &quot;</code> using a single <code>&amp;</code>. That&#x2019;s a flowgorithm thing.</p>
-<h3 class="mume-header" id="for-exported-to-_c_"><code>for</code> exported to <em>C++</em></h3>
-
-<p><strong>Note</strong> how in <em>C++</em> <code>lyric</code> and <code>&quot;, &quot;</code> are joined using <code>&lt;&lt;</code>. This works when the line starts with <code>cout</code>.</p>
-<p><img src="assets/week3/cpp_baby_for.png" alt></p>
-<h2 class="mume-header" id="related-constants-with-enum">Related constants with <strong><code>enum</code></strong></h2>
+<h3 class="mume-header" id="related-constants-with-enum">Related constants with <strong><code>enum</code></strong></h3>
 
 <p>Enumerators provide a shorthand for creating (and grouping) constants with integer values.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
