@@ -252,8 +252,8 @@ Significant numbers in your **favourite sport/game**
   ```cpp
   #include <string>
   
-  string SCATTERED_EARNEST_ATTRACTIVE_LADY = "Sandra Bullock";
-  string SKINNY_DORK_NICE_GUY = "Michael_Cera";
+  const string SCATTERED_EARNEST_ATTRACTIVE_LADY = "Sandra Bullock";
+  const string SKINNY_DORK_NICE_GUY = "Michael_Cera";
 
   ```
 
