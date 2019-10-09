@@ -305,7 +305,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li><a href="#assessment-1">Assessment 1</a></li>
 <li><a href="#intro-to-rendering-with-arnold">Intro to Rendering with Arnold</a></li>
-<li><a href="#more-on-arnold">More on Arnold</a></li>
+<li><a href="#more-on-pbr">More on PBR</a></li>
 </ul>
 </li>
 </ul>
@@ -363,10 +363,28 @@ When you render with arnold you can either save out the image, or just screensho
 3. <strong>3 images</strong>. Top, side and front: Simple structural shots. screenshot your viewport with &#x201C;wireframe on shaded&#x201D; enabled.</p>
 <h2 class="mume-header" id="intro-to-rendering-with-arnold">Intro to Rendering with Arnold</h2>
 
-<p>Arnold render scene with size reference downloadable <a href="assets/week4/prop_maya_arnold.zip">here</a></p>
-<p><img src="assets/week4/arnold_scene.png" alt></p>
-<h4 class="mume-header" id="the-render-view">The render view</h4>
+<p>Arnold is what&#x2019;s called a &#x201C;Ray Tracing Renderer&#x201D;.</p>
+<blockquote>
+<p><strong>Arnold paints your scene</strong> (rendering is a word often used for painting or drawing), using your polygons, lights and materials to figure out the colour of each pixel.</p>
+</blockquote>
+<p><strong>Ray Tracing</strong> means it trys to figure out when rays from your lights would bounce off the surfaces and hit the camera. The results can be pretty convincing:</p>
+<p><img src="assets/week4/groot_arnold.png" alt><br>
+<em>Groot in Guardians 2, rendered with Arnold. See more Arnold renders <a href="https://www.arnoldrenderer.com/gallery/">on the Arnold website</a></em></p>
+<h3 class="mume-header" id="pre-made-arnold-rendering-scene">Pre made arnold rendering scene</h3>
 
+<p>Grab the <strong>scene file</strong> with size reference <a href="assets/week4/prop_maya_arnold.zip">here</a></p>
+<p><img src="assets/week4/arnold_scene.png" alt><br>
+<em>An arnold render next to the perspective view</em></p>
+<h4 class="mume-header" id="opening-the-render-view">Opening the render view</h4>
+
+<p>At the top of Maya, beneath the menu bar and toolbar, you&#x2019;ll find the <em>shelf</em>. It&#x2019;s tabbed, and contains several different shelves including one for Arnold.</p>
+<p><img src="assets/week4/arnold_shelf_render_button.png" alt></p>
+<p><strong>To start a render:</strong></p>
+<ol>
+<li>Select the Arnold shelf (by its tab)</li>
+<li>Click the render view button: it looks like a youtube icon.</li>
+<li>It should render whatever is in your perspective view. It might wait for you to update the scene, so if it remains black try tumbling or zooming in and out of the perspective view a little.</li>
+</ol>
 <h4 class="mume-header" id="ipr-onoff">IPR on/off</h4>
 
 <p>Interactive rendering is really useful, but also taxing on your machine.</p>
@@ -382,16 +400,17 @@ When you render with arnold you can either save out the image, or just screensho
 </ul>
 <h3 class="mume-header" id="materials">Materials</h3>
 
-<p><img src="assets/week4/arnold_balls.png" alt></p>
-<p><img src="assets/week4/smooth_metal_gold.jpg" alt><br>
-<img src="assets/week4/subsurface.jpg" alt><br>
-<img src="assets/week4/rough_clay.jpg" alt><br>
-<img src="assets/week4/paint.jpg" alt></p>
+<p><img src="assets/week4/arnold_balls.png" alt><br>
+<img src="assets/week4/arnold_materials.png" alt><br>
+<img src="assets/week4/subsurface.jpg" alt></p>
+<p>Arnold Materials use the Arnold Standard Surface Shader, which has a bunch of handy settings to simulate all kinds of real world surfaces.</p>
+<p><img src="assets/week4/material_types.png" alt><br>
+<em>Material types described in the <a href="https://docs.arnoldrenderer.com/display/A5AFMUG/Standard+Surface">Standard Surface help</a></em></p>
 <p>Controlling it:<br>
 <img src="assets/week4/arnold_shader_controls.png" alt></p>
-<h2 class="mume-header" id="more-on-arnold">More on Arnold</h2>
+<h2 class="mume-header" id="more-on-pbr">More on PBR</h2>
 
-<p>The Standard Surface Shader and physically based rendering.</p>
+<p>Physically based rendering.</p>
 
       </div>
       

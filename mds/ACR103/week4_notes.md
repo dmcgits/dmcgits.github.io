@@ -16,7 +16,7 @@ export_on_save:
 - [ACR103 Week 4](#acr103-week-4)
   - [Assessment 1](#assessment-1)
   - [Intro to Rendering with Arnold](#intro-to-rendering-with-arnold)
-  - [More on Arnold](#more-on-arnold)
+  - [More on PBR](#more-on-pbr)
 
 <!-- /code_chunk_output -->
 
@@ -68,13 +68,33 @@ Deliver PNG or JPG files, zipped into a single archive.
 
 ## Intro to Rendering with Arnold
 
-Arnold render scene with size reference downloadable [here](assets/week4/prop_maya_arnold.zip)
+Arnold is what's called a "Ray Tracing Renderer". 
+
+> **Arnold paints your scene** (rendering is a word often used for painting or drawing), using your polygons, lights and materials to figure out the colour of each pixel.
+
+**Ray Tracing** means it trys to figure out when rays from your lights would bounce off the surfaces and hit the camera. The results can be pretty convincing:
+
+![](assets/week4/groot_arnold.png)
+_Groot in Guardians 2, rendered with Arnold. See more Arnold renders [on the Arnold website](https://www.arnoldrenderer.com/gallery/)_
+
+### Pre made arnold rendering scene
+
+Grab the **scene file** with size reference [here](assets/week4/prop_maya_arnold.zip)
 
 ![](assets/week4/arnold_scene.png)
+_An arnold render next to the perspective view_
+
+#### Opening the render view
+
+At the top of Maya, beneath the menu bar and toolbar, you'll find the _shelf_. It's tabbed, and contains several different shelves including one for Arnold.
+
+![](assets/week4/arnold_shelf_render_button.png)
 
 
-#### The render view
-
+**To start a render:**
+1. Select the Arnold shelf (by its tab)
+2. Click the render view button: it looks like a youtube icon.
+3. It should render whatever is in your perspective view. It might wait for you to update the scene, so if it remains black try tumbling or zooming in and out of the perspective view a little.
 
 #### IPR on/off
 
@@ -91,22 +111,20 @@ Interactive rendering is really useful, but also taxing on your machine.
 ### Materials
 
 ![](assets/week4/arnold_balls.png)
-
-![](assets/week4/smooth_metal_gold.jpg)
+![](assets/week4/arnold_materials.png)
 ![](assets/week4/subsurface.jpg)
-![](assets/week4/rough_clay.jpg)
-![](assets/week4/paint.jpg)
+
+Arnold Materials use the Arnold Standard Surface Shader, which has a bunch of handy settings to simulate all kinds of real world surfaces.
+
+![](assets/week4/material_types.png)
+_Material types described in the [Standard Surface help](https://docs.arnoldrenderer.com/display/A5AFMUG/Standard+Surface)_
+
 
 Controlling it:
 ![](assets/week4/arnold_shader_controls.png)
 
 
+## More on PBR
 
-
-
-
-
-## More on Arnold
-
-The Standard Surface Shader and physically based rendering.
+Physically based rendering.
 
