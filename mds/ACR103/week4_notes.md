@@ -49,7 +49,7 @@ Everyone participated well on blocking, and instead of written forum posts we ha
 * File naming:
   - **A1_prop_danny_mcgillick_table.ma.zip** 
 
-**shading**
+### Shading
 
 Lighting the model and positioning the camera to see its forms.
 Creating, selecing, applying and changing materials to make enhance your model.
