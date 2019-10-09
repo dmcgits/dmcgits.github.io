@@ -45,7 +45,7 @@ Everyone participated well on blocking, and instead of written forum posts we ha
 * How much control did you achieve over the tools.
 
 #### Deliver:
-* Your maya scene file. Either .ma or .mb extension. Zip it up.
+* **Your maya scene file**. Either .ma or .mb extension. Zip it up.
 * File naming:
   - **A1_prop_danny_mcgillick_table.ma.zip** 
 
@@ -54,17 +54,17 @@ Everyone participated well on blocking, and instead of written forum posts we ha
 Lighting the model and positioning the camera to see its forms.
 Creating, selecing, applying and changing materials to make enhance your model.
 
-_deliver_
+#### deliver
 Use lighting to get maximum form across.
 
-Renders:
+**Renders:**
 When you render with arnold you can either save out the image, or just screenshot it.
 
 Deliver PNG or JPG files, zipped into a single archive.
 
-1. 2+ images. Hero shots: A hero shot is whatever you think shows off your model best.
-2. 2 images. 3/4 isometric from two opposing sides. Think Diablo view.
-3. 3 images. Top, side and front: Simple structural shots. screenshot your viewport with "wireframe on shaded" enabled.
+1.**2+ images**. Hero shots: A hero shot is whatever you think shows off your model best.
+2. **2 images**. 3/4 isometric from two opposing sides. Think Diablo view.
+3. **3 images**. Top, side and front: Simple structural shots. screenshot your viewport with "wireframe on shaded" enabled.
 
 ## Intro to Rendering with Arnold
 
