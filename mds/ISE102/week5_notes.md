@@ -10,14 +10,14 @@ export_on_save:
 
 # Week 5 ISE102
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 - [Week 5 ISE102](#week-5-ise102)
   - [Resources for this Lesson](#resources-for-this-lesson)
   - [Tidy code with functions](#tidy-code-with-functions)
-  - [Excercise: Add showSection to MenuFigher in C++](#excercise-add-showsection-to-menufigher-in-c)
+  - [Exercise: Add showSection to MenuFigher in C++](#exercise-add-showsection-to-menufigher-in-c)
   - [More about Functions](#more-about-functions)
   - [Solving the slots in Psuedocode](#solving-the-slots-in-psuedocode)
 
@@ -133,9 +133,9 @@ Variables aren't really passed to a function, just a _value by copy_.
     - It has no idea where it came from. It hears "Hey buddy, show me section 2"
     - It tores that info in it's own variable before it forgets. It maybe writes "note to self: section = 2."
 
-## Excercise: Add showSection to MenuFigher in C++
+## Exercise: Add showSection to MenuFigher in C++
 
-Create a new project, in Visual Studio: **_MenuFighterFunction_**
+Create a new project, in Visual Studio: **_MenuFighterAddFunctions_**
 
 You can [download a project](assets/week5/MenuFighterAddFunctions.zip) or just make one and paste in this code:
 ```cpp
