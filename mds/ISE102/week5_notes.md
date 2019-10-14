@@ -123,11 +123,11 @@ Now you're stuck in an empty function!
 ![showSection call](assets/week5/flow_menu_w_showSection.png)
 Run it to see if it works!
 
-### Why two names for menuSection?
+### Why two names for menuChoice?
 
 Variables aren't really passed to a function, just a _value by copy_.
 
-* `menuSection` is a variable **in Main**
+* `menuChoice` is a variable **in Main**
 * When we call `showSection(menuChoice)` **it doesn't pass in the whole variable with its name** and memory location.
 * `showSection`, when it starts, only **receives a copy of the number stored in menuChoice.** 
     - It has no idea where it came from. It hears "Hey buddy, show me section 2"

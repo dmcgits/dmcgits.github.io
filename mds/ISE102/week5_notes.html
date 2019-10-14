@@ -394,11 +394,11 @@ cout <span class="token operator">&lt;&lt;</span> <span class="token string">&qu
 </ol>
 <p><img src="assets/week5/flow_menu_w_showSection.png" alt="showSection call"><br>
 Run it to see if it works!</p>
-<h3 class="mume-header" id="why-two-names-for-menusection">Why two names for menuSection?</h3>
+<h3 class="mume-header" id="why-two-names-for-menuchoice">Why two names for menuChoice?</h3>
 
 <p>Variables aren&#x2019;t really passed to a function, just a <em>value by copy</em>.</p>
 <ul>
-<li><code>menuSection</code> is a variable <strong>in Main</strong></li>
+<li><code>menuChoice</code> is a variable <strong>in Main</strong></li>
 <li>When we call <code>showSection(menuChoice)</code> <strong>it doesn&#x2019;t pass in the whole variable with its name</strong> and memory location.</li>
 <li><code>showSection</code>, when it starts, only <strong>receives a copy of the number stored in menuChoice.</strong>
 <ul>
