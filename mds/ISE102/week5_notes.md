@@ -204,7 +204,7 @@ int garysRealAge()  // Gary's real age needs to be calculated
 > **A function gives you a freshly calculated, dynamic answer** each time instead of just pulling it from memory.
 
 ```cpp
-if (garysRealAge > 50)
+if (garysRealAge() > 50)
 {
   cout << "Gary mate, did you have a pet dinosaur as a kid?" << endl;
 }
