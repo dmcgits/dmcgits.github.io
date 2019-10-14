@@ -39,6 +39,8 @@ export_on_save:
 
 ## Tidy code with functions
 
+Download [this flowgorithm file](assets/week5/menu_fighter_long.fprg.zip) to get started.
+
 #### Untidy code
 As we added more to our menu last week, `main()` was getting pretty long and it got trickier to keep track of the program's flow.  
 
@@ -133,7 +135,7 @@ Run it to see if it works!
 
 Create a new project, in Visual Studio: **_MenuFighterFunction_**
 
-You can copy past in this basic version:
+You can [download a project](assets/week5/MenuFighterAddFunctions.zip) or just make one and paste in this code:
 ```cpp
 #include <iostream>
 using namespace std;
