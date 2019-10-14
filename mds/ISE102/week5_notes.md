@@ -3,350 +3,319 @@ html:
   embed_local_images: false
   embed_svg: true
   offline: false
-  toc: undefined
+  toc: true
 export_on_save:
   html: true
 ---
-# ISE102 Week 5: More about functions
 
-Functions are the main workhorse of your programs. You'll make objects to hold functions, an you'll create variables for functions to act on them. Functions are the **do** in programming.
-
-Code in the notes is duplicated here: [week5_code.html](week5_code.html)
-
+# Week 5 ISE102
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [ISE102 Week 5: More about functions](#ISE102-Week-5-More-about-functions)
-  - [Default arguments](#Default-arguments)
-    - [Arguments in a game](#Arguments-in-a-game)
-    - [Hadoken with arguments](#Hadoken-with-arguments)
-    - [Default values for arguments](#Default-values-for-arguments)
-  - [Function Overloading](#Function-Overloading)
-  - [Passing values and vectors versus arrays](#Passing-values-and-vectors-versus-arrays)
-  - [To Do](#To-Do)
-  - [Resources](#Resources)
+- [Week 5 ISE102](#week-5-ise102)
+  - [Tidy code with functions](#tidy-code-with-functions)
+      - [Untidy code](#untidy-code)
+      - [A shorter, tidier loop](#a-shorter-tidier-loop)
+    - [A function we might want](#a-function-we-might-want)
+    - [Moving code to a Flowgorithm function](#moving-code-to-a-flowgorithm-function)
+      - [1+2: Create a function in Flowgorithm](#12-create-a-function-in-flowgorithm)
+      - [3: Copy paste](#3-copy-paste)
+  - [Excercise: Add showSection to MenuFigher in C++](#excercise-add-showsection-to-menufigher-in-c)
+  - [More about Functions](#more-about-functions)
+    - [Functions are like variables](#functions-are-like-variables)
+      - [The difference between a variable and a function:](#the-difference-between-a-variable-and-a-function)
+    - [They're also like little worker programs.](#theyre-also-like-little-worker-programs)
+  - [Solving the slots in Psuedocode](#solving-the-slots-in-psuedocode)
+    - [Winning](#winning)
+      - [When do we have 3 equal numbers](#when-do-we-have-3-equal-numbers)
+      - [Checking for three sevens](#checking-for-three-sevens)
+      - [Two of a kind](#two-of-a-kind)
+    - [Calculating winnings](#calculating-winnings)
+      - [Check for winning numbers as function](#check-for-winning-numbers-as-function)
 
 <!-- /code_chunk_output -->
 
-## Default arguments
+## Tidy code with functions
 
-_Parameters_, or _arguments_, are the info you give to a function to do its work. Here's some psuedocode for a real life example. In real life we're constantly asking for help that requires something be passed to the helper.
+#### Untidy code
+As we added more to our menu last week, `main()` was getting pretty long and it got trickier to keep track of the program's flow.  
 
-```
-situation NeedDrinkRefrigerated --------------------------
+![Long program](assets/week5/long_code.png)
+_The start and end are off screen.. No context!_
 
-  Ask a helper:
-    put my drink in the fridge (this can of coke), watch to see if they did.
-  If helper did put drink in fridge:
-    say thanks
+Our main function was easy follow until all that loop content went in.
+ 
+![long main parts](assets/week5/long_main_sections.png)
 
-end ----------------------------------------------------
+What if we could move the body of the loop elsewhere but still know generally what it's doing?
 
-...
+#### A shorter, tidier loop
+1. Displaying menu
+2. Getting choice
+3. Displaying sections
 
-helper PutDrinkInFridge ( can of drink ) ----
+What if the loop could call some functions, just like we did with Flowgorithm's Random?
 
-  if (got can of drink ):
-    put can of drink in fridge
-    return confirmation that yes, it's in fridge
-  otherwise:
-    ERROR: CANNOT REFRIGERATE IMAGINARY DRINK IN REAL FRIDGE
+![random](assets/week2/flow_random.png)
+_Random is on of Flowgorithm's built in functions_
 
-end ----------------------------------------------
-
-```
-
-Also: 
-  * Going to post office and supplying a letter or parcel to the clerk. 
-  * Ordering McDonalds and supplying credit card
-  * Asking DJ to play your jam requires the name of your jam.
-
-### Arguments in a game
-
-In Street Fighter 4, Ryu throws balls of chi energy (_hadoken_) from his hands. They can be **blue** (air) or **red** (fire). Each also has different affects. There are also more variants for other characters.
-
-![hadoken](assets/week5/hadoken_variants.jpg)
-
-> If we're going to have a function that throws hadokens, it'll need to know what colour type throwing.
-
-### Hadoken with arguments
+Or C++'s **`time`**, **`_getch`**?
 
 ```cpp
-#include ________
-#include <Windows.h>
-using namespace ___;
+secretNumber = time(0);
 
-// Set up constants to describe each hadoken. These will be /// integers 0, 1 and 2, to computer but readable english to us.
-enum HadokenType
-{
-  AIR_HADOKEN,
-  FIRE_HADOKEN,
-  METSU_HADOKEN
-};
-
-// A function we call each time someone executes a hadoken
-____ throwHadoken(HadokenType type)
-{
-  switch (type)
-  {
-  ____ AIR_HADOKEN:
-    cout << "\tAIR HADOKEN!! ~~~~*O}\n\n";
-    break;
-  ____ FIRE_HADOKEN:
-    cout << "\tFIRE HADOKEN!! ~~~~33}}\n\n";
-    break;
-  }
-  return;
-}
-
-int main()
-{
-  cout << "\n\n\tPress A for air hadoken, F for fire hadoken, Q for Quit. \n\n";
-
-/// Variables to keep track of the state of keyboard presses
-  ____ userHasQuit = false;
-  ____ aIsHeld = false;
-  ____ fIsHeld = false; // Initialise each as unheld
-
-  while (!userHasQuit)
-  {
-    // The 0x8000 thing a flag windows uses to represent key state. The single & joins the two using "binary and"
-    if (GetKeyState('A') & 0x8000)
-    {
-      // if a isn't already down, throw a hadoken
-      if (!aIsHeld)
-      {
-        aIsHeld = true;
-        throwHadoken(AIR_HADOKEN);
-      }
-    }
-    else {
-      if (aIsHeld) aIsHeld = false;
-    }
-
-    if (GetKeyState('F') & 0x8000)
-    {
-      // if a isn't already down, throw a fireball
-      if (!fIsHeld)
-      {
-        fIsHeld = true;
-        throwHadoken(__________);
-      }
-    }
-    else {
-      if (fIsHeld) fIsHeld = ____;
-    }
-
-    if (GetKeyState('Q') & 0x8000)
-    {
-      userHasQuit = ____;
-    }
-
-  }
-  return(_);
-
-}
+cout << "Hit a key to contine" << endl;
+_getch();
 ```
-___
+_`_getch` was in the `conio.h` library_
 
-### Default values for arguments
+**Who wouldn't want the power to create functions?** Functions that do whatever we need on call.
 
-Some things are so common that people would reasonably expect them to just be the default setting. Air hadokens are thrown so much more than fire hadokens that people just think of them as _the_ hadoken.
+### A function we might want
 
-In C++ **you can define a default value for an argument**. 
-* If you call the function with no argument it will use the default value.
-* If you provide an argument itt'll be used instead. The default is ignored.
+What if we could ditch all those ifs and, instead, call a function called `showSection`. All it needs to be told is which section.
 
-Make a new project, DefaultArgs.
+![flowmenu](assets/week5/flow_menu_w_showSection.png)
+_showSection: bottom right, in pinky purple_
 
-> I've added some color spice to the example. 
-> * Save [termcolor.h](assets/week5/termcolor.h) to your DefaultArgs project folder, where the cpp files are already located.
-> * In solution explorer, under the DefaultsArgs project: right click _Header Files_ and _add -> existing item_
+In C++ it makes things even shorter:
+```cpp
+int main() {
+    int menuChoice= 0;
+    cout << "---- WELCOME TO MENU FIGHTER -----" << endl;
 
-
-```c++
-#include _________
-#include <Windows.h>
-#include "termcolor.h"
-using namespace ___;
-
-enum HadokenType
-{
-  AIR_HADOKEN,
-  FIRE_HADOKEN,
-  METSU_HADOKEN
-};
-
-// Air hadokens are thrown so often (compared to fire) that 
-// people think of them as just "hadokens". I'll set them as default.
-____ throwHadoken(HadokenType type = AIR_HADOKEN)
-{
-  switch (type)
-  {
-  ____ AIR_HADOKEN:
-    cout << "\tAIR HADOKEN!! " << termcolor::white << termcolor::on_blue << "~~~~*O}\n\n" << termcolor::reset;
-    break;
-  ____ FIRE_HADOKEN:
-    cout << "\tFIRE HADOKEN!! " << termcolor::yellow << termcolor::on_red << "~~~~33}}\n\n" << termcolor::reset;
-    break;
-  }
-  return;
-}
-
-int main()
-{
-  cout << termcolor::reset << "\n\tPress A for air hadoken, F for fire hadoken, Q for Quit. \n\n";
-
-  ____ userHasQuit = false;
-  ____ aIsHeld = false;
-  ____ fIsHeld = false;
-
-  while (!userHasQuit)
-  {
-    if (GetKeyState('A') & 0x8000)
-    {
-      // if a isn't already down, throw a fireball
-      if (!aIsHeld)
-      {
-        aIsHeld = true;
-        throwHadoken();
-      }
+    while (menuChoice != 3) {    
+        cout << "1: Play Game | 2: Options | 3: Quit" << endl;
+        cout << "Enter a number to choose:" << endl;
+        
+        cin >> menuChoice;
+        showSection(menuChoice);
     }
-    else {
-      if (aIsHeld) aIsHeld = false;
-    }
-
-    if (GetKeyState('F') & 0x8000)
-    {
-      // if a isn't already down, throw a fireball
-      if (!fIsHeld)
-      {
-        fIsHeld = true;
-        throwHadoken(__________);
-      }
-    }
-    else {
-      if (fIsHeld) fIsHeld = _____;
-    }
-
-    if (GetKeyState('Q') & 0x8000)
-    {
-      ____ << termcolor::reset;
-      userHasQuit = ___;
-    }
-
-  }
-  return(_);
-
-}
-```
-![Bjarne not bad](assets/week5/bjarne_oo.jpg)
-_Now you have his attention_
-
-___
-
-#### Defaults for multiple arguments
-
-Some funcs have multiple args, and a couple will be rarey changed. It's good to be able to default those ones that aren't often used.
-
-From the textbook:
-```c++
-// setting up a displaywidth and height
-// colourdepth and fullscreen become optional
-// with default values
-
-void setDisplay(int height, int width, int depth = 32, bool fullScreen = true);
-
-```
-
-Once you start supplying defaults, you can't stop:
-
-```C++
-void setDisplay(int width, int height, int depth = 32, bool fullScreen);
-
-// compile error, the final argument is missing a default.
-```
-
-The same goes for passing arguments. you can't leave out bit depth and leave in depth but then supply a value for fullscreen. the compiler would know what you mean here because there are different types. If they were both bools or ints it would have no idea which one you mean.
-
-**eg**
-___
-
-## Function Overloading
-
-> Sometimes you might want the same function to do a very similar thing but with different argument types. 
- 
-If you want to use an equip function for things of type Armour and things of type Weapon, you might think you need to come up with two function names:
-
-```c++
-
-void equipWeapon(Weapon someWeapon)
-{}
-
-void equipArmour(Armour someArmour)
-{}
-```
-
-But _C++_ lets you use the same function name with a different argument list, and just picks the right one depending on what you pass in.
-```c++
-
-void equip(Weapon someWeapon)
-{ }
-
-void equip(Armour someArmour)
-{}
-```
-
-A more basic example might be you want to convert lots of types to strings. Say an int, a float, a double, a Boolean String. Instead of 
-`intToString(int), floatToString(float)` etc you can use
-
-```C++
-String toString(int toConvert)
-{
-	String converted = // some int conversion 
-	return(converted)
-}
-
-String toString(float toConvert)
-{
-	String converted = // some float conversion 
-	return(converted)
+    return 0;
 }
 ```
 
-You end up with the same amount of functions, but you don't have a lot of different names to say the same thing. There are arguments over whether this is good or bad practise, and not all languages support it.
+### Moving code to a Flowgorithm function
 
-## Passing values and vectors versus arrays
+There are 4 things we need a way to do:
+1. Define/name a custom function
+2. Hand it some details, like what section to show. 
+3. Copy paste our code over.
+4. Run/call the function.
 
-Normally parameters are passed as a copy. You can mess with them in your function and cause no issues:
+#### 1+2: Create a function in Flowgorithm
+From the menu select _Program -> Add Function..._ and give it the name we used above: displaySection.
 
-```c++
-void printMyHeight(int someonesHeight)
-{
-	someonesHeight = 2;
-	cout << "SHE'S ONLY " << someonesHeight << " FEET TALL!\n\n";
+![](assets/week5/create_function_flow.png)
+
+Notice we give it a **_'parameter'_**: the details it needs to do its job. A parameter is just a vairable definition.
+
+#### 3: Copy paste
+Now you're stuck in an empty function! 
+
+![](assets/week5/edit_function_flow.png)
+
+1. Click the function dropdown to switch to the Main function.
+2. Select and cut all the if statements from your while loop
+3. Switch back to showSection again
+4. Click the one flow line on your chart, paste in the if statments
+
+![flow ifs](assets/week5/showSection_pasted_if.png)
+
+5. Go back to Main and add a _call_ node to the while loop. Enter "showSection(menuChoice)"
+
+![showSection call](assets/week5/flow_menu_w_showSection.png)
+Run it to see if it works!
+
+## Excercise: Add showSection to MenuFigher in C++
+
+Create a new project, in Visual Studio: **_MenuFighterFunction_**
+
+You can copy past in this basic version:
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int menuChoice;
+    
+    menuChoice = 0;
+    cout << "---- WELCOME TO MENU FIGHTER -----" << endl;
+    while (menuChoice != 3) {
+        cout << "1: Play Game | 2: Options | 3: Quit" << endl;
+        cout << "Enter a number to choose:" << endl;
+        cin >> menuChoice;
+        
+        if (menuChoice == 1) {
+          cout << "Round 1, Fight! Bish bish bash URGH!! You win." << endl;
+        }
+        if (menuChoice == 2) {
+            cout << "Your only option is to fight." << endl;
+        }
+        if (menuChoice == 3) {
+            cout << "Bye" << endl;
+        }
+    }
+    return 0;
 }
+```
+Now go ahead and add in the `showSection()` function!
 
-int main()
+![showSection cpp](assets/week5/add_showSection_cpp.png)
+
+## More about Functions
+
+How to to remember: relate functions to stuff we already know.
+
+### Functions are like variables
+
+Variables have a data type, a name, and they hold/retrieve data. Variables always get whatever is stored in their little box of memory.
+
+**A variable:**
+```cpp
+int menuChoice;
+menuChoice = 1;
+
+if (menuChoice == 1)
 {
-	cout << "How tall are you?\n\n";
-	int height = 6;
-	printMyHeight(height);
-
-	cout << "Thanks. I'm actually " << height << " feet tall.\n\n";
+  // do something
 }
 ```
 
-Let's jump to [week5_code.html](week5_code.html) for the other two examples.
+**A function:** (Similar deal:it has a data type, a name, and can return data)
 
+```cpp
+int garysRealAge()  // Gary's real age needs to be calculated
+{
+  int realAge;
+  realAge = garysCurrentAge + 8;   // Gary usually alters his age by about 8 years 
+  
+  return(realAge)   // Send back the calculated data
+}
+```
+#### The difference between a variable and a function:
 
-## To Do
-1. Your assignment should be basically done and bug free this week, you only want to be cleaning up bugs and adding extra features/polish next week.
-2. Complete all Sololearn modules up to and including functions. (It's weird you have to do pointers before functions, but push through)
-3. Book chapter?
+> **A function gives you a freshly calculated, dynamic answer** each time instead of just pulling it from memory.
 
-## Resources
+```cpp
+if (garysRealAge > 50)
+{
+  cout << "Gary mate, did you have a pet dinosaur as a kid?" << endl;
+}
+```
+### They're also like little worker programs.
 
-1. Termcolor: [termcolor.h](assets/week5/termcolor.h)
+They can contain a bunch of variables and statements, like _main()_ has in all our programs so far. They just do a single specialised job, and can be called a bunch of times. Main only runs once.
+
+**A function might do some of these limited things:**
+* get the current time
+* check if any keys are being pressed
+* figure out if you're close enough to a dragon to mount it with the Y button
+
+**If _main()_ is a boss function, its employees are any functions it calls.**
+
+1. _main()_ has an overall plan, and top level information.
+2. It tells each function to do a task it's good at, providing just enough info to do it. It might call he same function several times with different info: (`showSection(1); showSection(2);`)
+
+![alt](assets/week5/need_healing_painting.jpg)
+_do your jobs, healer functions_
+
+## Solving the slots in Psuedocode
+
+**The slot machine** part of assessment 1:
+1. Keeps cash we bet
+1. Spins its three wheels*, for 3 random numbers (2-7 inc) 
+2. Awards prizes for two or more matching numbers, special prize for three sevens.
+3. Keeps track of our remaining cash.
+   
+### Winning
+
+Wins are for 2 of a kind, 3 of a kind, and 3 sevens.
+
+> Example wins:  
+> \==========
+> |||  6  |  2  |  6  |||
+> \==========
+> |||  4  |  4  |  4  |||
+> \==========
+> |||  7  |  7  |  7  |||
+> \==========
+
+#### When do we have 3 equal numbers
+
+When both of these are true (AND):
+* `wheel1` is equal to `wheel2`
+* `wheel2` is equal to `wheel3`
+
+As an epression: `(wheel1 == wheel2 && wheel2 == wheel3)`
+**Question** Does it have to compare 1 to 2 and 1 to 3?
+
+When both: 
+* wheel1 minus wheel 2 is equal to 0
+* wheel 1 minus wheel 3 is equal to 0
+
+#### Checking for three sevens
+
+When do we have 3 sevens?
+
+When all are true:
+* wheel1 == wheel2 
+* wheel1 == wheel3
+* Any wheel is 7
+
+Another way:
+* wheel1 == 7
+* wheel2 == 7
+* wheel3 == 7
+
+Building on what we already checked:
+* three of a kind and wheel1 == 7
+
+Others?
+
+#### Two of a kind
+Here are some situations when we do have a two of a kind
+
+When both true:
+* two wheels are the same
+* two are not the same.
+
+Both true
+* We do not have 3 of a kind
+* two are the same. 
+
+### Calculating winnings
+
+Winning results in a prize equivalent to **your bet multiplied by 3, 5 or 10.** From the assessment 1 brief:
+
+> •	If all three numbers are ‘7’, then award the player 10x their bet.
+> •	If all three numbers are the same, (but not ‘7’s), then award the player 5x their bet.
+> •	If two out of the three numbers are the same, then award the player 3x their bet.
+
+**Pseudocode:**
+```
+integer multiplier = 0;
+integer bet = 0;
+integer winnings = 0;
+
+multiplier = result of check for winning numbers
+bet = user input;
+winnings = bet * multiplier 
+```
+
+#### Check for winning numbers as function
+"Result of check for winning numbers" sounds like a function to me. It can:
+* **take our wheel numbers** as info
+* **look for matches**
+* **return a multiplier** depending on the outcome: 0 (lose), 3, 5 or 10.
+```
+multiplier = getPrizeMultiplier(wheel1, wheel2, wheel3);
+```
+
+Finally, subtract the bet (booky always keeps the bet) and add on the winnings.
+
+```
+totalCash = totalCash - bet + winnings.
+```

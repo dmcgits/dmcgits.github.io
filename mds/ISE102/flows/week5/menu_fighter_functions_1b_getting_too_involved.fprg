@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Danny"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-10-11 09:57:33 AM"/>
+        <attribute name="created" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzoxODoxMCBQTTsyNTk4"/>
+        <attribute name="edited" value="RGFubnk7VEVOLVNFQkVOVFk7MjAxOS0xMC0wNDswNzo0MzoyOSBQTTs0OzI3MTc="/>
+        <attribute name="edited" value="VUxUU3R1ZGVudDtVTDIwMkRXMTEwMzM1OzIwMTktMTAtMDg7MDM6MDM6MDEgUE07MzszMTM1"/>
+        <attribute name="edited" value="ZG1hYztTT0ZULVRPUDsyMDE5LTEwLTExOzA5OjU3OjMzIEFNOzI7MjM4OQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="menuChoice" type="Integer" array="False" size=""/>
+            <assign variable="menuChoice" expression="0"/>
+            <output expression="&quot;---- WELCOME TO MENU FIGHTER -----&quot;" newline="True"/>
+            <while expression="menuChoice != 3">
+                <assign variable="menuChoice" expression="displayMenuAndGetChoice()"/>
+                <call expression="displaySection(menuChoice)"/>
+            </while>
+        </body>
+    </function>
+    <function name="displayMenuAndGetChoice" type="Integer" variable="choice">
+        <parameters/>
+        <body>
+            <declare name="choice" type="Integer" array="False" size=""/>
+            <while expression="while ( choice &gt;0 &amp;&amp; choice &lt; 4)">
+                <output expression="&quot;1: Play Game | 2: Options | 3: Quit&quot;" newline="True"/>
+                <if expression="">
+                    <then/>
+                    <else/>
+                </if>
+                <output expression="&quot;Enter a number to choose:&quot;" newline="True"/>
+                <input variable="choice"/>
+            </while>
+        </body>
+    </function>
+    <function name="displaySection" type="None" variable="">
+        <parameters>
+            <parameter name="section" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <if expression="section == 1">
+                <then>
+                    <output expression="&quot;Round 1, Fight! Bish bish bash URGH!! You win.&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="section == 2">
+                <then>
+                    <output expression="&quot;Your only option is to fight.&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="section == 3">
+                <then>
+                    <output expression="&quot;Bye&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
