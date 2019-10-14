@@ -10,32 +10,24 @@ export_on_save:
 
 # Week 5 ISE102
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 - [Week 5 ISE102](#week-5-ise102)
+  - [Resources for this Lesson](#resources-for-this-lesson)
   - [Tidy code with functions](#tidy-code-with-functions)
-      - [Untidy code](#untidy-code)
-      - [A shorter, tidier loop](#a-shorter-tidier-loop)
-    - [A function we might want](#a-function-we-might-want)
-    - [Moving code to a Flowgorithm function](#moving-code-to-a-flowgorithm-function)
-      - [1+2: Create a function in Flowgorithm](#12-create-a-function-in-flowgorithm)
-      - [3: Copy paste](#3-copy-paste)
   - [Excercise: Add showSection to MenuFigher in C++](#excercise-add-showsection-to-menufigher-in-c)
   - [More about Functions](#more-about-functions)
-    - [Functions are like variables](#functions-are-like-variables)
-      - [The difference between a variable and a function:](#the-difference-between-a-variable-and-a-function)
-    - [They're also like little worker programs.](#theyre-also-like-little-worker-programs)
   - [Solving the slots in Psuedocode](#solving-the-slots-in-psuedocode)
-    - [Winning](#winning)
-      - [When do we have 3 equal numbers](#when-do-we-have-3-equal-numbers)
-      - [Checking for three sevens](#checking-for-three-sevens)
-      - [Two of a kind](#two-of-a-kind)
-    - [Calculating winnings](#calculating-winnings)
-      - [Check for winning numbers as function](#check-for-winning-numbers-as-function)
 
 <!-- /code_chunk_output -->
+
+## Resources for this Lesson
+
+* [Menufighter Long](assets/week5/menu_fighter_long.fprg.zip) for Flowgorithm
+* [MenuFighterAddFunctions](assets/week5/MenuFighterAddFunctions.zip) project for Visual Studio
+* The previous version of these notes as taught in [trimester 2](week5_notes_tri2.html)
 
 ## Tidy code with functions
 
@@ -112,7 +104,7 @@ From the menu select _Program -> Add Function..._ and give it the name we used a
 
 ![](assets/week5/create_function_flow.png)
 
-Notice we give it a **_'parameter'_**: the details it needs to do its job. A parameter is just a vairable definition.
+Notice we give it a **_'parameter'_**: the details it needs to do its job. A parameter is just a variable definition.
 
 #### 3: Copy paste
 Now you're stuck in an empty function! 
@@ -130,6 +122,16 @@ Now you're stuck in an empty function!
 
 ![showSection call](assets/week5/flow_menu_w_showSection.png)
 Run it to see if it works!
+
+### Why two names for menuSection?
+
+Variables aren't really passed to a function, just a _value by copy_.
+
+* `menuSection` is a variable **in Main**
+* When we call `showSection(menuChoice)` **it doesn't pass in the whole variable with its name** and memory location.
+* `showSection`, when it starts, only **receives a copy of the number stored in menuChoice.** 
+    - It has no idea where it came from. It hears "Hey buddy, show me section 2"
+    - It tores that info in it's own variable before it forgets. It maybe writes "note to self: section = 2."
 
 ## Excercise: Add showSection to MenuFigher in C++
 
