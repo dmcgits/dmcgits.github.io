@@ -188,13 +188,13 @@ if (menuChoice == 1)
 }
 ```
 
-**A function:** (Similar deal:it has a data type, a name, and can return data)
+**A function:** (Similar to variable, it has a data type, a name, and can return data)
 
 ```cpp
 int garysRealAge()  // Gary's real age needs to be calculated
 {
   int realAge;
-  realAge = garysCurrentAge + 8;   // Gary usually alters his age by about 8 years 
+  realAge = garysClaimedAge + 8;   // Gary usually alters his age by about 8 years 
   
   return(realAge)   // Send back the calculated data
 }
@@ -254,11 +254,10 @@ When both of these are true (AND):
 * `wheel2` is equal to `wheel3`
 
 As an epression: `(wheel1 == wheel2 && wheel2 == wheel3)`
-**Question** Does it have to compare 1 to 2 and 1 to 3?
 
-When both: 
-* wheel1 minus wheel 2 is equal to 0
-* wheel 1 minus wheel 3 is equal to 0
+Alternately, test `wheel1` and `wheel2`, then `wheel1` and `wheel3`. 
+
+You might prefer going from right to left: `wheel3 == wheel2` and `wheel2 == wheel1`. Same same.
 
 #### Checking for three sevens
 
@@ -280,7 +279,7 @@ Building on what we already checked:
 Others?
 
 #### Two of a kind
-Here are some situations when we do have a two of a kind
+Here are some situations where we have two of a kind:
 
 When both true:
 * two wheels are the same
@@ -299,27 +298,26 @@ Winning results in a prize equivalent to **your bet multiplied by 3, 5 or 10.** 
 > •	If two out of the three numbers are the same, then award the player 3x their bet.
 
 **Pseudocode:**
-```
-integer multiplier = 0;
-integer bet = 0;
-integer winnings = 0;
 
-multiplier = result of check for winning numbers
-bet = user input;
-winnings = bet * multiplier 
-```
+`integer multiplier = 0`
+`integer bet = 0`
+`integer winnings = 0`
+
+`multiplier = check wheels for matches and select multiplier`
+`bet = user input`
+`winnings = bet * multiplier `
+
 
 #### Check for winning numbers as function
 "Result of check for winning numbers" sounds like a function to me. It can:
 * **take our wheel numbers** as info
 * **look for matches**
 * **return a multiplier** depending on the outcome: 0 (lose), 3, 5 or 10.
-```
-multiplier = getPrizeMultiplier(wheel1, wheel2, wheel3);
-```
+
+`multiplier = getPrizeMultiplier(wheel1, wheel2, wheel3);`
+
 
 Finally, subtract the bet (booky always keeps the bet) and add on the winnings.
 
-```
-totalCash = totalCash - bet + winnings.
-```
+`winnings = bet * multiplier`
+`totalCash = totalCash - bet + winnings.`

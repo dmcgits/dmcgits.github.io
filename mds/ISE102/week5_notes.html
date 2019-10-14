@@ -452,11 +452,11 @@ menuChoice <span class="token operator">=</span> <span class="token number">1</s
 <span class="token punctuation">{</span>
   <span class="token comment">// do something</span>
 <span class="token punctuation">}</span>
-</pre><p><strong>A function:</strong> (Similar deal:it has a data type, a name, and can return data)</p>
+</pre><p><strong>A function:</strong> (Similar to variable, it has a data type, a name, and can return data)</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> <span class="token function">garysRealAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// Gary&apos;s real age needs to be calculated</span>
 <span class="token punctuation">{</span>
   <span class="token keyword">int</span> realAge<span class="token punctuation">;</span>
-  realAge <span class="token operator">=</span> garysCurrentAge <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">;</span>   <span class="token comment">// Gary usually alters his age by about 8 years </span>
+  realAge <span class="token operator">=</span> garysClaimedAge <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">;</span>   <span class="token comment">// Gary usually alters his age by about 8 years </span>
   
   <span class="token keyword">return</span><span class="token punctuation">(</span>realAge<span class="token punctuation">)</span>   <span class="token comment">// Send back the calculated data</span>
 <span class="token punctuation">}</span>
@@ -514,13 +514,9 @@ menuChoice <span class="token operator">=</span> <span class="token number">1</s
 <li><code>wheel1</code> is equal to <code>wheel2</code></li>
 <li><code>wheel2</code> is equal to <code>wheel3</code></li>
 </ul>
-<p>As an epression: <code>(wheel1 == wheel2 &amp;&amp; wheel2 == wheel3)</code><br>
-<strong>Question</strong> Does it have to compare 1 to 2 and 1 to 3?</p>
-<p>When both:</p>
-<ul>
-<li>wheel1 minus wheel 2 is equal to 0</li>
-<li>wheel 1 minus wheel 3 is equal to 0</li>
-</ul>
+<p>As an epression: <code>(wheel1 == wheel2 &amp;&amp; wheel2 == wheel3)</code></p>
+<p>Alternately, test <code>wheel1</code> and <code>wheel2</code>, then <code>wheel1</code> and <code>wheel3</code>.</p>
+<p>You might prefer going from right to left: <code>wheel3 == wheel2</code> and <code>wheel2 == wheel1</code>. Same same.</p>
 <h4 class="mume-header" id="checking-for-three-sevens">Checking for three sevens</h4>
 
 <p>When do we have 3 sevens?</p>
@@ -543,7 +539,7 @@ menuChoice <span class="token operator">=</span> <span class="token number">1</s
 <p>Others?</p>
 <h4 class="mume-header" id="two-of-a-kind">Two of a kind</h4>
 
-<p>Here are some situations when we do have a two of a kind</p>
+<p>Here are some situations where we have two of a kind:</p>
 <p>When both true:</p>
 <ul>
 <li>two wheels are the same</li>
@@ -563,14 +559,13 @@ menuChoice <span class="token operator">=</span> <span class="token number">1</s
 &#x2022;	If two out of the three numbers are the same, then award the player 3x their bet.</p>
 </blockquote>
 <p><strong>Pseudocode:</strong></p>
-<pre data-role="codeBlock" data-info class="language-"><code>integer multiplier = 0;
-integer bet = 0;
-integer winnings = 0;
-
-multiplier = result of check for winning numbers
-bet = user input;
-winnings = bet * multiplier 
-</code></pre><h4 class="mume-header" id="check-for-winning-numbers-as-function">Check for winning numbers as function</h4>
+<p><code>integer multiplier = 0</code><br>
+<code>integer bet = 0</code><br>
+<code>integer winnings = 0</code></p>
+<p><code>multiplier = check wheels for matches and select multiplier</code><br>
+<code>bet = user input</code><br>
+<code>winnings = bet * multiplier</code></p>
+<h4 class="mume-header" id="check-for-winning-numbers-as-function">Check for winning numbers as function</h4>
 
 <p>&#x201C;Result of check for winning numbers&#x201D; sounds like a function to me. It can:</p>
 <ul>
@@ -578,10 +573,11 @@ winnings = bet * multiplier
 <li><strong>look for matches</strong></li>
 <li><strong>return a multiplier</strong> depending on the outcome: 0 (lose), 3, 5 or 10.</li>
 </ul>
-<pre data-role="codeBlock" data-info class="language-"><code>multiplier = getPrizeMultiplier(wheel1, wheel2, wheel3);
-</code></pre><p>Finally, subtract the bet (booky always keeps the bet) and add on the winnings.</p>
-<pre data-role="codeBlock" data-info class="language-"><code>totalCash = totalCash - bet + winnings.
-</code></pre>
+<p><code>multiplier = getPrizeMultiplier(wheel1, wheel2, wheel3);</code></p>
+<p>Finally, subtract the bet (booky always keeps the bet) and add on the winnings.</p>
+<p><code>winnings = bet * multiplier</code><br>
+<code>totalCash = totalCash - bet + winnings.</code></p>
+
       </div>
       
       
