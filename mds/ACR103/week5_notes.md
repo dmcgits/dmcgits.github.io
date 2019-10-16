@@ -19,6 +19,7 @@ export_on_save:
   - [Assessment 2: Level Modeling](#assessment-2-level-modeling)
   - [How will we do it all?](#how-will-we-do-it-all)
   - [This week](#this-week)
+  - [Inspect plane uvs](#inspect-plane-uvs)
   - [Next week (w6)](#next-week-w6)
   - [Styles and concepts](#styles-and-concepts)
 
@@ -44,26 +45,24 @@ _Bunnings modular storage_
 
 **Modular level construction:**
 
-Examples by [Glenatron](https://polycount.com/discussion/158818/another-modular-dungeon-tileset):
+Examples by [Glenatron](https://polycount.com/discussion/158818/another-modular-dungeon-tileset)
 
-**Components for making modules**
 ![](assets/week5/modular_dungeon_2.jpg)
 ![](assets/week5/modular_dungeon_3.jpg)
+_Components for making modules_
 
-**Levels made from modules:**
+
 ![](assets/week5/modular_dungeon_1.jpg)
 ![](assets/week5/modular_dungeon_4.jpg)
+_Levels made from modules_
 
-
-| pieces      | makes
+| Objects     | Description
 |---          |---
 | wall        | basic component 
 | floor       | basic component 
 | wall+floor  | wall_floor module
 | 2 walls + floor | wall_floor_corner module
 | 5 x wall_floor  | one side of a corridor? | 
-
-**NEEDS PICTURE** - Table here is fine but not alone
 
 #### Texturing
   - uv unwrapping
@@ -76,8 +75,7 @@ Examples by [Glenatron](https://polycount.com/discussion/158818/another-modular-
 _Low poly dagger with hand painted texture (diffuse)_
 
 ![dagger maya](assets/week5/dagger_uv_grid.png)
-
-**ATTACH MAYA PROJECT**
+_Download the [dagger_maya project](assets/week5/dagger_maya.zip)_
 
 ## Assessment 2: Level Modeling
 
@@ -95,8 +93,7 @@ Lighting: export to Unity and bake in ambient occlusion.
 
 DELIVERABLE: 
 * Unity project
-* Interactive level scene
-I'll provide a unity project with the camera already set up.
+* Interactive level fly through (camera using a basic unity-provided controller script)
 
 ## How will we do it all?
 
@@ -111,6 +108,8 @@ I'll provide a unity project with the camera already set up.
 
 ## This week
 
+Beginning the assessment, practising working to a grid.
+
 ### Modules and components 
 
 A little more context. 
@@ -120,8 +119,6 @@ _Notice one road lane component and one sidewalk component making up a module. L
 ![](assets/week5/demon_dungeon_1.jpg)
 ![](assets/week5/demon_dungeon_3.jpg)
 _Components being arranged to make ledge/raised walkway modules_
-
-
 
 ### Choose your environment and style
 
@@ -137,27 +134,53 @@ Getting started here. What do you see in the image? wall, flor, railing, stairs,
 
 ### model and texture a wall and floor 
 
-First, play in this scene to see what we'll be doing.
+<!--
+> TODO: add this file
+> First, play in this scene to see what we'll be doing.
+>
+> Make some modules by duplicating (ctrl-d) and moving components:
+>  - select translate tool (w)
+>  - enable grid snapping (hold down x)
+>  - click and drag the translate handle
+> -->
 
-*ATTACH A MAYA SCENE WITH EXISTING MODULES FROM COMPONENTS, ALREADY SET UP WITH PIVOT POINTS AND GRID**
+* Set up grid
 
-Make some modules by duplicating (ctrl-d) and moving components:
+![](assets/week5/grid_options.png)
+  
+* Make a wall plane, a floor plane
+* Move our pivot points using d (modify pivot)
+  - select translate tool (w)
+  - select an object
+  - enable pivot editing (d)
+  - you can move pivot freely by dragging handles
+  - enable snap to vertex (hold down v), click and drag manipulator handles.
+  - disable snap to vertex (release v)
+  - disable pivot edting (d)
+  
+![](assets/week5/move_pivot_vert_snap.gif)
+
+* Move and snap our objects. Duplicate, move w snap.
   - select translate tool (w)
   - enable grid snapping (hold down x)
   - click and drag the translate handle
+![](assets/week5/snap_drag.gif)
 
-**GIF OF DUPLICATE, DRAG, SNAP**
+When you have your pivot set, and your object at the origin, you're going to be stuck with funny x and z coordinates, and maybe leftover rotation. Remove them with "Freeze Transforms"
+* Select your objects
+* Right Click the channel box as in the gif below and freeze all transforms.
+![](assets/week5/freeze_transforms.gif)
+_Your new level component should be all 'zeroed out' with its pivot at the origin_
 
-### Now, DIY
-
-* Make a wall plane, a floor plane
 * Make a column
-* Move our pivot points using d (modify pivot)
-* Place our objects
+* Move pivot, duplicate, move w snap.
 
 **GIF OF MOVE PIVOT**
 Screen cap showing keypresses would be ultimate
   
+## Inspect plane uvs
+Only if time allows.
+
 ## Next week (w6)
 
 #### Assessment deliverable: present your designs in class

@@ -307,6 +307,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#assessment-2-level-modeling">Assessment 2: Level Modeling</a></li>
 <li><a href="#how-will-we-do-it-all">How will we do it all?</a></li>
 <li><a href="#this-week">This week</a></li>
+<li><a href="#inspect-plane-uvs">Inspect plane uvs</a></li>
 <li><a href="#next-week-w6">Next week (w6)</a></li>
 <li><a href="#styles-and-concepts">Styles and concepts</a></li>
 </ul>
@@ -332,18 +333,18 @@ pre[data-line] .line-highlight[data-end]:after {
 <p><img src="assets/week5/BunningsShelving.jpg" alt="bunnings shelving"><br>
 <em>Bunnings modular storage</em></p>
 <p><strong>Modular level construction:</strong></p>
-<p>Examples by <a href="https://polycount.com/discussion/158818/another-modular-dungeon-tileset">Glenatron</a>:</p>
-<p><strong>Components for making modules</strong><br>
-<img src="assets/week5/modular_dungeon_2.jpg" alt><br>
-<img src="assets/week5/modular_dungeon_3.jpg" alt></p>
-<p><strong>Levels made from modules:</strong><br>
-<img src="assets/week5/modular_dungeon_1.jpg" alt><br>
-<img src="assets/week5/modular_dungeon_4.jpg" alt></p>
+<p>Examples by <a href="https://polycount.com/discussion/158818/another-modular-dungeon-tileset">Glenatron</a></p>
+<p><img src="assets/week5/modular_dungeon_2.jpg" alt><br>
+<img src="assets/week5/modular_dungeon_3.jpg" alt><br>
+<em>Components for making modules</em></p>
+<p><img src="assets/week5/modular_dungeon_1.jpg" alt><br>
+<img src="assets/week5/modular_dungeon_4.jpg" alt><br>
+<em>Levels made from modules</em></p>
 <table>
 <thead>
 <tr>
-<th>pieces</th>
-<th>makes</th>
+<th>Objects</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -369,7 +370,6 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<p><strong>NEEDS PICTURE</strong> - Table here is fine but not alone</p>
 <h4 class="mume-header" id="texturing">Texturing</h4>
 
 <ul>
@@ -381,8 +381,8 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 <p><img src="assets/week5/dagger_uv.png" alt><br>
 <em>Low poly dagger with hand painted texture (diffuse)</em></p>
-<p><img src="assets/week5/dagger_uv_grid.png" alt="dagger maya"></p>
-<p><strong>ATTACH MAYA PROJECT</strong></p>
+<p><img src="assets/week5/dagger_uv_grid.png" alt="dagger maya"><br>
+<em>Download the <a href="assets/week5/dagger_maya.zip">dagger_maya project</a></em></p>
 <h2 class="mume-header" id="assessment-2-level-modeling">Assessment 2: Level Modeling</h2>
 
 <p>(I&#x2019;ll provide a few concepts. You will be designing an environment based on the elements and style in them. You can modify the scene from say a level 1 dungeon to level 5 dungeon, or a lounge room to an attic bedroom). You can add elements that aren&#x2019;t there, but aim to match the style as if the game exists)<br>
@@ -398,8 +398,7 @@ Designing and creating environment for game based on scope sheet from teacher</p
 <p>DELIVERABLE:</p>
 <ul>
 <li>Unity project</li>
-<li>Interactive level scene<br>
-I&#x2019;ll provide a unity project with the camera already set up.</li>
+<li>Interactive level fly through (camera using a basic unity-provided controller script)</li>
 </ul>
 <h2 class="mume-header" id="how-will-we-do-it-all">How will we do it all?</h2>
 
@@ -415,6 +414,7 @@ I&#x2019;ll provide a unity project with the camera already set up.</li>
 </ul>
 <h2 class="mume-header" id="this-week">This week</h2>
 
+<p>Beginning the assessment, practising working to a grid.</p>
 <h3 class="mume-header" id="modules-and-components">Modules and components</h3>
 
 <p>A little more context.</p>
@@ -436,25 +436,57 @@ Can match existing style as closely as possible, work directly from concepts in 
 <p>Getting started here. What do you see in the image? wall, flor, railing, stairs, column, sign?</p>
 <h3 class="mume-header" id="model-and-texture-a-wall-and-floor">model and texture a wall and floor</h3>
 
-<p>First, play in this scene to see what we&#x2019;ll be doing.</p>
-<p><em>ATTACH A MAYA SCENE WITH EXISTING MODULES FROM COMPONENTS, ALREADY SET UP WITH PIVOT POINTS AND GRID</em>*</p>
-<p>Make some modules by duplicating (ctrl-d) and moving components:</p>
+<ul>
+<li>Set up grid</li>
+</ul>
+<p><img src="assets/week5/grid_options.png" alt></p>
+<ul>
+<li>Make a wall plane, a floor plane</li>
+<li>Move our pivot points using d (modify pivot)
+<ul>
+<li>select translate tool (w)</li>
+<li>select an object</li>
+<li>enable pivot editing (d)</li>
+<li>you can move pivot freely by dragging handles</li>
+<li>enable snap to vertex (hold down v), click and drag manipulator handles.</li>
+<li>disable snap to vertex (release v)</li>
+<li>disable pivot edting (d)</li>
+</ul>
+</li>
+</ul>
+<p><img src="assets/week5/move_pivot_vert_snap.gif" alt></p>
+<ul>
+<li>Move and snap our objects. Duplicate, move w snap.
 <ul>
 <li>select translate tool (w)</li>
 <li>enable grid snapping (hold down x)</li>
-<li>click and drag the translate handle</li>
+<li>click and drag the translate handle<br>
+<img src="assets/week5/snap_drag.gif" alt></li>
 </ul>
-<p><strong>GIF OF DUPLICATE, DRAG, SNAP</strong></p>
-<h3 class="mume-header" id="now-diy">Now, DIY</h3>
-
+</li>
+</ul>
+<p>When you have your pivot set, and your object at the origin, you&#x2019;re going to be stuck with funny x and z coordinates, and maybe leftover rotation. Remove them with &#x201C;Freeze Transforms&#x201D;</p>
 <ul>
-<li>Make a wall plane, a floor plane</li>
-<li>Make a column</li>
-<li>Move our pivot points using d (modify pivot)</li>
-<li>Place our objects</li>
+<li>
+<p>Select your objects</p>
+</li>
+<li>
+<p>Right Click the channel box as in the gif below and freeze all transforms.<br>
+<img src="assets/week5/freeze_transforms.gif" alt><br>
+<em>Your new level component should be all &#x2018;zeroed out&#x2019; with its pivot at the origin</em></p>
+</li>
+<li>
+<p>Make a column</p>
+</li>
+<li>
+<p>Move pivot, duplicate, move w snap.</p>
+</li>
 </ul>
 <p><strong>GIF OF MOVE PIVOT</strong><br>
 Screen cap showing keypresses would be ultimate</p>
+<h2 class="mume-header" id="inspect-plane-uvs">Inspect plane uvs</h2>
+
+<p>Only if time allows.</p>
 <h2 class="mume-header" id="next-week-w6">Next week (w6)</h2>
 
 <h4 class="mume-header" id="assessment-deliverable-present-your-designs-in-class">Assessment deliverable: present your designs in class</h4>
