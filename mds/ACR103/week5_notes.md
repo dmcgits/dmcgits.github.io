@@ -111,20 +111,16 @@ I'll provide a unity project with the camera already set up.
 
 ## This week
 
-### Styles
-levels
-
-
-
-More styles at end of notes
-
-* Look through concepts/references
-* Decide on level idea, style.
-* Decide on modules you want, and how they'd break down into components
-
 ### Modules and components 
 
+A little more context. 
+
 ![](assets/week5/simple_town_modules.png)
+_Notice one road lane component and one sidewalk component making up a module. Look for more._
+![](assets/week5/demon_dungeon_1.jpg)
+![](assets/week5/demon_dungeon_3.jpg)
+_Components being arranged to make ledge/raised walkway modules_
+
 
 
 ### Choose your environment and style
