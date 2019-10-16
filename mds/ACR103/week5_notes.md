@@ -13,13 +13,14 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-1. [ACR103 Week 5](#acr103-week-5)
-   1. [Assessment 1 Received](#assessment-1-received)
-   2. [Weeks 5-8, modeling game environments](#weeks-5-8-modeling-game-environments)
-   3. [Assessment 2: Level Modeling](#assessment-2-level-modeling)
-   4. [How will we do it all?](#how-will-we-do-it-all)
-   5. [This week](#this-week)
-   6. [Next week (w6)](#next-week-w6)
+- [ACR103 Week 5](#acr103-week-5)
+  - [Assessment 1 Received](#assessment-1-received)
+  - [Weeks 5-8, modeling game environments](#weeks-5-8-modeling-game-environments)
+  - [Assessment 2: Level Modeling](#assessment-2-level-modeling)
+  - [How will we do it all?](#how-will-we-do-it-all)
+  - [This week](#this-week)
+  - [Next week (w6)](#next-week-w6)
+  - [Styles and concepts](#styles-and-concepts)
 
 <!-- /code_chunk_output -->
 
@@ -113,24 +114,34 @@ I'll provide a unity project with the camera already set up.
 ### Styles
 levels
 
-![iso](assets/week5/iso_room_2_halcyon.jpg)
-![iso](assets/week5/iso_room_1_halcyon.jpg)
-![iso](assets/week5/iso_room_3_imgur.jpg)
 
 
-### Choose concept
+More styles at end of notes
+
+* Look through concepts/references
+* Decide on level idea, style.
+* Decide on modules you want, and how they'd break down into components
+
+### Modules and components 
+
+![](assets/week5/simple_town_modules.png)
+
+
+### Choose your environment and style
+
+Lots of styles and concepts at the end of these notes, many more on [my acr103 pinterest board](https://www.pinterest.com.au/dmacdraws/acr103/)
+![](assets/week5/acr103_pinterest_levels.png)
+Can match existing style as closely as possible, work directly from concepts in 2D.
 
 ### Rough design of your level
+Sketch out an approximation of your idea (obviously more refining at home!)
 
 ### Figure out components you'll be making.
+Getting started here. What do you see in the image? wall, flor, railing, stairs, column, sign?
 
 ### model and texture a wall and floor 
 
-Some simple, effective construction:
-![temple](assets/week5/temple_1.jpg)
-![temple](assets/week5/temple_2.jpg)
-![temple](assets/week5/temple_3.jpg)
-![temple](assets/week5/temple_4.jpg)
+First, play in this scene to see what we'll be doing.
 
 *ATTACH A MAYA SCENE WITH EXISTING MODULES FROM COMPONENTS, ALREADY SET UP WITH PIVOT POINTS AND GRID**
 
@@ -139,14 +150,16 @@ Make some modules by duplicating (ctrl-d) and moving components:
   - enable grid snapping (hold down x)
   - click and drag the translate handle
 
-**GIF OF DRAGGING COMPONENT AND SNAPPING** 
+**GIF OF DUPLICATE, DRAG, SNAP**
+
+### Now, DIY
 
 * Make a wall plane, a floor plane
 * Make a column
 * Move our pivot points using d (modify pivot)
 * Place our objects
 
-**GIF OF DUPLICATE, DRAG, SNAP**
+**GIF OF MOVE PIVOT**
 Screen cap showing keypresses would be ultimate
   
 ## Next week (w6)
@@ -154,3 +167,54 @@ Screen cap showing keypresses would be ultimate
 #### Assessment deliverable: present your designs in class
 Work along as we uv unwrap a model, apply uv texture.
 Pick simple component to model
+
+## Styles and concepts
+
+For these and more, continue to [my acr103 board on Pinterest](https://www.pinterest.com.au/dmacdraws/acr103/).
+
+#### Blocky rooms and zones
+![iso](assets/week5/iso_room_2_halcyon.jpg)
+![iso](assets/week5/iso_room_3_imgur.jpg)
+![](assets/week5/room_chunky_white.jpg)
+![](assets/week5/nintendo_room.jpg)
+
+
+
+### Snake Temple 
+These shots are from [Bitgem's store](https://shop.bitgem3d.com/products/snake-temple-low-poly-3d-proto-series)
+![](assets/week5/snake_1.jpg)
+![](assets/week5/snake_2.jpg)
+![](assets/week5/snake_3.jpg)
+
+### Cartoony concepts
+
+More Minxi Zhuang on Artstation
+
+![](assets/week5/minxi_1.jpg)
+![](assets/week5/minxi_2.jpg)
+
+### Bangzheng Du concepts
+
+Multi tier mayhem.
+![](assets/week5/bangzheng_du_1.jpg)
+
+### Baldi Konjin concepts
+
+![](assets/week5/baldi-konijn-wipdungeonassets.jpg)
+
+
+### Some simple, effective construction:
+
+![temple](assets/week5/temple_1.jpg)
+![temple](assets/week5/temple_2.jpg)
+![temple](assets/week5/temple_3.jpg)
+![temple](assets/week5/temple_4.jpg)
+
+### Blocky shapes, relatively low fi textures
+
+By cgart dot com, [on artstation](https://www.artstation.com/artwork/RzB5e) 
+
+![](assets/week5/dofus_1.jpg)
+![](assets/week5/dofus_2.jpg)
+![](assets/week5/dofus_3.jpg)
+![](assets/week5/dofus_4.jpg)
