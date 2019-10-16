@@ -113,9 +113,10 @@ I'll provide a unity project with the camera already set up.
 ### Styles
 levels
 
-![iso](w:\dmcgits.github.io.git\mds\ACR103\assets\week5\iso_room_2_halcyon.jpg)
-![iso](w:\dmcgits.github.io.git\mds\ACR103\assets\week5\iso_room_1_halcyon.jpg)
-![iso](W:\dmcgits.github.io.git\mds\ACR103\assets\week5\iso_room_3_imgur.jpg)
+![iso](assets/week5/iso_room_2_halcyon.jpg)
+![iso](assets/week5/iso_room_1_halcyon.jpg)
+![iso](assets/week5/iso_room_3_imgur.jpg)
+
 
 ### Choose concept
 
@@ -125,7 +126,13 @@ levels
 
 ### model and texture a wall and floor 
 
-**ATTACH A MAYA SCENE WITH EXISTING MODULES FROM COMPONENTS, ALREADY SET UP WITH PIVOT POINTS AND GRID**
+Some simple, effective construction:
+![temple](assets/week5/temple_1.jpg)
+![temple](assets/week5/temple_2.jpg)
+![temple](assets/week5/temple_3.jpg)
+![temple](assets/week5/temple_4.jpg)
+
+*ATTACH A MAYA SCENE WITH EXISTING MODULES FROM COMPONENTS, ALREADY SET UP WITH PIVOT POINTS AND GRID**
 
 Make some modules by duplicating (ctrl-d) and moving components:
   - select translate tool (w)
