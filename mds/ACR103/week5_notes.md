@@ -74,7 +74,7 @@ Examples by [Glenatron](https://polycount.com/discussion/158818/another-modular-
 ![](assets/week5/dagger_uv.png)
 _Low poly dagger with hand painted texture (diffuse)_
 
-**screenshot dagger in maya**
+![dagger maya](assets/week5/dagger_uv_grid.png)
 
 **ATTACH MAYA PROJECT**
 
@@ -109,6 +109,13 @@ I'll provide a unity project with the camera already set up.
 ![](assets/week5/dagger_uv_grid.png)
 
 ## This week
+
+### Styles
+levels
+
+![iso](w:\dmcgits.github.io.git\mds\ACR103\assets\week5\iso_room_2_halcyon.jpg)
+![iso](w:\dmcgits.github.io.git\mds\ACR103\assets\week5\iso_room_1_halcyon.jpg)
+![iso](W:\dmcgits.github.io.git\mds\ACR103\assets\week5\iso_room_3_imgur.jpg)
 
 ### Choose concept
 
