@@ -3,168 +3,221 @@ html:
   embed_local_images: false
   embed_svg: true
   offline: false
-  toc: undefined
+  toc: true
 export_on_save:
   html: true
 ---
-# Week 6: References and pointers 
 
-Aliases, passing by value.
+# Week 6 ISE102
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [Week 6: References and pointers](#week-6-references-and-pointers)
-  - [Things to do](#things-to-do)
-  - [Resources](#resources)
-  - [References and pointers](#references-and-pointers)
-    - [Different and the same](#different-and-the-same)
-  - [References](#references)
-    - [myscore_references.cpp](#myscore_referencescpp)
-  - [Pointers](#pointers)
-    - [age_pointers.cpp](#age_pointerscpp)
-  - [Sorting out the symbols](#sorting-out-the-symbols)
+- [Week 6 ISE102](#week-6-ise102)
+  - [Covering today](#covering-today)
+  - [Checking your coding conventions](#checking-your-coding-conventions)
+  - [Delivering Assessment 1 Files](#delivering-assessment-1-files)
+  - [Adding Colour](#adding-colour)
+  - [Working on your assessment](#working-on-your-assessment)
 
 <!-- /code_chunk_output -->
 
-## Things to do
+## Covering today
 
-1. Type out the sample code above to understand memory addresses, references, pointers.
-2. Dig into chapters 6 and 7 of the book, including the code examples. 
-  - Understanding what references and pointers are will be critical to any career in C or C++.
-  - The only way to really understand them is to use them.
-  - Try creating a use for them and implement it in code. See if they work like you thought they did.
+* Coding conventions and advice.
+  - expanding on if statement usage
+* Delivering assessment 1.
+* Pretty colours using termcolor. Using colour to communicate.
+* Using ascii art make a clearer, more engaging interface.
+* Feedback and help with assessment.
 
-## Resources
+## Checking your coding conventions
 
-Book chapters:
-* 5: [Functions](book_1/cppgameprog_5_funcs_madlib.pdf)
-* 6: [References](book_1/cppgameprog_6_refs_tictactoe.pdf)
-* 7: [Pointers](book_1/cppgameprog_7_pointers_tic2.pdf)
+In every team or project we use coding conventions so we humans can read the code a little better. It helps your debugging and my marking.
 
-___
+**Using naming conventions correctly is worth marks**, and they're easy marks so go through and check!
 
-## uReferences and pointers
- They are types of variables used to pass _memory addresses_ around rather than data. 
-   
-   > Kinda like nicknames all lead back to single person, many references and pointers can get at to the same bit of memory and its contents.
-
-On the technical side, we're really we're getting a look behind the curtain at the memory in which our data is stored.
-
-> C++ famed low level status is in part due to it's ability to use pointers, because they are very powerful. With that power comes, as you might have guessed, complexity and danger.
-
-### Different and the same
-
-We've been passing things by value (copies). Kinda emailing a copy of your source code or word document to someone. They have their own copy they can do whatever with. But now you have two different copies to be aware of.
-
-___
-
-## References
-
-> Passing things by reference is kinda like sharing an exercise book with someone. You can both sit down and write in it individually or at the same time, scribble over eachother's work.
- 
-That's the concept. In practise you're making a second variable name that is just an alias or nickname for another variable/function.
-
-### myscore_references.cpp
-```cpp
-#include <iostream>
-using namespace std;
-
-void zeroAScore(int& score)
-{
-  score = 0;
-}
-
-int main() {
-
-  int myScore = 1000;
-
-  // You must initialise a reference because it is
-  // like a constant in that you can't change which variable
-  // it points to.
-  int& dustinsScore = myScore;
-
-  int& dbagsScore = dustinsScore;
-
-  cout << "\t myScore is: " << myScore << "\n";
-  cout << "\t dustinsScore is: " << dustinsScore << "\n\n";
-
-  cout << "\t Adding 750 to dustinsScore.\n";
-  dustinsScore += 750;
-  cout << "\t myScore is: " << myScore << "\n";
-  cout << "\t dustinsScore is: " << dustinsScore << "\n\n";
-
-  cout << "\t ----- Trying to ZERO ALL SCORES via myScore -----\n\n";
-  zeroAScore(myScore);
-
-  cout << "\t myScore is: " << myScore << "\n";
-  cout << "\t dustinsScore is: " << dustinsScore << "\n";
-  cout << "\t dbagsScore is: " << dbagsScore << "\n\n";
-
-}
-
-```  
-
- References are nicknames: you can create a nickname for a function or variable. It will return the same data your variable would, ready to use.
-
- > You can put the & anywhere between int and name.
-
-```cpp
- int big = 1000;
- // The following 3 lines are all equivalent.
- int& large =big;
- int & large = big;
- int &large = big; 
-```
-___
-
-## Pointers
-
-Pointers are the more technical, deeper version of references. In fact they're the mechanism behind references.
-
-They do the same thing as references except you get the actual memory address. You can then "dereference" that address to get the object, or you can do math on the actual address to access objects. Arrays work a bit like that.
-
-### age_pointers.cpp
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-
-  int age = 5;
-  int garysAge = 10;
-  int* age_p = NULL;
+Naming conventions
+  - case
+  - function, bool, constant naming
   
-  cout << "\t Age is: " << age << "\n";
-  cout << "\t &Age is: " << &age << "\n\n";
+Code:
+  - use {} in any multi-line ifs, espectially with else! Clarity.
+  - Not required, but constants/variables can read better with tabbing
+    - tabbing for the comments helps too. Table style.
 
-  age_p = &age;
-  cout << "\t age_p is:" << age_p << "\n";
-  cout << "\t *age_p is: " << *age_p << "\n\n";
-  // int* is the syntax to declare a pointer to an integer.
-  // *pointerName_p anywhere in an expression is a "dereference", 
-  // meaning give me the integer stored at the address, not the address itself.
+### Naming conventions
 
-  age_p = &garysAge;
-  cout << "\t Changing age_p to point at garysAge" << "\n";
-  cout << "\t age_p is:" << age_p << "\n";
-  cout << "\t *age_p is: " << *age_p << "\n\n";
+#### Constants
 
-  // dereference the pointer to change it's contents
-  cout << "\t Changing *age_p value (to 20), which should change garysAge value." << "\n";
-  *age_p = 20;
-  cout << "\t Gary's age is:" << garysAge << "\n\n";
+```cpp
+///////// Constants /////////////////////////////
+// Numbers that won't change.
+// Use ALL_UPPER_CASE with underscores between words
 
-}
+const int MAX_HEALTH                    = 100;
+const int JUPITER_MOONS_KNOWN           = 79;       // look it up.
+const float HEADSHOT_DAMAGE_MULTIPLY    = 2.5f;
+const string DEFAULT_INVITE_TEXT        = "You have been invited to rumble.";
+
 ```
-___
 
-## Sorting out the symbols
+#### Variables
 
-The * and & symbols have one meaning when they're in a declaration (int* blah) and another anywhere else. This diagram should help:
+```cpp
+/////// Regular Variables /////////////////////////////
+// Storing data in memory. Read and write.
+// Use camelCaseNaming.
 
-![star v amper](assets/week6/point_ref_doodle1.png)
+int score = 0;
+string myTag = "";
+string myRealName = "";
+
+// Use a name for booleans that would answer a question, and includes the question.
+// Is it hot? Yes, it is true that the tea is hot.
+// Has the player quit? Yes, the player has quit.
+bool playerHasQuit = false;
+bool allPlayersReady = false;  // are can be skipped here without hurting understanding.
+bool teaIsHot = true;
+bool prefers 
+
+// An adjective using -able or -ible is good for describing an object's capabilities
+bool destructable = true;
+bool upgradable = false;
+
+// Often, though, people use these adjectives as nouns for categories of things. A gun or armour or vehicle could be known as an "upgradable".
+// prefixing with "is" can make it less ambiguous, though a little harder to read.
+bool isDestructable = true;
+bool isUpgradable = false;
+```
+
+#### Clarity beats brevity
+
+Before we had autocomplete (intellisense) short variable names prevailed because they were easier to type. This made sharing code difficult, because variables were ambiguous.
+
+  * Longer and clearer is better than brief and ambiguous
+  * Within limits.. Too wordy and it becomes hard to understand
+  * We're hunting for a goldilocks zone.
+
+``` cpp
+// Each of these are names that might be used for the difference between the 
+// time now (delta) and the time the last frame was drawn to the screen. 
+
+float dt                          =0.0f;  // Ambiguous for new engine/physics programmers
+float deltaTime                   =0.0f;  // Better.. but what times are compared?
+float timeBetweenFrames           =0.0f;  
+float timeElapsedSinceLastFrame   =0.0f;  // Clearest, but a taxing read.
+
+// INTERESTING NOTE:
+// Google names variables like lower case constants. Long names are a bit easier to read.
+float time_elapsed_since_last_frame   = 0.0f;
+```
+**Autocomplete**
+
+* Hit tab or ctrl+space to accept an intellisense suggestion.
+* Use up and down arrows to choose from multiple.
+* No intellisense? Re-activate with ctrl+space
+
+![](assets/week6/autocomplete.gif)
+
+#### Code blocks with curly braces
+
+These guys **`{}`** are curly braces. They're used in `if`, `while`, `do.. while`, functions and other places to show that a series of code statements belong together.
+
+We'll prefer curly braces on their own lines: they are easier to line up visually. 
+
+> Be aware some companies/projects take the opposite approach. Conventions aren't universal; you'll have to adapt to style of the team you're on, so don't get too precious/attached.
+
+![](assets/week6/code_block_conventions.png)
 
 
+<!--
+```cpp
+// Are the code blocks easier to see with braces on newlines? (yes)
+float damagePerSecond() 
+{
+  int buffedDamage = damagePerAttack;
+  
+  if (damageBuff > 0.0f)
+  {
+    buffedDamage *= damageBuff;
+  }
+
+  return (_buffedDamage * _attacksPerSecond);
+}
+
+// Or mushed onto the end of a line? (noooo)
+float damagePerSecond() {
+  int buffedDamage = damagePerAttack;
+  
+  if (damageBuff > 0.0f) {
+    buffedDamage *= damageBuff;
+  }
+
+  return (_buffedDamage * _attacksPerSecond);
+}
+
+```
+-->
+#### Functions
+
+Here are some naming conventions for functions:
+
+```cpp
+////// Functions //////////////////////////////////////
+// Use camelCaseNaming like regular variables.
+// 
+float damagePerSecond() 
+{
+	// Notice how you can immediately tell I'm using my private variables
+	// to calculate a return value. The leading _ tells us.
+	return (_damagePerAttack * _attacksPerSecond);
+}
+
+// function arguments: the same naming convention as public variables
+// local function variables: also the same convention as public variables.
+float damagePerSecond(int shotType) 
+{
+  int damage = _damagePerAttack * _attacksPerSecond;
+
+  if (shotType == HEAD_SHOT) 
+  {
+    damage *= HEADSHOT_DAMAGE_MULTIPLIER;
+  }
+
+	return (damage);
+}
+
+// How it would look inside a Hero class cpp file with scoping.
+float Hero::damagePerSecond() 
+{
+	// Notice how you can immediately tell I'm using my private variables
+	// to calculate a return value. The leading _ tells us.
+	return (_damagePerAttack * _attacksPerSecond);
+}
+
+```
+Whitespace, Comments
+
+## Delivering Assessment 1 Files
+
+How to zip and submit your project:
+  - Locating solution
+  - Duplicate it
+  - Delete all debug, .vs, x86, x64 folders
+  - ONLY rename the solution folder if needed. Nothing else.
+  - Zip up the solution
+  - Naming it
+
+Adding colour!
+
+## Adding Colour
+
+Right click your project in Visual Studio's _Solution Explorer_. 
+Right click [termcolor.hpp](assets/week5/termcolor.hpp) and save it to your project folder.
+
+## Working on your assessment
+
+Tap tap tap.

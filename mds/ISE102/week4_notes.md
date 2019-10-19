@@ -309,20 +309,20 @@ Enumerators provide a shorthand for creating (and grouping) constants with integ
 #include <string>
 using namespace std;
 
-enum MenuChoices { STORY_MODE, ONLINE_MULTIPLAYER, OPTIONS, QUIT };
+enum MenuChoices { PLAY=1, OPTIONS=2, QUIT=3 };
 
 int main()
 {
   int choice = -1;
   cout << " 1: Play \n 2: Option \n 3: Quit \n Choose: ";
   cin >> choice;
-  if ( choice == MenuChoices.PLAY)
+  if ( choice == MenuChoices::PLAY)
   {
-    // play
+    cout << "You played." << endl;
   }
-  else if (choice == MenuChoices.QUIT)
+  else if (choice == MenuChoices::QUIT)
   {
-    //quit
+    cout << "Bye" << endl;
   }
   return(0);
 }
