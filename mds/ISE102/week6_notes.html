@@ -452,20 +452,69 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 </pre><p>Whitespace, Comments</p>
 <h2 class="mume-header" id="delivering-assessment-1-files">Delivering Assessment 1 Files</h2>
 
-<p>How to zip and submit your project:</p>
 <ul>
-<li>Locating solution</li>
-<li>Duplicate it</li>
-<li>Delete all debug, .vs, x86, x64 folders</li>
-<li>ONLY rename the solution folder if needed. Nothing else.</li>
-<li>Zip up the solution</li>
-<li>Naming it</li>
+<li>I don&#x2019;t need a build, just your solution and all its contents</li>
+<li>The folder that contains an sln file is the one you want to zip. It also contains the project folder.</li>
+<li>Don&#x2019;t change any folder or project names at this stage, it&#x2019;s just going to end up with a project that doesn&#x2019;t compile.</li>
 </ul>
-<p>Adding colour!</p>
+<h3 class="mume-header" id="how-to-zip-and-submit-your-project">How to zip and submit your project:</h3>
+
+<ol>
+<li>In the solution explorer right click your solution (not project), go to <em>Open folder in file explorer</em></li>
+</ol>
+<ul>
+<li>Your folder contains and sln file.</li>
+<li>Make sure you can see all hidden files and file extensions (found in explorer window view bar)</li>
+<li>Delete all debug, .vs, x86, x64 folders in that folder.</li>
+<li>Double click the folder with your project name in it.</li>
+<li>Delete all debug, .vs, x86, x64 folders in that folder.</li>
+<li>Step up to the folder with the sln file, then up one more.</li>
+<li>Zip up the solution folder.
+<ul>
+<li>If you have 7zip installed: Right click the folder, go to 7Zip, then Add to (foldername).zip</li>
+<li>In the gif I have Add To Zip on the top level context menu, just my setup</li>
+<li>If you have other ways of making zip files, go for gold.</li>
+</ul>
+</li>
+<li>Name it for submission (see below)</li>
+<li>If the folder already had the right name, you&#x2019;re zip is already fine.</li>
+</ul>
+<p><img src="assets/week6/find_and_zip_solution_small_file.gif" alt></p>
+<h3 class="mume-header" id="naming-your-zip-file-for-submission">Naming your zip file for submission:</h3>
+
+<p>Name your file like so: <strong><em>ISE102_Lastname_Firstname_GameName.7z</em></strong></p>
+<p>Your game name might be SlotMachine or Slots Game or Millionaire Slots Queen. Just make it clear it&#x2019;s a slot machine game.</p>
+<p>Mine in the example gif was: <strong>ISE102_Mcgillick_Danny_SlotsGame.7z</strong></p>
 <h2 class="mume-header" id="adding-colour">Adding Colour</h2>
 
-<p>Right click your project in Visual Studio&#x2019;s <em>Solution Explorer</em>.<br>
-Right click <a href="assets/week5/termcolor.hpp">termcolor.hpp</a> and save it to your project folder.</p>
+<ul>
+<li>Right click your <strong>project</strong> in Visual Studio&#x2019;s <em>Solution Explorer</em> (not your solution).</li>
+<li>Click <em>Open folder in file explorer</em>. You&#x2019;ll be shown a window containing your cpp files.</li>
+<li>Copy the path of that folder (in the explorer address bar).</li>
+<li>Come back to these notes and right click this link: <a href="assets/week5/termcolor.hpp">termcolor.hpp</a></li>
+<li>Click Save file as&#x2026; and save it to the folder path you copied (by pasting the path into the save dialogue address bar)</li>
+<li>Make sure the file is named termcolor.hpp</li>
+<li>In VS again, go to the solution explorer and right click <em>Header Files</em></li>
+<li>Click <em>Add -&gt; Existing item&#x2026;</em></li>
+<li>Choose the <em>termcolor.hpp</em> file</li>
+</ul>
+<p>Now you have the header file available in your project. Our next step is to use it.<br>
+We need to:<br>
+a) Include it in our project<br>
+b) use it with a <em>cout</em> statement.</p>
+<p>We basically drop colours into our output stream like packets of dye.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;termcolor.hpp&quot;</span>;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token comment">// Here&apos;s a cout statement without colours added:</span>
+cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hi there, buddy.&quot;</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+<span class="token comment">// We can add a colour where needed. Remember to reset to the normal console colours when you&apos;re done.</span>
+cout <span class="token operator">&lt;&lt;</span> termcolor<span class="token operator">::</span>cyan <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hi there, &quot;</span> <span class="token operator">&lt;&lt;</span> termcolour<span class="token operator">::</span>reset <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;buddy.&quot;</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token comment">// Notice I broke up the sentence so I could change colours part way through.</span>
+</pre><p><em>Use termcolor:: to access the colours/commands you need. Intellisense will provide a list.</em></p>
+<p><img src="assets/week6/colours_output_buddy.png" alt><br>
+<em>Output with some cyan</em></p>
+<p><strong>ADD A ZIP FILE WITH EXAMPLE SOLUTION</strong></p>
 <h2 class="mume-header" id="working-on-your-assessment">Working on your assessment</h2>
 
 <p>Tap tap tap.</p>

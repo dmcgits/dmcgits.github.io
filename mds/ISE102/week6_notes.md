@@ -203,20 +203,70 @@ Whitespace, Comments
 
 ## Delivering Assessment 1 Files
 
-How to zip and submit your project:
-  - Locating solution
-  - Duplicate it
-  - Delete all debug, .vs, x86, x64 folders
-  - ONLY rename the solution folder if needed. Nothing else.
-  - Zip up the solution
-  - Naming it
+* I don't need a build, just your solution and all its contents
+* The folder that contains an sln file is the one you want to zip. It also contains the project folder.
+* Don't change any folder or project names at this stage, it's just going to end up with a project that doesn't compile. 
 
-Adding colour!
+### How to zip and submit your project:
+  1. In the solution explorer right click your solution (not project), go to _Open folder in file explorer_
+  - Your folder contains and sln file.
+  - Make sure you can see all hidden files and file extensions (found in explorer window view bar)
+  - Delete all debug, .vs, x86, x64 folders in that folder.
+  - Double click the folder with your project name in it.
+  - Delete all debug, .vs, x86, x64 folders in that folder.
+  - Step up to the folder with the sln file, then up one more.
+  - Zip up the solution folder.
+    - If you have 7zip installed: Right click the folder, go to 7Zip, then Add to (foldername).zip
+    - In the gif I have Add To Zip on the top level context menu, just my setup
+    - If you have other ways of making zip files, go for gold.
+  - Name it for submission (see below)
+  - If the folder already had the right name, you're zip is already fine.
+  
+![](assets/week6/find_and_zip_solution_small_file.gif) 
+  
+### Naming your zip file for submission:
+
+Name your file like so: **_ISE102_Lastname_Firstname_GameName.7z_**
+
+Your game name might be SlotMachine or Slots Game or Millionaire Slots Queen. Just make it clear it's a slot machine game. 
+
+Mine in the example gif was: **ISE102_Mcgillick_Danny_SlotsGame.7z**
 
 ## Adding Colour
 
-Right click your project in Visual Studio's _Solution Explorer_. 
-Right click [termcolor.hpp](assets/week5/termcolor.hpp) and save it to your project folder.
+* Right click your **project** in Visual Studio's _Solution Explorer_ (not your solution).
+* Click _Open folder in file explorer_. You'll be shown a window containing your cpp files.
+* Copy the path of that folder (in the explorer address bar).
+* Come back to these notes and right click this link: [termcolor.hpp](assets/week5/termcolor.hpp)
+* Click Save file as.. and save it to the folder path you copied (by pasting the path into the save dialogue address bar)
+* Make sure the file is named termcolor.hpp
+* In VS again, go to the solution explorer and right click _Header Files_
+* Click _Add -> Existing item.._
+* Choose the _termcolor.hpp_ file
+
+Now you have the header file available in your project. Our next step is to use it.
+We need to:
+a) Include it in our project
+b) use it with a _cout_ statement.
+
+We basically drop colours into our output stream like packets of dye.
+
+```cpp
+#include "termcolor.hpp";
+...
+// Here's a cout statement without colours added:
+cout << "Hi there, buddy." << endl << endl;
+
+// We can add a colour where needed. Remember to reset to the normal console colours when you're done.
+cout << termcolor::cyan << "Hi there, " << termcolour::reset << "buddy." << endl << endl;
+// Notice I broke up the sentence so I could change colours part way through.
+```
+_Use termcolor:: to access the colours/commands you need. Intellisense will provide a list._
+
+![](assets/week6/colours_output_buddy.png)
+_Output with some cyan_
+
+**ADD A ZIP FILE WITH EXAMPLE SOLUTION**
 
 ## Working on your assessment
 
