@@ -8,22 +8,26 @@ export_on_save:
 
 # ACR103 Week 5
 
-
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [ACR103 Week 5](#acr103-week-5)
-  - [Assessment 1 Received](#assessment-1-received)
-  - [Weeks 5-8, modeling game environments](#weeks-5-8-modeling-game-environments)
-  - [Assessment 2: Level Modeling](#assessment-2-level-modeling)
-  - [How will we do it all?](#how-will-we-do-it-all)
-  - [This week](#this-week)
-  - [Inspect plane uvs](#inspect-plane-uvs)
-  - [Next week (w6)](#next-week-w6)
-  - [Styles and concepts](#styles-and-concepts)
+1. [ACR103 Week 5](#acr103-week-5)
+   1. [Filming](#filming)
+   2. [Assessment 1 Received](#assessment-1-received)
+   3. [Weeks 5-8, modeling game environments](#weeks-5-8-modeling-game-environments)
+   4. [Assessment 2: Environment Modelling](#assessment-2-environment-modelling)
+   5. [How will we do it all?](#how-will-we-do-it-all)
+   6. [Wacom Tablets](#wacom-tablets)
+   7. [This week](#this-week)
+   8. [Inspect plane uvs](#inspect-plane-uvs)
+   9. [Styles and concepts](#styles-and-concepts)
 
 <!-- /code_chunk_output -->
+
+## Filming
+
+Crew coming in to film today for maybe 30 mins max.
 
 ## Assessment 1 Received 
 
@@ -77,23 +81,36 @@ _Low poly dagger with hand painted texture (diffuse)_
 ![dagger maya](assets/week5/dagger_uv_grid.png)
 _Download the [dagger_maya project](assets/week5/dagger_maya.zip)_
 
-## Assessment 2: Level Modeling
+## Assessment 2: Environment Modelling
 
-(I'll provide a few concepts. You will be designing an environment based on the elements and style in them. You can modify the scene from say a level 1 dungeon to level 5 dungeon, or a lounge room to an attic bedroom). You can add elements that aren't there, but aim to match the style as if the game exists)
-Designing and creating environment for game based on scope sheet from teacher
+Assessment 2 brief [on blackboard](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_8008776_1&course_id=_75841_1)
 
-**Scope will include:**
-1. Existing or theoretical world (ie strategy in world of paper blocks)
-2. Creative expects: C.D., genre, texture quality/style, model quality/style.
-3. Tech spec: poly count, texture specs, topology (quads or tris)
+ You will be designing*, building and lighting a 3D environment. 
+ 
+ * You'll be provided with a range of existing 2D environment concepts and finished 3d environment assets to use as a guide.
+ * You can modify the scene from say a level 1 dungeon to level 5 dungeon, or a lounge room to an attic bedroom). * You can add elements that aren't there, but aim to match them stylistically
+  
+**OPTIONS**
+1. Dungeon crawler world (games like diablo)
+2. Interior scene:
+   a. modern home interior
+   b. fantasy interior
+3. Cartoony tiered environment (see concepts)
+4. Suggest and discuss with Danny (facilitator)
 
-**10-15 modular assets! **
+**TECH SPECS, CREATIVE DIRECTION**
+1. Keep polycount low. Elements between 20 and 100 polys roughly.
+2. UV unwrap models
+3. Keep textures minimal with little lighting. Keep individual textures at 512x512 or lower (256, 128, 64)
+4. Export to Unity and apply baked lighting (AO)
 
-Lighting: export to Unity and bake in ambient occlusion.
-
-DELIVERABLE: 
-* Unity project
-* Interactive level fly through (camera using a basic unity-provided controller script)
+**DELIVERABLES:**
+Week 6:
+* Designs and first renders on class forum (blackboard)
+* 10-15 untextured components, arranged into modules
+Week 12:
+* Unity project with interactive fly through (camera using a basic unity-provided controller script)
+* Maya project
 
 ## How will we do it all?
 
@@ -105,6 +122,10 @@ DELIVERABLE:
 - Make simple prefabs
 - Snap pieces together
 ![](assets/week5/dagger_uv_grid.png)
+
+## Wacom Tablets
+
+Get one!
 
 ## This week
 
@@ -174,18 +195,9 @@ _Your new level component should be all 'zeroed out' with its pivot at the origi
 
 * Make a column
 * Move pivot, duplicate, move w snap.
-
-**GIF OF MOVE PIVOT**
-Screen cap showing keypresses would be ultimate
   
 ## Inspect plane uvs
 Only if time allows.
-
-## Next week (w6)
-
-#### Assessment deliverable: present your designs in class
-Work along as we uv unwrap a model, apply uv texture.
-Pick simple component to model
 
 ## Styles and concepts
 
