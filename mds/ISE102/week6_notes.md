@@ -19,6 +19,7 @@ export_on_save:
   - [Covering today](#covering-today)
   - [Checking your coding conventions](#checking-your-coding-conventions)
   - [Delivering Assessment 1 Files](#delivering-assessment-1-files)
+  - [Design with whitespace and symbols](#design-with-whitespace-and-symbols)
   - [Adding Colour](#adding-colour)
   - [Working on your assessment](#working-on-your-assessment)
 
@@ -75,11 +76,11 @@ int score = 0;
 string myTag = "";
 string myRealName = "";
 
-// Use a name for booleans that would answer a question, and includes the question.
-// Is it hot? Yes, it is true that the tea is hot.
-// Has the player quit? Yes, the player has quit.
+/* Use a name for booleans that would answer a question, and includes the question.
+   Q: Is the tea hot?   A: Yes, the tea is hot.
+   Q: Has the player quit?   A: Yes, the player has quit. */
 bool playerHasQuit = false;
-bool allPlayersReady = false;  // are can be skipped here without hurting understanding.
+bool allPlayersReady = false; 
 bool teaIsHot = true;
 bool prefers 
 
@@ -122,16 +123,6 @@ float time_elapsed_since_last_frame   = 0.0f;
 
 ![](assets/week6/autocomplete.gif)
 
-#### Code blocks with curly braces
-
-These guys **`{}`** are curly braces. They're used in `if`, `while`, `do.. while`, functions and other places to show that a series of code statements belong together.
-
-We'll prefer curly braces on their own lines: they are easier to line up visually. 
-
-> Be aware some companies/projects take the opposite approach. Conventions aren't universal; you'll have to adapt to style of the team you're on, so don't get too precious/attached.
-
-![](assets/week6/code_block_conventions.png)
-
 
 <!--
 ```cpp
@@ -171,16 +162,14 @@ Here are some naming conventions for functions:
 // 
 float damagePerSecond() 
 {
-	// Notice how you can immediately tell I'm using my private variables
-	// to calculate a return value. The leading _ tells us.
-	return (_damagePerAttack * _attacksPerSecond);
+	return (damagePerAttack * attacksPerSecond);
 }
 
-// function arguments: the same naming convention as public variables
-// local function variables: also the same convention as public variables.
+// function arguments: the same naming convention as regular variables
+// local function variables: also uses this convention
 float damagePerSecond(int shotType) 
 {
-  int damage = _damagePerAttack * _attacksPerSecond;
+  int damage = damagePerAttack * attacksPerSecond;
 
   if (shotType == HEAD_SHOT) 
   {
@@ -190,16 +179,18 @@ float damagePerSecond(int shotType)
 	return (damage);
 }
 
-// How it would look inside a Hero class cpp file with scoping.
-float Hero::damagePerSecond() 
-{
-	// Notice how you can immediately tell I'm using my private variables
-	// to calculate a return value. The leading _ tells us.
-	return (_damagePerAttack * _attacksPerSecond);
-}
 
 ```
-Whitespace, Comments
+
+#### Code blocks with curly braces
+
+These guys **`{}`** are curly braces. They're used in `if`, `while`, `do.. while`, functions and other places to show that a series of code statements belong together.
+
+We'll prefer curly braces on their own lines: they are easier to line up visually. 
+
+> Be aware some companies/projects take the opposite approach. Conventions aren't universal; you'll have to adapt to style of the team you're on, so don't get too precious/attached.
+
+![](assets/week6/code_block_conventions.png)
 
 ## Delivering Assessment 1 Files
 
@@ -232,7 +223,26 @@ Your game name might be SlotMachine or Slots Game or Millionaire Slots Queen. Ju
 
 Mine in the example gif was: **ISE102_Mcgillick_Danny_SlotsGame.7z**
 
+## Design with whitespace and symbols
+
+Think about how you can use spaces, tabs, newlines and regular punctuation to create a graphic, readable layout.
+
+![](assets/week6/ascii_layout.png)
+
+![](assets/week6/ascii_ui_2.png)
+![](assets/week6/ascii_ui_3.png)
+![](assets/week6/ascii_ui_4.png)
+![](assets/week6/ascii_ui_5_bbs.jpg)
+
 ## Adding Colour
+
+We're going to use a free header file (.h file) someone has made for easily adding colour to the console. Here's what it can do:
+
+![](assets/week6/termcolor_colors.png)
+
+Not everything works in the windows console (I didn't see bold or underline work), but the colours are all good.
+
+### Adding a header to your project
 
 * Right click your **project** in Visual Studio's _Solution Explorer_ (not your solution).
 * Click _Open folder in file explorer_. You'll be shown a window containing your cpp files.
@@ -244,15 +254,18 @@ Mine in the example gif was: **ISE102_Mcgillick_Danny_SlotsGame.7z**
 * Click _Add -> Existing item.._
 * Choose the _termcolor.hpp_ file
 
+### Including and using _termcolor.cpp_
 Now you have the header file available in your project. Our next step is to use it.
 We need to:
 a) Include it in our project
+  - Including a file that is inside your project folder requires `""` instead of `<>`
+  
 b) use it with a _cout_ statement.
 
 We basically drop colours into our output stream like packets of dye.
 
 ```cpp
-#include "termcolor.hpp";
+#include "termcolor.hpp";     // Not <termcolor.hpp> angle brackets
 ...
 // Here's a cout statement without colours added:
 cout << "Hi there, buddy." << endl << endl;
@@ -266,7 +279,10 @@ _Use termcolor:: to access the colours/commands you need. Intellisense will prov
 ![](assets/week6/colours_output_buddy.png)
 _Output with some cyan_
 
-**ADD A ZIP FILE WITH EXAMPLE SOLUTION**
+See the [termcolor github page](https://github.com/ikalnytskyi/termcolor) for more instructions.
+![](assets/week6/termcolor_github.png)
+_Some of the help available on the github page. Remember to **scroll down** when you get there_
+
 
 ## Working on your assessment
 

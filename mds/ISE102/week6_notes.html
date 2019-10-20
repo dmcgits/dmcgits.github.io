@@ -305,6 +305,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#covering-today">Covering today</a></li>
 <li><a href="#checking-your-coding-conventions">Checking your coding conventions</a></li>
 <li><a href="#delivering-assessment-1-files">Delivering Assessment 1 Files</a></li>
+<li><a href="#design-with-whitespace-and-symbols">Design with whitespace and symbols</a></li>
 <li><a href="#adding-colour">Adding Colour</a></li>
 <li><a href="#working-on-your-assessment">Working on your assessment</a></li>
 </ul>
@@ -364,11 +365,11 @@ pre[data-line] .line-highlight[data-end]:after {
 string myTag <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
 string myRealName <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
 
-<span class="token comment">// Use a name for booleans that would answer a question, and includes the question.</span>
-<span class="token comment">// Is it hot? Yes, it is true that the tea is hot.</span>
-<span class="token comment">// Has the player quit? Yes, the player has quit.</span>
+<span class="token comment">/* Use a name for booleans that would answer a question, and includes the question.
+   Q: Is the tea hot?   A: Yes, the tea is hot.
+   Q: Has the player quit?   A: Yes, the player has quit. */</span>
 <span class="token keyword">bool</span> playerHasQuit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token keyword">bool</span> allPlayersReady <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">// are can be skipped here without hurting understanding.</span>
+<span class="token keyword">bool</span> allPlayersReady <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
 <span class="token keyword">bool</span> teaIsHot <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token keyword">bool</span> prefers 
 
@@ -406,14 +407,6 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <li>No intellisense? Re-activate with ctrl+space</li>
 </ul>
 <p><img src="assets/week6/autocomplete.gif" alt></p>
-<h4 class="mume-header" id="code-blocks-with-curly-braces">Code blocks with curly braces</h4>
-
-<p>These guys <strong><code>{}</code></strong> are curly braces. They&#x2019;re used in <code>if</code>, <code>while</code>, <code>do.. while</code>, functions and other places to show that a series of code statements belong together.</p>
-<p>We&#x2019;ll prefer curly braces on their own lines: they are easier to line up visually.</p>
-<blockquote>
-<p>Be aware some companies/projects take the opposite approach. Conventions aren&#x2019;t universal; you&#x2019;ll have to adapt to style of the team you&#x2019;re on, so don&#x2019;t get too precious/attached.</p>
-</blockquote>
-<p><img src="assets/week6/code_block_conventions.png" alt></p>
 <h4 class="mume-header" id="functions">Functions</h4>
 
 <p>Here are some naming conventions for functions:</p>
@@ -422,16 +415,14 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <span class="token comment">// </span>
 <span class="token keyword">float</span> <span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
 <span class="token punctuation">{</span>
-	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
-	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
-	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>damagePerAttack <span class="token operator">*</span> attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment">// function arguments: the same naming convention as public variables</span>
-<span class="token comment">// local function variables: also the same convention as public variables.</span>
+<span class="token comment">// function arguments: the same naming convention as regular variables</span>
+<span class="token comment">// local function variables: also uses this convention</span>
 <span class="token keyword">float</span> <span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token keyword">int</span> shotType<span class="token punctuation">)</span> 
 <span class="token punctuation">{</span>
-  <span class="token keyword">int</span> damage <span class="token operator">=</span> _damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> damage <span class="token operator">=</span> damagePerAttack <span class="token operator">*</span> attacksPerSecond<span class="token punctuation">;</span>
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span>shotType <span class="token operator">==</span> HEAD_SHOT<span class="token punctuation">)</span> 
   <span class="token punctuation">{</span>
@@ -441,15 +432,15 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 	<span class="token keyword">return</span> <span class="token punctuation">(</span>damage<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment">// How it would look inside a Hero class cpp file with scoping.</span>
-<span class="token keyword">float</span> Hero<span class="token operator">::</span><span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
-	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
-	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
 
-</pre><p>Whitespace, Comments</p>
+</pre><h4 class="mume-header" id="code-blocks-with-curly-braces">Code blocks with curly braces</h4>
+
+<p>These guys <strong><code>{}</code></strong> are curly braces. They&#x2019;re used in <code>if</code>, <code>while</code>, <code>do.. while</code>, functions and other places to show that a series of code statements belong together.</p>
+<p>We&#x2019;ll prefer curly braces on their own lines: they are easier to line up visually.</p>
+<blockquote>
+<p>Be aware some companies/projects take the opposite approach. Conventions aren&#x2019;t universal; you&#x2019;ll have to adapt to style of the team you&#x2019;re on, so don&#x2019;t get too precious/attached.</p>
+</blockquote>
+<p><img src="assets/week6/code_block_conventions.png" alt></p>
 <h2 class="mume-header" id="delivering-assessment-1-files">Delivering Assessment 1 Files</h2>
 
 <ul>
@@ -485,7 +476,20 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <p>Name your file like so: <strong><em>ISE102_Lastname_Firstname_GameName.7z</em></strong></p>
 <p>Your game name might be SlotMachine or Slots Game or Millionaire Slots Queen. Just make it clear it&#x2019;s a slot machine game.</p>
 <p>Mine in the example gif was: <strong>ISE102_Mcgillick_Danny_SlotsGame.7z</strong></p>
+<h2 class="mume-header" id="design-with-whitespace-and-symbols">Design with whitespace and symbols</h2>
+
+<p>Think about how you can use spaces, tabs, newlines and regular punctuation to create a graphic, readable layout.</p>
+<p><img src="assets/week6/ascii_layout.png" alt></p>
+<p><img src="assets/week6/ascii_ui_2.png" alt><br>
+<img src="assets/week6/ascii_ui_3.png" alt><br>
+<img src="assets/week6/ascii_ui_4.png" alt><br>
+<img src="assets/week6/ascii_ui_5_bbs.jpg" alt></p>
 <h2 class="mume-header" id="adding-colour">Adding Colour</h2>
+
+<p>We&#x2019;re going to use a free header file (.h file) someone has made for easily adding colour to the console. Here&#x2019;s what it can do:</p>
+<p><img src="assets/week6/termcolor_colors.png" alt></p>
+<p>Not everything works in the windows console (I didn&#x2019;t see bold or underline work), but the colours are all good.</p>
+<h3 class="mume-header" id="adding-a-header-to-your-project">Adding a header to your project</h3>
 
 <ul>
 <li>Right click your <strong>project</strong> in Visual Studio&#x2019;s <em>Solution Explorer</em> (not your solution).</li>
@@ -498,12 +502,17 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <li>Click <em>Add -&gt; Existing item&#x2026;</em></li>
 <li>Choose the <em>termcolor.hpp</em> file</li>
 </ul>
+<h3 class="mume-header" id="including-and-using-_termcolorcpp_">Including and using <em>termcolor.cpp</em></h3>
+
 <p>Now you have the header file available in your project. Our next step is to use it.<br>
 We need to:<br>
-a) Include it in our project<br>
-b) use it with a <em>cout</em> statement.</p>
+a) Include it in our project</p>
+<ul>
+<li>Including a file that is inside your project folder requires <code>&quot;&quot;</code> instead of <code>&lt;&gt;</code></li>
+</ul>
+<p>b) use it with a <em>cout</em> statement.</p>
 <p>We basically drop colours into our output stream like packets of dye.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;termcolor.hpp&quot;</span>;</span>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;termcolor.hpp&quot;</span>;     </span><span class="token comment">// Not &lt;termcolor.hpp&gt; angle brackets</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token comment">// Here&apos;s a cout statement without colours added:</span>
 cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hi there, buddy.&quot;</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
@@ -514,7 +523,9 @@ cout <span class="token operator">&lt;&lt;</span> termcolor<span class="token op
 </pre><p><em>Use termcolor:: to access the colours/commands you need. Intellisense will provide a list.</em></p>
 <p><img src="assets/week6/colours_output_buddy.png" alt><br>
 <em>Output with some cyan</em></p>
-<p><strong>ADD A ZIP FILE WITH EXAMPLE SOLUTION</strong></p>
+<p>See the <a href="https://github.com/ikalnytskyi/termcolor">termcolor github page</a> for more instructions.<br>
+<img src="assets/week6/termcolor_github.png" alt><br>
+<em>Some of the help available on the github page. Remember to <strong>scroll down</strong> when you get there</em></p>
 <h2 class="mume-header" id="working-on-your-assessment">Working on your assessment</h2>
 
 <p>Tap tap tap.</p>
