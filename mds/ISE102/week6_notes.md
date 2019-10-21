@@ -15,13 +15,13 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 6 ISE102](#week-6-ise102)
-  - [Covering today](#covering-today)
-  - [Checking your coding conventions](#checking-your-coding-conventions)
-  - [Delivering Assessment 1 Files](#delivering-assessment-1-files)
-  - [Design with whitespace and symbols](#design-with-whitespace-and-symbols)
-  - [Adding Colour](#adding-colour)
-  - [Working on your assessment](#working-on-your-assessment)
+1. [Week 6 ISE102](#week-6-ise102)
+   1. [Covering today](#covering-today)
+   2. [Checking your coding conventions](#checking-your-coding-conventions)
+   3. [Delivering Assessment 1 Files](#delivering-assessment-1-files)
+   4. [Design with whitespace and symbols](#design-with-whitespace-and-symbols)
+   5. [Adding Colour](#adding-colour)
+   6. [Working on your assessment](#working-on-your-assessment)
 
 <!-- /code_chunk_output -->
 
@@ -38,19 +38,18 @@ export_on_save:
 
 In every team or project we use coding conventions so we humans can read the code a little better. It helps your debugging and my marking.
 
-**Using naming conventions correctly is worth marks**, and they're easy marks so go through and check!
+**Correct use of coding conventions is in the marking guidelines**, and they're easy marks so go through and check!
 
-Naming conventions
-  - case
-  - function, bool, constant naming
+#### Naming:
+  - **Case:** Use of upper and lower case letters
+  - **Choice of name:** Solid function, bool, constant name choices
   
-Code:
-  - use {} in any multi-line ifs, espectially with else! Clarity.
-  - Not required, but constants/variables can read better with tabbing
-    - tabbing for the comments helps too. Table style.
-
-### Naming conventions
-
+#### Structure:
+  - use {} in any multi-line ifs, especially with else! Clarity.
+  - Constants/variables can read better with tabbing
+    - tabbing for variable comments helps too. Table style.
+  - Grouping related variables (constants in one area, regular variables in another) makes code easier to read
+  
 #### Constants
 
 ```cpp
@@ -76,31 +75,33 @@ int score = 0;
 string myTag = "";
 string myRealName = "";
 
-/* Use a name for booleans that would answer a question, and includes the question.
-   Q: Is the tea hot?   A: Yes, the tea is hot.
-   Q: Has the player quit?   A: Yes, the player has quit. */
-bool playerHasQuit = false;
-bool allPlayersReady = false; 
-bool teaIsHot = true;
+// Use a name for booleans that would answer a question, and
+// includes the question. Q: Is the tea hot?   A: Yes, the tea is hot.
+
+bool playerHasQuit = false;       
+bool allPlayersReady = false;     // Comment about this
+bool teaIsHot = true;             // Hot tea comment
 bool prefers 
 
 // An adjective using -able or -ible is good for describing an object's capabilities
+
 bool destructable = true;
 bool upgradable = false;
 
 // Often, though, people use these adjectives as nouns for categories of things. A gun or armour or vehicle could be known as an "upgradable".
 // prefixing with "is" can make it less ambiguous, though a little harder to read.
+
 bool isDestructable = true;
 bool isUpgradable = false;
 ```
 
 #### Clarity beats brevity
 
-Before we had autocomplete (intellisense) short variable names prevailed because they were easier to type. This made sharing code difficult, because variables were ambiguous.
+Before we had **autocomplete** (called "intellisense" in Visual Studio) short variable names prevailed because they were easier to type. This made sharing code difficult, because variables were ambiguous.
 
-  * Longer and clearer is better than brief and ambiguous
-  * Within limits.. Too wordy and it becomes hard to understand
-  * We're hunting for a goldilocks zone.
+>  * Longer and clearer is better than brief and ambiguous
+>  * Within limits.. Too wordy and it becomes hard to understand
+>  * We're hunting for a goldilocks zone.
 
 ``` cpp
 // Each of these are names that might be used for the difference between the 
@@ -154,7 +155,7 @@ float damagePerSecond() {
 -->
 #### Functions
 
-Here are some naming conventions for functions:
+Naming case conventions for functions, their variables and their arguments.
 
 ```cpp
 ////// Functions //////////////////////////////////////
@@ -193,6 +194,8 @@ We'll prefer curly braces on their own lines: they are easier to line up visuall
 ![](assets/week6/code_block_conventions.png)
 
 ## Delivering Assessment 1 Files
+
+**This is in the marking guide,** so get it right for marks!
 
 * I don't need a build, just your solution and all its contents
 * The folder that contains an sln file is the one you want to zip. It also contains the project folder.
@@ -247,7 +250,7 @@ Not everything works in the windows console (I didn't see bold or underline work
 * Right click your **project** in Visual Studio's _Solution Explorer_ (not your solution).
 * Click _Open folder in file explorer_. You'll be shown a window containing your cpp files.
 * Copy the path of that folder (in the explorer address bar).
-* Come back to these notes and right click this link: [termcolor.hpp](assets/week5/termcolor.hpp)
+* Come back to these notes and right click this link: [termcolor.hpp](assets/week6/termcolor.hpp)
 * Click Save file as.. and save it to the folder path you copied (by pasting the path into the save dialogue address bar)
 * Make sure the file is named termcolor.hpp
 * In VS again, go to the solution explorer and right click _Header Files_
