@@ -197,24 +197,7 @@ pre[data-line] .line-highlight[data-end]:after {
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
-@font-face {
-  font-family: 'Georgia';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
-}
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
-}
 .markdown-preview.markdown-preview {
-  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F9F9F9;
-  font-size: 1.1em;
   color: #222;
 }
 .markdown-preview.markdown-preview blockquote {
@@ -223,40 +206,32 @@ pre[data-line] .line-highlight[data-end]:after {
   margin-left: 0.7em;
 }
 .markdown-preview.markdown-preview h1 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.9em;
-  font-weight: 700;
+  font-size: 2.25em;
+  font-weight: 600;
   padding-bottom: 0.3em;
+  background-color: #E5EAFF;
 }
 .markdown-preview.markdown-preview h2 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.2em;
+  font-size: 1.75em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
-  padding-top: 0.25em;
-  background-color: #E1E1EA;
+  background-color: #F1F4FF;
+  border-bottom-color: #D1D1DE;
+  border-bottom-style: solid;
+  border-bottom-width: 0.08em;
 }
 .markdown-preview.markdown-preview h3 {
-  color: #445;
-  font-family: 'Merriweather', serif;
-  font-size: 1.05em;
+  font-size: 1.45em;
   font-weight: 600;
   padding-left: 0.2em;
-  padding-bottom: 0.2em;
-  padding-top: 0.2em;
-  background-color: #F2F2F4;
+  padding-bottom: 0.1em;
+  background-color: #F4F8FA;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.05em;
+  font-size: 1.25em;
   font-weight: 600;
   font-style: italic;
-}
-.markdown-preview.markdown-preview img {
-  margin-bottom: 0px;
-  margin-top: 18px;
 }
 .markdown-preview.markdown-preview a:not([href]) {
   font-weight: 600;
@@ -269,6 +244,7 @@ pre[data-line] .line-highlight[data-end]:after {
   text-decoration: none;
 }
 .markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
   color: #009BD2;
   text-decoration: none;
 }
@@ -299,18 +275,18 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-6-ise102">Week 6 ISE102</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-6-ise102">Week 6 ISE102</a>
-<ul>
+<ol>
 <li><a href="#covering-today">Covering today</a></li>
 <li><a href="#checking-your-coding-conventions">Checking your coding conventions</a></li>
 <li><a href="#delivering-assessment-1-files">Delivering Assessment 1 Files</a></li>
 <li><a href="#design-with-whitespace-and-symbols">Design with whitespace and symbols</a></li>
 <li><a href="#adding-colour">Adding Colour</a></li>
 <li><a href="#working-on-your-assessment">Working on your assessment</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="covering-today">Covering today</h2>
 
 <ul>
@@ -327,23 +303,24 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="checking-your-coding-conventions">Checking your coding conventions</h2>
 
 <p>In every team or project we use coding conventions so we humans can read the code a little better. It helps your debugging and my marking.</p>
-<p><strong>Using naming conventions correctly is worth marks</strong>, and they&#x2019;re easy marks so go through and check!</p>
-<p>Naming conventions</p>
+<p><strong>Correct use of coding conventions is in the marking guidelines</strong>, and they&#x2019;re easy marks so go through and check!</p>
+<h4 class="mume-header" id="naming">Naming:</h4>
+
 <ul>
-<li>case</li>
-<li>function, bool, constant naming</li>
+<li><strong>Case:</strong> Use of upper and lower case letters</li>
+<li><strong>Choice of name:</strong> Solid function, bool, constant name choices</li>
 </ul>
-<p>Code:</p>
+<h4 class="mume-header" id="structure">Structure:</h4>
+
 <ul>
-<li>use {} in any multi-line ifs, espectially with else! Clarity.</li>
-<li>Not required, but constants/variables can read better with tabbing
+<li>use {} in any multi-line ifs, especially with else! Clarity.</li>
+<li>Constants/variables can read better with tabbing
 <ul>
-<li>tabbing for the comments helps too. Table style.</li>
+<li>tabbing for variable comments helps too. Table style.</li>
 </ul>
 </li>
+<li>Grouping related variables (constants in one area, regular variables in another) makes code easier to read</li>
 </ul>
-<h3 class="mume-header" id="naming-conventions">Naming conventions</h3>
-
 <h4 class="mume-header" id="constants">Constants</h4>
 
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">///////// Constants /////////////////////////////</span>
@@ -365,30 +342,34 @@ pre[data-line] .line-highlight[data-end]:after {
 string myTag <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
 string myRealName <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
 
-<span class="token comment">/* Use a name for booleans that would answer a question, and includes the question.
-   Q: Is the tea hot?   A: Yes, the tea is hot.
-   Q: Has the player quit?   A: Yes, the player has quit. */</span>
-<span class="token keyword">bool</span> playerHasQuit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token keyword">bool</span> allPlayersReady <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
-<span class="token keyword">bool</span> teaIsHot <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token comment">// Use a name for booleans that would answer a question, and</span>
+<span class="token comment">// includes the question. Q: Is the tea hot?   A: Yes, the tea is hot.</span>
+
+<span class="token keyword">bool</span> playerHasQuit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>       
+<span class="token keyword">bool</span> allPlayersReady <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>     <span class="token comment">// Comment about this</span>
+<span class="token keyword">bool</span> teaIsHot <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>             <span class="token comment">// Hot tea comment</span>
 <span class="token keyword">bool</span> prefers 
 
 <span class="token comment">// An adjective using -able or -ible is good for describing an object&apos;s capabilities</span>
+
 <span class="token keyword">bool</span> destructable <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token keyword">bool</span> upgradable <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Often, though, people use these adjectives as nouns for categories of things. A gun or armour or vehicle could be known as an &quot;upgradable&quot;.</span>
 <span class="token comment">// prefixing with &quot;is&quot; can make it less ambiguous, though a little harder to read.</span>
+
 <span class="token keyword">bool</span> isDestructable <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token keyword">bool</span> isUpgradable <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 </pre><h4 class="mume-header" id="clarity-beats-brevity">Clarity beats brevity</h4>
 
-<p>Before we had autocomplete (intellisense) short variable names prevailed because they were easier to type. This made sharing code difficult, because variables were ambiguous.</p>
+<p>Before we had <strong>autocomplete</strong> (called &#x201C;intellisense&#x201D; in Visual Studio) short variable names prevailed because they were easier to type. This made sharing code difficult, because variables were ambiguous.</p>
+<blockquote>
 <ul>
 <li>Longer and clearer is better than brief and ambiguous</li>
 <li>Within limits&#x2026; Too wordy and it becomes hard to understand</li>
 <li>We&#x2019;re hunting for a goldilocks zone.</li>
 </ul>
+</blockquote>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Each of these are names that might be used for the difference between the </span>
 <span class="token comment">// time now (delta) and the time the last frame was drawn to the screen. </span>
 
@@ -409,7 +390,7 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <p><img src="assets/week6/autocomplete.gif" alt></p>
 <h4 class="mume-header" id="functions">Functions</h4>
 
-<p>Here are some naming conventions for functions:</p>
+<p>Naming case conventions for functions, their variables and their arguments.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">////// Functions //////////////////////////////////////</span>
 <span class="token comment">// Use camelCaseNaming like regular variables.</span>
 <span class="token comment">// </span>
@@ -443,6 +424,7 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <p><img src="assets/week6/code_block_conventions.png" alt></p>
 <h2 class="mume-header" id="delivering-assessment-1-files">Delivering Assessment 1 Files</h2>
 
+<p><strong>This is in the marking guide,</strong> so get it right for marks!</p>
 <ul>
 <li>I don&#x2019;t need a build, just your solution and all its contents</li>
 <li>The folder that contains an sln file is the one you want to zip. It also contains the project folder.</li>
@@ -495,7 +477,7 @@ string myRealName <span class="token operator">=</span> <span class="token strin
 <li>Right click your <strong>project</strong> in Visual Studio&#x2019;s <em>Solution Explorer</em> (not your solution).</li>
 <li>Click <em>Open folder in file explorer</em>. You&#x2019;ll be shown a window containing your cpp files.</li>
 <li>Copy the path of that folder (in the explorer address bar).</li>
-<li>Come back to these notes and right click this link: <a href="assets/week5/termcolor.hpp">termcolor.hpp</a></li>
+<li>Come back to these notes and right click this link: <a href="assets/week6/termcolor.hpp">termcolor.hpp</a></li>
 <li>Click Save file as&#x2026; and save it to the folder path you copied (by pasting the path into the save dialogue address bar)</li>
 <li>Make sure the file is named termcolor.hpp</li>
 <li>In VS again, go to the solution explorer and right click <em>Header Files</em></li>
