@@ -3,6 +3,19 @@
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+- [Week 6: Forum Activity](#week-6-forum-activity)
+  - [This week](#this-week)
+  - [Staying on target: forum activity deliverables](#staying-on-target-forum-activity-deliverables)
+  - [Setting up forum post](#setting-up-forum-post)
+  - [Finding components in your level concept](#finding-components-in-your-level-concept)
+  - [Continue speedy modeling on grid](#continue-speedy-modeling-on-grid)
+  - [Lighting your components for presentation](#lighting-your-components-for-presentation)
+  - [Individual components, also modules made from them.](#individual-components-also-modules-made-from-them)
+
+<!-- /code_chunk_output -->
+
 
 ## This week
 
