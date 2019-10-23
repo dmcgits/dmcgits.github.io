@@ -217,11 +217,11 @@ We'll prefer curly braces on their own lines: they are easier to line up visuall
   
 ### Naming your zip file for submission:
 
-Name your file like so: **_ISE102_Lastname_Firstname_GameName.7z_**
+Name your file like so: **_ISE102_Lastname_Firstname_GameName.zip_**
 
 Your game name might be SlotMachine or Slots Game or Millionaire Slots Queen. Just make it clear it's a slot machine game. 
 
-Mine in the example gif was: **ISE102_Mcgillick_Danny_SlotsGame.7z**
+Mine in the example gif was: **ISE102_Mcgillick_Danny_SlotsGame.zip**
 
 ## Design with whitespace and symbols
 
