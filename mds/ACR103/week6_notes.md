@@ -1,6 +1,9 @@
 # Week 6: Forum Activity
 
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
+
+
 ## This week
 
 * Staying on target for forum activity.
@@ -12,7 +15,17 @@
 
 ## Staying on target: forum activity deliverables
 
-Info from brief
+From the brief, which can be downloaded from the [ACR103 Assessment 2 page on Blackboard](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_8008776_1&course_id=_75841_1)
+
+>**1. Participate and complete Week 6 Discussion Forum Activity – Environment Design and Modular Modelling**
+>This online activity will require you to share and reflect on the environment design and modular modelling process based on the scope specified by your lecturer. You will do this by creating a simple floorplan or sketch of the environment you want to create, and at the same time taking snapshots of the modular elements you created. You will share these in the Week 6 Discussion Forum following instructions specified there. You will also share your reflection on the process by answering the following questions as part of this discussion forum post.
+>
+>**a)** What were your main inspirations and references in coming up with your design solution for your environment? **(100 words)**
+>**b)** How well do you think your designed environment fits with the scope, genre and world specified by the brief or learning facilitator? **(100 words)**
+>**c)** What were your main challenges in creating your modular elements? **(100 words)**
+>Finally, the activity will also require you to view least 2 other students posts and commenting about the following:
+>**a)** How effective do you think the modular elements created fit with the environment design created? **(50 words)**
+>**b)** Suggest improvements that the student can make to enhance the modular 3d elements or environment design that was created. **(50 words)**
 
 ## Setting up forum post
 
