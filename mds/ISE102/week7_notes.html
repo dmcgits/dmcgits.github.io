@@ -13,9 +13,184 @@
       
       
       
+      
 
       <style>
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      @import url(http://fonts.googleapis.com/css?family=Fira+Mono);
+
+/*
+ * Hopscotch
+ * by Jan T. Sott
+ * https://github.com/idleberg/Hopscotch
+ *
+ * This work is licensed under the Creative Commons CC0 1.0 Universal License
+ */ 
+ 
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #ffffff;
+  font-family: "Fira Mono", Menlo, Monaco, "Lucida Console","Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  word-spacing: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; 
+  white-space: pre; 
+  white-space: pre-wrap; 
+  word-break: break-all;
+  word-wrap: break-word; 
+  background: #322931; 
+  color: #b9b5b8;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto; 
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #797379;
+}
+
+.token.punctuation {
+  color: #b9b5b8;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.null,
+.token.operator,
+.token.boolean,
+.token.number {
+  color: #fd8b19;
+} 
+.token.property { 
+  color: #fdcc59;
+}
+.token.tag { 
+  color: #1290bf;
+} 
+.token.string {
+  color: #149b93;
+} 
+.token.selector { 
+  color: #c85e7c;
+}
+.token.attr-name { 
+  color: #fd8b19;
+} 
+.token.entity,
+.token.url, 
+.language-css .token.string,
+.style .token.string {
+  color: #149b93;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #8fc13e;
+} 
+
+.token.statement,
+.token.regex, 
+.token.atrule { 
+  color: #149b93;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #1290bf;
+} 
+
+.token.important {
+  color: #dd464c;
+  font-weight: bold;
+} 
+
+.token.entity {
+  cursor: help;
+} 
+
+pre > code.highlight {
+  outline: .4em solid red;
+  outline-offset: .4em;
+} 
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 /*.markdown-preview.markdown-preview {
@@ -23,79 +198,239 @@
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
+}
+.markdown-preview.markdown-preview {
+  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
+  font-size: 1.1em;
+  color: #222;
+}
+.markdown-preview.markdown-preview blockquote {
+  color: #282828;
+  background-color: #F5F5F0;
+  margin-left: 0.7em;
+}
+.markdown-preview.markdown-preview h1 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.9em;
+  font-weight: 700;
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview h2 {
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-left: 0.1em;
+  padding-bottom: 0.3em;
+  padding-top: 0.25em;
+  background-color: #E1E1EA;
+}
+.markdown-preview.markdown-preview h3 {
+  color: #445;
+  font-family: 'Merriweather', serif;
+  font-size: 1.05em;
+  font-weight: 600;
+  padding-left: 0.2em;
+  padding-bottom: 0.2em;
+  padding-top: 0.2em;
+  background-color: #F2F2F4;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.05em;
+  font-weight: 600;
+  font-style: italic;
+}
+.markdown-preview.markdown-preview img {
+  margin-bottom: 0px;
+  margin-top: 18px;
+}
+.markdown-preview.markdown-preview a:not([href]) {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a {
+  font-weight: 600;
+  color: #0078A2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a:hover {
+  color: #009BD2;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+  counter-reset: item;
+}
+.markdown-preview.markdown-preview ol > li {
+  margin: 0;
+  padding: 0 0 0 2.5em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+.markdown-preview.markdown-preview ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+  content: counter(item) ".";
+}
 
       </style>
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="ise102-week-7-review">ise102 week 7:  review</h1>
+      <h1 class="mume-header" id="week-6-ise102">Week 6 ISE102</h1>
 
-<p>Assessment 2 is an online test you&#x2019;ll be delivering by the end of week 8. Let&#x2019;s review.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ise102-week-7-review">ise102 week 7:  review</a>
+<li><a href="#week-6-ise102">Week 6 ISE102</a>
 <ul>
-<li><a href="#assessment-content">Assessment content</a></li>
-<li><a href="#resources">Resources</a>
-<ul>
-<li><a href="#book-chapters">book chapters</a></li>
-<li><a href="#week-2">Week 2</a></li>
-<li><a href="#week-3">Week 3</a></li>
-<li><a href="#week-4">Week 4</a></li>
-</ul>
-</li>
-<li><a href="#todo">Todo</a></li>
+<li><a href="#covered-this-week">Covered this week</a></li>
+<li><a href="#assigning-values-to-variables-of-different-types">Assigning values to variables of different types</a></li>
+<li><a href="#overflowwrapping">Overflow/wrapping</a></li>
+<li><a href="#compiler-stuff">Compiler stuff!</a></li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="assessment-content">Assessment content</h2>
+<h2 class="mume-header" id="covered-this-week">Covered this week</h2>
 
-<p>A lot of week 2 and week 3 details</p>
-<p><a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7194293-dt-content-rid-19541202_1/xid-19541202_1">pdf brief on blackboard</a></p>
+<ul>
+<li>
+<p>How code becomes programs</p>
+<ul>
+<li>Compiling, linking</li>
+</ul>
+</li>
+<li>
+<p>chars and strings</p>
+</li>
+<li>
+<p>using the debugger to look at variable values in memory. This helps us see what happens to values when we assign them to various types.</p>
+</li>
+<li>
+<p>Creating values for different data types</p>
+<ul>
+<li>Refresher: <code>int, long int, short int.</code></li>
+<li>Differences in size (bytes, words, half words, double words.</li>
+<li>More refresher: <code>float, double</code>.</li>
+<li>string, wstring, char, wchar, int, long int, unsigned long int</li>
+</ul>
+</li>
+<li>
+<p>Exam, briefly.</p>
+</li>
+</ul>
+<h2 class="mume-header" id="assigning-values-to-variables-of-different-types">Assigning values to variables of different types</h2>
+
+<p>When you assign a value to a variable, you write that value down with punctuation in a way c++ recognises.</p>
 <blockquote>
-<ul>
-<li>Data type, assignment, operators.</li>
-<li>Particulars of multi assignment x = y = ++d</li>
-<li>enumerators ( including how assign in different situations )</li>
-<li>char type and strings</li>
-<li>flow charts (end of week 2 powerpoint)</li>
-<li>psuedocode (reading, writing)</li>
-</ul>
+<p><strong>Very important to understand:</strong><br>
+When you write that value, C++ doesn&#x2019;t guess assume it&#x2019;s of the same data type as the variable you&#x2019;re assigning to. It goes strictly off the way you write it!</p>
 </blockquote>
-<p>Grab the resources</p>
-<h2 class="mume-header" id="resources">Resources</h2>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Some we&apos;ve covered heavily</span>
+string garysFullName <span class="token operator">=</span> <span class="token string">&quot;Gary Gergburger&quot;</span><span class="token punctuation">;</span> 
+<span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span> PI <span class="token operator">=</span> <span class="token number">3.14159f</span><span class="token punctuation">;</span>
 
-<p>Don&#x2019;t forget you can code on <a href="http://cpp.sh">http://cpp.sh</a> if you don&#x2019;t want to start a project for each little code idea you want to try. Input can be a pain, but other stuff is fine.</p>
-<h3 class="mume-header" id="book-chapters">book chapters</h3>
+<span class="token comment">// Some less or not at all</span>
+<span class="token keyword">char</span> oneCharacter <span class="token operator">=</span> <span class="token string">&apos;e&apos;</span><span class="token punctuation">;</span>        <span class="token comment">// A char is a single character, the building block of strings</span>
+<span class="token keyword">double</span> PI <span class="token operator">=</span> <span class="token number">3.14159265358979</span><span class="token punctuation">;</span>   <span class="token comment">// Double is a float at 64 bits. Notice, no `f`</span>
+</pre><p>It basically creates a nameless variable to hold it&#x2026; then does the assignment.</p>
+<h3 class="mume-header" id="integer-assignment">Integer assignment</h3>
 
+<p>Integers are pretty simple. You write a number with nothing around it.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> avengersBoxOffice <span class="token operator">=</span> <span class="token number">1518812988</span><span class="token punctuation">;</span> <span class="token comment">// $1,518,812,988. Using whole dollars only.</span>
+<span class="token keyword">int</span> avengersEndGameBoxOffice_fail <span class="token operator">=</span> <span class="token number">2797800564</span><span class="token punctuation">;</span>   
+<span class="token keyword">unsigned</span> <span class="token keyword">int</span> avengersEndgameBoxOffice <span class="token operator">=</span> <span class="token number">2797800564</span><span class="token punctuation">;</span> <span class="token comment">// Works because unsigned means more range</span>
+<span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> avengersEndgameBoxOfficeLong <span class="token operator">=</span> <span class="token number">2797800564</span><span class="token punctuation">;</span> <span class="token comment">// works because long long is 64 bit.</span>
+</pre><h4 class="mume-header" id="knowing-what-your-variable-can-hold">Knowing what your variable can hold</h4>
+
+<p>This is super important if you don&#x2019;t want to lose or corrupt your data. You can&#x2019;t stick an elephant in a cat carrier without losing a lot of elephant&#x2026; in spaghetti form.</p>
+<p>What&#x2019;s wrong with using <code>int</code> for <code>avengersEndGameBoxOffice_fail</code>? It &#x2018;only&#x2019; handles numbers between <code>&#x2212;2,147,483,648</code> and <code>2,147,483,647</code></p>
 <ul>
-<li><a href="book_1/cppgameprog_1_variables_io.pdf">chap 1 variables io</a></li>
-<li><a href="book_1/cppgameprog_2_conditionals_game_loop.pdf">chap 2 conditionals game loop </a></li>
-<li><a href="book_1/cppgameprog_3_loops_strings_arrays.pdf">chap 3 strings arrays loops</a></li>
+<li>the default <code>int</code> type is shorthand for a <code>signed long int</code></li>
+<li><code>long</code> means a <strong>32 bit</strong> <code>int</code>. <code>signed</code> means it has to include negative numbers in those 32 bits, halving the range of positive numbers</li>
+<li>An <code>unsigned int</code> can go up to 4,294,967,295</li>
+<li>Look at the table to see what a <code>long long unsigned int</code> can hold.</li>
 </ul>
-<h3 class="mume-header" id="week-2">Week 2</h3>
+<p><img src="assets/week7/data_types_a.png" alt><br>
+<img src="assets/week7/cpu_ryzen.jpg" alt><br>
+<img src="assets/week7/ram_cool.png" alt><br>
+<img src="assets/week7/ram_plain.jpg" alt></p>
+<h4 class="mume-header" id="ooops-float-to-int">Ooops, float to int.</h4>
 
+<p>It&#x2019;s also bad to assign a float literal to an int if you don&#x2019;t intend it.</p>
+<p>If you assign <code>0.41f</code> to <code>int age</code>, you&#x2019;ll get 0.</p>
 <ul>
-<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8618158_1">week 2 powerpoint 1 variables, expressions, operators</a></li>
-<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8618160_1">week 2 powerpoint 2 conditionals, relational/logical operators, enums</a></li>
-<li><a href="week2_notes.html">week 2 my notes</a></li>
-<li><a href="week2_code.html">week 2 code</a></li>
+<li>It will be created for a moment as a nameless <code>float</code>, then assigned to the int</li>
+<li>its value is copied, everything after the <code>.</code> is chopped and the result stored in <code>age</code>.</li>
+<li>Finally, our nameless, accurate, temporary float vanishes.</li>
 </ul>
-<h3 class="mume-header" id="week-3">Week 3</h3>
+<h3 class="mume-header" id="floats-and-doubles">Floats and doubles</h3>
 
+<p><strong>The <code>float</code> data type</strong> stores numbers with a decimal point including scientific notation:</p>
 <ul>
-<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8625465_1">week 3 powerpoint 1 arrays</a></li>
-<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8625460_1">week 3 powerpoint 2 loops</a></li>
-<li><a href="week3_notes.html">week 3 my notes</a></li>
-<li><a href="week3_code.html">week 3 code</a></li>
+<li>11.5</li>
+<li>1.2*10<sup>-20</sup></li>
+<li>0.00000002.</li>
 </ul>
-<h3 class="mume-header" id="week-4">Week 4</h3>
+<p>A <code>float</code> is stored in 32 bits of memory, where a <code>double</code> has 64 bits.</p>
+<blockquote>
+<p>Be careful not to add an <code>f</code> when assigning to a <code>double</code>. <code>0.38423223423423423f</code> tells c++ you&#x2019;re specifying a <code>float</code>, and any precision it can&#x2019;t store will be lost. Then that chopped value is stored in your double.</p>
+</blockquote>
+<p><img src="assets/week4/floats_doubles_constants.png" alt></p>
+<p><strong>More info:</strong> <a href="https://www.learncpp.com/cpp-tutorial/floating-point-numbers/">https://www.learncpp.com/cpp-tutorial/floating-point-numbers/</a></p>
+<h4>Is there a short float?</h4>
+<p>No, not built in, but there are specifications for them and libraries for using them.<br>
+They&#x2019;re becoming very useful in machine learning, along with 8 bit floats.</p>
+<h3>Chars and strings</h3>
+<p><code>char</code> is a data type that holds a single character. It&#x2019;s really an 8 bit integer used to look up an entry in a standard ascii table.  <em>(ps: this is an over simplification)</em></p>
+<p><img src="assets/week7/ascii-table.png" alt></p>
+<h4 class="mume-header" id="the-ugly-reality-behind-strings">The ugly reality behind strings</h4>
 
-<ul>
-<li><a href="week4_code.html">week 4 code</a></li>
-</ul>
-<h2 class="mume-header" id="todo">Todo</h2>
+<p>Strings are just arrays of characters with a <code>\0</code> at the end. The good news is <em>C++</em> hides it from us with the <code>string</code> data type. C programmers had to deal with that <code>char</code> array drama directly.</p>
+<p><img src="assets/week7/string_type_under_hood.jpg" alt></p>
+<h3 class="mume-header" id="declaring-strings-vs-chars">Declaring strings vs chars</h3>
 
-<p>Learn the details of what we only covered in broad strokes. Read the resources, type out the source code. Then, if you&#x2019;re unsure, test your ideas in code.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">char</span> letterF <span class="token operator">=</span> <span class="token string">&apos;f&apos;</span><span class="token punctuation">;</span>
+string letterF <span class="token operator">=</span> <span class="token string">&quot;f&quot;</span><span class="token punctuation">;</span>
+string myStory <span class="token operator">=</span> <span class="token string">&quot;Once, I was born. Eventually today came. Tomorrow I&apos;ll probably still be alive.&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// What would be the difference between these two in memory?</span>
+</pre><h2 class="mume-header" id="overflowwrapping">Overflow/wrapping</h2>
+
+<p>See week 2 powerpoint.</p>
+<h2 class="mume-header" id="compiler-stuff">Compiler stuff!</h2>
+
+<p>We&#x2019;re making programs from c++ code. Obviously there is a big difference between a text file and a running program, so&#x2026; wth is visual studio doing to turn some text into that exe file?</p>
+<p>Stages:</p>
+<ol>
+<li>our c++ files in an editor (can be anything)</li>
+<li>go into a compiler (many c++ compilers exist)</li>
+<li>obj/o files pop out   - why useful? Only compile what has changed</li>
+<li>linker joins them together with compiled libraries. Only those that change.</li>
+<li>Executable file pops out - operating system loads this into memory and begins executing instructions.</li>
+</ol>
+<p>Now go into the folders of a solution and see where these really are.</p>
 
       </div>
       
