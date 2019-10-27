@@ -85,7 +85,6 @@ What's wrong with using `int` for `avengersEndGameBoxOffice_fail`? It 'only' han
 
 ![](assets/week7/data_types_a.png)
 ![](assets/week7/cpu_ryzen.jpg)
-![](assets/week7/ram_cool.png)
 ![](assets/week7/ram_plain.jpg)
 
 #### Ooops, float to int.
