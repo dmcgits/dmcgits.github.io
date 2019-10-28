@@ -15,11 +15,12 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 6 ISE102](#week-6-ise102)
-  - [Covered this week](#covered-this-week)
-  - [Assigning values to variables of different types](#assigning-values-to-variables-of-different-types)
-  - [Overflow/wrapping](#overflowwrapping)
-  - [Compiler stuff!](#compiler-stuff)
+1. [Week 6 ISE102](#week-6-ise102)
+   1. [Covered this week](#covered-this-week)
+   2. [Assigning values to variables of different types](#assigning-values-to-variables-of-different-types)
+   3. [Overflow/wrapping](#overflowwrapping)
+   4. [Compiler stuff!](#compiler-stuff)
+   5. [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -43,35 +44,28 @@ export_on_save:
 
 ## Assigning values to variables of different types
 
-When you assign a value to a variable, you write that value down with punctuation in a way c++ recognises. 
+When you assign a value to a variable, you write that value down with punctuation in a way c++ recognises.
+
+A value written in code like `"Gary"`, `22.556f` or `435` is called a **literal**. As in `435` isn't a variable, it is literally four hundred and thirty five. 
   
   > **Very important to understand:**
   > When you write that value, C++ doesn't guess assume it's of the same data type as the variable you're assigning to. It goes strictly off the way you write it!
 
-```cpp
-// Some we've covered heavily
-string garysFullName = "Gary Gergburger"; 
-int age = 22;
-float PI = 3.14159f;
-
-// Some less or not at all
-char oneCharacter = 'e';        // A char is a single character, the building block of strings
-double PI = 3.14159265358979;   // Double is a float at 64 bits. Notice, no `f`
-```
-
+![](assets/week7/literals.png)
 It basically creates a nameless variable to hold it.. then does the assignment. 
 
 ### Integer assignment
 
-Integers are pretty simple. You write a number with nothing around it.
+Integer literals are pretty simple. You write a number with nothing around it. However, we will find that what we assign it to makes a difference! 
 
-```cpp
-int age = 22;
-int avengersBoxOffice = 1518812988; // $1,518,812,988. Using whole dollars only.
-int avengersEndGameBoxOffice_fail = 2797800564;   
-unsigned int avengersEndgameBoxOffice = 2797800564; // Works because unsigned means more range
-long long int avengersEndgameBoxOfficeLong = 2797800564; // works because long long is 64 bit.
-```
+### Exercise: Enter this code
+
+![](assets/week7/debugging_literals.png)
+
+Fortunately we dont have to use `cout` for every single variable to know what's stored in it.
+> We can see what's in our assigned variables in _Visual Studio's_ debug mode by looking in the _Locals_ window.
+> 
+![](assets/week7/debug_locals.png)
 
 #### Knowing what your variable can hold
 
@@ -150,5 +144,25 @@ Stages:
   4. linker joins them together with compiled libraries. Only those that change.
   5. Executable file pops out - operating system loads this into memory and begins executing instructions.
 
-Now go into the folders of a solution and see where these really are.
- 
+## Resources
+
+
+### book chapters
+* [chap 1 variables io](book_1/chap1_cpp_games.pdf)
+* [chap 2 conditionals game loop ](book_1/chap2_cpp_games.pdf)
+* [chap 3 strings arrays loops](book_1/chap3_cpp_games.pdf)
+
+### Week 2
+* [week 2 powerpoint 1 variables, expressions, operators](https://laureate-au.blackboard.com/bbcswebdav/xid-8618158_1)
+* [week 2 powerpoint 2 conditionals, relational/logical operators, enums](https://laureate-au.blackboard.com/bbcswebdav/xid-8618160_1)
+<!-- * [week 2 my notes](week2_notes.html)
+* [week 2 code](week2_code.html) -->
+
+### Week 3
+* [week 3 powerpoint 1 arrays](https://laureate-au.blackboard.com/bbcswebdav/xid-8625465_1)
+* [week 3 powerpoint 2 loops](https://laureate-au.blackboard.com/bbcswebdav/xid-8625460_1)
+<!-- * [week 3 my notes](week3_notes.html) 
+* [week 3 code](week3_code.html)
+
+### Week 4
+* [week 4 code](week4_code.html) -->

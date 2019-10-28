@@ -198,24 +198,7 @@ pre[data-line] .line-highlight[data-end]:after {
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
-@font-face {
-  font-family: 'Georgia';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
-}
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
-}
 .markdown-preview.markdown-preview {
-  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F9F9F9;
-  font-size: 1.1em;
   color: #222;
 }
 .markdown-preview.markdown-preview blockquote {
@@ -224,40 +207,32 @@ pre[data-line] .line-highlight[data-end]:after {
   margin-left: 0.7em;
 }
 .markdown-preview.markdown-preview h1 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.9em;
-  font-weight: 700;
+  font-size: 2.25em;
+  font-weight: 600;
   padding-bottom: 0.3em;
+  background-color: #E5EAFF;
 }
 .markdown-preview.markdown-preview h2 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.2em;
+  font-size: 1.75em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
-  padding-top: 0.25em;
-  background-color: #E1E1EA;
+  background-color: #F1F4FF;
+  border-bottom-color: #D1D1DE;
+  border-bottom-style: solid;
+  border-bottom-width: 0.08em;
 }
 .markdown-preview.markdown-preview h3 {
-  color: #445;
-  font-family: 'Merriweather', serif;
-  font-size: 1.05em;
+  font-size: 1.45em;
   font-weight: 600;
   padding-left: 0.2em;
-  padding-bottom: 0.2em;
-  padding-top: 0.2em;
-  background-color: #F2F2F4;
+  padding-bottom: 0.1em;
+  background-color: #F4F8FA;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.05em;
+  font-size: 1.25em;
   font-weight: 600;
   font-style: italic;
-}
-.markdown-preview.markdown-preview img {
-  margin-bottom: 0px;
-  margin-top: 18px;
 }
 .markdown-preview.markdown-preview a:not([href]) {
   font-weight: 600;
@@ -270,6 +245,7 @@ pre[data-line] .line-highlight[data-end]:after {
   text-decoration: none;
 }
 .markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
   color: #009BD2;
   text-decoration: none;
 }
@@ -300,16 +276,17 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-6-ise102">Week 6 ISE102</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-6-ise102">Week 6 ISE102</a>
-<ul>
+<ol>
 <li><a href="#covered-this-week">Covered this week</a></li>
 <li><a href="#assigning-values-to-variables-of-different-types">Assigning values to variables of different types</a></li>
 <li><a href="#overflowwrapping">Overflow/wrapping</a></li>
 <li><a href="#compiler-stuff">Compiler stuff!</a></li>
-</ul>
+<li><a href="#resources">Resources</a></li>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="covered-this-week">Covered this week</h2>
 
 <ul>
@@ -341,28 +318,25 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="assigning-values-to-variables-of-different-types">Assigning values to variables of different types</h2>
 
 <p>When you assign a value to a variable, you write that value down with punctuation in a way c++ recognises.</p>
+<p>A value written in code like <code>&quot;Gary&quot;</code>, <code>22.556f</code> or <code>435</code> is called a <strong>literal</strong>. As in <code>435</code> isn&#x2019;t a variable, it is literally four hundred and thirty five.</p>
 <blockquote>
 <p><strong>Very important to understand:</strong><br>
 When you write that value, C++ doesn&#x2019;t guess assume it&#x2019;s of the same data type as the variable you&#x2019;re assigning to. It goes strictly off the way you write it!</p>
 </blockquote>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Some we&apos;ve covered heavily</span>
-string garysFullName <span class="token operator">=</span> <span class="token string">&quot;Gary Gergburger&quot;</span><span class="token punctuation">;</span> 
-<span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
-<span class="token keyword">float</span> PI <span class="token operator">=</span> <span class="token number">3.14159f</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Some less or not at all</span>
-<span class="token keyword">char</span> oneCharacter <span class="token operator">=</span> <span class="token string">&apos;e&apos;</span><span class="token punctuation">;</span>        <span class="token comment">// A char is a single character, the building block of strings</span>
-<span class="token keyword">double</span> PI <span class="token operator">=</span> <span class="token number">3.14159265358979</span><span class="token punctuation">;</span>   <span class="token comment">// Double is a float at 64 bits. Notice, no `f`</span>
-</pre><p>It basically creates a nameless variable to hold it&#x2026; then does the assignment.</p>
+<p><img src="assets/week7/literals.png" alt><br>
+It basically creates a nameless variable to hold it&#x2026; then does the assignment.</p>
 <h3 class="mume-header" id="integer-assignment">Integer assignment</h3>
 
-<p>Integers are pretty simple. You write a number with nothing around it.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> avengersBoxOffice <span class="token operator">=</span> <span class="token number">1518812988</span><span class="token punctuation">;</span> <span class="token comment">// $1,518,812,988. Using whole dollars only.</span>
-<span class="token keyword">int</span> avengersEndGameBoxOffice_fail <span class="token operator">=</span> <span class="token number">2797800564</span><span class="token punctuation">;</span>   
-<span class="token keyword">unsigned</span> <span class="token keyword">int</span> avengersEndgameBoxOffice <span class="token operator">=</span> <span class="token number">2797800564</span><span class="token punctuation">;</span> <span class="token comment">// Works because unsigned means more range</span>
-<span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> avengersEndgameBoxOfficeLong <span class="token operator">=</span> <span class="token number">2797800564</span><span class="token punctuation">;</span> <span class="token comment">// works because long long is 64 bit.</span>
-</pre><h4 class="mume-header" id="knowing-what-your-variable-can-hold">Knowing what your variable can hold</h4>
+<p>Integer literals are pretty simple. You write a number with nothing around it. However, we will find that what we assign it to makes a difference!</p>
+<h3 class="mume-header" id="exercise-enter-this-code">Exercise: Enter this code</h3>
+
+<p><img src="assets/week7/debugging_literals.png" alt></p>
+<p>Fortunately we dont have to use <code>cout</code> for every single variable to know what&#x2019;s stored in it.</p>
+<blockquote>
+<p>We can see what&#x2019;s in our assigned variables in <em>Visual Studio&#x2019;s</em> debug mode by looking in the <em>Locals</em> window.</p>
+</blockquote>
+<p><img src="assets/week7/debug_locals.png" alt></p>
+<h4 class="mume-header" id="knowing-what-your-variable-can-hold">Knowing what your variable can hold</h4>
 
 <p>This is super important if you don&#x2019;t want to lose or corrupt your data. You can&#x2019;t stick an elephant in a cat carrier without losing a lot of elephant&#x2026; in spaghetti form.</p>
 <p>What&#x2019;s wrong with using <code>int</code> for <code>avengersEndGameBoxOffice_fail</code>? It &#x2018;only&#x2019; handles numbers between <code>&#x2212;2,147,483,648</code> and <code>2,147,483,647</code></p>
@@ -429,7 +403,27 @@ string myStory <span class="token operator">=</span> <span class="token string">
 <li>linker joins them together with compiled libraries. Only those that change.</li>
 <li>Executable file pops out - operating system loads this into memory and begins executing instructions.</li>
 </ol>
-<p>Now go into the folders of a solution and see where these really are.</p>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<h3 class="mume-header" id="book-chapters">book chapters</h3>
+
+<ul>
+<li><a href="book_1/chap1_cpp_games.pdf">chap 1 variables io</a></li>
+<li><a href="book_1/chap2_cpp_games.pdf">chap 2 conditionals game loop </a></li>
+<li><a href="book_1/chap3_cpp_games.pdf">chap 3 strings arrays loops</a></li>
+</ul>
+<h3 class="mume-header" id="week-2">Week 2</h3>
+
+<ul>
+<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8618158_1">week 2 powerpoint 1 variables, expressions, operators</a></li>
+<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8618160_1">week 2 powerpoint 2 conditionals, relational/logical operators, enums</a></li>
+</ul>
+<h3 class="mume-header" id="week-3">Week 3</h3>
+
+<ul>
+<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8625465_1">week 3 powerpoint 1 arrays</a></li>
+<li><a href="https://laureate-au.blackboard.com/bbcswebdav/xid-8625460_1">week 3 powerpoint 2 loops</a></li>
+</ul>
 
       </div>
       
