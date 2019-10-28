@@ -8,14 +8,13 @@ export_on_save:
   html: true
 ---
 
-# Week 6 ISE102
-
+# Week 7 ISE102
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-1. [Week 6 ISE102](#week-6-ise102)
+1. [Week 7 ISE102](#week-7-ise102)
    1. [Covered this week](#covered-this-week)
    2. [Assigning values to variables of different types](#assigning-values-to-variables-of-different-types)
    3. [Overflow/wrapping](#overflowwrapping)
