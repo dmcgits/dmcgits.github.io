@@ -1,5 +1,18 @@
 # Week 7: Lighting and texturing
 
+## Maya To Unity
+
+Grab my pre lit Unity project
+
+1. Renaming
+2. Exporting pieces in fbx format to unity assets folder
+3. Dragging into Unity scene. Seeing pivots.
+4. Unity fbx import settings
+5. Combining pieces into modules. Empty objects.
+6. Prefabs!
+7. Applying default material
+8. Generate lighting
+   
 ## Realtime vs offline rendering
 
 3D rendering isn't defined by a single piece of software or target use/audience. It's the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.
