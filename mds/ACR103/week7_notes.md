@@ -1,4 +1,14 @@
-# Week 7: Lighting and texturing
+---
+html:
+  embed_local_images: false
+  offline: false
+export_on_save:
+  html: true
+---
+
+# Week 7: Maya To Unity
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 ## Maya To Unity
 
@@ -46,3 +56,13 @@ _60 frames per second enables exciting experiences like 'dwarf glowers at camera
 ![](assets/week7/survival_1_scum.jpg)
 
 _* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn't make use of them._
+
+## Exporting from Maya
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Making Modules
+<iframe width="720" height="480" src="https://www.youtube.com/embed/52moIwsKpIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Prefabs
+<iframe width="720" height="480" src="https://www.youtube.com/embed/UeC2UtKhnk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
