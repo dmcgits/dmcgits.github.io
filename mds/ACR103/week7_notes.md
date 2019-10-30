@@ -2,6 +2,15 @@
 
 ## Maya To Unity
 
+### Prepping for export
+
+Each piece needs to arrive in Unity ready to use: 
+* It has a reasonable name
+* It appears at the origin if zeroed out
+* If it's one 1m grid unit in Maya, it matches that in Unity
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Grab my pre lit Unity project
 
 1. Renaming
