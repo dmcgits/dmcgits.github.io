@@ -10,27 +10,6 @@ export_on_save:
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-## Maya To Unity
-
-### Prepping for export
-
-Each piece needs to arrive in Unity ready to use: 
-* It has a reasonable name
-* It appears at the origin if zeroed out
-* If it's one 1m grid unit in Maya, it matches that in Unity
-
-<iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Grab my pre lit Unity project
-
-1. Renaming
-2. Exporting pieces in fbx format to unity assets folder
-3. Dragging into Unity scene. Seeing pivots.
-4. Unity fbx import settings
-5. Combining pieces into modules. Empty objects.
-6. Prefabs!
-7. Applying default material
-8. Generate lighting
    
 ## Realtime vs offline rendering
 
@@ -55,9 +34,20 @@ _60 frames per second enables exciting experiences like 'dwarf glowers at camera
 
 ![](assets/week7/survival_1_scum.jpg)
 
-_* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn't make use of them._
+_* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn't make use of them._ 
+
+## Prepping for export
+
+Each piece needs to arrive in Unity ready to use: 
+* It has a reasonable name
+* It appears at the origin if zeroed out
+* If it's one 1m grid unit in Maya, it matches that in Unity
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exporting from Maya
+
+Grab my [lit unity scene here](https://www.dropbox.com/s/0nmionz6ww5qivg/unity___level.zip?dl=1). Next we'll import your level pieces into it.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

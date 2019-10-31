@@ -198,24 +198,7 @@ pre[data-line] .line-highlight[data-end]:after {
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
-@font-face {
-  font-family: 'Georgia';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
-}
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
-}
 .markdown-preview.markdown-preview {
-  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F9F9F9;
-  font-size: 1.1em;
   color: #222;
 }
 .markdown-preview.markdown-preview blockquote {
@@ -224,40 +207,32 @@ pre[data-line] .line-highlight[data-end]:after {
   margin-left: 0.7em;
 }
 .markdown-preview.markdown-preview h1 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.9em;
-  font-weight: 700;
+  font-size: 2.25em;
+  font-weight: 600;
   padding-bottom: 0.3em;
+  background-color: #E5EAFF;
 }
 .markdown-preview.markdown-preview h2 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.2em;
+  font-size: 1.75em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
-  padding-top: 0.25em;
-  background-color: #E1E1EA;
+  background-color: #F1F4FF;
+  border-bottom-color: #D1D1DE;
+  border-bottom-style: solid;
+  border-bottom-width: 0.08em;
 }
 .markdown-preview.markdown-preview h3 {
-  color: #445;
-  font-family: 'Merriweather', serif;
-  font-size: 1.05em;
+  font-size: 1.45em;
   font-weight: 600;
   padding-left: 0.2em;
-  padding-bottom: 0.2em;
-  padding-top: 0.2em;
-  background-color: #F2F2F4;
+  padding-bottom: 0.1em;
+  background-color: #F4F8FA;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.05em;
+  font-size: 1.25em;
   font-weight: 600;
   font-style: italic;
-}
-.markdown-preview.markdown-preview img {
-  margin-bottom: 0px;
-  margin-top: 18px;
 }
 .markdown-preview.markdown-preview a:not([href]) {
   font-weight: 600;
@@ -270,6 +245,7 @@ pre[data-line] .line-highlight[data-end]:after {
   text-decoration: none;
 }
 .markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
   color: #009BD2;
   text-decoration: none;
 }
@@ -300,29 +276,7 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-7-maya-to-unity">Week 7: Maya To Unity</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h2 class="mume-header" id="maya-to-unity">Maya To Unity</h2>
-
-<h3 class="mume-header" id="prepping-for-export">Prepping for export</h3>
-
-<p>Each piece needs to arrive in Unity ready to use:</p>
-<ul>
-<li>It has a reasonable name</li>
-<li>It appears at the origin if zeroed out</li>
-<li>If it&#x2019;s one 1m grid unit in Maya, it matches that in Unity</li>
-</ul>
-<iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Grab my pre lit Unity project</p>
-<ol>
-<li>Renaming</li>
-<li>Exporting pieces in fbx format to unity assets folder</li>
-<li>Dragging into Unity scene. Seeing pivots.</li>
-<li>Unity fbx import settings</li>
-<li>Combining pieces into modules. Empty objects.</li>
-<li>Prefabs!</li>
-<li>Applying default material</li>
-<li>Generate lighting</li>
-</ol>
-<h2 class="mume-header" id="realtime-vs-offline-rendering">Realtime vs offline rendering</h2>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h2 class="mume-header" id="realtime-vs-offline-rendering">Realtime vs offline rendering</h2>
 
 <p>3D rendering isn&#x2019;t defined by a single piece of software or target use/audience. It&#x2019;s the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.</p>
 <p><strong>Arnold:</strong> Offline renderer supported by Maya and other 3D programs.</p>
@@ -339,8 +293,18 @@ pre[data-line] .line-highlight[data-end]:after {
 <em>60 frames per second enables exciting experiences like &#x2018;dwarf glowers at camera&#x2019; and &#x2018;zombie council worker encounter&#x2019;</em></p>
 <p><img src="assets/week7/survival_1_scum.jpg" alt></p>
 <p><em>* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn&#x2019;t make use of them.</em></p>
+<h2 class="mume-header" id="prepping-for-export">Prepping for export</h2>
+
+<p>Each piece needs to arrive in Unity ready to use:</p>
+<ul>
+<li>It has a reasonable name</li>
+<li>It appears at the origin if zeroed out</li>
+<li>If it&#x2019;s one 1m grid unit in Maya, it matches that in Unity</li>
+</ul>
+<iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 class="mume-header" id="exporting-from-maya">Exporting from Maya</h2>
 
+<p>Grab my <a href="https://www.dropbox.com/s/0nmionz6ww5qivg/unity___level.zip?dl=1">lit unity scene here</a>. Next we&#x2019;ll import your level pieces into it.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 class="mume-header" id="making-modules">Making Modules</h2>
 
