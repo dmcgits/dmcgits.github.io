@@ -14,8 +14,13 @@ export_on_save:
 
 - [Week 7: Maya To Unity](#week-7-maya-to-unity)
   - [New Videos](#new-videos)
+    - [Stairs](#stairs)
   - [Short getting started videos](#short-getting-started-videos)
+    - [Prepping for export](#prepping-for-export)
+    - [The Unity Project](#the-unity-project)
+    - [Exporting to Unity](#exporting-to-unity)
   - [Making Modules](#making-modules)
+    - [Prefabs](#prefabs)
   - [Realtime vs offline rendering](#realtime-vs-offline-rendering)
 
 <!-- /code_chunk_output -->
