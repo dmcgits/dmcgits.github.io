@@ -55,7 +55,9 @@ I've recorded some new, more in depth videos since class. These first few deal w
 
 ### Stairs
 
-Grab the [new scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1).
+Grab the [new scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1) 
+- **Sift through the content** and see if it answers (or provokes) any questions 
+- Use it as the base for your assessment. **import your own meshes** and delete mine.
 
 ![](assets/week7/unity_scene_new_prestairs.png)
 
