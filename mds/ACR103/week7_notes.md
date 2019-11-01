@@ -13,41 +13,12 @@ export_on_save:
 <!-- code_chunk_output -->
 
 - [Week 7: Maya To Unity](#week-7-maya-to-unity)
-  - [Realtime vs offline rendering](#realtime-vs-offline-rendering)
   - [New Videos](#new-videos)
   - [Short getting started videos](#short-getting-started-videos)
-  - [Prepping for export](#prepping-for-export)
-  - [The Unity Project](#the-unity-project)
-  - [Exporting to Unity](#exporting-to-unity)
   - [Making Modules](#making-modules)
-  - [Prefabs](#prefabs)
+  - [Realtime vs offline rendering](#realtime-vs-offline-rendering)
 
 <!-- /code_chunk_output -->
-
-## Realtime vs offline rendering
-
-3D rendering isn't defined by a single piece of software or target use/audience. It's the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.
-
-**Arnold:** Offline renderer supported by Maya and other 3D programs.
-
-![](assets/week7/arnold_scene.png)
-
-**Unity:** A game engine and editing environment that uses a realtime renderer to create many frames per second.
-
-
-> **Offline rendering** is the generation of images from a 3D scene to be used either statically or assembled into a video sequence. It can take seconds, minutes or hours to generate a single image.
-
-![](assets/week7/groot_arnold.png)
-
-
-> **Realtime rendering** is the very fast generation of images from a 3D scene to display games (or other experiences) at up to hundreds* of frames per second
-
-![](assets/week7/fps_3_torb_hallo.jpg)
-_60 frames per second enables exciting experiences like 'dwarf glowers at camera' and 'zombie council worker encounter'_
-
-![](assets/week7/survival_1_scum.jpg)
-
-_* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn't make use of them._ 
 
 ## New Videos
 
@@ -74,7 +45,7 @@ Grab the [new scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastn
 
 The videos in the sections below are unchanged from class. 
 
-## Prepping for export
+### Prepping for export
 
 Each piece needs to arrive in Unity ready to use: 
 * It has a reasonable name
@@ -89,12 +60,12 @@ Each piece needs to arrive in Unity ready to use:
 // How much prefabbing/modularity req'd
 // More on Materials
 
-## The Unity Project
+### The Unity Project
 
 1. Grab my (updated) [lit unity scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1)
 2. Unzip it and rename the folder inside so it has your Lastname and Firstname. Erase the "RENAME" bit. You should be renaming a folder that contains the Assets, Library etc folders.
 
-## Exporting to Unity
+### Exporting to Unity
 
 Next we'll import your level pieces into it.
 
@@ -112,6 +83,30 @@ Next we'll import your level pieces into it.
 ## Making Modules
 <iframe width="720" height="480" src="https://www.youtube.com/embed/52moIwsKpIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Prefabs
+### Prefabs
 <iframe width="720" height="480" src="https://www.youtube.com/embed/UeC2UtKhnk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Realtime vs offline rendering
+
+3D rendering isn't defined by a single piece of software or target use/audience. It's the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.
+
+**Arnold:** Offline renderer supported by Maya and other 3D programs.
+
+![](assets/week7/arnold_scene.png)
+
+**Unity:** A game engine and editing environment that uses a realtime renderer to create many frames per second.
+
+
+> **Offline rendering** is the generation of images from a 3D scene to be used either statically or assembled into a video sequence. It can take seconds, minutes or hours to generate a single image.
+
+![](assets/week7/groot_arnold.png)
+
+
+> **Realtime rendering** is the very fast generation of images from a 3D scene to display games (or other experiences) at up to hundreds* of frames per second
+
+![](assets/week7/fps_3_torb_hallo.jpg)
+_60 frames per second enables exciting experiences like 'dwarf glowers at camera' and 'zombie council worker encounter'_
+
+![](assets/week7/survival_1_scum.jpg)
+
+_* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn't make use of them._ 

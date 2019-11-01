@@ -303,34 +303,13 @@ pre[data-line] .line-highlight[data-end]:after {
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-7-maya-to-unity">Week 7: Maya To Unity</a>
 <ul>
-<li><a href="#realtime-vs-offline-rendering">Realtime vs offline rendering</a></li>
 <li><a href="#new-videos">New Videos</a></li>
 <li><a href="#short-getting-started-videos">Short getting started videos</a></li>
-<li><a href="#prepping-for-export">Prepping for export</a></li>
-<li><a href="#the-unity-project">The Unity Project</a></li>
-<li><a href="#exporting-to-unity">Exporting to Unity</a></li>
 <li><a href="#making-modules">Making Modules</a></li>
-<li><a href="#prefabs">Prefabs</a></li>
+<li><a href="#realtime-vs-offline-rendering">Realtime vs offline rendering</a></li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="realtime-vs-offline-rendering">Realtime vs offline rendering</h2>
-
-<p>3D rendering isn&#x2019;t defined by a single piece of software or target use/audience. It&#x2019;s the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.</p>
-<p><strong>Arnold:</strong> Offline renderer supported by Maya and other 3D programs.</p>
-<p><img src="assets/week7/arnold_scene.png" alt></p>
-<p><strong>Unity:</strong> A game engine and editing environment that uses a realtime renderer to create many frames per second.</p>
-<blockquote>
-<p><strong>Offline rendering</strong> is the generation of images from a 3D scene to be used either statically or assembled into a video sequence. It can take seconds, minutes or hours to generate a single image.</p>
-</blockquote>
-<p><img src="assets/week7/groot_arnold.png" alt></p>
-<blockquote>
-<p><strong>Realtime rendering</strong> is the very fast generation of images from a 3D scene to display games (or other experiences) at up to hundreds* of frames per second</p>
-</blockquote>
-<p><img src="assets/week7/fps_3_torb_hallo.jpg" alt><br>
-<em>60 frames per second enables exciting experiences like &#x2018;dwarf glowers at camera&#x2019; and &#x2018;zombie council worker encounter&#x2019;</em></p>
-<p><img src="assets/week7/survival_1_scum.jpg" alt></p>
-<p><em>* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn&#x2019;t make use of them.</em></p>
 <h2 class="mume-header" id="new-videos">New Videos</h2>
 
 <p>I&#x2019;ve recorded some new, more in depth videos since class. These first few deal with adding the stairs to the Unity scene.</p>
@@ -354,7 +333,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="short-getting-started-videos">Short getting started videos</h2>
 
 <p>The videos in the sections below are unchanged from class.</p>
-<h2 class="mume-header" id="prepping-for-export">Prepping for export</h2>
+<h3 class="mume-header" id="prepping-for-export">Prepping for export</h3>
 
 <p>Each piece needs to arrive in Unity ready to use:</p>
 <ul>
@@ -368,13 +347,13 @@ pre[data-line] .line-highlight[data-end]:after {
 // Grouping to organise<br>
 // How much prefabbing/modularity req&#x2019;d<br>
 // More on Materials</p>
-<h2 class="mume-header" id="the-unity-project">The Unity Project</h2>
+<h3 class="mume-header" id="the-unity-project">The Unity Project</h3>
 
 <ol>
 <li>Grab my (updated) <a href="https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1">lit unity scene here</a></li>
 <li>Unzip it and rename the folder inside so it has your Lastname and Firstname. Erase the &#x201C;RENAME&#x201D; bit. You should be renaming a folder that contains the Assets, Library etc folders.</li>
 </ol>
-<h2 class="mume-header" id="exporting-to-unity">Exporting to Unity</h2>
+<h3 class="mume-header" id="exporting-to-unity">Exporting to Unity</h3>
 
 <p>Next we&#x2019;ll import your level pieces into it.</p>
 <iframe width="720" height="480" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -388,9 +367,26 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="making-modules">Making Modules</h2>
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/52moIwsKpIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h2 class="mume-header" id="prefabs">Prefabs</h2>
+<h3 class="mume-header" id="prefabs">Prefabs</h3>
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/UeC2UtKhnk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 class="mume-header" id="realtime-vs-offline-rendering">Realtime vs offline rendering</h2>
+
+<p>3D rendering isn&#x2019;t defined by a single piece of software or target use/audience. It&#x2019;s the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.</p>
+<p><strong>Arnold:</strong> Offline renderer supported by Maya and other 3D programs.</p>
+<p><img src="assets/week7/arnold_scene.png" alt></p>
+<p><strong>Unity:</strong> A game engine and editing environment that uses a realtime renderer to create many frames per second.</p>
+<blockquote>
+<p><strong>Offline rendering</strong> is the generation of images from a 3D scene to be used either statically or assembled into a video sequence. It can take seconds, minutes or hours to generate a single image.</p>
+</blockquote>
+<p><img src="assets/week7/groot_arnold.png" alt></p>
+<blockquote>
+<p><strong>Realtime rendering</strong> is the very fast generation of images from a 3D scene to display games (or other experiences) at up to hundreds* of frames per second</p>
+</blockquote>
+<p><img src="assets/week7/fps_3_torb_hallo.jpg" alt><br>
+<em>60 frames per second enables exciting experiences like &#x2018;dwarf glowers at camera&#x2019; and &#x2018;zombie council worker encounter&#x2019;</em></p>
+<p><img src="assets/week7/survival_1_scum.jpg" alt></p>
+<p><em>* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn&#x2019;t make use of them.</em></p>
 
       </div>
       
