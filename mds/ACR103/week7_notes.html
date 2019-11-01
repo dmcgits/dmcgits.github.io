@@ -198,7 +198,24 @@ pre[data-line] .line-highlight[data-end]:after {
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
+}
 .markdown-preview.markdown-preview {
+  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
+  font-size: 1.1em;
   color: #222;
 }
 .markdown-preview.markdown-preview blockquote {
@@ -207,32 +224,40 @@ pre[data-line] .line-highlight[data-end]:after {
   margin-left: 0.7em;
 }
 .markdown-preview.markdown-preview h1 {
-  font-size: 2.25em;
-  font-weight: 600;
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.9em;
+  font-weight: 700;
   padding-bottom: 0.3em;
-  background-color: #E5EAFF;
 }
 .markdown-preview.markdown-preview h2 {
-  font-size: 1.75em;
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.2em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
-  background-color: #F1F4FF;
-  border-bottom-color: #D1D1DE;
-  border-bottom-style: solid;
-  border-bottom-width: 0.08em;
+  padding-top: 0.25em;
+  background-color: #E1E1EA;
 }
 .markdown-preview.markdown-preview h3 {
-  font-size: 1.45em;
+  color: #445;
+  font-family: 'Merriweather', serif;
+  font-size: 1.05em;
   font-weight: 600;
   padding-left: 0.2em;
-  padding-bottom: 0.1em;
-  background-color: #F4F8FA;
+  padding-bottom: 0.2em;
+  padding-top: 0.2em;
+  background-color: #F2F2F4;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.25em;
+  font-size: 1.05em;
   font-weight: 600;
   font-style: italic;
+}
+.markdown-preview.markdown-preview img {
+  margin-bottom: 0px;
+  margin-top: 18px;
 }
 .markdown-preview.markdown-preview a:not([href]) {
   font-weight: 600;
@@ -245,7 +270,6 @@ pre[data-line] .line-highlight[data-end]:after {
   text-decoration: none;
 }
 .markdown-preview.markdown-preview a:hover {
-  font-weight: 600;
   color: #009BD2;
   text-decoration: none;
 }
@@ -276,7 +300,21 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-7-maya-to-unity">Week 7: Maya To Unity</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h2 class="mume-header" id="realtime-vs-offline-rendering">Realtime vs offline rendering</h2>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-7-maya-to-unity">Week 7: Maya To Unity</a>
+<ul>
+<li><a href="#realtime-vs-offline-rendering">Realtime vs offline rendering</a></li>
+<li><a href="#new-videos">New Videos</a></li>
+<li><a href="#short-getting-started-videos">Short getting started videos</a></li>
+<li><a href="#prepping-for-export">Prepping for export</a></li>
+<li><a href="#the-unity-project">The Unity Project</a></li>
+<li><a href="#exporting-to-unity">Exporting to Unity</a></li>
+<li><a href="#making-modules">Making Modules</a></li>
+<li><a href="#prefabs">Prefabs</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="realtime-vs-offline-rendering">Realtime vs offline rendering</h2>
 
 <p>3D rendering isn&#x2019;t defined by a single piece of software or target use/audience. It&#x2019;s the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.</p>
 <p><strong>Arnold:</strong> Offline renderer supported by Maya and other 3D programs.</p>
@@ -293,6 +331,25 @@ pre[data-line] .line-highlight[data-end]:after {
 <em>60 frames per second enables exciting experiences like &#x2018;dwarf glowers at camera&#x2019; and &#x2018;zombie council worker encounter&#x2019;</em></p>
 <p><img src="assets/week7/survival_1_scum.jpg" alt></p>
 <p><em>* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn&#x2019;t make use of them.</em></p>
+<h2 class="mume-header" id="new-videos">New Videos</h2>
+
+<p>I&#x2019;ve recorded some new, more in depth videos since class. These first few deal with adding the stairs to the Unity scene.</p>
+<h3 class="mume-header" id="stairs">Stairs</h3>
+
+<p>Grab the <a href="https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1">new scene here</a>.</p>
+<p><img src="assets/week7/unity_scene_new_prestairs.png" alt></p>
+<h4 class="mume-header" id="the-scene-the-task-the-plan">The scene, the task, the plan:</h4>
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/X1XSW7XNOu4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h4 class="mume-header" id="tweaking-prepping-crashing-pushing-through">Tweaking, prepping, crashing, pushing through:</h4>
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/6YUW9998U80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h4 class="mume-header" id="exporting-crashing">Exporting, crashing,</h4>
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/93SVx4B9htc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 class="mume-header" id="short-getting-started-videos">Short getting started videos</h2>
+
+<p>The videos in the sections below are unchanged from class.</p>
 <h2 class="mume-header" id="prepping-for-export">Prepping for export</h2>
 
 <p>Each piece needs to arrive in Unity ready to use:</p>
@@ -302,16 +359,35 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>If it&#x2019;s one 1m grid unit in Maya, it matches that in Unity</li>
 </ul>
 <iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h2 class="mume-header" id="exporting-from-maya">Exporting from Maya</h2>
+<p><strong>To add:</strong><br>
+// Insert short video on adding to and removing from display layers<br>
+// Grouping to organise<br>
+// How much prefabbing/modularity req&#x2019;d<br>
+// More on Materials</p>
+<h2 class="mume-header" id="the-unity-project">The Unity Project</h2>
 
-<p>Grab my <a href="https://www.dropbox.com/s/0nmionz6ww5qivg/unity___level.zip?dl=1">lit unity scene here</a>. Next we&#x2019;ll import your level pieces into it.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<ol>
+<li>Grab my (updated) <a href="https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1">lit unity scene here</a></li>
+<li>Unzip it and rename the folder inside so it has your Lastname and Firstname. Erase the &#x201C;RENAME&#x201D; bit. You should be renaming a folder that contains the Assets, Library etc folders.</li>
+</ol>
+<h2 class="mume-header" id="exporting-to-unity">Exporting to Unity</h2>
+
+<p>Next we&#x2019;ll import your level pieces into it.</p>
+<iframe width="720" height="480" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h4 class="mume-header" id="file-export-settings">File export settings</h4>
+
+<p><img src="assets/week7/fbx__export_settings.png" alt></p>
+<h4 class="mume-header" id="file-import-settings">File import settings</h4>
+
+<p><img src="assets/week7/fbx__import_settings_model.png" alt><br>
+<img src="assets/week7/fbx__import_settings_material.png" alt></p>
 <h2 class="mume-header" id="making-modules">Making Modules</h2>
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/52moIwsKpIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 class="mume-header" id="prefabs">Prefabs</h2>
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/UeC2UtKhnk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
       </div>
       
       

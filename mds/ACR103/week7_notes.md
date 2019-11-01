@@ -8,9 +8,22 @@ export_on_save:
 
 # Week 7: Maya To Unity
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
 
-   
+<!-- code_chunk_output -->
+
+- [Week 7: Maya To Unity](#week-7-maya-to-unity)
+  - [Realtime vs offline rendering](#realtime-vs-offline-rendering)
+  - [New Videos](#new-videos)
+  - [Short getting started videos](#short-getting-started-videos)
+  - [Prepping for export](#prepping-for-export)
+  - [The Unity Project](#the-unity-project)
+  - [Exporting to Unity](#exporting-to-unity)
+  - [Making Modules](#making-modules)
+  - [Prefabs](#prefabs)
+
+<!-- /code_chunk_output -->
+
 ## Realtime vs offline rendering
 
 3D rendering isn't defined by a single piece of software or target use/audience. It's the many ways that data definining 3D scenes/objects (in text or binary files) can be converted into viewable images.
@@ -36,6 +49,29 @@ _60 frames per second enables exciting experiences like 'dwarf glowers at camera
 
 _* A realtime game engine could in theory generate thousands of frames per second, but our monitors wouldn't make use of them._ 
 
+## New Videos
+
+I've recorded some new, more in depth videos since class. These first few deal with adding the stairs to the Unity scene.
+
+### Stairs
+
+Grab the [new scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1).
+
+![](assets/week7/unity_scene_new_prestairs.png)
+
+#### The scene, the task, the plan:
+<iframe width="720" height="480" src="https://www.youtube.com/embed/X1XSW7XNOu4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Tweaking, prepping, crashing, pushing through:
+<iframe width="720" height="480" src="https://www.youtube.com/embed/6YUW9998U80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Exporting, crashing,
+<iframe width="720" height="480" src="https://www.youtube.com/embed/93SVx4B9htc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Short getting started videos
+
+The videos in the sections below are unchanged from class. 
+
 ## Prepping for export
 
 Each piece needs to arrive in Unity ready to use: 
@@ -45,14 +81,35 @@ Each piece needs to arrive in Unity ready to use:
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Exporting from Maya
+**To add:**
+// Insert short video on adding to and removing from display layers
+// Grouping to organise
+// How much prefabbing/modularity req'd
+// More on Materials
 
-Grab my [lit unity scene here](https://www.dropbox.com/s/0nmionz6ww5qivg/unity___level.zip?dl=1). Next we'll import your level pieces into it.
+## The Unity Project
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+1. Grab my (updated) [lit unity scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1)
+2. Unzip it and rename the folder inside so it has your Lastname and Firstname. Erase the "RENAME" bit. You should be renaming a folder that contains the Assets, Library etc folders.
+
+## Exporting to Unity
+
+Next we'll import your level pieces into it.
+
+<iframe width="720" height="480" src="https://www.youtube.com/embed/N0rx9-CBhBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### File export settings
+
+![](assets/week7/fbx__export_settings.png)
+
+#### File import settings
+
+![](assets/week7/fbx__import_settings_model.png)
+![](assets/week7/fbx__import_settings_material.png)
 
 ## Making Modules
 <iframe width="720" height="480" src="https://www.youtube.com/embed/52moIwsKpIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prefabs
 <iframe width="720" height="480" src="https://www.youtube.com/embed/UeC2UtKhnk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
