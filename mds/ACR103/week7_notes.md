@@ -25,6 +25,7 @@ export_on_save:
     - [Prefabs](#prefabs)
   - [Expanded Videos](#expanded-videos)
     - [Stairs](#stairs)
+    - [More planned videos](#more-planned-videos)
   - [Realtime vs offline rendering](#realtime-vs-offline-rendering)
 
 <!-- /code_chunk_output -->
@@ -85,12 +86,6 @@ Each piece needs to arrive in Unity ready to use:
 
 <iframe width="720" height="480" src="https://www.youtube.com/embed/Gzi4g21NnM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**To add:**
-// Insert short video on adding to and removing from display layers
-// Grouping to organise
-// How much prefabbing/modularity req'd
-// More on Materials
-
 ### The Unity Project
 
 1. Grab my (updated) [lit unity scene here](https://www.dropbox.com/s/zwh16jj6i2qhpim/ACR103_Lastname_Firstname_Level_RENAME.zip?dl=1)
@@ -138,6 +133,13 @@ These first few deal with adding the stairs to the Unity scene.
 
 #### Exporting, crashing,
 <iframe width="720" height="480" src="https://www.youtube.com/embed/93SVx4B9htc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### More planned videos
+
+// Short one on adding to and removing from display layers
+// Grouping to organise
+// How much prefabbing/modularity req'd
+// More on Materials
 
 ## Realtime vs offline rendering
 
