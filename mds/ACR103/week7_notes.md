@@ -16,6 +16,7 @@ export_on_save:
   - [Next steps: assessment 2 week 7](#next-steps-assessment-2-week-7)
     - [Your final delivery](#your-final-delivery)
     - [What to do this week](#what-to-do-this-week)
+    - [How do I do all that?](#how-do-i-do-all-that)
   - [Short getting started videos](#short-getting-started-videos)
     - [Prepping for export](#prepping-for-export)
     - [The Unity Project](#the-unity-project)
@@ -65,7 +66,7 @@ Guidance:
        https://dmcgits.github.io/mds/ACR103/week5_notes.html#assessment-2-environment-modelling
 * Build out your expanded concept area as described in the assessment 2 section above.
 
-#### How do I do all that?
+### How do I do all that?
 
 * There are **videos below** offering lots of help. 
   - You'll need to **google and read documentation/examples** to expand on what I've taught. 
