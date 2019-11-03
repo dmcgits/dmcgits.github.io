@@ -311,12 +311,17 @@ pre[data-line] .line-highlight[data-end]:after {
 </li>
 <li><a href="#big-data">Big data</a>
 <ul>
+<li><a href="#terminology">Terminology</a></li>
 <li><a href="#exercise-code-zombies">Exercise: Code zombies</a></li>
 <li><a href="#using-the-contents-of-a-collection">Using the contents of a collection</a></li>
 <li><a href="#details-of-for-loop">Details of for loop</a></li>
 </ul>
 </li>
-<li><a href="#other-ways-to-fool-around-with-vectors">Other ways to fool around with vectors</a></li>
+<li><a href="#other-ways-to-fool-around-with-vectors">Other ways to fool around with vectors</a>
+<ul>
+<li><a href="#other-kinds-of-collections">Other kinds of collections.</a></li>
+</ul>
+</li>
 <li><a href="#switch-statements">Switch statements</a>
 <ul>
 <li><a href="#exercise-a-menu-using-the-switch-statement">Exercise: A menu using the switch statement</a></li>
@@ -358,14 +363,34 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="big-data">Big data</h2>
 
 <p>When you know something about a single thing or creature (hairLength, characterName, speed, hitPercentage) then a named variable for that piece of data makes sense.</p>
-<p>When it&#x2019;s the number of zombies in each carriage a train has, a record of every shot fired in the game and its hit/miss status, or the tiles/grid cell contents in a starcraft map, it makes more to treat them as a bunch of anonymous values in a list.</p>
+<p>When it&#x2019;s the <strong>number of zombies to battle in each carriage of a train</strong>, or a list of clans you could join, or the contents of each 64x64 pixel cell on a starcraft map, it makes more sense to <strong>treat them as a bunch of values in a list</strong>.</p>
+<p>Wouldn&#x2019;t this be handy?</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// Saving zombie counts to (many) different variables representing carriages</span>
+  carriage7Zombies <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+  carriage11Zombies <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>    
+  
+  <span class="token comment">// Saving to slots in a train carriage collection. A little better.</span>
+  carriageZombies<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+  carriageZombies<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Looping through a collection using a (counting) variable. Nice!</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>carriage <span class="token operator">&lt;</span> totalCarriages<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    carriageZombies<span class="token punctuation">[</span>carriage<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">getRandom</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+</pre><p><em>Happily, this exists. Except for that random function.</em></p>
 <p><img src="assets/week8/tiles_map_sc2.jpg" alt><br>
-<em>Your code might be checking a looot of cells every frame for things to draw or update</em></p>
+<em><strong>Imagine</strong> stepping through every cell on this grid 60 times a second with cell1, cell2&#x2026; cell2322</em></p>
+<h3 class="mume-header" id="terminology">Terminology</h3>
+
+<blockquote>
+<p>I&#x2019;ll be using list, collection and vector to mean the same thing. In practise we&#x2019;ll implement collections as <code>vector&lt;type&gt;</code> mostly.</p>
+</blockquote>
 <h3 class="mume-header" id="exercise-code-zombies">Exercise: Code zombies</h3>
 
 <p>Create a project in Visual studio and enter the code below, then we&#x2019;ll debug.</p>
-<p>Name it like so:<br>
-<img src="assets/week8/project_defining_zombie_population.png" alt></p>
+<p>Copy my naming, and use<br>
+<img src="assets/week8/project_zombie_collections.png" alt></p>
 <p>Enter the code and set the breakpoint:<br>
 <img src="assets/week8/code_defining_collections_carriageZombies.png" alt></p>
 <p>Run the debugger and, in the <em>locals</em> panel,  expand the collections.<br>
@@ -377,18 +402,32 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>The last index is size-1: if they contain 9 elements, the last index is <code>[8]</code></li>
 <li>You can use a variable in place of a number to check, for example, how many zombies are in the same carriage as the zombie : <code>[playerCurrentCarriage]</code>;</li>
 </ul>
-<p>Finally, we can talk about <code>for</code> loops. With a <code>while</code> loop for comparison.</p>
-<h1 class="mume-header" id="todo">TODO</h1>
-
-<p>/////////// while loop steps through carriages,<br>
-// states the current population of zombies, detonates Mortein Zombie Fast Knockdown Kitchen Safe, updates the population (0), states the new population.</p>
-<p>///// For loop version</p>
+<p>Lets finally use those <code>for</code> loops. They&#x2019;re great for filling and reading collections.</p>
+<p><strong>ZOMBIE TRAIN</strong><br>
+<img src="assets/week8/code_loop_zombies.png" alt></p>
 <h3 class="mume-header" id="details-of-for-loop">Details of for loop</h3>
 
-<p>Parts of it. Declaring variables inside it or outside.</p>
+<p>A for loop is just a while loop with three key parts jammed into the parentheses: setup of a counter variable, testing the end condition, and modifying the counter every loop (up or down usually).</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span>counter setup<span class="token punctuation">;</span> condition we end on<span class="token punctuation">;</span> change counter each loop<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// execute this code each loop</span>
+<span class="token punctuation">}</span>
+</pre><p>They can be nested like while loops.</p>
+<blockquote>
+<p>Most often programmers use <code>i</code>, <code>j</code>, <code>k</code> and so on for the name of the counter or <em>index</em> variable. It&#x2019;s a convention that saves thinking of counter names each time.</p>
+</blockquote>
 <h2 class="mume-header" id="other-ways-to-fool-around-with-vectors">Other ways to fool around with vectors</h2>
 
-<p>// adding, removing from end. same at other positions.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">carriageZombies<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Remove the last item in list, &quot;popping&quot; it off the end.</span>
+carriageZombies<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// Delete everyting. No more train zombie census data.</span>
+
+<span class="token comment">// Make a vector of strings and initialise it with values.</span>
+vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> zombieNames <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;Kaarhla&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Braaaeenda&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Eeyeeahghn&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>Look up the documentation or youtube for more vector features.</p>
+<h3 class="mume-header" id="other-kinds-of-collections">Other kinds of collections.</h3>
+
+<p>There are more than a few specialised collection types in C++. Typically they&#x2019;re referred to as &#x201C;containers&#x201D; in the documentation (though it&#x2019;s a bit ambiguous).</p>
+<p><code>hash</code>, <code>unordered_map</code>, <code>unordered_set</code>, <code>deque</code> are a few of them.</p>
 <h2 class="mume-header" id="switch-statements">Switch statements</h2>
 
 <p>Switch is like a series of &#x201C;if&#x2026; else&#x201D; statements with less curly braces and syntax. Useful for situations where there are many options and one outcome.</p>
@@ -426,7 +465,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <p>/// example with various  numbers thrown in</p>
 <h2 class="mume-header" id="break-is-brutal-in-for-loops">Break is brutal in For loops</h2>
 
-<p>/// show how it suddenly drops you out.</p>
+<p>Try putting one in either of your zombie train loops.</p>
 <h2 class="mume-header" id="unary-operators-are-complicated">Unary operators are complicated</h2>
 
 <p><code>x++</code> is pretty simple right?<br>
