@@ -392,7 +392,22 @@ pre[data-line] .line-highlight[data-end]:after {
 <h2 class="mume-header" id="switch-statements">Switch statements</h2>
 
 <p>Switch is like a series of &#x201C;if&#x2026; else&#x201D; statements with less curly braces and syntax. Useful for situations where there are many options and one outcome.</p>
-<h3 class="mume-header" id="exercise-a-menu-using-the-switch-statement">Exercise: A menu using the switch statement</h3>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Basic syntax of a switch statement.</span>
+<span class="token keyword">int</span> thing <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">switch</span><span class="token punctuation">(</span>thing<span class="token punctuation">)</span>   <span class="token comment">// like if  (thing == .. )</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+    <span class="token comment">// if thing is 1</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+    <span class="token comment">// if thing is 2</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token operator">:</span>
+    <span class="token comment">// otherwise (else, basically)</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="exercise-a-menu-using-the-switch-statement">Exercise: A menu using the switch statement</h3>
 
 <p>Create a project called &#x201C;Switches&#x201D; in your Week8Exercises solution and enter the following:</p>
 <p><img src="assets/week8/code_switches_menu.png" alt></p>

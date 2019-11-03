@@ -101,6 +101,24 @@ Parts of it. Declaring variables inside it or outside.
 
 Switch is like a series of "if.. else" statements with less curly braces and syntax. Useful for situations where there are many options and one outcome.
 
+```cpp
+// Basic syntax of a switch statement.
+int thing = 1;
+
+switch(thing)   // like if  (thing == .. )
+{
+  case 1:
+    // if thing is 1
+    break;
+  case 2:
+    // if thing is 2
+    break;
+  default:
+    // otherwise (else, basically)
+    break;
+}
+```
+
 ### Exercise: A menu using the switch statement
 Create a project called "Switches" in your Week8Exercises solution and enter the following:
 
