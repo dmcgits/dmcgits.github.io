@@ -1,6 +1,33 @@
+---
+html:
+  embed_local_images: false
+  offline: false
+export_on_save:
+  html: true
+---
 # ISE102 Week 8: Collections and Exam
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [ISE102 Week 8: Collections and Exam](#ise102-week-8-collections-and-exam)
+  - [This week](#this-week)
+    - [Uses for collections in games](#uses-for-collections-in-games)
+    - [Exercise: Your collections](#exercise-your-collections)
+  - [Big data](#big-data)
+    - [Exercise: Code zombies](#exercise-code-zombies)
+    - [Using the contents of a collection](#using-the-contents-of-a-collection)
+    - [Details of for loop](#details-of-for-loop)
+  - [Other ways to fool around with vectors](#other-ways-to-fool-around-with-vectors)
+  - [Switch statements](#switch-statements)
+    - [Exercise: A menu using the switch statement](#exercise-a-menu-using-the-switch-statement)
+    - [Enums can get spicey when you assign values.](#enums-can-get-spicey-when-you-assign-values)
+  - [Break is brutal in For loops](#break-is-brutal-in-for-loops)
+  - [Unary operators are complicated](#unary-operators-are-complicated)
+    - [Exercise: Testing unary operators](#exercise-testing-unary-operators)
+
+<!-- /code_chunk_output -->
 
 ## This week
 
@@ -20,7 +47,7 @@ Contents of a Hearthstone deck, inventory items, equipped items, cars in a race,
 ![](assets/week8/smash_player_select.jpg)
 
 
-### Activity: your collections
+### Exercise: Your collections
 
 Head to this discussion thread and post your own collections:
 [Week 8 - Collections on Blackboard](https://laureate-au.blackboard.com/webapps/discussionboard/do/message?action=list_messages&course_id=_76681_1&nav=discussion_board_entry&conf_id=_114402_1&forum_id=_728750_1&message_id=_1856292_1)
@@ -74,23 +101,26 @@ Parts of it. Declaring variables inside it or outside.
 
 Switch is like a series of "if.. else" statements with less curly braces and syntax. Useful for situations where there are many options and one outcome.
 
+### Exercise: A menu using the switch statement
 Create a project called "Switches" in your Week8Exercises solution and enter the following:
 
 ![](assets/week8/code_switches_menu.png)
 
-### Break is strange in switch statements
+#### Break is strange in switch statements
 
 Try this:
 1: Remove the `break;` line from the `case 2:` section.
 2: Run the program and enter `2`.
 3: What?!?
 
-### Enums make switches easier to use
+#### Enums make switches easier to use
 
+Now try add in some enums! (put the `break;` back in first).
 ![](assets/week8/code_switches_enums.png)
 
-
 ### Enums can get spicey when you assign values.
+
+/// example with various  numbers thrown in
 
 ## Break is brutal in For loops
 
@@ -123,7 +153,3 @@ It's the only operator that comes to mind which represents 2 whole lines of code
   x = b++;
   // What do you think it becomes??
 ```
-
-
-
-
