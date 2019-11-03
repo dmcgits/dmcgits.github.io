@@ -84,7 +84,7 @@ Run the debugger and, in the _locals_ panel,  expand the collections.
 - You can use a variable in place of a number to check, for example, how many zombies are in the same carriage as the zombie : `[playerCurrentCarriage]`;
 
 Finally, we can talk about `for` loops. With a `while` loop for comparison.
-
+#TODO
 /////////// while loop steps through carriages, 
 // states the current population of zombies, detonates Mortein Zombie Fast Knockdown Kitchen Safe, updates the population (0), states the new population.
 
