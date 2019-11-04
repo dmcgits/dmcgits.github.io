@@ -7,7 +7,7 @@ export_on_save:
 ---
 # ISE102 Week 8: Collections and Exam
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=2 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
@@ -52,7 +52,8 @@ Contents of a Hearthstone deck, inventory items, equipped items, cars in a race,
 ### Exercise: Your collections
 
 Head to this discussion thread and post your own collections:
-[Week 8 - Collections on Blackboard](https://laureate-au.blackboard.com/webapps/discussionboard/do/message?action=list_messages&course_id=_76681_1&nav=discussion_board_entry&conf_id=_114402_1&forum_id=_728750_1&message_id=_1856292_1)
+[Ultimo Class: Collections on Blackboard](https://laureate-au.blackboard.com/webapps/discussionboard/do/message?action=list_messages&course_id=_76681_1&nav=discussion_board_entry&conf_id=_114402_1&forum_id=_728750_1&message_id=_1856292_1)
+[Online Class: Collections on Blackboard](https://laureate-au.blackboard.com/webapps/discussionboard/do/message?action=list_messages&course_id=_76906_1&nav=discussion_board_entry&conf_id=_114639_1&forum_id=_726230_1&message_id=_1857597_1)
 
 5 collections from real games you've played:
 5 collections in your online life (ie Instagram follows)
