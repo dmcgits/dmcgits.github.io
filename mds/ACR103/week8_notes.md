@@ -15,6 +15,9 @@ export_on_save:
 - [Week 8: Finalising Assessment 2](#week-8-finalising-assessment-2)
   - [This week](#this-week)
   - [How to deliver the assessment](#how-to-deliver-the-assessment)
+- [// Make Video](#make-video)
+    - [Project resolution](#project-resolution)
+  - [// Make video](#make-video)
   - [Using Unity materials](#using-unity-materials)
   - [Necessary Lighting info](#necessary-lighting-info)
   - [Basic UV unwrap](#basic-uv-unwrap)
@@ -31,17 +34,23 @@ Basic uv unwrapping and texturing of floor tile
 3D Coat for those curious
 
 ## How to deliver the assessment
-_Naming the project/file_
-_Deleting tx file_
-_Zipping the project_
-Make Video
+
+1. You **DO NOT** need to supply a build of your level.
+2. I **DO** want your Unity project zipped up and named like so:
+  **ACR103_Lastname_Firstname_Level**
+3. You'll notice it has the name of the project I gave you, because I gave it to you to use as your base. **DO** import and build your level pieces in the project and scene I provided.
+4. **DO** remember to put your actual Lastname and Firstname in there.
+
+# // Make Video
 
 ### Project resolution
 You want me to see what you saw in the game view.
-Setting player to windowed
-Setting player resolution
-Setting Game view to player resolution.
-Make video
+In _Edit->Project Settings_ head to _Player Settings_ and _Resolution_
+I already set it to _Windowed_. Change resolution to something common like **1280x720** or **1920x
+1080**. Mine used a weird vertical resolution because of the concept.
+Open the "Game" window/tab in Unity if you don't already have it open, and make sure it's set to the target resolution rather than "free aspec ratio".
+
+## // Make video
 
 ## Using Unity materials
 PBR like Arnold.

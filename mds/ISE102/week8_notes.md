@@ -13,11 +13,21 @@ export_on_save:
 
 - [ISE102 Week 8: Collections and Exam](#ise102-week-8-collections-and-exam)
   - [This week](#this-week)
+    - [Uses for collections in games](#uses-for-collections-in-games)
+    - [Exercise: Your collections](#exercise-your-collections)
   - [Big data](#big-data)
+    - [Terminology](#terminology)
+    - [Exercise: Code zombies](#exercise-code-zombies)
+    - [Using the contents of a collection](#using-the-contents-of-a-collection)
+    - [Details of for loop](#details-of-for-loop)
   - [Other ways to fool around with vectors](#other-ways-to-fool-around-with-vectors)
+    - [Other kinds of collections.](#other-kinds-of-collections)
   - [Switch statements](#switch-statements)
+    - [Exercise: A menu using the switch statement](#exercise-a-menu-using-the-switch-statement)
+    - [Enums can get spicey when you assign values.](#enums-can-get-spicey-when-you-assign-values)
   - [Break is brutal in For loops](#break-is-brutal-in-for-loops)
   - [Unary operators are complicated](#unary-operators-are-complicated)
+    - [Exercise: Testing unary operators](#exercise-testing-unary-operators)
 
 <!-- /code_chunk_output -->
 
@@ -97,7 +107,7 @@ Run the debugger and, in the _locals_ panel,  expand the collections.
 
 - Collections are accessed with some `[]` square brackets containing a numerical index, beginning at `[0]`.
 - The last index is size-1: if they contain 9 elements, the last index is `[8]`
-- You can use a variable in place of a number to check, for example, how many zombies are in the same carriage as the zombie : `[playerCurrentCarriage]`;
+- You can use a variable in place of a number to check, for example, how many zombies are in the same carriage as the player: `[playerCurrentCarriage]`;
 
 Lets finally use those `for` loops. They're great for filling and reading collections.
 
