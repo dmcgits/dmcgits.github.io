@@ -198,24 +198,7 @@ pre[data-line] .line-highlight[data-end]:after {
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
-@font-face {
-  font-family: 'Georgia';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
-}
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
-}
 .markdown-preview.markdown-preview {
-  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F9F9F9;
-  font-size: 1.1em;
   color: #222;
 }
 .markdown-preview.markdown-preview blockquote {
@@ -224,40 +207,32 @@ pre[data-line] .line-highlight[data-end]:after {
   margin-left: 0.7em;
 }
 .markdown-preview.markdown-preview h1 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.9em;
-  font-weight: 700;
+  font-size: 2.25em;
+  font-weight: 600;
   padding-bottom: 0.3em;
+  background-color: #E5EAFF;
 }
 .markdown-preview.markdown-preview h2 {
-  color: #333;
-  font-family: 'Merriweather', serif;
-  font-size: 1.2em;
+  font-size: 1.75em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
-  padding-top: 0.25em;
-  background-color: #E1E1EA;
+  background-color: #F1F4FF;
+  border-bottom-color: #D1D1DE;
+  border-bottom-style: solid;
+  border-bottom-width: 0.08em;
 }
 .markdown-preview.markdown-preview h3 {
-  color: #445;
-  font-family: 'Merriweather', serif;
-  font-size: 1.05em;
+  font-size: 1.45em;
   font-weight: 600;
   padding-left: 0.2em;
-  padding-bottom: 0.2em;
-  padding-top: 0.2em;
-  background-color: #F2F2F4;
+  padding-bottom: 0.1em;
+  background-color: #F4F8FA;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.05em;
+  font-size: 1.25em;
   font-weight: 600;
   font-style: italic;
-}
-.markdown-preview.markdown-preview img {
-  margin-bottom: 0px;
-  margin-top: 18px;
 }
 .markdown-preview.markdown-preview a:not([href]) {
   font-weight: 600;
@@ -270,6 +245,7 @@ pre[data-line] .line-highlight[data-end]:after {
   text-decoration: none;
 }
 .markdown-preview.markdown-preview a:hover {
+  font-weight: 600;
   color: #009BD2;
   text-decoration: none;
 }
@@ -300,25 +276,29 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-8-finalising-assessment-2">Week 8: Finalising Assessment 2</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
 <li><a href="#week-8-finalising-assessment-2">Week 8: Finalising Assessment 2</a>
-<ul>
+<ol>
 <li><a href="#this-week">This week</a></li>
 <li><a href="#how-to-deliver-the-assessment">How to deliver the assessment</a></li>
-</ul>
+</ol>
 </li>
-<li><a href="#make-video">// Make Video</a>
-<ul>
-<li><a href="#project-resolution">Project resolution</a></li>
-<li><a href="#make-video">// Make video</a></li>
+<li><a href="#-make-video">// Make Video</a></li>
+<li><a href="#-make-video">// Make video</a>
+<ol>
 <li><a href="#using-unity-materials">Using Unity materials</a></li>
+</ol>
+</li>
+<li><a href="#-make-video-1">// Make Video</a></li>
+<li><a href="#-make-video-2">// Make Video</a>
+<ol>
 <li><a href="#necessary-lighting-info">Necessary Lighting info</a></li>
 <li><a href="#basic-uv-unwrap">Basic UV unwrap</a></li>
 <li><a href="#basic-texturing">Basic texturing</a></li>
 <li><a href="#further-learning">Further learning</a></li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 <h2 class="mume-header" id="this-week">This week</h2>
 
 <p>How to deliver the assessment<br>
@@ -339,25 +319,57 @@ Basic uv unwrapping and texturing of floor tile<br>
 
 <h3 class="mume-header" id="project-resolution">Project resolution</h3>
 
-<p>You want me to see what you saw in the game view.<br>
-In <em>Edit-&gt;Project Settings</em> head to <em>Player Settings</em> and <em>Resolution</em><br>
-I already set it to <em>Windowed</em>. Change resolution to something common like <strong>1280x720</strong> or <strong>1920x<br>
-1080</strong>. Mine used a weird vertical resolution because of the concept.<br>
-Open the &#x201C;Game&#x201D; window/tab in Unity if you don&#x2019;t already have it open, and make sure it&#x2019;s set to the target resolution rather than &#x201C;free aspec ratio&#x201D;.</p>
-<h2 class="mume-header" id="make-video-1">// Make video</h2>
+<p>You want me to see what you saw in the game view.</p>
+<ul>
+<li>kIn <em>Edit-&gt;Project Settings</em> head to <em>Player Settings</em> and <em>Resolution</em></li>
+<li>I already set it to <em>Windowed</em>. Change resolution to something common like <strong>1280x720</strong> or <strong>1920x1080</strong>. <em>(Mine used a weird vertical resolution because of the concept)</em></li>
+<li>Open the &#x201C;Game&#x201D; window/tab in Unity if you don&#x2019;t already have it open, and make sure it&#x2019;s set to the target resolution rather than &#x201C;free aspect ratio&#x201D;.</li>
+</ul>
+<h1 class="mume-header" id="make-video-1">// Make video</h1>
 
 <h2 class="mume-header" id="using-unity-materials">Using Unity materials</h2>
 
-<p>PBR like Arnold.<br>
-Assigning to objects in a prefab<br>
-Different materials on objects in a single exported fbx<br>
-Using gloss and matte, metallic and not to create contrast.<br>
-Demonstrate in class</p>
+<p>The Unity materials work similarly to Arnold. They&#x2019;re based on the same &#x2018;physically based rendering&#x2019; concept.</p>
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/shader-StandardShader.html">https://docs.unity3d.com/Manual/shader-StandardShader.html</a><br>
+<img src="assets/week8/unity_material_parameters" alt="Material  Parameters"></li>
+<li>Albedo gives you basic colour control</li>
+<li>Metallic goes from 0 (plastic/wood/cloth etc) to 1</li>
+<li>Smoothness goes from 0 (completely matte) to 1 (sharp reflections)</li>
+<li>Emission allows an object to emit light. HDR colours can go above 1 (the maximum for normal colour), to create bright light sources.</li>
+</ul>
+<h3 class="mume-header" id="a-word-on-how-well-apply-materials">A word on how we&#x2019;ll apply materials</h3>
+
+<p>We&#x2019;re going to be applying multiple materials to get different colours and surfaces. In a game we&#x2019;d be using fewer materials and painting texture maps to control colour and surface on different parts of our models.</p>
+<p><img src="assets/week8/dva_textures.jpg" alt="dva textures"></p>
+<p>We&#x2019;ll do that in assessment 3. For now we&#x2019;ll touch on the idea.</p>
+<h1 class="mume-header" id="make-video-2">// Make Video</h1>
+
+<h3 class="mume-header" id="using-gloss-and-matte-metallic-and-not-to-create-contrast">Using gloss and matte, metallic and not to create contrast.</h3>
+
+<p>Dark and light, contrasting colours, contrasting gloss and metalness.</p>
+<h3 class="mume-header" id="assigning-to-objects-in-a-prefab">Assigning to objects in a prefab</h3>
+
+<p>Covered in this video last week:</p>
+<iframe width="720" height="480" src="https://www.youtube.com/embed/UeC2UtKhnk4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3 class="mume-header" id="multiple-materials-for-one-fbx">Multiple materials for one fbx</h3>
+
+<p>Some assets need multiple materials, despite being exported as a single component to fbx:</p>
+<ul>
+<li>A wall with a window</li>
+<li>A table with cloth/metal components</li>
+<li>If you leave them as separate objects they will still be separate inside the fbx, and can have their own materials</li>
+</ul>
+<h1 class="mume-header" id="make-video-3">// Make Video</h1>
+
+<p>&#x2026;If including videos i still need to live demo</p>
 <h2 class="mume-header" id="necessary-lighting-info">Necessary Lighting info</h2>
 
-<p>Gloss only works once the reflect map (from the hdr environment) is baked<br>
-Speed vs Quality: useful lightmap settings values.<br>
-Make video, screenshot settings with fields hilighted</p>
+<ul>
+<li>Gloss only works once the reflect map (from the hdr environment) is baked</li>
+<li>Speed vs Quality: useful lightmap settings values.</li>
+<li>Make video, screenshot settings with fields hilighted</li>
+</ul>
 <h2 class="mume-header" id="basic-uv-unwrap">Basic UV unwrap</h2>
 
 <p>Images of packaging and papercraft. Print some<br>
