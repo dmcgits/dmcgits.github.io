@@ -23,6 +23,7 @@ export_on_save:
     - [Multiple materials for one fbx](#multiple-materials-for-one-fbx)
     - [// live demo](#live-demo)
   - [Necessary Lighting info](#necessary-lighting-info)
+    - [// Live Demo of lighting](#live-demo-of-lighting)
   - [Basic UV unwrap](#basic-uv-unwrap)
     - [Bad UVs](#bad-uvs)
   - [Basic texturing](#basic-texturing)
@@ -104,7 +105,9 @@ Some assets need multiple materials, despite being exported as a single componen
 
 * Gloss only works once the reflect map (from the hdr environment) is baked, giving the material something to reflect.
 * Speed vs Quality: useful lightmap settings values.
-* Make video, screenshot settings with fields hilighted
+
+### // Live Demo  of lighting
+(coming soon:screenshot settings with fields hilighted)
 
 ## Basic UV unwrap
 Textures are 2D images wrapped around 3D objects. We have to find ways to do that without stretching the image too much. It's much like creating papercraft toys in 3D.
