@@ -198,7 +198,24 @@ pre[data-line] .line-highlight[data-end]:after {
   // eg: background-color: blue;  
   background-color: #282A36;
 }*/
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Georgia'), url(https://fonts.gstatic.com/l/font?kit=-zkl91Ksy8U47Wnsfmm8xA&skey=ca45512e77838097&v=v9) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Merriweather Regular'), local('Merriweather-Regular'), url(https://fonts.gstatic.com/s/merriweather/v21/u-440qyriQwlOrhSvowK_l5-fCZJ.ttf) format('truetype');
+}
 .markdown-preview.markdown-preview {
+  font-family: 'Georgia', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F9F9F9;
+  font-size: 1.1em;
   color: #222;
 }
 .markdown-preview.markdown-preview blockquote {
@@ -207,32 +224,40 @@ pre[data-line] .line-highlight[data-end]:after {
   margin-left: 0.7em;
 }
 .markdown-preview.markdown-preview h1 {
-  font-size: 2.25em;
-  font-weight: 600;
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.9em;
+  font-weight: 700;
   padding-bottom: 0.3em;
-  background-color: #E5EAFF;
 }
 .markdown-preview.markdown-preview h2 {
-  font-size: 1.75em;
+  color: #333;
+  font-family: 'Merriweather', serif;
+  font-size: 1.2em;
   font-weight: 600;
   padding-left: 0.1em;
   padding-bottom: 0.3em;
-  background-color: #F1F4FF;
-  border-bottom-color: #D1D1DE;
-  border-bottom-style: solid;
-  border-bottom-width: 0.08em;
+  padding-top: 0.25em;
+  background-color: #E1E1EA;
 }
 .markdown-preview.markdown-preview h3 {
-  font-size: 1.45em;
+  color: #445;
+  font-family: 'Merriweather', serif;
+  font-size: 1.05em;
   font-weight: 600;
   padding-left: 0.2em;
-  padding-bottom: 0.1em;
-  background-color: #F4F8FA;
+  padding-bottom: 0.2em;
+  padding-top: 0.2em;
+  background-color: #F2F2F4;
 }
 .markdown-preview.markdown-preview h4 {
-  font-size: 1.25em;
+  font-size: 1.05em;
   font-weight: 600;
   font-style: italic;
+}
+.markdown-preview.markdown-preview img {
+  margin-bottom: 0px;
+  margin-top: 18px;
 }
 .markdown-preview.markdown-preview a:not([href]) {
   font-weight: 600;
@@ -245,7 +270,6 @@ pre[data-line] .line-highlight[data-end]:after {
   text-decoration: none;
 }
 .markdown-preview.markdown-preview a:hover {
-  font-weight: 600;
   color: #009BD2;
   text-decoration: none;
 }
@@ -276,78 +300,83 @@ pre[data-line] .line-highlight[data-end]:after {
       <div class="mume markdown-preview  ">
       <h1 class="mume-header" id="week-8-finalising-assessment-2">Week 8: Finalising Assessment 2</h1>
 
-<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ol>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
 <li><a href="#week-8-finalising-assessment-2">Week 8: Finalising Assessment 2</a>
-<ol>
+<ul>
 <li><a href="#this-week">This week</a></li>
-<li><a href="#how-to-deliver-the-assessment">How to deliver the assessment</a></li>
-</ol>
+<li><a href="#how-to-deliver-the-assessment">How to deliver the assessment</a>
+<ul>
+<li><a href="#project-resolution">Project resolution</a></li>
+</ul>
 </li>
-<li><a href="#-make-video">// Make Video</a></li>
-<li><a href="#-make-video">// Make video</a>
-<ol>
-<li><a href="#using-unity-materials">Using Unity materials</a></li>
-</ol>
+<li><a href="#using-unity-materials">Using Unity materials</a>
+<ul>
+<li><a href="#a-word-on-how-well-apply-materials">A word on how we&#x2019;ll apply materials</a></li>
+<li><a href="#using-gloss-and-matte-metallic-and-not-to-create-contrast">Using gloss and matte, metallic and not to create contrast.</a></li>
+<li><a href="#assigning-to-objects-in-a-prefab">Assigning to objects in a prefab</a></li>
+<li><a href="#multiple-materials-for-one-fbx">Multiple materials for one fbx</a></li>
+<li><a href="#live-demo">// live demo</a></li>
+</ul>
 </li>
-<li><a href="#-make-video-1">// Make Video</a></li>
-<li><a href="#-make-video-2">// Make Video</a>
-<ol>
 <li><a href="#necessary-lighting-info">Necessary Lighting info</a></li>
-<li><a href="#basic-uv-unwrap">Basic UV unwrap</a></li>
+<li><a href="#basic-uv-unwrap">Basic UV unwrap</a>
+<ul>
+<li><a href="#bad-uvs">Bad UVs</a></li>
+</ul>
+</li>
 <li><a href="#basic-texturing">Basic texturing</a></li>
 <li><a href="#further-learning">Further learning</a></li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 <h2 class="mume-header" id="this-week">This week</h2>
 
 <p>How to deliver the assessment<br>
 Setting the project to windowed and choosing a resolution<br>
 Using unity materials<br>
-Basic uv unwrapping and texturing of floor tile<br>
-3D Coat for those curious</p>
+Basic uv unwrapping and texturing of floor tile</p>
 <h2 class="mume-header" id="how-to-deliver-the-assessment">How to deliver the assessment</h2>
 
 <ol>
 <li>You <strong>DO NOT</strong> need to supply a build of your level.</li>
-<li>I <strong>DO</strong> want your Unity project zipped up and named like so:<br>
+<li>I <strong>DO</strong> want your Unity project folder zipped up and named like so, but with your own name:<br>
 <strong>ACR103_Lastname_Firstname_Level</strong></li>
 <li>You&#x2019;ll notice it has the name of the project I gave you, because I gave it to you to use as your base. <strong>DO</strong> import and build your level pieces in the project and scene I provided.</li>
-<li><strong>DO</strong> remember to put your actual Lastname and Firstname in there.</li>
 </ol>
-<h1 class="mume-header" id="make-video">// Make Video</h1>
-
+<p><img src="assets/week8/unity_project_folder_contents.png" alt><br>
+<em>Common contents of a Unity project folder</em></p>
+<p>I step up one folder, right click the Unity project folder and right click it -&gt; <em>Send To</em> -&gt; <em>Compressed folder</em> or <em>z7ip</em> -&gt; <em>add to ACR103_McGillick_Level.zip</em></p>
+<p><img src="assets/week8/project_zipped.png" alt><br>
+<em>The zip file made from my project folder.</em></p>
 <h3 class="mume-header" id="project-resolution">Project resolution</h3>
 
 <p>You want me to see what you saw in the game view.</p>
 <ul>
 <li>kIn <em>Edit-&gt;Project Settings</em> head to <em>Player Settings</em> and <em>Resolution</em></li>
 <li>I already set it to <em>Windowed</em>. Change resolution to something common like <strong>1280x720</strong> or <strong>1920x1080</strong>. <em>(Mine used a weird vertical resolution because of the concept)</em></li>
-<li>Open the &#x201C;Game&#x201D; window/tab in Unity if you don&#x2019;t already have it open, and make sure it&#x2019;s set to the target resolution rather than &#x201C;free aspect ratio&#x201D;.</li>
+<li>Open the &#x201C;Game&#x201D; window/tab in Unity if you don&#x2019;t already have it open, and make sure it&#x2019;s set to &#x201C;Standalone&#x201D; rather than &#x201C;Free aspect ratio&#x201D;.</li>
 </ul>
-<h1 class="mume-header" id="make-video-1">// Make video</h1>
-
+<p><img src="assets/week8/player_resolution_settings_game_standalone.png" alt></p>
 <h2 class="mume-header" id="using-unity-materials">Using Unity materials</h2>
 
 <p>The Unity materials work similarly to Arnold. They&#x2019;re based on the same &#x2018;physically based rendering&#x2019; concept.</p>
 <ul>
-<li><a href="https://docs.unity3d.com/Manual/shader-StandardShader.html">https://docs.unity3d.com/Manual/shader-StandardShader.html</a><br>
-<img src="assets/week8/unity_material_parameters" alt="Material  Parameters"></li>
+<li><a href="https://docs.unity3d.com/Manual/shader-StandardShader.html">https://docs.unity3d.com/Manual/shader-StandardShader.html</a></li>
 <li>Albedo gives you basic colour control</li>
 <li>Metallic goes from 0 (plastic/wood/cloth etc) to 1</li>
 <li>Smoothness goes from 0 (completely matte) to 1 (sharp reflections)</li>
-<li>Emission allows an object to emit light. HDR colours can go above 1 (the maximum for normal colour), to create bright light sources.</li>
+<li>Emission allows an object to emit light. HDR colours can go above 1 (the maximum for normal colour), to create bright light sources.<br>
+<img src="assets/week8/unity_material_parameters.png" alt="Material  Parameters"></li>
 </ul>
 <h3 class="mume-header" id="a-word-on-how-well-apply-materials">A word on how we&#x2019;ll apply materials</h3>
 
 <p>We&#x2019;re going to be applying multiple materials to get different colours and surfaces. In a game we&#x2019;d be using fewer materials and painting texture maps to control colour and surface on different parts of our models.</p>
 <p><img src="assets/week8/dva_textures.jpg" alt="dva textures"></p>
 <p>We&#x2019;ll do that in assessment 3. For now we&#x2019;ll touch on the idea.</p>
-<h1 class="mume-header" id="make-video-2">// Make Video</h1>
-
 <h3 class="mume-header" id="using-gloss-and-matte-metallic-and-not-to-create-contrast">Using gloss and matte, metallic and not to create contrast.</h3>
 
 <p>Dark and light, contrasting colours, contrasting gloss and metalness.</p>
+<p>// screenshot of well textured object would be welcome</p>
 <h3 class="mume-header" id="assigning-to-objects-in-a-prefab">Assigning to objects in a prefab</h3>
 
 <p>Covered in this video last week:</p>
@@ -360,26 +389,63 @@ Basic uv unwrapping and texturing of floor tile<br>
 <li>A table with cloth/metal components</li>
 <li>If you leave them as separate objects they will still be separate inside the fbx, and can have their own materials</li>
 </ul>
-<h1 class="mume-header" id="make-video-3">// Make Video</h1>
+<h3 class="mume-header" id="live-demo">// live demo</h3>
 
-<p>&#x2026;If including videos i still need to live demo</p>
 <h2 class="mume-header" id="necessary-lighting-info">Necessary Lighting info</h2>
 
 <ul>
-<li>Gloss only works once the reflect map (from the hdr environment) is baked</li>
+<li>Gloss only works once the reflect map (from the hdr environment) is baked, giving the material something to reflect.</li>
 <li>Speed vs Quality: useful lightmap settings values.</li>
 <li>Make video, screenshot settings with fields hilighted</li>
 </ul>
 <h2 class="mume-header" id="basic-uv-unwrap">Basic UV unwrap</h2>
 
-<p>Images of packaging and papercraft. Print some<br>
-Creating uvs<br>
-Cutting edges and unfolding<br>
-Auto unfold, auto orient, auto layout!<br>
-screenshot good settings hilighted<br>
-short video</p>
+<p>Textures are 2D images wrapped around 3D objects. We have to find ways to do that without stretching the image too much. It&#x2019;s much like creating papercraft toys in 3D.</p>
+<p><img src="assets/week8/papercraft_thanos_made.png" alt><br>
+<a href="assets/week8/papercraft_thanos.pdf"><img src="assets/week8/papercraft_thanos_unfolded.png" alt></a><br>
+<em>Click unfolded Thanos to download a pdf pattern</em></p>
+<p><img src="assets/week8/papercraft_sweet_monster_made.jpg" alt><br>
+<a href="assets/week8/papercraft_tougui_sweet_monster.pdf"><img src="assets/week8/papercraft_sweet_monster_unfolded.jpg" alt></a><br>
+_Click unfolded monster to download a pdf pattern.<br>
+<img src="assets/week8/papercraft_lootbox.jpg" alt></p>
+<p><img src="assets/week8/dva_textures.jpg" alt="dva textures"><br>
+_Have another peek at the DVa textures with fresh eyes.</p>
+<h3 class="mume-header" id="bad-uvs">Bad UVs</h3>
+
+<p>Objects have a default uv layout when Maya creates them. Usually they become badly distorted as you model.</p>
+<p><img src="assets/week8/uvs_tile_bad_extruded.png" alt><br>
+<em>One side looks blank, the other is striped and full of errors</em></p>
+<h4 class="mume-header" id="create-new-starting-uvs">Create new starting UVs:</h4>
+
+<ul>
+<li>Go into Maya&#x2019;s UV workspace<br>
+<img src="assets/week8/maya_uvEditing_workspace.png" alt></li>
+<li>(optionally, delet the original uvs)</li>
+<li>In the perspective view, tumble and look the model from above at 45 degrees, classic strategy game view.</li>
+<li>UV Tookit -&gt; Create -&gt; Camera-based<br>
+<img src="assets/week8/create_uvs_camera.png" alt></li>
+</ul>
+<p>The new UVS are distorted in 2D to resemble what the camera saw. They&#x2019;re all joined together like the mesh too. We need to cut it like papercraft.</p>
+<h4 class="mume-header" id="cutting-and-unfolding">Cutting and unfolding</h4>
+
+<ul>
+<li>In edge mode, select (and shift select) edges to cut<br>
+<img src="assets/week8/select_edges_to_cut.png" alt></li>
+<li>UV Toolkit -&gt; Cut and Sew -&gt; Cut</li>
+</ul>
+<p>These next steps were all done by hand previously (and often still are):</p>
+<ul>
+<li>Select all edges</li>
+<li>Uv Toolkit -&gt; Unfold -&gt; Unfold</li>
+<li>Uv Toolkit -&gt; Arrange and Layout -&gt; Auto Orient</li>
+<li>Uv Toolkit -&gt; Arrange and Layout -&gt; Layout<br>
+<img src="assets/week8/uvs_unfold_orient_layout.png" alt><br>
+<em>Unfolded, oriented, then laid out. Colours altered in photoshop.</em></li>
+</ul>
+<p>There are lots of settings for Unfold and Layout. We&#x2019;ll cover in assessment 3 classes.</p>
 <h2 class="mume-header" id="basic-texturing">Basic texturing</h2>
 
+<p>If we have time&#x2026;</p>
 <p>Export uvs layout image<br>
 Import to photoshop/krita<br>
 Install Krita portable if you want to and don&#x2019;t have photoshop at home. (check krita 3D coat integration)</p>
