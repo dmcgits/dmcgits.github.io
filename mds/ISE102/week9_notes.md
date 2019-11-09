@@ -21,7 +21,7 @@ export_on_save:
   - [Things to learn while making Snake](#things-to-learn-while-making-snake)
     - [Games with Frames](#games-with-frames)
     - [Drawing big 80s pixels.](#drawing-big-80s-pixels)
-    - [How Are we going to do that?](#how-are-we-going-to-do-that)
+  - [Making pixel games with `eightiesGame.h`](#making-pixel-games-with-eightiesgameh)
 
 <!-- /code_chunk_output -->
 
@@ -153,7 +153,7 @@ _'Whizball' for Fairchild.
 ![](assets/week9/snake_huge_pixels.png)
 _An example of huge pixel snake_
 
-### How Are we going to do that?
+## Making pixel games with `eightiesGame.h`
 
 We'll use a library that treats the windows console/terminal like low resolution screen, and by drawing a square text character instead of letters, it treats each potential character on screen as a pixel.
 
