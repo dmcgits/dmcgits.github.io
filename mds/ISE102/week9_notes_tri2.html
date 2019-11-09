@@ -1,0 +1,327 @@
+<!DOCTYPE html><html><head>
+      <title>week9_notes</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="week-9-objectsclasses-2-making-games">Week 9 - Objects/Classes 2, Making Games.</h1>
+
+<p>Recapping last week, taking it further. Making games with the game loop.</p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-9---objectsclasses-2-making-games">Week 9 - Objects/Classes 2, Making Games.</a>
+<ul>
+<li><a href="#assessment-3-snake">Assessment 3: Snake</a></li>
+<li><a href="#answering-the-brief">Answering the brief</a>
+<ul>
+<li><a href="#extras-after-requirements">Extras after requirements</a></li>
+<li><a href="#bullet-points">Bullet points:</a></li>
+</ul>
+</li>
+<li><a href="#delivering-the-assessment">Delivering the assessment</a>
+<ul>
+<li><a href="#create-your-solution-with-the-right-name">Create your solution with the right name</a></li>
+<li><a href="#find-and-compress-your-solution">Find and compress your solution</a></li>
+</ul>
+</li>
+<li><a href="#objects-classes-recap">Objects classes recap</a></li>
+<li><a href="#adding-functions-to-classes">Adding functions to classes</a>
+<ul>
+<li><a href="#selectively-sharing">Selectively sharing</a></li>
+<li><a href="#coding-obects-week-8">Coding obects (week 8)</a></li>
+</ul>
+</li>
+<li><a href="#a-game-is-a-simulation">A Game Is A Simulation</a>
+<ul>
+<li><a href="#starting-at-the-end-graphics-are-just-the-output">Starting at the end: Graphics are just the output</a></li>
+<li><a href="#things-happen">Things happen</a></li>
+<li><a href="#input">Input</a></li>
+<li><a href="#the-game-loop-then">The game loop, then.</a></li>
+<li><a href="#coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</a></li>
+</ul>
+</li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#todo-by-week-10">Todo by week 10</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="assessment-3-snake">Assessment 3: Snake</h2>
+
+<h2 class="mume-header" id="answering-the-brief">Answering the brief</h2>
+
+<p>As a coder, you are a maker. You build things for people, and when you make something for someone it followes a design, a plan, a <em>brief</em>. Our&#x2019;s is the assessment 3 brief from blackboard:</p>
+<p>The brief: <a href="https://laureate-au.blackboard.com/bbcswebdav/pid-7475676-dt-content-rid-31789150_1/xid-31789150_1">https://laureate-au.blackboard.com/bbcswebdav/pid-7475676-dt-content-rid-31789150_1/xid-31789150_1</a></p>
+<h3 class="mume-header" id="extras-after-requirements">Extras after requirements</h3>
+
+<p>When someone needs something made, they do enjoy extras. When they are extras. That means they&#x2019;re built on top of the requirements. Do them instead of a requirement and you&#x2019;ll be risking whatever the return was for your work:  marks, payment, promotion.</p>
+<h3 class="mume-header" id="bullet-points">Bullet points:</h3>
+
+<p>Write down the requirements in your own language. It helps clarify your own questions.</p>
+<h4 class="mume-header" id="due-date">Due date</h4>
+
+<p>End of sunday (11:55pm) Module 6.2 (end of week 12).<br>
+<strong>1 Sept 2019.</strong></p>
+<h4 class="mume-header" id="general-requirements">General Requirements</h4>
+
+<p>Worth 40% of total marks.</p>
+<ul>
+<li>Object oriented program.</li>
+<li>Console / dos prompt</li>
+<li>Visual Studio 2017</li>
+</ul>
+<h4 class="mume-header" id="minimum-viable-product">Minimum viable product</h4>
+
+<ul>
+<li>Snake never stops moving</li>
+<li>Snake teleports across screen after hitting edge</li>
+<li>Snake has segments aka body parts</li>
+<li>Fruit randomly appears</li>
+<li>Snake can eat fruit,</li>
+<li>Snake gets longer when eating fruit by adding to tail</li>
+<li>Each fruit gives a point</li>
+<li>score must be displayed</li>
+<li>If snake collides with self it dies, ending the game</li>
+<li>Use the good-programming ideas Danny described in class.</li>
+</ul>
+<h4 class="mume-header" id="extended-features">Extended features</h4>
+
+<p>Add some these to do better than pass/credit.<br>
+Alternately, we are allowed to add original new features.</p>
+<ul>
+<li>specifically 2-5 extra features</li>
+<li>Diff fruits with diff affects (buff or debuff)</li>
+<li>Obstacles: deadly blocks</li>
+<li>High score that stays through multiple games. easy = variable. hard = save and load high score.</li>
+<li>Difficulty settings</li>
+<li>Restart without rerunning the game.</li>
+</ul>
+<h2 class="mume-header" id="delivering-the-assessment">Delivering the assessment</h2>
+
+<p>Not everyone caught the delivery requirements first time round, let&#x2019;s makesure they&#x2019;re here and easy to refer to.</p>
+<ol>
+<li>Use <strong>Visual Studio 2017</strong>. Not 2019 or 2015.</li>
+<li>Deliver a Visual C++ project linked for the windows console.</li>
+<li></li>
+</ol>
+<h3 class="mume-header" id="create-your-solution-with-the-right-name">Create your solution with the right name</h3>
+
+<p>You need to deliver a file named like so:</p>
+<p><strong><em>ISE102_Lastname_Firstname_SnakeGame.7z</em></strong></p>
+<p>Mine, for example, would be:</p>
+<p><strong>ISE102_Mcgillick_Danny_SnakeGame.7z</strong></p>
+<ul>
+<li>The best way to achieve that without breaking anything before delivery is to <strong>use this format (without .7z) for your solution name</strong>.</li>
+<li>Select <strong><em>Visual C++</em></strong> and <strong><em>Empty Project</em></strong>. If you already have a template made for this, you can use that.</li>
+<li>Enter ISE102_Lastname_Firstname_SnakeGame as the project name (substituting your own last and first names).</li>
+</ul>
+<p><img src="assets/week9/delivering_assessments_solution_name_type.png" alt="creating solution"><br>
+<em>Use Empty Project unless you have a template (mine is outlined in orange)</em></p>
+<p>I don&#x2019;t like the long name on the project as well as the solution, so I</p>
+<ul>
+<li>right click <strong>the project in solution explorer</strong>, not the solution itself</li>
+<li>click <strong><em>rename</em></strong></li>
+<li>enter something manageable like SnakeGame_DM</li>
+</ul>
+<p><img src="assets/week9/delivering_assessments_rename_project.png" alt="rename project"><br>
+<em>Rename the project. Don&#x2019;t accidentally rename the solution</em></p>
+<p><img src="assets/week9/delivering_assessments_project_name_changed.png" alt="the new name"><br>
+<em>New, shorter project name</em></p>
+<hr>
+<h3 class="mume-header" id="find-and-compress-your-solution">Find and compress your solution</h3>
+
+<ol>
+<li>Right click your solution in solution explorer (not your project)</li>
+<li>Select Open Folder In File Explorer</li>
+</ol>
+<p><img src="assets/week9/delivering_assessments_open_solution_folder.png" alt="folder open"><br>
+<em>Opening your solution folder in windows explorer from Visual Studio</em></p>
+<p><img src="assets/week9/solution_folder.png" alt="solution folder"><br>
+<em>You should see a folder with your sln file and subfolders</em></p>
+<p>You will want <strong>everything in this folder and its subfolders</strong>.</p>
+<ol start="3">
+<li><strong>Step up one folder higher</strong>, using the white up arrow next to the address bar or by pressing alt + the up arrow key on your keyboard. You&#x2019;re <strong>going up to the folder containing the current one</strong>, NOT down deeper. In my case, that takes me up to my <em>week9</em> folder.</li>
+<li>Right click the <em>ISE102_Lastname_Firstname_SnakeGame</em> folder and compress it with 7zip (or zip/rar). Your &#x201C;Add to&#x201D; options will be in a 7Zip submenu, even though mine is on the top level menu.</li>
+</ol>
+<p><img src="assets/week9/7zip_solution.7z.png" alt="7zip"><br>
+<em>One folder higher in <code>week9</code>, I can right click the folder I viewed in step 2</em></p>
+<p>7zip is my preferred archiving method because the files are smaller. If for some reason you can&#x2019;t use 7zip, rar or zip can be used.</p>
+<blockquote>
+<p>I would be delivering <code>ISE102_Mcgillick_Danny_SnakeGame.7z</code></p>
+</blockquote>
+<p>Download 7zip 64bit for windows: <a href="https://www.7-zip.org/download.html">https://www.7-zip.org/download.html</a></p>
+<hr>
+<h2 class="mume-header" id="objects-classes-recap">Objects classes recap</h2>
+
+<p>We went into objects and inheritance last week. It&#x2019;s so important that I&#x2019;ve fleshed out the notes so we can have a quick look through it again.</p>
+<p><a href="https://dmcgits.github.io/mds/ISE102/week8_notes.html">https://dmcgits.github.io/mds/ISE102/week8_notes.html</a></p>
+<h2 class="mume-header" id="adding-functions-to-classes">Adding functions to classes</h2>
+
+<p>We touched on it last week.</p>
+<h3 class="mume-header" id="selectively-sharing">Selectively sharing</h3>
+
+<p>You don&#x2019;t need to reach into your engine bay every time you start your car. You just turn the key or push the ignition button.</p>
+<p>A well designed class can produce objects just like that: powerful but with a simple interface to the rest of your code. We do that by keeping the working bits private, and sharing the functions we want used.</p>
+<p><img src="assets/week9/public_private.png" alt="public private"></p>
+<blockquote>
+<p>Objects are a way of wrapping up loads of specialised stuff in an easy to use package, just like a car or an iphone. Then we stick big steering wheel and gear stick, or touch screen and home button in your face.</p>
+</blockquote>
+<ul>
+<li><a href="week8_notes.html">physical objects, encapsulation in week8 notes</a></li>
+</ul>
+<hr>
+<h3 class="mume-header" id="coding-obects-week-8">Coding obects (week 8)</h3>
+
+<ul>
+<li>Look again at code we wrote
+<ul>
+<li><a href="week8_code.html">week8 code: objects</a></li>
+<li>1: A Struct  2: A Class  3: A class in its own files.</li>
+<li>If you didn&#x2019;t come last week, start typing that code out now!</li>
+</ul>
+</li>
+</ul>
+<p>At it&#x2019;s most basic an object happened between our includes area and our main function. Separating it out was mostly pulling that zone out into two files (h, cpp) and then using <em>#include</em>, exactly like we do with string and vector objects.</p>
+<h2 class="mume-header" id="a-game-is-a-simulation">A Game Is A Simulation</h2>
+
+<p>Teaching games programming last year started with the gameloop, but I want to talk about something more fundamental first. A loop is an implementation thing. But what are we impleenting? What is a game?</p>
+<p>It&#x2019;s a simulation. Not just the ones with sim in the name, like Sim City and the Sims.</p>
+<blockquote>
+<p>GTA: <em>Day to day crook life</em> sim.<br>
+Doom: <em>Escape from sci fi hell with guns</em> sim.<br>
+Portal: <em>Escape from AI captivity with a portal maker</em> sim.<br>
+Fifa: <em>Football</em> sim.</p>
+</blockquote>
+<p>We are simulating a snake, and the fruit it will eat, and the world she moves in.</p>
+<h3 class="mume-header" id="starting-at-the-end-graphics-are-just-the-output">Starting at the end: Graphics are just the output</h3>
+
+<p>The last stage of a game running is drawing to the screen. The temptation is to start trying to draw things right away. First though, we need user input, then things happen in our simulation, finally we draw the outcomes to the screen.</p>
+<h3 class="mume-header" id="things-happen">Things happen</h3>
+
+<p>A game is built like a scientist builds a computer model of weather or a microbe community in a computer. That means organising the data/objects that represent real world things and then changing them over time.</p>
+<blockquote>
+<p>A simulation is stored data being changed by code, over time.</p>
+</blockquote>
+<h3 class="mume-header" id="input">Input</h3>
+
+<p>Our model is different to a scientists.</p>
+<ul>
+<li>Sciency input is a bunch of data defining the beginning conditions of a weather system, or stats of their bacteria colony and environment. Then the sim runs.</li>
+</ul>
+<blockquote>
+<p>Game input (via controller) is present throughout the whole game, putting our player into the sim as a constant affecting force. The rest of the sim, yeah that runs like a sciency one.</p>
+</blockquote>
+<h3 class="mume-header" id="the-game-loop-then">The game loop, then.</h3>
+
+<p>The game loop, very simplified, is this:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>program myGame
+
+  initialise game.
+
+  while game isn&apos;t over
+    handleInput
+    simulate everything else
+    draw it all on screen
+  loop
+
+end program myGame
+</code></pre><p>Here&#x2019;s more detail about those stages</p>
+<pre data-role="codeBlock" data-info class="language-"><code>  while game isn&apos;t over
+    Input:
+      listen to input (maybe e key or x button) and do player things 
+      (like step forward or press accelerator)
+    All other things:
+      do all npc actions, physics etc. register hits, take hitpoints, do a bit of mining etc. 
+      Assess game status (game over, still going, level finished)
+    Output:
+      draw to screen, play sounds, vibrate controller
+  loop
+</code></pre><p>Here&#x2019;s a bodge of how it would look in code</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">bool</span> gameOver <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>gameOver<span class="token punctuation">)</span> <span class="token comment">// not game over</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// input and player simulation</span>
+    <span class="token function">doPlayerInputThings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// update non-player simulation</span>
+    <span class="token function">updateAllUpdateableThings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// move, grow, spawn, brew, mine etc</span>
+    <span class="token function">checkForInteractions</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// collisions, traps, pickups, level exit etc </span>
+    <span class="token function">setNewGameStateIfChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+    <span class="token function">drawGraphics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">playSounds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="coding-in-a-class-instead-of-maincpp">Coding in a class instead of main.cpp</h3>
+
+<p>To use olcConsoleGameEngine we will need to code inside a class, which is a bit different to our main.cpp. It can be disorienting if you don&#x2019;t know your way around a class.</p>
+<p>We&#x2019;ll be coding from <a href="week9_code.html">week9_code.html</a></p>
+<p>Here&#x2019;s were we have put our global variables and function declarations in main.cpp<br>
+<img src="assets/week9/oo_bit_main_declarations.png" alt="declarations"></p>
+<p>Here I&#x2019;ve moved them to the class&#x2019; .h file, SnakeGame.h:<br>
+<img src="assets/week9/oo_bit_class_header.png" alt="declarations .h"></p>
+<p>Here&#x2019;s where you put your full function definitions in a main.cpp, below main:</p>
+<p><img src="assets/week9/oo_bit_main_definitions.png" alt="definitions below main"></p>
+<p>And here&#x2019;s where they&#x2019;d go in OO, the class&#x2019; cpp file:</p>
+<p><img src="assets/week9/oo_bit_class_cpp.png" alt="function definitions cpp"></p>
+<h2 class="mume-header" id="resources">Resources</h2>
+
+<ul>
+<li>
+<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
+</li>
+<li>
+<p><a href="week9_code.html">week 9 code html</a></p>
+</li>
+</ul>
+<h2 class="mume-header" id="todo-by-week-10">Todo by week 10</h2>
+
+<ul>
+<li>Plan out key parts of your assessment in pseudocode</li>
+<li>Read/code Chapters 8 and 10 and of textbook. Objects, inheritance.
+<ul>
+<li><a href="https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727">https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/detail.action?docID=3136727</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
