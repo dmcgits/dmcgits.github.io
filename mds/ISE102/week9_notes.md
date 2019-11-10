@@ -80,6 +80,10 @@ Alternately, we are allowed to add original new features.
 * Difficulty settings
 * Restart without rerunning the game.
 
+![](assets/week9/snake_many_styles.jpg)
+_Snake in many outfits_
+
+
 ## Delivering the assessment
 
 Not everyone caught the delivery requirements first time round, let's makesure they're here and easy to refer to.
@@ -104,7 +108,7 @@ Mine, for example, would be:
 * Enter **ISE102_Lastname_Firstname_SnakeGame** as the solution name (substituting your own last and first names).
 
 ![creating solution](assets/week9/snakeGame_80s_project_create.png)
-_Use Empty Project unless you have a template (mine is outlined in orange)
+_Template selected, names entered_
 
 ## Things to learn while making Snake
 
@@ -118,7 +122,6 @@ Regardless of how it's different, don't forget it's the same four things:
 > 2. Input 
 > 3. Processing
 > 4. Output**
-
 
 #### Game loop for frame based games:
 
