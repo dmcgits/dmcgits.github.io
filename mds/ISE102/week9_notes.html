@@ -47,7 +47,13 @@
 <li><a href="#drawing-big-80s-pixels">Drawing big 80s pixels.</a></li>
 </ul>
 </li>
-<li><a href="#making-pixel-games-with-eightiesgameh">Making pixel games with <code>eightiesGame.h</code></a></li>
+<li><a href="#exercise-making-pixel-art-with-eightiesgameh">Exercise: Making pixel art with <code>eightiesGame.h</code></a>
+<ul>
+<li><a href="#part-1-download-and-use-our-new-template">Part 1: Download and use our new template</a></li>
+<li><a href="#part-2-draw-in-code">Part 2: Draw in code</a></li>
+<li><a href="#flashing-dot">Flashing Dot</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -169,14 +175,19 @@ _&#x2018;Desert Fox&#x2019; for Fairchild.</p>
 _&#x2018;Whizball&#x2019; for Fairchild.</p>
 <p><img src="assets/week9/snake_huge_pixels.png" alt><br>
 <em>An example of huge pixel snake</em></p>
-<h2 class="mume-header" id="making-pixel-games-with-eightiesgameh">Making pixel games with <code>eightiesGame.h</code></h2>
+<h2 class="mume-header" id="exercise-making-pixel-art-with-eightiesgameh">Exercise: Making pixel art with <code>eightiesGame.h</code></h2>
 
 <p>We&#x2019;ll use a library that treats the windows console/terminal like low resolution screen, and by drawing a square text character instead of letters, it treats each potential character on screen as a pixel.</p>
+<p><strong>16 colours and big pixels!</strong></p>
+<p><img src="assets/week9/breakout.png" alt></p>
+<p><img src="assets/week9/low_res_rpg.png" alt></p>
 <p>I&#x2019;ve taken an engine called <em><strong>OLC Console Game Engine</strong></em> by <em>One Lone Coder</em>, and chopped it down to a simpler form that we&#x2019;ll just call Eighties (80s) Game.</p>
-<h4 class="mume-header" id="download-and-run-our-new-template">Download and run our new template</h4>
+<h3 class="mume-header" id="part-1-download-and-use-our-new-template">Part 1: Download and use our new template</h3>
 
 <p>The solution linked below is a kind of hello world for making our frame-based, big pixel games.</p>
 <p><a href="assets/week9/ISE102_80s_Game.zip">ISE102_80s_Game.zip</a></p>
+<h4 class="mume-header" id="get-it-running">Get it running</h4>
+
 <p>Download it, open it in Visual Studio, retarget it, and hit ctrl-F5 to see the screen below.</p>
 <p><img src="assets/week9/eighties_hello_world.png" alt><br>
 <em>The green square is a &#x201C;pixel&#x201D;. The number is the approximate frames per second. It might be wrong.</em></p>
@@ -184,6 +195,60 @@ _&#x2018;Whizball&#x2019; for Fairchild.</p>
 
 <p>As before, use <em>Visual Studio&#x2019;s</em> <strong><em>Project -&gt; Export as Template</em></strong>. Call it ISE102 80s Game.</p>
 <p>Now you can start a pixel based game any old from <strong><em>File - New Project</em></strong>. Be aware though, I&#x2019;ll supply updated versions of the .h file in upcoming weeks.</p>
+<h3 class="mume-header" id="part-2-draw-in-code">Part 2: Draw in code</h3>
+
+<p>Using just pixels and some simple maths, we can start drawing patterns.</p>
+<h3 class="mume-header" id="flashing-dot">Flashing Dot</h3>
+
+<p>This code will let you add a little code-based animation to your coloured dot. It also provides:</p>
+<ol>
+<li>A quick refresher on using a vector collection</li>
+<li>A way to time things with (more) accuracy</li>
+</ol>
+<p>Create a new project called <em>FlashingPixel</em> in a solution called <em>DrawingInCode</em>, and <strong>type it in</strong>.</p>
+<p><img src="assets/week9/code_flashing_pixel.png" alt><br>
+<em>Notice we&#x2019;re use of <code>chrono</code>, <code>thread</code> and <code>vector</code> libraries here</em></p>
+<h4 class="mume-header" id="vertical-stripes">Vertical stripes</h4>
+
+<ol>
+<li>Using a loop or two, draw vertical stripes down the screen:
+<ul>
+<li>Try cyan and green</li>
+<li>Columns are 2 or more pixels wide.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Some example psuedocode:</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>windowWidth, windowHeight
+columnWidth is 2
+rowHeight is 1
+
+// A 30 pixel screen can hold 15x2 pixel columns, 10x3 pixel columns etc.
+numColumns = windowWidth divided by columnWidth 
+numrows is windowHeight
+
+set currentColumn to 0
+While currentcolumn &lt; numcolumns 
+  CurrentRow = 0 
+  
+  While CurrentRow less than ?? 
+    draw a pixel at (x,y) currentRow, currentcolumn
+    draw second pixel at currentRow, ??
+  loop
+wloop
+</code></pre><h4 class="mume-header" id="border">Border</h4>
+
+<ol>
+<li>
+<p>Again with loops, draw a red border on a dark red background.</p>
+</li>
+<li>
+<p>Change the border colour every 900 milliseconds</p>
+</li>
+<li>
+<p>Add (0-based) numbers to the top for columns, to the left border for rows.</p>
+</li>
+</ol>
 
       </div>
       

@@ -21,7 +21,10 @@ export_on_save:
   - [Things to learn while making Snake](#things-to-learn-while-making-snake)
     - [Games with Frames](#games-with-frames)
     - [Drawing big 80s pixels.](#drawing-big-80s-pixels)
-  - [Making pixel games with `eightiesGame.h`](#making-pixel-games-with-eightiesgameh)
+  - [Exercise: Making pixel art with `eightiesGame.h`](#exercise-making-pixel-art-with-eightiesgameh)
+    - [Part 1: Download and use our new template](#part-1-download-and-use-our-new-template)
+    - [Part 2: Draw in code](#part-2-draw-in-code)
+    - [Flashing Dot](#flashing-dot)
 
 <!-- /code_chunk_output -->
 
@@ -153,16 +156,26 @@ _'Whizball' for Fairchild.
 ![](assets/week9/snake_huge_pixels.png)
 _An example of huge pixel snake_
 
-## Making pixel games with `eightiesGame.h`
+## Exercise: Making pixel art with `eightiesGame.h`
 
 We'll use a library that treats the windows console/terminal like low resolution screen, and by drawing a square text character instead of letters, it treats each potential character on screen as a pixel.
 
+**16 colours and big pixels!**
+
+![](assets/week9/breakout.png)
+
+![](assets/week9/low_res_rpg.png)
+
+
 I've taken an engine called _**OLC Console Game Engine**_ by _One Lone Coder_, and chopped it down to a simpler form that we'll just call Eighties (80s) Game.
 
-#### Download and run our new template
+### Part 1: Download and use our new template
+
 The solution linked below is a kind of hello world for making our frame-based, big pixel games. 
 
 [ISE102_80s_Game.zip](assets/week9/ISE102_80s_Game.zip)
+
+#### Get it running
 
 Download it, open it in Visual Studio, retarget it, and hit ctrl-F5 to see the screen below.
 
@@ -173,4 +186,77 @@ _The green square is a "pixel". The number is the approximate frames per second.
 
 As before, use _Visual Studio's_ **_Project -> Export as Template_**. Call it ISE102 80s Game. 
 
-Now you can start a pixel based game any old from **_File - New Project_**. Be aware though, I'll supply updated versions of the .h file in upcoming weeks. 
+Now you can start a pixel based game any old from **_File - New Project_**. Be aware though, I'll supply updated versions of the .h file in upcoming weeks.
+
+### Part 2: Draw in code
+
+Using just pixels and some simple maths, we can start drawing patterns.
+
+### Flashing Dot
+
+This code will let you add a little code-based animation to your coloured dot. It also provides:
+1. A quick refresher on using a vector collection
+2. A way to time things with (more) accuracy
+
+Create a new project called _FlashingPixel_ in a solution called _DrawingInCode_, and **type it in**.
+
+![](assets/week9/code_flashing_pixel.png)
+_Notice we're use of `chrono`, `thread` and `vector` libraries here_
+
+#### Vertical stripes
+
+1. Using a loop or two, draw vertical stripes down the screen:
+    - Try cyan and green
+    - Columns are 2 or more pixels wide.
+
+**Some example psuedocode:**
+```
+windowWidth, windowHeight
+columnWidth is 2
+rowHeight is 1
+
+// A 30 pixel screen can hold 15x2 pixel columns, 10x3 pixel columns etc.
+numColumns = windowWidth divided by columnWidth 
+numrows is windowHeight
+
+set currentColumn to 0
+While currentcolumn < numcolumns 
+  CurrentRow = 0 
+  
+  While CurrentRow less than ?? 
+    draw a pixel at (x,y) currentRow, currentcolumn
+    draw second pixel at currentRow, ??
+  loop
+wloop
+```
+
+#### Border 
+
+1. Again with loops, draw a red border on a dark red background.
+
+2. Change the border colour every 900 milliseconds 
+
+3. Add (0-based) numbers to the top for columns, to the left border for rows.
+
+
+<!--
+2. Every second, swap the column colours
+
+Here's another simple example of using a timer. You only need lines 2,3,4 and 10. 
+
+```cpp { .line-numbers }
+#include <iostream>
+#include <chrono>		    // Choose time units
+#include <thread>		    // Control execution of programs/threads on cpu
+using namespace std;
+
+int main()
+{
+  cout << "\n\t" << "I'll wake up in 1.5...";
+
+  this_thread::sleep_for(chrono::milliseconds(1500));  // put this program to sleep
+	
+  cout << " seconds. Woah." << "\n\n";
+}
+```
+-->
