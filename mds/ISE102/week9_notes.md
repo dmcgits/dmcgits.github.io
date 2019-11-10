@@ -21,10 +21,11 @@ export_on_save:
   - [Things to learn while making Snake](#things-to-learn-while-making-snake)
     - [Games with Frames](#games-with-frames)
     - [Drawing big 80s pixels.](#drawing-big-80s-pixels)
-  - [Exercise: Making pixel art with `eightiesGame.h`](#exercise-making-pixel-art-with-eightiesgameh)
+  - [Exercises: Making pixel art with `eightiesGame.h`](#exercises-making-pixel-art-with-eightiesgameh)
     - [Part 1: Download and use our new template](#part-1-download-and-use-our-new-template)
     - [Part 2: Draw in code](#part-2-draw-in-code)
     - [Flashing Dot](#flashing-dot)
+  - [Extras](#extras)
 
 <!-- /code_chunk_output -->
 
@@ -156,7 +157,7 @@ _'Whizball' for Fairchild.
 ![](assets/week9/snake_huge_pixels.png)
 _An example of huge pixel snake_
 
-## Exercise: Making pixel art with `eightiesGame.h`
+## Exercises: Making pixel art with `eightiesGame.h`
 
 We'll use a library that treats the windows console/terminal like low resolution screen, and by drawing a square text character instead of letters, it treats each potential character on screen as a pixel.
 
@@ -209,7 +210,19 @@ _Notice we're use of `chrono`, `thread` and `vector` libraries here_
     - Try cyan and green
     - Columns are 2 or more pixels wide.
 
-**Some example psuedocode:**
+**A few thoughts in english:**
+- If a window is x pixels wide, and each column is y pixels wide, there are x/y columns.
+  - 30 pixel wide window, 2 pixel columns: x/y is 30/2 is 15.
+- Drawing the 8th column
+  - It's not located 8 pixels in because each one is 2 pixels wide. So it'd be 16 pixels across
+  - So column x location is column number * column width. 16 = 8 x 2. Needs diagram.
+
+![](assets/week9/screen_stripes_vertical_drawing.png)
+_Caught in the middle of rendering, you can see it draws a column worth of row pixels at a time_
+
+**The psuedocode:**
+
+I've left in few `??` bits for your to figure out.
 ```
 windowWidth, windowHeight
 columnWidth is 2
@@ -218,29 +231,62 @@ rowHeight is 1
 // A 30 pixel screen can hold 15x2 pixel columns, 10x3 pixel columns etc.
 numColumns = windowWidth divided by columnWidth 
 numrows is windowHeight
+colours is a collection holding blue and green
+whichColour points to start of collection
 
-set currentColumn to 0
-While currentcolumn < numcolumns 
-  CurrentRow = 0 
-  
-  While CurrentRow less than ?? 
-    draw a pixel at (x,y) currentRow, currentcolumn
-    draw second pixel at currentRow, ??
+row = 0
+While row < numRows         // We first draw a row
+  column = 0 
+  columnColor is first in collection
+  While row less than ??    // And each row is drawn in alternating coloured columns
+    draw a pixel at (x,y) column times columnWidth, row
+    draw second pixel at ??, row
+    column++
+    change whichColour to next ??
+    if we are past last colour, go back to first.
+    // add sleep for 150ms to see this in action
+    // draw here to watch column by column
   loop
+
+  row++
 wloop
+
+// or just draw here to do 1 whole screen at a time (faster)
 ```
 
 #### Border 
 
 1. Again with loops, draw a red border on a dark red background.
 
+```
+// Fill the screen.
+row = 0, column = 0
+while row < window height
+
+  while column < windowWidth
+    draw a pixel at row, column
+    add 1 to column 
+  wloop
+
+  aadd 1 to row
+wloop
+
+row = 0, column = 0
+// Draw the top border
+while column < window width
+  Draw a pixel at row, column
+  add 1 to column 
+wloop
+
+```
+
+
 2. Change the border colour every 900 milliseconds 
 
 3. Add (0-based) numbers to the top for columns, to the left border for rows.
 
 
-<!--
-2. Every second, swap the column colours
+## Extras
 
 Here's another simple example of using a timer. You only need lines 2,3,4 and 10. 
 
@@ -259,4 +305,3 @@ int main()
   cout << " seconds. Woah." << "\n\n";
 }
 ```
--->
