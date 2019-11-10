@@ -16,11 +16,15 @@ Recapping last week, taking it further. Making games with the game loop.
 
 <!-- code_chunk_output -->
 
-- [Week 9 - Objects/Classes 2, Making Games.](#week-9---objectsclasses-2-making-games)
+- [Week 9 - Objects/Classes 2, Making Games.](#week-9-objectsclasses-2-making-games)
   - [Assessment 3: Snake](#assessment-3-snake)
   - [Answering the brief](#answering-the-brief)
     - [Extras after requirements](#extras-after-requirements)
     - [Bullet points:](#bullet-points)
+      - [Due date](#due-date)
+      - [General Requirements](#general-requirements)
+      - [Minimum viable product](#minimum-viable-product)
+      - [Extended features](#extended-features)
   - [Delivering the assessment](#delivering-the-assessment)
     - [Create your solution with the right name](#create-your-solution-with-the-right-name)
     - [Find and compress your solution](#find-and-compress-your-solution)
@@ -40,6 +44,9 @@ Recapping last week, taking it further. Making games with the game loop.
 <!-- /code_chunk_output -->
 
 ## Assessment 3: Snake
+
+![](assets/week9/snake_mobile_og.jpg)
+
 
 ## Answering the brief
 

@@ -31,6 +31,8 @@ export_on_save:
 
 ## Assessment 3: Snake
 
+![](assets/week9/snake_mobile_og.jpg)
+
 ### Answering the brief
 
 As a coder, you are a maker. You build things for people, and when you make something for someone it followes a design, a plan, a _brief_. Our's is the assessment 3 brief from blackboard:
