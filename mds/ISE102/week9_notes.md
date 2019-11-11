@@ -24,7 +24,7 @@ export_on_save:
   - [Exercises: Making pixel art with `eightiesGame.h`](#exercises-making-pixel-art-with-eightiesgameh)
     - [Part 1: Download and use our new template](#part-1-download-and-use-our-new-template)
     - [Part 2: Draw in code](#part-2-draw-in-code)
-    - [Flashing Dot](#flashing-dot)
+    - [Random Pixels](#random-pixels)
   - [Extras](#extras)
 
 <!-- /code_chunk_output -->
@@ -198,16 +198,18 @@ Now you can start a pixel based game any old from **_File - New Project_**. Be a
 
 Using just pixels and some simple maths, we can start drawing patterns.
 
-### Flashing Dot
+### Random Pixels
 
-This code will let you add a little code-based animation to your coloured dot. It also provides:
-1. A quick refresher on using a vector collection
-2. A way to time things with (more) accuracy
+This code will let you drop spots all over the page.
 
-Create a new project called _FlashingPixel_ in a solution called _DrawingInCode_, and **type it in**.
+![](assets/week9/random_pixels.png)
 
-![](assets/week9/code_flashing_pixel.png)
-_Notice we're use of `chrono`, `thread` and `vector` libraries here_
+I'll also provide a way to do at timed intervals without putting the program to sleep or waiting for input.
+
+Create a new _ISE102 80's game_ project called _RandomPixels_ in a solution called _DrawingInCode_, and **type it in**.
+
+![](assets/week9/code_random_pixels.png)
+_Hmm this might help in Snake_
 
 #### Vertical stripes
 
