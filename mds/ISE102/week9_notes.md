@@ -212,15 +212,11 @@ _Notice we're use of `chrono`, `thread` and `vector` libraries here_
 #### Vertical stripes
 
 1. Using a loop or two, draw vertical stripes down the screen:
-    - Try cyan and green
-    - Columns are 2 or more pixels wide.
-
+    
 **A few thoughts in english:**
-- If a window is x pixels wide, and each column is y pixels wide, there are x/y columns.
-  - 30 pixel wide window, 2 pixel columns: x/y is 30/2 is 15.
-- Drawing the 8th column
-  - It's not located 8 pixels in because each one is 2 pixels wide. So it'd be 16 pixels across
-  - So column x location is column number * column width. 16 = 8 x 2. Needs diagram.
+- Window width is the number of columns
+- Window height is the number of rows
+- column, row is like x, y
 
 ![](assets/week9/screen_stripes_vertical_drawing.png)
 _Caught in the middle of rendering, you can see it draws a column worth of row pixels at a time_
@@ -234,35 +230,38 @@ _A visual of row/column numbering for WINDOW_WIDTH = 10, WINDOW_HEIGHT = 10_
 
 Just one solution of many possible ways this could be done. I've left in few `??` bits for your to figure out.
 ```
-windowWidth, windowHeight
-columnWidth is 2
-rowHeight is 1
+windowWidth = 20
+windowHeight = 20
+gameExited = false
+pixelSize = 32
+SetupWindow using variables above
 
-// A 30 pixel screen can hold 15x2 pixel columns, 10x3 pixel columns etc.
-numColumns = windowWidth divided by columnWidth 
-numrows is windowHeight
-colours is a collection holding blue and green
-whichColour points to start of collection
+colours is a collection holding, say, blue and green
+nextColour is 0, used to access collection
 
-row = 0
-While row < numRows         // We first draw a row
-  column = 0 
-  columnColor is first in collection
-  While column less than ??    // And each row is filled with alternating coloured columns
-    draw a pixel at (x,y) column times columnWidth, row
-    draw second pixel at ??, row
-    column++
-    change whichColour to next ??
-    if we are past last colour, go back to first.
-    // add sleep for 150ms to see this in action
-    // draw here to watch column by column
-  loop
+while gameExited isn't true
+  for row is 0, row < windowHeight, row goes up by 1 each loop  // Go row by row 
+    nextColor is 0
+    for column is 0, column < ??, column goes up by 1 each loop // column by column 
+    
+      draw a pixel at (column, row) using color at collection [nextColor]
+      
+      increment nextColor
+      if nextColor is too big to access collection, reset it to ??
+      
+      renderWindow() here to watch action
+      sleep program here for 150ms to witness process
+    
+    forLoopEnd
+  forLoopEnd
+whileLoopEnd
 
-  row++
-wloop
-
-// or just draw here to do 1 whole screen at a time (faster)
 ```
+
+Code! 
+
+![](assets/week9/code_vertical_stripes_skinny.png)
+
 
 #### Border 
 
