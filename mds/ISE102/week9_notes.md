@@ -267,34 +267,15 @@ Code!
 
 1. Again with loops, draw a red border on a dark red background.
 
-```
-// Fill the screen.
-row = 0, column = 0
-while row < window height
-
-  while column < windowWidth
-    draw a pixel at row, column
-    add 1 to column 
-  wloop
-
-  aadd 1 to row
-wloop
-
-row = 0, column = 0
-// Draw the top border
-while column < window width
-  Draw a pixel at row, column
-  add 1 to column 
-wloop
-
-```
-
-
 2. Change the border colour every 900 milliseconds 
 
 3. Add (0-based) numbers to the top for columns, to the left border for rows.
 
 ![](assets/week9/border_numbered.png)
+
+**Code for 3 (numbered border)**
+![](assets/week9/code_border_numbered_1.png)
+![](assets/week9/code_border_numbered_2.png)
 
 
 ## Extras
