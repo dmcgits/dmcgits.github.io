@@ -238,8 +238,11 @@ _&#x2018;Whizball&#x2019; for Fairchild.</p>
 </ul>
 <p><img src="assets/week9/screen_stripes_vertical_drawing.png" alt><br>
 <em>Caught in the middle of rendering, you can see it draws a column worth of row pixels at a time</em></p>
-<p><strong>The psuedocode:</strong></p>
-<p>I&#x2019;ve left in few <code>??</code> bits for your to figure out.</p>
+<p>Remember that <strong>computers count from 0 to size-1</strong>.</p>
+<p><img src="assets/week9/border_numbered.png" alt><br>
+<em>A visual of row/column numbering for WINDOW_WIDTH = 10, WINDOW_HEIGHT = 10</em></p>
+<p><strong>A vertical stripes solution in psuedocode:</strong></p>
+<p>Just one solution of many possible ways this could be done. I&#x2019;ve left in few <code>??</code> bits for your to figure out.</p>
 <pre data-role="codeBlock" data-info class="language-"><code>windowWidth, windowHeight
 columnWidth is 2
 rowHeight is 1
@@ -300,6 +303,7 @@ wloop
 <p>Add (0-based) numbers to the top for columns, to the left border for rows.</p>
 </li>
 </ol>
+<p><img src="assets/week9/border_numbered.png" alt></p>
 <h2 class="mume-header" id="extras">Extras</h2>
 
 <p>Here&#x2019;s another simple example of using a timer. You only need lines 2,3,4 and 10.</p>

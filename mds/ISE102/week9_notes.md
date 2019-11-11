@@ -225,9 +225,14 @@ _Notice we're use of `chrono`, `thread` and `vector` libraries here_
 ![](assets/week9/screen_stripes_vertical_drawing.png)
 _Caught in the middle of rendering, you can see it draws a column worth of row pixels at a time_
 
-**The psuedocode:**
+Remember that **computers count from 0 to size-1**.
 
-I've left in few `??` bits for your to figure out.
+![](assets/week9/border_numbered.png)
+_A visual of row/column numbering for WINDOW_WIDTH = 10, WINDOW_HEIGHT = 10_
+
+**A vertical stripes solution in psuedocode:**
+
+Just one solution of many possible ways this could be done. I've left in few `??` bits for your to figure out.
 ```
 windowWidth, windowHeight
 columnWidth is 2
@@ -289,6 +294,8 @@ wloop
 2. Change the border colour every 900 milliseconds 
 
 3. Add (0-based) numbers to the top for columns, to the left border for rows.
+
+![](assets/week9/border_numbered.png)
 
 
 ## Extras
