@@ -1,151 +1,126 @@
-# Characters!
-
-Making characters in ZBrush
-
-## 1. Introducting ZBrush
-
-* The first screen
-* Placing and editing
-* Navigation
-* Making an object
-* Saving
-* Subtools
-* Brushes and Subdivision
-* Move, smooth, clay buildup, standard, dam_standard, hpolish, trim.
-* Visibility
-* Polygroups
-
-
-![visibility](assets/week9/zb_masking.jpg)
-
-_Masking bits of mesh to protect them from edits_
-
-![visibility](assets/week9/zb_visibility.jpg)
-
-_Hiding bits of mesh with ctrl-shift-LMB_
-
-![pg](assets/week9/zb_pg_and_density.jpg)
-
-_Polygroups and mesh density, Jason Martin_
-
-## ZBrush Learning
-
-This is the big one for this week:
-
-[![Intro ZB](assets/week9/intro_zb_1.jpg)](https://www.youtube.com/watch?v=J2B0x9TkFuA&list=PLkzopwqcFevYqrk_0MKIaUwrWYILzYsp6)
-
-_Intro to ZBrush P1 with Michael Pavlovic - [Link](https://www.youtube.com/watch?v=J2B0x9TkFuA&list=PLkzopwqcFevYqrk_0MKIaUwrWYILzYsp6)_
-
 ---
-
-## Concepts
-
-![Wolvie](assets/week9/mg_wolvie.jpg)
-
-_Wolverine by Max Grecke - [Link](https://www.artstation.com/artwork/OoJnK)_
-
-![Rey 2D](assets/week9/sy_rey.jpg)
-![Rey Real1](assets/week9/rey_real1.jpg)
-![Rey Real2](assets/week9/rey_real2.jpg)
-![Rey Real2](assets/week9/rey_real4.jpg)
-
-_Rey!_
-
-![Males](assets/week9/GS_Males.png)
-
-_Stylised males by Gray Shuko - [Link](_https://www.artstation.com/artwork/freestylesfaces01)_
-
-![Fred](assets/week9/bh6_fred.jpg)
-
-_Fred from Big Hero 6_
-
-![Loish gold](assets/week9/loish_goldeyes.jpg)
-
-_Loish Gold Eyes_
-
-![TH Roundy](assets/week9/th_roundy.png)
-
-_Troll Hunters_
-
-![Daenerys](assets/week9/daenerys_real1.png)
-![Daenerys](assets/week9/daenerys_real2.png)
-![Daenerys](assets/week9/daenerys_real3.jpg)
-![Daenerys](assets/week9/rt_daenerys.jpg)
-![Daenerys](assets/week9/cs_daenerys.jpg)
-
-![BlueSteel](assets/week9/mg_bluesteel.jpg)
-![Pipe Head](assets/week9/mg_pipes.jpg)
-![Joan](assets/week9/mg_joan.jpg)
-![Snape](assets/week9/mg_snape.jpg)
-![Green](assets/week9/mg_green.jpg)
-![GreenAlso](assets/week9/mg_greenalso.jpg)
-
-_Various by Max Grecke - [Link](https://www.instagram.com/maxgrecke/?hl=en)_
-
-![BH6 Stylising](assets/week9/bh6_stylising.jpg)
-
-_Stylising from life in Big Hero 6_
-
+html:
+  embed_local_images: false
+  offline: false
+export_on_save:
+  html: true
 ---
-
-## Reference
-
-Planes of the head pureref. 3D skulls. Lots of eyes and noses and ears.
-
----
-
-## 3D Cartoony Style Ref
-
-![Conan](assets/week9/as_conan.jpg)
-
-_Conan by Airborn Studios - [Link](https://www.artstation.com/artwork/Bm0Y9)_
-
-![Moana1](assets/week9/moana2.png)
-![Moana4](assets/week9/moana4.png)
-
-_Moana Look Dev - [Link](https://www.artstation.com/artwork/0ygdG)_
+# Week 9: Modeling Characters
 
 
-![Pirate](assets/week9/pc_pirate_sm.png)
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=3 orderedList=false} -->
 
-_Pirate by Pedro Conti - [Link](https://www.artstation.com/artwork/VddK5)
+<!-- code_chunk_output -->
 
-![Brave](assets/week9/brave_maq.jpg)
+- [Week 9: Modeling Characters](#week-9-modeling-characters)
+  - [Character modeling!](#character-modeling)
+    - [Biting off what you can chew](#biting-off-what-you-can-chew)
+  - [Assessment 3](#assessment-3)
+    - [Deliveries by week](#deliveries-by-week)
+  - [// DISCUSSION LINK](#discussion-link)
+    - [Week 11](#week-11)
+  - [Model with me](#model-with-me)
+  - [Choose your concept](#choose-your-concept)
+  - [// Link: FN don't use your concepts](#link-fn-dont-use-your-concepts)
+    - [Style reference](#style-reference)
+  - [// IMAGES concepts vs real models](#images-concepts-vs-real-models)
+  - [UV with me](#uv-with-me)
 
-_Merida and Queen Maquettes from Brave - [Link](http://www.theconceptartblog.com/2012/02/09/esculturas-dos-personagens-do-filme-brave/)_
+<!-- /code_chunk_output -->
 
-![VD Pirate](assets/week9/vd_pirate.jpg)
+## Character modeling!
 
-_Pirate by Vincent Dromart - [Link](https://www.behance.net/gallery/31073985/Pirate)
-
-![Chef](assets/week9/rata_chef.jpg)
-![Chef2](assets/week9/rata_maq2.jpg)
-
-_Chef Skinner, Ratatouille by Pixar_
-
-![Thrones1](assets/week9/cs_misc.jpg)
-![Thrones2](assets/week9/cs_misc2.jpg)
-![Thrones3](assets/week9/cs_arya.jpg)
-
-## Sculpting Timelapses
-
-[![Time Conan](assets/week9/Time_Conan.png)](https://www.youtube.com/watch?v=L6kYhShKXKY)
-[Conan Timelapse](https://www.youtube.com/watch?v=L6kYhShKXKY)
-
-[![Time Dva](assets/week9/Time_Dva.png)](https://www.youtube.com/watch?v=R9se6h_MFCk)
-[Black Cat DVa Cosplay Timelapse](https://www.youtube.com/watch?v=R9se6h_MFCk)
-
-[![Pirate Block](assets/week9/pc_pirate_sm.png)](https://vimeo.com/82019501)
-[Pirate Block In](https://vimeo.com/82019501)
-
-## Sculpting Streams
-
-[![Stream Snow](assets/week9/Stream_Snow2.png)](https://www.youtube.com/watch?v=0Dg7c1ClQ1A&t=493s)
-[John Snow Stream with Follygon](https://www.youtube.com/watch?v=0Dg7c1ClQ1A&t=493s)
-
-Disclaimer: Snow thumbnail is from stream two. Link is to stream 1 (3 hours) initial build. Stream 2 has detailing.
+It's a deep subject
+It includes:
+* Prop and hard-surface modeling skills
+  - They have props on them, they wear armor/tech
+* Knowledge of anatomy, and mechanics of movement 
+* Understanding of facial expressions and how to support them
+* Great subtlety: the brain dedicates a lot of neurons to recognising human faces and forms. Tiny differences stand out.
 
 
-## Base meshes
+>**Anyone\* can learn**, it's just practise + study:
+>- Anyone who is super invested
+>- It requires a disgusting amount of hours put in
+>- That's before and during a career, at work and at home
 
-Helpful bust mesh. Offer cartoony or real
+### Biting off what you can chew
+
+We're learning a bunch at once: 
+1. how to model a character from concept + style reference 
+2. How to uv unwrap.
+2a. How to uv unwrap a character, which is specialized
+3. How to use 3D coat and photoshop in texturing
+4. How to paint stylized characters for games
+  
+**That's more topics than we have weeks.**
+
+The answer: choose and model simpler characters with very low polygon counts.
+
+## Assessment 3
+
+Modeling, texturing and exporting a character to a game engine.
+
+### Deliveries by week
+
+I'll be tracking discussion post updates week by week, and this will feed into your marks on discussion participation and use of in-class techniques (30% of assessment marks)
+
+Several will be via discussion group
+## // DISCUSSION LINK
+
+#### Week 10
+
+Due **Weds 20/11**. Update discussion post with:
+* A screenshot of pureRef displaying your :
+  - 2D Concept image
+  - 3D modeling/texturing style reference
+* Discussion of what attracts you to the character concept and why you chose the style reference
+* Screenshots of your 3D model in Maya showing its topology and form.
+
+### Week 11
+
+Due **Weds 27/11**. Update discussion post with:
+* Feedback on two other students' model topology from week one
+* Two Maya screenshot of your UV unwrapped character
+  * In Maya's UVS workspace: perspective panel, uv editor.
+  * With _image->dim_ enabled in uv settings so wires are clear
+  * All character pieces selected so all uv wires are shown.
+  * One shot with checkerboard turned on to show even coverage
+  * Another shot with stretch/distortion hilighting enabled 
+* A screenshot of your character in 3D Coat with baked ambient occlusion and first pass flat colours.
+
+## Model with me
+
+Modeling a basic character for texturing
+
+* Identifying what needs geometry, what can be painted in.
+* Minimum geometry for maximum value
+* Poly count HUD
+* Importance of hard vs soft normals
+
+## Choose your concept
+
+We won't be using our own concepts for this.
+
+Here's a discussion between the Flipped Normals guys (industry pro character modelers and teachers) about why modeling from your own concepts is a bad idea for early learning and making portfolio pieces:
+## // Link: FN don't use your concepts
+
+### Style reference
+
+Style reference is critical
+* You don't have one yet
+* It's often not covered in the concept, and never 100% covered
+* You will usually model to a style guide for a game
+  
+## // IMAGES concepts vs real models
+
+Images of concepts
+Images of style reference
+
+Choose your concept.
+Choose your style reference.
+Load into PureRef
+Screenshot
+Post to discussion.
+
+## UV with me

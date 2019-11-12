@@ -13,18 +13,9 @@ export_on_save:
 
 - [ISE102 Week 9: Snakes, Frames, Objects](#ise102-week-9-snakes-frames-objects)
   - [Assessment 3: Snake](#assessment-3-snake)
-    - [Answering the brief](#answering-the-brief)
-    - [Extras after requirements](#extras-after-requirements)
-    - [Bullet points:](#bullet-points)
   - [Delivering the assessment](#delivering-the-assessment)
-    - [Create your solution with the right name](#create-your-solution-with-the-right-name)
   - [Things to learn while making Snake](#things-to-learn-while-making-snake)
-    - [Games with Frames](#games-with-frames)
-    - [Drawing big 80s pixels.](#drawing-big-80s-pixels)
   - [Exercises: Making pixel art with `eightiesGame.h`](#exercises-making-pixel-art-with-eightiesgameh)
-    - [Part 1: Download and use our new template](#part-1-download-and-use-our-new-template)
-    - [Part 2: Draw in code](#part-2-draw-in-code)
-    - [Random Pixels](#random-pixels)
   - [Extras](#extras)
 
 <!-- /code_chunk_output -->

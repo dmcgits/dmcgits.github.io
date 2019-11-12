@@ -3,9 +3,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///C:\Users\Danny\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.3.11\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
       
       
+
       
       
       
@@ -14,115 +15,153 @@
       
       
 
-      <style> 
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#555;background-color:#f0f0f0 !important;border:#d6d6d6;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#999988;font-style:italic}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#920B2D}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.property,pre[class*="language-"] .token.property{font-weight:bold;color:#333}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#D14}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#D14}code[class*="language-"] .token.symbol,pre[class*="language-"] .token.symbol{color:#990073}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#008080}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#458;font-weight:bold}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#D14}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#606aa1}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#888}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#222;font-weight:bold}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#900}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{text-decoration:underline;color:#606aa1}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#008080}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
- 
+
       </style>
     </head>
     <body for="html-export">
-      <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="characters">Characters!</h1>
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="week-9-modeling-characters">Week 9: Modeling Characters</h1>
 
-<p>Making characters in ZBrush</p>
-<h2 class="mume-header" id="1-introducting-zbrush">1. Introducting ZBrush</h2>
-
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-9-modeling-characters">Week 9: Modeling Characters</a>
 <ul>
-<li>The first screen</li>
-<li>Placing and editing</li>
-<li>Navigation</li>
-<li>Making an object</li>
-<li>Saving</li>
-<li>Subtools</li>
-<li>Brushes and Subdivision</li>
-<li>Move, smooth, clay buildup, standard, dam_standard, hpolish, trim.</li>
-<li>Visibility</li>
-<li>Polygroups</li>
+<li><a href="#character-modeling">Character modeling!</a>
+<ul>
+<li><a href="#biting-off-what-you-can-chew">Biting off what you can chew</a></li>
 </ul>
-<p><img src="assets/week9/zb_masking.jpg" alt="visibility"></p>
-<p><em>Masking bits of mesh to protect them from edits</em></p>
-<p><img src="assets/week9/zb_visibility.jpg" alt="visibility"></p>
-<p><em>Hiding bits of mesh with ctrl-shift-LMB</em></p>
-<p><img src="assets/week9/zb_pg_and_density.jpg" alt="pg"></p>
-<p><em>Polygroups and mesh density, Jason Martin</em></p>
-<h2 class="mume-header" id="zbrush-learning">ZBrush Learning</h2>
+</li>
+<li><a href="#assessment-3">Assessment 3</a>
+<ul>
+<li><a href="#deliveries-by-week">Deliveries by week</a></li>
+</ul>
+</li>
+<li><a href="#discussion-link">// DISCUSSION LINK</a>
+<ul>
+<li><a href="#week-11">Week 11</a></li>
+</ul>
+</li>
+<li><a href="#model-with-me">Model with me</a></li>
+<li><a href="#choose-your-concept">Choose your concept</a></li>
+<li><a href="#link-fn-dont-use-your-concepts">// Link: FN don&#x2019;t use your concepts</a>
+<ul>
+<li><a href="#style-reference">Style reference</a></li>
+</ul>
+</li>
+<li><a href="#images-concepts-vs-real-models">// IMAGES concepts vs real models</a></li>
+<li><a href="#uv-with-me">UV with me</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="character-modeling">Character modeling!</h2>
 
-<p>This is the big one for this week:</p>
-<p><a href="https://www.youtube.com/watch?v=J2B0x9TkFuA&amp;list=PLkzopwqcFevYqrk_0MKIaUwrWYILzYsp6"><img src="assets/week9/intro_zb_1.jpg" alt="Intro ZB"></a></p>
-<p><em>Intro to ZBrush P1 with Michael Pavlovic - <a href="https://www.youtube.com/watch?v=J2B0x9TkFuA&amp;list=PLkzopwqcFevYqrk_0MKIaUwrWYILzYsp6">Link</a></em></p>
-<hr>
-<h2 class="mume-header" id="concepts">Concepts</h2>
+<p>It&#x2019;s a deep subject<br>
+It includes:</p>
+<ul>
+<li>Prop and hard-surface modeling skills
+<ul>
+<li>They have props on them, they wear armor/tech</li>
+</ul>
+</li>
+<li>Knowledge of anatomy, and mechanics of movement</li>
+<li>Understanding of facial expressions and how to support them</li>
+<li>Great subtlety: the brain dedicates a lot of neurons to recognising human faces and forms. Tiny differences stand out.</li>
+</ul>
+<blockquote>
+<p><strong>Anyone* can learn</strong>, it&#x2019;s just practise + study:</p>
+<ul>
+<li>Anyone who is super invested</li>
+<li>It requires a disgusting amount of hours put in</li>
+<li>That&#x2019;s before and during a career, at work and at home</li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="biting-off-what-you-can-chew">Biting off what you can chew</h3>
 
-<p><img src="assets/week9/mg_wolvie.jpg" alt="Wolvie"></p>
-<p><em>Wolverine by Max Grecke - <a href="https://www.artstation.com/artwork/OoJnK">Link</a></em></p>
-<p><img src="assets/week9/sy_rey.jpg" alt="Rey 2D"><br>
-<img src="assets/week9/rey_real1.jpg" alt="Rey Real1"><br>
-<img src="assets/week9/rey_real2.jpg" alt="Rey Real2"><br>
-<img src="assets/week9/rey_real4.jpg" alt="Rey Real2"></p>
-<p><em>Rey!</em></p>
-<p><img src="assets/week9/GS_Males.png" alt="Males"></p>
-<p><em>Stylised males by Gray Shuko - <a href="_https://www.artstation.com/artwork/freestylesfaces01">Link</a></em></p>
-<p><img src="assets/week9/bh6_fred.jpg" alt="Fred"></p>
-<p><em>Fred from Big Hero 6</em></p>
-<p><img src="assets/week9/loish_goldeyes.jpg" alt="Loish gold"></p>
-<p><em>Loish Gold Eyes</em></p>
-<p><img src="assets/week9/th_roundy.png" alt="TH Roundy"></p>
-<p><em>Troll Hunters</em></p>
-<p><img src="assets/week9/daenerys_real1.png" alt="Daenerys"><br>
-<img src="assets/week9/daenerys_real2.png" alt="Daenerys"><br>
-<img src="assets/week9/daenerys_real3.jpg" alt="Daenerys"><br>
-<img src="assets/week9/rt_daenerys.jpg" alt="Daenerys"><br>
-<img src="assets/week9/cs_daenerys.jpg" alt="Daenerys"></p>
-<p><img src="assets/week9/mg_bluesteel.jpg" alt="BlueSteel"><br>
-<img src="assets/week9/mg_pipes.jpg" alt="Pipe Head"><br>
-<img src="assets/week9/mg_joan.jpg" alt="Joan"><br>
-<img src="assets/week9/mg_snape.jpg" alt="Snape"><br>
-<img src="assets/week9/mg_green.jpg" alt="Green"><br>
-<img src="assets/week9/mg_greenalso.jpg" alt="GreenAlso"></p>
-<p><em>Various by Max Grecke - <a href="https://www.instagram.com/maxgrecke/?hl=en">Link</a></em></p>
-<p><img src="assets/week9/bh6_stylising.jpg" alt="BH6 Stylising"></p>
-<p><em>Stylising from life in Big Hero 6</em></p>
-<hr>
-<h2 class="mume-header" id="reference">Reference</h2>
+<p>We&#x2019;re learning a bunch at once:</p>
+<ol>
+<li>how to model a character from concept + style reference</li>
+<li>How to uv unwrap.<br>
+2a. How to uv unwrap a character, which is specialized</li>
+<li>How to use 3D coat and photoshop in texturing</li>
+<li>How to paint stylized characters for games</li>
+</ol>
+<p><strong>That&#x2019;s more topics than we have weeks.</strong></p>
+<p>The answer: choose and model simpler characters with very low polygon counts.</p>
+<h2 class="mume-header" id="assessment-3">Assessment 3</h2>
 
-<p>Planes of the head pureref. 3D skulls. Lots of eyes and noses and ears.</p>
-<hr>
-<h2 class="mume-header" id="3d-cartoony-style-ref">3D Cartoony Style Ref</h2>
+<p>Modeling, texturing and exporting a character to a game engine.</p>
+<h3 class="mume-header" id="deliveries-by-week">Deliveries by week</h3>
 
-<p><img src="assets/week9/as_conan.jpg" alt="Conan"></p>
-<p><em>Conan by Airborn Studios - <a href="https://www.artstation.com/artwork/Bm0Y9">Link</a></em></p>
-<p><img src="assets/week9/moana2.png" alt="Moana1"><br>
-<img src="assets/week9/moana4.png" alt="Moana4"></p>
-<p><em>Moana Look Dev - <a href="https://www.artstation.com/artwork/0ygdG">Link</a></em></p>
-<p><img src="assets/week9/pc_pirate_sm.png" alt="Pirate"></p>
-<p>_Pirate by Pedro Conti - <a href="https://www.artstation.com/artwork/VddK5">Link</a></p>
-<p><img src="assets/week9/brave_maq.jpg" alt="Brave"></p>
-<p><em>Merida and Queen Maquettes from Brave - <a href="http://www.theconceptartblog.com/2012/02/09/esculturas-dos-personagens-do-filme-brave/">Link</a></em></p>
-<p><img src="assets/week9/vd_pirate.jpg" alt="VD Pirate"></p>
-<p>_Pirate by Vincent Dromart - <a href="https://www.behance.net/gallery/31073985/Pirate">Link</a></p>
-<p><img src="assets/week9/rata_chef.jpg" alt="Chef"><br>
-<img src="assets/week9/rata_maq2.jpg" alt="Chef2"></p>
-<p><em>Chef Skinner, Ratatouille by Pixar</em></p>
-<p><img src="assets/week9/cs_misc.jpg" alt="Thrones1"><br>
-<img src="assets/week9/cs_misc2.jpg" alt="Thrones2"><br>
-<img src="assets/week9/cs_arya.jpg" alt="Thrones3"></p>
-<h2 class="mume-header" id="sculpting-timelapses">Sculpting Timelapses</h2>
+<p>I&#x2019;ll be tracking discussion post updates week by week, and this will feed into your marks on discussion participation and use of in-class techniques (30% of assessment marks)</p>
+<p>Several will be via discussion group</p>
+<h2 class="mume-header" id="discussion-link">// DISCUSSION LINK</h2>
 
-<p><a href="https://www.youtube.com/watch?v=L6kYhShKXKY"><img src="assets/week9/Time_Conan.png" alt="Time Conan"></a><br>
-<a href="https://www.youtube.com/watch?v=L6kYhShKXKY">Conan Timelapse</a></p>
-<p><a href="https://www.youtube.com/watch?v=R9se6h_MFCk"><img src="assets/week9/Time_Dva.png" alt="Time Dva"></a><br>
-<a href="https://www.youtube.com/watch?v=R9se6h_MFCk">Black Cat DVa Cosplay Timelapse</a></p>
-<p><a href="https://vimeo.com/82019501"><img src="assets/week9/pc_pirate_sm.png" alt="Pirate Block"></a><br>
-<a href="https://vimeo.com/82019501">Pirate Block In</a></p>
-<h2 class="mume-header" id="sculpting-streams">Sculpting Streams</h2>
+<h4 class="mume-header" id="week-10">Week 10</h4>
 
-<p><a href="https://www.youtube.com/watch?v=0Dg7c1ClQ1A&amp;t=493s"><img src="assets/week9/Stream_Snow2.png" alt="Stream Snow"></a><br>
-<a href="https://www.youtube.com/watch?v=0Dg7c1ClQ1A&amp;t=493s">John Snow Stream with Follygon</a></p>
-<p>Disclaimer: Snow thumbnail is from stream two. Link is to stream 1 (3 hours) initial build. Stream 2 has detailing.</p>
-<h2 class="mume-header" id="base-meshes">Base meshes</h2>
+<p>Due <strong>Weds 20/11</strong>. Update discussion post with:</p>
+<ul>
+<li>A screenshot of pureRef displaying your :
+<ul>
+<li>2D Concept image</li>
+<li>3D modeling/texturing style reference</li>
+</ul>
+</li>
+<li>Discussion of what attracts you to the character concept and why you chose the style reference</li>
+<li>Screenshots of your 3D model in Maya showing its topology and form.</li>
+</ul>
+<h3 class="mume-header" id="week-11">Week 11</h3>
 
-<p>Helpful bust mesh. Offer cartoony or real</p>
+<p>Due <strong>Weds 27/11</strong>. Update discussion post with:</p>
+<ul>
+<li>Feedback on two other students&#x2019; model topology from week one</li>
+<li>Two Maya screenshot of your UV unwrapped character
+<ul>
+<li>In Maya&#x2019;s UVS workspace: perspective panel, uv editor.</li>
+<li>With <em>image-&gt;dim</em> enabled in uv settings so wires are clear</li>
+<li>All character pieces selected so all uv wires are shown.</li>
+<li>One shot with checkerboard turned on to show even coverage</li>
+<li>Another shot with stretch/distortion hilighting enabled</li>
+</ul>
+</li>
+<li>A screenshot of your character in 3D Coat with baked ambient occlusion and first pass flat colours.</li>
+</ul>
+<h2 class="mume-header" id="model-with-me">Model with me</h2>
+
+<p>Modeling a basic character for texturing</p>
+<ul>
+<li>Identifying what needs geometry, what can be painted in.</li>
+<li>Minimum geometry for maximum value</li>
+<li>Poly count HUD</li>
+<li>Importance of hard vs soft normals</li>
+</ul>
+<h2 class="mume-header" id="choose-your-concept">Choose your concept</h2>
+
+<p>We won&#x2019;t be using our own concepts for this.</p>
+<p>Here&#x2019;s a discussion between the Flipped Normals guys (industry pro character modelers and teachers) about why modeling from your own concepts is a bad idea for early learning and making portfolio pieces:</p>
+<h2 class="mume-header" id="link-fn-dont-use-your-concepts">// Link: FN don&#x2019;t use your concepts</h2>
+
+<h3 class="mume-header" id="style-reference">Style reference</h3>
+
+<p>Style reference is critical</p>
+<ul>
+<li>You don&#x2019;t have one yet</li>
+<li>It&#x2019;s often not covered in the concept, and never 100% covered</li>
+<li>You will usually model to a style guide for a game</li>
+</ul>
+<h2 class="mume-header" id="images-concepts-vs-real-models">// IMAGES concepts vs real models</h2>
+
+<p>Images of concepts<br>
+Images of style reference</p>
+<p>Choose your concept.<br>
+Choose your style reference.<br>
+Load into PureRef<br>
+Screenshot<br>
+Post to discussion.</p>
+<h2 class="mume-header" id="uv-with-me">UV with me</h2>
+
 
       </div>
       
