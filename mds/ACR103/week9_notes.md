@@ -24,17 +24,18 @@ export_on_save:
   - [Choose your concept and style ref](#choose-your-concept-and-style-ref)
     - [On choosing a concept](#on-choosing-a-concept)
   - [Model with me](#model-with-me)
-  - [// FILE LINK](#file-link)
     - [Priority 1: Folder organisation](#priority-1-folder-organisation)
-    - [Pureref refresher](#pureref-refresher)
+    - [Concept art and Pureref refresher](#concept-art-and-pureref-refresher)
     - [Maya project setup refresher](#maya-project-setup-refresher)
-  - [Modeling a basic character for texturing](#modeling-a-basic-character-for-texturing)
     - [Style reference](#style-reference)
+  - [Modeling a basic character for texturing](#modeling-a-basic-character-for-texturing)
   - [Texturing and UVs](#texturing-and-uvs)
     - [Textured characters: like vinyl wrapping](#textured-characters-like-vinyl-wrapping)
   - [UV with me (Time permitting)](#uv-with-me-time-permitting)
     - [Good and Bad UVs](#good-and-bad-uvs)
-  - [IMAGES // Unfold and Layout settings](#images--unfold-and-layout-settings)
+  - [Start Unwrapping (if time allows)](#start-unwrapping-if-time-allows)
+    - [Create new starting UVs:](#create-new-starting-uvs)
+    - [Cutting and unfolding](#cutting-and-unfolding)
   - [Next week character uv and paint.](#next-week-character-uv-and-paint)
   - [Resources](#resources)
     - [Uv tutorials](#uv-tutorials)
@@ -165,10 +166,6 @@ _The meant to say: don't (or rarely) use your own concept art for 3D modeling wh
 
 ## Model with me
 
-Grab this download:
-## // FILE LINK
-PureRef portable, .pur file with images already in.
-
 ### Priority 1: Folder organisation
 
 If you go in without a strategy, files and folders for even a single application like Maya or Unity get messy fast. 
@@ -188,36 +185,57 @@ Let's start by making a folder structure. Here's an example I might use if I was
       - ref__cbird      // pureref and plain image reference
 ```
       
-### Pureref refresher
+### Concept art and Pureref refresher
 
-Right drag to move app
-left drag to move image
-ctrl-alt-left drag to resize image
-c-left-drag to crop an image
-ctrl-shif-c to uncromp
+If you don't have Pureref already, Grab this download: [PureRef portable
+![](assets/week2/../week6/components_pureref.png)](assets/week9/pureref_port_192.zip)
+_PureRef holding my outlines during modeling_
 
+* Open [the assessment 3 character conept board](https://www.pinterest.com.au/dmacdraws/acr103/character-concepts/) in a new window
+* I'll pick a pretty basic character. 
+* Copy paste it into PureRef
+
+> **SHORTCUTS**
+>These are also in the help section and keyboard shortcuts preferences
+> **ctrl-v** paste image. (cmd on mac)
+> **Right drag** to move app
+> **left drag** to move image
+> **ctrl-alt-left drag** to resize image
+> **c-left-drag** to crop an image
+> **ctrl-shif-c** to uncrop
+> **ctrl-shift-r** resize app to current selection
 
 ### Maya project setup refresher
 
-Set up folder
-
-## Modeling a basic character for texturing
-
-* Identifying what needs geometry, what can be painted in.
-* Minimum geometry for maximum value
-* Poly count HUD
-* Importance of hard vs soft normals
+Setting up project and folders.
+Enabling autosave (if not set)
 
 ### Style reference
 
+Let's drop style reference into pureref.
+
 Style reference is critical
-* You don't have one yet
+* You don't have a go-to style yet
 * There are maaaany ways to translate 2D to 3D
 * It's often not covered in the concept, and never 100% covered
-* You will usually model to a style guide for a game
+* Even if you did have a style you usually model to a style guide for a game
   
 ![](assets/week9/lizard_mage_2dv3d.png)
 
+## Modeling a basic character for texturing
+
+There's a lot to consider. Some of it will be solved by the style reference we just grabbed.
+
+* Poly count HUD
+  - Sanity check
+  - Helps find and fix unmerged verts etc
+* Identifying what needs geometry, what can be painted in.
+* Minimum geometry for maximum value
+* Blocking out character first
+* Setting objects to template/reference/x-ray mode so they can be used as guides
+* A limb is a cylinder: how many sides? 5? 6? 8? 16? 
+* How do we nicely merge limbs into body
+* Importance of hard vs soft normals
 
 ## Texturing and UVs
 
@@ -235,7 +253,6 @@ _Click unfolded monster to download a pdf pattern_
 
 ![](assets/week9/papercraft_lootbox.jpg)
 _No PDF: just download this picture to make a lootbox_
-
 
 ### Textured characters: like vinyl wrapping
 
@@ -260,7 +277,10 @@ When we uv unwrap we kinda have that sticky, stretchy material. The challenge is
 ![](assets/week9/uvs_tile_bad_extruded.png)
 _One side looks blank, the other is striped and full of errors_
 
-#### Create new starting UVs:
+
+## Start Unwrapping (if time allows)
+
+### Create new starting UVs:
   
   - Go into Maya's UV workspace
   ![](assets/week9/maya_uvEditing_workspace.png)
@@ -270,7 +290,7 @@ _One side looks blank, the other is striped and full of errors_
   
 The new UVS are distorted in 2D to resemble what the camera saw. They're all joined together like the mesh too. We need to cut it like papercraft.
 
-#### Cutting and unfolding
+### Cutting and unfolding
   - In edge mode, select (and shift select) edges to cut
   ![](assets/week9/select_edges_to_cut.png)
   - UV Toolkit -> Cut and Sew -> Cut
@@ -286,9 +306,8 @@ These next steps were all done by hand previously (and often still are):
 
 Unfold and Layout have plenty of settings. Lets have a look at good settings to start with.
 
-## IMAGES // Unfold and Layout settings 
-
-- [Download Krita portable for Uni workstation](https://sourceforge.net/projects/portableapps/files/Krita%20Portable/)
+**To be added soon: Unfold and Layout settings pics
+**
 
 ## Next week character uv and paint.
 
@@ -309,9 +328,12 @@ _Bunny unwrap tute made in 2018_](https://www.youtube.com/watch?v=VHUJ-kte1n8)
 
 ### Krita painting app
 If you don't have photoshop at home, Krita is a great free alternative. 
-* For your own machine you can download the full installer, 
+* For your own machine you can [download the full installer,](https://krita.org/en/download/krita-desktop/)
 * On a uni workstation you'll need the portable (runs without install) version:
   - [Download Krita portable for Uni workstation](https://sourceforge.net/projects/portableapps/files/Krita%20Portable/)
+
+![](assets/week9/krita_ui.png)
+
 
 ### Kelvin Tan teaches 3D Coat
 

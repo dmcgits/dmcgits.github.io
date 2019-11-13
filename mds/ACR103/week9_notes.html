@@ -51,19 +51,15 @@
 <li><a href="#on-choosing-a-concept">On choosing a concept</a></li>
 </ul>
 </li>
-<li><a href="#model-with-me">Model with me</a></li>
-<li><a href="#file-link">// FILE LINK</a>
+<li><a href="#model-with-me">Model with me</a>
 <ul>
 <li><a href="#priority-1-folder-organisation">Priority 1: Folder organisation</a></li>
-<li><a href="#pureref-refresher">Pureref refresher</a></li>
+<li><a href="#concept-art-and-pureref-refresher">Concept art and Pureref refresher</a></li>
 <li><a href="#maya-project-setup-refresher">Maya project setup refresher</a></li>
-</ul>
-</li>
-<li><a href="#modeling-a-basic-character-for-texturing">Modeling a basic character for texturing</a>
-<ul>
 <li><a href="#style-reference">Style reference</a></li>
 </ul>
 </li>
+<li><a href="#modeling-a-basic-character-for-texturing">Modeling a basic character for texturing</a></li>
 <li><a href="#texturing-and-uvs">Texturing and UVs</a>
 <ul>
 <li><a href="#textured-characters-like-vinyl-wrapping">Textured characters: like vinyl wrapping</a></li>
@@ -74,7 +70,12 @@
 <li><a href="#good-and-bad-uvs">Good and Bad UVs</a></li>
 </ul>
 </li>
-<li><a href="#images--unfold-and-layout-settings">IMAGES // Unfold and Layout settings</a></li>
+<li><a href="#start-unwrapping-if-time-allows">Start Unwrapping (if time allows)</a>
+<ul>
+<li><a href="#create-new-starting-uvs">Create new starting UVs:</a></li>
+<li><a href="#cutting-and-unfolding">Cutting and unfolding</a></li>
+</ul>
+</li>
 <li><a href="#next-week-character-uv-and-paint">Next week character uv and paint.</a></li>
 <li><a href="#resources">Resources</a>
 <ul>
@@ -202,10 +203,6 @@ More info incoming.</p>
 <em>The meant to say: don&#x2019;t (or rarely) use your own concept art for 3D modeling when learning</em></p>
 <h2 class="mume-header" id="model-with-me">Model with me</h2>
 
-<p>Grab this download:</p>
-<h2 class="mume-header" id="file-link">// FILE LINK</h2>
-
-<p>PureRef portable, .pur file with images already in.</p>
 <h3 class="mume-header" id="priority-1-folder-organisation">Priority 1: Folder organisation</h3>
 
 <p>If you go in without a strategy, files and folders for even a single application like Maya or Unity get messy fast.</p>
@@ -220,34 +217,60 @@ More info incoming.</p>
       <span class="token operator">-</span> maya__cbird     <span class="token comment">// maya project in here for modeling</span>
       <span class="token operator">-</span> pshop__cbird    <span class="token comment">// photoshop texturing etc</span>
       <span class="token operator">-</span> ref__cbird      <span class="token comment">// pureref and plain image reference</span>
-</pre><h3 class="mume-header" id="pureref-refresher">Pureref refresher</h3>
+</pre><h3 class="mume-header" id="concept-art-and-pureref-refresher">Concept art and Pureref refresher</h3>
 
-<p>Right drag to move app<br>
-left drag to move image<br>
-ctrl-alt-left drag to resize image<br>
-c-left-drag to crop an image<br>
-ctrl-shif-c to uncromp</p>
+<p>If you don&#x2019;t have Pureref already, Grab this download: <a href="assets/week9/pureref_port_192.zip">PureRef portable<br>
+<img src="assets/week2/../week6/components_pureref.png" alt></a><br>
+<em>PureRef holding my outlines during modeling</em></p>
+<ul>
+<li>Open <a href="https://www.pinterest.com.au/dmacdraws/acr103/character-concepts/">the assessment 3 character conept board</a> in a new window</li>
+<li>I&#x2019;ll pick a pretty basic character.</li>
+<li>Copy paste it into PureRef</li>
+</ul>
+<blockquote>
+<p><strong>SHORTCUTS</strong><br>
+These are also in the help section and keyboard shortcuts preferences<br>
+<strong>ctrl-v</strong> paste image. (cmd on mac)<br>
+<strong>Right drag</strong> to move app<br>
+<strong>left drag</strong> to move image<br>
+<strong>ctrl-alt-left drag</strong> to resize image<br>
+<strong>c-left-drag</strong> to crop an image<br>
+<strong>ctrl-shif-c</strong> to uncrop<br>
+<strong>ctrl-shift-r</strong> resize app to current selection</p>
+</blockquote>
 <h3 class="mume-header" id="maya-project-setup-refresher">Maya project setup refresher</h3>
 
-<p>Set up folder</p>
-<h2 class="mume-header" id="modeling-a-basic-character-for-texturing">Modeling a basic character for texturing</h2>
-
-<ul>
-<li>Identifying what needs geometry, what can be painted in.</li>
-<li>Minimum geometry for maximum value</li>
-<li>Poly count HUD</li>
-<li>Importance of hard vs soft normals</li>
-</ul>
+<p>Setting up project and folders.<br>
+Enabling autosave (if not set)</p>
 <h3 class="mume-header" id="style-reference">Style reference</h3>
 
+<p>Let&#x2019;s drop style reference into pureref.</p>
 <p>Style reference is critical</p>
 <ul>
-<li>You don&#x2019;t have one yet</li>
+<li>You don&#x2019;t have a go-to style yet</li>
 <li>There are maaaany ways to translate 2D to 3D</li>
 <li>It&#x2019;s often not covered in the concept, and never 100% covered</li>
-<li>You will usually model to a style guide for a game</li>
+<li>Even if you did have a style you usually model to a style guide for a game</li>
 </ul>
 <p><img src="assets/week9/lizard_mage_2dv3d.png" alt></p>
+<h2 class="mume-header" id="modeling-a-basic-character-for-texturing">Modeling a basic character for texturing</h2>
+
+<p>There&#x2019;s a lot to consider. Some of it will be solved by the style reference we just grabbed.</p>
+<ul>
+<li>Poly count HUD
+<ul>
+<li>Sanity check</li>
+<li>Helps find and fix unmerged verts etc</li>
+</ul>
+</li>
+<li>Identifying what needs geometry, what can be painted in.</li>
+<li>Minimum geometry for maximum value</li>
+<li>Blocking out character first</li>
+<li>Setting objects to template/reference/x-ray mode so they can be used as guides</li>
+<li>A limb is a cylinder: how many sides? 5? 6? 8? 16?</li>
+<li>How do we nicely merge limbs into body</li>
+<li>Importance of hard vs soft normals</li>
+</ul>
 <h2 class="mume-header" id="texturing-and-uvs">Texturing and UVs</h2>
 
 <p>Textures are 2D images wrapped around 3D objects. Think of a cereal box: if you open the ends and cut down one long edge of the box, it can all be layed out flat.</p>
@@ -275,7 +298,9 @@ ctrl-shif-c to uncromp</p>
 <p>When we uv unwrap we kinda have that sticky, stretchy material. The challenge is to find ways to reduce that without stretching the image too much.</p>
 <p><img src="assets/week9/uvs_tile_bad_extruded.png" alt><br>
 <em>One side looks blank, the other is striped and full of errors</em></p>
-<h4 class="mume-header" id="create-new-starting-uvs">Create new starting UVs:</h4>
+<h2 class="mume-header" id="start-unwrapping-if-time-allows">Start Unwrapping (if time allows)</h2>
+
+<h3 class="mume-header" id="create-new-starting-uvs">Create new starting UVs:</h3>
 
 <ul>
 <li>Go into Maya&#x2019;s UV workspace<br>
@@ -285,7 +310,7 @@ ctrl-shif-c to uncromp</p>
 <img src="assets/week9/create_uvs_camera.png" alt></li>
 </ul>
 <p>The new UVS are distorted in 2D to resemble what the camera saw. They&#x2019;re all joined together like the mesh too. We need to cut it like papercraft.</p>
-<h4 class="mume-header" id="cutting-and-unfolding">Cutting and unfolding</h4>
+<h3 class="mume-header" id="cutting-and-unfolding">Cutting and unfolding</h3>
 
 <ul>
 <li>In edge mode, select (and shift select) edges to cut<br>
@@ -306,11 +331,8 @@ ctrl-shif-c to uncromp</p>
 </li>
 </ul>
 <p>Unfold and Layout have plenty of settings. Lets have a look at good settings to start with.</p>
-<h2 class="mume-header" id="images-unfold-and-layout-settings">IMAGES // Unfold and Layout settings</h2>
-
-<ul>
-<li><a href="https://sourceforge.net/projects/portableapps/files/Krita%20Portable/">Download Krita portable for Uni workstation</a></li>
-</ul>
+<p>**To be added soon: Unfold and Layout settings pics<br>
+**</p>
 <h2 class="mume-header" id="next-week-character-uv-and-paint">Next week character uv and paint.</h2>
 
 <p>We&#x2019;ll talk more on character unwrapping as you get your models prepped for 3D Coat. Being so rounded, figures provide a lot of stretchy challenge.</p>
@@ -327,13 +349,14 @@ ctrl-shif-c to uncromp</p>
 
 <p>If you don&#x2019;t have photoshop at home, Krita is a great free alternative.</p>
 <ul>
-<li>For your own machine you can download the full installer,</li>
+<li>For your own machine you can <a href="https://krita.org/en/download/krita-desktop/">download the full installer,</a></li>
 <li>On a uni workstation you&#x2019;ll need the portable (runs without install) version:
 <ul>
 <li><a href="https://sourceforge.net/projects/portableapps/files/Krita%20Portable/">Download Krita portable for Uni workstation</a></li>
 </ul>
 </li>
 </ul>
+<p><img src="assets/week9/krita_ui.png" alt></p>
 <h3 class="mume-header" id="kelvin-tan-teaches-3d-coat">Kelvin Tan teaches 3D Coat</h3>
 
 <p>I first learned how to texture in 3D coat from Kelvin&#x2019;s sci fi gun tute. He&#x2019;s a (former?) Blizzard artist who worked on WoW. Along the way he drops knowledge on lighting, design, readability and more.</p>
