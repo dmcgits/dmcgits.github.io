@@ -30,12 +30,18 @@ export_on_save:
   - [Textured characters: like vinyl wrapping](#textured-characters-like-vinyl-wrapping)
   - [UV with me](#uv-with-me)
     - [Bad UVs](#bad-uvs)
-  - [IMAGES // Unfold and Layout settings](#images--unfold-and-layout-settings)
+  - [IMAGES // Unfold and Layout settings](#images-unfold-and-layout-settings)
   - [Resources](#resources)
+    - [Uv tutorials](#uv-tutorials)
+    - [Krita painting app](#krita-painting-app)
+    - [Kelvin Tan teaches 3D Coat](#kelvin-tan-teaches-3d-coat)
 
 <!-- /code_chunk_output -->
 
 ## Character modeling!
+
+![](assets/week9/character_mira_model_eelgod.jpg)
+_Mira by [EelGod on Deviantart](https://www.deviantart.com/eelgod/art/Mira-Model-570220497)_
 
 It's a deep subject
 It includes:
@@ -44,6 +50,8 @@ It includes:
 * Knowledge of anatomy, and mechanics of movement 
 * Understanding of facial expressions and how to support them
 * Great subtlety: the brain dedicates a lot of neurons to recognising human faces and forms. Tiny differences stand out.
+
+![](assets/week9/rabbit_wires.jpg)
 
 
 >**Anyone\* can learn**, it's just practise + study:
@@ -62,7 +70,9 @@ We're learning a bunch at once:
   
 **That's more topics than we have weeks.**
 
-The answer: choose and model simpler characters with very low polygon counts.
+The answer: choose and model simpler, stylised characters with low polygon counts.
+
+![](assets/week9/rabbit_paint.gif)
 
 ## Assessment 3
 
@@ -222,9 +232,28 @@ Unfold and Layout have plenty of settings. Lets have a look at good settings to 
 ## IMAGES // Unfold and Layout settings 
 
 - [Download Krita portable for Uni workstation](https://sourceforge.net/projects/portableapps/files/Krita%20Portable/)
+
 ## Resources 
 
+### Uv tutorials
+
+I haven't watched yet:
+
+[![](assets/week9/tute_uv_rabbit.png)
+_Bunny unwrap tute made in 2018_](https://www.youtube.com/watch?v=VHUJ-kte1n8)
+
+
+
+### Krita painting app
 If you don't have photoshop at home, Krita is a great free alternative. 
 * For your own machine you can download the full installer, 
 * On a uni workstation you'll need the portable (runs without install) version:
   - [Download Krita portable for Uni workstation](https://sourceforge.net/projects/portableapps/files/Krita%20Portable/)
+
+### Kelvin Tan teaches 3D Coat
+
+I first learned how to texture in 3D coat from Kelvin's sci fi gun tute. He's a (former?) Blizzard artist who worked on WoW. Along the way he drops knowledge on lighting, design, readability and more.
+
+[His tutes on Gumroad](https://gumroad.com/turpedo#uYYtu) are paid ($10 US for the gun tute) so I can only suggest that it's very, very worth your money. And more.
+
+[![](assets/week9/scifi_gun_Kelvin_Tan.jpg)](https://gumroad.com/turpedo#uYYtu)
