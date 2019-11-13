@@ -20,11 +20,18 @@ export_on_save:
   - [// DISCUSSION LINK](#discussion-link)
     - [Week 11](#week-11)
   - [Model with me](#model-with-me)
+  - [// FILE LINK](#file-link)
+    - [Priority 1: Folder organisation](#priority-1-folder-organisation)
+    - [Pureref refresher](#pureref-refresher)
+    - [Maya project setup refresher](#maya-project-setup-refresher)
   - [Choose your concept](#choose-your-concept)
-  - [// Link: FN don't use your concepts](#link-fn-dont-use-your-concepts)
     - [Style reference](#style-reference)
-  - [// IMAGES concepts vs real models](#images-concepts-vs-real-models)
+  - [Texturing and UVs](#texturing-and-uvs)
+  - [Textured characters: like vinyl wrapping](#textured-characters-like-vinyl-wrapping)
   - [UV with me](#uv-with-me)
+    - [Bad UVs](#bad-uvs)
+  - [IMAGES // Unfold and Layout settings](#images--unfold-and-layout-settings)
+  - [Resources](#resources)
 
 <!-- /code_chunk_output -->
 
@@ -91,6 +98,28 @@ Due **Weds 27/11**. Update discussion post with:
 
 ## Model with me
 
+Grab this download:
+## // FILE LINK
+PureRef portable, .pur file with images already in.
+
+### Priority 1: Folder organisation
+
+If you go in without a strategy, files and folders for even a single application like Maya or Unity get messy fast. 
+
+> "Mess is the enemy of productivity." - every professional ever.
+
+Let's start by making a folder structure
+
+- acr103
+  - assess
+    - a3_character
+      - 
+
+### Pureref refresher
+
+
+
+### Maya project setup refresher
 Modeling a basic character for texturing
 
 * Identifying what needs geometry, what can be painted in.
@@ -98,21 +127,25 @@ Modeling a basic character for texturing
 * Poly count HUD
 * Importance of hard vs soft normals
 
+
+
 ## Choose your concept
 
 We won't be using our own concepts for this.
 
 Here's a discussion between the Flipped Normals guys (industry pro character modelers and teachers) about why modeling from your own concepts is a bad idea for early learning and making portfolio pieces:
-## // Link: FN don't use your concepts
+[![](https://i.ytimg.com/vi/42pALQQefDk/maxresdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDoxuOQhZWlNYLhPYTwyr5clYyuLQ)](https://www.youtube.com/watch?v=42pALQQefDk&t=722s)
+_The meant to say: don't (or rarely) use your own concept art for 3D modeling when learning_
 
 ### Style reference
 
 Style reference is critical
 * You don't have one yet
+* There are maaaany ways to translate 2D to 3D
 * It's often not covered in the concept, and never 100% covered
 * You will usually model to a style guide for a game
   
-## // IMAGES concepts vs real models
+![](assets/week9/lizard_mage_2dv3d.png)
 
 Images of concepts
 Images of style reference
@@ -123,4 +156,75 @@ Load into PureRef
 Screenshot
 Post to discussion.
 
+## Texturing and UVs
+
+Textures are 2D images wrapped around 3D objects. Think of a cereal box: if you open the ends and cut down one long edge of the box, it can all be layed out flat.
+
+To see the cereal box taken to fun places, check out papercraft toys:
+
+![](assets/week9/papercraft_dracula.jpg)
+[![](assets/week9/dracula_unfolded.jpg)](assets/week9/papercraft_dracula.pdf)
+_Click unfolded Dracula to download a pdf pattern_
+
+![](assets/week9/papercraft_sweet_monster_made.jpg)
+[![](assets/week9/papercraft_sweet_monster_unfolded.jpg)](assets/week9/papercraft_tougui_sweet_monster.pdf)
+_Click unfolded monster to download a pdf pattern_
+
+![](assets/week9/papercraft_lootbox.jpg)
+_No PDF: just download this picture to make a lootbox_
+
+## Textured characters: like vinyl wrapping
+
+![dva textures](assets/week9/dva_textures.jpg)
+_Various layers of pbr texturing applied to DVa as images_
+
 ## UV with me
+
+Let's uv the guy we modelled. 
+
+### Bad UVs
+
+Objects have a default uv layout when Maya creates them. Usually they become badly distorted as you model.
+
+Think of when you try to wrap a christmas present. Wrapping paper has no stretch to it, so it wants to crunch up in some places and threatens to tear in others. If it was stretchy and sticky, you could get it to follow the surface.
+
+When we uv unwrap we have that sticky, stretchy material. The challenge is to find ways to reduce that without stretching the image too much. Picture stretched reindeers or bent, skinny santa. 
+
+![](assets/week9/uvs_tile_bad_extruded.png)
+_One side looks blank, the other is striped and full of errors_
+
+#### Create new starting UVs:
+  
+  - Go into Maya's UV workspace
+  ![](assets/week9/maya_uvEditing_workspace.png)
+  - In the perspective view, tumble and look the model from above at 45 degrees, like in the image below
+  - UV Tookit -> Create -> Camera-based
+  ![](assets/week9/create_uvs_camera.png)
+  
+The new UVS are distorted in 2D to resemble what the camera saw. They're all joined together like the mesh too. We need to cut it like papercraft.
+
+#### Cutting and unfolding
+  - In edge mode, select (and shift select) edges to cut
+  ![](assets/week9/select_edges_to_cut.png)
+  - UV Toolkit -> Cut and Sew -> Cut
+  
+These next steps were all done by hand previously (and often still are):
+  - Select all edges
+  - Uv Toolkit -> Unfold -> Unfold
+  - Uv Toolkit -> Arrange and Layout -> Auto Orient
+  - Uv Toolkit -> Arrange and Layout -> Layout
+    - We'll try to roll with default here
+  ![](assets/week9/uvs_unfold_orient_layout.png)
+  _Unfolded, oriented, then laid out. Colours altered in photoshop._
+
+Unfold and Layout have plenty of settings. Lets have a look at good settings to start with.
+
+## IMAGES // Unfold and Layout settings 
+
+- [Download Krita portable for Uni workstation](https://sourceforge.net/projects/portableapps/files/Krita%20Portable/)
+## Resources 
+
+If you don't have photoshop at home, Krita is a great free alternative. 
+* For your own machine you can download the full installer, 
+* On a uni workstation you'll need the portable (runs without install) version:
+  - [Download Krita portable for Uni workstation](https://sourceforge.net/projects/portableapps/files/Krita%20Portable/)
