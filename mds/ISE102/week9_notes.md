@@ -41,7 +41,7 @@ Write down the requirements in your own language. It helps clarify your own ques
 #### Due date
 
 End of sunday (11:55pm) Module 6.2 (end of week 12).
-**1 Sept 2019.**
+**8 December 2019.**
 
 #### General Requirements
 Worth 40% of total marks.
