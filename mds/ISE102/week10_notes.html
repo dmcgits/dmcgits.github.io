@@ -141,7 +141,6 @@
 </ul>
 </li>
 <li><a href="#snake-problems-to-solve">Snake: Problems to solve</a></li>
-<li><a href="#displaying-and-updating-text">Displaying and updating text</a></li>
 <li><a href="#snake-as-a-board-game">Snake as a board game</a>
 <ul>
 <li><a href="#1-board">1. Board</a></li>
@@ -157,6 +156,7 @@
 <li><a href="#condensing-down-to-a-fruit-class">Condensing down to a Fruit class</a></li>
 </ul>
 </li>
+<li><a href="#displaying-and-updating-score">Displaying and updating score</a></li>
 <li><a href="#continue-at-home">Continue at home</a>
 <ul>
 <li><a href="#random-fruit">Random fruit</a></li>
@@ -210,23 +210,23 @@ Draw cell numbers in the top and left margin (partial code provided)</p>
 <h2 class="mume-header" id="snake-problems-to-solve">Snake: Problems to solve</h2>
 
 <p>We can do things like fill the screen and draw a border. There are new problems that need resolving: What are they?</p>
-<p><strong>Showing and updating a score</strong><br>
-A score is an amount that grows as you play and appears on screen all the time.</p>
-<p><strong>Making Fruit</strong></p>
-<ul>
-<li>Defining fruit</li>
-<li>We&#x2019;ve drawn random pixels, apply it to generating fruit locations</li>
-</ul>
-<p><strong>Moving a snake 1</strong><br>
-A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs.</p>
-<p><strong>Moving a snake 2: segments</strong><br>
-The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent &#x2018;head&#x2019;</p>
+<h4 class="mume-header" id="showing-and-updating-a-score">Showing and updating a score</h4>
+
+<p>A score is an amount that grows as you play and appears on screen all the time. Can we apply something we&#x2019;ve already used/seen?</p>
+<h4 class="mume-header" id="making-random-fruit">Making random fruit</h4>
+
+<p>We&#x2019;ve drawn random pixels, we can apply it to generating fruit locations. We&#x2019;ve made collections. We can&#x2019;t have collections of x, y, colour, fruit type, it&#x2019;ll be a mess.</p>
+<h4 class="mume-header" id="moving-a-snake-1">Moving a snake 1</h4>
+
+<p>A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs.</p>
+<p>How do we avoid too much complexity? How do we move things?</p>
+<h4 class="mume-header" id="moving-a-snake-2-segments">Moving a snake 2: segments</h4>
+
+<p>The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent &#x2018;head&#x2019;</p>
 <ul>
 <li>Defining a snake as many segments</li>
 <li>Segments appearing to following snake head</li>
 </ul>
-<h2 class="mume-header" id="displaying-and-updating-text">Displaying and updating text</h2>
-
 <h2 class="mume-header" id="snake-as-a-board-game">Snake as a board game</h2>
 
 <p>Board games. They have two basic parts minimum, usually.</p>
@@ -299,9 +299,12 @@ b. Drawing &#x201C;Score: x&#x201D; to screen every frame</p>
 <p>Let&#x2019;s start with a <code>Cell</code> called <code>fruitCell</code>. We could use its <code>x</code> and <code>y</code> location to draw the fruit.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">Cell fruitCell<span class="token punctuation">;</span>
 fruitCell<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-</pre><h4 class="mume-header" id="create-a-new-project">Create a new project</h4>
+</pre><h4 class="mume-header" id="start-your-assignment-project">Start your assignment project</h4>
 
-<p>Create a new eightiesGame <strong>project called SnakeGame</strong> in a <strong>solution called ISE102_Lastname_Firstname_Snake</strong>.</p>
+<p>Create your project somewhere organised, because you&#x2019;ll build on this to make your submission.<br>
+<strong>Project type:</strong> ISE102 80&#x2019;s Game<br>
+<strong>Solution name:</strong> ISE102_Lastname_Firstname_SnakeGame<br>
+<strong>Project name:</strong> Snake</p>
 <p>Enter this in main.cpp:</p>
 <p><img src="assets/week10/code_main_snake1_cell.png" alt></p>
 <h4 class="mume-header" id="create-the-cellh-header-file">Create the Cell.h header file</h4>
@@ -344,6 +347,9 @@ Cell fruitCell<span class="token punctuation">;</span>
 <li>Add the right (including a cell)</li>
 <li>What includes do you need?</li>
 </ol>
+<h2 class="mume-header" id="displaying-and-updating-score">Displaying and updating score</h2>
+
+<p>Our template has something we can use. See if you can figure it out.</p>
 <h2 class="mume-header" id="continue-at-home">Continue at home</h2>
 
 <h3 class="mume-header" id="random-fruit">Random fruit</h3>

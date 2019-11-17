@@ -17,7 +17,6 @@ export_on_save:
   - [This week](#this-week)
     - [Resource: New eightiesGame.h](#resource-new-eightiesgameh)
   - [Snake: Problems to solve](#snake-problems-to-solve)
-  - [Displaying and updating text](#displaying-and-updating-text)
   - [Snake as a board game](#snake-as-a-board-game)
     - [1. Board](#1-board)
     - [A scorekeeper?](#a-scorekeeper)
@@ -27,6 +26,7 @@ export_on_save:
     - [Classes in C++](#classes-in-c)
     - [Exercise: Make and use the Cell class](#exercise-make-and-use-the-cell-class)
     - [Condensing down to a Fruit class](#condensing-down-to-a-fruit-class)
+  - [Displaying and updating score](#displaying-and-updating-score)
   - [Continue at home](#continue-at-home)
     - [Random fruit](#random-fruit)
     - [Snake Class?](#snake-class)
@@ -79,25 +79,22 @@ Grab the [Updated eightiesGame.h](assets/week10/eightiesGame.h)
 
 We can do things like fill the screen and draw a border. There are new problems that need resolving: What are they?
 
-**Showing and updating a score**
-A score is an amount that grows as you play and appears on screen all the time.  
+#### Showing and updating a score
+A score is an amount that grows as you play and appears on screen all the time. Can we apply something we've already used/seen?
 
-**Making Fruit**
-- Defining fruit 
-- We've drawn random pixels, apply it to generating fruit locations 
+#### Making random fruit
 
-**Moving a snake 1**
-A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs.
+We've drawn random pixels, we can apply it to generating fruit locations. We've made collections. We can't have collections of x, y, colour, fruit type, it'll be a mess.
 
-**Moving a snake 2: segments**
+####  Moving a snake 1
+A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs. 
+
+How do we avoid too much complexity? How do we move things?
+
+#### Moving a snake 2: segments
 The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent 'head'
 - Defining a snake as many segments
 - Segments appearing to following snake head
-
-
-
-## Displaying and updating text
-
 
 ## Snake as a board game
 
@@ -201,9 +198,12 @@ Cell fruitCell;
 fruitCell.x = 5;
 ```
 
-#### Create a new project
+#### Start your assignment project
 
-Create a new eightiesGame **project called SnakeGame** in a **solution called ISE102_Lastname_Firstname_Snake**.
+Create your project somewhere organised, because you'll build on this to make your submission.
+**Project type:** ISE102 80's Game
+**Solution name:** ISE102_Lastname_Firstname_SnakeGame
+**Project name:** Snake
 
 Enter this in main.cpp:
 
@@ -255,6 +255,11 @@ Create the `Fruit` class and get rid of the squigglies.
 3. Change "Cell" to "Fruit" and "CELL" to "FRUIT"
 4. Add the right (including a cell)
 5. What includes do you need?
+
+
+## Displaying and updating score
+
+Our template has something we can use. See if you can figure it out.
 
 ## Continue at home
 
