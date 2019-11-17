@@ -13,248 +13,105 @@
       
       
       
+      
 
       <style>
-      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#555;background-color:#f0f0f0 !important;border:#d6d6d6;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#999988;font-style:italic}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#920B2D}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.property,pre[class*="language-"] .token.property{font-weight:bold;color:#333}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#D14}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#D14}code[class*="language-"] .token.symbol,pre[class*="language-"] .token.symbol{color:#990073}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#008080}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#458;font-weight:bold}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#D14}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#606aa1}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#888}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#222;font-weight:bold}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#900}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{text-decoration:underline;color:#606aa1}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#008080}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#555;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#030303}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#7e7e7e}html body strong{color:#030303}html body del{color:#7e7e7e}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#7e7e7e;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#030303}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#030303;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#030303;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#030303;page-break-after:avoid}html body blockquote{color:#7e7e7e}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
-/*.markdown-preview.markdown-preview {
-  // modify your style here
-  // eg: background-color: blue;  
-  background-color: #282A36;
-}*/
 
       </style>
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="week10-drawing-and-moving">Week10 Drawing and Moving</h1>
+      <h1 class="mume-header" id="week-10-objects-and-movement">Week 10: Objects and movement</h1>
 
-<p>A fly stands in for our snake.</p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week10-drawing-and-moving">Week10 Drawing and Moving</a>
+<li><a href="#week-10-objects-and-movement">Week 10: Objects and movement</a>
 <ul>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#a-refresher-on-simulated-things">A refresher on simulated things</a></li>
-<li><a href="#rendering-drawing">Rendering / Drawing</a></li>
-<li><a href="#building-on-last-weeks-hello-world-base">Building on last week&#x2019;s hello world base</a>
-<ul>
-<li><a href="#a-snake-head-is-data">A Snake Head is data</a>
-<ul>
-<li><a href="#snakeheadh">SnakeHead.h</a></li>
-<li><a href="#snakegameh-key-parts">SnakeGame.h key parts</a></li>
-<li><a href="#snake-game">Snake Game</a></li>
-</ul>
-</li>
-<li><a href="#rendering-the-action">Rendering the action</a></li>
-</ul>
-</li>
-<li><a href="#movement">Movement</a>
-<ul>
-<li><a href="#torment-the-wormhole">Torment: the wormhole</a></li>
-</ul>
-</li>
-<li><a href="#thoughts-on-things-following-things">Thoughts on things following things</a></li>
+<li><a href="#last-week">Last week</a></li>
+<li><a href="#exam-comments">Exam comments</a></li>
+<li><a href="#slots-comments">Slots comments</a></li>
+<li><a href="#this-week">This week</a></li>
+<li><a href="#snake-problems-to-solve">Snake: Problems to solve</a></li>
+<li><a href="#making-and-moving-the-snake-1">Making and moving the snake 1</a></li>
+<li><a href="#the-score">The score</a></li>
+<li><a href="#moving-the-snake-2-segments">Moving the snake 2: segments</a></li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="resources">Resources</h2>
+<h2 class="mume-header" id="last-week">Last week</h2>
+
+<p>We created a template and began drawing in code.</p>
+<p>Tasks I laid out for people to work through at home:</p>
+<p>Draw a border around a coloured background<br>
+Make the border flash<br>
+Draw cell numbers in the top and left margin (partial code provided)</p>
+<p><strong>How did we do?</strong></p>
+<h2 class="mume-header" id="exam-comments">Exam comments</h2>
+
+<p>Questions that caught people:</p>
+<ol>
+<li>Which is the not operator?</li>
+<li>What are the values of these enums?</li>
+<li>Values of b1, b2, b3, b4?</li>
+<li>How many times will &#x201C;hello&#x201D; be printed?</li>
+<li>Switch fall through</li>
+</ol>
+<h2 class="mume-header" id="slots-comments">Slots comments</h2>
+
+<ol>
+<li>Never use rand() without using srand() to seed it.</li>
+<li>Don&#x2019;t use a series of ifs without else if unless you&#x2019;re dead certain of logic.</li>
+</ol>
+<h2 class="mume-header" id="this-week">This week</h2>
 
 <ul>
+<li>Problems that must be cracked to make Snake</li>
+<li>Custom objects - How can objects help</li>
+<li>Let&#x2019;s move a thing with code</li>
+<li>Let&#x2019;s use key presses to change how a thing moves</li>
+</ul>
+<h2 class="mume-header" id="snake-problems-to-solve">Snake: Problems to solve</h2>
+
+<p>We can do things like fill the screen and draw a border. There are new problems that need resolving: What are they?</p>
+<ol>
 <li>
-<p>Grab this: <a href="assets/week9/olcAndTermColor.zip">olc and termcolor include files</a></p>
+<p><strong>Moving a snake 1</strong><br>
+A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs.</p>
 </li>
 <li>
-<p><a href="week10_code.html">week 10 code html</a></p>
+<p><strong>Showing and updating a score</strong><br>
+A score is an amount that grows as you play and appears on screen all the time.</p>
 </li>
-</ul>
-<h2 class="mume-header" id="a-refresher-on-simulated-things">A refresher on simulated things</h2>
-
-<p>Remember, programming is about imagining a world, then converting it into data and the code that moves/changes that data.</p>
-<p>Looking at a pic of snake, some things we can imagine:</p>
-<blockquote>
-<ul>
-<li>A magic garden that grows enchanted fruit.</li>
-</ul>
-<ul>
-<li>It has wormhole walls that deliver you to the opposite side, so the only escape is death.</li>
-</ul>
-<ul>
-<li>A snake who grows longer by a segment when eating the fruit.</li>
-</ul>
-<ul>
-<li>It can turn only in 90 degree increments, meaning it is limited to travelling up, down, left or right.</li>
-<li>the snake&#x2019;s body flows through these 90 degree turns after it</li>
-<li>If it encounters its own body it thinks it has met a dangerous enemy and bites itself to death.</li>
-</ul>
-</blockquote>
-<h2 class="mume-header" id="rendering-drawing">Rendering / Drawing</h2>
-
-<p>Once you have made your simulation, you output it somehow. In a game, we do it in realtime, often as fast as our graphics card can manage. I&#x2019;ll go with a pixel style, reflecting the tiny screens of old Nokias, but it could easiliy be 3D, 2D sprites, Virtual Reality, whatever.</p>
-<ul>
-<li>Some things we&#x2019;d draw in a snake game:
-<ul>
-<li>Grass/ground</li>
-<li>A border if you like</li>
-<li>A snake</li>
-<li>Fruit</li>
-</ul>
+<li>
+<p><strong>Moving a snake 2: segments</strong><br>
+The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent &#x2018;head&#x2019;<br>
+3a. Defining a snake as many segments<br>
+3b. Segments appearing to following snake head</p>
 </li>
-</ul>
-<h2 class="mume-header" id="building-on-last-weeks-hello-world-base">Building on last week&#x2019;s hello world base</h2>
+<li>
+<p><strong>Making Fruit</strong><br>
+4a. Defining fruit<br>
+4b. We&#x2019;ve drawn random pixels, apply it to generating fruit locations</p>
+</li>
+</ol>
+<h2 class="mume-header" id="making-and-moving-the-snake-1">Making and moving the snake 1</h2>
 
-<p>We&#x2019;re going to design a snakes head, then make one and move it around the torture garden.</p>
-<ul>
-<li>At first it will escape</li>
-<li>You will put it in the eternal prison of the magic garden.</li>
-</ul>
-<p>To draw them, we&#x2019;ll build on the SnakeGame we made last week. It inherited from the olcConsoleGameEngineOOP class, and overrode the OnUserCreate and OnUserUpdate functions.</p>
-<p><img src="assets/week10/hello_olc.png" alt="hello olc"></p>
-<p>For a refresher and more instructions, watch <a href="https://www.youtube.com/watch?v=u5BhrA8ED0o">One Lone Coder&#x2019;s getting started guide:</a><br>
-<a href="https://www.youtube.com/watch?v=u5BhrA8ED0o"><img src="assets/week10/start_olc.jpg" alt="Start olc"></a></p>
-<blockquote>
-<p>To draw most anything we can use <em>olcConsoleGameEngine&#x2019;s</em> <code>Draw()</code>, <code>Fill()</code> and <code>DrawString()</code> functions.</p>
-</blockquote>
-<p>Remember to add the .h file under <em>Header Files</em> using &#x201C;Add Existing&#x2026;&#x201D; and cpp file under <em>Source Files</em> the same way.</p>
-<p><img src="assets/week10/add_olc_header.png" alt="header"></p>
-<p>And don&#x2019;t forget to use the Unicode character set for OLC projects</p>
-<p><img src="assets/week10/unicode_visual_studio.png" alt="Unicode"></p>
-<h3 class="mume-header" id="a-snake-head-is-data">A Snake Head is data</h3>
+<p>a. Getting keyboard input realtime<br>
+b. Defining a snake<br>
+c. Defining a segment<br>
+d. Moving a snake (on segment)<br>
+e. Refreshing screen<br>
+f. Controlling game speed/update</p>
+<h2 class="mume-header" id="the-score">The score</h2>
 
-<p>Our Snake Head, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it&#x2019;s so small we&#x2019;ll just call it a pixel.</p>
-<ul>
-<li>It&#x2019;s time for a new type of data collection, a <code>SnakeHead</code>.</li>
-<li>It&#x2019;s a class, but since we only have variables and no functions, we only need an h file.</li>
-</ul>
-<h4 class="mume-header" id="snakeheadh">SnakeHead.h</h4>
+<p>A score is an amount that grows as you play and appears on screen all the time.<br>
+a. Adding a score variable<br>
+b. Drawing &#x201C;Score: x&#x201D; to screen every frame</p>
+<h2 class="mume-header" id="moving-the-snake-2-segments">Moving the snake 2: segments</h2>
 
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
-
-<span class="token keyword">class</span> <span class="token class-name">SnakeHead</span>
-<span class="token punctuation">{</span>
-
-<span class="token keyword">public</span><span class="token operator">:</span>
-  <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
-  <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
-  <span class="token keyword">float</span> speed <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
-  <span class="token keyword">int</span> colour <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-  <span class="token comment">// We&apos;re using floats for x,y,speed because at the rate the screen updates,</span>
-  <span class="token comment">// maybe 800x a second, moving 1 whole pixel per frame would</span>
-  <span class="token comment">// put us 770 pixels off screen after 1 second</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h4 class="mume-header" id="snakegameh-key-parts">SnakeGame.h key parts</h4>
-
-<p>These are snippets, full version in the code file.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP
-<span class="token punctuation">{</span>
-
-<span class="token keyword">protected</span><span class="token operator">:</span>
-  <span class="token keyword">int</span> _score <span class="token operator">=</span> <span class="token number">232995</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">virtual</span> <span class="token keyword">bool</span> <span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">virtual</span> <span class="token keyword">bool</span> <span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">bool</span> isUpKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  <span class="token keyword">bool</span> isDownKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-  
-  <span class="token keyword">const</span> <span class="token keyword">int</span> START_X <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> <span class="token keyword">int</span> HEAD_COLOUR <span class="token operator">=</span> BG_DARK_YELLOW <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
-  <span class="token keyword">const</span> <span class="token keyword">int</span> GROUND_COLOUR <span class="token operator">=</span> FG_DARK_YELLOW<span class="token punctuation">;</span>
- 
-  SnakeHead _head<span class="token punctuation">;</span>
-
-  <span class="token keyword">void</span> <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</pre><p>private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They&#x2019;re not nearly as bad though because we&#x2019;re encapsulating them. Still, use locals in your functions wherever they make sense.</p>
-<h4 class="mume-header" id="snake-game">Snake Game</h4>
-
-<p>Initialising our game. Weonly need to set up the head for now.</p>
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// Runs when you create &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
-<span class="token comment">// This is where you put everything in their starting state/position</span>
-<span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  _head<span class="token punctuation">.</span>x <span class="token operator">=</span> _head<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>START_X<span class="token punctuation">;</span>
-  _head<span class="token punctuation">.</span>speed <span class="token operator">=</span> <span class="token number">0.02f</span><span class="token punctuation">;</span>
-  _head<span class="token punctuation">.</span>colour <span class="token operator">=</span> HEAD_COLOUR<span class="token punctuation">;</span>
-  
-  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">// Runs many times a second in &quot;SnakeGame&quot; because you extended olcConsoleGameEngineOOP</span>
-<span class="token comment">// This is where your game action happens</span>
-<span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">// Get input</span>
-    _isUpKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
-    _isDownKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
-		
-    <span class="token comment">// update everything</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span> _head<span class="token punctuation">.</span>y <span class="token operator">-=</span> _head<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span> _head<span class="token punctuation">.</span>y <span class="token operator">+=</span> _head<span class="token punctuation">.</span>speed<span class="token punctuation">;</span><span class="token punctuation">;</span>
-
-    <span class="token comment">// Draw the world</span>
-    <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-    <span class="token comment">// OnUserUpdate has to return true for the engine to continue</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="rendering-the-action">Rendering the action</h3>
-
-<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token keyword">void</span> SnakeGame<span class="token operator">::</span><span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token comment">// Clear the screen by drawing ground colour</span>
-  <span class="token function">Fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">ScreenWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> PIXEL_SOLID<span class="token punctuation">,</span> GROUND_COLOUR<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//</span>
-  <span class="token comment">// Check the up and down states of our arrow keys on screen</span>
-  <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> L<span class="token string">&quot;UP: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token function">DrawString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> L<span class="token string">&quot;DN: &quot;</span> <span class="token operator">+</span> <span class="token function">to_wstring</span><span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>_head<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>_head<span class="token punctuation">.</span>y<span class="token punctuation">,</span> PIXEL_SOLID<span class="token punctuation">,</span> _head<span class="token punctuation">.</span>colour<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="movement">Movement</h2>
-
-<p>We can move our fly by stepping a little way each frame.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">struct</span> Fly
-  <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> y<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> speed<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> colour<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-
-<span class="token keyword">bool</span> isUpKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token keyword">bool</span> isDownKeyHeld_ <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-
-<span class="token keyword">bool</span> <span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">// Get input</span>
-    isUpKeyHeld_ <span class="token operator">=</span> <span class="token punctuation">(</span>m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-		isDownKeyHeld_ <span class="token operator">=</span> <span class="token punctuation">(</span>m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-
-    <span class="token comment">// update everything</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>isUpKeyHeld_<span class="token punctuation">)</span> _blueFly<span class="token punctuation">.</span>y <span class="token operator">-=</span> _blueFly<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>isDownKeyHeld_<span class="token punctuation">)</span> _blueFly<span class="token punctuation">.</span>y <span class="token operator">+=</span> _blueFly<span class="token punctuation">.</span>speed<span class="token punctuation">;</span><span class="token punctuation">;</span>
-
-    <span class="token comment">// Draw the world</span>
-    <span class="token function">RenderWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-<span class="token punctuation">}</span>
-
-</pre><h3 class="mume-header" id="torment-the-wormhole">Torment: the wormhole</h3>
-
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>y <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    _blueFly<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>_blueFly<span class="token punctuation">.</span>posY <span class="token operator">==</span> <span class="token function">ScreenHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token punctuation">{</span>
-    _blueFly<span class="token punctuation">.</span>posY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-</pre><h2 class="mume-header" id="thoughts-on-things-following-things">Thoughts on things following things</h2>
-
-<p>To follow something you have to know where it&#x2019;s been. It has to have left a record, or be willing to answer your question: what&#x2019;s the last pixel you were in?</p>
-<p>The world remembers (history book/story teller) or the leader you are following remembers.</p>
+<p>a.</p>
 
       </div>
       

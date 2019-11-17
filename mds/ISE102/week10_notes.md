@@ -1,244 +1,99 @@
 ---
 html:
   embed_local_images: false
-  embed_svg: true
   offline: false
-  toc: undefined
 export_on_save:
   html: true
 ---
-# Week10 Drawing and Moving
+# Week 10: Objects and movement
+<!-- 
+## Approach
 
-A fly stands in for our snake.
+Last trimester this was about 
+-->
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=3 orderedList=true} -->
 
 <!-- code_chunk_output -->
 
-- [Week10 Drawing and Moving](#week10-drawing-and-moving)
-  - [Resources](#resources)
-  - [A refresher on simulated things](#a-refresher-on-simulated-things)
-  - [Rendering / Drawing](#rendering-drawing)
-  - [Building on last week's hello world base](#building-on-last-weeks-hello-world-base)
-    - [A Snake Head is data](#a-snake-head-is-data)
-      - [SnakeHead.h](#snakeheadh)
-      - [SnakeGame.h key parts](#snakegameh-key-parts)
-      - [Snake Game](#snake-game)
-    - [Rendering the action](#rendering-the-action)
-  - [Movement](#movement)
-    - [Torment: the wormhole](#torment-the-wormhole)
-  - [Thoughts on things following things](#thoughts-on-things-following-things)
+- [Week 10: Objects and movement](#week-10-objects-and-movement)
+  - [Last week](#last-week)
+  - [Exam comments](#exam-comments)
+  - [Slots comments](#slots-comments)
+  - [This week](#this-week)
+  - [Snake: Problems to solve](#snake-problems-to-solve)
+  - [Making and moving the snake 1](#making-and-moving-the-snake-1)
+  - [The score](#the-score)
+  - [Moving the snake 2: segments](#moving-the-snake-2-segments)
 
 <!-- /code_chunk_output -->
 
-## Resources
 
-* Grab this: [olc and termcolor include files](assets/week9/olcAndTermColor.zip)
+## Last week
+We created a template and began drawing in code.
 
-* [week 10 code html](week10_code.html)
+Tasks I laid out for people to work through at home:
 
-## A refresher on simulated things
+Draw a border around a coloured background
+Make the border flash
+Draw cell numbers in the top and left margin (partial code provided)
 
-Remember, programming is about imagining a world, then converting it into data and the code that moves/changes that data. 
+**How did we do?**
 
-Looking at a pic of snake, some things we can imagine:
+## Exam comments
 
-> * A magic garden that grows enchanted fruit. 
->  - It has wormhole walls that deliver you to the opposite side, so the only escape is death. 
-> * A snake who grows longer by a segment when eating the fruit.
->  - It can turn only in 90 degree increments, meaning it is limited to travelling up, down, left or right.
->  - the snake's body flows through these 90 degree turns after it
->  - If it encounters its own body it thinks it has met a dangerous enemy and bites itself to death.
+Questions that caught people:
+1. Which is the not operator?
+2. What are the values of these enums?
+3. Values of b1, b2, b3, b4?
+4. How many times will "hello" be printed?
+5. Switch fall through
 
-## Rendering / Drawing
+## Slots comments
 
-Once you have made your simulation, you output it somehow. In a game, we do it in realtime, often as fast as our graphics card can manage. I'll go with a pixel style, reflecting the tiny screens of old Nokias, but it could easiliy be 3D, 2D sprites, Virtual Reality, whatever. 
+1. Never use rand() without using srand() to seed it.
+2. Don't use a series of ifs without else if unless you're dead certain of logic.
 
-* Some things we'd draw in a snake game:
-  - Grass/ground
-  - A border if you like
-  - A snake
-  - Fruit
+## This week
 
-## Building on last week's hello world base
+- Problems that must be cracked to make Snake
+- Custom objects - How can objects help
+- Let's move a thing with code
+- Let's use key presses to change how a thing moves
 
-We're going to design a snakes head, then make one and move it around the torture garden. 
-* At first it will escape
-* You will put it in the eternal prison of the magic garden.
+## Snake: Problems to solve
 
-To draw them, we'll build on the SnakeGame we made last week. It inherited from the olcConsoleGameEngineOOP class, and overrode the OnUserCreate and OnUserUpdate functions.
+We can do things like fill the screen and draw a border. There are new problems that need resolving: What are they?
 
-![hello olc](assets/week10/hello_olc.png)
+1. **Moving a snake 1**
+A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs.
 
-For a refresher and more instructions, watch [One Lone Coder's getting started guide:](https://www.youtube.com/watch?v=u5BhrA8ED0o)
-[![Start olc](assets/week10/start_olc.jpg)](https://www.youtube.com/watch?v=u5BhrA8ED0o)
+2. **Showing and updating a score**
+A score is an amount that grows as you play and appears on screen all the time.  
 
-> To draw most anything we can use _olcConsoleGameEngine's_ ```Draw()```, ```Fill()``` and ```DrawString()``` functions. 
+3. **Moving a snake 2: segments**
+The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent 'head'
+  3a. Defining a snake as many segments
+  3b. Segments appearing to following snake head
 
-Remember to add the .h file under _Header Files_ using "Add Existing.." and cpp file under _Source Files_ the same way.
+4. **Making Fruit**
+   4a. Defining fruit 
+   4b. We've drawn random pixels, apply it to generating fruit locations 
 
-![header](assets/week10/add_olc_header.png)
+## Making and moving the snake 1
 
-And don't forget to use the Unicode character set for OLC projects
+  a. Getting keyboard input realtime
+  b. Defining a snake
+  c. Defining a segment
+  d. Moving a snake (on segment)
+  e. Refreshing screen
+  f. Controlling game speed/update
 
-![Unicode](assets/week10/unicode_visual_studio.png)
+## The score
+A score is an amount that grows as you play and appears on screen all the time.
+  a. Adding a score variable
+  b. Drawing "Score: x" to screen every frame
 
-### A Snake Head is data
+## Moving the snake 2: segments
 
-Our Snake Head, drawn or not, is a thing with properties: a location (x, y) and a colour. It has a size too but it's so small we'll just call it a pixel. 
-* It's time for a new type of data collection, a `SnakeHead`.
-* It's a class, but since we only have variables and no functions, we only need an h file.
-
-#### SnakeHead.h
-
-```cpp {.line-numbers}
-#pragma once
-
-class SnakeHead
-{
-
-public:
-  float x = 0.0f;
-  float y = 0.0f;
-  float speed = 0.0f;
-  int colour = 0;
-
-  // We're using floats for x,y,speed because at the rate the screen updates,
-  // maybe 800x a second, moving 1 whole pixel per frame would
-  // put us 770 pixels off screen after 1 second
-};
-```
-
-#### SnakeGame.h key parts
-
-These are snippets, full version in the code file.
-```cpp
-
-class SnakeGame : public olcConsoleGameEngineOOP
-{
-
-protected:
-  int _score = 232995;
-
-  virtual bool OnUserCreate();
-  virtual bool OnUserUpdate(float fElapsedTime);
-
-  bool isUpKeyHeld_ = false;
-  bool isDownKeyHeld_ = false;
-  
-  const int START_X = 10;
-  const int HEAD_COLOUR = BG_DARK_YELLOW | FG_BLUE;
-  const int GROUND_COLOUR = FG_DARK_YELLOW;
- 
-  SnakeHead _head;
-
-  void RenderWorld();
-};
-```
-private variables can feel bad at first, being defined at class level instead of in functions. Kinda like using globals. They're not nearly as bad though because we're encapsulating them. Still, use locals in your functions wherever they make sense.
-
-#### Snake Game
-
-Initialising our game. Weonly need to set up the head for now.
-```cpp {.line-numbers}
-// Runs when you create "SnakeGame" because you extended olcConsoleGameEngineOOP
-// This is where you put everything in their starting state/position
-bool SnakeGame::OnUserCreate()
-{
-  _head.x = _head.y = (float)START_X;
-  _head.speed = 0.02f;
-  _head.colour = HEAD_COLOUR;
-  
-  return true;
-}
-```
-
-```cpp {.line-numbers}
-// Runs many times a second in "SnakeGame" because you extended olcConsoleGameEngineOOP
-// This is where your game action happens
-bool SnakeGame::OnUserUpdate(float fElapsedTime)
-{
-    // Get input
-    _isUpKeyHeld = m_keys[VK_UP].bPressed || m_keys[VK_UP].bHeld;
-    _isDownKeyHeld = m_keys[VK_DOWN].bPressed || m_keys[VK_DOWN].bHeld;
-		
-    // update everything
-    if (isUpKeyHeld_) _head.y -= _head.speed;
-		if (isDownKeyHeld_) _head.y += _head.speed;;
-
-    // Draw the world
-    RenderWorld();
-    
-    // OnUserUpdate has to return true for the engine to continue
-    return true;
-}
-```
-### Rendering the action
-
-```cpp {.line-numbers}
-void SnakeGame::RenderWorld()
-{
-  // Clear the screen by drawing ground colour
-  Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, GROUND_COLOUR); //
-  // Check the up and down states of our arrow keys on screen
-  DrawString(2, 2, L"UP: " + to_wstring(isUpKeyHeld_));   DrawString(2, 3, L"DN: " + to_wstring(isDownKeyHeld_));
-  Draw((int)_head.x, (int)_head.y, PIXEL_SOLID, _head.colour);
-}
-```
-
-## Movement
-
-We can move our fly by stepping a little way each frame.
-
-```cpp
-struct Fly
-  {
-    int x;
-    int y;
-    int speed;
-    int colour;
-  };
-
-...
-
-bool isUpKeyHeld_ = false;
-bool isDownKeyHeld_ = false;
-
-...
-
-bool OnUserUpdate(float fElapsedTime)
-{
-    // Get input
-    isUpKeyHeld_ = (m_keys[VK_UP].bHeld || m_keys[VK_UP].bPressed) ? true : false;
-		isDownKeyHeld_ = (m_keys[VK_DOWN].bHeld || m_keys[VK_DOWN].bPressed) ? true : false;
-
-    // update everything
-    if (isUpKeyHeld_) _blueFly.y -= _blueFly.speed;
-		if (isDownKeyHeld_) _blueFly.y += _blueFly.speed;;
-
-    // Draw the world
-    RenderWorld();
-    
-}
-
-```
-
-### Torment: the wormhole
-
-```cpp
-
-if (_blueFly.y == -1)
-  {
-    _blueFly.y = ScreenHeight();
-  } else if (_blueFly.posY == ScreenHeight()+1)
-  {
-    _blueFly.posY = 0;
-  }
-
-```
-
-## Thoughts on things following things
-
-To follow something you have to know where it's been. It has to have left a record, or be willing to answer your question: what's the last pixel you were in?
-
-The world remembers (history book/story teller) or the leader you are following remembers.
+  a. 
