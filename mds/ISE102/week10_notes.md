@@ -5,20 +5,21 @@ html:
 export_on_save:
   html: true
 ---
-# Week 10: Objects and movement
+# Week 10: Objects and Scores
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=3 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [Week 10: Objects and movement](#week-10-objects-and-movement)
+- [Week 10: Objects and Scores](#week-10-objects-and-scores)
   - [Last week](#last-week)
     - [Exam comments](#exam-comments)
     - [Slots comments](#slots-comments)
   - [This week](#this-week)
     - [Resource: New eightiesGame.h](#resource-new-eightiesgameh)
   - [Snake: Problems to solve](#snake-problems-to-solve)
+    - [Locating things on the board](#locating-things-on-the-board)
   - [Snake as a board game](#snake-as-a-board-game)
-    - [1. Board](#1-board)
+    - [Board](#board)
     - [A scorekeeper?](#a-scorekeeper)
     - [Pieces](#pieces)
     - [Pieces, objects](#pieces-objects)
@@ -64,9 +65,8 @@ Questions that caught people:
 
 - Problems that must be cracked to make Snake
 - Custom objects - How can objects help
-- Let's move a thing with code
-- Let's use key presses to change how a thing moves
-
+- Showing a score on screen with wstring
+- 
 ### Resource: New eightiesGame.h
 
 Grab the [Updated eightiesGame.h](assets/week10/eightiesGame.h)
@@ -79,28 +79,22 @@ Grab the [Updated eightiesGame.h](assets/week10/eightiesGame.h)
 
 We can do things like fill the screen and draw a border. There are new problems that need resolving: What are they?
 
-#### Showing and updating a score
-A score is an amount that grows as you play and appears on screen all the time. Can we apply something we've already used/seen?
+### Locating things on the board
+
+How do we define locations, and use that system consistently?
 
 #### Making random fruit
 
 We've drawn random pixels, we can apply it to generating fruit locations. We've made collections. We can't have collections of x, y, colour, fruit type, it'll be a mess.
 
-####  Moving a snake 1
-A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs. 
-
-How do we avoid too much complexity? How do we move things?
-
-#### Moving a snake 2: segments
-The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent 'head'
-- Defining a snake as many segments
-- Segments appearing to following snake head
+#### Showing and updating a score
+A score is an amount that grows as you play and appears on screen all the time. Can we apply something we've already used/seen?
 
 ## Snake as a board game
 
 Board games. They have two basic parts minimum, usually.
 
-### 1. Board
+### Board
 
 The board in snake is just a bunch of squares things can be in. Maybe you print it green so it looks like grass. 
 

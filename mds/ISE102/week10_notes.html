@@ -124,10 +124,10 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="week-10-objects-and-movement">Week 10: Objects and movement</h1>
+      <h1 class="mume-header" id="week-10-objects-and-scores">Week 10: Objects and Scores</h1>
 
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#week-10-objects-and-movement">Week 10: Objects and movement</a>
+<li><a href="#week-10-objects-and-scores">Week 10: Objects and Scores</a>
 <ul>
 <li><a href="#last-week">Last week</a>
 <ul>
@@ -140,10 +140,14 @@
 <li><a href="#resource-new-eightiesgameh">Resource: New eightiesGame.h</a></li>
 </ul>
 </li>
-<li><a href="#snake-problems-to-solve">Snake: Problems to solve</a></li>
+<li><a href="#snake-problems-to-solve">Snake: Problems to solve</a>
+<ul>
+<li><a href="#locating-things-on-the-board">Locating things on the board</a></li>
+</ul>
+</li>
 <li><a href="#snake-as-a-board-game">Snake as a board game</a>
 <ul>
-<li><a href="#1-board">1. Board</a></li>
+<li><a href="#board">Board</a></li>
 <li><a href="#a-scorekeeper">A scorekeeper?</a></li>
 <li><a href="#pieces">Pieces</a></li>
 <li><a href="#pieces-objects">Pieces, objects</a></li>
@@ -196,8 +200,8 @@ Draw cell numbers in the top and left margin (partial code provided)</p>
 <ul>
 <li>Problems that must be cracked to make Snake</li>
 <li>Custom objects - How can objects help</li>
-<li>Let&#x2019;s move a thing with code</li>
-<li>Let&#x2019;s use key presses to change how a thing moves</li>
+<li>Showing a score on screen with wstring</li>
+<li></li>
 </ul>
 <h3 class="mume-header" id="resource-new-eightiesgameh">Resource: New eightiesGame.h</h3>
 
@@ -210,27 +214,19 @@ Draw cell numbers in the top and left margin (partial code provided)</p>
 <h2 class="mume-header" id="snake-problems-to-solve">Snake: Problems to solve</h2>
 
 <p>We can do things like fill the screen and draw a border. There are new problems that need resolving: What are they?</p>
-<h4 class="mume-header" id="showing-and-updating-a-score">Showing and updating a score</h4>
+<h3 class="mume-header" id="locating-things-on-the-board">Locating things on the board</h3>
 
-<p>A score is an amount that grows as you play and appears on screen all the time. Can we apply something we&#x2019;ve already used/seen?</p>
+<p>How do we define locations, and use that system consistently?</p>
 <h4 class="mume-header" id="making-random-fruit">Making random fruit</h4>
 
 <p>We&#x2019;ve drawn random pixels, we can apply it to generating fruit locations. We&#x2019;ve made collections. We can&#x2019;t have collections of x, y, colour, fruit type, it&#x2019;ll be a mess.</p>
-<h4 class="mume-header" id="moving-a-snake-1">Moving a snake 1</h4>
+<h4 class="mume-header" id="showing-and-updating-a-score">Showing and updating a score</h4>
 
-<p>A Snake is made of at least 1 segment and moves around the screen at speed. It has a location and appearance. It reacts to inputs.</p>
-<p>How do we avoid too much complexity? How do we move things?</p>
-<h4 class="mume-header" id="moving-a-snake-2-segments">Moving a snake 2: segments</h4>
-
-<p>The snake has more than one segment. It has to be able to grow. It has to turn corners and have the body follow the path of the apparent &#x2018;head&#x2019;</p>
-<ul>
-<li>Defining a snake as many segments</li>
-<li>Segments appearing to following snake head</li>
-</ul>
+<p>A score is an amount that grows as you play and appears on screen all the time. Can we apply something we&#x2019;ve already used/seen?</p>
 <h2 class="mume-header" id="snake-as-a-board-game">Snake as a board game</h2>
 
 <p>Board games. They have two basic parts minimum, usually.</p>
-<h3 class="mume-header" id="1-board">1. Board</h3>
+<h3 class="mume-header" id="board">Board</h3>
 
 <p>The board in snake is just a bunch of squares things can be in. Maybe you print it green so it looks like grass.</p>
 <p>It has a width and height, measured in cells, and a cell size.</p>
