@@ -22,7 +22,9 @@ export_on_save:
   - [Unwrapping](#unwrapping)
     - [Create new starting UVs:](#create-new-starting-uvs)
     - [Cutting and unfolding](#cutting-and-unfolding)
-  - [Next week character uv and paint.](#next-week-character-uv-and-paint)
+  - [Move to 3D Coat](#move-to-3d-coat)
+    - [Export FBX](#export-fbx)
+    - [Import to 3D Coat](#import-to-3d-coat)
   - [UV Unwrapping for characters](#uv-unwrapping-for-characters)
   - [Maya to 3D Coat](#maya-to-3d-coat)
     - [Exporting](#exporting)
@@ -111,7 +113,6 @@ _Jacket front, back and sleeves outer fabric. Inner lining is the same._
 ![](assets/week10/jacket_blue_assembled.jpg)
 _Assembled jacket_
 
-
 ### Create new starting UVs:
   
   - Go into Maya's UV workspace
@@ -120,34 +121,89 @@ _Assembled jacket_
   - UV Tookit -> Create -> Camera-based
   ![](assets/week9/create_uvs_camera.png)
   
-The new UVS are distorted in 2D to resemble what the camera saw. They're all joined together like the mesh too. We need to cut it like papercraft.
+The new UVS are distorted in 2D to resemble what the camera saw. They're all joined together like the mesh too. Now we cut them like papercraft.
 
 ### Cutting and unfolding
+
+Selecting edges and then UV cutting them to control the unwrap. Sewing pieces together where it makes sense.
   - In edge mode, select (and shift select) edges to cut
   ![](assets/week9/select_edges_to_cut.png)
   - UV Toolkit -> Cut and Sew -> Cut
-  
-These next steps were all done by hand previously (and often still are):
-  - Select all edges
+
+Tips:
+  - Put your cuts in places that are less seen. Inner arms, behind head.
+  - Think of a jacket or pants, how you'd cut them off and do the least visible damage.1
+  - You can cut a few pieces and then stitch edges together again. Stitch will move and orient shells to stitch.
+> Fun fact: These next steps were all done by hand previously (and often still are)
+
+#### Unfold
+
+Unfolding attempts to unwrap the surface and minimise the stress on each area of the texture, like a popped balloon. If it can't do a very good job, you'll need more cuts!
+  - Change to UV Shell select, select all shells
   - Uv Toolkit -> Unfold -> Unfold
+  - Add cuts, or sew things, Unfold, repeat
+  
+![](assets/week10/../week9/uvs_unfold_orient_layout.png)
+_From left to right: Unfolded, oriented, laid out._
+
+There are many helpful settings for unfold, read more:
+[Unfold uv options documentation](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-039FFDA5-3AC5-4CCF-A53E-546CCA6439FC-htm.html)
+  
+#### Orient
+Particularly for square/rectangular surfaces, we'll want to orient to the U or V axis. If we don't, we'll get jaggies, or diagonally running pixels.
+
+Auto orient can do a decent job of it. Pick some shells and:
   - Uv Toolkit -> Arrange and Layout -> Auto Orient
+
+At this stage you can also use align verts/edge to the grid. To get a feel for it, move some individual verts around, observe how the texture warps and fits.
+
+#### Layout of shells
+critical for every texture: making the best use of the texture space. You have a limited amount of pixels in your texture (say 512x512) and a whole creature to cover. 
+* Usually done largely by hand
+* Increasingly, algorithms are able to get us very close.
+
+Select all shells and RIGHT CLICK layout:
   - Uv Toolkit -> Arrange and Layout -> Layout
-    - We'll try to roll with default here
-  ![](assets/week9/uvs_unfold_orient_layout.png)
-  _Unfolded, oriented, then laid out. Colours altered in photoshop._
 
-Unfold and Layout have plenty of settings. Lets have a look at good settings to start with.
+There are a lot of options for Layout, and believe it or not they all have their uses:
+  * pre rotation: Often I'll enable it and allow increments of 15. For squares/rectangles, keep it to 90.
+  * pre scaling: It can match the 3D proportions so everything gets even coverage. Good for first go. 
+  
+![](assets/week10/../week9/uvs_unfold_orient_layout.png)
+_From left to right: Unfolded, oriented, laid out._
 
-**To be added soon: Unfold and Layout settings pics
-**
+#### Coverage by importance:
+Once you have every thing unpacked, oriented and layed out with even coverage, you can start to apply human judgement.
+  - What's most important on the model, and has to stand up to most scrutiny.
+  - What's bigger in the UV layout, and has smaller grid/pixels drawn on it, is the most detailed.
+  - Some stuff is almost never seen or is basically flat/very dark in colour, doesn't need many pixels.
+  
+[Maya UV Layout options documentation](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-47C4C13C-7DB9-46A0-B044-D336671BF266-htm.html)
 
-## Next week character uv and paint.
+## Move to 3D Coat
 
-We'll talk more on character unwrapping as you get your models prepped for 3D Coat. Being so rounded, figures provide a lot of stretchy challenge.
+3D Coat is where we can start to paint our character.
 
-Compare the last two bearbricks on this sheet: iron patriot is carefully designed to avoid any stretching, pattern bear.. is less so.
+### Export FBX
 
-![](assets/week9/bearbrick_turnaround_painted.png)
+1. Select our character
+2. Delete history (alt-shift-d)
+3. Freeze transforms (just scale for now)
+4. Export FBX. I use a folder in my 3dc__dino folder called fbxFromMaya
+
+### Import to 3D Coat
+
+1. Windows Start Menu -> 3D Coat 4.x.y -> 3DCoat(GL)
+2. Select the "Paint Uv Mapped Mesh" project type
+![](assets/week10/3dcoat_paint_uv_project.png)
+3. Click the folder to choose your file
+4. The default import settings should be fine, with your texture width and height at 1024.
+5. Hit W to see your wires, and then 2 to see your flat texture.
+6. Save your file
+7. Select a brush, create a layer and goof around.
+
+![](assets/week10/3dc_dino_goof.png)
+
 
 <!--
 ## UV Unwrapping for characters
@@ -181,6 +237,10 @@ Hit 2 to see your real result.
 
 
 ### Uv tutorials
+
+Watched and good:
+
+[![](assets/week10/tute_yt_uv_easy.png)_Fast and easy uvs in Maya 2018+_](https://www.youtube.com/watch?v=cy1vqLw-agk&t=2s)
 
 I haven't watched yet:
 

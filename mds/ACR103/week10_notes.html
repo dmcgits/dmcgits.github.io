@@ -146,7 +146,12 @@
 <li><a href="#cutting-and-unfolding">Cutting and unfolding</a></li>
 </ul>
 </li>
-<li><a href="#next-week-character-uv-and-paint">Next week character uv and paint.</a></li>
+<li><a href="#move-to-3d-coat">Move to 3D Coat</a>
+<ul>
+<li><a href="#export-fbx">Export FBX</a></li>
+<li><a href="#import-to-3d-coat">Import to 3D Coat</a></li>
+</ul>
+</li>
 <li><a href="#uv-unwrapping-for-characters">UV Unwrapping for characters</a></li>
 <li><a href="#maya-to-3d-coat">Maya to 3D Coat</a>
 <ul>
@@ -231,37 +236,99 @@ Get it here<br>
 <li>UV Tookit -&gt; Create -&gt; Camera-based<br>
 <img src="assets/week9/create_uvs_camera.png" alt></li>
 </ul>
-<p>The new UVS are distorted in 2D to resemble what the camera saw. They&#x2019;re all joined together like the mesh too. We need to cut it like papercraft.</p>
+<p>The new UVS are distorted in 2D to resemble what the camera saw. They&#x2019;re all joined together like the mesh too. Now we cut them like papercraft.</p>
 <h3 class="mume-header" id="cutting-and-unfolding">Cutting and unfolding</h3>
 
+<p>Selecting edges and then UV cutting them to control the unwrap. Sewing pieces together where it makes sense.</p>
 <ul>
 <li>In edge mode, select (and shift select) edges to cut<br>
 <img src="assets/week9/select_edges_to_cut.png" alt></li>
 <li>UV Toolkit -&gt; Cut and Sew -&gt; Cut</li>
 </ul>
-<p>These next steps were all done by hand previously (and often still are):</p>
+<p>Tips:</p>
 <ul>
-<li>Select all edges</li>
-<li>Uv Toolkit -&gt; Unfold -&gt; Unfold</li>
-<li>Uv Toolkit -&gt; Arrange and Layout -&gt; Auto Orient</li>
-<li>Uv Toolkit -&gt; Arrange and Layout -&gt; Layout
-<ul>
-<li>We&#x2019;ll try to roll with default here<br>
-<img src="assets/week9/uvs_unfold_orient_layout.png" alt><br>
-<em>Unfolded, oriented, then laid out. Colours altered in photoshop.</em></li>
+<li>Put your cuts in places that are less seen. Inner arms, behind head.</li>
+<li>Think of a jacket or pants, how you&#x2019;d cut them off and do the least visible damage.1</li>
+<li>You can cut a few pieces and then stitch edges together again. Stitch will move and orient shells to stitch.</li>
 </ul>
-</li>
-</ul>
-<p>Unfold and Layout have plenty of settings. Lets have a look at good settings to start with.</p>
-<p>**To be added soon: Unfold and Layout settings pics<br>
-**</p>
-<h2 class="mume-header" id="next-week-character-uv-and-paint">Next week character uv and paint.</h2>
+<blockquote>
+<p>Fun fact: These next steps were all done by hand previously (and often still are)</p>
+</blockquote>
+<h4 class="mume-header" id="unfold">Unfold</h4>
 
-<p>We&#x2019;ll talk more on character unwrapping as you get your models prepped for 3D Coat. Being so rounded, figures provide a lot of stretchy challenge.</p>
-<p>Compare the last two bearbricks on this sheet: iron patriot is carefully designed to avoid any stretching, pattern bear&#x2026; is less so.</p>
-<p><img src="assets/week9/bearbrick_turnaround_painted.png" alt></p>
+<p>Unfolding attempts to unwrap the surface and minimise the stress on each area of the texture, like a popped balloon. If it can&#x2019;t do a very good job, you&#x2019;ll need more cuts!</p>
+<ul>
+<li>Change to UV Shell select, select all shells</li>
+<li>Uv Toolkit -&gt; Unfold -&gt; Unfold</li>
+<li>Add cuts, or sew things, Unfold, repeat</li>
+</ul>
+<p><img src="assets/week10/../week9/uvs_unfold_orient_layout.png" alt><br>
+<em>From left to right: Unfolded, oriented, laid out.</em></p>
+<p>There are many helpful settings for unfold, read more:<br>
+<a href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-039FFDA5-3AC5-4CCF-A53E-546CCA6439FC-htm.html">Unfold uv options documentation</a></p>
+<h4 class="mume-header" id="orient">Orient</h4>
+
+<p>Particularly for square/rectangular surfaces, we&#x2019;ll want to orient to the U or V axis. If we don&#x2019;t, we&#x2019;ll get jaggies, or diagonally running pixels.</p>
+<p>Auto orient can do a decent job of it. Pick some shells and:</p>
+<ul>
+<li>Uv Toolkit -&gt; Arrange and Layout -&gt; Auto Orient</li>
+</ul>
+<p>At this stage you can also use align verts/edge to the grid. To get a feel for it, move some individual verts around, observe how the texture warps and fits.</p>
+<h4 class="mume-header" id="layout-of-shells">Layout of shells</h4>
+
+<p>critical for every texture: making the best use of the texture space. You have a limited amount of pixels in your texture (say 512x512) and a whole creature to cover.</p>
+<ul>
+<li>Usually done largely by hand</li>
+<li>Increasingly, algorithms are able to get us very close.</li>
+</ul>
+<p>Select all shells and RIGHT CLICK layout:</p>
+<ul>
+<li>Uv Toolkit -&gt; Arrange and Layout -&gt; Layout</li>
+</ul>
+<p>There are a lot of options for Layout, and believe it or not they all have their uses:</p>
+<ul>
+<li>pre rotation: Often I&#x2019;ll enable it and allow increments of 15. For squares/rectangles, keep it to 90.</li>
+<li>pre scaling: It can match the 3D proportions so everything gets even coverage. Good for first go.</li>
+</ul>
+<p><img src="assets/week10/../week9/uvs_unfold_orient_layout.png" alt><br>
+<em>From left to right: Unfolded, oriented, laid out.</em></p>
+<h4 class="mume-header" id="coverage-by-importance">Coverage by importance:</h4>
+
+<p>Once you have every thing unpacked, oriented and layed out with even coverage, you can start to apply human judgement.</p>
+<ul>
+<li>What&#x2019;s most important on the model, and has to stand up to most scrutiny.</li>
+<li>What&#x2019;s bigger in the UV layout, and has smaller grid/pixels drawn on it, is the most detailed.</li>
+<li>Some stuff is almost never seen or is basically flat/very dark in colour, doesn&#x2019;t need many pixels.</li>
+</ul>
+<p><a href="https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/Maya-Modeling/files/GUID-47C4C13C-7DB9-46A0-B044-D336671BF266-htm.html">Maya UV Layout options documentation</a></p>
+<h2 class="mume-header" id="move-to-3d-coat">Move to 3D Coat</h2>
+
+<p>3D Coat is where we can start to paint our character.</p>
+<h3 class="mume-header" id="export-fbx">Export FBX</h3>
+
+<ol>
+<li>Select our character</li>
+<li>Delete history (alt-shift-d)</li>
+<li>Freeze transforms (just scale for now)</li>
+<li>Export FBX. I use a folder in my 3dc__dino folder called fbxFromMaya</li>
+</ol>
+<h3 class="mume-header" id="import-to-3d-coat">Import to 3D Coat</h3>
+
+<ol>
+<li>Windows Start Menu -&gt; 3D Coat 4.x.y -&gt; 3DCoat(GL)</li>
+<li>Select the &#x201C;Paint Uv Mapped Mesh&#x201D; project type<br>
+<img src="assets/week10/3dcoat_paint_uv_project.png" alt></li>
+<li>Click the folder to choose your file</li>
+<li>The default import settings should be fine, with your texture width and height at 1024.</li>
+<li>Hit W to see your wires, and then 2 to see your flat texture.</li>
+<li>Save your file</li>
+<li>Select a brush, create a layer and goof around.</li>
+</ol>
+<p><img src="assets/week10/3dc_dino_goof.png" alt></p>
 <h3 class="mume-header" id="uv-tutorials">Uv tutorials</h3>
 
+<p>Watched and good:</p>
+<p><a href="https://www.youtube.com/watch?v=cy1vqLw-agk&amp;t=2s"><img src="assets/week10/tute_yt_uv_easy.png" alt><em>Fast and easy uvs in Maya 2018+</em></a></p>
 <p>I haven&#x2019;t watched yet:</p>
 <p><a href="https://www.youtube.com/watch?v=VHUJ-kte1n8"><img src="assets/week9/tute_uv_rabbit.png" alt><br>
 <em>Bunny unwrap tute made in 2018</em></a></p>
