@@ -17,7 +17,7 @@ export_on_save:
   - [Texturing and UVs](#texturing-and-uvs)
     - [Textured characters: like vinyl wrapping](#textured-characters-like-vinyl-wrapping)
   - [Exercise: UV together](#exercise-uv-together)
-    - [// Link to downloadable project](#link-to-downloadable-project)
+    - [Grab Crisis Dino](#grab-crisis-dino)
     - [Good and Bad UVs](#good-and-bad-uvs)
   - [Unwrapping](#unwrapping)
     - [Create new starting UVs:](#create-new-starting-uvs)
@@ -61,15 +61,18 @@ _Various layers of pbr texturing applied to DVa as images_
 
 Let's uv the guy I started in class.
 
-### // Link to downloadable project
+### Grab Crisis Dino
 
 Guy plus a ground plane (handy to have a simple plane w uvs)
-Get it here
-// shot of him shaded
 
+[Click here to download](assets/week10/maya__crisis_w10_dl.zip)
+
+1. Unzip to a folder
+2. Maya - Set project
+3. Navigate to the crisisDino folder and set it
+4. Open scene - dino.004.ma
+   
 ### Good and Bad UVs
-
-// shot of dino guy with bad uvs
 
 He has some bad UVs. **Let's see how they affect texturing:**
 1. Make sure you're in UV workspace
