@@ -74,6 +74,9 @@ Guy plus a ground plane (handy to have a simple plane w uvs)
    
 ### Good and Bad UVs
 
+![](assets/week10/dino_texture_bad.png)
+
+
 He has some bad UVs. **Let's see how they affect texturing:**
 1. Make sure you're in UV workspace
 2. With character unselected, turn on UV grid in uv view
