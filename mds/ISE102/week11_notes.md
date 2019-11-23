@@ -127,8 +127,6 @@ Force a move & draw as soon as a key is pressed
 We have old fruit and smears of old snake positions on screen.
 
 - Filling background to clean up trails/old fruit
-- Students make a drawFilledRect function (arguments)
-- Students can make a drawEmptyRect function for wall
 
 ## How to submit assessment refresher:
  Remember:
