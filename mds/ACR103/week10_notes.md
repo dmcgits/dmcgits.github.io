@@ -13,25 +13,18 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 10: Unwrap and paint](#week-10-unwrap-and-paint)
-  - [Texturing and UVs](#texturing-and-uvs)
-    - [Textured characters: like vinyl wrapping](#textured-characters-like-vinyl-wrapping)
-  - [Exercise: UV together](#exercise-uv-together)
-    - [Grab Crisis Dino](#grab-crisis-dino)
-    - [Good and Bad UVs](#good-and-bad-uvs)
-  - [Unwrapping](#unwrapping)
-    - [Create new starting UVs:](#create-new-starting-uvs)
-    - [Cutting and unfolding](#cutting-and-unfolding)
-  - [Move to 3D Coat](#move-to-3d-coat)
-    - [Export FBX](#export-fbx)
-    - [Import to 3D Coat](#import-to-3d-coat)
-  - [UV Unwrapping for characters](#uv-unwrapping-for-characters)
-  - [Maya to 3D Coat](#maya-to-3d-coat)
-    - [Exporting](#exporting)
-    - [Creating a new layer](#creating-a-new-layer)
-    - [Filling in some colour](#filling-in-some-colour)
-  - [Using AO to generate some lighting layers](#using-ao-to-generate-some-lighting-layers)
-    - [Uv tutorials](#uv-tutorials)
+- [Texturing and UVs](#texturing-and-uvs)
+  - [Textured characters: like vinyl wrapping](#textured-characters-like-vinyl-wrapping)
+- [Exercise: UV together](#exercise-uv-together)
+  - [Grab Crisis Dino](#grab-crisis-dino)
+  - [Good and Bad UVs](#good-and-bad-uvs)
+- [Unwrapping](#unwrapping)
+  - [Create new starting UVs:](#create-new-starting-uvs)
+  - [Cutting and unfolding](#cutting-and-unfolding)
+- [Move to 3D Coat](#move-to-3d-coat)
+  - [Export FBX](#export-fbx)
+  - [Import to 3D Coat](#import-to-3d-coat)
+  - [Uv tutorials](#uv-tutorials)
 
 <!-- /code_chunk_output -->
 
