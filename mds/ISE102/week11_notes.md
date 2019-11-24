@@ -12,14 +12,23 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-1. [Week 11: A working game](#week-11-a-working-game)
-   1. [Completing the game loop](#completing-the-game-loop)
-   2. [Moving around on keyboard input](#moving-around-on-keyboard-input)
-   3. [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
-   4. [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
-   5. [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
-   6. [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
-   7. [Game over](#game-over)
+- [Week 11: A working game](#week-11-a-working-game)
+  - [Completing the game loop](#completing-the-game-loop)
+    - [Input and update](#input-and-update)
+  - [Moving around on keyboard input](#moving-around-on-keyboard-input)
+    - [Listening for keys](#listening-for-keys)
+    - [So, getting direction](#so-getting-direction)
+  - [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
+    - [Ticking stopwatch](#ticking-stopwatch)
+    - [Controlling speed](#controlling-speed)
+    - [Missed inputs 1](#missed-inputs-1)
+    - [Missed inputs 2](#missed-inputs-2)
+    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
+  - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+  - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
+    - [Collisions in Snake](#collisions-in-snake)
+  - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
+  - [Game over](#game-over)
 
 <!-- /code_chunk_output -->
 
@@ -28,6 +37,13 @@ export_on_save:
 Everything comes back to the game loop.
 
 ![](assets/week11/game_loop_basic.png)
+
+We've learned about classes and objects, which is critical. 
+
+### Input and update
+For the game loop though, so far **we only have setup and output/display**.
+
+It's time to **capture input** and **update our objects.**
 
 ## Moving around on keyboard input
 It's not really snake if we can't move around. For that, we need to access the keyboard.
@@ -96,11 +112,23 @@ drawTheGame(Snake snake)
 }
 ```
 
+### Ticking stopwatch
+The main loop of a game has different names in game engine making. 
+* You might call it a _frame_, or an _update_.
+* Unreal Engine calls it a **tick**, which is instructive. The game  loop isn't stopping and waiting for you, it's the march of time.
+  
+![](assets/week11/stopwatch_analog.jpg)
+
+
 ### Controlling speed
-  Moving every frame would be insane. The snake would be moving at over 1000 cells per second.
-  - Making game time dependent, not framerate (waiting x milliseconds to draw)
+
+The _game loop_ runs as fast as the computer can run, often ticking much faster than we want to move something or draw to the screen.
+  - This simple game can loop over 1000x a second.
+  - Moving every frame would be insane. The snake would be moving at over 1000 cells per second.
+
+  Instead, lets move x times per second, say 10. That means we'd need to wait 1/10 = 0.1 seconds to move.
   - Code is already in RandomPixel.
-  - Here it is applied to our game.
+  - Apply it to our game.
   
 ### Missed inputs 1
 If we're only checking for inputs when we're willing to move the snake we'll miss a lot of inputs. The snake speed might be as slow as 10 cells per second, and 100ms is a long time in key press land.
@@ -179,4 +207,4 @@ Collisions happen when two solid objects, say a hatchback and an SUV, try to occ
   - Mode/state of game: menuscreen, game screen
 
 ## Game over
-..
+Our game simply stops right now. To get a polished result, you'll need to put a message on screen indicating the game is over, and make sure people looking at the defunct snake can see why.
