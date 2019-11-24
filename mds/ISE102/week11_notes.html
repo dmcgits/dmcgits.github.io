@@ -149,6 +149,7 @@
 <li><a href="#collisions-in-snake">Collisions in Snake</a></li>
 </ul>
 </li>
+<li><a href="#thoughts-menus-in-frame-based-game">Thoughts: Menus in frame based game</a></li>
 <li><a href="#game-over">Game over</a></li>
 </ul>
 </li>
@@ -279,48 +280,29 @@ Direction getDirectionInput()
 <h4 class="mume-header" id="game-loop-w-collisions">Game loop w collisions:</h4>
 
 <ol>
-<li>Check for inputs and move things</li>
-<li>Check if things occupy the same space</li>
-<li>Decide the repurcussions (benefit or cost?)</li>
+<li>Check for inputs</li>
+<li>Update objects<br>
+2a. move things<br>
+2b. Check if things occupy the same space<br>
+2c. Decide the repurcussions (benefit or cost?)</li>
 <li>Draw the screen</li>
 </ol>
 <h3 class="mume-header" id="collisions-in-snake">Collisions in Snake</h3>
 
 <ol>
-<li>
-<p>Snake tip sharing cell with wall<br>
-1a. Consequence: Snake succumbs, game ends.</p>
-</li>
-<li>
-<p>Snake sharing cell with fruit<br>
-2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates</p>
-</li>
-<li>
-<p>Snake tip sharing cell with own body<br>
-3a. Consequence: Snake succumbs, game ends.</p>
-</li>
-<li>
-<p>Dying on wall hit</p>
-</li>
+<li>Snake tip sharing cell with wall<br>
+1a. Consequence: Snake succumbs, game ends.</li>
+<li>Snake sharing cell with fruit<br>
+2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates</li>
+<li>Snake tip sharing cell with own body<br>
+3a. Consequence: Snake succumbs, game ends.</li>
 </ol>
+<h2 class="mume-header" id="thoughts-menus-in-frame-based-game">Thoughts: Menus in frame based game</h2>
+
 <ul>
-<li>
-<p>Hitting fruit</p>
-<ul>
-<li>Leave it up to people to generate more fruit</li>
-</ul>
-</li>
-<li>
-<p>incrementing score</p>
-</li>
-<li>
-<p>Menus in frame based game:</p>
-<ul>
-<li>writeWString (I should add a writeString function that casts to wstring)</li>
+<li>write strings</li>
 <li>Waiting for keypress just like movement</li>
 <li>Mode/state of game: menuscreen, game screen</li>
-</ul>
-</li>
 </ul>
 <h2 class="mume-header" id="game-over">Game over</h2>
 

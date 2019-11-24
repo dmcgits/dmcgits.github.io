@@ -24,6 +24,7 @@ export_on_save:
   - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
   - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
     - [Collisions in Snake](#collisions-in-snake)
+  - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
   - [Game over](#game-over)
 
 <!-- /code_chunk_output -->
@@ -154,10 +155,12 @@ Zipping your files and naming the zip file is the same as in Assessment 1, but w
 Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.
 
 #### Game loop w collisions:  
-1. Check for inputs and move things
-2. Check if things occupy the same space
-3. Decide the repurcussions (benefit or cost?)
-4. Draw the screen
+1. Check for inputs 
+2. Update objects
+  2a. move things
+  2b. Check if things occupy the same space
+  2c. Decide the repurcussions (benefit or cost?)
+3. Draw the screen
   
 ### Collisions in Snake
 
@@ -167,14 +170,10 @@ Collisions happen when two solid objects, say a hatchback and an SUV, try to occ
    2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates
 3. Snake tip sharing cell with own body
    3a. Consequence: Snake succumbs, game ends.
-   
-4. Dying on wall hit
-  * Hitting fruit
-    * Leave it up to people to generate more fruit
-  * incrementing score
+  
 
-* Menus in frame based game:
-  - writeWString (I should add a writeString function that casts to wstring)
+## Thoughts: Menus in frame based game
+  - write strings
   - Waiting for keypress just like movement
   - Mode/state of game: menuscreen, game screen
 
