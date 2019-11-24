@@ -12,24 +12,12 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 11: A working game](#week-11-a-working-game)
-  - [Completing the game loop](#completing-the-game-loop)
-    - [Last weeks code](#last-weeks-code)
-    - [Input and update](#input-and-update)
-    - [Listening for keys](#listening-for-keys)
-    - [Exercise: Capturing keypresses](#exercise-capturing-keypresses)
-    - [So, getting direction](#so-getting-direction)
-  - [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
-    - [Ticking stopwatch](#ticking-stopwatch)
-    - [Controlling speed](#controlling-speed)
-    - [Missed inputs 1](#missed-inputs-1)
-    - [Missed inputs 2](#missed-inputs-2)
-    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
-  - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
-  - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
-    - [Collisions in Snake](#collisions-in-snake)
-  - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
-  - [Game over](#game-over)
+- [Completing the game loop](#completing-the-game-loop)
+- [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
+- [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+- [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
+- [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
+- [Game over](#game-over)
 
 <!-- /code_chunk_output -->
 
