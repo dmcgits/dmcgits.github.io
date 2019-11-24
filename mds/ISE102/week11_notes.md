@@ -12,23 +12,22 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 11: A working game](#week-11-a-working-game)
-  - [Moving around on keyboard input](#moving-around-on-keyboard-input)
-    - [Listening for keys](#listening-for-keys)
-    - [So, getting direction](#so-getting-direction)
-  - [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
-    - [Controlling speed](#controlling-speed)
-    - [Missed inputs 1](#missed-inputs-1)
-    - [Missed inputs 2](#missed-inputs-2)
-    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
-  - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
-  - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
-    - [Collisions in Snake](#collisions-in-snake)
-  - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
-  - [Game over](#game-over)
+1. [Week 11: A working game](#week-11-a-working-game)
+   1. [Completing the game loop](#completing-the-game-loop)
+   2. [Moving around on keyboard input](#moving-around-on-keyboard-input)
+   3. [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
+   4. [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+   5. [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
+   6. [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
+   7. [Game over](#game-over)
 
 <!-- /code_chunk_output -->
 
+## Completing the game loop
+
+Everything comes back to the game loop.
+
+![](assets/week11/game_loop_basic.png)
 
 ## Moving around on keyboard input
 It's not really snake if we can't move around. For that, we need to access the keyboard.
@@ -42,11 +41,6 @@ It's not really snake if we can't move around. For that, we need to access the k
   List of **virtual keycodes** provided by Microsoft:
   https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes
   
-#### Remembering keypresses
-You could push keypresses into a collection, then act on them. If someone pressed just "Left", you act on that next frame and clear the vector. If they rapidly pressed "left" and "down" you could act on them in the next two frames.
-
-It's more complicated than we really need for this one.
-
 ### So, getting direction
 
 We listen for keys that the game allows, then we set direction accordingly.
@@ -56,11 +50,19 @@ We listen for keys that the game allows, then we set direction accordingly.
 ```
 // Top of file: 
 
-enum Direction { RIGHT, DOWN, LEFT, UP, UNCHANGED };
-
 Direction getDirectionInput();
 
-// main function goes between
+int main()
+{
+  // 1. Get input
+  Direction kbDirection = getDirectionInput();
+
+  // 2. Move things, update objects
+
+  // 3. Draw everything
+  drawTheGame(snake);
+}
+
 
 Direction getDirectionInput()
 {
@@ -70,30 +72,29 @@ Direction getDirectionInput()
   {
     direction = Direction::UP;
   } 
-
-  if (keyIsDown(VK_LEFT) || keyIsDown('A'))
+  else if (keyIsDown(VK_LEFT) || keyIsDown('A'))
   {
     direction = Direction::LEFT;
   }
   // CRISIS! If a player presses UP and LEFT or W and A at the same time..
   // one of those keys has to win. How do we choose? There's no right answer.
-  // We just have to pick an order to our ifs: the ones lower down will
-  // overwrite the higher ones.
+  // We just have to pick an order.
   return direction;
-
 }
 ```
 
-// CRISIS! If a player presses UP and LEFT or W and A at the same time..
-  // one of those keys has to win. How do we choose? There's no right answer.
-  // We just have to pick an order to our ifs: the ones lower down will
-  // overwrite the higher ones.
-
 ## Drawing a one pixel snake.
 
-Your task during this week was to, at minimum, make a Snake class. It should have a location for the snake's head, along with speed and direction.
+Your task during this week was to, at minimum, make a Snake class. It should have a location for the snake's head and a color for the snake,along with speed and direction. In my example, I have headCell and color.
 
 To draw it, we call drawpixel.
+
+```cpp
+drawTheGame(Snake snake)
+{
+  drawPixel(snake.headCell.x, snake.headCell.y, snake.color);
+}
+```
 
 ### Controlling speed
   Moving every frame would be insane. The snake would be moving at over 1000 cells per second.
