@@ -21,10 +21,9 @@ export_on_save:
     - [Missed inputs 1](#missed-inputs-1)
     - [Missed inputs 2](#missed-inputs-2)
     - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
-  - [How to submit assessment refresher:](#how-to-submit-assessment-refresher)
-    - [Conventions](#conventions)
-    - [Zipping and naming](#zipping-and-naming)
-  - [Collisions:](#collisions)
+  - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+  - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
+    - [Collisions in Snake](#collisions-in-snake)
   - [Game over](#game-over)
 
 <!-- /code_chunk_output -->
@@ -124,25 +123,52 @@ Wait! If people input too quick, we'll still miss key presses! How?
 Force a move & draw as soon as a key is pressed
  
 ### Drawing a clean frame each time
-We have old fruit and smears of old snake positions on screen.
+Our snake leaves an endless trail if we don't clear the screen. How do we clear the screen?
 
-- Filling background to clean up trails/old fruit
+![](assets/week11/screen_mess_no_clear.png)
 
-## How to submit assessment refresher:
+#### Clearing is filling
+
+> Clearing the screen is just filling all cells with background colour.
+
+I've added functions to eighties game to clear draw filled rectangles and empty ones.
+
+![](assets/week11/fill_rect_empty_rect.png)
+
+
+## Refresher: How to submit assessment:
  Remember:
   - Check your naming conventions
   - Do not rename your project folder, main.cpp, or move any files around before submitting. Don't break stuff!
   - Make sure your delivered files work. Unzip the zip you made into a temporary folder, then go in and double click the sln file. Test that it all opens and compiles properly.
   
-### Conventions
+#### Conventions
 Week 6 notes cover the [naming conventions](https://dmcgits.github.io/mds/ISE102/week6_notes.html#checking-your-coding-conventions). Do it, it's worth good marks!
   
-### Zipping and naming
+#### Zipping and naming
 Zipping your files and naming the zip file is the same as in Assessment 1, but with "SnakeGame" or "Snake" instead of "SlotsGame".
     - Instructions for how to find and zip your solution folder are [here in the week 6 notes.](https://dmcgits.github.io/mds/ISE102/week6_notes.html#delivering-assessment-1-files)
 
-## Collisions: 
-  * Dying on wall hit
+## The middle of the game loop: Collisions! 
+
+Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.
+
+#### Game loop w collisions:  
+1. Check for inputs and move things
+2. Check if things occupy the same space
+3. Decide the repurcussions (benefit or cost?)
+4. Draw the screen
+  
+### Collisions in Snake
+
+1. Snake tip sharing cell with wall
+   1a. Consequence: Snake succumbs, game ends.
+2. Snake sharing cell with fruit
+   2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates
+3. Snake tip sharing cell with own body
+   3a. Consequence: Snake succumbs, game ends.
+   
+4. Dying on wall hit
   * Hitting fruit
     * Leave it up to people to generate more fruit
   * incrementing score

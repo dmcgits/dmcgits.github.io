@@ -143,13 +143,12 @@
 <li><a href="#drawing-a-clean-frame-each-time">Drawing a clean frame each time</a></li>
 </ul>
 </li>
-<li><a href="#how-to-submit-assessment-refresher">How to submit assessment refresher:</a>
+<li><a href="#refresher-how-to-submit-assessment">Refresher: How to submit assessment:</a></li>
+<li><a href="#the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</a>
 <ul>
-<li><a href="#conventions">Conventions</a></li>
-<li><a href="#zipping-and-naming">Zipping and naming</a></li>
+<li><a href="#collisions-in-snake">Collisions in Snake</a></li>
 </ul>
 </li>
-<li><a href="#collisions">Collisions:</a></li>
 <li><a href="#game-over">Game over</a></li>
 </ul>
 </li>
@@ -250,11 +249,16 @@ Direction getDirectionInput()
 <p>Force a move &amp; draw as soon as a key is pressed</p>
 <h3 class="mume-header" id="drawing-a-clean-frame-each-time">Drawing a clean frame each time</h3>
 
-<p>We have old fruit and smears of old snake positions on screen.</p>
-<ul>
-<li>Filling background to clean up trails/old fruit</li>
-</ul>
-<h2 class="mume-header" id="how-to-submit-assessment-refresher">How to submit assessment refresher:</h2>
+<p>Our snake leaves an endless trail if we don&#x2019;t clear the screen. How do we clear the screen?</p>
+<p><img src="assets/week11/screen_mess_no_clear.png" alt></p>
+<h4 class="mume-header" id="clearing-is-filling">Clearing is filling</h4>
+
+<blockquote>
+<p>Clearing the screen is just filling all cells with background colour.</p>
+</blockquote>
+<p>I&#x2019;ve added functions to eighties game to clear draw filled rectangles and empty ones.</p>
+<p><img src="assets/week11/fill_rect_empty_rect.png" alt></p>
+<h2 class="mume-header" id="refresher-how-to-submit-assessment">Refresher: How to submit assessment:</h2>
 
 <p>Remember:</p>
 <ul>
@@ -262,19 +266,44 @@ Direction getDirectionInput()
 <li>Do not rename your project folder, main.cpp, or move any files around before submitting. Don&#x2019;t break stuff!</li>
 <li>Make sure your delivered files work. Unzip the zip you made into a temporary folder, then go in and double click the sln file. Test that it all opens and compiles properly.</li>
 </ul>
-<h3 class="mume-header" id="conventions">Conventions</h3>
+<h4 class="mume-header" id="conventions">Conventions</h4>
 
 <p>Week 6 notes cover the <a href="https://dmcgits.github.io/mds/ISE102/week6_notes.html#checking-your-coding-conventions">naming conventions</a>. Do it, it&#x2019;s worth good marks!</p>
-<h3 class="mume-header" id="zipping-and-naming">Zipping and naming</h3>
+<h4 class="mume-header" id="zipping-and-naming">Zipping and naming</h4>
 
 <p>Zipping your files and naming the zip file is the same as in Assessment 1, but with &#x201C;SnakeGame&#x201D; or &#x201C;Snake&#x201D; instead of &#x201C;SlotsGame&#x201D;.<br>
 - Instructions for how to find and zip your solution folder are <a href="https://dmcgits.github.io/mds/ISE102/week6_notes.html#delivering-assessment-1-files">here in the week 6 notes.</a></p>
-<h2 class="mume-header" id="collisions">Collisions:</h2>
+<h2 class="mume-header" id="the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</h2>
 
-<ul>
+<p>Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.</p>
+<h4 class="mume-header" id="game-loop-w-collisions">Game loop w collisions:</h4>
+
+<ol>
+<li>Check for inputs and move things</li>
+<li>Check if things occupy the same space</li>
+<li>Decide the repurcussions (benefit or cost?)</li>
+<li>Draw the screen</li>
+</ol>
+<h3 class="mume-header" id="collisions-in-snake">Collisions in Snake</h3>
+
+<ol>
+<li>
+<p>Snake tip sharing cell with wall<br>
+1a. Consequence: Snake succumbs, game ends.</p>
+</li>
+<li>
+<p>Snake sharing cell with fruit<br>
+2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates</p>
+</li>
+<li>
+<p>Snake tip sharing cell with own body<br>
+3a. Consequence: Snake succumbs, game ends.</p>
+</li>
 <li>
 <p>Dying on wall hit</p>
 </li>
+</ol>
+<ul>
 <li>
 <p>Hitting fruit</p>
 <ul>
