@@ -131,12 +131,10 @@
 <ul>
 <li><a href="#completing-the-game-loop">Completing the game loop</a>
 <ul>
+<li><a href="#last-weeks-code">Last weeks code</a></li>
 <li><a href="#input-and-update">Input and update</a></li>
-</ul>
-</li>
-<li><a href="#moving-around-on-keyboard-input">Moving around on keyboard input</a>
-<ul>
 <li><a href="#listening-for-keys">Listening for keys</a></li>
+<li><a href="#exercise-capturing-keypresses">Exercise: Capturing keypresses</a></li>
 <li><a href="#so-getting-direction">So, getting direction</a></li>
 </ul>
 </li>
@@ -165,13 +163,17 @@
 <p>Everything comes back to the game loop.</p>
 <p><img src="assets/week11/game_loop_basic.png" alt></p>
 <p>We&#x2019;ve learned about classes and objects, which is critical.</p>
+<h3 class="mume-header" id="last-weeks-code">Last weeks code</h3>
+
+<p>The task during the week was to add a Snake class to your code.</p>
+<p>Check yours against mine:</p>
+<p><img src="assets/week11/snake_h_snake_input.png" alt><br>
+<em>Today&#x2019;s code below will expect this snake.h, but you can modify yours or the code a bit.</em></p>
 <h3 class="mume-header" id="input-and-update">Input and update</h3>
 
 <p>For the game loop though, so far <strong>we only have setup and output/display</strong>.</p>
 <p>It&#x2019;s time to <strong>capture input</strong> and <strong>update our objects.</strong></p>
-<h2 class="mume-header" id="moving-around-on-keyboard-input">Moving around on keyboard input</h2>
-
-<p>It&#x2019;s not really snake if we can&#x2019;t move around. For that, we need to access the keyboard.</p>
+<p>First, save the latest version of <a href="assets/week11/eightiesGame_week11.zip">the eightiesGame headers</a> to your downloads folder.</p>
 <h3 class="mume-header" id="listening-for-keys">Listening for keys</h3>
 
 <p>You can use a char for a alphabetic/numeric/punctuation keys:</p>
@@ -184,6 +186,9 @@
 List of <strong>virtual keycodes</strong> provided by Microsoft:<br>
 <a href="https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes">https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes</a></li>
 </ul>
+<h3 class="mume-header" id="exercise-capturing-keypresses">Exercise: Capturing keypresses</h3>
+
+<p>// PICTURE: Input code</p>
 <h3 class="mume-header" id="so-getting-direction">So, getting direction</h3>
 
 <p>We listen for keys that the game allows, then we set direction accordingly.</p>

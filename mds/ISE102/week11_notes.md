@@ -14,9 +14,10 @@ export_on_save:
 
 - [Week 11: A working game](#week-11-a-working-game)
   - [Completing the game loop](#completing-the-game-loop)
+    - [Last weeks code](#last-weeks-code)
     - [Input and update](#input-and-update)
-  - [Moving around on keyboard input](#moving-around-on-keyboard-input)
     - [Listening for keys](#listening-for-keys)
+    - [Exercise: Capturing keypresses](#exercise-capturing-keypresses)
     - [So, getting direction](#so-getting-direction)
   - [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
     - [Ticking stopwatch](#ticking-stopwatch)
@@ -40,13 +41,20 @@ Everything comes back to the game loop.
 
 We've learned about classes and objects, which is critical. 
 
+### Last weeks code
+The task during the week was to add a Snake class to your code.
+
+Check yours against mine:
+
+![](assets/week11/snake_h_snake_input.png)
+_Today's code below will expect this snake.h, but you can modify yours or the code a bit._
+
 ### Input and update
 For the game loop though, so far **we only have setup and output/display**.
 
 It's time to **capture input** and **update our objects.**
 
-## Moving around on keyboard input
-It's not really snake if we can't move around. For that, we need to access the keyboard.
+First, save the latest version of [the eightiesGame headers](assets/week11/eightiesGame_week11.zip) to your downloads folder.
 
 ### Listening for keys
   You can use a char for a alphabetic/numeric/punctuation keys:
@@ -57,6 +65,10 @@ It's not really snake if we can't move around. For that, we need to access the k
   List of **virtual keycodes** provided by Microsoft:
   https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes
   
+### Exercise: Capturing keypresses
+
+// PICTURE: Input code
+
 ### So, getting direction
 
 We listen for keys that the game allows, then we set direction accordingly.
