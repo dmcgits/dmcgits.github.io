@@ -1,7 +1,7 @@
 ---
 html:
   embed_local_images: false
-  offline: false
+  offline: true
 export_on_save:
   html: true
 ---
@@ -111,6 +111,8 @@ If we're only checking for inputs when we're willing to move the snake we'll mis
 So, we check for inputs every frame.
   - We can still only move at our slower rate
   - Since nothing changes unless the snake moves, we only need to update the screen when our snake moves.
+
+![](assets/week11/code_snakeMove_main.png)
 
 ### Missed inputs 2
 
