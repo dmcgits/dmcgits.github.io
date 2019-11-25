@@ -154,6 +154,7 @@
 <li><a href="#exercise-check-for-things-in-the-same-cell">Exercise: Check for things in the same cell</a></li>
 </ul>
 </li>
+<li><a href="#thoughts-messaging-for-startend-game">Thoughts: Messaging for start/end game</a></li>
 <li><a href="#thoughts-menus-in-frame-based-game">Thoughts: Menus in frame based game</a></li>
 <li><a href="#game-over">Game over</a></li>
 </ul>
@@ -333,13 +334,25 @@ If the Snake already knows all it needs to, let it move itself.</p>
 <em>Snake to wall collisions = rip</em></p>
 <h3 class="mume-header" id="exercise-check-for-things-in-the-same-cell">Exercise: Check for things in the same cell</h3>
 
-<p>// PICTURE: Snake collision main.cpp will go here after lunch.</p>
+<p>Remember: if this is too small, right click the image and view (firefox) or open in new window (chrome etc)<br>
+<img src="assets/week11/code_snakeCollide_main_cpp.png" alt></p>
+<h2 class="mume-header" id="thoughts-messaging-for-startend-game">Thoughts: Messaging for start/end game</h2>
+
+<p>You could just display a click to play message in the draw routine in stead of drawing the score, snake, fruit etc.<br>
+That could be playState == TAP_KEY_TO_PLAY, playState == GAME_OVER<br>
+Maybe you need a different loop for the menu, and PlaySnakeGame is called from that outer menu loop.</p>
 <h2 class="mume-header" id="thoughts-menus-in-frame-based-game">Thoughts: Menus in frame based game</h2>
 
-<ul>
+<p>It&#x2019;s a fancy version of the messaging with better key handling.</p>
+<ol>
 <li>write strings</li>
-<li>Waiting for keypress just like movement</li>
-<li>Mode/state of game: menuscreen, game screen</li>
+<li>Wait for keypress (just like movement)</li>
+<li>Change to new game state (playing, or quit)</li>
+</ol>
+<p>Menu showing vs Snake game showing can be handled by keeping the current state of the game/application in a avariable.</p>
+<ul>
+<li>Display menu if <code>currentScreen == MENU_SCREEN</code></li>
+<li>Display snake if <code>currentScreen == SNAKE_SCREEN</code></li>
 </ul>
 <h2 class="mume-header" id="game-over">Game over</h2>
 

@@ -29,6 +29,7 @@ export_on_save:
   - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
     - [Collisions in Snake](#collisions-in-snake)
     - [Exercise: Check for things in the same cell](#exercise-check-for-things-in-the-same-cell)
+  - [Thoughts: Messaging for start/end game](#thoughts-messaging-for-startend-game)
   - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
   - [Game over](#game-over)
 
@@ -215,12 +216,24 @@ _Snake to wall collisions = rip_
 
 ### Exercise: Check for things in the same cell
 
-// PICTURE: Snake collision main.cpp will go here after lunch.
-  
-## Thoughts: Menus in frame based game
-  - write strings
-  - Waiting for keypress just like movement
-  - Mode/state of game: menuscreen, game screen
+Remember: if this is too small, right click the image and view (firefox) or open in new window (chrome etc)
+![](assets/week11/code_snakeCollide_main_cpp.png)
 
+## Thoughts: Messaging for start/end game
+
+You could just display a click to play message in the draw routine in stead of drawing the score, snake, fruit etc. 
+That could be playState == TAP_KEY_TO_PLAY, playState == GAME_OVER
+Maybe you need a different loop for the menu, and PlaySnakeGame is called from that outer menu loop.
+
+## Thoughts: Menus in frame based game
+It's a fancy version of the messaging with better key handling.
+  1. write strings
+  2. Wait for keypress (just like movement)
+  3. Change to new game state (playing, or quit)
+
+Menu showing vs Snake game showing can be handled by keeping the current state of the game/application in a avariable.  
+  - Display menu if `currentScreen == MENU_SCREEN`
+  - Display snake if `currentScreen == SNAKE_SCREEN`
+  
 ## Game over
 Our game simply stops right now. To get a polished result, you'll need to put a message on screen indicating the game is over, and make sure people looking at the defunct snake can see why.
