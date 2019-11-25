@@ -12,12 +12,23 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Completing the game loop](#completing-the-game-loop)
-- [Drawing a one pixel snake.](#drawing-a-one-pixel-snake)
-- [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
-- [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
-- [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
-- [Game over](#game-over)
+- [Week 11: A working game](#week-11-a-working-game)
+  - [Completing the game loop](#completing-the-game-loop)
+    - [Last weeks code](#last-weeks-code)
+    - [Input and update](#input-and-update)
+    - [Listening for keys](#listening-for-keys)
+    - [Exercise: Capturing keypresses](#exercise-capturing-keypresses)
+  - [Drawing and moving a one pixel snake.](#drawing-and-moving-a-one-pixel-snake)
+    - [Ticking stopwatch](#ticking-stopwatch)
+    - [Controlling speed](#controlling-speed)
+    - [Missed inputs 1](#missed-inputs-1)
+    - [Missed inputs 2](#missed-inputs-2)
+    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
+  - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+  - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
+    - [Collisions in Snake](#collisions-in-snake)
+  - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
+  - [Game over](#game-over)
 
 <!-- /code_chunk_output -->
 
@@ -55,55 +66,19 @@ First, save the latest version of [the eightiesGame headers](assets/week11/eight
   
 ### Exercise: Capturing keypresses
 
-// PICTURE: Input code
+Here's where I've taken the code we did last week. If yours is quite different now, start a new project to follow along today, then you can integrate the changes later.
+Otherwise, you can update yours to match this.
 
-### So, getting direction
+#### Main.cpp 1: Snake Input
 
-We listen for keys that the game allows, then we set direction accordingly.
+If the code text isn't sharp, right click the image and open it in a new tab/window.
+![](assets/week11/code_snakeInput_main.png)
 
-// DIAGRAM: replace with screenshot.
+## Drawing and moving a one pixel snake.
 
-```
-// Top of file: 
-
-Direction getDirectionInput();
-
-int main()
-{
-  // 1. Get input
-  Direction kbDirection = getDirectionInput();
-
-  // 2. Move things, update objects
-
-  // 3. Draw everything
-  drawTheGame(snake);
-}
-
-
-Direction getDirectionInput()
-{
-  Direction direction;
-  
-  if (keyIsDown(VK_UP) || keyIsDown('W')) // Allowing cursor keys or WASD
-  {
-    direction = Direction::UP;
-  } 
-  else if (keyIsDown(VK_LEFT) || keyIsDown('A'))
-  {
-    direction = Direction::LEFT;
-  }
-  // CRISIS! If a player presses UP and LEFT or W and A at the same time..
-  // one of those keys has to win. How do we choose? There's no right answer.
-  // We just have to pick an order.
-  return direction;
-}
-```
-
-## Drawing a one pixel snake.
-
-Your task during this week was to, at minimum, make a Snake class. It should have a location for the snake's head and a color for the snake,along with speed and direction. In my example, I have headCell and color.
-
-To draw it, we call drawpixel.
+Your task during this week was to, at minimum, make a Snake class. It should have a location for the snake's head and a color for the snake,along with speed and direction. 
+  - In my example, I have headCell and color. 
+  - To draw it, we call drawpixel.
 
 ```cpp
 drawTheGame(Snake snake)
