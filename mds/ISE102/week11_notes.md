@@ -28,6 +28,7 @@ export_on_save:
   - [Adding functions to classes!](#adding-functions-to-classes)
   - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
     - [Collisions in Snake](#collisions-in-snake)
+    - [Exercise: Check for things in the same cell](#exercise-check-for-things-in-the-same-cell)
   - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
   - [Game over](#game-over)
 
@@ -194,6 +195,9 @@ Collisions happen when two solid objects, say a hatchback and an SUV, try to occ
   2c. Decide the repurcussions (benefit or cost?)
 3. Draw the screen
 
+![](assets/week11/two_things_one_place.jpg)
+_There's a reason Star Trek was on at 11PM, kids._
+
 ### Collisions in Snake
 
 1. Snake tip sharing cell with wall
@@ -202,8 +206,17 @@ Collisions happen when two solid objects, say a hatchback and an SUV, try to occ
    2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates
 3. Snake tip sharing cell with own body
    3a. Consequence: Snake succumbs, game ends.
-  
 
+![](assets/week11/snake_noms.png)
+_Snake to fruit collisions = noms_
+
+![](assets/week11/snake_wall_death.png)
+_Snake to wall collisions = rip_
+
+### Exercise: Check for things in the same cell
+
+// PICTURE: Snake collision main.cpp will go here after lunch.
+  
 ## Thoughts: Menus in frame based game
   - write strings
   - Waiting for keypress just like movement
