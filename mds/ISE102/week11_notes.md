@@ -25,6 +25,7 @@ export_on_save:
     - [Missed inputs 2](#missed-inputs-2)
     - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
   - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+  - [Adding functions to classes!](#adding-functions-to-classes)
   - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
     - [Collisions in Snake](#collisions-in-snake)
   - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
@@ -156,9 +157,34 @@ Week 6 notes cover the [naming conventions](https://dmcgits.github.io/mds/ISE102
 Zipping your files and naming the zip file is the same as in Assessment 1, but with "SnakeGame" or "Snake" instead of "SlotsGame".
     - Instructions for how to find and zip your solution folder are [here in the week 6 notes.](https://dmcgits.github.io/mds/ISE102/week6_notes.html#delivering-assessment-1-files)
 
+
+## Adding functions to classes!
+
+Our main.cpp is getting a little too hands on with our Snake. 
+
+> Main.cpp is telling the snake how to move using the snake's own direction, speed, headCell.
+> If the Snake already knows all it needs to, let it move itself.
+
+To add functions to a class you:
+1. Declare the function in the .h file
+
+![](assets/week11/code_snakeCollide_snake_h.png)
+
+2. Create a Snake.cpp file in _Solution Explorer: Source Files_
+3. Include `Snake.h` in the cpp file
+4. Define the body of the function, making sure to use the `Snake::` class identifier so c++ knows what you're doing.
+
+![](assets/week11/code_snakeCollide_snake_cpp.png)
+
+5. Bring over the code from `moveCell` (currently in main.cpp) into Snake.cpp but use the snake's variables locally (instead of, say, `snake.direction`)
+
+Now try defining a Snake::grow() function. For the body of the function, just type in a comment: "// Snake growing code goes here."
+
+
 ## The middle of the game loop: Collisions! 
 
 Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.
+
 
 #### Game loop w collisions:  
 1. Check for inputs 
@@ -167,7 +193,7 @@ Collisions happen when two solid objects, say a hatchback and an SUV, try to occ
   2b. Check if things occupy the same space
   2c. Decide the repurcussions (benefit or cost?)
 3. Draw the screen
-  
+
 ### Collisions in Snake
 
 1. Snake tip sharing cell with wall

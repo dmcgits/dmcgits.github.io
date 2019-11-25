@@ -147,6 +147,7 @@
 </ul>
 </li>
 <li><a href="#refresher-how-to-submit-assessment">Refresher: How to submit assessment:</a></li>
+<li><a href="#adding-functions-to-classes">Adding functions to classes!</a></li>
 <li><a href="#the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</a>
 <ul>
 <li><a href="#collisions-in-snake">Collisions in Snake</a></li>
@@ -278,6 +279,28 @@ Otherwise, you can update yours to match this.</p>
 
 <p>Zipping your files and naming the zip file is the same as in Assessment 1, but with &#x201C;SnakeGame&#x201D; or &#x201C;Snake&#x201D; instead of &#x201C;SlotsGame&#x201D;.<br>
 - Instructions for how to find and zip your solution folder are <a href="https://dmcgits.github.io/mds/ISE102/week6_notes.html#delivering-assessment-1-files">here in the week 6 notes.</a></p>
+<h2 class="mume-header" id="adding-functions-to-classes">Adding functions to classes!</h2>
+
+<p>Our main.cpp is getting a little too hands on with our Snake.</p>
+<blockquote>
+<p>Main.cpp is telling the snake how to move using the snake&#x2019;s own direction, speed, headCell.<br>
+If the Snake already knows all it needs to, let it move itself.</p>
+</blockquote>
+<p>To add functions to a class you:</p>
+<ol>
+<li>Declare the function in the .h file</li>
+</ol>
+<p><img src="assets/week11/code_snakeCollide_snake_h.png" alt></p>
+<ol start="2">
+<li>Create a Snake.cpp file in <em>Solution Explorer: Source Files</em></li>
+<li>Include <code>Snake.h</code> in the cpp file</li>
+<li>Define the body of the function, making sure to use the <code>Snake::</code> class identifier so c++ knows what you&#x2019;re doing.</li>
+</ol>
+<p><img src="assets/week11/code_snakeCollide_snake_cpp.png" alt></p>
+<ol start="5">
+<li>Bring over the code from <code>moveCell</code> (currently in main.cpp) into Snake.cpp but use the snake&#x2019;s variables locally (instead of, say, <code>snake.direction</code>)</li>
+</ol>
+<p>Now try defining a Snake::grow() function. For the body of the function, just type in a comment: &#x201C;// Snake growing code goes here.&#x201D;</p>
 <h2 class="mume-header" id="the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</h2>
 
 <p>Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.</p>
