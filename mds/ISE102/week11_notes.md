@@ -21,11 +21,11 @@ export_on_save:
   - [Drawing and moving a one pixel snake.](#drawing-and-moving-a-one-pixel-snake)
     - [Ticking stopwatch](#ticking-stopwatch)
     - [Controlling speed](#controlling-speed)
-    - [Missed inputs 1](#missed-inputs-1)
-    - [Missed inputs 2](#missed-inputs-2)
-    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
+    - [Catching most input](#catching-most-input)
   - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
   - [Adding functions to classes!](#adding-functions-to-classes)
+    - [Missing fast inputs](#missing-fast-inputs)
+    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
   - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
     - [Collisions in Snake](#collisions-in-snake)
     - [Exercise: Check for things in the same cell](#exercise-check-for-things-in-the-same-cell)
@@ -60,13 +60,16 @@ First, save the latest version of [the eightiesGame headers](assets/week11/eight
 
 ### Listening for keys
   You can use a char for a alphabetic/numeric/punctuation keys:
-  - keyIsDown('A') 
+  - `keyIsDown('A')`
   
   For specials, use a Microsoft-defined constant called a Virtual Keycode:
   - `keyIsDown(VK_SPACE)` for example, or `keyIsDown(VK_RIGHT)` 
   List of **virtual keycodes** provided by Microsoft:
   https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes
   
+![](assets/week11/code_keyIsDown.png)
+_We'll use it to check for arrow keys and WASD_
+
 ### Exercise: Capturing keypresses
 
 Here's where I've taken the code we did last week. If yours is quite different now, start a new project to follow along today, then you can integrate the changes later.
@@ -108,34 +111,19 @@ The _game loop_ runs as fast as the computer can run, often ticking much faster 
   - Code is already in RandomPixel.
   - Apply it to our game.
   
-### Missed inputs 1
-If we're only checking for inputs when we're willing to move the snake we'll miss a lot of inputs. The snake speed might be as slow as 10 cells per second, and 100ms is a long time in key press land.
+### Catching most input
 
+Notice we're listening for inputs all the time, not just when it's move time.
+  - We're only moving and drawing about 10 frames per second out of maybe 1000. 
+  - 10 out of 1000 frames, as a percentage is 10/1000 = 0.01 = 1/100th of a second.
+  - **If we only listened at move time we'd be deaf to inputs 99% of the time.**
+* 
 So, we check for inputs every frame.
   - We can still only move at our slower rate
   - Since nothing changes unless the snake moves, we only need to update the screen when our snake moves.
 
 ![](assets/week11/code_snakeMove_main.png)
 
-### Missed inputs 2
-
-Wait! If people input too quick, we'll still miss key presses! How?
-  - Imagine moving up screen to get a fruit, you have to turn super quickly to avoid hitting the wall.
-  - /// DIAGRAM:: Snake approaching fruit on wall.
-  - People going up screen will rapidly press LEFT, then DOWN to turn around, by "drumming" their fingers down. Move your hand down in one movment but have the index land on _LEFT_ first, your middle finger on _DOWN_ a fraction of a second later. In fighting games it's called _plinking_.
-  - If it's done very fast the newDirection will be overwritten with _DOWN_ before it's time to move again.
-  - /// DIAGRAM:: frames being drawn over time down the screen, and key presses next to it. Easy to understand.
-  - Changing direction to DOWN while going up will either:
-    - run the head into the body, causing death
-    - be ignored, if you don't thing reversing direction is a game-over offense.
-
-#### Forcing the issue
-Force a move & draw as soon as a key is pressed
- 
-### Drawing a clean frame each time
-Our snake leaves an endless trail if we don't clear the screen. How do we clear the screen?
-
-![](assets/week11/screen_mess_no_clear.png)
 
 #### Clearing is filling
 
@@ -181,6 +169,38 @@ To add functions to a class you:
 5. Bring over the code from `moveCell` (currently in main.cpp) into Snake.cpp but use the snake's variables locally (instead of, say, `snake.direction`)
 
 Now try defining a Snake::grow() function. For the body of the function, just type in a comment: "// Snake growing code goes here."
+
+### Missing fast inputs
+
+Wait! **If people input too quick, we'll still miss key presses!** How?
+  - Imagine moving up screen to get a fruit, you have to turn super quickly to avoid hitting the wall.
+// PICTURE:: Snake approaching fruit on wall.
+  - People going up screen will rapidly press LEFT, then DOWN to turn around, by "drumming" their fingers down. Move your hand down in one movement but have the index land on _LEFT_ first, your middle finger on _DOWN_ a fraction of a second later. In fighting games it's called _plinking_.
+
+By listening every frame, we should never miss an input; but we only USE that information when we move.
+ 
+> **The scenario:**
+> 1. We're going UP, and the user enters `LEFT` followed by `DOWN` between moves.
+> 2. `LEFT` is written to `kbDirection`, and then `DOWN` overwrites it.
+> 3. When it's time to move, `kbDirection` holds only `DOWN`
+> 
+
+// PICTURE:: frames being drawn over time down the screen, move only happening occasionally, and key presses next to it. Easy to understand.
+  
+ So `DOWN` now follows `UP`.  Reversing direction will eighter:
+    - run the head into the body, causing death.
+    - be ignored, if you don't think it should be a game-ending offense.
+
+#### Forcing the issue
+Force a move & draw as soon as a key is pressed
+ 
+![](assets/week11/code_force_move_draw_if_keyIsDown.png)
+
+### Drawing a clean frame each time
+Our snake leaves an endless trail if we don't clear the screen. How do we clear the screen?
+
+![](assets/week11/screen_mess_no_clear.png)
+
 
 ## The middle of the game loop: Collisions! 
 

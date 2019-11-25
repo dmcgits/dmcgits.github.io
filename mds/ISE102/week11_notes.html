@@ -141,13 +141,16 @@
 <ul>
 <li><a href="#ticking-stopwatch">Ticking stopwatch</a></li>
 <li><a href="#controlling-speed">Controlling speed</a></li>
-<li><a href="#missed-inputs-1">Missed inputs 1</a></li>
-<li><a href="#missed-inputs-2">Missed inputs 2</a></li>
-<li><a href="#drawing-a-clean-frame-each-time">Drawing a clean frame each time</a></li>
+<li><a href="#catching-most-input">Catching most input</a></li>
 </ul>
 </li>
 <li><a href="#refresher-how-to-submit-assessment">Refresher: How to submit assessment:</a></li>
-<li><a href="#adding-functions-to-classes">Adding functions to classes!</a></li>
+<li><a href="#adding-functions-to-classes">Adding functions to classes!</a>
+<ul>
+<li><a href="#missing-fast-inputs">Missing fast inputs</a></li>
+<li><a href="#drawing-a-clean-frame-each-time">Drawing a clean frame each time</a></li>
+</ul>
+</li>
 <li><a href="#the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</a>
 <ul>
 <li><a href="#collisions-in-snake">Collisions in Snake</a></li>
@@ -180,7 +183,7 @@
 
 <p>You can use a char for a alphabetic/numeric/punctuation keys:</p>
 <ul>
-<li>keyIsDown(&#x2018;A&#x2019;)</li>
+<li><code>keyIsDown(&apos;A&apos;)</code></li>
 </ul>
 <p>For specials, use a Microsoft-defined constant called a Virtual Keycode:</p>
 <ul>
@@ -188,6 +191,8 @@
 List of <strong>virtual keycodes</strong> provided by Microsoft:<br>
 <a href="https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes">https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes</a></li>
 </ul>
+<p><img src="assets/week11/code_keyIsDown.png" alt><br>
+<em>We&#x2019;ll use it to check for arrow keys and WASD</em></p>
 <h3 class="mume-header" id="exercise-capturing-keypresses">Exercise: Capturing keypresses</h3>
 
 <p>Here&#x2019;s where I&#x2019;ve taken the code we did last week. If yours is quite different now, start a new project to follow along today, then you can integrate the changes later.<br>
@@ -227,38 +232,23 @@ Otherwise, you can update yours to match this.</p>
 <li>Code is already in RandomPixel.</li>
 <li>Apply it to our game.</li>
 </ul>
-<h3 class="mume-header" id="missed-inputs-1">Missed inputs 1</h3>
+<h3 class="mume-header" id="catching-most-input">Catching most input</h3>
 
-<p>If we&#x2019;re only checking for inputs when we&#x2019;re willing to move the snake we&#x2019;ll miss a lot of inputs. The snake speed might be as slow as 10 cells per second, and 100ms is a long time in key press land.</p>
+<p>Notice we&#x2019;re listening for inputs all the time, not just when it&#x2019;s move time.</p>
+<ul>
+<li>We&#x2019;re only moving and drawing about 10 frames per second out of maybe 1000.</li>
+<li>10 out of 1000 frames, as a percentage is 10/1000 = 0.01 = 1/100th of a second.</li>
+<li><strong>If we only listened at move time we&#x2019;d be deaf to inputs 99% of the time.</strong></li>
+</ul>
+<ul>
+<li></li>
+</ul>
 <p>So, we check for inputs every frame.</p>
 <ul>
 <li>We can still only move at our slower rate</li>
 <li>Since nothing changes unless the snake moves, we only need to update the screen when our snake moves.</li>
 </ul>
 <p><img src="assets/week11/code_snakeMove_main.png" alt></p>
-<h3 class="mume-header" id="missed-inputs-2">Missed inputs 2</h3>
-
-<p>Wait! If people input too quick, we&#x2019;ll still miss key presses! How?</p>
-<ul>
-<li>Imagine moving up screen to get a fruit, you have to turn super quickly to avoid hitting the wall.</li>
-<li>/// DIAGRAM:: Snake approaching fruit on wall.</li>
-<li>People going up screen will rapidly press LEFT, then DOWN to turn around, by &#x201C;drumming&#x201D; their fingers down. Move your hand down in one movment but have the index land on <em>LEFT</em> first, your middle finger on <em>DOWN</em> a fraction of a second later. In fighting games it&#x2019;s called <em>plinking</em>.</li>
-<li>If it&#x2019;s done very fast the newDirection will be overwritten with <em>DOWN</em> before it&#x2019;s time to move again.</li>
-<li>/// DIAGRAM:: frames being drawn over time down the screen, and key presses next to it. Easy to understand.</li>
-<li>Changing direction to DOWN while going up will either:
-<ul>
-<li>run the head into the body, causing death</li>
-<li>be ignored, if you don&#x2019;t thing reversing direction is a game-over offense.</li>
-</ul>
-</li>
-</ul>
-<h4 class="mume-header" id="forcing-the-issue">Forcing the issue</h4>
-
-<p>Force a move &amp; draw as soon as a key is pressed</p>
-<h3 class="mume-header" id="drawing-a-clean-frame-each-time">Drawing a clean frame each time</h3>
-
-<p>Our snake leaves an endless trail if we don&#x2019;t clear the screen. How do we clear the screen?</p>
-<p><img src="assets/week11/screen_mess_no_clear.png" alt></p>
 <h4 class="mume-header" id="clearing-is-filling">Clearing is filling</h4>
 
 <blockquote>
@@ -303,6 +293,35 @@ If the Snake already knows all it needs to, let it move itself.</p>
 <li>Bring over the code from <code>moveCell</code> (currently in main.cpp) into Snake.cpp but use the snake&#x2019;s variables locally (instead of, say, <code>snake.direction</code>)</li>
 </ol>
 <p>Now try defining a Snake::grow() function. For the body of the function, just type in a comment: &#x201C;// Snake growing code goes here.&#x201D;</p>
+<h3 class="mume-header" id="missing-fast-inputs">Missing fast inputs</h3>
+
+<p>Wait! <strong>If people input too quick, we&#x2019;ll still miss key presses!</strong> How?</p>
+<ul>
+<li>Imagine moving up screen to get a fruit, you have to turn super quickly to avoid hitting the wall.<br>
+// PICTURE:: Snake approaching fruit on wall.</li>
+<li>People going up screen will rapidly press LEFT, then DOWN to turn around, by &#x201C;drumming&#x201D; their fingers down. Move your hand down in one movement but have the index land on <em>LEFT</em> first, your middle finger on <em>DOWN</em> a fraction of a second later. In fighting games it&#x2019;s called <em>plinking</em>.</li>
+</ul>
+<p>By listening every frame, we should never miss an input; but we only USE that information when we move.</p>
+<blockquote>
+<p><strong>The scenario:</strong></p>
+<ol>
+<li>We&#x2019;re going UP, and the user enters <code>LEFT</code> followed by <code>DOWN</code> between moves.</li>
+<li><code>LEFT</code> is written to <code>kbDirection</code>, and then <code>DOWN</code> overwrites it.</li>
+<li>When it&#x2019;s time to move, <code>kbDirection</code> holds only <code>DOWN</code></li>
+</ol>
+</blockquote>
+<p>// PICTURE:: frames being drawn over time down the screen, move only happening occasionally, and key presses next to it. Easy to understand.</p>
+<p>So <code>DOWN</code> now follows <code>UP</code>.  Reversing direction will eighter:<br>
+- run the head into the body, causing death.<br>
+- be ignored, if you don&#x2019;t think it should be a game-ending offense.</p>
+<h4 class="mume-header" id="forcing-the-issue">Forcing the issue</h4>
+
+<p>Force a move &amp; draw as soon as a key is pressed</p>
+<p><img src="assets/week11/code_force_move_draw_if_keyIsDown.png" alt></p>
+<h3 class="mume-header" id="drawing-a-clean-frame-each-time">Drawing a clean frame each time</h3>
+
+<p>Our snake leaves an endless trail if we don&#x2019;t clear the screen. How do we clear the screen?</p>
+<p><img src="assets/week11/screen_mess_no_clear.png" alt></p>
 <h2 class="mume-header" id="the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</h2>
 
 <p>Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.</p>
