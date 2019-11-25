@@ -182,11 +182,9 @@ To add functions to a class you:
 
 Now try defining a Snake::grow() function. For the body of the function, just type in a comment: "// Snake growing code goes here."
 
-
 ## The middle of the game loop: Collisions! 
 
 Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.
-
 
 #### Game loop w collisions:  
 1. Check for inputs 
