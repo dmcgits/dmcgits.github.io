@@ -124,231 +124,197 @@
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="week-11-a-working-game">Week 11: A working game</h1>
+      <h1 class="mume-header" id="week-11-painting-2d-textures">Week 11: Painting 2D Textures</h1>
 
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#completing-the-game-loop">Completing the game loop</a></li>
-<li><a href="#drawing-and-moving-a-one-pixel-snake">Drawing and moving a one pixel snake.</a></li>
-<li><a href="#refresher-how-to-submit-assessment">Refresher: How to submit assessment:</a></li>
-<li><a href="#adding-functions-to-classes">Adding functions to classes!</a></li>
-<li><a href="#the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</a></li>
-<li><a href="#thoughts-messaging-for-startend-game">Thoughts: Messaging for start/end game</a></li>
-<li><a href="#thoughts-menus-in-frame-based-game">Thoughts: Menus in frame based game</a></li>
-<li><a href="#game-over">Game over</a></li>
-</ul>
-<h2 class="mume-header" id="completing-the-game-loop">Completing the game loop</h2>
-
-<p>Everything comes back to the game loop.</p>
-<p><img src="assets/week11/game_loop_basic.png" alt></p>
-<p>We&#x2019;ve learned about classes and objects, which is critical.</p>
-<h3 class="mume-header" id="last-weeks-code">Last weeks code</h3>
-
-<p>The task during the week was to add a Snake class to your code.</p>
-<p>Check yours against mine:</p>
-<p><img src="assets/week11/snake_h_snake_input.png" alt><br>
-<em>Today&#x2019;s code below will expect this snake.h, but you can modify yours or the code a bit.</em></p>
-<h3 class="mume-header" id="input-and-update">Input and update</h3>
-
-<p>For the game loop though, so far <strong>we only have setup and output/display</strong>.</p>
-<p>It&#x2019;s time to <strong>capture input</strong> and <strong>update our objects.</strong></p>
-<p>First, save the latest version of <a href="assets/week11/eightiesGame_week11.zip">the eightiesGame headers</a> to your downloads folder.</p>
-<h3 class="mume-header" id="listening-for-keys">Listening for keys</h3>
-
-<p>You can use a char for a alphabetic/numeric/punctuation keys:</p>
+<li><a href="#week-11-painting-2d-textures">Week 11: Painting 2D Textures</a>
 <ul>
-<li><code>keyIsDown(&apos;A&apos;)</code></li>
-</ul>
-<p>For specials, use a Microsoft-defined constant called a Virtual Keycode:</p>
+<li><a href="#this-week">This week</a>
 <ul>
-<li><code>keyIsDown(VK_SPACE)</code> for example, or <code>keyIsDown(VK_RIGHT)</code><br>
-List of <strong>virtual keycodes</strong> provided by Microsoft:<br>
-<a href="https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes">https://docs.microsoft.com/en-gb/windows/win32/inputdev/virtual-key-codes</a></li>
+<li><a href="#tip-on-checking-your-proportions">Tip on checking your proportions</a></li>
 </ul>
-<p><img src="assets/week11/code_keyIsDown.png" alt><br>
-<em>We&#x2019;ll use it to check for arrow keys and WASD</em></p>
-<h3 class="mume-header" id="exercise-capturing-keypresses">Exercise: Capturing keypresses</h3>
+</li>
+<li><a href="#open-your-imported-model">Open your imported model</a></li>
+<li><a href="#painting-textures">Painting Textures</a></li>
+<li><a href="#start-with-ambient-occlusion">Start with ambient occlusion.</a></li>
+<li><a href="#blocking-in">Blocking in</a>
+<ul>
+<li><a href="#major-objects-in-colour">Major objects in colour</a></li>
+<li><a href="#paint-using-pencil-mode">Paint using pencil mode</a></li>
+<li><a href="#whats-a-middle-tone">What&#x2019;s a middle tone?</a></li>
+<li><a href="#rough-in-the-details">Rough in the details</a></li>
+</ul>
+</li>
+<li><a href="#big-to-small">BIG TO SMALL</a>
+<ul>
+<li><a href="#more-light-and-shadow">More light and shadow</a></li>
+<li><a href="#dont-get-caught-up">Don&#x2019;t get caught up.</a></li>
+</ul>
+</li>
+<li><a href="#changes-to-the-model">Changes to the model</a>
+<ul>
+<li><a href="#reimporting-a-changed-model">Reimporting a changed model</a></li>
+<li><a href="#adding-form-to-details">Adding form to details.</a></li>
+</ul>
+</li>
+<li><a href="#keep-moving">Keep moving</a>
+<ul>
+<li><a href="#zoom-in-and-out">Zoom in and out</a></li>
+<li><a href="#free-yourself-up">Free yourself up</a></li>
+<li><a href="#layers-are-faster-until-theyre-slower">Layers are faster until they&#x2019;re slower</a></li>
+</ul>
+</li>
+<li><a href="#details-edge-control">Details: Edge control</a>
+<ul>
+<li><a href="#photoshop-smoothing">Photoshop smoothing</a></li>
+</ul>
+</li>
+<li><a href="#face-planes">Face planes</a></li>
+<li><a href="#look-at-my-model-recreate-some-stuff">Look at my model, recreate some stuff</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="this-week">This week</h2>
 
-<p>Here&#x2019;s where I&#x2019;ve taken the code we did last week. If yours is quite different now, start a new project to follow along today, then you can integrate the changes later.<br>
-Otherwise, you can update yours to match this.</p>
-<h4 class="mume-header" id="maincpp-1-snake-input">Main.cpp 1: Snake Input</h4>
+<p>Q&amp;A Uv unwrapping. Fixes</p>
+<h3 class="mume-header" id="tip-on-checking-your-proportions">Tip on checking your proportions</h3>
 
-<p>If the code text isn&#x2019;t sharp, right click the image and open it in a new tab/window.<br>
-<img src="assets/week11/code_snakeInput_main.png" alt></p>
-<h2 class="mume-header" id="drawing-and-moving-a-one-pixel-snake">Drawing and moving a one pixel snake.</h2>
+<p><img src="assets/week11/concept_check_proportions.png" alt></p>
+<p>Screen shotting your model and laying the concept over it in photoshop is a great way to check you&#x2019;re in the right ballpark proportion wise.</p>
+<ul>
+<li>3D won&#x2019;t match stylised 2D perfectly,</li>
+<li>Can check things like head to body ratio, placement of joints.</li>
+</ul>
+<h2 class="mume-header" id="open-your-imported-model">Open your imported model</h2>
 
-<p>Your task during this week was to, at minimum, make a Snake class. It should have a location for the snake&#x2019;s head and a color for the snake,along with speed and direction.</p>
-<ul>
-<li>In my example, I have headCell and color.</li>
-<li>To draw it, we call drawpixel.</li>
-</ul>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token function">drawTheGame</span><span class="token punctuation">(</span>Snake snake<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-  <span class="token function">drawPixel</span><span class="token punctuation">(</span>snake<span class="token punctuation">.</span>headCell<span class="token punctuation">.</span>x<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>headCell<span class="token punctuation">.</span>y<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</pre><h3 class="mume-header" id="ticking-stopwatch">Ticking stopwatch</h3>
+<p>Last week&#x2019;s exercise was to unwrap and import your model to 3D coat.</p>
+<h2 class="mume-header" id="painting-textures">Painting Textures</h2>
 
-<p>The main loop of a game has different names in game engine making.</p>
 <ul>
-<li>You might call it a <em>frame</em>, or an <em>update</em>.</li>
-<li>Unreal Engine calls it a <strong>tick</strong>, which is instructive. The game  loop isn&#x2019;t stopping and waiting for you, it&#x2019;s the march of time.</li>
+<li>Overcoming the white model
+<ul>
+<li>So many brushes and infinite colours. Where to start?</li>
+<li>Do I start painting in features? Do I start on the hair or the outfit?</li>
+<li>Start quick and get the major info all in.</li>
 </ul>
-<p><img src="assets/week11/stopwatch_analog.jpg" alt></p>
-<h3 class="mume-header" id="controlling-speed">Controlling speed</h3>
+</li>
+</ul>
+<h2 class="mume-header" id="start-with-ambient-occlusion">Start with ambient occlusion.</h2>
 
-<p>The <em>game loop</em> runs as fast as the computer can run, often ticking much faster than we want to move something or draw to the screen.</p>
-<ul>
-<li>This simple game can loop over 1000x a second.</li>
-<li>Moving every frame would be insane. The snake would be moving at over 1000 cells per second.</li>
-</ul>
-<p>Instead, lets move x times per second, say 10. That means we&#x2019;d need to wait 1/10 = 0.1 seconds to move.</p>
-<ul>
-<li>Code is already in RandomPixel.</li>
-<li>Apply it to our game.</li>
-</ul>
-<h3 class="mume-header" id="catching-most-input">Catching most input</h3>
+<p>So that you can see and think about the volumes, create some AO on new layers. One hemispherical, one spherical. Leave them on multiply.</p>
+<h2 class="mume-header" id="blocking-in">Blocking in</h2>
 
-<p>Notice we&#x2019;re listening for inputs all the time, not just when it&#x2019;s move time.</p>
-<ul>
-<li>We&#x2019;re only moving and drawing about 10 frames per second out of maybe 1000.</li>
-<li>10 out of 1000 frames, as a percentage is 10/1000 = 0.01 = 1/100th of a second.</li>
-<li><strong>If we only listened at move time we&#x2019;d be deaf to inputs 99% of the time.</strong></li>
-</ul>
-<ul>
-<li></li>
-</ul>
-<p>So, we check for inputs every frame.</p>
-<ul>
-<li>We can still only move at our slower rate</li>
-<li>Since nothing changes unless the snake moves, we only need to update the screen when our snake moves.</li>
-</ul>
-<p><img src="assets/week11/code_snakeMove_main.png" alt></p>
-<h4 class="mume-header" id="clearing-is-filling">Clearing is filling</h4>
+<h3 class="mume-header" id="major-objects-in-colour">Major objects in colour</h3>
 
+<p>Identify clothing, wood, skin etc before going forward. Work in a middle tone.</p>
+<h3 class="mume-header" id="paint-using-pencil-mode">Paint using pencil mode</h3>
+
+<pre class="language-text">* How to draw sharp/pencil mode in 3D coat
+* Jump to photoshop to demo, show pencil in ps
+* Great for selecting and hue shifting (0 tolerance/pixel wand)
+* Disappears when scaled down. (work at double size)
+</pre>
+<h3 class="mume-header" id="whats-a-middle-tone">What&#x2019;s a middle tone?</h3>
+
+<p>Light and shadow have to appear on the surface. What does the middle of that spectrum look like?</p>
+<h3 class="mume-header" id="rough-in-the-details">Rough in the details</h3>
+
+<p>Paint a few of the smaller details as lines on another layer</p>
+<h2 class="mume-header" id="big-to-small">BIG TO SMALL</h2>
+
+<h3 class="mume-header" id="more-light-and-shadow">More light and shadow</h3>
+
+<p>We can identify many of the properties of a material before we touch it.</p>
+<ul>
+<li>How shiny/reflective is it?</li>
+<li>How does it fold?</li>
+</ul>
+<h3>Don&#x2019;t get caught up.</h3>
+<ul>
+<li>
+<p>Start big, think about light and shadow<br>
+// Pictures: directional light on busts</p>
+</li>
+<li>
+<p>Put those on layers that use blending so we can work under them</p>
+</li>
+<li>
+<p>Hue shift! Light isn&#x2019;t white, shadow isn&#x2019;t black.</p>
+<ul>
+<li>Shift the AO</li>
+</ul>
+</li>
+<li>
+<p>I mostly use cel shading for first lighting, even if it requires some banding.<br>
+// PICTURES: CELL SHADING</p>
+</li>
+<li>
+<p>If your character is nothing but soft gradients, use those. On layers.</p>
+</li>
+</ul>
+<p>// Pictures: aliased (jaggy/pixelated edges) vs anti aliased (smoothed/averaged edges)<br>
+// Pictures: select and fill on jaggy vs smoothed edges</p>
+<h2 class="mume-header" id="changes-to-the-model">Changes to the model</h2>
+
+<p>Working with the model, you&#x2019;ll discover shortcomings of the model/uv unwrap you couldn&#x2019;t have anticipated. It&#x2019;s why we move fast, to make these discoveries while the work is still easily adaptable.</p>
+<h3 class="mume-header" id="reimporting-a-changed-model">Reimporting a changed model</h3>
+
+<p>You don&#x2019;t have to lose all your work just because you need to change the model/uv unwrap. There are options:</p>
+<ul>
+<li>replace model in current scene</li>
+<li>Export texture layers and import into new scene</li>
+</ul>
+<h3 class="mume-header" id="adding-form-to-details">Adding form to details.</h3>
+
+<p>How to go from flat to 3D.</p>
+<ul>
+<li>Shadowed and lit planes</li>
+</ul>
+<h2 class="mume-header" id="keep-moving">Keep moving</h2>
+
+<h3 class="mume-header" id="zoom-in-and-out">Zoom in and out</h3>
+
+<ul>
+<li>DON&#x2019;T GET STUCK IN ONE AREA. Work big to small.</li>
+<li>If you stay zoomed in you noodle around and forget big picture. Everyone.</li>
+</ul>
+<h3 class="mume-header" id="free-yourself-up">Free yourself up</h3>
+
+<ul>
+<li>create new layers and try stuff</li>
+<li>It&#x2019;s digital. If you think you might reck it by trying something, duplicate the file. Save a copy of <code>dinoTexture.005.3b</code> as maybe <code>dinoTexture.005a.purpleEyes.3b</code> and go for it. If it looks bad, go back to .005.</li>
+</ul>
+<h3 class="mume-header" id="layers-are-faster-until-theyre-slower">Layers are faster until they&#x2019;re slower</h3>
+
+<ul>
+<li>Duplicate a couple of layers and flatten them, then you can smudge and colour pick easy again.</li>
+</ul>
+<h2 class="mume-header" id="details-edge-control">Details: Edge control</h2>
+
+<ul>
+<li>When two planes/forms meet they do so in many ways. Sharp edge, soft edge, one side sharp, one smooth, etc.<br>
+// PICTURE: various painted edges</li>
+<li>This is critical to painting, maybe the second most important thing after lighting major forms.</li>
+<li>We can do it with a few tones in pixel form if we want to stay adaptable</li>
+</ul>
+<h3 class="mume-header" id="photoshop-smoothing">Photoshop smoothing</h3>
+
+<p>This is complete magic. Sadly 3D coat, in my efforts so far, has never revealed a good blending/smudging brush.</p>
 <blockquote>
-<p>Clearing the screen is just filling all cells with background colour.</p>
+<p>Shane Olsen, when asked how he made the Disney Infinity characters look so crisp when sculpting in ZBrush, said something along the lines of:<br>
+The best way to keep your forms super clean is to touch them as little as possible.</p>
 </blockquote>
-<p>I&#x2019;ve added functions to eighties game to clear draw filled rectangles and empty ones.</p>
-<p><img src="assets/week11/fill_rect_empty_rect.png" alt></p>
-<h2 class="mume-header" id="refresher-how-to-submit-assessment">Refresher: How to submit assessment:</h2>
-
-<p>Remember:</p>
+<p>This is why the smooth brush is good. Humans are finicky, imperfect, organic things. To get a big soft transition, paint it harsh and then let the computer average/blur it out.</p>
 <ul>
-<li>Check your naming conventions</li>
-<li>Do not rename your project folder, main.cpp, or move any files around before submitting. Don&#x2019;t break stuff!</li>
-<li>Make sure your delivered files work. Unzip the zip you made into a temporary folder, then go in and double click the sln file. Test that it all opens and compiles properly.</li>
+<li>We don&#x2019;t try to draw perfect circles, we grab a compass (or ellipse tool) if we need that.</li>
+<li>Smoothing is the same.</li>
 </ul>
-<h4 class="mume-header" id="conventions">Conventions</h4>
+<p>It takes a lot of art experience and knowledge to know where and how much to do it, but the computer takes care of the inhumanly smooth averaging.</p>
+<h2 class="mume-header" id="face-planes">Face planes</h2>
 
-<p>Week 6 notes cover the <a href="https://dmcgits.github.io/mds/ISE102/week6_notes.html#checking-your-coding-conventions">naming conventions</a>. Do it, it&#x2019;s worth good marks!</p>
-<h4 class="mume-header" id="zipping-and-naming">Zipping and naming</h4>
+<p>Changing textures is often the best way to get facial expressions on low poly characters.</p>
+<h2 class="mume-header" id="look-at-my-model-recreate-some-stuff">Look at my model, recreate some stuff</h2>
 
-<p>Zipping your files and naming the zip file is the same as in Assessment 1, but with &#x201C;SnakeGame&#x201D; or &#x201C;Snake&#x201D; instead of &#x201C;SlotsGame&#x201D;.<br>
-- Instructions for how to find and zip your solution folder are <a href="https://dmcgits.github.io/mds/ISE102/week6_notes.html#delivering-assessment-1-files">here in the week 6 notes.</a></p>
-<h2 class="mume-header" id="adding-functions-to-classes">Adding functions to classes!</h2>
-
-<p>Our main.cpp is getting a little too hands on with our Snake.</p>
-<blockquote>
-<p>Main.cpp is telling the snake how to move using the snake&#x2019;s own direction, speed, headCell.<br>
-If the Snake already knows all it needs to, let it move itself.</p>
-</blockquote>
-<p>To add functions to a class you:</p>
-<ol>
-<li>Declare the function in the .h file</li>
-</ol>
-<p><img src="assets/week11/code_snakeCollide_snake_h.png" alt></p>
-<ol start="2">
-<li>Create a Snake.cpp file in <em>Solution Explorer: Source Files</em></li>
-<li>Include <code>Snake.h</code> in the cpp file</li>
-<li>Define the body of the function, making sure to use the <code>Snake::</code> class identifier so c++ knows what you&#x2019;re doing.</li>
-</ol>
-<p><img src="assets/week11/code_snakeCollide_snake_cpp.png" alt></p>
-<ol start="5">
-<li>Bring over the code from <code>moveCell</code> (currently in main.cpp) into Snake.cpp but use the snake&#x2019;s variables locally (instead of, say, <code>snake.direction</code>)</li>
-</ol>
-<p>Now try defining a Snake::grow() function. For the body of the function, just type in a comment: &#x201C;// Snake growing code goes here.&#x201D;</p>
-<h3 class="mume-header" id="missing-fast-inputs">Missing fast inputs</h3>
-
-<p>Wait! <strong>If people input too quick, we&#x2019;ll still miss key presses!</strong> How?</p>
-<ul>
-<li>Imagine moving up screen to get a fruit, you have to turn super quickly to avoid hitting the wall.<br>
-// PICTURE:: Snake approaching fruit on wall.</li>
-<li>People going up screen will rapidly press LEFT, then DOWN to turn around, by &#x201C;drumming&#x201D; their fingers down. Move your hand down in one movement but have the index land on <em>LEFT</em> first, your middle finger on <em>DOWN</em> a fraction of a second later. In fighting games it&#x2019;s called <em>plinking</em>.</li>
-</ul>
-<p>By listening every frame, we should never miss an input; but we only USE that information when we move.</p>
-<blockquote>
-<p><strong>The scenario:</strong></p>
-<ol>
-<li>We&#x2019;re going UP, and the user enters <code>LEFT</code> followed by <code>DOWN</code> between moves.</li>
-<li><code>LEFT</code> is written to <code>kbDirection</code>, and then <code>DOWN</code> overwrites it.</li>
-<li>When it&#x2019;s time to move, <code>kbDirection</code> holds only <code>DOWN</code></li>
-</ol>
-</blockquote>
-<p>// PICTURE:: frames being drawn over time down the screen, move only happening occasionally, and key presses next to it. Easy to understand.</p>
-<p>So <code>DOWN</code> now follows <code>UP</code>.  Reversing direction will eighter:<br>
-- run the head into the body, causing death.<br>
-- be ignored, if you don&#x2019;t think it should be a game-ending offense.</p>
-<h4 class="mume-header" id="forcing-the-issue">Forcing the issue</h4>
-
-<p>Force a move &amp; draw as soon as a key is pressed</p>
-<p><img src="assets/week11/code_force_move_draw_if_keyIsDown.png" alt></p>
-<h3 class="mume-header" id="drawing-a-clean-frame-each-time">Drawing a clean frame each time</h3>
-
-<p>Our snake leaves an endless trail if we don&#x2019;t clear the screen. How do we clear the screen?</p>
-<p><img src="assets/week11/screen_mess_no_clear.png" alt></p>
-<h2 class="mume-header" id="the-middle-of-the-game-loop-collisions">The middle of the game loop: Collisions!</h2>
-
-<p>Collisions happen when two solid objects, say a hatchback and an SUV, try to occupy the same space. When it happens, there are repurcussions.</p>
-<h4 class="mume-header" id="game-loop-w-collisions">Game loop w collisions:</h4>
-
-<ol>
-<li>Check for inputs</li>
-<li>Update objects<br>
-2a. move things<br>
-2b. Check if things occupy the same space<br>
-2c. Decide the repurcussions (benefit or cost?)</li>
-<li>Draw the screen</li>
-</ol>
-<p><img src="assets/week11/two_things_one_place.jpg" alt><br>
-<em>There&#x2019;s a reason Star Trek was on at 11PM, kids.</em></p>
-<h3 class="mume-header" id="collisions-in-snake">Collisions in Snake</h3>
-
-<ol>
-<li>Snake tip sharing cell with wall<br>
-1a. Consequence: Snake succumbs, game ends.</li>
-<li>Snake sharing cell with fruit<br>
-2a. Consequence: Snake grows a segment, score increases by 1, Fruit relocates</li>
-<li>Snake tip sharing cell with own body<br>
-3a. Consequence: Snake succumbs, game ends.</li>
-</ol>
-<p><img src="assets/week11/snake_noms.png" alt><br>
-<em>Snake to fruit collisions = noms</em></p>
-<p><img src="assets/week11/snake_wall_death.png" alt><br>
-<em>Snake to wall collisions = rip</em></p>
-<h3 class="mume-header" id="exercise-check-for-things-in-the-same-cell">Exercise: Check for things in the same cell</h3>
-
-<p>Remember: if this is too small, right click the image and view (firefox) or open in new window (chrome etc)<br>
-<img src="assets/week11/code_snakeCollide_main_cpp.png" alt></p>
-<h2 class="mume-header" id="thoughts-messaging-for-startend-game">Thoughts: Messaging for start/end game</h2>
-
-<p>You could just display a click to play message in the draw routine in stead of drawing the score, snake, fruit etc.<br>
-That could be playState == TAP_KEY_TO_PLAY, playState == GAME_OVER<br>
-Maybe you need a different loop for the menu, and PlaySnakeGame is called from that outer menu loop.</p>
-<h2 class="mume-header" id="thoughts-menus-in-frame-based-game">Thoughts: Menus in frame based game</h2>
-
-<p>It&#x2019;s a fancy version of the messaging with better key handling.</p>
-<ol>
-<li>write strings</li>
-<li>Wait for keypress (just like movement)</li>
-<li>Change to new game state (playing, or quit)</li>
-</ol>
-<p>Menu showing vs Snake game showing can be handled by keeping the current state of the game/application in a avariable.</p>
-<ul>
-<li>Display menu if <code>currentScreen == MENU_SCREEN</code></li>
-<li>Display snake if <code>currentScreen == SNAKE_SCREEN</code></li>
-</ul>
-<h2 class="mume-header" id="game-over">Game over</h2>
-
-<p>Our game simply stops right now. To get a polished result, you&#x2019;ll need to put a message on screen indicating the game is over, and make sure people looking at the defunct snake can see why.</p>
 
       </div>
       
