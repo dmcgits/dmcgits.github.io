@@ -29,6 +29,8 @@ export_on_save:
   - [Changes to the model](#changes-to-the-model)
     - [Reimporting a changed model](#reimporting-a-changed-model)
     - [Adding form to details.](#adding-form-to-details)
+    - [As Valve teaches it](#as-valve-teaches-it)
+    - [As the shader paints it](#as-the-shader-paints-it)
   - [Keep moving](#keep-moving)
     - [Zoom in and out](#zoom-in-and-out)
     - [Free yourself up](#free-yourself-up)
@@ -84,6 +86,13 @@ Paint a few of the smaller details as lines on another layer
 
 ## BIG TO SMALL
 
+Hand painting textures is just regular painting. We're moving it from a single rectangle to 3D surfaces, but:
+- the principles and techniques are the same. 
+- If anything it's easier: we don't have to guess where the surface turns away from the light
+
+[![](assets/week11/lighting_big_to_small.png)
+_Get the big idea, then refine and and contrast sharp against soft_](https://www.youtube.com/watch?v=EfQNadGEPBU)
+
 ### More light and shadow
   
 We can identify many of the properties of a material before we touch it.
@@ -92,13 +101,23 @@ We can identify many of the properties of a material before we touch it.
   
  ### Don't get caught up. 
   * Start big, think about light and shadow
-    // Pictures: directional light on busts
+
+![](assets/week11/lighting_head_planes.jpg)
+
+![](assets/week11/lighting_high_front_pig.jpg)
+
+[![](assets/week11/lighting_heads_soares.jpg)
+_Lighting studies by Gus Soares. Click for hi res versions_](https://www.artstation.com/artwork/VdgQEn)
+
   * Put those on layers that use blending so we can work under them
   * Hue shift! Light isn't white, shadow isn't black.
     * Shift the AO
-
+![](assets/week11/face_light_simple.jpg)
+_Look at the richness of colour in the shadows_
   * I mostly use cel shading for first lighting, even if it requires some banding. 
-  // PICTURES: CELL SHADING
+  
+  ![](assets/week11/cel_shade_1.jpg)
+  _These concepts show off 2 tone cel shading. (Don't light your models from the side btw)_
   * If your character is nothing but soft gradients, use those. On layers.
  
 // Pictures: aliased (jaggy/pixelated edges) vs anti aliased (smoothed/averaged edges)
@@ -117,6 +136,33 @@ You don't have to lose all your work just because you need to change the model/u
 ### Adding form to details. 
 How to go from flat to 3D.
   * Shadowed and lit planes
+
+### As Valve teaches it
+
+Now valve was able to use custom shaders to do a lot of what we'll be hand painting in, but if you can turn it into an algorithm then you can break it into steps and do  it!
+
+They made a slide deck that teaches how:
+[![](assets/week11/tf2_stylization_deck.png)
+_This was made to go along with a GDC talk_](https://steamcdn-a.akamaihd.net/apps/valve/2008/GDC2008_StylizationWithAPurpose_TF2.pdf)
+[![](assets/week11/tf2_read_heirarchy.png)
+_Reading from top to bottom, Friend vs foe_](https://steamcdn-a.akamaihd.net/apps/valve/2008/GDC2008_StylizationWithAPurpose_TF2.pdf)
+[![](assets/week11/tf2_folds_leyendecker.png)
+_Simplifying folds.. don't reinvent the wheel, look at earlier artists!_](https://steamcdn-a.akamaihd.net/apps/valve/2008/GDC2008_StylizationWithAPurpose_TF2.pdf)
+
+### As the shader paints it
+
+A shader is the rules of light applied when rendering the models. It also allows certain imaginary lights to be baked in, and can support arbitrary effects like outlining and gradients. We think of it as the "material" applied in Unity.
+
+The shader in tf2 uses a number of passes to achieve a final, composited image, just like we're painting light and shadow in various layers.
+
+![](assets/week11/tf2_shader_passes.png)
+_Each pass represents a layer you'd composite in photoshop_
+
+![](assets/week11/tf2_shaders_composited.png)
+_The result_
+
+![](assets/week11/tf2_concept_character.png)
+_It developed a fair way from concept to finished models, textures and shader_
 
 ## Keep moving
 
@@ -140,6 +186,9 @@ How to go from flat to 3D.
 ### Photoshop smoothing
 
 This is complete magic. Sadly 3D coat, in my efforts so far, has never revealed a good blending/smudging brush.
+
+[![](assets/week11/smudge_tute_1_yt.png)
+_Tutorial: Using the smudge tool_](https://www.youtube.com/watch?v=KZ4Cqkmut3Y)
 
 > Shane Olsen, when asked how he made the Disney Infinity characters look so crisp when sculpting in ZBrush, said something along the lines of:
 >  The best way to keep your forms super clean is to touch them as little as possible.
