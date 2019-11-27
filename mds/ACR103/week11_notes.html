@@ -149,13 +149,14 @@
 <ul>
 <li><a href="#more-light-and-shadow">More light and shadow</a></li>
 <li><a href="#dont-get-caught-up">Don&#x2019;t get caught up.</a></li>
+<li><a href="#merge-small-forms">Merge small forms</a></li>
 </ul>
 </li>
 <li><a href="#changes-to-the-model">Changes to the model</a>
 <ul>
 <li><a href="#reimporting-a-changed-model">Reimporting a changed model</a></li>
 <li><a href="#adding-form-to-details">Adding form to details.</a></li>
-<li><a href="#as-valve-teaches-it">As Valve teaches it</a></li>
+<li><a href="#game-study-tf2s-art-approach">Game study: TF2s art approach</a></li>
 <li><a href="#as-the-shader-paints-it">As the shader paints it</a></li>
 </ul>
 </li>
@@ -264,6 +265,11 @@
 </ul>
 <p>// Pictures: aliased (jaggy/pixelated edges) vs anti aliased (smoothed/averaged edges)<br>
 // Pictures: select and fill on jaggy vs smoothed edges</p>
+<h3 class="mume-header" id="merge-small-forms">Merge small forms</h3>
+
+<p>Lots of small shapes make characters noisy and slow to read.</p>
+<p><a href="https://www.youtube.com/watch?v=9fknSkyN6_0&amp;list=PLLmXZMqb_9sbNLM83NrM005vRQHw1yTKn&amp;index=8"><img src="assets/week11/merging_shapes_10_minutes.jpg" alt><br>
+<em>Merging shadows into simpler shapes</em></a></p>
 <h2 class="mume-header" id="changes-to-the-model">Changes to the model</h2>
 
 <p>Working with the model, you&#x2019;ll discover shortcomings of the model/uv unwrap you couldn&#x2019;t have anticipated. It&#x2019;s why we move fast, to make these discoveries while the work is still easily adaptable.</p>
@@ -280,9 +286,10 @@
 <ul>
 <li>Shadowed and lit planes</li>
 </ul>
-<h3 class="mume-header" id="as-valve-teaches-it">As Valve teaches it</h3>
+<h3 class="mume-header" id="game-study-tf2s-art-approach">Game study: TF2s art approach</h3>
 
 <p>Now valve was able to use custom shaders to do a lot of what we&#x2019;ll be hand painting in, but if you can turn it into an algorithm then you can break it into steps and do  it!</p>
+<p>This was more than &#x201C;a cartoony style&#x201D;. It was the eventual result of a process heavily biased towards making the game as readable and understandable as possible.</p>
 <p>They made a slide deck that teaches how:<br>
 <a href="https://steamcdn-a.akamaihd.net/apps/valve/2008/GDC2008_StylizationWithAPurpose_TF2.pdf"><img src="assets/week11/tf2_stylization_deck.png" alt><br>
 <em>This was made to go along with a GDC talk</em></a><br>
@@ -322,8 +329,10 @@
 <h2 class="mume-header" id="details-edge-control">Details: Edge control</h2>
 
 <ul>
-<li>When two planes/forms meet they do so in many ways. Sharp edge, soft edge, one side sharp, one smooth, etc.<br>
-// PICTURE: various painted edges</li>
+<li>When two planes/forms meet they do so in many ways. Sharp edge, soft edge, one side sharp, one smooth, etc.</li>
+</ul>
+<p><img src="assets/week11/edges_hard_soft_lost.jpg" alt></p>
+<ul>
 <li>This is critical to painting, maybe the second most important thing after lighting major forms.</li>
 <li>We can do it with a few tones in pixel form if we want to stay adaptable</li>
 </ul>

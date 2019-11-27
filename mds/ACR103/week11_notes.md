@@ -26,10 +26,11 @@ export_on_save:
   - [BIG TO SMALL](#big-to-small)
     - [More light and shadow](#more-light-and-shadow)
     - [Don't get caught up.](#dont-get-caught-up)
+    - [Merge small forms](#merge-small-forms)
   - [Changes to the model](#changes-to-the-model)
     - [Reimporting a changed model](#reimporting-a-changed-model)
     - [Adding form to details.](#adding-form-to-details)
-    - [As Valve teaches it](#as-valve-teaches-it)
+    - [Game study: TF2s art approach](#game-study-tf2s-art-approach)
     - [As the shader paints it](#as-the-shader-paints-it)
   - [Keep moving](#keep-moving)
     - [Zoom in and out](#zoom-in-and-out)
@@ -123,6 +124,13 @@ _Look at the richness of colour in the shadows_
 // Pictures: aliased (jaggy/pixelated edges) vs anti aliased (smoothed/averaged edges)
 // Pictures: select and fill on jaggy vs smoothed edges
 
+### Merge small forms
+
+Lots of small shapes make characters noisy and slow to read.
+
+[![](assets/week11/merging_shapes_10_minutes.jpg)
+_Merging shadows into simpler shapes_](https://www.youtube.com/watch?v=9fknSkyN6_0&list=PLLmXZMqb_9sbNLM83NrM005vRQHw1yTKn&index=8)
+
 ## Changes to the model
 
 Working with the model, you'll discover shortcomings of the model/uv unwrap you couldn't have anticipated. It's why we move fast, to make these discoveries while the work is still easily adaptable.
@@ -137,9 +145,11 @@ You don't have to lose all your work just because you need to change the model/u
 How to go from flat to 3D.
   * Shadowed and lit planes
 
-### As Valve teaches it
+### Game study: TF2s art approach
 
 Now valve was able to use custom shaders to do a lot of what we'll be hand painting in, but if you can turn it into an algorithm then you can break it into steps and do  it!
+
+This was more than "a cartoony style". It was the eventual result of a process heavily biased towards making the game as readable and understandable as possible.
 
 They made a slide deck that teaches how:
 [![](assets/week11/tf2_stylization_deck.png)
@@ -179,7 +189,10 @@ _It developed a fair way from concept to finished models, textures and shader_
 
 ## Details: Edge control
   * When two planes/forms meet they do so in many ways. Sharp edge, soft edge, one side sharp, one smooth, etc.
-  // PICTURE: various painted edges
+  
+  ![](assets/week11/edges_hard_soft_lost.jpg)
+  
+  
   * This is critical to painting, maybe the second most important thing after lighting major forms.
   * We can do it with a few tones in pixel form if we want to stay adaptable
 
