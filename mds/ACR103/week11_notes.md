@@ -14,15 +14,14 @@ export_on_save:
 
 - [Week 11: Painting 2D Textures](#week-11-painting-2d-textures)
   - [This week](#this-week)
-    - [Tip on checking your proportions](#tip-on-checking-your-proportions)
-  - [Open your imported model](#open-your-imported-model)
-  - [Painting Textures](#painting-textures)
-  - [Start with ambient occlusion.](#start-with-ambient-occlusion)
+  - [Amazing resources](#amazing-resources)
+  - [Tip on checking your proportions](#tip-on-checking-your-proportions)
+  - [Overcoming the blank grey model](#overcoming-the-blank-grey-model)
+    - [Open your imported model](#open-your-imported-model)
+    - [Start with ambient occlusion.](#start-with-ambient-occlusion)
   - [Blocking in](#blocking-in)
     - [Major objects in colour](#major-objects-in-colour)
     - [Paint using pencil mode](#paint-using-pencil-mode)
-    - [What's a middle tone?](#whats-a-middle-tone)
-    - [Rough in the details](#rough-in-the-details)
   - [BIG TO SMALL](#big-to-small)
     - [More light and shadow](#more-light-and-shadow)
     - [Don't get caught up.](#dont-get-caught-up)
@@ -47,7 +46,20 @@ export_on_save:
 
 Q&A Uv unwrapping. Fixes
 
-### Tip on checking your proportions
+## Amazing resources
+
+Painting a dagger in 3D Coat:
+[![](https://i.ytimg.com/vi/5YMu2jy7Oqw/sddefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAkeR8MmWyii79MH2Zv1exePi1LVA)
+_80% of the painting process, fantastic learning._](https://www.youtube.com/watch?v=5YMu2jy7Oqw)
+
+Blizzard style explanation/workflow:
+
+I found this last night and I've only watched first 10 minutes so far. Totally worth it alread for the breakdown of Blizzard's style.
+[![](https://i.ytimg.com/vi/njxJUAXc7yo/sddefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDPFcpPzSAqbtvAQHktK7X71WnlTw)
+](https://www.youtube.com/watch?v=njxJUAXc7yo)
+
+
+## Tip on checking your proportions
 
 ![](assets/week11/concept_check_proportions.png)
 
@@ -55,17 +67,24 @@ Screen shotting your model and laying the concept over it in photoshop is a grea
 - 3D won't match stylised 2D perfectly, 
 - Can check things like head to body ratio, placement of joints.
 
-## Open your imported model
+
+## Overcoming the blank grey model
+
+* So many brushes and infinite colours. Where to start?
+* Do I start painting in features? Do I start on the hair or the outfit?
+
+> Nothing worthwhile seems possible when taken in its totality.
+
+#### To get it done:
+* Break it into steps, and get the first one done.
+* Begin quick and broad, and get all the major info in.
+
+### Open your imported model
 Last week's exercise was to unwrap and import your model to 3D coat.
+* Open the 3b model
+* If you haven't reached that stage, grab [Mr Crisis](assets/week11/crisis_w11_3b.zip)
 
-## Painting Textures
-
-* Overcoming the white model
-  * So many brushes and infinite colours. Where to start?
-  * Do I start painting in features? Do I start on the hair or the outfit?
-  * Start quick and get the major info all in.
-  
-## Start with ambient occlusion.
+### Start with ambient occlusion.
 So that you can see and think about the volumes, create some AO on new layers. One hemispherical, one spherical. Leave them on multiply.
 
 ## Blocking in
@@ -79,11 +98,11 @@ Identify clothing, wood, skin etc before going forward. Work in a middle tone.
     * Great for selecting and hue shifting (0 tolerance/pixel wand)
     * Disappears when scaled down. (work at double size)
 
-### What's a middle tone?
+#### What's a middle tone?
 Light and shadow have to appear on the surface. What does the middle of that spectrum look like?
 
-### Rough in the details
-Paint a few of the smaller details as lines on another layer
+#### Rough in the details if needed
+You can paint a few of the smaller details as lines on another layer if necessary. Don't get caught up.
 
 ## BIG TO SMALL
 
