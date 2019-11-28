@@ -16,6 +16,7 @@ export_on_save:
   - [This week](#this-week)
   - [Amazing resources](#amazing-resources)
   - [Tip on checking your proportions](#tip-on-checking-your-proportions)
+  - [UV Mr Crisis again](#uv-mr-crisis-again)
   - [Overcoming the blank grey model](#overcoming-the-blank-grey-model)
     - [Open your imported model](#open-your-imported-model)
     - [Start with ambient occlusion.](#start-with-ambient-occlusion)
@@ -67,6 +68,9 @@ Screen shotting your model and laying the concept over it in photoshop is a grea
 - 3D won't match stylised 2D perfectly, 
 - Can check things like head to body ratio, placement of joints.
 
+## UV Mr Crisis again
+
+ [Gran the Mr Crisis project here](assets/week11/crisis_w11_maya_UV.zip)
 
 ## Overcoming the blank grey model
 
@@ -82,7 +86,7 @@ Screen shotting your model and laying the concept over it in photoshop is a grea
 ### Open your imported model
 Last week's exercise was to unwrap and import your model to 3D coat.
 * Open the 3b model
-* If you haven't reached that stage, grab [Mr Crisis](assets/week11/crisis_w11_3b.zip)
+* If you haven't reached that stage, use Mr Crisis.
 
 ### Start with ambient occlusion.
 So that you can see and think about the volumes, create some AO on new layers. One hemispherical, one spherical. Leave them on multiply.
