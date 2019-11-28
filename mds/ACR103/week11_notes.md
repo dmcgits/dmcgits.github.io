@@ -70,7 +70,7 @@ Screen shotting your model and laying the concept over it in photoshop is a grea
 
 ## UV Mr Crisis again
 
- [Gran the Mr Crisis project here](assets/week11/crisis_w11_maya_UV.zip)
+ [Grab the Mr Crisis project here](assets/week11/crisis_w11_maya_UV.zip)
 
 ## Overcoming the blank grey model
 
