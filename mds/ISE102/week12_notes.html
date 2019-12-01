@@ -150,7 +150,7 @@
 
 <p>The snake is a conga line. As the leader dancers forwards, the next in line congas along after them to fill the gap.</p>
 <p><img src="assets/week12/conga_tf2.jpg" alt></p>
-<h3 class="mume-header" id="super-simple-draw-your-history">Super simple: Draw your history</h3>
+<h3 class="mume-header" id="super-simple-leave-a-trail">Super simple: Leave a trail</h3>
 
 <p><img src="assets/week12/light_floor_trail.jpg" alt></p>
 <ul>
@@ -158,51 +158,124 @@
 <p>Remember when we didn&#x2019;t clear the screen? We had one long noodle. Along the entire path taken by the snake head there were white pixels left behind.</p>
 </li>
 <li>
-<p>Just by not being erased, the screen is acting as a record of the path taken.<br>
+<p>Just by not being erased, the screen is a record of the path taken.<br>
 <img src="assets/week11/screen_mess_no_clear.png" alt></p>
 </li>
 <li>
-<p>If we could clear everything except the last few cells of path taken we&#x2019;d have a moving snake.<br>
-<img src="assets/week12/snake_as_recent_history.png" alt></p>
+<p>If we could just clear everything except the last few cells of path taken we&#x2019;d have a moving snake&#x2026;</p>
 </li>
 </ul>
-<h4 class="mume-header" id="clear-and-draw-recent-history">Clear and draw recent history</h4>
+<p><img src="assets/week12/snake_history_simple_no_clear.png" alt></p>
+<p>&#x2026;but figuring that out would be <em>complicated</em>. Let&#x2019;s do it another way.</p>
+<h3 class="mume-header" id="remembering-where-youve-been">Remembering where you&#x2019;ve been</h3>
 
-<p>We could get that same effect if we cleared the screen but had a record of our recent history: we could just draw those pixels again.</p>
+<p>We could get that same effect if we:<br>
+1: <strong>Cleared</strong> the screen<br>
+2: <strong>Remembered the path travelled</strong>, a list of cells visited. A log of the Snake&#x2019;s journey.<br>
+3: Looped through, say, the 8 most recent cells and drew a pixel.</p>
 <ul>
-<li>
-<p>We&#x2019;d need to store the cells we&#x2019;d travelled through using memory.</p>
-</li>
-<li>
-<p>How can you <strong>store a long list</strong> of values in memory using C++? A <strong>vector</strong>.</p>
-</li>
-<li>
-<p>Every time we move, add the cell&#x2019;s location to the vector. That&#x2019;s history.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Declare a collection to hold the cells along the path we&apos;ve travelled.</span>
-<span class="token comment">// = {} initialised it as an empty collection</span>
-vector<span class="token operator">&lt;</span>Cell<span class="token operator">&gt;</span> pathTravelled <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
-
-<span class="token comment">// If we calculate the new head position into a Cell called &quot;cellTo&quot;, add it to the vector</span>
-pathTravelled<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre></li>
+<li>We&#x2019;d need to store the cells we&#x2019;d travelled through using memory.</li>
+<li>We&#x2019;d need to put new cells at the front</li>
+<li>We&#x2019;d need some to start with.</li>
+<li>We&#x2019;d need to delete excess history</li>
 </ul>
-<h4 class="mume-header" id="adding-to-the-beginning-of-a-vector">Adding to the beginning of a vector</h4>
+<p><img src="assets/week12/snake_as_path_travelled.png" alt></p>
+<h4 class="mume-header" id="doing-it-in-code">Doing it in code</h4>
 
 <ul>
-<li>We&#x2019;re dealing with recent history though. It&#x2019;d be nice to push stuff into the start of our vector, and later trim off any excess history.</li>
+<li>How can you <strong>store a long list</strong> of values in memory using C++? A <strong>vector</strong>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  snake<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token comment">// Declare a collection to hold the cells along the path we&apos;ve travelled.</span>
+  <span class="token comment">// = {} initialised it as an empty collection</span>
+  vector<span class="token operator">&lt;</span>Cell<span class="token operator">&gt;</span> pathTravelled <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+</pre><ul>
+<li>Every time <strong>we move, add the cell&#x2019;s location</strong> to the vector. That&#x2019;s history.</li>
+</ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// INITIALISE SNAKE</span>
+  <span class="token comment">// add some cells representing the first snakebits</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> snake<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// add a cell for each bit of our starting length.</span>
+    pathTravelled<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span> <span class="token punctuation">{</span>startingX<span class="token punctuation">,</span> startingY<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+</pre><h4 class="mume-header" id="moving-the-snake-the-new-way">Moving the snake the new way</h4>
+
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// move the snake</span>
+  <span class="token comment">// NEXT SPOT IS THIS SPOT PLUS DIRECTION THING</span>
+  Cell cellTo <span class="token operator">=</span> <span class="token punctuation">(</span>next cell calculation<span class="token punctuation">)</span>
+  <span class="token comment">// instead of changing headCell.cell.x we create a new cell </span>
+  <span class="token comment">// with the new head location, place it on pathTravelled.</span>
+  pathTravelled<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="adding-to-the-beginning-of-a-vector">Adding to the beginning of a vector</h4>
+
+<ul>
+<li>We&#x2019;re dealing with recent history though. It&#x2019;d be nice to push stuff into the start of our vector, and later trim off any excess history. This keeps our snake head at the front of the collection&#x2026; index <code>[0]</code>.</li>
 </ul>
 <p>You can insert things into a vector at any position.  C++ provides handy references to certain places, like <code>myVector.begin()</code>. More documentation // HERE</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// Insert cellTo at the beginning of the vector</span>
   pathTravelled<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pathTravelled<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 </pre><p>If you <strong>start at 5,5</strong> and move right for a few frames, the vector will look like so:</p>
 <pre data-role="codeBlock" data-info class="language-"><code>0: 8,5  // current cell
 1: 7,5
 2: 6,5
 3: 5,5  // starting cell
-</code></pre><h4 class="mume-header" id="trim-what-we-dont-need">Trim what we don&#x2019;t need</h4>
+</code></pre><h3 class="mume-header" id="drawing-the-snake">Drawing the Snake</h3>
+
+<p><img src="assets/week12/snake_head_is_0.png" alt></p>
+<p>Now that the first thing in the vector is always the spot the head has travelled to, drawing a pixel at <code>pathTravelled[0]</code> is the same as drawing the head.</p>
+<p>Since we know the snake length, we can draw pixels in that many of the recently travelled cells to get our body.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> snake<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// add a cell for each bit of our starting length.</span>
+  <span class="token function">DrawPixel</span><span class="token punctuation">(</span>pathTravelled<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pathTravelled<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// We&apos;re in the Snake class so we don&apos;t need `snake.color`</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="trim-what-we-dont-need">Trim what we don&#x2019;t need</h4>
 
 <p><img src="assets/week12/snake_as_path_travelled.png" alt></p>
+<p>Rather than keep a journal of every cell we&#x2019;ve ever visited, it&#x2019;d be nice to trim off the old ones like in the diagram.</p>
+<ul>
+<li>We can just resize the vector to the snake&#x2019;s length.</li>
+</ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// after moving to a new cell and adding it to the front of pathTravelled,</span>
+pathTravelled<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="eating-a-fruit">Eating a fruit.</h3>
 
+<p>We&#x2019;ve shortchanged ourselves. How?</p>
+<p>IWhen we get around to <strong>eating a fruit</strong> we&#x2019;ll need to know <strong>where to put the new tail</strong>. With only enough travel history for our existing pieces we won&#x2019;t know where to add it.</p>
+<ul>
+<li>Keeping a spare cell (or more) of history after each move gives us flexibility to add to the tail.</li>
+</ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// after moving to a new cell and adding it to the front of pathTravelled,</span>
+pathTravelled<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>length<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="adding-the-tail">Adding the tail</h4>
+
+<p>Ideas??</p>
+<h2 class="mume-header" id="adding-a-startendpause-screen">Adding a start/end/pause screen</h2>
+
+<p>It&#x2019;s just a screen where we&#x2019;re not listening for arrows/wasd and not simulating our snake.</p>
+<p>It&#x2019;s our Snake game loop under different conditions so&#x2026; use a conditional! <code>if</code> or <code>switch</code>.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>if screen is START_GAME 
+  show &quot;press key to start&quot;
+  if key pressed change screen to PLAYING
+else if 
+  screen is PLAYING
+  snake stuff
+  if dead 
+    change screen to GAME_OVER
+else if
+  screen is GAME_OVER
+  make cause of death visible
+  say something nice/mean/whatever
+  show &quot;press key to start over&quot;
+  if key pressed change screen to PLAYING
+end if
+
+</code></pre>
       </div>
       
       

@@ -21,42 +21,82 @@ The snake is a conga line. As the leader dancers forwards, the next in line cong
 ![](assets/week12/conga_tf2.jpg)
 
 
-### Super simple: Draw your history
+### Super simple: Leave a trail
 
 ![](assets/week12/light_floor_trail.jpg)
 
   * Remember when we didn't clear the screen? We had one long noodle. Along the entire path taken by the snake head there were white pixels left behind.
-  * Just by not being erased, the screen is acting as a record of the path taken.
+  * Just by not being erased, the screen is a record of the path taken.
   ![](assets/week11/screen_mess_no_clear.png)
   
-  * If we could clear everything except the last few cells of path taken we'd have a moving snake. 
-  ![](assets/week12/snake_as_recent_history.png)
+  * If we could just clear everything except the last few cells of path taken we'd have a moving snake..
   
-#### Clear and draw recent history
-We could get that same effect if we cleared the screen but had a record of our recent history: we could just draw those pixels again.
-  - We'd need to store the cells we'd travelled through using memory.
-  - How can you **store a long list** of values in memory using C++? A **vector**. 
-  - Every time we move, add the cell's location to the vector. That's history.
+  ![](assets/week12/snake_history_simple_no_clear.png)
 
-    ```cpp
+  ..but figuring that out would be _complicated_. Let's do it another way.
+  
+### Remembering where you've been
+
+We could get that same effect if we:
+1: **Cleared** the screen
+2: **Remembered the path travelled**, a list of cells visited. A log of the Snake's journey.
+3: Looped through, say, the 8 most recent cells and drew a pixel.
+
+  - We'd need to store the cells we'd travelled through using memory.
+  - We'd need to put new cells at the front
+  - We'd need some to start with.
+  - We'd need to delete excess history
+
+![](assets/week12/snake_as_path_travelled.png)
+
+
+#### Doing it in code
+
+
+ - How can you **store a long list** of values in memory using C++? A **vector**. 
+
+  ```cpp
+    snake.length = 3;
     // Declare a collection to hold the cells along the path we've travelled.
     // = {} initialised it as an empty collection
     vector<Cell> pathTravelled = {}; 
+  ```
+  - Every time **we move, add the cell's location** to the vector. That's history.
 
-    // If we calculate the new head position into a Cell called "cellTo", add it to the vector
-    pathTravelled.push_back(cellTo);
-    ```
+  ```cpp
+    // INITIALISE SNAKE
+    // add some cells representing the first snakebits
+    for (int i = 0; i < snake.length + 1; i++)
+    {
+      // add a cell for each bit of our starting length.
+      pathTravelled.push( {startingX, startingY});
+    }
+    
+  ```
+
+#### Moving the snake the new way
+
+```cpp
+  // move the snake
+  // NEXT SPOT IS THIS SPOT PLUS DIRECTION THING
+  Cell cellTo = (next cell calculation)
+  // instead of changing headCell.cell.x we create a new cell 
+  // with the new head location, place it on pathTravelled.
+  pathTravelled.push_back(cellTo);
+```
 
 #### Adding to the beginning of a vector
 
-- We're dealing with recent history though. It'd be nice to push stuff into the start of our vector, and later trim off any excess history.
+- We're dealing with recent history though. It'd be nice to push stuff into the start of our vector, and later trim off any excess history. This keeps our snake head at the front of the collection.. index `[0]`.
 
 You can insert things into a vector at any position.  C++ provides handy references to certain places, like `myVector.begin()`. More documentation // HERE
 
 ```cpp
   // Insert cellTo at the beginning of the vector
   pathTravelled.insert(pathTravelled.begin(), cellTo);
+
 ```
+
 If you **start at 5,5** and move right for a few frames, the vector will look like so:
 ```
 0: 8,5  // current cell
@@ -64,6 +104,76 @@ If you **start at 5,5** and move right for a few frames, the vector will look li
 2: 6,5
 3: 5,5  // starting cell
 ```
+
+### Drawing the Snake
+
+![](assets/week12/snake_head_is_0.png)
+
+Now that the first thing in the vector is always the spot the head has travelled to, drawing a pixel at `pathTravelled[0]` is the same as drawing the head.
+
+Since we know the snake length, we can draw pixels in that many of the recently travelled cells to get our body.
+
+```cpp
+for (int i = 0; i < snake.length + 1; i++)
+{
+  // add a cell for each bit of our starting length.
+  DrawPixel(pathTravelled[i].x, pathTravelled[i].y, color);
+
+  // We're in the Snake class so we don't need `snake.color`
+}
+```
+
 #### Trim what we don't need
 
 ![](assets/week12/snake_as_path_travelled.png)
+
+Rather than keep a journal of every cell we've ever visited, it'd be nice to trim off the old ones like in the diagram.
+
+* We can just resize the vector to the snake's length. 
+
+```cpp
+// after moving to a new cell and adding it to the front of pathTravelled,
+pathTravelled.resize(length);
+```
+
+### Eating a fruit.
+
+We've shortchanged ourselves. How?
+
+IWhen we get around to **eating a fruit** we'll need to know **where to put the new tail**. With only enough travel history for our existing pieces we won't know where to add it.
+
+* Keeping a spare cell (or more) of history after each move gives us flexibility to add to the tail.
+
+```cpp
+// after moving to a new cell and adding it to the front of pathTravelled,
+pathTravelled.resize(length+1);
+```
+
+#### Adding the tail
+
+Ideas??
+
+## Adding a start/end/pause screen
+
+It's just a screen where we're not listening for arrows/wasd and not simulating our snake.
+
+It's our Snake game loop under different conditions so.. use a conditional! `if` or `switch`.
+
+```
+if screen is START_GAME 
+  show "press key to start"
+  if key pressed change screen to PLAYING
+else if 
+  screen is PLAYING
+  snake stuff
+  if dead 
+    change screen to GAME_OVER
+else if
+  screen is GAME_OVER
+  make cause of death visible
+  say something nice/mean/whatever
+  show "press key to start over"
+  if key pressed change screen to PLAYING
+end if
+
+```
