@@ -12,34 +12,32 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 11: Painting 2D Textures](#week-11-painting-2d-textures)
-  - [This week](#this-week)
-  - [Amazing resources](#amazing-resources)
-  - [Tip on checking your proportions](#tip-on-checking-your-proportions)
-  - [UV Mr Crisis again](#uv-mr-crisis-again)
-  - [Overcoming the blank grey model](#overcoming-the-blank-grey-model)
-    - [Open your imported model](#open-your-imported-model)
-    - [Start with ambient occlusion.](#start-with-ambient-occlusion)
-  - [Blocking in](#blocking-in)
-    - [Major objects in colour](#major-objects-in-colour)
-    - [Paint using pencil mode](#paint-using-pencil-mode)
-  - [BIG TO SMALL](#big-to-small)
-    - [More light and shadow](#more-light-and-shadow)
-    - [Don't get caught up.](#dont-get-caught-up)
-    - [Merge small forms](#merge-small-forms)
-  - [Changes to the model](#changes-to-the-model)
-    - [Reimporting a changed model](#reimporting-a-changed-model)
-    - [Adding form to details.](#adding-form-to-details)
-    - [Game study: TF2s art approach](#game-study-tf2s-art-approach)
-    - [As the shader paints it](#as-the-shader-paints-it)
-  - [Keep moving](#keep-moving)
-    - [Zoom in and out](#zoom-in-and-out)
-    - [Free yourself up](#free-yourself-up)
-    - [Layers are faster until they're slower](#layers-are-faster-until-theyre-slower)
-  - [Details: Edge control](#details-edge-control)
-    - [Photoshop smoothing](#photoshop-smoothing)
-  - [Face planes](#face-planes)
-  - [Look at my model, recreate some stuff](#look-at-my-model-recreate-some-stuff)
+- [This week](#this-week)
+- [Amazing resources](#amazing-resources)
+- [Tip on checking your proportions](#tip-on-checking-your-proportions)
+- [UV Mr Crisis again](#uv-mr-crisis-again)
+- [Overcoming the blank grey model](#overcoming-the-blank-grey-model)
+  - [Open your imported model](#open-your-imported-model)
+  - [Start with ambient occlusion.](#start-with-ambient-occlusion)
+- [Blocking in](#blocking-in)
+  - [Major objects in colour](#major-objects-in-colour)
+  - [Paint using pencil mode](#paint-using-pencil-mode)
+- [BIG TO SMALL](#big-to-small)
+  - [More light and shadow](#more-light-and-shadow)
+  - [Merge small forms](#merge-small-forms)
+- [Changes to the model](#changes-to-the-model)
+  - [Reimporting a changed model](#reimporting-a-changed-model)
+  - [Adding form to details.](#adding-form-to-details)
+  - [Game study: TF2s art approach](#game-study-tf2s-art-approach)
+  - [As the shader paints it](#as-the-shader-paints-it)
+- [Keep moving](#keep-moving)
+  - [Zoom in and out](#zoom-in-and-out)
+  - [Free yourself up](#free-yourself-up)
+  - [Layers are faster until they're slower](#layers-are-faster-until-theyre-slower)
+- [Details: Edge control](#details-edge-control)
+  - [Photoshop smoothing](#photoshop-smoothing)
+- [Face planes](#face-planes)
+- [Look at my model, recreate some stuff](#look-at-my-model-recreate-some-stuff)
 
 <!-- /code_chunk_output -->
 
@@ -86,7 +84,7 @@ Screen shotting your model and laying the concept over it in photoshop is a grea
 ### Open your imported model
 Last week's exercise was to unwrap and import your model to 3D coat.
 * Open the 3b model
-* If you haven't reached that stage, use Mr Crisis.
+* If you haven't reached that stage, use Mr Crisis.bbq
 
 ### Start with ambient occlusion.
 So that you can see and think about the volumes, create some AO on new layers. One hemispherical, one spherical. Leave them on multiply.

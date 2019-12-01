@@ -1,0 +1,464 @@
+<!DOCTYPE html><html><head>
+      <title>week12_notes</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#ccc;background-color:#141414;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#fff}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#a3a3a3}html body strong{color:#fff}html body del{color:#a3a3a3}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#a3a3a3;border-left:4px solid #3d3d3d}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#3d3d3d;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#fff}html body table td,html body table th{border:1px solid #3d3d3d;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#fff;background-color:#282828;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#3d3d3d;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#fff;border:1px solid #3d3d3d;border-bottom:2px solid #2e2e2e;padding:2px 4px;background-color:#282828;border-radius:3px}@media print{html body{background-color:#141414}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#fff;page-break-after:avoid}html body blockquote{color:#a3a3a3}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/*.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;  
+  background-color: #282A36;
+}*/
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="week-12-working-on-snake">Week 12 - Working on Snake</h1>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#week-12-working-on-snake">Week 12 - Working on Snake</a>
+<ul>
+<li><a href="#snake">Snake!</a></li>
+<li><a href="#checking-your-coding-conventions">Checking your coding conventions</a></li>
+<li><a href="#olc-color-problems">Olc Color problems</a>
+<ul>
+<li><a href="#olcenumsh">OlcEnums.h</a></li>
+<li><a href="#snakegamecpp-and-anywhere-else">SnakeGame.cpp and anywhere else</a></li>
+</ul>
+</li>
+<li><a href="#moving-with-direction-and-speed">Moving with direction and speed</a></li>
+<li><a href="#one-way-to-make-a-fruit-class">One way to make a Fruit class</a>
+<ul>
+<li><a href="#storing-fruit-in-a-vector">Storing fruit in a vector</a></li>
+<li><a href="#how-do-you-know-you-ate-fruit">How do you know you ate fruit?</a></li>
+</ul>
+</li>
+<li><a href="#how-do-i-quit">How do I quit?</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="mume-header" id="snake">Snake!</h2>
+
+<p>We&#x2019;re working on the assignment.</p>
+<p>I&#x2019;ll come around and check with everyone, but feel free to ask questions.</p>
+<hr>
+<h2 class="mume-header" id="checking-your-coding-conventions">Checking your coding conventions</h2>
+
+<p>In every team or project we use coding conventions so we humans can read the code a little better. It helps you to debug, and me to</p>
+<p><strong>Using naming conventions correctly is worth marks</strong>, and they&#x2019;re easy marks so go through and check!</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// ISE102 class coding conventions</span>
+<span class="token comment">// Based on common conventions for C++</span>
+<span class="token comment">// This is a series of examples. All in one file it wouldn&apos;t compile.</span>
+
+<span class="token comment">// Classes, the recipes for objects</span>
+<span class="token comment">// Lead with upper case, use again for subsequent words</span>
+<span class="token keyword">class</span> <span class="token class-name">AttackShip</span> <span class="token operator">:</span> <span class="token keyword">public</span> SpaceShip <span class="token comment">// AttackShip extends the </span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span><span class="token operator">:</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// constants, numbers that won&apos;t change.</span>
+<span class="token comment">// Use ALL_UPPER_CASE with underscores replacing spaces</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> LIVES_REMAINING_AT_START <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAX_HEALTH <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">float</span> HEADSHOT_DAMAGE_MULTIPLIER <span class="token operator">=</span> <span class="token number">2.5f</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> string DEFAULT_INVITE_TEXT <span class="token operator">=</span> <span class="token string">&quot;You have been invited to rumble.&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// public variables. Variables that code outside a class can see.</span>
+<span class="token comment">// Start lower case, upper case for subsequent words</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token keyword">int</span> score <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	string myTag <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+	string myRealName <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+	Hat topHat<span class="token punctuation">;</span> 		<span class="token comment">// &quot;H&quot; tells us H is a class, or type.</span>
+						<span class="token comment">// &quot;t&quot; tells us topHat is an instance/object.</span>
+
+<span class="token comment">// protected or private variables. Only seen inside class.</span>
+<span class="token comment">// Use an _ and start lower case, upper case subsequent words</span>
+<span class="token keyword">protected</span><span class="token operator">:</span> 
+	<span class="token keyword">float</span> _baseDamage <span class="token operator">=</span> <span class="token number">3.2f</span><span class="token punctuation">;</span>
+	string _secretPassword <span class="token operator">=</span> <span class="token string">&quot;AndSheWas&quot;</span><span class="token punctuation">;</span>
+	BroadSword _mightyBroadSword<span class="token punctuation">;</span>
+
+<span class="token comment">// functions: whether public or private, name them as you would a public variable. </span>
+<span class="token comment">// leading lower case, then upper case words.</span>
+<span class="token keyword">float</span> <span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
+	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// function arguments: the same naming convention as public variables</span>
+<span class="token comment">// local function variables: also the same convention as public variables.</span>
+<span class="token keyword">float</span> <span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token keyword">int</span> shotType<span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token keyword">int</span> damage <span class="token operator">=</span> _damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>shotType <span class="token operator">==</span> HEAD_SHOT<span class="token punctuation">)</span> 
+  <span class="token punctuation">{</span>
+    damage <span class="token operator">*=</span> HEADSHOT_DAMAGE_MULTIPLIER<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>damage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// How it would look inside a Hero class cpp file with scoping.</span>
+<span class="token keyword">float</span> Hero<span class="token operator">::</span><span class="token function">damagePerSecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+	<span class="token comment">// Notice how you can immediately tell I&apos;m using my private variables</span>
+	<span class="token comment">// to calculate a return value. The leading _ tells us.</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>_damagePerAttack <span class="token operator">*</span> _attacksPerSecond<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="olc-color-problems">Olc Color problems</h2>
+
+<p>Are you trying to <strong>make classes with default colour values</strong>? Then including <code>olcConsoleGameEngineOOP.h</code> for the colors? Or for the character/pixel constants?</p>
+<p>You might have ended up with weird errors due to <strong>circular includes</strong>: a pair of files keep including eachother, in turn, forever.</p>
+<blockquote>
+<p>You can solve the enum problem by <strong>removing</strong> them from <code>olcConsoleGameEngineOOP.h</code> and putting them <strong>in a new file</strong> with hardcore include guards. The enums will never be declared twice.</p>
+</blockquote>
+<h3 class="mume-header" id="olcenumsh">OlcEnums.h</h3>
+
+<p>Make an <code>OlcEnums.h</code> file in headers, then paste this in.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//////////////////// FILE: OlcEnums.h</span>
+<span class="token comment">// Extracts the enums from olcConsoleGameEngine for easy inclusion</span>
+<span class="token comment">////////////////////</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> __OLC_ENUMS__   </span><span class="token comment">// This compiler directive ensures the enums</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> __OLC_ENUMS__   </span><span class="token comment">// are only defined once, regardless of include count.</span>
+
+<span class="token keyword">enum</span> COLOUR
+<span class="token punctuation">{</span>
+    FG_BLACK <span class="token operator">=</span> <span class="token number">0x0000</span><span class="token punctuation">,</span>
+    FG_DARK_BLUE <span class="token operator">=</span> <span class="token number">0x0001</span><span class="token punctuation">,</span>
+    FG_DARK_GREEN <span class="token operator">=</span> <span class="token number">0x0002</span><span class="token punctuation">,</span>
+    FG_DARK_CYAN <span class="token operator">=</span> <span class="token number">0x0003</span><span class="token punctuation">,</span>
+    FG_DARK_RED <span class="token operator">=</span> <span class="token number">0x0004</span><span class="token punctuation">,</span>
+    FG_DARK_MAGENTA <span class="token operator">=</span> <span class="token number">0x0005</span><span class="token punctuation">,</span>
+    FG_DARK_YELLOW <span class="token operator">=</span> <span class="token number">0x0006</span><span class="token punctuation">,</span>
+    FG_GREY <span class="token operator">=</span> <span class="token number">0x0007</span><span class="token punctuation">,</span> <span class="token comment">// Thanks MS :-/</span>
+    FG_DARK_GREY <span class="token operator">=</span> <span class="token number">0x0008</span><span class="token punctuation">,</span>
+    FG_BLUE <span class="token operator">=</span> <span class="token number">0x0009</span><span class="token punctuation">,</span>
+    FG_GREEN <span class="token operator">=</span> <span class="token number">0x000A</span><span class="token punctuation">,</span>
+    FG_CYAN <span class="token operator">=</span> <span class="token number">0x000B</span><span class="token punctuation">,</span>
+    FG_RED <span class="token operator">=</span> <span class="token number">0x000C</span><span class="token punctuation">,</span>
+    FG_MAGENTA <span class="token operator">=</span> <span class="token number">0x000D</span><span class="token punctuation">,</span>
+    FG_YELLOW <span class="token operator">=</span> <span class="token number">0x000E</span><span class="token punctuation">,</span>
+    FG_WHITE <span class="token operator">=</span> <span class="token number">0x000F</span><span class="token punctuation">,</span>
+    BG_BLACK <span class="token operator">=</span> <span class="token number">0x0000</span><span class="token punctuation">,</span>
+    BG_DARK_BLUE <span class="token operator">=</span> <span class="token number">0x0010</span><span class="token punctuation">,</span>
+    BG_DARK_GREEN <span class="token operator">=</span> <span class="token number">0x0020</span><span class="token punctuation">,</span>
+    BG_DARK_CYAN <span class="token operator">=</span> <span class="token number">0x0030</span><span class="token punctuation">,</span>
+    BG_DARK_RED <span class="token operator">=</span> <span class="token number">0x0040</span><span class="token punctuation">,</span>
+    BG_DARK_MAGENTA <span class="token operator">=</span> <span class="token number">0x0050</span><span class="token punctuation">,</span>
+    BG_DARK_YELLOW <span class="token operator">=</span> <span class="token number">0x0060</span><span class="token punctuation">,</span>
+    BG_GREY <span class="token operator">=</span> <span class="token number">0x0070</span><span class="token punctuation">,</span>
+    BG_DARK_GREY <span class="token operator">=</span> <span class="token number">0x0080</span><span class="token punctuation">,</span>
+    BG_BLUE <span class="token operator">=</span> <span class="token number">0x0090</span><span class="token punctuation">,</span>
+    BG_GREEN <span class="token operator">=</span> <span class="token number">0x00A0</span><span class="token punctuation">,</span>
+    BG_CYAN <span class="token operator">=</span> <span class="token number">0x00B0</span><span class="token punctuation">,</span>
+    BG_RED <span class="token operator">=</span> <span class="token number">0x00C0</span><span class="token punctuation">,</span>
+    BG_MAGENTA <span class="token operator">=</span> <span class="token number">0x00D0</span><span class="token punctuation">,</span>
+    BG_YELLOW <span class="token operator">=</span> <span class="token number">0x00E0</span><span class="token punctuation">,</span>
+    BG_WHITE <span class="token operator">=</span> <span class="token number">0x00F0</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">enum</span> PIXEL_TYPE
+<span class="token punctuation">{</span>
+    PIXEL_SOLID <span class="token operator">=</span> <span class="token number">0x2588</span><span class="token punctuation">,</span>
+    PIXEL_THREEQUARTERS <span class="token operator">=</span> <span class="token number">0x2593</span><span class="token punctuation">,</span>
+    PIXEL_HALF <span class="token operator">=</span> <span class="token number">0x2592</span><span class="token punctuation">,</span>
+    PIXEL_QUARTER <span class="token operator">=</span> <span class="token number">0x2591</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span>		</span><span class="token comment">// This ends the compiler directive.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>I chopped them out of the <code>olcConsoleGameEngineOOP.h</code> file, between the windows include and olcSprite class. Make sure they&#x2019;re removed!</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;windows.h&gt;</span></span>
+
+<span class="token comment">// xxxxx</span>
+<span class="token comment">// ENUMS CHOPPED!!!!</span>
+<span class="token comment">// xxxxx</span>
+
+<span class="token keyword">class</span> <span class="token class-name">olcSprite</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token function">olcSprite</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><h3 class="mume-header" id="snakegamecpp-and-anywhere-else">SnakeGame.cpp and anywhere else</h3>
+
+<p>Make sure you include it before <code>olcConsoleGameEngineOOP.h</code> in your <code>SnakeGame</code> class.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">//////////////////// FILE: SnakeGame.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;olcConsoleGameEngineOOP.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;SnakeHead.h&quot;</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnakeGame</span> <span class="token operator">:</span> <span class="token keyword">public</span> olcConsoleGameEngineOOP 
+<span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>Add it to <code>SnakeGame.h</code> <em>before</em> <code>olcConsoleGameEngineOOP</code> because olc requires those enums. Alternately you could add the include to <code>olcConsoleGameEngineOOP</code> above the <code>windows.h</code> include.</p>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
+<span class="token comment">// Snake head has x pos, y pos, speed, colour.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnakeHead</span>
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> speed <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> colour <span class="token operator">=</span> BG_BLUE <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
+
+  <span class="token comment">// We&apos;re using floats for x,y,speed because at the rate the screen updates,</span>
+  <span class="token comment">// maybe 800x a second, moving 1 whole pixel per frame would</span>
+  <span class="token comment">// put us 770 pixels off screen after 1 second</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><hr>
+<h2 class="mume-header" id="moving-with-direction-and-speed">Moving with direction and speed</h2>
+
+<p>My older snakehead example showed how to move <code>while</code> the key is pressed. In reality our snake moves all the time, from the first frame of the game.</p>
+<p>The solution, as in our first drawings of the game board: a snake head always has <em>direction</em> and <em>speed</em>. Also:</p>
+<ul>
+<li>Don&#x2019;t honour all keypresses at once. Gate things with if &#x2026; else.</li>
+<li>If you&#x2019;re going to move in y, zero the x direction, and vice versa.</li>
+<li>Multiply our speed per second by <code>fElapsedTime</code> (the time since our last frame rendered in fractions of a second).</li>
+</ul>
+<p>Here are snippets of SnakeGame and SnakeHead showing a partial solution, along with some thinking in comments.</p>
+<blockquote>
+<p><code>...</code> represents code in the original file I did not include.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp {.line-numbers}" class="language-cpp line-numbers"><span class="token comment">///////////// File SnakeHead.cpp /////////////////////////////////////</span>
+<span class="token comment">//</span>
+<span class="token comment">// Whole file.</span>
+<span class="token comment">//</span>
+<span class="token comment">/////////////////////////////////////////////////////////////////////</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
+<span class="token comment">// Snake head has x/y position, speed, x/y direction, colour.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnakeHead</span>
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token number">5.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> speed <span class="token operator">=</span> <span class="token number">2.0f</span><span class="token punctuation">;</span>
+  <span class="token keyword">float</span> xDir <span class="token operator">=</span> <span class="token number">1.0f</span><span class="token punctuation">;</span>  <span class="token comment">// negative: -1, no direction: 0, positive: 1;</span>
+  <span class="token keyword">float</span> yDir <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>  <span class="token comment">// using floats to avoid any math turning results to integers.</span>
+  <span class="token keyword">int</span> colour <span class="token operator">=</span> BG_BLUE <span class="token operator">|</span> FG_BLUE<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><blockquote>
+<p><code>...</code> represents code in the original file I did not include.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">///////////// File SnakeGame.h /////////////////////////////////////</span>
+<span class="token comment">//</span>
+<span class="token comment">// A snippet,showing some added private variables and a function</span>
+<span class="token comment">//</span>
+<span class="token comment">/////////////////////////////////////////////////////////////////////</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+  <span class="token keyword">bool</span> _isDownKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    <span class="token comment">// This would be better handled with an</span>
+  <span class="token keyword">bool</span> _isUpKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>      <span class="token comment">// enum for currentKeyHeld.</span>
+  <span class="token keyword">bool</span> _isLeftKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">bool</span> _isRightKeyHeld <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// game loop</span>
+  <span class="token comment">//void renderWorld();</span>
+  <span class="token keyword">void</span> <span class="token function">checkInputAndMove</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Break this into 2 functions later.</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</pre><blockquote>
+<p><code>...</code> represents code in the original file I did not include.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">///////////// File SnakeGame.cpp /////////////////////////////////////</span>
+<span class="token comment">//</span>
+<span class="token comment">// Various snippets</span>
+<span class="token comment">//</span>
+<span class="token comment">/////////////////////////////////////////////////////////////////////</span>
+<span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// All our initial setup happens here</span>
+  _head<span class="token punctuation">.</span>x <span class="token operator">=</span> _head<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">10.0f</span><span class="token punctuation">;</span>         <span class="token comment">// starting position.</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">bool</span> SnakeGame<span class="token operator">::</span><span class="token function">OnUserUpdate</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// update positions, speeds, directions etc, spawn things</span>
+  <span class="token function">checkInputAndMove</span><span class="token punctuation">(</span>fElapsedTime<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// pass fElapsedTime, we&apos;ll need it.</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// more code</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">void</span> SnakeGame<span class="token operator">::</span><span class="token function">checkInputAndMove</span><span class="token punctuation">(</span><span class="token keyword">float</span> fElapsedTime<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment">// Listen for keys</span>
+  _isUpKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_UP<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+  _isDownKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_DOWN<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+  _isLeftKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_LEFT<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_LEFT<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+  _isRightKeyHeld <span class="token operator">=</span> m_keys<span class="token punctuation">[</span>VK_RIGHT<span class="token punctuation">]</span><span class="token punctuation">.</span>bPressed <span class="token operator">||</span> m_keys<span class="token punctuation">[</span>VK_RIGHT<span class="token punctuation">]</span><span class="token punctuation">.</span>bHeld<span class="token punctuation">;</span>
+
+  <span class="token comment">// set head direction based on input, prioritised using if.. else.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>_isUpKeyHeld<span class="token punctuation">)</span> <span class="token comment">// move up in y only</span>
+  <span class="token punctuation">{</span> 
+    _head<span class="token punctuation">.</span>xDir <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// kill any existing x direction</span>
+    _head<span class="token punctuation">.</span>yDir <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>_isLeftKeyHeld<span class="token punctuation">)</span> <span class="token comment">// move left in x only</span>
+  <span class="token punctuation">{</span>
+    _head<span class="token punctuation">.</span>yDir <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// kill any existing y direction</span>
+    _head<span class="token punctuation">.</span>xDir <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// move head based on directionand speed</span>
+  <span class="token comment">// add to x: speed * direction. if direction is 0, x won&apos;t change!</span>
+
+  <span class="token comment">// convert my speed per second into speed per frame?</span>
+  <span class="token comment">// speedPerFrame = speedPerSecond / framesPerSecond</span>
+  <span class="token comment">// speedPerFrame = 12 * (1 / 60);</span>
+  <span class="token comment">// speedPerFrame = 12 * 0.016;  // 0.016 seconds is our calculated time.</span>
+  <span class="token comment">// If we don&apos;t always have frames this long in reality, our game speed and movement is messed up.</span>
+  <span class="token comment">// If we actually know how much time elapsed between this frame and the last one, we can move in custom fractions of our speed per second.</span>
+  <span class="token comment">// How can we know these numbers (for example): 0.014, 0.022, 0.033, 0.033?</span>
+  <span class="token comment">// the console game engine provides it in OnUserUpdate! </span>
+  _head<span class="token punctuation">.</span>x <span class="token operator">+=</span> _head<span class="token punctuation">.</span>xDir <span class="token operator">*</span> _head<span class="token punctuation">.</span>speed <span class="token operator">*</span> fElapsedTime<span class="token punctuation">;</span> <span class="token comment">// fElapsed thousands of a second expressed as a decimal: 0.016 or 0.014;</span>
+  _head<span class="token punctuation">.</span>y <span class="token operator">+=</span> _head<span class="token punctuation">.</span>yDir <span class="token operator">*</span> _head<span class="token punctuation">.</span>speed <span class="token operator">*</span> fElapsedTime<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><h2 class="mume-header" id="one-way-to-make-a-fruit-class">One way to make a Fruit class</h2>
+
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token comment">// Fruit.h</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Fruit</span>
+<span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token comment">// Variables</span>
+	<span class="token keyword">int</span>		posX		<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span>		posY		<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span>		colour		<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Construct</span>
+	<span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token keyword">int</span> posX<span class="token punctuation">,</span> <span class="token keyword">int</span> posY<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// initialise x,y position on construct</span>
+	
+  <span class="token comment">// Destroy</span>
+	<span class="token operator">~</span><span class="token function">Fruit</span>	<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</pre><p>Here you can see the fruit type constants being used in a case statement.</p>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Fruit.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;OlcEnums.h&quot;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+
+Fruit<span class="token operator">::</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  colour <span class="token operator">=</span> FG_RED <span class="token operator">|</span> BG_RED<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Fruit<span class="token operator">::</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	posX <span class="token operator">=</span> x<span class="token punctuation">;</span>
+	posY <span class="token operator">=</span> y<span class="token punctuation">;</span>
+  colour <span class="token operator">=</span> FG_RED <span class="token operator">|</span> BG_RED<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+Fruit<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+</pre><hr>
+<h3 class="mume-header" id="storing-fruit-in-a-vector">Storing fruit in a vector</h3>
+
+<p>To use these <code>Fruit</code> as they come and go, we need to track them in a collection.  We&#x2019;ve used arrays like <code>Fruit myFruitArray[5]</code> but they&#x2019;re inflexible. The <code>vector</code> class is a very handy replacement.</p>
+<blockquote>
+<p>Note: We use of <code>&lt;TypeOfContents&gt;</code> to define the type of data our vector holds. Or you could think of it as <code>&lt;ClassOfContents&gt;</code>. We haven&#x2019;t seen angle brackets used this way before.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="C++" class="language-cpp">	<span class="token comment">// include the vector class from the standard library</span>
+	<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+	
+	<span class="token comment">// How to declare an empty vector to hold Fruit objects</span>
+	<span class="token comment">// vector&lt;TypeOfContents&gt; nameOfVector;</span>
+	vector<span class="token operator">&lt;</span>Fruit<span class="token operator">&gt;</span> fruits<span class="token punctuation">;</span>
+
+	<span class="token comment">// Create a new fruit at x=5, y=5. Make it a Red Apple</span>
+	Fruit apple1 <span class="token operator">=</span> <span class="token function">Fruit</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// &quot;Push&quot; it on to the &quot;back&quot; of the vector: adds it to the</span>
+	<span class="token comment">// end of the vector.</span>
+	fruits<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>apple1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// Some example vectors of other types:</span>
+	vector<span class="token operator">&lt;</span> <span class="token keyword">int</span> <span class="token operator">&gt;</span> goalsIScoredInEachGameThisSeason<span class="token punctuation">;</span>
+	vector<span class="token operator">&lt;</span> string <span class="token operator">&gt;</span> linesOfMySadPoem<span class="token punctuation">;</span>
+	vector<span class="token operator">&lt;</span> Hat <span class="token operator">&gt;</span> myTeamFortressHats<span class="token punctuation">;</span>
+	vector<span class="token operator">&lt;</span> Achievement <span class="token operator">&gt;</span> cheevs<span class="token punctuation">;</span>
+
+</pre><hr>
+<h3 class="mume-header" id="how-do-you-know-you-ate-fruit">How do you know you ate fruit?</h3>
+
+<p>Fruit has a position. You have a position. But there are many fruits. You&#x2019;ll need to <strong>step through your vector with a loop</strong>.</p>
+<p>I would have this function in a <code>Snake</code> class, so the snake itself can check each frame if it has eaten a <code>Fruit</code>. It will return <code>true</code></p>
+<pre data-role="codeBlock" data-info="C++ {.line-numbers}" class="language-cpp line-numbers">	<span class="token comment">// in SnakeGame.cpp</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>_snake<span class="token punctuation">.</span><span class="token function">isEatingFruit</span><span class="token punctuation">(</span>_fruits<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token comment">// add fruit score value to player score</span>
+	<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="C++ {.line-numbers}" class="language-cpp line-numbers">	<span class="token comment">// in Snake.cpp</span>
+
+	<span class="token keyword">bool</span> Snake<span class="token operator">::</span><span class="token function">isEatingFruit</span><span class="token punctuation">(</span> vector<span class="token operator">&lt;</span> Fruit <span class="token operator">&gt;</span> fruits <span class="token punctuation">)</span>
+		<span class="token keyword">bool</span> eating <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>fruits<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token comment">// Get the fruit at i (first time 0, second time 1 and so on)</span>
+			Fruit fruit <span class="token operator">=</span> fruits<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			
+			<span class="token comment">// Use an if here to check if snake head x,y</span>
+			<span class="token comment">// matches fruit x-y. If so, eating = true;</span>
+			
+		<span class="token punctuation">}</span>
+		<span class="token keyword">return</span><span class="token punctuation">(</span>eating<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h2 class="mume-header" id="how-do-i-quit">How do I quit?</h2>
+
+<p>Returning <code>false</code> in <code>OnUserUpdate()</code> sorta kind of works, but I&#x2019;ll look into the real command now.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
