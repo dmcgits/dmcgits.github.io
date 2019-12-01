@@ -129,7 +129,8 @@
 <h2 class="mume-header" id="assessment-3-final-stage">Assessment 3: final stage</h2>
 
 <ul>
-<li>Reminder of what&#x2019;ll get marks.</li>
+<li>Reminder of what&#x2019;ll get marks.<br>
+// RUBRIC INFO</li>
 <li>Flow and feel:
 <ul>
 <li>Forget it&#x2019;s c++, that it&#x2019;s a uni project: what&#x2019;s missing?</li>
@@ -139,10 +140,68 @@
 </li>
 <li>Extra features:
 <ul>
-<li>Rubric values extra features added on top of what I&#x2019;ve walked you through. Shows you can bend what you know toward fun.</li>
+<li>Rubric values extra features added on top of what I&#x2019;ve walked you through. Shows you can bend what you know toward fun. // WORDING</li>
 </ul>
 </li>
 </ul>
+<h2 class="mume-header" id="moving-a-snake">Moving a Snake</h2>
+
+<h3 class="mume-header" id="segments-following-along">Segments following along</h3>
+
+<p>The snake is a conga line. As the leader dancers forwards, the next in line congas along after them to fill the gap.</p>
+<p><img src="assets/week12/conga_tf2.jpg" alt></p>
+<h3 class="mume-header" id="super-simple-draw-your-history">Super simple: Draw your history</h3>
+
+<p><img src="assets/week12/light_floor_trail.jpg" alt></p>
+<ul>
+<li>
+<p>Remember when we didn&#x2019;t clear the screen? We had one long noodle. Along the entire path taken by the snake head there were white pixels left behind.</p>
+</li>
+<li>
+<p>Just by not being erased, the screen is acting as a record of the path taken.<br>
+<img src="assets/week11/screen_mess_no_clear.png" alt></p>
+</li>
+<li>
+<p>If we could clear everything except the last few cells of path taken we&#x2019;d have a moving snake.<br>
+<img src="assets/week12/snake_as_recent_history.png" alt></p>
+</li>
+</ul>
+<h4 class="mume-header" id="clear-and-draw-recent-history">Clear and draw recent history</h4>
+
+<p>We could get that same effect if we cleared the screen but had a record of our recent history: we could just draw those pixels again.</p>
+<ul>
+<li>
+<p>We&#x2019;d need to store the cells we&#x2019;d travelled through using memory.</p>
+</li>
+<li>
+<p>How can you <strong>store a long list</strong> of values in memory using C++? A <strong>vector</strong>.</p>
+</li>
+<li>
+<p>Every time we move, add the cell&#x2019;s location to the vector. That&#x2019;s history.</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Declare a collection to hold the cells along the path we&apos;ve travelled.</span>
+<span class="token comment">// = {} initialised it as an empty collection</span>
+vector<span class="token operator">&lt;</span>Cell<span class="token operator">&gt;</span> pathTravelled <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// If we calculate the new head position into a Cell called &quot;cellTo&quot;, add it to the vector</span>
+pathTravelled<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre></li>
+</ul>
+<h4 class="mume-header" id="adding-to-the-beginning-of-a-vector">Adding to the beginning of a vector</h4>
+
+<ul>
+<li>We&#x2019;re dealing with recent history though. It&#x2019;d be nice to push stuff into the start of our vector, and later trim off any excess history.</li>
+</ul>
+<p>You can insert things into a vector at any position.  C++ provides handy references to certain places, like <code>myVector.begin()</code>. More documentation // HERE</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// Insert cellTo at the beginning of the vector</span>
+  pathTravelled<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pathTravelled<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>If you <strong>start at 5,5</strong> and move right for a few frames, the vector will look like so:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>0: 8,5  // current cell
+1: 7,5
+2: 6,5
+3: 5,5  // starting cell
+</code></pre><h4 class="mume-header" id="trim-what-we-dont-need">Trim what we don&#x2019;t need</h4>
+
+<p><img src="assets/week12/snake_as_path_travelled.png" alt></p>
 
       </div>
       
