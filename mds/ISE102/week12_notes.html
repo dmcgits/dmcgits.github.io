@@ -129,8 +129,12 @@
 <h2 class="mume-header" id="assessment-3-final-stage">Assessment 3: final stage</h2>
 
 <ul>
-<li>Reminder of what&#x2019;ll get marks.<br>
-// RUBRIC INFO</li>
+<li>Reminder of what&#x2019;ll get marks.
+<ul>
+<li><a href="https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_7976100_1&amp;course_id=_76681_1">Ultimo Assessment 3</a></li>
+<li><a href="https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_7956906_1&amp;course_id=_76906_1">Online Assessment 3</a></li>
+</ul>
+</li>
 <li>Flow and feel:
 <ul>
 <li>Forget it&#x2019;s c++, that it&#x2019;s a uni project: what&#x2019;s missing?</li>
@@ -140,59 +144,78 @@
 </li>
 <li>Extra features:
 <ul>
-<li>Rubric values extra features added on top of what I&#x2019;ve walked you through. Shows you can bend what you know toward fun. // WORDING</li>
+<li>Rubric values extra features added on top of what I&#x2019;ve walked you through. Shows you can bend what you know toward fun. As above.</li>
 </ul>
 </li>
 </ul>
-<h2 class="mume-header" id="moving-a-snake">Moving a Snake</h2>
+<h3 class="mume-header" id="moving-a-snake-1-conga">Moving a snake 1: Conga.</h3>
 
-<h3 class="mume-header" id="segments-following-along">Segments following along</h3>
-
-<p>The snake is a conga line. As the leader dancers forwards, the next in line congas along after them to fill the gap.</p>
+<p>There are many ways to move a snake. I&#x2019;ll briefly cover this method, and go in depth with the next.</p>
+<p>In Conga line:</p>
+<ul>
+<li>the leader dances forwards</li>
+<li>the next in line feels (hands on shoulders/hips) or sees them moving and</li>
+<li>congas along after them to fill the gap.</li>
+</ul>
+<p>Our snake can work the same way, each segment following the one in front.</p>
 <p><img src="assets/week12/conga_tf2.jpg" alt></p>
+<p>Pros:</p>
+<ul>
+<li>Flexible, powerful.</li>
+<li>If it clicks for you - it&#x2019;s straightforward<br>
+Cons:</li>
+<li>Requires solid understanding of objects and references.</li>
+<li>Doesn&#x2019;t click for everyone in this short project.</li>
+</ul>
+<h2 class="mume-header" id="moving-a-snake-2-keep-a-journal">Moving a snake 2: keep a journal</h2>
+
+<p>If you know where the head has been, you can draw a body.</p>
 <h3 class="mume-header" id="super-simple-leave-a-trail">Super simple: Leave a trail</h3>
 
 <p><img src="assets/week12/light_floor_trail.jpg" alt></p>
 <ul>
 <li>
-<p>Remember when we didn&#x2019;t clear the screen? We had one long noodle. Along the entire path taken by the snake head there were white pixels left behind.</p>
+<p>Remember when we didn&#x2019;t clear the screen? We were left with one long noodle of white pixels along the snake head&#x2019;s path.</p>
 </li>
 <li>
 <p>Just by not being erased, the screen is a record of the path taken.<br>
 <img src="assets/week11/screen_mess_no_clear.png" alt></p>
 </li>
 <li>
-<p>If we could just clear everything except the last few cells of path taken we&#x2019;d have a moving snake&#x2026;</p>
+<p>If we could somewhow clear everything except the last few cells of path taken, the fruit, the border etc we&#x2019;d have a moving snake!</p>
 </li>
 </ul>
 <p><img src="assets/week12/snake_history_simple_no_clear.png" alt></p>
 <p>&#x2026;but figuring that out would be <em>complicated</em>. Let&#x2019;s do it another way.</p>
-<h3 class="mume-header" id="remembering-where-youve-been">Remembering where you&#x2019;ve been</h3>
+<h4 class="mume-header" id="remembering-where-youve-been">Remembering where you&#x2019;ve been</h4>
 
-<p>We could get that same effect if we:<br>
+<p>We&#x2019;d get the same effect if we:<br>
 1: <strong>Cleared</strong> the screen<br>
 2: <strong>Remembered the path travelled</strong>, a list of cells visited. A log of the Snake&#x2019;s journey.<br>
 3: Looped through, say, the 8 most recent cells and drew a pixel.</p>
+<p><img src="assets/week12/snake_as_path_travelled.png" alt></p>
 <ul>
 <li>We&#x2019;d need to store the cells we&#x2019;d travelled through using memory.</li>
 <li>We&#x2019;d need to put new cells at the front</li>
-<li>We&#x2019;d need some to start with.</li>
 <li>We&#x2019;d need to delete excess history</li>
+<li>There&#x2019;s no history at the start, so we&#x2019;d have to create some pre-history when the game starts.</li>
 </ul>
-<p><img src="assets/week12/snake_as_path_travelled.png" alt></p>
-<h4 class="mume-header" id="doing-it-in-code">Doing it in code</h4>
+<h3 class="mume-header" id="doing-it-in-code">Doing it in code</h3>
 
 <ul>
 <li>How can you <strong>store a long list</strong> of values in memory using C++? A <strong>vector</strong>.</li>
 </ul>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  snake<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">///// Snake.h declarations</span>
+
+  snake<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
   <span class="token comment">// Declare a collection to hold the cells along the path we&apos;ve travelled.</span>
   <span class="token comment">// = {} initialised it as an empty collection</span>
   vector<span class="token operator">&lt;</span>Cell<span class="token operator">&gt;</span> pathTravelled <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
 </pre><ul>
-<li>Every time <strong>we move, add the cell&#x2019;s location</strong> to the vector. That&#x2019;s history.</li>
+<li>Setting up a bit of prehistory for our starting length.</li>
 </ul>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// INITIALISE SNAKE</span>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">///// Snake.cpp constructor</span>
+  <span class="token comment">// INITIALISE SNAKE</span>
   <span class="token comment">// add some cells representing the first snakebits</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> snake<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
   <span class="token punctuation">{</span>
@@ -202,6 +225,9 @@
   
 </pre><h4 class="mume-header" id="moving-the-snake-the-new-way">Moving the snake the new way</h4>
 
+<ul>
+<li>Every time <strong>we move, add the cell&#x2019;s location</strong> to the vector. That&#x2019;s history.</li>
+</ul>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// move the snake</span>
   <span class="token comment">// NEXT SPOT IS THIS SPOT PLUS DIRECTION THING</span>
   Cell cellTo <span class="token operator">=</span> <span class="token punctuation">(</span>next cell calculation<span class="token punctuation">)</span>
@@ -213,11 +239,14 @@
 <ul>
 <li>We&#x2019;re dealing with recent history though. It&#x2019;d be nice to push stuff into the start of our vector, and later trim off any excess history. This keeps our snake head at the front of the collection&#x2026; index <code>[0]</code>.</li>
 </ul>
-<p>You can insert things into a vector at any position.  C++ provides handy references to certain places, like <code>myVector.begin()</code>. More documentation // HERE</p>
+<p>You can insert things into a vector at any position.  C++ provides handy references to certain places, like <code>myVector.begin()</code>.</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">  <span class="token comment">// Insert cellTo at the beginning of the vector</span>
   pathTravelled<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pathTravelled<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-</pre><p>If you <strong>start at 5,5</strong> and move right for a few frames, the vector will look like so:</p>
+</pre><blockquote>
+<p>More on <code>vector::insert()</code> <a href="https://www.geeksforgeeks.org/vector-insert-function-in-c-stl/">at GeeksForGeeks.</a></p>
+</blockquote>
+<p>If you <strong>start at 5,5</strong> and move right for a few frames, the vector will look like so:</p>
 <pre data-role="codeBlock" data-info class="language-"><code>0: 8,5  // current cell
 1: 7,5
 2: 6,5
@@ -236,19 +265,25 @@
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="trim-what-we-dont-need">Trim what we don&#x2019;t need</h4>
 
-<p><img src="assets/week12/snake_as_path_travelled.png" alt></p>
+<p><img src="assets/week12/snake_as_path_travelled.png" alt><br>
+<em>The same diagram as above, for reference</em></p>
 <p>Rather than keep a journal of every cell we&#x2019;ve ever visited, it&#x2019;d be nice to trim off the old ones like in the diagram.</p>
 <ul>
-<li>We can just resize the vector to the snake&#x2019;s length.</li>
+<li>We can resize the vector to the snake&#x2019;s length.</li>
 </ul>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// after moving to a new cell and adding it to the front of pathTravelled,</span>
 pathTravelled<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre><h3 class="mume-header" id="eating-a-fruit">Eating a fruit.</h3>
+</pre><blockquote>
+<p>More on <code>vector::resize()</code> <a href="https://www.geeksforgeeks.org/vector-resize-c-stl/">at GeeksForGeeks</a></p>
+</blockquote>
+<h2 class="mume-header" id="eating-a-fruit">Eating a fruit.</h2>
 
 <p>We&#x2019;ve shortchanged ourselves. How?</p>
-<p>IWhen we get around to <strong>eating a fruit</strong> we&#x2019;ll need to know <strong>where to put the new tail</strong>. With only enough travel history for our existing pieces we won&#x2019;t know where to add it.</p>
+<p>When we eat a fruit <strong>where do we put the new tail?</strong> With only enough travel history to cover our existing pieces, we&#x2019;re guessing.</p>
 <ul>
-<li>Keeping a spare cell (or more) of history after each move gives us flexibility to add to the tail.</li>
+<li>Don&#x2019;t trim so much.</li>
+<li>A spare cell (or more) of history gives us flexibility to add to the tail.</li>
+<li>When we move and call resize, add a little something on top of length.</li>
 </ul>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// after moving to a new cell and adding it to the front of pathTravelled,</span>
 pathTravelled<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>length<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

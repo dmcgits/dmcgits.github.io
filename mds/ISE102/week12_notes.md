@@ -4,66 +4,84 @@
 ## Assessment 3: final stage
 
 * Reminder of what'll get marks.
-    // RUBRIC INFO
+    - [Ultimo Assessment 3](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_7976100_1&course_id=_76681_1)
+    - [Online Assessment 3](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_7956906_1&course_id=_76906_1)
 * Flow and feel:
   - Forget it's c++, that it's a uni project: what's missing?
   - People play the game for a max snake length and score. Make sure they get time to know/bask in their results
   - People need a chance to see the game is open and play - Get a "press to start" option in.
 * Extra features:
-  * Rubric values extra features added on top of what I've walked you through. Shows you can bend what you know toward fun. // WORDING
+  * Rubric values extra features added on top of what I've walked you through. Shows you can bend what you know toward fun. As above.
 
-## Moving a Snake
 
-### Segments following along
+### Moving a snake 1: Conga.
 
-The snake is a conga line. As the leader dancers forwards, the next in line congas along after them to fill the gap. 
+There are many ways to move a snake. I'll briefly cover this method, and go in depth with the next.
+
+In Conga line:
+- the leader dances forwards
+- the next in line feels (hands on shoulders/hips) or sees them moving and
+- congas along after them to fill the gap. 
+
+Our snake can work the same way, each segment following the one in front.
 
 ![](assets/week12/conga_tf2.jpg)
 
+Pros:
+  - Flexible, powerful.
+  - If it clicks for you - it's straightforward
+Cons:
+  - Requires solid understanding of objects and references.
+  - Doesn't click for everyone in this short project.
+
+## Moving a snake 2: keep a journal
+
+If you know where the head has been, you can draw a body.
 
 ### Super simple: Leave a trail
 
 ![](assets/week12/light_floor_trail.jpg)
 
-  * Remember when we didn't clear the screen? We had one long noodle. Along the entire path taken by the snake head there were white pixels left behind.
+  * Remember when we didn't clear the screen? We were left with one long noodle of white pixels along the snake head's path.
   * Just by not being erased, the screen is a record of the path taken.
   ![](assets/week11/screen_mess_no_clear.png)
   
-  * If we could just clear everything except the last few cells of path taken we'd have a moving snake..
+  * If we could somewhow clear everything except the last few cells of path taken, the fruit, the border etc we'd have a moving snake!
   
   ![](assets/week12/snake_history_simple_no_clear.png)
 
   ..but figuring that out would be _complicated_. Let's do it another way.
   
-### Remembering where you've been
+#### Remembering where you've been
 
-We could get that same effect if we:
+We'd get the same effect if we:
 1: **Cleared** the screen
 2: **Remembered the path travelled**, a list of cells visited. A log of the Snake's journey.
 3: Looped through, say, the 8 most recent cells and drew a pixel.
 
-  - We'd need to store the cells we'd travelled through using memory.
-  - We'd need to put new cells at the front
-  - We'd need some to start with.
-  - We'd need to delete excess history
-
 ![](assets/week12/snake_as_path_travelled.png)
 
+  - We'd need to store the cells we'd travelled through using memory.
+  - We'd need to put new cells at the front
+  - We'd need to delete excess history
+  - There's no history at the start, so we'd have to create some pre-history when the game starts. 
 
-#### Doing it in code
-
+### Doing it in code
 
  - How can you **store a long list** of values in memory using C++? A **vector**. 
 
   ```cpp
+    ///// Snake.h declarations
+
     snake.length = 3;
     // Declare a collection to hold the cells along the path we've travelled.
     // = {} initialised it as an empty collection
     vector<Cell> pathTravelled = {}; 
   ```
-  - Every time **we move, add the cell's location** to the vector. That's history.
+  - Setting up a bit of prehistory for our starting length.
 
   ```cpp
+    ///// Snake.cpp constructor
     // INITIALISE SNAKE
     // add some cells representing the first snakebits
     for (int i = 0; i < snake.length + 1; i++)
@@ -75,6 +93,8 @@ We could get that same effect if we:
   ```
 
 #### Moving the snake the new way
+
+- Every time **we move, add the cell's location** to the vector. That's history.
 
 ```cpp
   // move the snake
@@ -89,14 +109,15 @@ We could get that same effect if we:
 
 - We're dealing with recent history though. It'd be nice to push stuff into the start of our vector, and later trim off any excess history. This keeps our snake head at the front of the collection.. index `[0]`.
 
-You can insert things into a vector at any position.  C++ provides handy references to certain places, like `myVector.begin()`. More documentation // HERE
+You can insert things into a vector at any position.  C++ provides handy references to certain places, like `myVector.begin()`. 
 
 ```cpp
   // Insert cellTo at the beginning of the vector
   pathTravelled.insert(pathTravelled.begin(), cellTo);
 
 ```
-
+> More on `vector::insert()` [at GeeksForGeeks.](https://www.geeksforgeeks.org/vector-insert-function-in-c-stl/)
+  
 If you **start at 5,5** and move right for a few frames, the vector will look like so:
 ```
 0: 8,5  // current cell
@@ -126,23 +147,28 @@ for (int i = 0; i < snake.length + 1; i++)
 #### Trim what we don't need
 
 ![](assets/week12/snake_as_path_travelled.png)
+_The same diagram as above, for reference_
 
 Rather than keep a journal of every cell we've ever visited, it'd be nice to trim off the old ones like in the diagram.
 
-* We can just resize the vector to the snake's length. 
+* We can resize the vector to the snake's length. 
 
 ```cpp
 // after moving to a new cell and adding it to the front of pathTravelled,
 pathTravelled.resize(length);
 ```
 
-### Eating a fruit.
+> More on `vector::resize()` [at GeeksForGeeks](https://www.geeksforgeeks.org/vector-resize-c-stl/) 
+
+## Eating a fruit.
 
 We've shortchanged ourselves. How?
 
-IWhen we get around to **eating a fruit** we'll need to know **where to put the new tail**. With only enough travel history for our existing pieces we won't know where to add it.
+When we eat a fruit **where do we put the new tail?** With only enough travel history to cover our existing pieces, we're guessing.
 
-* Keeping a spare cell (or more) of history after each move gives us flexibility to add to the tail.
+* Don't trim so much.
+* A spare cell (or more) of history gives us flexibility to add to the tail.
+* When we move and call resize, add a little something on top of length.
 
 ```cpp
 // after moving to a new cell and adding it to the front of pathTravelled,
