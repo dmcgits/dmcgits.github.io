@@ -1,4 +1,10 @@
-
+---
+html:
+  embed_local_images: false
+  offline: false
+export_on_save:
+  html: true
+---
 # Week 12: Slithering
 
 ## Assessment 3: final stage
@@ -140,7 +146,16 @@ If you **start at 5,5** and move right for a few frames, the vector will look li
 
 #### Moving the snake the new way
 
-- Every time **we move, add the cell's location** to pathTravelled. That's your travel journal.
+Since **`pathTravelled[0]`** is always our current location, or front of our snake.. it's the head! We don't need **`headCell`** anymore.
+
+![](assets/week12/snake_head_is_0.png)
+_A closer look at our 0 index, the Snake's head_
+
+To move, then, **`Snake::move()`** needs to:
+- Make a copy of the current location **`pathTravelled[0]`**
+- Use **`direction`** to move that copy
+- Insert it into pathTravelled as our new head position.
+- The travel journal/snake is up to date!
 
 ```cpp
   Cell cellTo = pathTravelled[0];
@@ -159,20 +174,24 @@ If you **start at 5,5** and move right for a few frames, the vector will look li
 
 ### Drawing the Snake
 
-![](assets/week12/snake_head_is_0.png)
+It follows that drawing a pixel at `pathTravelled[0]` is the same as drawing the head.
 
-Now that the first thing in the vector is always the spot the head has travelled to, drawing a pixel at `pathTravelled[0]` is the same as drawing the head.
-
-Since we know the snake length, we can draw pixels in that many of the recently travelled cells to get our body.
-
+**In main.cpp:**
 ```cpp
-// in main.cpp
-for (int i = 0; i < snake.length; i++)
-{
-  // add a cell for each bit of our starting length.
-  drawPixel(snake.pathTravelled[i].x, snake.pathTravelled[i].y, snake.color);
+drawPixel(fruit.cell.x, fruit.cell.y, fruit.color);
+drawPixel(snake.pathTravelled[0].x, snake.pathTravelled[0].y, snake.color);
+```
+We know the snake's **`length`** too, so loop through that many pathTravelled to draw your other snake pixels.
 
-  // We're in the Snake class so we don't need `snake.color`
+![](assets/week12/snake_body_is_length.png)
+
+**In main.cpp:**
+```cpp
+// Fill in the blanks in main.cpp
+for (______; i < snake.length; ____)
+{
+  // Draw a pixel in the Snake's colour
+  drawPixel(snake.pathTravelled[_].x, snake.pathTravelled[_].y, snake.color);
 }
 ```
 

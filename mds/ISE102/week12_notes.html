@@ -258,8 +258,15 @@ Snake<span class="token operator">::</span><span class="token function">Snake</s
 3: 5,5  // starting cell
 </code></pre><h4 class="mume-header" id="moving-the-snake-the-new-way">Moving the snake the new way</h4>
 
+<p>Since <strong><code>pathTravelled[0]</code></strong> is always our current location, or front of our snake&#x2026; it&#x2019;s the head! We don&#x2019;t need <strong><code>headCell</code></strong> anymore.</p>
+<p><img src="assets/week12/snake_head_is_0.png" alt><br>
+<em>A closer look at our 0 index, the Snake&#x2019;s head</em></p>
+<p>To move, then, <strong><code>Snake::move()</code></strong> needs to:</p>
 <ul>
-<li>Every time <strong>we move, add the cell&#x2019;s location</strong> to pathTravelled. That&#x2019;s your travel journal.</li>
+<li>Make a copy of the current location <strong><code>pathTravelled[0]</code></strong></li>
+<li>Use <strong><code>direction</code></strong> to move that copy</li>
+<li>Insert it into pathTravelled as our new head position.</li>
+<li>The travel journal/snake is up to date!</li>
 </ul>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">  Cell cellTo <span class="token operator">=</span> pathTravelled<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   
@@ -274,16 +281,18 @@ Snake<span class="token operator">::</span><span class="token function">Snake</s
   pathTravelled<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>pathTravelled<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cellTo<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><h3 class="mume-header" id="drawing-the-snake">Drawing the Snake</h3>
 
-<p><img src="assets/week12/snake_head_is_0.png" alt></p>
-<p>Now that the first thing in the vector is always the spot the head has travelled to, drawing a pixel at <code>pathTravelled[0]</code> is the same as drawing the head.</p>
-<p>Since we know the snake length, we can draw pixels in that many of the recently travelled cells to get our body.</p>
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// in main.cpp</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> snake<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<p>It follows that drawing a pixel at <code>pathTravelled[0]</code> is the same as drawing the head.</p>
+<p><strong>In main.cpp:</strong></p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token function">drawPixel</span><span class="token punctuation">(</span>fruit<span class="token punctuation">.</span>cell<span class="token punctuation">.</span>x<span class="token punctuation">,</span> fruit<span class="token punctuation">.</span>cell<span class="token punctuation">.</span>y<span class="token punctuation">,</span> fruit<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">drawPixel</span><span class="token punctuation">(</span>snake<span class="token punctuation">.</span>pathTravelled<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>pathTravelled<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>We know the snake&#x2019;s <strong><code>length</code></strong> too, so loop through that many pathTravelled to draw your other snake pixels.</p>
+<p><img src="assets/week12/snake_body_is_length.png" alt></p>
+<p><strong>In main.cpp:</strong></p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token comment">// Fill in the blanks in main.cpp</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>______<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> snake<span class="token punctuation">.</span>length<span class="token punctuation">;</span> ____<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  <span class="token comment">// add a cell for each bit of our starting length.</span>
-  <span class="token function">drawPixel</span><span class="token punctuation">(</span>snake<span class="token punctuation">.</span>pathTravelled<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>pathTravelled<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token comment">// We&apos;re in the Snake class so we don&apos;t need `snake.color`</span>
+  <span class="token comment">// Draw a pixel in the Snake&apos;s colour</span>
+  <span class="token function">drawPixel</span><span class="token punctuation">(</span>snake<span class="token punctuation">.</span>pathTravelled<span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>pathTravelled<span class="token punctuation">[</span>_<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> snake<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </pre><h4 class="mume-header" id="trim-what-we-dont-need">Trim what we don&#x2019;t need</h4>
 
