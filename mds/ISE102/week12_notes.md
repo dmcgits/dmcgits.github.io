@@ -71,12 +71,9 @@ We'd get the same effect if we:
  - How can you **store a long list** of values in memory using C++? A **vector**. 
 
   ```cpp
-    ///// Snake.h declarations
-
-    snake.length = 3;
-    // Declare a collection to hold the cells along the path we've travelled.
-    // = {} initialised it as an empty collection
-    vector<Cell> pathTravelled = {}; 
+    // In Snake.h declare a public variable to hold our path.
+    // Declare an empty collection to hold every location we visit
+    vector<Cell> pathTravelled; 
   ```
   - Setting up a bit of prehistory for our starting length.
 
@@ -87,24 +84,39 @@ We'd get the same effect if we:
     for (int i = 0; i < snake.length + 1; i++)
     {
       // add a cell for each bit of our starting length.
-      pathTravelled.push( {startingX, startingY});
+      pathTravelled.push( {startX, startY});
     }
     
   ```
 
-#### Moving the snake the new way
+#### Adding Snake constructor arguments
 
-- Every time **we move, add the cell's location** to the vector. That's history.
+To set up our snake pre-history we needed our starting position. We can make those arguments to the Snake() constructor.
 
-```cpp
-  // move the snake
-  // NEXT SPOT IS THIS SPOT PLUS DIRECTION THING
-  Cell cellTo = (next cell calculation)
-  // instead of changing headCell.cell.x we create a new cell 
-  // with the new head location, place it on pathTravelled.
-  pathTravelled.push_back(cellTo);
+It'll let us create a new snake at 5,10 by declaring 
+```cpp 
+// Snake declaration in  main.cpp:
+Snake snake = Snake(5,10);
 ```
 
+To add the arguments:
+
+```cpp
+// In Snake.h, change the constructor:
+  Snake(int startX = 5, int startY = 5);
+  ~Snake();                              // destructor doesn't change
+```
+```cpp
+// In Snake.cpp, the constructor becomes:
+Snake::Snake(int startX, int startY)
+{
+  for (int i = 0; i < length + 1; i++)
+  {
+    // add a cell for each bit of our starting length.
+    pathTravelled.push_back({ startX, startY });
+  }
+}
+```
 #### Adding to the beginning of a vector
 
 - We're dealing with recent history though. It'd be nice to push stuff into the start of our vector, and later trim off any excess history. This keeps our snake head at the front of the collection.. index `[0]`.
@@ -126,6 +138,25 @@ If you **start at 5,5** and move right for a few frames, the vector will look li
 3: 5,5  // starting cell
 ```
 
+#### Moving the snake the new way
+
+- Every time **we move, add the cell's location** to pathTravelled. That's your travel journal.
+
+```cpp
+  Cell cellTo = pathTravelled[0];
+  
+  switch (direction)
+  {
+  case Direction::UP:
+    cellTo.y -= 1;    // 0 is top of screen, so moving up = subtraction  
+    break;
+  // etc etc
+  }
+
+  pathTravelled.insert(pathTravelled.begin(), cellTo);
+```
+
+
 ### Drawing the Snake
 
 ![](assets/week12/snake_head_is_0.png)
@@ -135,10 +166,11 @@ Now that the first thing in the vector is always the spot the head has travelled
 Since we know the snake length, we can draw pixels in that many of the recently travelled cells to get our body.
 
 ```cpp
-for (int i = 0; i < snake.length + 1; i++)
+// in main.cpp
+for (int i = 0; i < snake.length; i++)
 {
   // add a cell for each bit of our starting length.
-  DrawPixel(pathTravelled[i].x, pathTravelled[i].y, color);
+  drawPixel(snake.pathTravelled[i].x, snake.pathTravelled[i].y, snake.color);
 
   // We're in the Snake class so we don't need `snake.color`
 }
