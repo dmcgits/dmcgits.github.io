@@ -1,7 +1,7 @@
 ---
 html:
   embed_local_images: false
-  offline: true
+  offline: false
 export_on_save:
   html: true
 ---
@@ -12,14 +12,26 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Completing the game loop](#completing-the-game-loop)
-- [Drawing and moving a one pixel snake.](#drawing-and-moving-a-one-pixel-snake)
-- [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
-- [Adding functions to classes!](#adding-functions-to-classes)
-- [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
-- [Thoughts: Messaging for start/end game](#thoughts-messaging-for-startend-game)
-- [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
-- [Game over](#game-over)
+- [Week 11: A working game](#week-11-a-working-game)
+  - [Completing the game loop](#completing-the-game-loop)
+    - [Last weeks code](#last-weeks-code)
+    - [Input and update](#input-and-update)
+    - [Listening for keys](#listening-for-keys)
+    - [Exercise: Capturing keypresses](#exercise-capturing-keypresses)
+  - [Drawing and moving a one pixel snake.](#drawing-and-moving-a-one-pixel-snake)
+    - [Ticking stopwatch](#ticking-stopwatch)
+    - [Controlling speed](#controlling-speed)
+    - [Catching most input](#catching-most-input)
+  - [Refresher: How to submit assessment:](#refresher-how-to-submit-assessment)
+  - [Adding functions to classes!](#adding-functions-to-classes)
+    - [Missing fast inputs](#missing-fast-inputs)
+    - [Drawing a clean frame each time](#drawing-a-clean-frame-each-time)
+  - [The middle of the game loop: Collisions!](#the-middle-of-the-game-loop-collisions)
+    - [Collisions in Snake](#collisions-in-snake)
+    - [Exercise: Check for things in the same cell](#exercise-check-for-things-in-the-same-cell)
+  - [Thoughts: Messaging for start/end game](#thoughts-messaging-for-startend-game)
+  - [Thoughts: Menus in frame based game](#thoughts-menus-in-frame-based-game)
+  - [Game over](#game-over)
 
 <!-- /code_chunk_output -->
 
