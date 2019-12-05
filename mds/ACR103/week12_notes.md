@@ -14,8 +14,15 @@ export_on_save:
 - [Week 12: Detailing hand painted textures](#week-12-detailing-hand-painted-textures)
   - [Last week](#last-week)
   - [This week](#this-week)
+  - [Missing posts are missing marks](#missing-posts-are-missing-marks)
+    - [Assessment 2](#assessment-2)
+    - [Assessment 3](#assessment-3)
   - [Style reference](#style-reference)
     - [Pureref](#pureref)
+  - [Questions and help](#questions-and-help)
+  - [Soft vs Hard Brushes](#soft-vs-hard-brushes)
+  - [In photoshop](#in-photoshop)
+  - [In 3D Coat](#in-3d-coat)
 
 <!-- /code_chunk_output -->
 
@@ -30,13 +37,27 @@ I asked you guys to:
 
 ## This week
 
-Demo of some details.
+* Missing posts = missing marks
 * Style reference
 * Working with soft brush vs hard brush
-* Using photoshop hard and soft brushes
-* More about light sources and ambient (shadow) colour
-* Detailing: applying the same planes of light to small features.
-* Using colour contrast to pop things.
+
+
+## Missing posts are missing marks
+
+### Assessment 2
+
+![](assets/week12/money_marks_out_window.gif)
+_Picture this money as marks_
+
+* A2 (your level) marked, several hurt badly by no/minimal post in discussion
+  - It was worth **40%**
+
+### Assessment 3
+* Looking at [marking guidelines for A3](https://laureate-au.blackboard.com/webapps/blackboard/content/listContentEditable.jsp?content_id=_8008777_1&course_id=_75841_1) (character)
+* Level 3 marking is happening Monday, and many people haven't posted their UVs to the 
+* Imagine 40 percent just.. erased.
+![](assets/week12/40_percent_horrified.gif)
+ 
 
 ## Style reference
 
@@ -51,4 +72,25 @@ USE PUREREF.
 Our brains love to panic at this stage and say "there's no time for that! I have to put paint to pixels right now!". Or they'll throw up some other reason to resist a new practise when we're hurrying.
 
 > However much you've looked at the style reference before, that's less than you need to :D Our brains are way better at overestimating their recall than accurately recalling things. 
-> Keep style ref pics open in pureref, as well as the concept, and visible always on a screen. Prefereably your 3D Coat screen.
+> Keep style ref pics open in pureref, as well as the concept, and visible always on a 
+screen. Prefereably your 3D Coat screen.
+
+
+## Questions and help
+
+- Ask away
+- Rounds by Danny
+
+## Soft vs Hard Brushes
+
+Benefit of select/fill/hue shift in speedy changes.
+
+## In photoshop
+
+## In 3D Coat
+
+
+* More about light sources and ambient (shadow) colour
+* Detailing: applying the same planes of light to small features.
+* Using colour contrast to pop things.
+
