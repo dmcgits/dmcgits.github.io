@@ -28,7 +28,7 @@ export_on_save:
 
 ## Last week
 
-Ambient lots of UV stuff. Quick go at ambient occlusion.
+UVs, discussion of lighting/painting, resources.
 
 I asked you guys to: 
 * watch the videos in the [week 11 notes](week11_notes.html#amazing-resources)
