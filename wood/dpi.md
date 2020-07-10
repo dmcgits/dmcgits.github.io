@@ -11,6 +11,11 @@ export_on_save:
 
 <!--![step](assets/1_open_scanned_image.jpg)-->
 
+**Leo:** If these images are small in your browser, use the zoom controls (in chrome, firefox or internet explorer). If you can't find it in the menu, just:
+
+1. Hold down the control key (ctrl) and 
+2. Press the + key or the minus key (still holding control) to zoom in or out.  
+
 
 ## 1. Open scanned image
 
