@@ -10,3 +10,6 @@ mds/GPR103/.vs/slnx.sqlite
 *.suo
 mds/ISE102/Code/week5/*.exe
 mds/ISE102/Code/week1/hello.exe
+.jekyll-cache
+.jekyll-metadata
+site_/*
