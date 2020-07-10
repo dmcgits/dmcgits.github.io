@@ -9,7 +9,6 @@
   - [This week](#this-week)
   - [Staying on target: forum activity deliverables](#staying-on-target-forum-activity-deliverables)
   - [Setting up forum post](#setting-up-forum-post)
-  - [Finding components in your level concept](#finding-components-in-your-level-concept)
   - [Continue speedy modeling on grid](#continue-speedy-modeling-on-grid)
   - [Lighting your components for presentation](#lighting-your-components-for-presentation)
   - [Individual components, also modules made from them.](#individual-components-also-modules-made-from-them)
@@ -44,22 +43,7 @@ From the brief, which can be downloaded from the [ACR103 Assessment 2 page on Bl
 
 My example forum post
 
-## Finding components in your level concept
 
-We'll need to choose a bunch of components that can be used like lego to make our level.
-
-> Try opening your level concept in _Photoshop/Krita_ and then:
-> 1. Putting a white background behind it
-> 2. Turning down the opacity on the concept art layer
-> 3. Create a new layer above, pick a bright, distinct colour and start outlining parts you'll need.
->
-> Alternative: print out your level concept and draw over it with a marker/liner.
-
-![](assets/week6/find_components_concept_1.png)
-
-Then you can cut out parts of this image and throw them into _Pureref_. Now you have a heads-up display of what you're building.
-
-![](assets/week6/components_pureref.png)
 
 ## Continue speedy modeling on grid
 

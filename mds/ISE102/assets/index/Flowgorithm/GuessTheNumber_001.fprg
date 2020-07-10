@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dmac"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-09-11 11:10:14 PM"/>
+        <attribute name="created" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0xMTswOTowOTo1OSBQTTsyNjc3"/>
+        <attribute name="edited" value="ZG1hYztERVNLVE9QLTgxNjIyTjU7MjAxOS0wOS0xMTsxMToxMDoxNCBQTTs1OzI3NjU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="secretNumber" type="Integer" array="False" size=""/>
+            <assign variable="secretNumber" expression="4"/>
+            <declare name="playerGuess" type="Integer" array="False" size=""/>
+            <output expression="&quot;Guess my favourite number. It's between 1 and 5:&quot;" newline="False"/>
+            <input variable="playerGuess"/>
+            <if expression="playerGuess == secretNumber">
+                <then>
+                    <output expression="&quot;Fine, you got it.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;HA! Wrong.&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

@@ -11,18 +11,17 @@ export_on_save:
 
 <!-- code_chunk_output -->
 
-- [Week 12: Detailing hand painted textures](#week-12-detailing-hand-painted-textures)
-  - [Last week](#last-week)
-  - [This week](#this-week)
-  - [Missing posts are missing marks](#missing-posts-are-missing-marks)
-    - [Assessment 2](#assessment-2)
-    - [Assessment 3](#assessment-3)
-  - [Style reference](#style-reference)
-    - [Pureref](#pureref)
-  - [Questions and help](#questions-and-help)
-  - [Soft vs Hard Brushes](#soft-vs-hard-brushes)
-  - [In photoshop](#in-photoshop)
-  - [In 3D Coat](#in-3d-coat)
+- [Last week](#last-week)
+- [This week](#this-week)
+- [Missing posts are missing marks](#missing-posts-are-missing-marks)
+  - [Assessment 2](#assessment-2)
+  - [Assessment 3](#assessment-3)
+- [Style reference](#style-reference)
+  - [Pureref](#pureref)
+- [Questions and help](#questions-and-help)
+- [Soft vs Hard Brushes](#soft-vs-hard-brushes)
+- [In photoshop](#in-photoshop)
+- [In 3D Coat](#in-3d-coat)
 
 <!-- /code_chunk_output -->
 
