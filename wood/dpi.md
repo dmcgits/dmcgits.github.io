@@ -21,9 +21,9 @@ export_on_save:
 
 <img src="assets/1_open_scanned_image.jpg">
 
-## 2. Adjust print size  
+## 2. Scale image
 
-![step](assets/3_adjust_print_size.jpg)
+![step](assets/2_scale_image.jpg)
 
 ## 3.  Adjust print size  
 
